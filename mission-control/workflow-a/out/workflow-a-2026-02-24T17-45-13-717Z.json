@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-02-24T17:45:13.722Z",
+  "rows": [
+    {
+      "buyer": "PIF",
+      "source": "https://www.pif.gov.sa/en/news-and-insights/",
+      "leadershipSource": "https://www.pif.gov.sa/en/about/",
+      "extractionMode": "direct+brave(optional)+chromium(pending)",
+      "date": "MISSING",
+      "capitalAmount": "$40 billion",
+      "sector": "infrastructure",
+      "geography": "Saudi Arabia",
+      "mandateLanguage": "mandate",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "missingInputs": [
+        "date",
+        "leadershipStatement"
+      ],
+      "fetchStatus": "HTTP_403",
+      "braveStatus": "OK",
+      "signalScore": 2.2,
+      "changedFields": [
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement",
+        "signalScore"
+      ]
+    },
+    {
+      "buyer": "GIC",
+      "source": "https://www.gic.com.kw/en/media-center/",
+      "leadershipSource": "MISSING",
+      "extractionMode": "direct+brave(optional)+chromium(pending)",
+      "date": "MISSING",
+      "capitalAmount": "$15 Billion",
+      "sector": "Digital",
+      "geography": "MISSING",
+      "mandateLanguage": "Platform",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "missingInputs": [
+        "date",
+        "geography",
+        "leadershipStatement"
+      ],
+      "fetchStatus": "HTTP_404",
+      "braveStatus": "OK",
+      "signalScore": 1.8,
+      "changedFields": [
+        "capitalAmount",
+        "sector",
+        "mandateLanguage",
+        "leadershipStatement",
+        "signalScore"
+      ]
+    },
+    {
+      "buyer": "Brookfield",
+      "source": "https://bep.brookfield.com/press-releases",
+      "leadershipSource": "MISSING",
+      "extractionMode": "direct+brave(optional)+chromium(pending)",
+      "date": "MISSING",
+      "capitalAmount": "$10 Billion",
+      "sector": "Renewable",
+      "geography": "Us",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 3,
+      "missingInputs": [
+        "date",
+        "mandateLanguage",
+        "leadershipStatement"
+      ],
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_HTTP_429",
+      "signalScore": 2.2,
+      "changedFields": [
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "GIP",
+      "source": "https://www.global-infra.com/news/",
+      "leadershipSource": "MISSING",
+      "extractionMode": "direct+brave(optional)+chromium(pending)",
+      "date": "MISSING",
+      "capitalAmount": "1.5bn",
+      "sector": "infrastructure",
+      "geography": "Global",
+      "mandateLanguage": "mandate",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "missingInputs": [
+        "date",
+        "leadershipStatement"
+      ],
+      "fetchStatus": "HTTP_404",
+      "braveStatus": "OK",
+      "signalScore": 2.2,
+      "changedFields": [
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement",
+        "signalScore"
+      ]
+    },
+    {
+      "buyer": "NigeriaMortgageFund",
+      "source": "https://www.mreif.com.ng/",
+      "leadershipSource": "MISSING",
+      "extractionMode": "direct+brave(optional)+chromium(pending)",
+      "date": "MISSING",
+      "capitalAmount": "1 Million",
+      "sector": "housing",
+      "geography": "Nigeria",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "missingInputs": [
+        "date",
+        "mandateLanguage",
+        "leadershipStatement"
+      ],
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_HTTP_429",
+      "signalScore": 1.8,
+      "changedFields": [
+        "capitalAmount",
+        "geography",
+        "leadershipStatement",
+        "signalScore"
+      ]
+    }
+  ]
+}
