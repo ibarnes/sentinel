@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-02-24T17:41:40.860Z",
+  "rows": [
+    {
+      "buyer": "PIF",
+      "source": "https://www.pif.gov.sa/en/news-and-insights/",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "urgencyIndicator": 1,
+      "error": "ERROR_HTTP_403",
+      "signalScore": 1
+    },
+    {
+      "buyer": "GIC",
+      "source": "https://www.gic.com.kw/en/media-center/",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "urgencyIndicator": 1,
+      "error": "ERROR_HTTP_404",
+      "signalScore": 1
+    },
+    {
+      "buyer": "Brookfield",
+      "source": "https://bep.brookfield.com/press-releases",
+      "date": "MISSING",
+      "capitalAmount": "$10 Billion",
+      "sector": "Renewable",
+      "geography": "Us",
+      "mandateLanguage": "MISSING",
+      "urgencyIndicator": 3,
+      "signalScore": 2.2
+    },
+    {
+      "buyer": "GIP",
+      "source": "https://www.global-infra.com/news/",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "urgencyIndicator": 1,
+      "error": "ERROR_HTTP_404",
+      "signalScore": 1
+    },
+    {
+      "buyer": "NigeriaMortgageFund",
+      "source": "https://www.mreif.com.ng/",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "housing",
+      "geography": "Us",
+      "mandateLanguage": "MISSING",
+      "urgencyIndicator": 1,
+      "signalScore": 1.4
+    }
+  ]
+}
