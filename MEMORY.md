@@ -11,6 +11,11 @@
 - No irreversible actions
 - Always separate: Observations / Assumptions / Recommendations / Next Actions
 - When I say “save to memory,” write immediately to MEMORY.md
+- Verification threshold for sovereign updates:
+  - First-party source, OR
+  - Two Tier-1 financial outlets (FT, Bloomberg, Reuters full article) independently reporting with attribution, OR
+  - On-record executive statement tied to a dated event
+  - Anything below threshold => Monitor — no posture change
 
 # Current Projects
 - USG (Unified State Group)
