@@ -1,0 +1,211 @@
+{
+  "generatedAt": "2026-02-24T18:09:17.775Z",
+  "rows": [
+    {
+      "buyer": "PIF",
+      "sourceTried": [
+        "https://www.pif.gov.sa/en/news-and-insights/",
+        "https://www.pif.gov.sa/en/"
+      ],
+      "sourceUsed": "https://www.pif.gov.sa/en/news-and-insights/",
+      "fetchStatus": "HTTP_403",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "$40 billion",
+      "sector": "infrastructure",
+      "geography": "Saudi Arabia",
+      "mandateLanguage": "investment strategy",
+      "leadershipStatement": "CEO",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "27;s official trip to Saudi Arabia, PIF announced plans to &quot;<strong>invest $40 billion in infrastructure projects, mostly in the U.S.&quot;</strong> Blackstone Inc., ",
+        "sector": "rip to Saudi Arabia, PIF announced plans to &quot;<strong>invest $40 billion in infrastructure projects, mostly in the U.S.&quot;</strong> Blackstone Inc., whose CEO and foun",
+        "geography": "–US CEO Forum, which was part of President Donald Trump&#x27;s official trip to Saudi Arabia, PIF announced plans to &quot;<strong>invest $40 billion in infrastructure proj",
+        "mandateLanguage": " Public Investment Fund In his capacity, he oversees PIF’s domestic real estate investment strategy, including the development and execution of giga-projects and large-scale real ",
+        "leadershipStatement": "Public Investment Fund - Wikipedia During the 2017 Saudi–US CEO Forum, which was part of President Donald Trump&#x27;s official trip to Saudi A"
+      },
+      "signalScore": 2.6,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "search_derived",
+        "sector": "search_derived",
+        "geography": "search_derived",
+        "mandateLanguage": "search_derived",
+        "leadershipStatement": "search_derived"
+      },
+      "overallConfidence": "medium",
+      "missingInputs": [
+        "date"
+      ]
+    },
+    {
+      "buyer": "GIC",
+      "sourceTried": [
+        "https://www.gic.com.kw/en/media-center/",
+        "https://www.gic.com.kw/"
+      ],
+      "sourceUsed": "https://www.gic.com.kw/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "infrastructure",
+      "geography": "Kuwait",
+      "mandateLanguage": "allocation",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": true,
+      "evidence": {
+        "date": "Filtered as stale (>24m old) for pressure events",
+        "capitalAmount": "MISSING",
+        "sector": ". Disclamer | Privacy Policy FAQs | GIC Managing cybersecurity, technology, ... infrastructure; Managing counterparty credit risks to minimise the impact to GIC if any counte",
+        "geography": "An investment company incorporated in the State of Kuwait. - Gulf Investment Corporation % Skip to content Skip to footer Home Principal ",
+        "mandateLanguage": " Find out more. The GIC Board approves the Policy Portfolio which specifies the allocation of funds to ... Our governance - GIC The Government gives GIC an investment man",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "Brookfield",
+      "sourceTried": [
+        "https://bep.brookfield.com/press-releases",
+        "https://bep.brookfield.com/"
+      ],
+      "sourceUsed": "https://bep.brookfield.com/press-releases",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_HTTP_429",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "$10 Billion",
+      "sector": "Renewable",
+      "geography": "Us",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "etirement Services Image Brookfield Launches New Strategy Brookfield is raising $10 Billion for new AI infrastructure fund. Image Bruce Flatt on the Future of Nuclear Ener",
+        "sector": "404 | Brookfield Renewable Partners Skip to main content Open menu About Us Long-term thinking. Real world",
+        "geography": "404 | Brookfield Renewable Partners Skip to main content Open menu About Us Long-term thinking. Real world impact. Company Who We Are Global Presence The E",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "m thinking. Real world impact. Company Who We Are Global Presence The Ecosystem Leadership Sustainability Businesses Asset Management Wealth Solutions Capabilities Asset "
+      },
+      "signalScore": 2.6,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "mandateLanguage"
+      ]
+    },
+    {
+      "buyer": "GIP",
+      "sourceTried": [
+        "https://www.global-infra.com/news/",
+        "https://www.global-infra.com/"
+      ],
+      "sourceUsed": "https://www.global-infra.com/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "$25 billion",
+      "sector": "Infrastructure",
+      "geography": "Global",
+      "mandateLanguage": "platform",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "ns to facilitate regional development. Financial Strength Having secured nearly $25 billion in financing for new funds and managing approximately $103 billion in assets, G",
+        "sector": "Global Infrastructure Partners - A leading infrastructure investor. Skip to content Clear Search ABOU",
+        "geography": "Global Infrastructure Partners - A leading infrastructure investor. Skip to content Cl",
+        "mandateLanguage": "Emerging Markets strategies. Additionally, our Separately Managed Account (SMA) platform provides tailored risk and return solutions to a group of select institutional ",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "NigeriaMortgageFund",
+      "sourceTried": [
+        "https://www.mreif.com.ng/",
+        "https://www.mreif.com.ng/category/news/"
+      ],
+      "sourceUsed": "https://www.mreif.com.ng/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_HTTP_429",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "1 Million",
+      "sector": "housing",
+      "geography": "Nigeria",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "ic growth, ultimately improving living conditions and national competitiveness. 1 Million Houses 25,000 Units Delivered 11,700 Units Sold 5 States Abuja, Lagos, Port Har",
+        "sector": "ting Banks: How MREIF Works For: homebuyer MREIF is designed to make affordable housing accessible through streamlined processes and tailored mortgage solutions. Creat",
+        "geography": " a property from our list of verified properties from leading developers across Nigeria, or upload your own property. Click to see properties Get Pre-approved Apply an",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1.8,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    }
+  ]
+}
