@@ -7,6 +7,9 @@ _Learn about the person you're helping. Update this as you go._
 - **Pronouns:** _(optional)_
 - **Timezone:** America/New_York
 - **Notes:**
+  - Running on a public EC2 instance.
+  - Prefers Structured + Safe operating mode.
+  - Requires analysis/proposal mode unless explicitly authorized to execute.
 
 ## Context
 
