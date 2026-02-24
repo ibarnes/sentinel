@@ -1,0 +1,164 @@
+{
+  "generatedAt": "2026-02-24T18:07:27.835Z",
+  "rows": [
+    {
+      "buyer": "PIF",
+      "sourceTried": [
+        "https://www.pif.gov.sa/en/news-and-insights/",
+        "https://www.pif.gov.sa/en/"
+      ],
+      "sourceUsed": "https://www.pif.gov.sa/en/news-and-insights/",
+      "fetchStatus": "HTTP_403",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING",
+      "date": "MISSING",
+      "capitalAmount": "$40 billion",
+      "sector": "infrastructure",
+      "geography": "Saudi Arabia",
+      "mandateLanguage": "investment strategy",
+      "leadershipStatement": "CEO",
+      "urgencyIndicator": 1,
+      "signalScore": 2.6,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "search_derived",
+        "sector": "search_derived",
+        "geography": "search_derived",
+        "mandateLanguage": "search_derived",
+        "leadershipStatement": "search_derived"
+      },
+      "overallConfidence": "medium",
+      "missingInputs": [
+        "date"
+      ]
+    },
+    {
+      "buyer": "GIC",
+      "sourceTried": [
+        "https://www.gic.com.kw/en/media-center/",
+        "https://www.gic.com.kw/"
+      ],
+      "sourceUsed": "https://www.gic.com.kw/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING",
+      "date": "November 15, 1983",
+      "capitalAmount": "MISSING",
+      "sector": "infrastructure",
+      "geography": "Kuwait",
+      "mandateLanguage": "allocation",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 3,
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "verified_source",
+        "capitalAmount": "missing",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "capitalAmount",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "Brookfield",
+      "sourceTried": [
+        "https://bep.brookfield.com/press-releases",
+        "https://bep.brookfield.com/"
+      ],
+      "sourceUsed": "https://bep.brookfield.com/press-releases",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING",
+      "date": "March 21, 2025",
+      "capitalAmount": "$10 Billion",
+      "sector": "Renewable",
+      "geography": "Us",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 3,
+      "signalScore": 2.6,
+      "fieldProvenance": {
+        "date": "verified_source",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "mandateLanguage"
+      ]
+    },
+    {
+      "buyer": "GIP",
+      "sourceTried": [
+        "https://www.global-infra.com/news/",
+        "https://www.global-infra.com/"
+      ],
+      "sourceUsed": "https://www.global-infra.com/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING",
+      "date": "MISSING",
+      "capitalAmount": "$25 billion",
+      "sector": "Infrastructure",
+      "geography": "Global",
+      "mandateLanguage": "platform",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "NigeriaMortgageFund",
+      "sourceTried": [
+        "https://www.mreif.com.ng/",
+        "https://www.mreif.com.ng/category/news/"
+      ],
+      "sourceUsed": "https://www.mreif.com.ng/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_HTTP_429",
+      "chromiumStatus": "PENDING",
+      "date": "MISSING",
+      "capitalAmount": "1 Million",
+      "sector": "housing",
+      "geography": "Nigeria",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "signalScore": 1.8,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    }
+  ]
+}
