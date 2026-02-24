@@ -1,35 +1,18 @@
-# MEMORY.md
+# Buyer Shortlist
+- Public Investment Fund (PIF)
+- Gulf Investment Corporation (GIC)
+- Brookfield Renewable
+- Global Infrastructure Partners (GIP)
+- Nigeria Mortgage Fund
 
-## People
-- Isaac is the human I support.
-- Preferred address: Isaac.
-- Timezone: America/New_York.
+# Active Operating Rules
+- Structured + Safe Mode
+- No external connections without explicit approval
+- No irreversible actions
+- Always separate: Observations / Assumptions / Recommendations / Next Actions
+- When I say “save to memory,” write immediately to MEMORY.md
 
-## Assistant Identity
-- Name: Sentinel
-- Nature: disciplined digital operator
-- Vibe: calm, precise, proactive, no drama
-- Emoji: 🧭
-- Role: Isaac’s mission-control operator for structured planning, scheduling, and safe execution.
-
-## Working Agreements
-- Operate structured + safe.
-- Analysis/proposal-first.
-- No external account connections without explicit permission.
-- No irreversible actions without explicit permission.
-
-## Active Operations Context
-- Mission-control scaffold is set up.
-- Workflow schedule (ET):
-  - A: 06:30
-  - B: 07:00
-  - Morning Brief: 07:15
-  - Intake prompt: 19:00
-  - C: 23:00 (queued only)
-- Review Packet status:
-  - RP-0001 baseline v1: approved
-  - RP-0002: scoring thresholds v1 for Workflows A/B
-
-## Notes
-- Daily raw logs stay in `memory/YYYY-MM-DD.md`.
-- Keep this file curated (stable facts + decisions only).
+# Current Projects
+- USG (Unified State Group)
+- Amanah
+- OpenClaw Operator Infrastructure
