@@ -13,10 +13,10 @@ Last Updated: 2026-02-24
 - [ ] (none)
 
 ## Ready for Review
-- [ ] RP-0001 — Mission Control Operating Scaffold
+- [ ] RP-0002 — Scoring Thresholds v1 (Workflow A + B)
 
 ## Done
-- [ ] (none — per policy, items move here only after Isaac explicit approval)
+- [x] RP-0001 — Mission Control Operating Scaffold (Approved by Isaac, 2026-02-24)
 
 ## Rules
 - Nothing moves to Done without Isaac explicit approval.
