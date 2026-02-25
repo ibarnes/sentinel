@@ -141,6 +141,18 @@ function bulletsToHtml(items, copyProvider){
     const text = String(raw || '').trim();
     if (!text) continue;
 
+    // Intro line: explicit marker or first line ending with ':' should be visible text, not a bullet dot.
+    if (text.startsWith('__INTRO__ ')) {
+      out.push(`<li class="intro">${text.replace('__INTRO__ ','')}</li>`);
+      parentOpen = false;
+      continue;
+    }
+    if (i === 0 && /:\s*$/.test(text) && arr.length > 1) {
+      out.push(`<li class="intro">${text}</li>`);
+      parentOpen = false;
+      continue;
+    }
+
     if (isParent(text)) {
       parentOpen = true;
       out.push(`<li class="parent">${text}</li>`);
@@ -207,6 +219,14 @@ function parsePromptSlides(prompt){
         }
       }
 
+      // Heuristic: split a lead-in clause out of title so it can render as non-bullet intro.
+      let introLine = '';
+      const leadMatch = title.match(/\b(Instead of[^:]*:?|When[^:]*:?|Before capital commits:?|This platform supports:?|The corridor model:?|Participation at platform level:?|If aligned, the next step is:?)\s*$/i);
+      if (leadMatch && title.length > leadMatch[1].length + 6) {
+        introLine = leadMatch[1].trim();
+        title = title.slice(0, title.length - leadMatch[1].length).trim();
+      }
+
       let bullets=[];
       if(/[•\n]/.test(rest) || /(^|\n)\s*[-–]\s+/.test(rest)){
         bullets=rest
@@ -217,6 +237,10 @@ function parsePromptSlides(prompt){
         bullets=rest.split(/[.?!]+/).map(x=>x.trim()).filter(Boolean);
       }
       bullets=normalizeBullets(bullets);
+      if (introLine) {
+        const cleanIntro = introLine.replace(/[.:\s]+$/,'').trim() + ':';
+        bullets.unshift(`__INTRO__ ${cleanIntro}`);
+      }
       if (bullets.length === 0) {
         bullets = normalizeBullets([
           `${title}.`,
@@ -356,11 +380,15 @@ async function main(){
     const layoutHtml = await fs.readFile(path.join(tRoot,'slide-layouts',`${s.layout}.html`),'utf8');
     const normalizedBullets = [];
     for (const b of (s.bullets || [])) {
-      normalizedBullets.push(await applyReadability(b, copy_provider));
+      if (String(b).startsWith('__INTRO__ ')) {
+        normalizedBullets.push(String(b));
+      } else {
+        normalizedBullets.push(await applyReadability(b, copy_provider));
+      }
     }
     const bullets = bulletsToHtml(normalizedBullets, copy_provider);
     const html = renderTemplate(layoutHtml,{...s, bullets});
-    await writeFile(path.join(slidesDir, `${String(i+1).padStart(3,'0')}.html`), `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../slide.css"><style>.bullets li.sub{margin-left:1.4rem;list-style-type:circle;opacity:.95}.bullets li.parent{font-weight:600}</style></head><body>${html}</body></html>`);
+    await writeFile(path.join(slidesDir, `${String(i+1).padStart(3,'0')}.html`), `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../slide.css"><style>.bullets li.intro{list-style:none;margin-left:0;padding-left:0;font-weight:500;opacity:.95}.bullets li.sub{margin-left:1.4rem;list-style-type:circle;opacity:.95}.bullets li.parent{font-weight:600}</style></head><body>${html}</body></html>`);
   }
 
   const statuses=[];
