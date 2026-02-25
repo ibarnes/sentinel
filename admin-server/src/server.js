@@ -478,13 +478,38 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
         <div class="card shadow-sm"><div class="card-body">
           <div class="d-flex justify-content-between align-items-center"><h5 class="mb-0">Slides Preview</h5><a id="openDeck" class="btn btn-sm btn-outline-secondary" target="_blank" href="#">Open Deck</a></div>
           <div id="slideList" class="small text-muted my-2">No deck generated yet.</div>
-          <iframe id="deckFrame" style="width:100%;height:68vh;border:1px solid #ddd;border-radius:8px"></iframe>
+          <div class="row g-2 mb-2" id="thumbRow"></div>
+          <iframe id="deckFrame" style="width:100%;height:58vh;border:1px solid #ddd;border-radius:8px"></iframe>
         </div></div>
       </div>
     </div>
   </div>
   <script>
     let lastDeckPath = '';
+    let lastDeckRoot = '';
+
+    function renderThumbs(slideCount){
+      const row = document.getElementById('thumbRow');
+      row.innerHTML = '';
+      if(!lastDeckRoot || !slideCount) return;
+      for(let i=1;i<=slideCount;i++){
+        const id = String(i).padStart(3,'0');
+        const col = document.createElement('div');
+        col.className = 'col-6 col-md-4 col-xl-3';
+        col.innerHTML = '<button type="button" class="btn btn-outline-secondary p-1 w-100 text-start" data-slide="' + id + '" style="height:120px;overflow:hidden">' +
+          '<div class="small fw-semibold px-1">Slide ' + i + '</div>' +
+          '<iframe src="' + lastDeckRoot + '/slides/' + id + '.html" style="width:220%;height:210px;transform:scale(.45);transform-origin:0 0;border:0;pointer-events:none"></iframe>' +
+          '</button>';
+        row.appendChild(col);
+      }
+      row.querySelectorAll('button[data-slide]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.slide;
+          document.getElementById('deckFrame').src = lastDeckRoot + '/slides/' + id + '.html?t=' + Date.now();
+        });
+      });
+    }
+
     async function generate(auto){
       const form = document.getElementById('studioForm');
       const fd = new FormData(form);
@@ -493,10 +518,12 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
       const r = await fetch('/api/presentations/studio/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
       const j = await r.json();
       if(!r.ok){ alert(j.error || 'Generation failed'); return; }
-      lastDeckPath = '/' + j.deck + '/index.html';
+      lastDeckRoot = '/' + j.deck;
+      lastDeckPath = lastDeckRoot + '/index.html';
       document.getElementById('openDeck').href = lastDeckPath;
       document.getElementById('deckFrame').src = lastDeckPath + '?t=' + Date.now();
       document.getElementById('slideList').textContent = 'Deck: ' + j.deck + ' • Slides: ' + j.slideCount + ' • Images: ' + j.images;
+      renderThumbs(j.slideCount || 0);
     }
     document.getElementById('btnGenerate').addEventListener('click', ()=>generate(false));
     document.getElementById('btnAuto').addEventListener('click', ()=>generate(true));
