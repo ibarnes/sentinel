@@ -109,6 +109,7 @@ function adminNav(active = '') {
       <a class="nav-link ${is('upload')}" href="/admin/upload">Upload</a>
       <a class="nav-link ${is('dashboard')}" href="/dashboard/">Dashboard</a>
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers">Buyers</a>
+      <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives">Initiatives</a>
       <a class="nav-link ${is('activity')}" href="/dashboard/activity">Activity</a>
       <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
@@ -127,6 +128,7 @@ function dashboardNav(active = '') {
     <div class="navbar-nav me-auto">
       <a class="nav-link ${is('home')}" href="/dashboard/">Home</a>
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers">Buyers</a>
+      <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives">Initiatives</a>
       <a class="nav-link ${is('activity')}" href="/dashboard/activity">Activity</a>
       <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
