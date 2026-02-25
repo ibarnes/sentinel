@@ -1,0 +1,84 @@
+{
+  "initiative_id": "INIT-001",
+  "buyer_id": "PIF",
+  "deck_type": "buyer-mandate-mirror",
+  "template_id": "clean-minimal",
+  "generated_at": "2026-02-25T04:22:09.743Z",
+  "reading_level_target": "8-9",
+  "constraints": {
+    "max_words_per_bullet": 12,
+    "max_lines_per_bullet": 2,
+    "max_bullets": 6,
+    "no_hype": true
+  },
+  "template": {
+    "id": "clean-minimal",
+    "name": "Clean Minimal",
+    "description": "Simple white layout with restrained accents.",
+    "layouts": [
+      "title",
+      "section",
+      "proof",
+      "diagram",
+      "close"
+    ]
+  },
+  "slides": [
+    {
+      "layout": "title",
+      "kicker": "Structural Proof",
+      "title": "West Africa Energy Corridor",
+      "subtitle": "Pressure to initiative alignment for execution discipline.",
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Inevitability",
+      "title": "Gravity",
+      "bullets": [
+        "Macro shift: Power demand rises while grid reliability lags. Capital and governance",
+        "Capital bottleneck: funding does not meet project timing",
+        "Governance bottleneck: approvals and sequencing are fragmented",
+        "Resolution: align mandate, sequencing, and control gates",
+        "Outcome: lower execution risk and faster mandate delivery"
+      ],
+      "footer": "No hype. Mechanical logic only."
+    },
+    {
+      "layout": "proof",
+      "title": "Mandate Mirror",
+      "bullets": [
+        "Mandate fit: Deploy large capital into strategic sectors with regional impact.",
+        "Regional fit: MENA, Africa",
+        "Sector fit: Infrastructure, Energy, Digital",
+        "Leverage: structure expands control and policy impact",
+        "Risk: phased gates compress downside"
+      ],
+      "footer": "Buyer: Public Investment Fund"
+    },
+    {
+      "layout": "diagram",
+      "title": "Controlled Activation",
+      "image": "../assets/img-001.png",
+      "footer": "Capital sequencing and governance gates"
+    },
+    {
+      "layout": "close",
+      "title": "If aligned, Gate 1 starts here.",
+      "subtitle": "Next action is controlled initiation, not persuasion.",
+      "footer": "Sentinel Presentation Engine v1"
+    }
+  ],
+  "images": [
+    {
+      "id": "img-001",
+      "provider": "placeholder",
+      "prompt": "Minimal infographic, sovereign capital, governance bottleneck, clean lines, no text",
+      "size": "1024x1024",
+      "output": "presentations/INIT-001/decks/buyer-alignment/PIF/assets/img-001.png"
+    }
+  ],
+  "status": {
+    "images": "needs_images"
+  }
+}

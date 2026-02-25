@@ -1,0 +1,84 @@
+{
+  "initiative_id": "INIT-001",
+  "buyer_id": null,
+  "deck_type": "utc-internal",
+  "template_id": "sovereign-memo",
+  "generated_at": "2026-02-25T04:17:38.497Z",
+  "reading_level_target": "8-9",
+  "constraints": {
+    "max_words_per_bullet": 12,
+    "max_lines_per_bullet": 2,
+    "max_bullets": 6,
+    "no_hype": true
+  },
+  "template": {
+    "id": "sovereign-memo",
+    "name": "Sovereign Memo",
+    "description": "Institutional, high-contrast memo style.",
+    "layouts": [
+      "title",
+      "section",
+      "proof",
+      "diagram",
+      "close"
+    ]
+  },
+  "slides": [
+    {
+      "layout": "title",
+      "kicker": "Structural Proof",
+      "title": "West Africa Energy Corridor",
+      "subtitle": "Pressure to initiative alignment for execution discipline.",
+      "footer": "INIT-001 • utc-internal"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Inevitability",
+      "title": "Gravity",
+      "bullets": [
+        "Macro shift: Power demand rises while grid reliability lags. Capital and governance",
+        "Capital bottleneck: funding does not meet project timing",
+        "Governance bottleneck: approvals and sequencing are fragmented",
+        "Resolution: align mandate, sequencing, and control gates",
+        "Outcome: lower execution risk and faster mandate delivery"
+      ],
+      "footer": "No hype. Mechanical logic only."
+    },
+    {
+      "layout": "proof",
+      "title": "Mandate Mirror",
+      "bullets": [
+        "Mandate fit: Buyer mandate profile required",
+        "Regional fit: N/A",
+        "Sector fit: N/A",
+        "Leverage: structure expands control and policy impact",
+        "Risk: phased gates compress downside"
+      ],
+      "footer": "Buyer: Internal"
+    },
+    {
+      "layout": "diagram",
+      "title": "Controlled Activation",
+      "image": "../assets/img-001.png",
+      "footer": "Capital sequencing and governance gates"
+    },
+    {
+      "layout": "close",
+      "title": "If aligned, Gate 1 starts here.",
+      "subtitle": "Next action is controlled initiation, not persuasion.",
+      "footer": "Sentinel Presentation Engine v1"
+    }
+  ],
+  "images": [
+    {
+      "id": "img-001",
+      "provider": "placeholder",
+      "prompt": "Minimal infographic, sovereign capital, governance bottleneck, clean lines, no text",
+      "size": "1024x1024",
+      "output": "presentations/INIT-001/decks/utc-internal/assets/img-001.png"
+    }
+  ],
+  "status": {
+    "images": "needs_images"
+  }
+}

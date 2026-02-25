@@ -1,0 +1,21 @@
+{
+  "id": "buyer-mandate-mirror",
+  "name": "Buyer Mandate Mirror",
+  "required_sections": [
+    "Structural Inevitability",
+    "Mandate Mirror",
+    "Controlled Activation"
+  ],
+  "sequence": [
+    "title",
+    "section",
+    "proof",
+    "diagram",
+    "close"
+  ],
+  "rules": {
+    "no_hype": true,
+    "reading_level": "8-9",
+    "max_bullets": 6
+  }
+}

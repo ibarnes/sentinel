@@ -33,9 +33,12 @@ const BOARD_FILE = path.join(BOARD_ROOT, 'BOARD.json');
 const BOARD_SCHEMA_FILE = path.join(BOARD_ROOT, 'BOARD.schema.json');
 const BOARD_HISTORY_ROOT = path.join(BOARD_ROOT, 'history');
 const ACTIVITY_ROOT = path.join(ROOT, 'mission-control', 'activity');
+const REVIEW_PACKET_ROOT = path.join(ROOT, 'mission-control', 'review-packets');
+const UOS_PENDING_ROOT = path.join(UOS_ROOT, 'pending');
 
 const BOARD_COLUMNS = ['Backlog', 'Doing', 'Blocked', 'Ready for Review', 'Done'];
 const BOARD_PRIORITIES = ['P0', 'P1', 'P2', 'P3'];
+const ARCHITECT_USERNAME = (process.env.ARCHITECT_USERNAME || 'isaac').toLowerCase();
 
 const REQUIRED_FIELDS = ['executionEngine', 'canon', 'revenueOS'];
 const ALLOWED_EXTENSIONS = new Set(['.md', '.txt', '.pdf', '.docx']);
@@ -94,7 +97,9 @@ async function ensureDirs() {
     TEAM_AUTH_ROOT,
     BOARD_ROOT,
     BOARD_HISTORY_ROOT,
-    ACTIVITY_ROOT
+    ACTIVITY_ROOT,
+    REVIEW_PACKET_ROOT,
+    UOS_PENDING_ROOT
   ];
   await Promise.all(dirs.map((d) => fs.mkdir(d, { recursive: true })));
 }
@@ -145,10 +150,41 @@ function requireAnyAuth(req, res, next) {
   return res.redirect('/auth/login');
 }
 
+function normalizedRole(role) {
+  if (role === 'admin') return 'architect';
+  if (role === 'viewer') return 'observer';
+  return role;
+}
+
+function effectiveRole(req) {
+  const u = currentUser(req);
+  if (!u) return null;
+  if (u.scope === 'admin') return 'architect';
+  return normalizedRole(u.role);
+}
+
+function isArchitect(req) {
+  const u = currentUser(req);
+  if (!u) return false;
+  if (u.scope === 'admin') return true;
+  return normalizedRole(u.role) === 'architect' || String(u.username || '').toLowerCase() === ARCHITECT_USERNAME;
+}
+
 function requireRole(...roles) {
   return (req, res, next) => {
-    const u = currentUser(req);
-    if (!u || !roles.includes(u.role)) return res.status(403).json({ error: 'forbidden' });
+    const r = effectiveRole(req);
+    if (!r || !roles.includes(r)) {
+      appendAuditEvent({
+        ts: nowIso(),
+        actor: getUserLabel(req),
+        role: r || 'anonymous',
+        event_type: 'permission.denied',
+        entity_type: 'route',
+        entity_id: req.originalUrl,
+        meta: { required_roles: roles }
+      }).catch(() => {});
+      return res.status(403).json({ error: 'forbidden' });
+    }
     return next();
   };
 }
@@ -192,52 +228,6 @@ const upload = multer({
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-app.use('/dashboard', (req, res, next) => {
-  if (req.method !== 'GET' && req.method !== 'HEAD') {
-    return res.status(405).send('Method not allowed');
-  }
-  return next();
-});
-
-app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
-  let state = null;
-  try {
-    state = JSON.parse(await fs.readFile(DASHBOARD_STATE_FILE, 'utf8'));
-  } catch {}
-  const updated = Array.isArray(state?.updatedDocs) ? state.updatedDocs.join(', ') : 'N/A';
-  res.type('html').send(`<!doctype html>
-<html><head>${uiHead('Dashboard (Read-Only)')}</head><body>
-  <div class="app-shell" style="max-width:860px">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h3 class="card-title">Dashboard (Read-Only)</h3>
-        <ul class="list-group list-group-flush mb-3">
-          <li class="list-group-item d-flex justify-content-between"><span>Last updated</span><span class="mono small">${escapeHtml(state?.lastUpdated || 'N/A')}</span></li>
-          <li class="list-group-item d-flex justify-content-between"><span>Updated docs</span><span>${escapeHtml(updated)}</span></li>
-          <li class="list-group-item d-flex justify-content-between"><span>Archive batch</span><span class="mono small">${escapeHtml(state?.latestArchiveBatch || 'N/A')}</span></li>
-        </ul>
-        <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-primary" href="/">Open Main App</a>
-          <a class="btn btn-outline-secondary" href="/dashboard/state/state.json">View state.json</a>
-          <a class="btn btn-outline-secondary" href="/dashboard/state/changelog.md">View changelog</a>
-        </div>
-        <p class="text-muted mt-3 mb-0">This route is intentionally read-only.</p>
-      </div>
-    </div>
-  </div>
-</body></html>`);
-});
-
-app.use('/dashboard', express.static(path.join(ROOT, 'dashboard'), {
-  index: false,
-  fallthrough: true,
-  redirect: false,
-  setHeaders(res) {
-    res.setHeader('Cache-Control', 'no-store');
-  }
-}));
-
 app.use(
   session({
     name: 'uos_admin_session',
@@ -252,6 +242,202 @@ app.use(
     },
   })
 );
+
+app.use('/dashboard', (req, res, next) => {
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
+    return res.status(405).send('Method not allowed');
+  }
+  return next();
+});
+
+app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
+  const state = await readJson(DASHBOARD_STATE_FILE, {});
+  const boardCounts = state.board?.counts || {};
+  const pendingRps = state.pendingReviewPackets ?? 0;
+  const latestUosPublish = state.latestUosPublish || 'N/A';
+  const recent = await readActivityEvents({ limit: 20 });
+
+  res.type('html').send(`<!doctype html>
+<html><head>${uiHead('Dashboard')}</head><body>
+  <div class="app-shell">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="m-0">Operations Dashboard</h3>
+      <div class="d-flex gap-2">
+        <a class="btn btn-outline-secondary btn-sm" href="/dashboard/activity">Activity</a>
+        <a class="btn btn-outline-secondary btn-sm" href="/dashboard/review">Review Packets</a>
+        <a class="btn btn-outline-secondary btn-sm" href="/dashboard/board">Board</a>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-md-6 col-xl-3"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Active Tasks</div><div class="h3">${Object.values(boardCounts).reduce((a,b)=>a+Number(b||0),0)}</div></div></div></div>
+      <div class="col-12 col-md-6 col-xl-3"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Pending Review Packets</div><div class="h3">${pendingRps}</div></div></div></div>
+      <div class="col-12 col-md-6 col-xl-3"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Latest UOS Publish</div><div class="small mono">${escapeHtml(latestUosPublish)}</div></div></div></div>
+      <div class="col-12 col-md-6 col-xl-3"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Last Updated</div><div class="small mono">${escapeHtml(state.lastUpdated || 'N/A')}</div></div></div></div>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-header">Recent Activity (last 20)</div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0"><thead><tr><th>Time</th><th>Actor</th><th>Event</th><th>Entity</th></tr></thead><tbody>
+          ${(recent.map(e => `<tr><td class="mono small">${escapeHtml(e.ts || '')}</td><td>${escapeHtml(e.actor || '')}</td><td>${escapeHtml(e.event_type || '')}</td><td>${escapeHtml((e.entity_type || '') + ':' + (e.entity_id || ''))}</td></tr>`).join('')) || '<tr><td colspan="4" class="text-muted">No activity yet</td></tr>'}
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+</body></html>`);
+});
+
+app.get('/dashboard/activity', async (req, res) => {
+  const actor = req.query.actor ? String(req.query.actor) : undefined;
+  const entity_type = req.query.entity_type ? String(req.query.entity_type) : undefined;
+  const date = req.query.date ? String(req.query.date) : undefined;
+  const events = await readActivityEvents({ limit: 1000, actor, entity_type, date, maxScan: 1000 });
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard Activity')}</head><body><div class="app-shell">
+    <h3>Activity Feed</h3>
+    <form class="row g-2 mb-3" method="get" action="/dashboard/activity">
+      <div class="col"><input class="form-control" name="actor" placeholder="actor" value="${escapeHtml(actor || '')}"></div>
+      <div class="col"><input class="form-control" name="entity_type" placeholder="entity_type" value="${escapeHtml(entity_type || '')}"></div>
+      <div class="col"><input class="form-control" name="date" placeholder="YYYY-MM-DD" value="${escapeHtml(date || '')}"></div>
+      <div class="col-auto"><button class="btn btn-primary" type="submit">Filter</button></div>
+    </form>
+    <div class="table-responsive"><table class="table table-sm"><thead><tr><th>ts</th><th>actor</th><th>role</th><th>event_type</th><th>entity</th><th>meta</th></tr></thead><tbody>
+      ${(events.map(e => `<tr><td class="mono small">${escapeHtml(e.ts||'')}</td><td>${escapeHtml(e.actor||'')}</td><td>${escapeHtml(e.role||'')}</td><td>${escapeHtml(e.event_type||'')}</td><td>${escapeHtml((e.entity_type||'')+':' + (e.entity_id||''))}</td><td><code>${escapeHtml(JSON.stringify(e.meta||{}))}</code></td></tr>`).join('')) || '<tr><td colspan="6">No events</td></tr>'}
+    </tbody></table></div>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/review', async (_req, res) => {
+  const rps = await listReviewPackets(200);
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard Review Packets')}</head><body><div class="app-shell">
+    <h3>Review Packets</h3>
+    <div class="table-responsive"><table class="table table-sm"><thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th></tr></thead><tbody>
+      ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td>${escapeHtml(r.title||'')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td></tr>`).join('')) || '<tr><td colspan="7">No review packets</td></tr>'}
+    </tbody></table></div>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/board', async (_req, res) => {
+  const board = await readJson(BOARD_FILE, defaultBoard());
+  const counts = Object.fromEntries(BOARD_COLUMNS.map(c => [c, board.tasks.filter(t => t.status===c).length]));
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard Board')}</head><body><div class="app-shell">
+    <h3>Board Snapshot</h3>
+    <div class="row g-2 mb-3">${BOARD_COLUMNS.map(c=>`<div class="col"><div class="card"><div class="card-body"><div class="small text-muted">${c}</div><div class="h4">${counts[c]}</div></div></div></div>`).join('')}</div>
+    <a class="btn btn-primary" href="/board">Open Board UI</a>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/buyers', async (req, res) => {
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const sector = req.query.sector ? String(req.query.sector) : '';
+  const filtered = buyers.filter(b => !sector || (b.sector_focus || []).includes(sector))
+    .sort((a,b)=>Number(b.score||0)-Number(a.score||0));
+  const sectors = [...new Set(buyers.flatMap(b=>b.sector_focus||[]))].sort();
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
+    <h3>Buyers</h3>
+    <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div></form>
+    <div class="table-responsive"><table class="table table-sm"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Sectors</th></tr></thead><tbody>${filtered.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('')}</tbody></table></div>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/buyer/:id', async (req, res) => {
+  const id = String(req.params.id);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const b = buyers.find(x=>x.buyer_id===id);
+  if(!b) return res.status(404).send('Buyer not found');
+  const linked = initiatives.filter(i => (b.initiatives||[]).includes(i.initiative_id));
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Buyer Detail')}</head><body><div class="app-shell">
+    <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/buyers">← Buyers</a>
+    <h3>${escapeHtml(b.name)}</h3>
+    <p>${escapeHtml(b.mandate_summary || '')}</p>
+    <ul><li><strong>Score:</strong> ${b.score ?? ''}</li><li><strong>Geo:</strong> ${escapeHtml((b.geo_focus||[]).join(', '))}</li><li><strong>Sectors:</strong> ${escapeHtml((b.sector_focus||[]).join(', '))}</li></ul>
+    <h5>Linked Initiatives</h5>
+    <ul>${linked.map(i=>`<li><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?buyer_id=${encodeURIComponent(b.buyer_id)}">${escapeHtml(i.name)}</a></li>`).join('') || '<li>None</li>'}</ul>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/initiative/:id', async (req, res) => {
+  const id = String(req.params.id);
+  const buyer_id = req.query.buyer_id ? String(req.query.buyer_id) : '';
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const i = initiatives.find(x=>x.initiative_id===id);
+  if(!i) return res.status(404).send('Initiative not found');
+  const linkedBuyers = buyers.filter(b => (i.linked_buyers||[]).includes(b.buyer_id));
+  const decksRoot = path.join(ROOT, 'presentations', id, 'decks');
+  const deckLinks = [];
+  if (fssync.existsSync(decksRoot)) {
+    const walk=(d)=>{ for(const e of fssync.readdirSync(d,{withFileTypes:true})){ const p=path.join(d,e.name); if(e.isDirectory()) walk(p); else if(e.name==='index.html') deckLinks.push(path.relative(ROOT,p)); }};
+    walk(decksRoot);
+  }
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Initiative Detail')}</head><body><div class="app-shell">
+    <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/buyers">← Buyers</a>
+    <h3>${escapeHtml(i.name)}</h3>
+    <p>${escapeHtml(i.macro_gravity_summary || '')}</p>
+    <p><strong>Status:</strong> ${escapeHtml(i.status || '')}</p>
+    <h5>Linked Buyers</h5><ul>${linkedBuyers.map(b=>`<li>${escapeHtml(b.name)}</li>`).join('')}</ul>
+    <div class="card"><div class="card-body">
+      <h5>Create Presentation</h5>
+      <form method="post" action="/api/presentations/generate" class="row g-2">
+        <input type="hidden" name="initiative_id" value="${escapeHtml(i.initiative_id)}" />
+        <div class="col-md-3"><label class="form-label">Type</label><select class="form-select" name="deck_type"><option value="utc-internal">UTC Internal</option><option value="buyer-mandate-mirror">Buyer Mandate Mirror</option></select></div>
+        <div class="col-md-3"><label class="form-label">Template</label><select class="form-select" name="template_id"><option>sovereign-memo</option><option>clean-minimal</option><option>blueprint</option></select></div>
+        <div class="col-md-3"><label class="form-label">Image Provider</label><select class="form-select" name="image_provider"><option value="placeholder">Placeholder</option><option value="openai">OpenAI</option><option value="gemini">Gemini</option></select></div>
+        <div class="col-md-3"><label class="form-label">Buyer (for mirror)</label><select class="form-select" name="buyer_id"><option value="">(none)</option>${linkedBuyers.map(b=>`<option ${b.buyer_id===buyer_id?'selected':''} value="${b.buyer_id}">${escapeHtml(b.buyer_id)}</option>`).join('')}</select></div>
+        <div class="col-12"><small class="text-muted">Reading level is locked to 8–9th grade.</small></div>
+        <div class="col-12"><button class="btn btn-primary">Generate</button></div>
+      </form>
+    </div></div>
+    <h5 class="mt-3">Decks</h5>
+    <ul>${deckLinks.map(p=>`<li><a href="/${p}">${escapeHtml(p)}</a></li>`).join('') || '<li>No decks yet</li>'}</ul>
+  </div></body></html>`);
+});
+
+app.get('/api/presentations/whoami', requireAnyAuth, async (req, res) => {
+  res.json({ user: currentUser(req), effectiveRole: effectiveRole(req) });
+});
+
+app.post('/api/presentations/export', requireRole('architect','editor','observer'), async (req, res) => {
+  const deck = String(req.body.deck || '');
+  const format = String(req.body.format || 'both');
+  const { spawnSync } = await import('node:child_process');
+  const r = spawnSync('node', [path.join(ROOT,'scripts/export_deck.js'), '--deck', deck, '--format', format], { cwd: ROOT, encoding:'utf8', env: process.env });
+  if (r.status !== 0) return res.status(500).send(`export failed: ${r.stderr || r.stdout}`);
+  return res.type('application/json').send(r.stdout || '{}');
+});
+
+app.post('/api/presentations/generate', requireRole('architect','editor'), async (req, res) => {
+  const initiative_id = String(req.body.initiative_id || '');
+  const buyer_id = String(req.body.buyer_id || '');
+  const deck_type = String(req.body.deck_type || 'utc-internal');
+  const template_id = String(req.body.template_id || 'sovereign-memo');
+  const image_provider = String(req.body.image_provider || 'placeholder');
+  const cmd = ['node', path.join(ROOT,'scripts/generate_deck.js'), '--initiative_id', initiative_id, '--deck_type', deck_type, '--template_id', template_id, '--image_provider', image_provider];
+  if (buyer_id) cmd.push('--buyer_id', buyer_id);
+  const { spawnSync } = await import('node:child_process');
+  const r = spawnSync(cmd[0], cmd.slice(1), { cwd: ROOT, encoding:'utf8', env: process.env });
+  if (r.status !== 0) return res.status(500).send(`generation failed: ${r.stderr || r.stdout}`);
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req)||'editor', event_type: 'workflow.run', entity_type: 'presentation', entity_id: `${initiative_id}:${deck_type}`, meta: { template_id, image_provider, buyer_id: buyer_id || null } });
+  await createSnapshot('presentation.generate');
+  res.redirect(`/dashboard/initiative/${encodeURIComponent(initiative_id)}${buyer_id ? `?buyer_id=${encodeURIComponent(buyer_id)}` : ''}`);
+});
+
+app.use('/presentations', express.static(path.join(ROOT, 'presentations'), {
+  index: false,
+  fallthrough: true,
+  redirect: false,
+  setHeaders(res) { res.setHeader('Cache-Control', 'no-store'); }
+}));
+
+app.use('/dashboard', express.static(path.join(ROOT, 'dashboard'), {
+  index: false,
+  fallthrough: true,
+  redirect: false,
+  setHeaders(res) {
+    res.setHeader('Cache-Control', 'no-store');
+  }
+}));
 
 app.get('/healthz', (_req, res) => res.json({ ok: true, ts: nowIso() }));
 
@@ -283,12 +469,14 @@ app.post('/admin/login', loginRateLimit, async (req, res) => {
 
   if (!ok) {
     await appendAdminLog(`FAILED_LOGIN ip=${ip}`);
+    await appendAuditEvent({ ts: nowIso(), actor: 'unknown', role: 'anonymous', event_type: 'login.failed', entity_type: 'auth', entity_id: 'admin', meta: { ip } });
     return res.status(401).send('Invalid credentials');
   }
 
   resetLoginAttempts(ip);
-  req.session.user = { scope: 'admin', username: 'admin', role: 'admin', loginAt: nowIso() };
+  req.session.user = { scope: 'admin', username: ARCHITECT_USERNAME, role: 'architect', loginAt: nowIso() };
   await appendAdminLog(`SUCCESS_LOGIN ip=${ip}`);
+  await appendAuditEvent({ ts: nowIso(), actor: ARCHITECT_USERNAME, role: 'architect', event_type: 'login.success', entity_type: 'auth', entity_id: 'admin', meta: { ip } });
   return res.redirect('/admin');
 });
 
@@ -474,11 +662,12 @@ app.post(
       await fs.mkdir(inboxDir, { recursive: true });
       await fs.mkdir(archiveDir, { recursive: true });
 
+      const pendingBatchDir = path.join(UOS_PENDING_ROOT, stamp);
+      await fs.mkdir(pendingBatchDir, { recursive: true });
       for (const field of REQUIRED_FIELDS) {
         const key = fieldNameToCanonical(field);
-        const currentCategoryDir = path.join(CURRENT_ROOT, key);
-        await fs.rm(currentCategoryDir, { recursive: true, force: true });
-        await fs.mkdir(currentCategoryDir, { recursive: true });
+        const pendingCategoryDir = path.join(pendingBatchDir, key);
+        await fs.mkdir(pendingCategoryDir, { recursive: true });
       }
 
       const updates = [];
@@ -497,10 +686,10 @@ app.post(
 
         const normalizedMarkdown = await normalizeToMarkdown(fieldPrefix, originalName, file.buffer);
 
-        const currentPath = path.join(CURRENT_ROOT, fieldPrefix, `${fileStem}.md`);
+        const pendingPath = path.join(UOS_PENDING_ROOT, stamp, fieldPrefix, `${fileStem}.md`);
         const archiveNormalizedPath = path.join(archiveDir, `${fieldPrefix}__${fileStem}.md`);
 
-        await fs.writeFile(currentPath, normalizedMarkdown, 'utf8');
+        await fs.writeFile(pendingPath, normalizedMarkdown, 'utf8');
         await fs.writeFile(archiveNormalizedPath, normalizedMarkdown, 'utf8');
 
         updates.push({
@@ -509,15 +698,39 @@ app.post(
           originalName,
           extension,
           inboxPath: rel(inboxPath),
-          currentPath: rel(currentPath),
+          pendingPath: rel(pendingPath),
           archiveOriginalPath: rel(archiveOriginalPath),
           archiveNormalizedPath: rel(archiveNormalizedPath),
         });
       }
 
-      await rebuildUosIndex(updates, stamp);
-      await rebuildDashboardState(updates, stamp);
-      await appendAdminLog(`UPLOAD_SUCCESS count=${updates.length} files=${updates.map((u) => u.originalName).join(',')} archive=${rel(archiveDir)}`);
+      const uosEntityId = `UOS-${stamp}`;
+      const rp = await createReviewPacketStub({
+        title: `UOS Upload ${stamp}`,
+        linkedTaskId: uosEntityId,
+        createdBy: getUserLabel(req),
+        status: 'Draft',
+        recommendedAction: 'Approve',
+      });
+
+      const state = await readJson(DASHBOARD_STATE_FILE, { schemaVersion: 1 });
+      state.lastUpdated = nowIso();
+      state.latestUosUpload = {
+        id: uosEntityId,
+        batch: stamp,
+        totalFiles: updates.length,
+        pendingDir: rel(path.join(UOS_PENDING_ROOT, stamp)),
+        archiveDir: rel(archiveDir),
+        reviewPacketId: rp.rpId,
+        status: 'Draft',
+      };
+      await writeJson(DASHBOARD_STATE_FILE, state);
+
+      await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: 'architect', event_type: 'uos.upload', entity_type: 'uos_batch', entity_id: uosEntityId, meta: { total_files: updates.length, pending_dir: rel(path.join(UOS_PENDING_ROOT, stamp)), archive_dir: rel(archiveDir), review_packet_id: rp.rpId } });
+      await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: 'architect', event_type: 'uos.archive', entity_type: 'uos_batch', entity_id: uosEntityId, meta: { archive_dir: rel(archiveDir) } });
+      await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: 'architect', event_type: 'rp.create', entity_type: 'review_packet', entity_id: rp.rpId, meta: { linked_task: uosEntityId } });
+      await appendAdminLog(`UPLOAD_SUCCESS count=${updates.length} files=${updates.map((u) => u.originalName).join(',')} archive=${rel(archiveDir)} pending=${rel(path.join(UOS_PENDING_ROOT, stamp))} rp=${rp.rpId}`);
+      await createSnapshot('uos.upload');
 
       res.type('html').send(`<!doctype html>
 <html><head>${uiHead('Upload Complete')}</head><body>
@@ -526,10 +739,10 @@ app.post(
   <div class="card shadow-sm">
     <div class="card-body">
       <h3 class="card-title">Upload complete</h3>
-      <p class="text-muted">State rebuilt and snapshot written.</p>
-      <pre class="p-3 bg-body-tertiary border rounded">${escapeHtml(JSON.stringify({ updatedCategories: [...new Set(updates.map((u) => u.key))], totalFiles: updates.length, archiveDir: rel(archiveDir), at: nowIso() }, null, 2))}</pre>
+      <p class="text-muted">Files staged to pending. Publish requires approved review packet.</p>
+      <pre class="p-3 bg-body-tertiary border rounded">${escapeHtml(JSON.stringify({ updatedCategories: [...new Set(updates.map((u) => u.key))], totalFiles: updates.length, pendingDir: rel(path.join(UOS_PENDING_ROOT, stamp)), archiveDir: rel(archiveDir), reviewPacketId: rp.rpId, at: nowIso() }, null, 2))}</pre>
       <div class="d-flex flex-wrap gap-2 mt-2">
-        <a class="btn btn-primary" href="/dashboard/">View Dashboard</a>
+        <a class="btn btn-primary" href="/dashboard/review">Open Review Queue</a>
         <a class="btn btn-outline-secondary" href="/admin/upload">Upload Another Batch</a>
       </div>
     </div>
@@ -675,11 +888,34 @@ async function appendJsonl(dirRoot, obj) {
 }
 
 async function appendAuditEvent(event) {
-  await appendJsonl(ACTIVITY_ROOT, event);
-  await appendJsonl(BOARD_HISTORY_ROOT, event);
+  const normalized = {
+    ts: event.ts || nowIso(),
+    actor: event.actor || 'unknown',
+    role: event.role || 'unknown',
+    event_type: event.event_type || 'system.event',
+    entity_type: event.entity_type || 'system',
+    entity_id: event.entity_id || null,
+    meta: event.meta || {},
+  };
+  await appendJsonl(ACTIVITY_ROOT, normalized);
+  if ((normalized.entity_type === 'task' || String(normalized.event_type || '').startsWith('task.')) && normalized.entity_id) {
+    await appendJsonl(BOARD_HISTORY_ROOT, normalized);
+  }
 }
 
-async function writeBoard(board, actor, action, taskId, before, after) {
+async function createSnapshot(reason = 'state.change') {
+  const stamp = tsForPath();
+  const state = await readJson(DASHBOARD_STATE_FILE, { schemaVersion: 1 });
+  const snapshotPath = path.join(DASHBOARD_SNAPSHOTS, `${stamp}.json`);
+  await writeJson(snapshotPath, state);
+  const change = `## ${nowIso()}\n- Snapshot reason: ${reason}\n- Snapshot: \`${rel(snapshotPath)}\`\n\n`;
+  if (!fssync.existsSync(DASHBOARD_CHANGELOG)) {
+    await fs.writeFile(DASHBOARD_CHANGELOG, '# Dashboard State Changelog\n\n', 'utf8');
+  }
+  await fs.appendFile(DASHBOARD_CHANGELOG, change, 'utf8');
+}
+
+async function writeBoard(board, actor, eventType, taskId, before, after, role = 'editor') {
   if (!boardValidator) await loadBoardValidator();
   const ok = boardValidator(board);
   if (!ok) {
@@ -687,25 +923,68 @@ async function writeBoard(board, actor, action, taskId, before, after) {
   }
   await writeJson(BOARD_FILE, board);
 
-  const event = {
-    timestamp: nowIso(),
+  await appendAuditEvent({
+    ts: nowIso(),
     actor,
-    action,
-    task_id: taskId || null,
-    before: before || null,
-    after: after || null,
-  };
-  await appendAuditEvent(event);
+    role,
+    event_type: eventType,
+    entity_type: 'task',
+    entity_id: taskId || null,
+    meta: { before: before || null, after: after || null },
+  });
   await refreshBoardStateIntegration(board);
+  await createSnapshot(`board.${eventType}`);
 }
 
-async function readRecentActivity(limit = 10) {
-  const todayPath = path.join(ACTIVITY_ROOT, `${dateOnly()}.jsonl`);
-  if (!fssync.existsSync(todayPath)) return [];
-  const lines = (await fs.readFile(todayPath, 'utf8')).trim().split('\n').filter(Boolean);
-  return lines.slice(-limit).map((l) => {
-    try { return JSON.parse(l); } catch { return null; }
-  }).filter(Boolean).reverse();
+async function readActivityEvents({ limit = 20, actor, entity_type, date, maxScan = 1000 } = {}) {
+  const files = (await fs.readdir(ACTIVITY_ROOT).catch(() => []))
+    .filter((f) => f.endsWith('.jsonl'))
+    .sort()
+    .reverse();
+
+  const out = [];
+  let scanned = 0;
+
+  for (const f of files) {
+    if (date && !f.startsWith(date)) continue;
+    const lines = (await fs.readFile(path.join(ACTIVITY_ROOT, f), 'utf8').catch(() => '')).split('\n').filter(Boolean).reverse();
+    for (const line of lines) {
+      if (scanned >= maxScan) break;
+      scanned += 1;
+      let ev;
+      try { ev = JSON.parse(line); } catch { continue; }
+      if (actor && String(ev.actor || '').toLowerCase() !== String(actor).toLowerCase()) continue;
+      if (entity_type && ev.entity_type !== entity_type) continue;
+      out.push(ev);
+      if (out.length >= limit) return out;
+    }
+    if (scanned >= maxScan) break;
+  }
+
+  return out;
+}
+
+async function listReviewPackets(limit = 50) {
+  const files = (await fs.readdir(REVIEW_PACKET_ROOT).catch(() => []))
+    .filter((f) => /^RP-\d+/i.test(f) && f.endsWith('.md'))
+    .sort()
+    .reverse()
+    .slice(0, limit);
+  const out = [];
+  for (const f of files) {
+    const full = path.join(REVIEW_PACKET_ROOT, f);
+    const txt = await fs.readFile(full, 'utf8').catch(() => '');
+    const m = txt.match(/^---\n([\s\S]*?)\n---/);
+    const front = {};
+    if (m) {
+      for (const line of m[1].split('\n')) {
+        const i = line.indexOf(':');
+        if (i > 0) front[line.slice(0, i).trim()] = line.slice(i + 1).trim();
+      }
+    }
+    out.push({ path: rel(full), ...front });
+  }
+  return out;
 }
 
 async function refreshBoardStateIntegration(board) {
@@ -729,11 +1008,75 @@ async function refreshBoardStateIntegration(board) {
       priority: t.priority,
       due_date: t.due_date || null,
       owner: t.owner || null,
+      review_packet_id: t.review_packet_id || null,
     })),
-    last10Activity: await readRecentActivity(10),
+    last10Activity: await readActivityEvents({ limit: 10 }),
   };
 
+  state.pendingReviewPackets = (await listReviewPackets(200)).filter((rp) => rp.status === 'Ready for Review').length;
   await writeJson(DASHBOARD_STATE_FILE, state);
+}
+
+function formatRpFrontmatter(obj) {
+  const lines = ['---'];
+  for (const [k, v] of Object.entries(obj)) {
+    lines.push(`${k}: ${v === null ? 'null' : String(v)}`);
+  }
+  lines.push('---', '');
+  return lines.join('\n');
+}
+
+async function createReviewPacketStub({ title, linkedTaskId, createdBy, status = 'Draft', recommendedAction = 'Approve' }) {
+  const files = (await fs.readdir(REVIEW_PACKET_ROOT).catch(() => [])).filter((f) => /^RP-\d+/i.test(f));
+  const maxN = files.reduce((m, f) => {
+    const mm = f.match(/^RP-(\d+)/i);
+    return mm ? Math.max(m, Number(mm[1])) : m;
+  }, 0);
+  const next = String(maxN + 1).padStart(4, '0');
+  const rpId = `RP-${next}`;
+  const slug = safeName((title || linkedTaskId || 'review-packet').toLowerCase()).slice(0, 80);
+  const filename = `${rpId}-${slug}.md`;
+  const full = path.join(REVIEW_PACKET_ROOT, filename);
+  const fm = formatRpFrontmatter({
+    rp_id: rpId,
+    title: title || 'Review Packet',
+    linked_task: linkedTaskId || 'null',
+    created_by: createdBy,
+    created_at: nowIso(),
+    status,
+    recommended_action: recommendedAction,
+    architect_decision: 'null',
+    architect_notes: 'null',
+  });
+  await fs.writeFile(full, `${fm}# ${title || 'Review Packet'}\n\n## Summary\n\n(complete)\n`, 'utf8');
+  return { rpId, path: rel(full), fullPath: full };
+}
+
+async function parseRpFileById(rpId) {
+  const files = (await fs.readdir(REVIEW_PACKET_ROOT).catch(() => []))
+    .filter((f) => f.startsWith(rpId + '-'));
+  if (!files.length) return null;
+  const full = path.join(REVIEW_PACKET_ROOT, files[0]);
+  const txt = await fs.readFile(full, 'utf8');
+  const m = txt.match(/^---\n([\s\S]*?)\n---/);
+  const front = {};
+  if (m) {
+    for (const line of m[1].split('\n')) {
+      const i = line.indexOf(':');
+      if (i > 0) front[line.slice(0, i).trim()] = line.slice(i + 1).trim();
+    }
+  }
+  return { front, full, text: txt };
+}
+
+async function updateRpFrontmatter(rpId, patch) {
+  const parsed = await parseRpFileById(rpId);
+  if (!parsed) throw new Error('RP not found');
+  const nextFront = { ...parsed.front, ...patch };
+  const rest = parsed.text.replace(/^---\n[\s\S]*?\n---\n?/, '');
+  const next = formatRpFrontmatter(nextFront) + rest;
+  await fs.writeFile(parsed.full, next, 'utf8');
+  return { path: rel(parsed.full), front: nextFront };
 }
 
 function getUserLabel(req) {
@@ -766,21 +1109,28 @@ app.post('/auth/login', async (req, res) => {
   const password = String(req.body.password || '');
   const data = await readJson(TEAM_USERS_FILE, defaultUsers());
   const user = (data.users || []).find((u) => u.username === username && u.active !== false);
-  if (!user) return res.status(401).send('Invalid credentials');
+  if (!user) {
+    await appendAuditEvent({ ts: nowIso(), actor: username || 'unknown', role: 'anonymous', event_type: 'login.failed', entity_type: 'auth', entity_id: 'team', meta: { ip } });
+    return res.status(401).send('Invalid credentials');
+  }
 
   const ok = await bcrypt.compare(password, user.passwordHash || '');
-  if (!ok) return res.status(401).send('Invalid credentials');
+  if (!ok) {
+    await appendAuditEvent({ ts: nowIso(), actor: username, role: normalizedRole(user.role || 'observer'), event_type: 'login.failed', entity_type: 'auth', entity_id: 'team', meta: { ip } });
+    return res.status(401).send('Invalid credentials');
+  }
 
   clearAttempt(teamLoginAttempts, `team:${ip}`);
-  req.session.user = { scope: 'team', username: user.username, role: user.role, loginAt: nowIso() };
-  await appendAuditEvent({ timestamp: nowIso(), actor: user.username, action: 'login', task_id: null, before: null, after: null });
+  req.session.user = { scope: 'team', username: user.username, role: normalizedRole(user.role), loginAt: nowIso() };
+  await appendAuditEvent({ ts: nowIso(), actor: user.username, role: normalizedRole(user.role), event_type: 'login.success', entity_type: 'auth', entity_id: 'team', meta: { ip } });
   return res.redirect('/board');
 });
 
 app.post('/auth/logout', requireAnyAuth, async (req, res) => {
   const actor = getUserLabel(req);
+  const role = effectiveRole(req) || 'anonymous';
   req.session.destroy(() => undefined);
-  await appendAuditEvent({ timestamp: nowIso(), actor, action: 'logout', task_id: null, before: null, after: null });
+  await appendAuditEvent({ ts: nowIso(), actor, role, event_type: 'admin.logout', entity_type: 'auth', entity_id: 'logout', meta: {} });
   res.redirect('/auth/login');
 });
 
@@ -818,7 +1168,7 @@ app.post('/auth/invite/:token', async (req, res) => {
   invite.usedAt = nowIso();
   invite.usedBy = username;
   await writeJson(TEAM_USERS_FILE, data);
-  await appendAuditEvent({ timestamp: nowIso(), actor: username, action: 'accept_invite', task_id: null, before: null, after: { role: user.role } });
+  await appendAuditEvent({ ts: nowIso(), actor: username, role: normalizedRole(user.role), event_type: 'admin.invite.accept', entity_type: 'user', entity_id: username, meta: { role: normalizedRole(user.role) } });
   res.redirect('/auth/login');
 });
 
@@ -873,15 +1223,17 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
     </div></div>
   </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 const me = ${JSON.stringify(u)};
 const canWrite = ${JSON.stringify(canWrite)};
 const columns = ${JSON.stringify(BOARD_COLUMNS)};
 let boardData = { tasks: [] };
 
-const taskModal = new bootstrap.Modal(document.getElementById('taskModal'));
-const commentModal = new bootstrap.Modal(document.getElementById('commentModal'));
+const taskModalEl = document.getElementById('taskModal');
+const commentModalEl = document.getElementById('commentModal');
+const hasBootstrapModal = !!(window.bootstrap && window.bootstrap.Modal);
+const taskModal = hasBootstrapModal ? new bootstrap.Modal(taskModalEl) : null;
+const commentModal = hasBootstrapModal ? new bootstrap.Modal(commentModalEl) : null;
 
 function toArray(v){ return String(v || '').split(',').map(x => x.trim()).filter(Boolean); }
 
@@ -896,7 +1248,7 @@ function cardHTML(t){
       '<button class="btn btn-sm btn-outline-secondary js-edit" data-id="' + t.id + '">Edit</button>' +
       '<button class="btn btn-sm btn-outline-secondary js-comment" data-id="' + t.id + '">Comment</button>' +
       '<button class="btn btn-sm btn-outline-warning js-request" data-id="' + t.id + '">Request Approval</button>' +
-      ((me.role === 'admin' && t.request_approval && !t.request_approval.approved)
+      ((me.role === 'architect' && t.request_approval && !t.request_approval.approved)
         ? '<button class="btn btn-sm btn-success js-approve" data-id="' + t.id + '">Approve</button>'
         : '') +
       '</div>';
@@ -952,7 +1304,25 @@ async function dropTask(e, status){
   await loadBoard();
 }
 
+async function quickTaskFlow(existing){
+  const title = prompt('Task title', existing?.title || ''); if(!title) return;
+  const owner = prompt('Owner', existing?.owner || '') || null;
+  const due_date = prompt('Due date YYYY-MM-DD', existing?.due_date || '') || null;
+  const priority = prompt('Priority P0/P1/P2/P3', existing?.priority || 'P2') || 'P2';
+  const tags = toArray(prompt('Tags comma-separated', (existing?.tags || []).join(',')));
+  const linked_refs = toArray(prompt('Linked refs comma-separated', (existing?.linked_refs || []).join(',')));
+  const description = prompt('Description', existing?.description || '') || '';
+  const id = existing?.id || '';
+  const payload = { title, owner, due_date, priority, tags, linked_refs, description };
+  const url = id ? '/api/tasks/' + encodeURIComponent(id) : '/api/tasks';
+  const method = id ? 'PATCH' : 'POST';
+  const r = await fetch(url, { method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+  if(!r.ok){ alert('Save failed'); return; }
+  await loadBoard();
+}
+
 function openNewTask(){
+  if (!hasBootstrapModal) return quickTaskFlow(null);
   document.getElementById('taskModalTitle').textContent = 'Create Task';
   document.getElementById('taskId').value = '';
   document.getElementById('taskForm').reset();
@@ -962,6 +1332,7 @@ function openNewTask(){
 
 function openEditTask(id){
   const t = (boardData.tasks||[]).find(x=>x.id===id); if(!t) return;
+  if (!hasBootstrapModal) return quickTaskFlow(t);
   document.getElementById('taskModalTitle').textContent = 'Edit Task';
   document.getElementById('taskId').value = id;
   document.getElementById('f_title').value = t.title || '';
@@ -989,11 +1360,16 @@ async function saveTask(){
   const method = id ? 'PATCH' : 'POST';
   const r = await fetch(url, { method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
   if(!r.ok){ alert('Save failed'); return; }
-  taskModal.hide();
+  if (taskModal) taskModal.hide();
   await loadBoard();
 }
 
 function openCommentModal(id){
+  if (!hasBootstrapModal) {
+    const text = prompt('Comment');
+    if (text) fetch('/api/tasks/' + encodeURIComponent(id) + '/comment', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ text }) }).then(()=>loadBoard());
+    return;
+  }
   document.getElementById('commentTaskId').value = id;
   document.getElementById('commentText').value = '';
   commentModal.show();
@@ -1005,7 +1381,7 @@ async function saveComment(){
   if(!text) return;
   const r = await fetch('/api/tasks/' + encodeURIComponent(id) + '/comment', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ text }) });
   if(!r.ok){ alert('Comment failed'); return; }
-  commentModal.hide();
+  if (commentModal) commentModal.hide();
   await loadBoard();
 }
 
@@ -1023,7 +1399,7 @@ async function approveTask(id){
 }
 
 async function createInvite(){
-  const role = prompt('Invite role (editor/viewer/admin)','viewer');
+  const role = prompt('Invite role (editor/observer/architect)','observer');
   const r = await fetch('/api/auth/invite', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ role })});
   const j = await r.json();
   if(!r.ok){ alert(j.error || 'Invite failed'); return; }
@@ -1039,25 +1415,29 @@ loadBoard();
   </body></html>`);
 });
 
+app.get('/api/me', requireAnyAuth, async (req, res) => {
+  res.json({ user: currentUser(req), effectiveRole: effectiveRole(req) });
+});
+
 app.get('/api/board', requireAnyAuth, async (_req, res) => {
   const board = await readJson(BOARD_FILE, defaultBoard());
   res.json(board);
 });
 
-app.post('/api/auth/invite', requireRole('admin'), async (req, res) => {
-  const role = String(req.body.role || 'viewer');
-  if (!['admin', 'editor', 'viewer'].includes(role)) return res.status(400).json({ error: 'invalid role' });
+app.post('/api/auth/invite', requireRole('architect'), async (req, res) => {
+  const role = normalizedRole(String(req.body.role || 'observer'));
+  if (!['architect', 'editor', 'observer'].includes(role)) return res.status(400).json({ error: 'invalid role' });
   const data = await readJson(TEAM_USERS_FILE, defaultUsers());
   const token = crypto.randomBytes(20).toString('hex');
   const invite = { token, role, createdAt: nowIso(), createdBy: getUserLabel(req), expiresAt: new Date(Date.now() + 7*24*60*60*1000).toISOString() };
   data.invites.push(invite);
   await writeJson(TEAM_USERS_FILE, data);
   const inviteUrl = `https://claw.hiethel.ai/auth/invite/${token}`;
-  await appendAuditEvent({ timestamp: nowIso(), actor: getUserLabel(req), action: 'create_invite', task_id: null, before: null, after: { role, inviteUrl } });
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'architect', event_type: 'admin.invite.create', entity_type: 'user', entity_id: role, meta: { inviteUrl } });
   res.json({ inviteUrl, role, expiresAt: invite.expiresAt });
 });
 
-app.post('/api/tasks', requireRole('admin', 'editor'), async (req, res) => {
+app.post('/api/tasks', requireRole('architect', 'editor'), async (req, res) => {
   const board = await readJson(BOARD_FILE, defaultBoard());
   const body = sanitizeTaskPatch(req.body || {});
   if (!body.title) return res.status(400).json({ error: 'title required' });
@@ -1079,11 +1459,11 @@ app.post('/api/tasks', requireRole('admin', 'editor'), async (req, res) => {
     updated_by: getUserLabel(req),
   };
   board.tasks.push(task);
-  await writeBoard(board, getUserLabel(req), 'task_create', task.id, null, task);
+  await writeBoard(board, getUserLabel(req), 'task.create', task.id, null, task, effectiveRole(req) || 'editor');
   res.json(task);
 });
 
-app.patch('/api/tasks/:id', requireRole('admin', 'editor'), async (req, res) => {
+app.patch('/api/tasks/:id', requireRole('architect', 'editor'), async (req, res) => {
   const board = await readJson(BOARD_FILE, defaultBoard());
   const id = String(req.params.id);
   const task = board.tasks.find((t) => t.id === id);
@@ -1096,11 +1476,11 @@ app.patch('/api/tasks/:id', requireRole('admin', 'editor'), async (req, res) => 
   task.updated_at = nowIso();
   task.updated_by = getUserLabel(req);
 
-  await writeBoard(board, getUserLabel(req), 'task_update', id, before, task);
+  await writeBoard(board, getUserLabel(req), 'task.update', id, before, task, effectiveRole(req) || 'editor');
   res.json(task);
 });
 
-app.post('/api/tasks/:id/move', requireRole('admin', 'editor'), async (req, res) => {
+app.post('/api/tasks/:id/move', requireRole('architect', 'editor'), async (req, res) => {
   const board = await readJson(BOARD_FILE, defaultBoard());
   const id = String(req.params.id);
   const status = String(req.body.status || '');
@@ -1108,16 +1488,49 @@ app.post('/api/tasks/:id/move', requireRole('admin', 'editor'), async (req, res)
   const task = board.tasks.find((t) => t.id === id);
   if (!task) return res.status(404).json({ error: 'not found' });
 
-  const before = { status: task.status };
+  if (status === 'Done' && !(task.request_approval && task.request_approval.approved)) {
+    return res.status(400).json({ error: 'task cannot move to Done without approved RP' });
+  }
+  if (status === 'Ready for Review' && task.created_by !== getUserLabel(req) && !isArchitect(req)) {
+    return res.status(403).json({ error: 'only creator can move Draft to Ready for Review' });
+  }
+
+  const before = { status: task.status, review_packet_id: task.review_packet_id || null };
   task.status = status;
+
+  if (status === 'Ready for Review' && !task.review_packet_id) {
+    const rp = await createReviewPacketStub({
+      title: `${task.title} Review Packet`,
+      linkedTaskId: task.id,
+      createdBy: getUserLabel(req),
+      status: 'Draft',
+      recommendedAction: 'Approve',
+    });
+    task.review_packet_id = rp.rpId;
+    task.request_approval = {
+      requested_at: nowIso(),
+      requested_by: getUserLabel(req),
+      review_packet_stub: rp.path,
+      approved: false,
+      approved_by: null,
+      approved_at: null,
+    };
+    await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'rp.create', entity_type: 'review_packet', entity_id: rp.rpId, meta: { linked_task: task.id, path: rp.path } });
+  }
+
+  if (status === 'Ready for Review' && task.review_packet_id) {
+    await updateRpFrontmatter(task.review_packet_id, { status: 'Ready for Review' });
+    await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'rp.ready_for_review', entity_type: 'review_packet', entity_id: task.review_packet_id, meta: { linked_task: task.id } });
+  }
+
   task.updated_at = nowIso();
   task.updated_by = getUserLabel(req);
 
-  await writeBoard(board, getUserLabel(req), 'task_move', id, before, { status: task.status });
+  await writeBoard(board, getUserLabel(req), 'task.move', id, before, { status: task.status, review_packet_id: task.review_packet_id || null }, effectiveRole(req) || 'editor');
   res.json(task);
 });
 
-app.post('/api/tasks/:id/comment', requireRole('admin', 'editor'), async (req, res) => {
+app.post('/api/tasks/:id/comment', requireRole('architect', 'editor'), async (req, res) => {
   const board = await readJson(BOARD_FILE, defaultBoard());
   const id = String(req.params.id);
   const text = String(req.body.text || '').trim();
@@ -1129,33 +1542,45 @@ app.post('/api/tasks/:id/comment', requireRole('admin', 'editor'), async (req, r
   task.comments.push(comment);
   task.updated_at = nowIso();
   task.updated_by = getUserLabel(req);
-  await writeBoard(board, getUserLabel(req), 'task_comment', id, null, { comment });
+  await writeBoard(board, getUserLabel(req), 'task.comment', id, null, { comment }, effectiveRole(req) || 'editor');
   res.json(comment);
 });
 
-app.post('/api/tasks/:id/request-approval', requireRole('admin', 'editor'), async (req, res) => {
+app.post('/api/tasks/:id/request-approval', requireRole('architect', 'editor'), async (req, res) => {
   const board = await readJson(BOARD_FILE, defaultBoard());
   const id = String(req.params.id);
   const task = board.tasks.find((t) => t.id === id);
   if (!task) return res.status(404).json({ error: 'not found' });
-
-  const createStub = Boolean(req.body.create_review_packet);
-  const rpTitle = String(req.body.review_packet_title || '').trim();
-  let rpPath = null;
-  if (createStub) {
-    const stamp = tsForPath();
-    const slug = safeName((rpTitle || task.title).slice(0, 80)).replace(/_+/g, '_');
-    rpPath = path.join(ROOT, 'mission-control', 'review-packets', `RP-STUB-${stamp}-${slug}.md`);
-    const content = `# Review Packet Stub\n\n- Created: ${nowIso()}\n- Requested by: ${getUserLabel(req)}\n- Linked task: ${task.id}\n- Title: ${rpTitle || task.title}\n\n## Draft\n\n(complete this review packet)\n`;
-    await fs.writeFile(rpPath, content, 'utf8');
+  if (task.created_by !== getUserLabel(req) && !isArchitect(req)) {
+    return res.status(403).json({ error: 'only creator can move Draft to Ready for Review' });
   }
 
-  const before = { status: task.status, request_approval: task.request_approval || null };
+  let rpPath = null;
+  if (!task.review_packet_id) {
+    const rp = await createReviewPacketStub({
+      title: String(req.body.review_packet_title || task.title || 'Review Packet'),
+      linkedTaskId: task.id,
+      createdBy: getUserLabel(req),
+      status: 'Draft',
+      recommendedAction: 'Approve',
+    });
+    task.review_packet_id = rp.rpId;
+    rpPath = rp.path;
+    await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'rp.create', entity_type: 'review_packet', entity_id: rp.rpId, meta: { linked_task: task.id, path: rp.path } });
+  }
+
+  if (task.review_packet_id) {
+    const updated = await updateRpFrontmatter(task.review_packet_id, { status: 'Ready for Review' });
+    rpPath = rpPath || updated.path;
+    await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'rp.ready_for_review', entity_type: 'review_packet', entity_id: task.review_packet_id, meta: { linked_task: task.id } });
+  }
+
+  const before = { status: task.status, request_approval: task.request_approval || null, review_packet_id: task.review_packet_id || null };
   task.status = 'Ready for Review';
   task.request_approval = {
     requested_at: nowIso(),
     requested_by: getUserLabel(req),
-    review_packet_stub: rpPath ? rel(rpPath) : null,
+    review_packet_stub: rpPath,
     approved: false,
     approved_by: null,
     approved_at: null,
@@ -1163,27 +1588,202 @@ app.post('/api/tasks/:id/request-approval', requireRole('admin', 'editor'), asyn
   task.updated_at = nowIso();
   task.updated_by = getUserLabel(req);
 
-  await writeBoard(board, getUserLabel(req), 'task_request_approval', id, before, { status: task.status, request_approval: task.request_approval });
+  await writeBoard(board, getUserLabel(req), 'task.move', id, before, { status: task.status, request_approval: task.request_approval, review_packet_id: task.review_packet_id || null }, effectiveRole(req) || 'editor');
   res.json(task);
 });
 
-app.post('/api/tasks/:id/approve', requireRole('admin'), async (req, res) => {
+app.post('/api/tasks/:id/approve', requireRole('architect'), async (req, res) => {
   const board = await readJson(BOARD_FILE, defaultBoard());
   const id = String(req.params.id);
   const task = board.tasks.find((t) => t.id === id);
   if (!task) return res.status(404).json({ error: 'not found' });
 
-  const before = { request_approval: task.request_approval || null };
+  if (!task.review_packet_id) return res.status(400).json({ error: 'task has no review packet' });
+
+  const before = { request_approval: task.request_approval || null, status: task.status };
   task.request_approval = {
     ...(task.request_approval || {}),
     approved: true,
     approved_by: getUserLabel(req),
     approved_at: nowIso(),
   };
+  task.status = 'Done';
   task.updated_at = nowIso();
   task.updated_by = getUserLabel(req);
-  await writeBoard(board, getUserLabel(req), 'task_approve_review_packet', id, before, { request_approval: task.request_approval });
+
+  await updateRpFrontmatter(task.review_packet_id, {
+    status: 'Approved',
+    architect_decision: 'Approve',
+    architect_notes: String(req.body.architect_notes || 'Approved'),
+  });
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'architect', event_type: 'rp.approve', entity_type: 'review_packet', entity_id: task.review_packet_id, meta: { linked_task: task.id } });
+
+  await writeBoard(board, getUserLabel(req), 'task.move', id, before, { status: task.status, request_approval: task.request_approval }, effectiveRole(req) || 'architect');
   res.json(task);
+});
+
+app.post('/api/tasks/:id/reject', requireRole('architect'), async (req, res) => {
+  const board = await readJson(BOARD_FILE, defaultBoard());
+  const id = String(req.params.id);
+  const task = board.tasks.find((t) => t.id === id);
+  if (!task) return res.status(404).json({ error: 'not found' });
+  if (!task.review_packet_id) return res.status(400).json({ error: 'task has no review packet' });
+
+  task.status = 'Blocked';
+  task.updated_at = nowIso();
+  task.updated_by = getUserLabel(req);
+  await updateRpFrontmatter(task.review_packet_id, {
+    status: 'Rejected',
+    architect_decision: 'Reject',
+    architect_notes: String(req.body.architect_notes || 'Rejected'),
+  });
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'architect', event_type: 'rp.reject', entity_type: 'review_packet', entity_id: task.review_packet_id, meta: { linked_task: task.id } });
+  await writeBoard(board, getUserLabel(req), 'task.move', id, null, { status: task.status }, effectiveRole(req) || 'architect');
+  res.json(task);
+});
+
+app.post('/api/tasks/:id/archive-rp', requireRole('architect'), async (req, res) => {
+  const board = await readJson(BOARD_FILE, defaultBoard());
+  const id = String(req.params.id);
+  const task = board.tasks.find((t) => t.id === id);
+  if (!task || !task.review_packet_id) return res.status(404).json({ error: 'not found' });
+  await updateRpFrontmatter(task.review_packet_id, { status: 'Archived' });
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'architect', event_type: 'rp.archive', entity_type: 'review_packet', entity_id: task.review_packet_id, meta: { linked_task: task.id } });
+  await refreshBoardStateIntegration(board);
+  await createSnapshot('rp.archive');
+  res.json({ ok: true });
+});
+
+app.delete('/api/tasks/:id', requireRole('architect', 'editor'), async (req, res) => {
+  const board = await readJson(BOARD_FILE, defaultBoard());
+  const id = String(req.params.id);
+  const idx = board.tasks.findIndex((t) => t.id === id);
+  if (idx < 0) return res.status(404).json({ error: 'not found' });
+  const before = board.tasks[idx];
+  board.tasks.splice(idx, 1);
+  await writeBoard(board, getUserLabel(req), 'task.delete', id, before, null, effectiveRole(req) || 'editor');
+  res.json({ ok: true });
+});
+
+app.post('/api/review/:rpId/approve', requireRole('architect'), async (req, res) => {
+  const rpId = String(req.params.rpId || '').trim();
+  const rp = await parseRpFileById(rpId);
+  if (!rp) return res.status(404).json({ error: 'rp not found' });
+
+  const updated = await updateRpFrontmatter(rpId, {
+    status: 'Approved',
+    architect_decision: 'Approve',
+    architect_notes: String(req.body.architect_notes || 'Approved'),
+  });
+
+  const board = await readJson(BOARD_FILE, defaultBoard());
+  const t = board.tasks.find((x) => x.review_packet_id === rpId || x.id === rp.front.linked_task);
+  if (t) {
+    t.status = 'Done';
+    t.request_approval = { ...(t.request_approval || {}), approved: true, approved_by: getUserLabel(req), approved_at: nowIso() };
+    t.updated_at = nowIso();
+    t.updated_by = getUserLabel(req);
+    await writeJson(BOARD_FILE, board);
+    await refreshBoardStateIntegration(board);
+  }
+
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: 'architect', event_type: 'rp.approve', entity_type: 'review_packet', entity_id: rpId, meta: { path: updated.path } });
+  await createSnapshot('rp.approve');
+  res.json({ ok: true, rp_id: rpId, path: updated.path });
+});
+
+app.post('/api/review/:rpId/reject', requireRole('architect'), async (req, res) => {
+  const rpId = String(req.params.rpId || '').trim();
+  const rp = await parseRpFileById(rpId);
+  if (!rp) return res.status(404).json({ error: 'rp not found' });
+  const updated = await updateRpFrontmatter(rpId, {
+    status: 'Rejected',
+    architect_decision: 'Reject',
+    architect_notes: String(req.body.architect_notes || 'Rejected'),
+  });
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: 'architect', event_type: 'rp.reject', entity_type: 'review_packet', entity_id: rpId, meta: { path: updated.path } });
+  await createSnapshot('rp.reject');
+  res.json({ ok: true });
+});
+
+app.post('/api/review/:rpId/archive', requireRole('architect'), async (req, res) => {
+  const rpId = String(req.params.rpId || '').trim();
+  const rp = await parseRpFileById(rpId);
+  if (!rp) return res.status(404).json({ error: 'rp not found' });
+  const updated = await updateRpFrontmatter(rpId, { status: 'Archived' });
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: 'architect', event_type: 'rp.archive', entity_type: 'review_packet', entity_id: rpId, meta: { path: updated.path } });
+  await createSnapshot('rp.archive');
+  res.json({ ok: true });
+});
+
+async function copyDirContents(src, dst) {
+  await fs.mkdir(dst, { recursive: true });
+  const entries = await fs.readdir(src, { withFileTypes: true });
+  for (const e of entries) {
+    const s = path.join(src, e.name);
+    const d = path.join(dst, e.name);
+    if (e.isDirectory()) await copyDirContents(s, d);
+    else await fs.copyFile(s, d);
+  }
+}
+
+app.post('/api/events', requireRole('architect'), async (req, res) => {
+  const event_type = String(req.body.event_type || '').trim();
+  const allowed = ['workflow.run', 'workflow.fail', 'workflow.complete', 'cron.trigger', 'rp.ready_for_review', 'rp.approve', 'rp.reject', 'rp.archive', 'uos.upload', 'uos.publish', 'uos.archive', 'doctrine.change'];
+  if (!allowed.includes(event_type)) return res.status(400).json({ error: 'unsupported event_type' });
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'architect',
+    event_type,
+    entity_type: String(req.body.entity_type || 'system'),
+    entity_id: req.body.entity_id || null,
+    meta: req.body.meta || {},
+  });
+  if (['rp.approve', 'uos.publish', 'doctrine.change', 'workflow.complete', 'workflow.fail'].includes(event_type)) {
+    await createSnapshot(`event.${event_type}`);
+  }
+  res.json({ ok: true });
+});
+
+app.post('/api/uos/publish/:batch/:rpId', requireRole('architect'), async (req, res) => {
+  const batch = String(req.params.batch || '');
+  const rpId = String(req.params.rpId || '');
+  const pendingDir = path.join(UOS_PENDING_ROOT, batch);
+  if (!fssync.existsSync(pendingDir)) return res.status(404).json({ error: 'pending batch not found' });
+
+  const rp = await parseRpFileById(rpId);
+  if (!rp) return res.status(404).json({ error: 'review packet not found' });
+  if ((rp.front.status || '') !== 'Approved') return res.status(400).json({ error: 'review packet must be Approved before publish' });
+
+  for (const key of ['execution-engine', 'canon', 'revenue-os']) {
+    const target = path.join(CURRENT_ROOT, key);
+    await fs.rm(target, { recursive: true, force: true });
+    const src = path.join(pendingDir, key);
+    if (fssync.existsSync(src)) await copyDirContents(src, target);
+  }
+
+  // Build pseudo-updates from current
+  const updates = [];
+  for (const key of ['execution-engine', 'canon', 'revenue-os']) {
+    const dir = path.join(CURRENT_ROOT, key);
+    if (!fssync.existsSync(dir)) continue;
+    const files = await fs.readdir(dir);
+    for (const f of files.filter((x) => x.endsWith('.md'))) {
+      updates.push({ key, originalName: f, currentPath: rel(path.join(dir, f)), inboxPath: null, archiveOriginalPath: null, archiveNormalizedPath: null });
+    }
+  }
+  await rebuildUosIndex(updates, batch);
+
+  const state = await readJson(DASHBOARD_STATE_FILE, { schemaVersion: 1 });
+  state.latestUosPublish = nowIso();
+  state.latestUosPublishedBatch = batch;
+  await writeJson(DASHBOARD_STATE_FILE, state);
+
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: 'architect', event_type: 'uos.publish', entity_type: 'uos_batch', entity_id: `UOS-${batch}`, meta: { batch, rp_id: rpId } });
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: 'architect', event_type: 'doctrine.change', entity_type: 'uos', entity_id: rpId, meta: { batch } });
+  await createSnapshot('uos.publish');
+  res.json({ ok: true, batch, rp_id: rpId });
 });
 
 function fieldNameToCanonical(field) {
@@ -1245,7 +1845,7 @@ async function rebuildUosIndex(updates, stamp) {
     lines.push(`- Files updated: ${items.length}`);
     for (const u of items) {
       lines.push(`  - Uploaded file: ${u.originalName}`);
-      lines.push(`    - Current: \`${u.currentPath}\``);
+      lines.push(`    - Current: \`${u.currentPath || u.pendingPath || 'N/A'}\``);
       lines.push(`    - Inbox copy: \`${u.inboxPath}\``);
       lines.push(`    - Archive original: \`${u.archiveOriginalPath}\``);
       lines.push(`    - Archive normalized: \`${u.archiveNormalizedPath}\``);
@@ -1268,7 +1868,7 @@ async function rebuildDashboardState(updates, stamp) {
         currentDir: rel(path.join(CURRENT_ROOT, key)),
         fileCount: items.length,
         files: items.map((u) => ({
-          currentPath: u.currentPath,
+          currentPath: u.currentPath || u.pendingPath || null,
           sourceUpload: u.originalName,
           archiveOriginalPath: u.archiveOriginalPath,
           archiveNormalizedPath: u.archiveNormalizedPath,

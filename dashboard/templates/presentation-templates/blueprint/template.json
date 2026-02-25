@@ -1,0 +1,12 @@
+{
+  "id": "blueprint",
+  "name": "Blueprint",
+  "description": "Technical blueprint style with grid overlays.",
+  "layouts": [
+    "title",
+    "section",
+    "proof",
+    "diagram",
+    "close"
+  ]
+}

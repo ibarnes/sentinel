@@ -1,0 +1,15 @@
+[
+  {
+    "initiative_id": "INIT-001",
+    "name": "West Africa Energy Corridor",
+    "status": "Pre-FID",
+    "macro_gravity_summary": "Power demand rises while grid reliability lags. Capital and governance must align to close the gap.",
+    "linked_buyers": ["PIF", "GIC"],
+    "presentations": {
+      "utc_internal": "presentations/INIT-001/decks/utc-internal/index.html",
+      "buyer_alignment": {
+        "PIF": "presentations/INIT-001/decks/buyer-alignment/PIF/index.html"
+      }
+    }
+  }
+]

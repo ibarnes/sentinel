@@ -1,0 +1,12 @@
+{
+  "id": "clean-minimal",
+  "name": "Clean Minimal",
+  "description": "Simple white layout with restrained accents.",
+  "layouts": [
+    "title",
+    "section",
+    "proof",
+    "diagram",
+    "close"
+  ]
+}

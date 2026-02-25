@@ -1,0 +1,12 @@
+{
+  "id": "sovereign-memo",
+  "name": "Sovereign Memo",
+  "description": "Institutional, high-contrast memo style.",
+  "layouts": [
+    "title",
+    "section",
+    "proof",
+    "diagram",
+    "close"
+  ]
+}

@@ -17,6 +17,8 @@ Last Updated: 2026-02-24
 - [ ] RP-0007 — Password-Protected Admin Upload UI for UOS Files
 - [ ] RP-0008 — Overnight Command Interface Readiness Plan
 - [ ] RP-0009 — Team Kanban + Auth + Audit Layer
+- [ ] RP-0008 — Activity Feed + Review Packet Governance Layer
+- [ ] RP-0010 — HTML5 Presentation Engine v1
 
 ## Done
 - [x] RP-0001 — Mission Control Operating Scaffold (Approved by Isaac, 2026-02-24)
