@@ -409,7 +409,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
         <input type="hidden" name="initiative_id" value="${escapeHtml(i.initiative_id)}" />
         <div class="col-md-3"><label class="form-label">Type</label><select class="form-select" name="deck_type"><option value="utc-internal">UTC Internal</option><option value="buyer-mandate-mirror">Buyer Mandate Mirror</option></select></div>
         <div class="col-md-3"><label class="form-label">Template</label><select class="form-select" name="template_id"><option>sovereign-memo</option><option>clean-minimal</option><option>blueprint</option></select></div>
-        <div class="col-md-3"><label class="form-label">Image Provider</label><select class="form-select" name="image_provider"><option value="placeholder">Placeholder</option><option value="openai">OpenAI</option><option value="gemini">Gemini</option></select></div>
+        <div class="col-md-3"><label class="form-label">Image Provider</label><select class="form-select" name="image_provider"><option value="placeholder">Placeholder</option><option value="openai">OpenAI</option><option value="gemini">Gemini</option><option value="grok">Grok (xAI)</option></select></div>
         <div class="col-md-3"><label class="form-label">Buyer (for mirror)</label><select class="form-select" name="buyer_id"><option value="">(none)</option>${linkedBuyers.map(b=>`<option ${b.buyer_id===buyer_id?'selected':''} value="${b.buyer_id}">${escapeHtml(b.buyer_id)}</option>`).join('')}</select></div>
         <div class="col-12"><small class="text-muted">Reading level is locked to 8–9th grade.</small></div>
         <div class="col-12"><button class="btn btn-primary">Generate</button></div>

@@ -56,6 +56,7 @@ async function buildPlaceholderPng(out){
 async function maybeGenerateImage(img){
   const openaiKey = process.env.OPENAI_API_KEY;
   const geminiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
+  const xaiKey = process.env.XAI_API_KEY;
   const outAbs = path.join(ROOT, img.output);
   if(img.provider==='openai' && openaiKey){
     try{
@@ -69,6 +70,21 @@ async function maybeGenerateImage(img){
   }
   if(img.provider==='gemini' && geminiKey){
     // Scaffold path only: fallback placeholder for now if generation endpoint unavailable
+  }
+
+  if(img.provider==='grok' && xaiKey){
+    try{
+      const r = await fetch('https://api.x.ai/v1/images/generations',{
+        method:'POST',
+        headers:{'Authorization':`Bearer ${xaiKey}`,'Content-Type':'application/json'},
+        body:JSON.stringify({model:'grok-2-image',prompt:img.prompt,size:img.size||'1024x1024'})
+      });
+      if(r.ok){
+        const j=await r.json();
+        const b64=j.data?.[0]?.b64_json;
+        if(b64){ await fs.writeFile(outAbs, Buffer.from(b64,'base64')); return 'generated'; }
+      }
+    }catch{}
   }
   await buildPlaceholderPng(outAbs);
   return 'placeholder';
