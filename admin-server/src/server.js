@@ -181,7 +181,7 @@ app.post('/admin/login', loginRateLimit, async (req, res) => {
   req.session.authenticated = true;
   req.session.loginAt = nowIso();
   await appendAdminLog(`SUCCESS_LOGIN ip=${ip}`);
-  return res.redirect('/admin/upload');
+  return res.redirect('/admin');
 });
 
 app.post('/admin/logout', requireAuth, async (req, res) => {
@@ -189,6 +189,55 @@ app.post('/admin/logout', requireAuth, async (req, res) => {
   req.session.destroy(() => undefined);
   await appendAdminLog(`LOGOUT ip=${ip}`);
   res.redirect('/admin/login');
+});
+
+app.get('/admin', requireAuth, async (_req, res) => {
+  let state = null;
+  try {
+    const raw = await fs.readFile(DASHBOARD_STATE_FILE, 'utf8');
+    state = JSON.parse(raw);
+  } catch {}
+
+  const updated = Array.isArray(state?.updatedDocs) ? state.updatedDocs.join(', ') : 'N/A';
+  const totalFiles = state?.uosCurrent
+    ? Object.values(state.uosCurrent).reduce((n, v) => n + (v.fileCount || 0), 0)
+    : 0;
+
+  res.type('html').send(`<!doctype html>
+<html><head><meta charset="utf-8"/><title>Admin Panel</title>
+<style>
+body{font-family:sans-serif;max-width:980px;margin:26px auto;padding:0 14px;line-height:1.35}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+.card{border:1px solid #ddd;border-radius:12px;padding:14px}
+h1{margin:0 0 10px 0}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn-primary{background:#2563eb;color:#fff}
+.btn-secondary{background:#f3f4f6;color:#111}
+.muted{color:#555}
+@media (min-width: 860px){.grid{grid-template-columns:1.1fr 1fr}}
+</style></head><body>
+<h1>Sentinel Admin Panel</h1>
+<div class="grid">
+  <div class="card">
+    <h3>UOS Upload</h3>
+    <p class="muted">Upload files for Execution Engine, Canon, and Revenue OS.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/admin/upload">Go to Upload</a>
+      <a class="btn btn-secondary" href="/dashboard/">View Dashboard</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Latest State</h3>
+    <p><strong>Last updated:</strong> ${escapeHtml(state?.lastUpdated || 'N/A')}</p>
+    <p><strong>Updated docs:</strong> ${escapeHtml(updated)}</p>
+    <p><strong>Total active files:</strong> ${totalFiles}</p>
+    <p><strong>Archive batch:</strong> ${escapeHtml(state?.latestArchiveBatch || 'N/A')}</p>
+    <form method="post" action="/admin/logout"><button type="submit">Logout</button></form>
+  </div>
+</div>
+</body></html>`);
 });
 
 app.get('/admin/upload', requireAuth, (_req, res) => {
