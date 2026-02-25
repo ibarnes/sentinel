@@ -69,6 +69,16 @@ function uiHead(title) {
   .dropzone.dragover { border-color: var(--bs-primary); background: color-mix(in srgb, var(--bs-primary) 8%, white); }
   .mono { font-family: ui-monospace,SFMono-Regular,Menlo,monospace; }
 
+  /* Studio button/layout polish */
+  .studio-actions { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; }
+  .studio-actions .btn { min-height:40px; }
+  .studio-editor-actions { display:flex; flex-wrap:wrap; gap:.5rem; align-items:flex-end; justify-content:flex-end; }
+  .studio-editor-actions .btn { min-height:40px; }
+  @media (max-width: 768px) {
+    .studio-actions, .studio-editor-actions { flex-direction:column; align-items:stretch; }
+    .studio-actions .btn, .studio-editor-actions .btn { width:100%; }
+  }
+
   /* Mobile nav fixes */
   .oc-nav { align-items: flex-start; gap: .5rem; }
   .oc-nav .navbar-nav .nav-link { padding-left: 0; padding-right: .6rem; }
@@ -485,7 +495,7 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
             <select class="form-select" name="copy_provider"><option value="local">Local Rewriter</option><option value="claude">Claude</option></select>
             <label class="form-label">Prompt</label>
             <textarea class="form-control" rows="8" name="prompt" placeholder="Tell Sentinel what to change in this deck..."></textarea>
-            <div class="d-flex gap-2 flex-wrap">
+            <div class="studio-actions">
               <button class="btn btn-primary" type="button" id="btnGenerate">Generate from Prompt</button>
               <button class="btn btn-outline-primary" type="button" id="btnAuto">Generate for Me</button>
             </div>
@@ -508,7 +518,7 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
               <div class="col-md-6"><label class="form-label">Title</label><input id="editTitle" class="form-control" /></div>
               <div class="col-12"><label class="form-label">Bullets (one per line)</label><textarea id="editBullets" rows="5" class="form-control"></textarea></div>
               <div class="col-md-8"><label class="form-label">Image prompt (slot 1)</label><input id="editImagePrompt" class="form-control" /></div>
-              <div class="col-md-4 d-flex align-items-end gap-2 flex-wrap">
+              <div class="col-md-4 studio-editor-actions">
                 <button id="saveSlideBtn" class="btn btn-primary" type="button">Save + Re-render Slide</button>
                 <button id="regenImageBtn" class="btn btn-outline-secondary" type="button">Regen Image</button>
                 <button id="deleteSlideBtn" class="btn btn-outline-danger" type="button">Delete Slide</button>
