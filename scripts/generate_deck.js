@@ -43,6 +43,38 @@ function enforceReadability(text){
   return t;
 }
 
+async function rewriteWithClaude(text){
+  const key = process.env.ANTHROPIC_API_KEY;
+  if(!key) return null;
+  try{
+    const r = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'x-api-key': key,
+        'anthropic-version':'2023-06-01',
+        'content-type':'application/json'
+      },
+      body: JSON.stringify({
+        model:'claude-3-5-sonnet-latest',
+        max_tokens:300,
+        messages:[{role:'user',content:`Rewrite this to 8th–9th grade reading level. Keep factual tone. No hype words. Keep short sentences:\n\n${text}`}]
+      })
+    });
+    if(!r.ok) return null;
+    const j = await r.json();
+    const out = j?.content?.[0]?.text;
+    return out ? String(out).trim() : null;
+  }catch{ return null; }
+}
+
+async function applyReadability(text, copyProvider='local'){
+  const local = enforceReadability(text);
+  if(copyProvider !== 'claude') return local;
+  const rewritten = await rewriteWithClaude(local);
+  if(!rewritten) return local;
+  return enforceReadability(rewritten);
+}
+
 async function readJson(p){ return JSON.parse(await fs.readFile(p,'utf8')); }
 async function writeFile(p,c){ await fs.mkdir(path.dirname(p),{recursive:true}); await fs.writeFile(p,c,'utf8'); }
 
@@ -102,6 +134,7 @@ async function main(){
   const deck_type = arg('deck_type','utc-internal');
   const template_id = arg('template_id','sovereign-memo');
   const image_provider = arg('image_provider','placeholder');
+  const copy_provider = arg('copy_provider','local');
   if(!initiative_id) throw new Error('initiative_id required');
 
   const buyers = await readJson(path.join(ROOT,'dashboard/data/buyers.json'));
@@ -146,18 +179,21 @@ async function main(){
     'Gate 4: review KPIs and expand by trigger rules'
   ]);
 
+  const titleSubtitle = await applyReadability('Pressure to initiative alignment for execution discipline.', copy_provider);
+  const closeSubtitle = await applyReadability('Next action is controlled initiation, not persuasion.', copy_provider);
+
   const slides = [
-    {layout:'title', kicker:'Structural Proof', title:initiative.name, subtitle:enforceReadability('Pressure to initiative alignment for execution discipline.'), footer:`${initiative_id} • ${deck_type}`},
+    {layout:'title', kicker:'Structural Proof', title:initiative.name, subtitle:titleSubtitle, footer:`${initiative_id} • ${deck_type}`},
     {layout:'section', kicker:'Structural Inevitability', title:'Gravity', bullets:baseBullets, footer:'No hype. Mechanical logic only.'},
     {layout:'proof', title:'Mandate Mirror', bullets:mirrorBullets, footer:`Buyer: ${buyer?.name||'Internal'}`},
     {layout:'diagram', title:'Controlled Activation', image:'../assets/img-001.png', footer:'Capital sequencing and governance gates'},
-    {layout:'close', title:'If aligned, Gate 1 starts here.', subtitle:enforceReadability('Next action is controlled initiation, not persuasion.'), footer:'Sentinel Presentation Engine v1'}
+    {layout:'close', title:'If aligned, Gate 1 starts here.', subtitle:closeSubtitle, footer:'Sentinel Presentation Engine v1'}
   ];
 
   const images = [{id:'img-001', provider:image_provider, prompt:'Minimal infographic, sovereign capital, governance bottleneck, clean lines, no text', size:'1024x1024', output:`${deckRel}/assets/img-001.png`}];
 
   const deckJson = {
-    initiative_id, buyer_id: buyer?.buyer_id||null, deck_type, template_id,
+    initiative_id, buyer_id: buyer?.buyer_id||null, deck_type, template_id, copy_provider,
     generated_at: new Date().toISOString(),
     reading_level_target:'8-9',
     constraints:{max_words_per_bullet:12,max_lines_per_bullet:2,max_bullets:6,no_hype:true},
@@ -172,7 +208,11 @@ async function main(){
   for(let i=0;i<slides.length;i++){
     const s = slides[i];
     const layoutHtml = await fs.readFile(path.join(tRoot,'slide-layouts',`${s.layout}.html`),'utf8');
-    const bullets = (s.bullets||[]).map(b=>`<li>${enforceReadability(b)}</li>`).join('');
+    const bulletItems = [];
+    for (const b of (s.bullets || [])) {
+      bulletItems.push(`<li>${await applyReadability(b, copy_provider)}</li>`);
+    }
+    const bullets = bulletItems.join('');
     const html = renderTemplate(layoutHtml,{...s, bullets});
     await writeFile(path.join(slidesDir, `${String(i+1).padStart(3,'0')}.html`), `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../slide.css"></head><body>${html}</body></html>`);
   }

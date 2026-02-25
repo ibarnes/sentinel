@@ -410,6 +410,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
         <div class="col-md-3"><label class="form-label">Type</label><select class="form-select" name="deck_type"><option value="utc-internal">UTC Internal</option><option value="buyer-mandate-mirror">Buyer Mandate Mirror</option></select></div>
         <div class="col-md-3"><label class="form-label">Template</label><select class="form-select" name="template_id"><option>sovereign-memo</option><option>clean-minimal</option><option>blueprint</option></select></div>
         <div class="col-md-3"><label class="form-label">Image Provider</label><select class="form-select" name="image_provider"><option value="placeholder">Placeholder</option><option value="openai">OpenAI</option><option value="gemini">Gemini</option><option value="grok">Grok (xAI)</option></select></div>
+        <div class="col-md-3"><label class="form-label">Copy Provider</label><select class="form-select" name="copy_provider"><option value="local">Local Rewriter</option><option value="claude">Claude (Anthropic)</option></select></div>
         <div class="col-md-3"><label class="form-label">Buyer (for mirror)</label><select class="form-select" name="buyer_id"><option value="">(none)</option>${linkedBuyers.map(b=>`<option ${b.buyer_id===buyer_id?'selected':''} value="${b.buyer_id}">${escapeHtml(b.buyer_id)}</option>`).join('')}</select></div>
         <div class="col-12"><small class="text-muted">Reading level is locked to 8–9th grade.</small></div>
         <div class="col-12"><button class="btn btn-primary">Generate</button></div>
@@ -439,12 +440,13 @@ app.post('/api/presentations/generate', requireRole('architect','editor'), async
   const deck_type = String(req.body.deck_type || 'utc-internal');
   const template_id = String(req.body.template_id || 'sovereign-memo');
   const image_provider = String(req.body.image_provider || 'placeholder');
-  const cmd = ['node', path.join(ROOT,'scripts/generate_deck.js'), '--initiative_id', initiative_id, '--deck_type', deck_type, '--template_id', template_id, '--image_provider', image_provider];
+  const copy_provider = String(req.body.copy_provider || 'local');
+  const cmd = ['node', path.join(ROOT,'scripts/generate_deck.js'), '--initiative_id', initiative_id, '--deck_type', deck_type, '--template_id', template_id, '--image_provider', image_provider, '--copy_provider', copy_provider];
   if (buyer_id) cmd.push('--buyer_id', buyer_id);
   const { spawnSync } = await import('node:child_process');
   const r = spawnSync(cmd[0], cmd.slice(1), { cwd: ROOT, encoding:'utf8', env: process.env });
   if (r.status !== 0) return res.status(500).send(`generation failed: ${r.stderr || r.stdout}`);
-  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req)||'editor', event_type: 'workflow.run', entity_type: 'presentation', entity_id: `${initiative_id}:${deck_type}`, meta: { template_id, image_provider, buyer_id: buyer_id || null } });
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req)||'editor', event_type: 'workflow.run', entity_type: 'presentation', entity_id: `${initiative_id}:${deck_type}`, meta: { template_id, image_provider, copy_provider, buyer_id: buyer_id || null } });
   await createSnapshot('presentation.generate');
   res.redirect(`/dashboard/initiative/${encodeURIComponent(initiative_id)}${buyer_id ? `?buyer_id=${encodeURIComponent(buyer_id)}` : ''}`);
 });
