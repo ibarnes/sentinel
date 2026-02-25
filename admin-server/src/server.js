@@ -195,17 +195,40 @@ app.get('/admin/upload', requireAuth, (_req, res) => {
   res.type('html').send(`<!doctype html>
 <html><head><meta charset="utf-8"/><title>UOS Upload</title>
 <style>
-body{font-family:sans-serif;max-width:980px;margin:30px auto;padding:0 16px}
+*{box-sizing:border-box}
+body{font-family:sans-serif;max-width:1100px;margin:20px auto;padding:0 12px;line-height:1.35}
 label{display:block;margin:10px 0 6px;font-weight:600}
 input,button{font-size:16px}
-button{padding:8px 12px;margin-top:14px}
-.card{border:1px solid #ddd;padding:16px;border-radius:10px}
+input[type="file"]{width:100%}
+button{padding:10px 14px;margin-top:14px;min-height:42px;cursor:pointer}
+.card{border:1px solid #ddd;padding:14px;border-radius:12px}
 .grid{display:grid;grid-template-columns:1fr;gap:12px}
-.zone{border:2px dashed #bbb;border-radius:10px;padding:14px;background:#fafafa}
+.zone{border:2px dashed #bbb;border-radius:12px;padding:14px;background:#fafafa;min-width:0}
 .zone.dragover{border-color:#2b6cb0;background:#edf2f7}
 .muted{color:#555;font-size:14px}
-.counter{display:inline-block;padding:2px 8px;border-radius:999px;background:#eef2ff;font-size:12px;margin-left:8px}
-.small{font-size:13px;color:#444;margin-top:6px;max-height:90px;overflow:auto}
+.counter{display:inline-block;padding:2px 8px;border-radius:999px;background:#eef2ff;font-size:12px;margin-left:8px;vertical-align:middle}
+.small{font-size:13px;color:#444;margin-top:6px;max-height:100px;overflow:auto;word-break:break-word}
+
+/* Tablet and up */
+@media (min-width: 760px){
+  .card{padding:18px}
+  .grid{grid-template-columns:1fr 1fr;gap:14px}
+  .zone[data-input="revenueOS"]{grid-column:1 / -1}
+}
+
+/* Desktop */
+@media (min-width: 1080px){
+  .grid{grid-template-columns:1fr 1fr 1fr}
+  .zone[data-input="revenueOS"]{grid-column:auto}
+}
+
+/* Small phones */
+@media (max-width: 420px){
+  body{padding:0 8px}
+  h1{font-size:1.25rem}
+  .counter{display:block;margin:6px 0 0 0;width:max-content}
+  button{width:100%}
+}
 </style></head>
 <body>
 <h1>UOS Admin Upload</h1>
