@@ -508,9 +508,10 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
               <div class="col-md-6"><label class="form-label">Title</label><input id="editTitle" class="form-control" /></div>
               <div class="col-12"><label class="form-label">Bullets (one per line)</label><textarea id="editBullets" rows="5" class="form-control"></textarea></div>
               <div class="col-md-8"><label class="form-label">Image prompt (slot 1)</label><input id="editImagePrompt" class="form-control" /></div>
-              <div class="col-md-4 d-flex align-items-end gap-2">
+              <div class="col-md-4 d-flex align-items-end gap-2 flex-wrap">
                 <button id="saveSlideBtn" class="btn btn-primary" type="button">Save + Re-render Slide</button>
                 <button id="regenImageBtn" class="btn btn-outline-secondary" type="button">Regen Image</button>
+                <button id="deleteSlideBtn" class="btn btn-outline-danger" type="button">Delete Slide</button>
               </div>
             </div>
           </div></div>
@@ -613,11 +614,25 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
       populateEditor(selectedSlide);
     }
 
+    async function deleteSlide(){
+      if(!lastDeckRoot || !selectedSlide) return;
+      if(!confirm('Delete slide ' + selectedSlide + '? This will renumber following slides.')) return;
+      const payload = { deck: lastDeckRoot.replace(/^\\//,''), slide_id: selectedSlide };
+      const r = await fetch('/api/presentations/slide/delete', {method:'DELETE', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+      const j = await r.json();
+      if(!r.ok){ alert(j.error || 'Delete failed'); return; }
+      await loadDeckSpec();
+      renderThumbs((deckSpec?.slides || []).length);
+      if((deckSpec?.slides || []).length){ populateEditor(deckSpec.slides[0].slide_id); }
+      else { document.getElementById('deckFrame').src=''; document.getElementById('slideList').textContent='No slides left in deck.'; }
+    }
+
     document.getElementById('btnGenerate').addEventListener('click', ()=>generate(false));
     document.getElementById('btnAuto').addEventListener('click', ()=>generate(true));
     document.getElementById('editSlideId').addEventListener('change', (e)=>populateEditor(e.target.value));
     document.getElementById('saveSlideBtn').addEventListener('click', ()=>saveSlide(false));
     document.getElementById('regenImageBtn').addEventListener('click', ()=>saveSlide(true));
+    document.getElementById('deleteSlideBtn').addEventListener('click', ()=>deleteSlide());
   </script>
   </body></html>`);
 });
@@ -673,6 +688,47 @@ app.patch('/api/presentations/slide/update', requireRole('architect','editor'), 
 
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req)||'editor', event_type: 'workflow.run', entity_type: 'presentation_slide', entity_id: `${deck}:${slide_id}`, meta: { action: 'slide_update' } });
   res.json({ ok: true, slide_id });
+});
+
+app.delete('/api/presentations/slide/delete', requireRole('architect','editor'), async (req, res) => {
+  const deck = String(req.body.deck || '');
+  const slide_id = String(req.body.slide_id || '');
+  if (!deck || !slide_id) return res.status(400).json({ error: 'deck and slide_id required' });
+  const deckPath = path.join(ROOT, deck, 'deck.json');
+  const spec = await readJson(deckPath, null);
+  if (!spec || !Array.isArray(spec.slides)) return res.status(404).json({ error: 'deck not found' });
+  const idx = spec.slides.findIndex(x => x.slide_id === slide_id);
+  if (idx < 0) return res.status(404).json({ error: 'slide not found' });
+
+  spec.slides.splice(idx, 1);
+  if (spec.slides.length < 1) return res.status(400).json({ error: 'cannot delete last slide' });
+
+  // Renumber slide ids and image output paths
+  spec.slides.forEach((s, i) => {
+    const newId = String(i + 1).padStart(3, '0');
+    const oldId = s.slide_id;
+    s.slide_id = newId;
+    if (Array.isArray(s.images)) {
+      s.images = s.images.map((img, j) => ({
+        ...img,
+        output_path: `${deck}/assets/${newId}-img-${String(j + 1).padStart(3, '0')}.png`
+      }));
+    }
+    if (oldId !== newId) {
+      // keep copy/title as-is; renderer rebuild will regenerate HTML files with new ids
+    }
+  });
+
+  spec.deckPlan = spec.deckPlan || {};
+  spec.deckPlan.slide_count = spec.slides.length;
+  await writeJson(deckPath, spec);
+
+  const { spawnSync } = await import('node:child_process');
+  const r = spawnSync('node', [path.join(ROOT,'scripts/deck_pipeline_v2.js'), '--deck_path', deck, '--template_id', spec.deckPlan?.template_id || 'sovereign-memo', '--rebuild_all', 'true'], { cwd: ROOT, encoding:'utf8', env: process.env });
+  if (r.status !== 0) return res.status(500).json({ error: (r.stderr || r.stdout || 'rebuild failed').trim() });
+
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req)||'editor', event_type: 'task.update', entity_type: 'presentation_slide', entity_id: `${deck}:${slide_id}`, meta: { action: 'slide_delete' } });
+  res.json({ ok: true, deleted: slide_id, slideCount: spec.slides.length });
 });
 
 app.post('/api/presentations/studio/generate', requireRole('architect','editor'), async (req, res) => {

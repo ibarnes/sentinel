@@ -176,6 +176,20 @@ async function runPipeline(opts){
     return {ok:true,deck:deckRel,slideCount:deck.slides.length,mode:'rerender'};
   }
 
+  if(opts.rebuild_all){
+    // Re-render all slides from existing SlideSpec source of truth.
+    const tId = deck.deckPlan?.template_id || opts.template_id || 'sovereign-memo';
+    for(const s of (deck.slides||[])){
+      await renderSlide(deckDir, tId, s);
+      await log('render','ok',{slide_id:s.slide_id,mode:'rebuild_all'});
+    }
+    await assembleIndex(deckDir, (deck.slides||[]).length);
+    const qa={deck:deckRel,generated_at:new Date().toISOString(),slides:(deck.slides||[]).map(s=>({slide_id:s.slide_id,title:s.title,qa:s.qa||{}})),summary:{total:(deck.slides||[]).length,pass:(deck.slides||[]).filter(s=>s.qa?.pass!==false).length,fail:(deck.slides||[]).filter(s=>s.qa?.pass===false).length}};
+    await fs.writeFile(path.join(deckDir,'qa-report.json'),JSON.stringify(qa,null,2),'utf8');
+    await log('assemble','ok',{slides:(deck.slides||[]).length,mode:'rebuild_all'});
+    return {ok:true,deck:deckRel,slideCount:(deck.slides||[]).length,mode:'rebuild_all'};
+  }
+
   const buyers=JSON.parse(await fs.readFile(path.join(ROOT,'dashboard/data/buyers.json'),'utf8'));
   const initiatives=JSON.parse(await fs.readFile(path.join(ROOT,'dashboard/data/initiatives.json'),'utf8'));
   const initiative=initiatives.find(i=>i.initiative_id===opts.initiative_id);
@@ -233,7 +247,8 @@ async function main(){
     image_provider:arg('image_provider','placeholder'),
     prompt:arg('prompt',''),
     deck_path:arg('deck_path',''),
-    rerender_slide:arg('rerender_slide','')
+    rerender_slide:arg('rerender_slide',''),
+    rebuild_all: String(arg('rebuild_all','false')) === 'true'
   };
   if(!opts.initiative_id && !opts.deck_path) throw new Error('initiative_id or deck_path required');
   const out=await runPipeline(opts);
