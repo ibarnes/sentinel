@@ -488,6 +488,56 @@ app.get('/dashboard/buyers', async (req, res) => {
     </div></div></div>` : ''}
     <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div></form>
     <div class="table-responsive"><table class="table table-sm"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Sectors</th></tr></thead><tbody>${filtered.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('')}</tbody></table></div>
+
+    ${canEdit ? `<div class="card mt-3"><div class="card-body">
+      <h6>Initiative Idea Builder (UOS-grounded)</h6>
+      <div class="row g-2">
+        <div class="col-md-4"><label class="form-label">Buyer</label><select id="ideaBuyer" class="form-select">${buyers.map(b=>`<option value="${escapeHtml(b.buyer_id)}">${escapeHtml(b.buyer_id)} — ${escapeHtml(b.name)}</option>`).join('')}</select></div>
+        <div class="col-md-6"><label class="form-label">Prompt (optional)</label><input id="ideaPrompt" class="form-control" placeholder="e.g., focus on West Africa, pre-FID, risk-compression" /></div>
+        <div class="col-md-2 d-flex align-items-end"><button id="genIdeasBtn" class="btn btn-primary w-100" type="button">Suggest Initiatives</button></div>
+      </div>
+      <div id="ideaResults" class="mt-3"></div>
+    </div></div>` : ''}
+  </div>
+  ${canEdit ? `<script>
+    async function createInitiative(payload){
+      const r = await fetch('/api/initiatives', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+      if(!r.ok){ const t=await r.text(); alert('Create failed: '+t); return; }
+      const j=await r.json();
+      window.location.href = '/dashboard/initiative/' + encodeURIComponent(j.initiative_id) + '?buyer_id=' + encodeURIComponent(payload.linked_buyers?.[0] || '');
+    }
+
+    document.getElementById('genIdeasBtn')?.addEventListener('click', async () => {
+      const buyer_id = document.getElementById('ideaBuyer').value;
+      const prompt = document.getElementById('ideaPrompt').value || '';
+      const r = await fetch('/api/initiatives/suggest', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ buyer_id, prompt, count: 5 })});
+      const box = document.getElementById('ideaResults');
+      if(!r.ok){ box.innerHTML = '<div class="text-danger">Suggestion failed.</div>'; return; }
+      const j = await r.json();
+      const ideas = j.ideas || [];
+      if(!ideas.length){ box.innerHTML = '<div class="text-muted">No suggestions.</div>'; return; }
+      box.innerHTML = ideas.map((x,i)=>`<div class="card mb-2"><div class="card-body">
+        <div class="d-flex justify-content-between align-items-center"><strong>${x.name}</strong><button class="btn btn-sm btn-success" data-idx="${i}">Use this</button></div>
+        <div class="small text-muted">Status: ${x.status}</div>
+        <div class="small">${x.macro_gravity_summary}</div>
+      </div></div>`).join('');
+      box.querySelectorAll('button[data-idx]').forEach(btn => btn.addEventListener('click', () => createInitiative(ideas[Number(btn.dataset.idx)])));
+    });
+  </script>` : ''}
+</body></html>`);
+});
+
+app.get('/dashboard/initiatives', async (_req, res) => {
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const byId = Object.fromEntries(buyers.map(b => [b.buyer_id, b.name]));
+  const sorted = [...initiatives].sort((a,b)=>String(a.initiative_id).localeCompare(String(b.initiative_id)));
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
+    ${dashboardNav('initiatives')}
+    <h3>Initiatives</h3>
+    <div class="table-responsive"><table class="table table-sm"><thead><tr><th>ID</th><th>Name</th><th>Status</th><th>Linked Buyers</th></tr></thead><tbody>
+      ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.status || '')}</td><td>${escapeHtml((i.linked_buyers || []).map(b=>byId[b]||b).join(', '))}</td></tr>`).join('') || '<tr><td colspan="4">No initiatives</td></tr>'}
+    </tbody></table></div>
   </div></body></html>`);
 });
 
@@ -1949,6 +1999,132 @@ app.post('/api/buyers', requireRole('architect','editor'), async (req, res) => {
   await writeJson(buyersPath, buyers);
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'task.create', entity_type: 'buyer', entity_id: buyer_id, meta: { name } });
   res.redirect('/dashboard/buyers');
+});
+
+app.post('/api/initiatives/suggest', requireRole('architect','editor'), async (req, res) => {
+  const buyer_id = String(req.body.buyer_id || '').trim().toUpperCase();
+  const prompt = String(req.body.prompt || '').trim();
+  const count = Math.min(10, Math.max(1, Number.parseInt(String(req.body.count || '5'), 10) || 5));
+
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const buyer = buyers.find((b) => String(b.buyer_id || '').toUpperCase() === buyer_id);
+  if (!buyer) return res.status(404).json({ error: 'buyer not found' });
+
+  const existing = new Set(initiatives.map((i) => String(i.name || '').toLowerCase()));
+
+  let uosText = '';
+  for (const key of ['execution-engine','canon','revenue-os']) {
+    const dir = path.join(CURRENT_ROOT, key);
+    if (!fssync.existsSync(dir)) continue;
+    const files = await fs.readdir(dir);
+    for (const f of files.filter((x)=>x.endsWith('.md')).slice(0, 8)) {
+      uosText += '\n' + await fs.readFile(path.join(dir,f), 'utf8').catch(()=> '');
+    }
+  }
+  const u = uosText.toLowerCase();
+  const flags = {
+    energy: /energy|power|grid/.test(u),
+    water: /water|desal|utility/.test(u),
+    digital: /digital|data|fiber|ai/.test(u),
+    housing: /housing|mortgage/.test(u),
+    governance: /governance|fid|pre-fid|risk/.test(u),
+  };
+
+  const sector = (buyer.sector_focus || [])[0] || 'Infrastructure';
+  const geo = (buyer.geo_focus || [])[0] || 'Regional';
+  const baseIdeas = [
+    `${geo} ${sector} Pre-FID Acceleration Platform`,
+    `${geo} Utility Reliability Corridor`,
+    `${geo} Capital Governance & Transparency Layer`,
+    `${geo} Cross-Border Infrastructure Activation Program`,
+    `${geo} Risk-Compressed Project Sequencing Framework`
+  ];
+  if (flags.energy && !baseIdeas.some(x=>/Energy/.test(x))) baseIdeas.unshift(`${geo} Energy Security Corridor`);
+  if (flags.water) baseIdeas.push(`${geo} Water Security Platform`);
+  if (flags.digital) baseIdeas.push(`${geo} Digital Infrastructure Backbone`);
+
+  const ideas = [];
+  let n = 1;
+  for (const name of baseIdeas) {
+    if (ideas.length >= count) break;
+    if (existing.has(name.toLowerCase())) continue;
+    const summary = [
+      `Structure initiative for ${buyer.name} mandate alignment.`,
+      `Focus on ${sector.toLowerCase()} deployment and pre-FID clarity.`,
+      flags.governance ? 'Embed governance gates and risk allocation early.' : 'Define decision gates and capital sequencing.'
+    ].join(' ');
+    ideas.push({
+      initiative_id: `INIT-${String(Date.now()).slice(-4)}${String(n).padStart(2,'0')}`,
+      name,
+      status: 'Pre-FID',
+      macro_gravity_summary: (prompt ? `${prompt}. ` : '') + summary,
+      linked_buyers: [buyer.buyer_id],
+      presentations: {
+        utc_internal: `presentations/PLACEHOLDER/decks/utc-internal/index.html`,
+        buyer_alignment: { [buyer.buyer_id]: `presentations/PLACEHOLDER/decks/buyer-alignment/${buyer.buyer_id}/index.html` }
+      }
+    });
+    n += 1;
+  }
+
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'workflow.run', entity_type: 'initiative_suggestion', entity_id: buyer_id, meta: { count: ideas.length } });
+  res.json({ buyer_id, ideas });
+});
+
+app.post('/api/initiatives', requireRole('architect','editor'), async (req, res) => {
+  const initiativesPath = path.join(ROOT, 'dashboard/data/initiatives.json');
+  const buyersPath = path.join(ROOT, 'dashboard/data/buyers.json');
+  const initiatives = await readJson(initiativesPath, []);
+  const buyers = await readJson(buyersPath, []);
+
+  const payload = req.body || {};
+  let initiative_id = String(payload.initiative_id || '').trim();
+  const name = String(payload.name || '').trim();
+  const status = String(payload.status || 'Pre-FID').trim();
+  const macro_gravity_summary = String(payload.macro_gravity_summary || '').trim();
+  const linked_buyers = Array.isArray(payload.linked_buyers) ? payload.linked_buyers : [payload.linked_buyers].filter(Boolean);
+  if (!name || linked_buyers.length === 0) return res.status(400).send('name and linked_buyers are required');
+
+  if (!initiative_id) {
+    const next = initiatives.reduce((m, x) => {
+      const mm = String(x.initiative_id || '').match(/^INIT-(\d+)/i);
+      return mm ? Math.max(m, Number(mm[1])) : m;
+    }, 0) + 1;
+    initiative_id = `INIT-${String(next).padStart(3, '0')}`;
+  }
+
+  if (initiatives.some((i) => String(i.initiative_id || '').toUpperCase() === initiative_id.toUpperCase())) {
+    return res.status(409).send('initiative_id already exists');
+  }
+
+  for (const b of linked_buyers) {
+    if (!buyers.some((x) => x.buyer_id === b)) return res.status(400).send(`unknown buyer: ${b}`);
+  }
+
+  const initiative = {
+    initiative_id,
+    name,
+    status,
+    macro_gravity_summary,
+    linked_buyers,
+    presentations: {
+      utc_internal: `presentations/${initiative_id}/decks/utc-internal/index.html`,
+      buyer_alignment: Object.fromEntries(linked_buyers.map((b) => [b, `presentations/${initiative_id}/decks/buyer-alignment/${b}/index.html`]))
+    }
+  };
+
+  initiatives.push(initiative);
+  await writeJson(initiativesPath, initiatives);
+
+  for (const b of buyers) {
+    if (!Array.isArray(b.initiatives)) b.initiatives = [];
+    if (linked_buyers.includes(b.buyer_id) && !b.initiatives.includes(initiative_id)) b.initiatives.push(initiative_id);
+  }
+  await writeJson(buyersPath, buyers);
+
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'task.create', entity_type: 'initiative', entity_id: initiative_id, meta: { name, linked_buyers } });
+  res.json(initiative);
 });
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {
