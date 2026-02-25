@@ -136,39 +136,61 @@ function firstSentence(s){
 
 function parsePromptSlides(prompt){
   const txt=String(prompt||'');
+
+  // Mode 1: explicit "SLIDE N"
   const rx=/SLIDE\s+(\d+)\s*[:.-]?/ig;
   const matches=[...txt.matchAll(rx)];
-  if(matches.length<2) return [];
-  const blocks=[];
-  for(let i=0;i<matches.length;i++){
-    const start=matches[i].index + matches[i][0].length;
-    const end=i+1<matches.length?matches[i+1].index:txt.length;
-    const body=txt.slice(start,end).trim();
-    if(!body) continue;
-    let title='Slide ' + matches[i][1];
-    let rest=body;
-    const sentenceMatch = body.match(/^\s*([^.!?]{3,120}[.!?])\s*(.*)$/s);
-    if (sentenceMatch) {
-      title = sentenceMatch[1].replace(/^[-•\d.\s]+/, '').trim().replace(/[.!?]$/,'');
-      rest = sentenceMatch[2].trim();
+  if(matches.length>=2){
+    const blocks=[];
+    for(let i=0;i<matches.length;i++){
+      const start=matches[i].index + matches[i][0].length;
+      const end=i+1<matches.length?matches[i+1].index:txt.length;
+      const body=txt.slice(start,end).trim();
+      if(!body) continue;
+      let title='Slide ' + matches[i][1];
+      let rest=body;
+      const sentenceMatch = body.match(/^\s*([^.!?]{3,120}[.!?])\s*(.*)$/s);
+      if (sentenceMatch) {
+        title = sentenceMatch[1].replace(/^[-•\d.\s)]+/, '').trim().replace(/[.!?]$/,'');
+        rest = sentenceMatch[2].trim();
+      }
+      let bullets=[];
+      if(/[•\-]/.test(rest)){
+        bullets=rest.split(/[•\n\-]+/).map(x=>x.trim()).filter(Boolean);
+      } else {
+        bullets=rest.split(/[.?!]+/).map(x=>x.trim()).filter(Boolean);
+      }
+      bullets=normalizeBullets(bullets);
+      if (bullets.length === 0) {
+        bullets = normalizeBullets([
+          `${title}.`,
+          'Define the structural bottleneck.',
+          'State the decision gate and owner.'
+        ]);
+      }
+      blocks.push({title, bullets});
     }
-    let bullets=[];
-    if(/[•\-]/.test(rest)){
-      bullets=rest.split(/[•\n\-]+/).map(x=>x.trim()).filter(Boolean);
-    } else {
-      bullets=rest.split(/[.?!]+/).map(x=>x.trim()).filter(Boolean);
-    }
-    bullets=normalizeBullets(bullets);
-    if (bullets.length === 0) {
-      bullets = normalizeBullets([
-        `${title}.`,
-        'Define the structural bottleneck.',
-        'State the decision gate and owner.'
-      ]);
-    }
-    blocks.push({title, bullets});
+    return blocks;
   }
-  return blocks;
+
+  // Mode 2: numbered lines (e.g., "1) ...", "2. ...")
+  const lines = txt.split(/\n+/).map(l=>l.trim()).filter(Boolean);
+  const numbered = lines.filter(l=>/^\d+\s*[\).:-]/.test(l));
+  if(numbered.length>=2){
+    return numbered.map((l,idx)=>{
+      const title = l.replace(/^\d+\s*[\).:-]\s*/,'').trim() || `Slide ${idx+1}`;
+      return {
+        title,
+        bullets: normalizeBullets([
+          `${title}.`,
+          'Define the structural bottleneck.',
+          'State the decision gate and owner.'
+        ])
+      };
+    });
+  }
+
+  return [];
 }
 
 async function main(){
