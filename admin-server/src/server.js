@@ -1347,7 +1347,7 @@ app.post('/auth/invite/:token', async (req, res) => {
 
 app.get('/board', requireAnyAuth, async (_req, res) => {
   const u = _req.session.user;
-  const canWrite = ['admin', 'editor'].includes(u.role);
+  const canWrite = ['architect', 'editor'].includes(u.role);
   res.type('html').send(`<!doctype html><html><head>${uiHead('Task Board')}</head><body>
   <div class="app-shell">
     <nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3">
@@ -1360,7 +1360,7 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
 
     <div class="d-flex flex-wrap gap-2 mb-3">
       ${canWrite ? '<button id="newTaskBtn" class="btn btn-primary">New Task</button>' : ''}
-      ${u.role === 'admin' ? '<button id="inviteBtn" class="btn btn-outline-primary">Create Invite Link</button>' : ''}
+      ${u.role === 'architect' ? '<button id="inviteBtn" class="btn btn-outline-primary">Create Invite Link</button>' : ''}
     </div>
 
     <div id="board" class="row g-3"></div>
