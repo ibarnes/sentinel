@@ -128,6 +128,42 @@ function renderTemplate(html, ctx){
   return out;
 }
 
+function firstSentence(s){
+  const t=String(s||'').trim();
+  const m=t.match(/(.+?[.!?])(\s|$)/);
+  return (m?m[1]:t).trim();
+}
+
+function parsePromptSlides(prompt){
+  const txt=String(prompt||'');
+  const rx=/SLIDE\s+(\d+)\s*[:.-]?/ig;
+  const matches=[...txt.matchAll(rx)];
+  if(matches.length<2) return [];
+  const blocks=[];
+  for(let i=0;i<matches.length;i++){
+    const start=matches[i].index + matches[i][0].length;
+    const end=i+1<matches.length?matches[i+1].index:txt.length;
+    const body=txt.slice(start,end).trim();
+    if(!body) continue;
+    let title='Slide ' + matches[i][1];
+    let rest=body;
+    const sentenceMatch = body.match(/^\s*([^.!?]{3,120}[.!?])\s*(.*)$/s);
+    if (sentenceMatch) {
+      title = sentenceMatch[1].replace(/^[-•\d.\s]+/, '').trim().replace(/[.!?]$/,'');
+      rest = sentenceMatch[2].trim();
+    }
+    let bullets=[];
+    if(/[•\-]/.test(rest)){
+      bullets=rest.split(/[•\n\-]+/).map(x=>x.trim()).filter(Boolean);
+    } else {
+      bullets=rest.split(/[.?!]+/).map(x=>x.trim()).filter(Boolean);
+    }
+    bullets=normalizeBullets(bullets);
+    blocks.push({title, bullets});
+  }
+  return blocks;
+}
+
 async function main(){
   const buyer_id = arg('buyer_id');
   const initiative_id = arg('initiative_id');
@@ -156,7 +192,9 @@ async function main(){
   const deckAbs = path.join(ROOT, deckRel);
   const slidesDir = path.join(deckAbs,'slides');
   const assetsDir = path.join(deckAbs,'assets');
-  await fs.mkdir(slidesDir,{recursive:true}); await fs.mkdir(assetsDir,{recursive:true});
+  await fs.rm(slidesDir, { recursive:true, force:true });
+  await fs.mkdir(slidesDir,{recursive:true});
+  await fs.mkdir(assetsDir,{recursive:true});
 
   const promptLine = prompt ? `Operator intent: ${prompt}` : '';
   const generatedHint = auto_generate ? 'Auto-generated draft from initiative and buyer context.' : 'Prompt-guided draft.';
@@ -187,16 +225,27 @@ async function main(){
     generatedHint
   ]);
 
-  const titleSubtitle = await applyReadability(prompt || 'Pressure to initiative alignment for execution discipline.', copy_provider);
+  const parsedPromptSlides = parsePromptSlides(prompt);
+  const concisePrompt = firstSentence(prompt || 'Pressure to initiative alignment for execution discipline.').slice(0, 140);
+  const titleSubtitle = await applyReadability(concisePrompt, copy_provider);
   const closeSubtitle = await applyReadability('Next action is controlled initiation, not persuasion.', copy_provider);
 
-  const slides = [
-    {layout:'title', kicker:'Structural Proof', title:initiative.name, subtitle:titleSubtitle, footer:`${initiative_id} • ${deck_type}`},
-    {layout:'section', kicker:'Structural Inevitability', title:'Gravity', bullets:baseBullets, footer:'No hype. Mechanical logic only.'},
-    {layout:'proof', title:'Mandate Mirror', bullets:mirrorBullets, footer:`Buyer: ${buyer?.name||'Internal'}`},
-    {layout:'diagram', title:'Controlled Activation', image:'../assets/img-001.png', footer:'Capital sequencing and governance gates'},
-    {layout:'close', title:'If aligned, Gate 1 starts here.', subtitle:closeSubtitle, footer:'Sentinel Presentation Engine v1'}
-  ];
+  let slides = [];
+  if (parsedPromptSlides.length >= 2) {
+    slides.push({layout:'title', kicker:'Structural Proof', title:initiative.name, subtitle:titleSubtitle, footer:`${initiative_id} • ${deck_type}`});
+    for (const blk of parsedPromptSlides.slice(0, 20)) {
+      slides.push({layout:'section', kicker:'Structural Proof', title:blk.title, bullets:blk.bullets, footer:`${initiative_id} • ${deck_type}`});
+    }
+    slides.push({layout:'close', title:'If aligned, Gate 1 starts here.', subtitle:closeSubtitle, footer:'Sentinel Presentation Engine v1'});
+  } else {
+    slides = [
+      {layout:'title', kicker:'Structural Proof', title:initiative.name, subtitle:titleSubtitle, footer:`${initiative_id} • ${deck_type}`},
+      {layout:'section', kicker:'Structural Inevitability', title:'Gravity', bullets:baseBullets, footer:'No hype. Mechanical logic only.'},
+      {layout:'proof', title:'Mandate Mirror', bullets:mirrorBullets, footer:`Buyer: ${buyer?.name||'Internal'}`},
+      {layout:'diagram', title:'Controlled Activation', image:'../assets/img-001.png', footer:'Capital sequencing and governance gates'},
+      {layout:'close', title:'If aligned, Gate 1 starts here.', subtitle:closeSubtitle, footer:'Sentinel Presentation Engine v1'}
+    ];
+  }
 
   const images = [{id:'img-001', provider:image_provider, prompt:'Minimal infographic, sovereign capital, governance bottleneck, clean lines, no text', size:'1024x1024', output:`${deckRel}/assets/img-001.png`}];
 
