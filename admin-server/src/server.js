@@ -128,9 +128,44 @@ app.use('/dashboard', (req, res, next) => {
   }
   return next();
 });
+
+app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
+  let state = null;
+  try {
+    state = JSON.parse(await fs.readFile(DASHBOARD_STATE_FILE, 'utf8'));
+  } catch {}
+  const updated = Array.isArray(state?.updatedDocs) ? state.updatedDocs.join(', ') : 'N/A';
+  res.type('html').send(`<!doctype html>
+<html><head><meta charset="utf-8"/><title>Dashboard (Read-Only)</title>
+<style>
+body{font-family:sans-serif;max-width:860px;margin:28px auto;padding:0 14px;line-height:1.4}
+.card{border:1px solid #ddd;border-radius:12px;padding:16px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn-primary{background:#2563eb;color:#fff}
+.btn-secondary{background:#f3f4f6;color:#111}
+.muted{color:#555}
+code{background:#f6f8fa;padding:2px 6px;border-radius:6px}
+</style></head><body>
+  <div class="card">
+    <h2>Dashboard (Read-Only)</h2>
+    <p><strong>Last updated:</strong> ${escapeHtml(state?.lastUpdated || 'N/A')}</p>
+    <p><strong>Updated docs:</strong> ${escapeHtml(updated)}</p>
+    <p><strong>Archive batch:</strong> <code>${escapeHtml(state?.latestArchiveBatch || 'N/A')}</code></p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/">Open Main App</a>
+      <a class="btn btn-secondary" href="/dashboard/state/state.json">View state.json</a>
+      <a class="btn btn-secondary" href="/dashboard/state/changelog.md">View changelog</a>
+    </div>
+    <p class="muted">This route is intentionally read-only.</p>
+  </div>
+</body></html>`);
+});
+
 app.use('/dashboard', express.static(path.join(ROOT, 'dashboard'), {
   index: false,
-  fallthrough: false,
+  fallthrough: true,
+  redirect: false,
   setHeaders(res) {
     res.setHeader('Cache-Control', 'no-store');
   }
