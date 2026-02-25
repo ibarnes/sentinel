@@ -194,19 +194,93 @@ app.post('/admin/logout', requireAuth, async (req, res) => {
 app.get('/admin/upload', requireAuth, (_req, res) => {
   res.type('html').send(`<!doctype html>
 <html><head><meta charset="utf-8"/><title>UOS Upload</title>
-<style>body{font-family:sans-serif;max-width:800px;margin:30px auto;padding:0 16px}label{display:block;margin:14px 0 6px}input,button{font-size:16px}button{padding:8px 12px;margin-top:14px}.card{border:1px solid #ddd;padding:16px;border-radius:10px}</style></head>
+<style>
+body{font-family:sans-serif;max-width:980px;margin:30px auto;padding:0 16px}
+label{display:block;margin:10px 0 6px;font-weight:600}
+input,button{font-size:16px}
+button{padding:8px 12px;margin-top:14px}
+.card{border:1px solid #ddd;padding:16px;border-radius:10px}
+.grid{display:grid;grid-template-columns:1fr;gap:12px}
+.zone{border:2px dashed #bbb;border-radius:10px;padding:14px;background:#fafafa}
+.zone.dragover{border-color:#2b6cb0;background:#edf2f7}
+.muted{color:#555;font-size:14px}
+.counter{display:inline-block;padding:2px 8px;border-radius:999px;background:#eef2ff;font-size:12px;margin-left:8px}
+.small{font-size:13px;color:#444;margin-top:6px;max-height:90px;overflow:auto}
+</style></head>
 <body>
 <h1>UOS Admin Upload</h1>
 <div class="card">
   <p>Upload multiple docs per category (.md, .txt, .pdf, .docx), max 20MB each file.</p>
-  <form method="post" action="/admin/upload" enctype="multipart/form-data">
-    <label>Execution Engine</label><input type="file" name="executionEngine" multiple required />
-    <label>Canon</label><input type="file" name="canon" multiple required />
-    <label>Revenue OS</label><input type="file" name="revenueOS" multiple required />
+  <form id="uploadForm" method="post" action="/admin/upload" enctype="multipart/form-data">
+    <div class="grid">
+      <div class="zone" data-input="executionEngine">
+        <label>Execution Engine <span class="counter" id="executionEngineCount">0 files</span></label>
+        <input type="file" id="executionEngine" name="executionEngine" multiple required />
+        <div class="muted">Drag & drop files here or use file picker.</div>
+        <div class="small" id="executionEngineList"></div>
+      </div>
+
+      <div class="zone" data-input="canon">
+        <label>Canon <span class="counter" id="canonCount">0 files</span></label>
+        <input type="file" id="canon" name="canon" multiple required />
+        <div class="muted">Drag & drop files here or use file picker.</div>
+        <div class="small" id="canonList"></div>
+      </div>
+
+      <div class="zone" data-input="revenueOS">
+        <label>Revenue OS <span class="counter" id="revenueOSCount">0 files</span></label>
+        <input type="file" id="revenueOS" name="revenueOS" multiple required />
+        <div class="muted">Drag & drop files here or use file picker.</div>
+        <div class="small" id="revenueOSList"></div>
+      </div>
+    </div>
+
     <button type="submit">Upload + Rebuild Dashboard State</button>
   </form>
   <form method="post" action="/admin/logout"><button type="submit">Logout</button></form>
 </div>
+
+<script>
+const allowed = new Set(['.md','.txt','.pdf','.docx']);
+const maxBytes = 20 * 1024 * 1024;
+
+function ext(name){ const i=name.lastIndexOf('.'); return i>=0 ? name.slice(i).toLowerCase() : ''; }
+
+function render(inputId){
+  const input = document.getElementById(inputId);
+  const count = document.getElementById(inputId + 'Count');
+  const list = document.getElementById(inputId + 'List');
+  const files = Array.from(input.files || []);
+  count.textContent = files.length + (files.length === 1 ? ' file' : ' files');
+  list.innerHTML = files.slice(0, 12).map(f => {
+    const badType = !allowed.has(ext(f.name));
+    const badSize = f.size > maxBytes;
+    const flags = [badType ? 'bad type' : '', badSize ? 'too large' : ''].filter(Boolean).join(', ');
+    return '<div>' + f.name + (flags ? ' ⚠️ ' + flags : '') + '</div>';
+  }).join('') || '<em>No files selected</em>';
+}
+
+function mergeFiles(input, droppedFiles){
+  const dt = new DataTransfer();
+  Array.from(input.files || []).forEach(f => dt.items.add(f));
+  Array.from(droppedFiles || []).forEach(f => dt.items.add(f));
+  input.files = dt.files;
+  render(input.id);
+}
+
+['executionEngine','canon','revenueOS'].forEach(id => {
+  const input = document.getElementById(id);
+  input.addEventListener('change', () => render(id));
+  render(id);
+
+  const zone = document.querySelector('.zone[data-input="' + id + '"]');
+  ['dragenter','dragover'].forEach(evt => zone.addEventListener(evt, (e) => { e.preventDefault(); zone.classList.add('dragover'); }));
+  ['dragleave','drop'].forEach(evt => zone.addEventListener(evt, (e) => { e.preventDefault(); zone.classList.remove('dragover'); }));
+  zone.addEventListener('drop', (e) => {
+    mergeFiles(input, e.dataTransfer.files);
+  });
+});
+</script>
 </body></html>`);
 });
 
