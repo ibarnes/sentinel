@@ -15,12 +15,13 @@
 
 ### Admin upload
 - `GET /admin/upload`
-- `POST /admin/upload` accepts exactly 3 fields in one form:
-  - `executionEngine`
-  - `canon`
-  - `revenueOS`
+- `POST /admin/upload` accepts exactly 3 categories in one form:
+  - `executionEngine` (multiple files)
+  - `canon` (multiple files)
+  - `revenueOS` (multiple files)
+- Each category requires at least one file
 - Accepted file extensions: `.md`, `.txt`, `.pdf`, `.docx`
-- File size limit: 20MB each
+- File size limit: 20MB per file
 
 ### Storage + versioning
 On successful upload:
@@ -97,7 +98,7 @@ See: `admin-server/deploy/uos-admin.service`
 1. Open `/admin/login`
 2. Login with admin password
 3. Open `/admin/upload`
-4. Upload all 3 docs in one submit
+4. Upload all 3 categories in one submit (one or many files per category)
 5. Verify:
    - `workspace/uos/current/*.md` updated
    - `workspace/uos/archive/<timestamp>/` contains originals + normalized markdown

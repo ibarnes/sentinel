@@ -28,6 +28,7 @@ const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions
 const REQUIRED_FIELDS = ['executionEngine', 'canon', 'revenueOS'];
 const ALLOWED_EXTENSIONS = new Set(['.md', '.txt', '.pdf', '.docx']);
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
+const MAX_FILES_PER_CATEGORY = 100;
 
 const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || '';
 const ADMIN_SESSION_SECRET = process.env.ADMIN_SESSION_SECRET || '';
@@ -197,11 +198,11 @@ app.get('/admin/upload', requireAuth, (_req, res) => {
 <body>
 <h1>UOS Admin Upload</h1>
 <div class="card">
-  <p>Upload exactly 3 docs (.md, .txt, .pdf, .docx), max 20MB each.</p>
+  <p>Upload multiple docs per category (.md, .txt, .pdf, .docx), max 20MB each file.</p>
   <form method="post" action="/admin/upload" enctype="multipart/form-data">
-    <label>Execution Engine</label><input type="file" name="executionEngine" required />
-    <label>Canon</label><input type="file" name="canon" required />
-    <label>Revenue OS</label><input type="file" name="revenueOS" required />
+    <label>Execution Engine</label><input type="file" name="executionEngine" multiple required />
+    <label>Canon</label><input type="file" name="canon" multiple required />
+    <label>Revenue OS</label><input type="file" name="revenueOS" multiple required />
     <button type="submit">Upload + Rebuild Dashboard State</button>
   </form>
   <form method="post" action="/admin/logout"><button type="submit">Logout</button></form>
@@ -213,28 +214,30 @@ app.post(
   '/admin/upload',
   requireAuth,
   upload.fields([
-    { name: 'executionEngine', maxCount: 1 },
-    { name: 'canon', maxCount: 1 },
-    { name: 'revenueOS', maxCount: 1 },
+    { name: 'executionEngine', maxCount: MAX_FILES_PER_CATEGORY },
+    { name: 'canon', maxCount: MAX_FILES_PER_CATEGORY },
+    { name: 'revenueOS', maxCount: MAX_FILES_PER_CATEGORY },
   ]),
   async (req, res) => {
     try {
       const files = req.files || {};
       for (const field of REQUIRED_FIELDS) {
-        if (!files[field] || !files[field][0]) {
-          return res.status(400).send(`Missing required file: ${field}`);
+        if (!files[field] || files[field].length === 0) {
+          return res.status(400).send(`Missing required file(s): ${field}`);
         }
       }
 
-      const uploads = REQUIRED_FIELDS.map((field) => ({ field, file: files[field][0] }));
+      const uploads = REQUIRED_FIELDS.flatMap((field) =>
+        (files[field] || []).map((file, idx) => ({ field, file, idx }))
+      );
 
       for (const { field, file } of uploads) {
         if (file.size > MAX_FILE_SIZE) {
-          return res.status(400).send(`${field} exceeds max size 20MB`);
+          return res.status(400).send(`${field} file ${file.originalname} exceeds max size 20MB`);
         }
         const extension = ext(file.originalname);
         if (!ALLOWED_EXTENSIONS.has(extension)) {
-          return res.status(400).send(`${field} invalid type: ${extension}`);
+          return res.status(400).send(`${field} invalid type: ${extension} (${file.originalname})`);
         }
       }
 
@@ -247,23 +250,31 @@ app.post(
       await fs.mkdir(inboxDir, { recursive: true });
       await fs.mkdir(archiveDir, { recursive: true });
 
+      for (const field of REQUIRED_FIELDS) {
+        const key = fieldNameToCanonical(field);
+        const currentCategoryDir = path.join(CURRENT_ROOT, key);
+        await fs.rm(currentCategoryDir, { recursive: true, force: true });
+        await fs.mkdir(currentCategoryDir, { recursive: true });
+      }
+
       const updates = [];
 
-      for (const { field, file } of uploads) {
+      for (const { field, file, idx } of uploads) {
         const originalName = safeName(file.originalname);
         const fieldPrefix = fieldNameToCanonical(field);
         const extension = ext(originalName);
+        const fileStem = `${String(idx + 1).padStart(3, '0')}-${safeName(base(originalName))}`;
 
-        const inboxPath = path.join(inboxDir, `${fieldPrefix}__${originalName}`);
-        const archiveOriginalPath = path.join(archiveDir, `${fieldPrefix}__${originalName}`);
+        const inboxPath = path.join(inboxDir, `${fieldPrefix}__${fileStem}${extension}`);
+        const archiveOriginalPath = path.join(archiveDir, `${fieldPrefix}__${fileStem}${extension}`);
 
         await fs.writeFile(inboxPath, file.buffer);
         await fs.writeFile(archiveOriginalPath, file.buffer);
 
         const normalizedMarkdown = await normalizeToMarkdown(fieldPrefix, originalName, file.buffer);
 
-        const currentPath = path.join(CURRENT_ROOT, `${fieldPrefix}.md`);
-        const archiveNormalizedPath = path.join(archiveDir, `${fieldPrefix}.md`);
+        const currentPath = path.join(CURRENT_ROOT, fieldPrefix, `${fileStem}.md`);
+        const archiveNormalizedPath = path.join(archiveDir, `${fieldPrefix}__${fileStem}.md`);
 
         await fs.writeFile(currentPath, normalizedMarkdown, 'utf8');
         await fs.writeFile(archiveNormalizedPath, normalizedMarkdown, 'utf8');
@@ -282,12 +293,12 @@ app.post(
 
       await rebuildUosIndex(updates, stamp);
       await rebuildDashboardState(updates, stamp);
-      await appendAdminLog(`UPLOAD_SUCCESS files=${updates.map((u) => u.originalName).join(',')} archive=${rel(archiveDir)}`);
+      await appendAdminLog(`UPLOAD_SUCCESS count=${updates.length} files=${updates.map((u) => u.originalName).join(',')} archive=${rel(archiveDir)}`);
 
       res.type('html').send(`<!doctype html><html><body>
       <h2>Upload complete</h2>
       <p>State rebuilt and snapshot written.</p>
-      <pre>${escapeHtml(JSON.stringify({ updated: updates.map((u) => u.key), archiveDir: rel(archiveDir), at: nowIso() }, null, 2))}</pre>
+      <pre>${escapeHtml(JSON.stringify({ updatedCategories: [...new Set(updates.map((u) => u.key))], totalFiles: updates.length, archiveDir: rel(archiveDir), at: nowIso() }, null, 2))}</pre>
       <a href="/admin/upload">Upload again</a>
       </body></html>`);
     } catch (err) {
@@ -340,6 +351,7 @@ function titleFromPrefix(prefix) {
 }
 
 async function rebuildUosIndex(updates, stamp) {
+  const grouped = groupByCategory(updates);
   const lines = [];
   lines.push('# UOS Index');
   lines.push('');
@@ -348,30 +360,41 @@ async function rebuildUosIndex(updates, stamp) {
   lines.push('');
   lines.push('## Current Documents');
   lines.push('');
-  for (const u of updates) {
-    lines.push(`- **${titleFromPrefix(u.key)}**`);
-    lines.push(`  - Current: \`${u.currentPath}\``);
-    lines.push(`  - Inbox copy: \`${u.inboxPath}\``);
-    lines.push(`  - Archive original: \`${u.archiveOriginalPath}\``);
-    lines.push(`  - Archive normalized: \`${u.archiveNormalizedPath}\``);
-    lines.push(`  - Uploaded file: ${u.originalName}`);
+
+  for (const [key, items] of Object.entries(grouped)) {
+    lines.push(`### ${titleFromPrefix(key)}`);
+    lines.push(`- Current folder: \`${rel(path.join(CURRENT_ROOT, key))}\``);
+    lines.push(`- Files updated: ${items.length}`);
+    for (const u of items) {
+      lines.push(`  - Uploaded file: ${u.originalName}`);
+      lines.push(`    - Current: \`${u.currentPath}\``);
+      lines.push(`    - Inbox copy: \`${u.inboxPath}\``);
+      lines.push(`    - Archive original: \`${u.archiveOriginalPath}\``);
+      lines.push(`    - Archive normalized: \`${u.archiveNormalizedPath}\``);
+    }
+    lines.push('');
   }
-  lines.push('');
+
   await fs.writeFile(UOS_INDEX, lines.join('\n'), 'utf8');
 }
 
 async function rebuildDashboardState(updates, stamp) {
+  const grouped = groupByCategory(updates);
   const state = {
     schemaVersion: 1,
     lastUpdated: nowIso(),
-    updatedDocs: updates.map((u) => titleFromPrefix(u.key)),
+    updatedDocs: Object.keys(grouped).map((k) => titleFromPrefix(k)),
     uosCurrent: Object.fromEntries(
-      updates.map((u) => [u.key, {
-        title: titleFromPrefix(u.key),
-        currentPath: u.currentPath,
-        sourceUpload: u.originalName,
-        archiveOriginalPath: u.archiveOriginalPath,
-        archiveNormalizedPath: u.archiveNormalizedPath,
+      Object.entries(grouped).map(([key, items]) => [key, {
+        title: titleFromPrefix(key),
+        currentDir: rel(path.join(CURRENT_ROOT, key)),
+        fileCount: items.length,
+        files: items.map((u) => ({
+          currentPath: u.currentPath,
+          sourceUpload: u.originalName,
+          archiveOriginalPath: u.archiveOriginalPath,
+          archiveNormalizedPath: u.archiveNormalizedPath,
+        })),
       }])
     ),
     latestArchiveBatch: rel(path.join(ARCHIVE_ROOT, stamp)),
@@ -394,6 +417,15 @@ async function rebuildDashboardState(updates, stamp) {
     await fs.writeFile(DASHBOARD_CHANGELOG, '# Dashboard State Changelog\n\n', 'utf8');
   }
   await fs.appendFile(DASHBOARD_CHANGELOG, change, 'utf8');
+}
+
+function groupByCategory(updates) {
+  const out = {};
+  for (const u of updates) {
+    if (!out[u.key]) out[u.key] = [];
+    out[u.key].push(u);
+  }
+  return out;
 }
 
 async function appendAdminLog(message) {

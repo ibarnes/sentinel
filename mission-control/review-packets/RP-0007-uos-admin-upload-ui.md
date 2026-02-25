@@ -4,7 +4,7 @@
 Password-Protected Admin Upload UI (Execution Engine, Canon, Revenue OS)
 
 ## Summary
-Implemented a local admin service scaffold (Node/Express) behind nginx for secure upload and processing of exactly three UOS doctrine files. The flow now supports password login, session cookies, file validation, normalization, archive/versioning, state rebuild, snapshots, changelog updates, and admin action logging.
+Implemented a local admin service scaffold (Node/Express) behind nginx for secure upload and processing of three UOS doctrine categories with multiple files per category. The flow now supports password login, session cookies, file validation, normalization, archive/versioning, state rebuild, snapshots, changelog updates, and admin action logging.
 
 ## Deliverable Paths
 - Backend service:
@@ -26,7 +26,7 @@ Implemented a local admin service scaffold (Node/Express) behind nginx for secur
 - `/admin/login` password auth: ✅
 - Password hash via env var (no plaintext): ✅
 - HttpOnly session cookie with expiry: ✅
-- `/admin/upload` with exactly 3 docs: ✅
+- `/admin/upload` with exactly 3 categories (multi-file per category): ✅
 - Type + size validation: ✅
 - Inbox/current/archive/versioning: ✅
 - UOS index rebuild: ✅
