@@ -597,11 +597,11 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
     async function saveSlide(regenImage){
       if(!lastDeckRoot || !selectedSlide) return;
       const payload = {
-        deck: lastDeckRoot.replace(/^\//,''),
+        deck: lastDeckRoot.replace(/^\\//,''),
         slide_id: selectedSlide,
         layout: document.getElementById('editLayout').value,
         title: document.getElementById('editTitle').value,
-        bullets: document.getElementById('editBullets').value.split('\n').map(x=>x.trim()).filter(Boolean),
+        bullets: document.getElementById('editBullets').value.split('\\n').map(x=>x.trim()).filter(Boolean),
         image_prompt: document.getElementById('editImagePrompt').value,
         regen_image: !!regenImage
       };
