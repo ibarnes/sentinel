@@ -392,12 +392,27 @@ app.post(
       await rebuildDashboardState(updates, stamp);
       await appendAdminLog(`UPLOAD_SUCCESS count=${updates.length} files=${updates.map((u) => u.originalName).join(',')} archive=${rel(archiveDir)}`);
 
-      res.type('html').send(`<!doctype html><html><body>
-      <h2>Upload complete</h2>
-      <p>State rebuilt and snapshot written.</p>
-      <pre>${escapeHtml(JSON.stringify({ updatedCategories: [...new Set(updates.map((u) => u.key))], totalFiles: updates.length, archiveDir: rel(archiveDir), at: nowIso() }, null, 2))}</pre>
-      <a href="/admin/upload">Upload again</a>
-      </body></html>`);
+      res.type('html').send(`<!doctype html>
+<html><head><meta charset="utf-8"/><title>Upload Complete</title>
+<style>
+body{font-family:sans-serif;max-width:760px;margin:28px auto;padding:0 14px;line-height:1.4}
+.card{border:1px solid #ddd;border-radius:12px;padding:16px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn-primary{background:#2563eb;color:#fff}
+.btn-secondary{background:#f3f4f6;color:#111}
+pre{background:#f8fafc;border:1px solid #e5e7eb;padding:10px;border-radius:8px;overflow:auto}
+</style></head><body>
+  <div class="card">
+    <h2>Upload complete</h2>
+    <p>State rebuilt and snapshot written.</p>
+    <pre>${escapeHtml(JSON.stringify({ updatedCategories: [...new Set(updates.map((u) => u.key))], totalFiles: updates.length, archiveDir: rel(archiveDir), at: nowIso() }, null, 2))}</pre>
+    <div class="actions">
+      <a class="btn btn-primary" href="/dashboard/">View Dashboard</a>
+      <a class="btn btn-secondary" href="/admin/upload">Upload Another Batch</a>
+    </div>
+  </div>
+</body></html>`);
     } catch (err) {
       await appendAdminLog(`UPLOAD_ERROR error=${String(err?.message || err)}`);
       res.status(500).send(`Upload failed: ${err.message || err}`);
