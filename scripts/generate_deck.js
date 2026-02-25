@@ -146,7 +146,6 @@ function parsePromptSlides(prompt){
       const start=matches[i].index + matches[i][0].length;
       const end=i+1<matches.length?matches[i+1].index:txt.length;
       const body=txt.slice(start,end).trim();
-      if(!body) continue;
 
       // Title extraction priority:
       // 1) text before first bullet marker
@@ -156,7 +155,7 @@ function parsePromptSlides(prompt){
 
       const bulletIdx = body.search(/[•\n]/);
       if (bulletIdx > 0) {
-        const candidate = body.slice(0, bulletIdx).trim().replace(/^[-•\d.\s)]+/, '').replace(/[.:-]+$/,'').trim();
+        const candidate = body.slice(0, bulletIdx).trim().replace(/^[-•\d.\s)]+/, '').replace(/^title\s*:\s*/i,'').replace(/[.:-]+$/,'').trim();
         if (candidate && candidate.length <= 120) {
           title = candidate;
           rest = body.slice(bulletIdx).trim();
@@ -164,7 +163,7 @@ function parsePromptSlides(prompt){
       } else {
         const sentenceMatch = body.match(/^\s*([^.!?]{3,120}[.!?])\s*(.*)$/s);
         if (sentenceMatch) {
-          title = sentenceMatch[1].replace(/^[-•\d.\s)]+/, '').trim().replace(/[.!?]$/,'');
+          title = sentenceMatch[1].replace(/^[-•\d.\s)]+/, '').replace(/^title\s*:\s*/i,'').trim().replace(/[.!?]$/,'');
           rest = sentenceMatch[2].trim();
         }
       }
