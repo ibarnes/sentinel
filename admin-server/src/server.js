@@ -358,14 +358,42 @@ app.get('/dashboard/activity', async (req, res) => {
   </div></body></html>`);
 });
 
-app.get('/dashboard/review', async (_req, res) => {
-  const rps = await listReviewPackets(200);
+app.get('/dashboard/review', async (req, res) => {
+  const page = Math.max(1, Number.parseInt(String(req.query.page || '1'), 10) || 1);
+  const pageSizeRaw = Number.parseInt(String(req.query.pageSize || '25'), 10) || 25;
+  const pageSize = Math.min(100, Math.max(10, pageSizeRaw));
+
+  const all = await listReviewPackets(5000);
+  const total = all.length;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const safePage = Math.min(page, totalPages);
+  const start = (safePage - 1) * pageSize;
+  const end = start + pageSize;
+  const rps = all.slice(start, end);
+
+  const qp = (p) => `/dashboard/review?page=${p}&pageSize=${pageSize}`;
+
   res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard Review Packets')}</head><body><div class="app-shell">
     ${dashboardNav('review')}
-    <h3>Review Packets</h3>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h3 class="mb-0">Review Packets</h3>
+      <div class="small text-muted">Total: ${total} • Page ${safePage}/${totalPages}</div>
+    </div>
     <div class="table-responsive"><table class="table table-sm"><thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th></tr></thead><tbody>
       ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td>${escapeHtml(r.title||'')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td></tr>`).join('')) || '<tr><td colspan="7">No review packets</td></tr>'}
     </tbody></table></div>
+
+    <div class="d-flex flex-wrap gap-2 align-items-center mt-2">
+      <a class="btn btn-sm btn-outline-secondary ${safePage <= 1 ? 'disabled' : ''}" href="${safePage <= 1 ? '#' : qp(1)}">« First</a>
+      <a class="btn btn-sm btn-outline-secondary ${safePage <= 1 ? 'disabled' : ''}" href="${safePage <= 1 ? '#' : qp(safePage - 1)}">‹ Prev</a>
+      <a class="btn btn-sm btn-outline-secondary ${safePage >= totalPages ? 'disabled' : ''}" href="${safePage >= totalPages ? '#' : qp(safePage + 1)}">Next ›</a>
+      <a class="btn btn-sm btn-outline-secondary ${safePage >= totalPages ? 'disabled' : ''}" href="${safePage >= totalPages ? '#' : qp(totalPages)}">Last »</a>
+      <form class="d-flex gap-2 ms-auto" method="get" action="/dashboard/review">
+        <input type="hidden" name="pageSize" value="${pageSize}" />
+        <input class="form-control form-control-sm" style="width:90px" type="number" min="1" max="${totalPages}" name="page" value="${safePage}" />
+        <button class="btn btn-sm btn-primary" type="submit">Go</button>
+      </form>
+    </div>
   </div></body></html>`);
 });
 
