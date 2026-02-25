@@ -1,0 +1,409 @@
+import express from 'express';
+import session from 'express-session';
+import multer from 'multer';
+import fs from 'fs/promises';
+import fssync from 'fs';
+import path from 'path';
+import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
+import pdfParse from 'pdf-parse';
+import mammoth from 'mammoth';
+
+const app = express();
+
+const ROOT = path.resolve('/home/ec2-user/.openclaw/workspace');
+const UOS_ROOT = path.join(ROOT, 'workspace', 'uos');
+const INBOX_ROOT = path.join(UOS_ROOT, 'inbox');
+const CURRENT_ROOT = path.join(UOS_ROOT, 'current');
+const ARCHIVE_ROOT = path.join(UOS_ROOT, 'archive');
+const UOS_INDEX = path.join(UOS_ROOT, 'UOS_INDEX.md');
+
+const DASHBOARD_STATE_FILE = path.join(ROOT, 'dashboard', 'state', 'state.json');
+const DASHBOARD_CHANGELOG = path.join(ROOT, 'dashboard', 'state', 'changelog.md');
+const DASHBOARD_SNAPSHOTS = path.join(ROOT, 'dashboard', 'snapshots');
+
+const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
+
+const REQUIRED_FIELDS = ['executionEngine', 'canon', 'revenueOS'];
+const ALLOWED_EXTENSIONS = new Set(['.md', '.txt', '.pdf', '.docx']);
+const MAX_FILE_SIZE = 20 * 1024 * 1024;
+
+const ADMIN_PASSWORD_HASH = process.env.ADMIN_PASSWORD_HASH || '';
+const ADMIN_SESSION_SECRET = process.env.ADMIN_SESSION_SECRET || '';
+const ADMIN_COOKIE_SECURE = String(process.env.ADMIN_COOKIE_SECURE || 'true') === 'true';
+const ADMIN_PORT = Number(process.env.ADMIN_PORT || '4180');
+const ADMIN_HOST = process.env.ADMIN_HOST || '127.0.0.1';
+
+if (!ADMIN_PASSWORD_HASH || !ADMIN_SESSION_SECRET) {
+  console.error('Missing ADMIN_PASSWORD_HASH or ADMIN_SESSION_SECRET env var. Ref: admin-server/.env.example');
+  process.exit(1);
+}
+
+async function ensureDirs() {
+  const dirs = [
+    INBOX_ROOT,
+    CURRENT_ROOT,
+    ARCHIVE_ROOT,
+    path.dirname(DASHBOARD_STATE_FILE),
+    DASHBOARD_SNAPSHOTS,
+    ADMIN_LOG_ROOT
+  ];
+  await Promise.all(dirs.map((d) => fs.mkdir(d, { recursive: true })));
+}
+
+function nowIso() {
+  return new Date().toISOString();
+}
+
+function dateOnly() {
+  return nowIso().slice(0, 10);
+}
+
+function tsForPath() {
+  return nowIso().replace(/[:.]/g, '-');
+}
+
+function safeName(name) {
+  return (name || 'file').replace(/[^a-zA-Z0-9._-]/g, '_');
+}
+
+function ext(name) {
+  return path.extname(name || '').toLowerCase();
+}
+
+function base(name) {
+  return path.basename(name || '', path.extname(name || ''));
+}
+
+function requireAuth(req, res, next) {
+  if (req.session?.authenticated) return next();
+  return res.redirect('/admin/login');
+}
+
+const loginAttempts = new Map(); // ip -> { count, firstTs }
+const MAX_LOGIN_ATTEMPTS = 7;
+const ATTEMPT_WINDOW_MS = 15 * 60 * 1000;
+
+function loginRateLimit(req, res, next) {
+  const ip = req.ip || 'unknown';
+  const now = Date.now();
+  const row = loginAttempts.get(ip);
+
+  if (!row) {
+    loginAttempts.set(ip, { count: 1, firstTs: now });
+    return next();
+  }
+
+  if (now - row.firstTs > ATTEMPT_WINDOW_MS) {
+    loginAttempts.set(ip, { count: 1, firstTs: now });
+    return next();
+  }
+
+  if (row.count >= MAX_LOGIN_ATTEMPTS) {
+    return res.status(429).send('Too many login attempts. Try again later.');
+  }
+
+  row.count += 1;
+  loginAttempts.set(ip, row);
+  return next();
+}
+
+function resetLoginAttempts(ip) {
+  loginAttempts.delete(ip);
+}
+
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fileSize: MAX_FILE_SIZE },
+});
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(
+  session({
+    name: 'uos_admin_session',
+    secret: ADMIN_SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      secure: ADMIN_COOKIE_SECURE,
+      sameSite: 'strict',
+      maxAge: 1000 * 60 * 60 * 8,
+    },
+  })
+);
+
+app.get('/healthz', (_req, res) => res.json({ ok: true, ts: nowIso() }));
+
+app.get('/admin/login', (_req, res) => {
+  res.type('html').send(`<!doctype html>
+<html><head><meta charset="utf-8"/><title>Admin Login</title>
+<style>body{font-family:sans-serif;max-width:560px;margin:40px auto;padding:0 16px}input,button{padding:8px;font-size:16px}label{display:block;margin:12px 0 6px}</style></head>
+<body>
+<h1>Sentinel Admin Login</h1>
+<form method="post" action="/admin/login">
+  <label>Password</label>
+  <input type="password" name="password" required autofocus />
+  <button type="submit">Login</button>
+</form>
+</body></html>`);
+});
+
+app.post('/admin/login', loginRateLimit, async (req, res) => {
+  const ip = req.ip || 'unknown';
+  const password = String(req.body.password || '');
+  const ok = await bcrypt.compare(password, ADMIN_PASSWORD_HASH);
+
+  if (!ok) {
+    await appendAdminLog(`FAILED_LOGIN ip=${ip}`);
+    return res.status(401).send('Invalid credentials');
+  }
+
+  resetLoginAttempts(ip);
+  req.session.authenticated = true;
+  req.session.loginAt = nowIso();
+  await appendAdminLog(`SUCCESS_LOGIN ip=${ip}`);
+  return res.redirect('/admin/upload');
+});
+
+app.post('/admin/logout', requireAuth, async (req, res) => {
+  const ip = req.ip || 'unknown';
+  req.session.destroy(() => undefined);
+  await appendAdminLog(`LOGOUT ip=${ip}`);
+  res.redirect('/admin/login');
+});
+
+app.get('/admin/upload', requireAuth, (_req, res) => {
+  res.type('html').send(`<!doctype html>
+<html><head><meta charset="utf-8"/><title>UOS Upload</title>
+<style>body{font-family:sans-serif;max-width:800px;margin:30px auto;padding:0 16px}label{display:block;margin:14px 0 6px}input,button{font-size:16px}button{padding:8px 12px;margin-top:14px}.card{border:1px solid #ddd;padding:16px;border-radius:10px}</style></head>
+<body>
+<h1>UOS Admin Upload</h1>
+<div class="card">
+  <p>Upload exactly 3 docs (.md, .txt, .pdf, .docx), max 20MB each.</p>
+  <form method="post" action="/admin/upload" enctype="multipart/form-data">
+    <label>Execution Engine</label><input type="file" name="executionEngine" required />
+    <label>Canon</label><input type="file" name="canon" required />
+    <label>Revenue OS</label><input type="file" name="revenueOS" required />
+    <button type="submit">Upload + Rebuild Dashboard State</button>
+  </form>
+  <form method="post" action="/admin/logout"><button type="submit">Logout</button></form>
+</div>
+</body></html>`);
+});
+
+app.post(
+  '/admin/upload',
+  requireAuth,
+  upload.fields([
+    { name: 'executionEngine', maxCount: 1 },
+    { name: 'canon', maxCount: 1 },
+    { name: 'revenueOS', maxCount: 1 },
+  ]),
+  async (req, res) => {
+    try {
+      const files = req.files || {};
+      for (const field of REQUIRED_FIELDS) {
+        if (!files[field] || !files[field][0]) {
+          return res.status(400).send(`Missing required file: ${field}`);
+        }
+      }
+
+      const uploads = REQUIRED_FIELDS.map((field) => ({ field, file: files[field][0] }));
+
+      for (const { field, file } of uploads) {
+        if (file.size > MAX_FILE_SIZE) {
+          return res.status(400).send(`${field} exceeds max size 20MB`);
+        }
+        const extension = ext(file.originalname);
+        if (!ALLOWED_EXTENSIONS.has(extension)) {
+          return res.status(400).send(`${field} invalid type: ${extension}`);
+        }
+      }
+
+      await ensureDirs();
+
+      const day = dateOnly();
+      const stamp = tsForPath();
+      const inboxDir = path.join(INBOX_ROOT, day);
+      const archiveDir = path.join(ARCHIVE_ROOT, stamp);
+      await fs.mkdir(inboxDir, { recursive: true });
+      await fs.mkdir(archiveDir, { recursive: true });
+
+      const updates = [];
+
+      for (const { field, file } of uploads) {
+        const originalName = safeName(file.originalname);
+        const fieldPrefix = fieldNameToCanonical(field);
+        const extension = ext(originalName);
+
+        const inboxPath = path.join(inboxDir, `${fieldPrefix}__${originalName}`);
+        const archiveOriginalPath = path.join(archiveDir, `${fieldPrefix}__${originalName}`);
+
+        await fs.writeFile(inboxPath, file.buffer);
+        await fs.writeFile(archiveOriginalPath, file.buffer);
+
+        const normalizedMarkdown = await normalizeToMarkdown(fieldPrefix, originalName, file.buffer);
+
+        const currentPath = path.join(CURRENT_ROOT, `${fieldPrefix}.md`);
+        const archiveNormalizedPath = path.join(archiveDir, `${fieldPrefix}.md`);
+
+        await fs.writeFile(currentPath, normalizedMarkdown, 'utf8');
+        await fs.writeFile(archiveNormalizedPath, normalizedMarkdown, 'utf8');
+
+        updates.push({
+          field,
+          key: fieldPrefix,
+          originalName,
+          extension,
+          inboxPath: rel(inboxPath),
+          currentPath: rel(currentPath),
+          archiveOriginalPath: rel(archiveOriginalPath),
+          archiveNormalizedPath: rel(archiveNormalizedPath),
+        });
+      }
+
+      await rebuildUosIndex(updates, stamp);
+      await rebuildDashboardState(updates, stamp);
+      await appendAdminLog(`UPLOAD_SUCCESS files=${updates.map((u) => u.originalName).join(',')} archive=${rel(archiveDir)}`);
+
+      res.type('html').send(`<!doctype html><html><body>
+      <h2>Upload complete</h2>
+      <p>State rebuilt and snapshot written.</p>
+      <pre>${escapeHtml(JSON.stringify({ updated: updates.map((u) => u.key), archiveDir: rel(archiveDir), at: nowIso() }, null, 2))}</pre>
+      <a href="/admin/upload">Upload again</a>
+      </body></html>`);
+    } catch (err) {
+      await appendAdminLog(`UPLOAD_ERROR error=${String(err?.message || err)}`);
+      res.status(500).send(`Upload failed: ${err.message || err}`);
+    }
+  }
+);
+
+function fieldNameToCanonical(field) {
+  if (field === 'executionEngine') return 'execution-engine';
+  if (field === 'canon') return 'canon';
+  if (field === 'revenueOS') return 'revenue-os';
+  return field;
+}
+
+async function normalizeToMarkdown(fieldPrefix, originalName, buffer) {
+  const extension = ext(originalName);
+  const ts = nowIso();
+  const header = `# ${titleFromPrefix(fieldPrefix)}\n\n- Source file: ${originalName}\n- Normalized at: ${ts}\n\n---\n\n`;
+
+  if (extension === '.md') {
+    return header + buffer.toString('utf8');
+  }
+
+  if (extension === '.txt') {
+    return header + '```text\n' + buffer.toString('utf8') + '\n```\n';
+  }
+
+  if (extension === '.pdf') {
+    const parsed = await pdfParse(buffer);
+    const body = parsed.text?.trim() || '(No extractable text)';
+    return `${header}## Extracted from PDF\n\n${body}\n`;
+  }
+
+  if (extension === '.docx') {
+    const parsed = await mammoth.extractRawText({ buffer });
+    const body = (parsed.value || '').trim() || '(No extractable text)';
+    return `${header}## Extracted from DOCX\n\n${body}\n`;
+  }
+
+  throw new Error(`Unsupported extension ${extension}`);
+}
+
+function titleFromPrefix(prefix) {
+  if (prefix === 'execution-engine') return 'Execution Engine';
+  if (prefix === 'canon') return 'Canon';
+  if (prefix === 'revenue-os') return 'Revenue OS';
+  return prefix;
+}
+
+async function rebuildUosIndex(updates, stamp) {
+  const lines = [];
+  lines.push('# UOS Index');
+  lines.push('');
+  lines.push(`Last updated: ${nowIso()}`);
+  lines.push(`Archive batch: \`${rel(path.join(ARCHIVE_ROOT, stamp))}\``);
+  lines.push('');
+  lines.push('## Current Documents');
+  lines.push('');
+  for (const u of updates) {
+    lines.push(`- **${titleFromPrefix(u.key)}**`);
+    lines.push(`  - Current: \`${u.currentPath}\``);
+    lines.push(`  - Inbox copy: \`${u.inboxPath}\``);
+    lines.push(`  - Archive original: \`${u.archiveOriginalPath}\``);
+    lines.push(`  - Archive normalized: \`${u.archiveNormalizedPath}\``);
+    lines.push(`  - Uploaded file: ${u.originalName}`);
+  }
+  lines.push('');
+  await fs.writeFile(UOS_INDEX, lines.join('\n'), 'utf8');
+}
+
+async function rebuildDashboardState(updates, stamp) {
+  const state = {
+    schemaVersion: 1,
+    lastUpdated: nowIso(),
+    updatedDocs: updates.map((u) => titleFromPrefix(u.key)),
+    uosCurrent: Object.fromEntries(
+      updates.map((u) => [u.key, {
+        title: titleFromPrefix(u.key),
+        currentPath: u.currentPath,
+        sourceUpload: u.originalName,
+        archiveOriginalPath: u.archiveOriginalPath,
+        archiveNormalizedPath: u.archiveNormalizedPath,
+      }])
+    ),
+    latestArchiveBatch: rel(path.join(ARCHIVE_ROOT, stamp)),
+  };
+
+  await fs.writeFile(DASHBOARD_STATE_FILE, JSON.stringify(state, null, 2), 'utf8');
+
+  const snapshotPath = path.join(DASHBOARD_SNAPSHOTS, `${stamp}.json`);
+  await fs.writeFile(snapshotPath, JSON.stringify(state, null, 2), 'utf8');
+
+  const change = [
+    `## ${state.lastUpdated}`,
+    `- Rebuilt state from admin upload`,
+    `- Updated docs: ${state.updatedDocs.join(', ')}`,
+    `- Snapshot: \`${rel(snapshotPath)}\``,
+    ''
+  ].join('\n');
+
+  if (!fssync.existsSync(DASHBOARD_CHANGELOG)) {
+    await fs.writeFile(DASHBOARD_CHANGELOG, '# Dashboard State Changelog\n\n', 'utf8');
+  }
+  await fs.appendFile(DASHBOARD_CHANGELOG, change, 'utf8');
+}
+
+async function appendAdminLog(message) {
+  const d = dateOnly();
+  const logPath = path.join(ADMIN_LOG_ROOT, `${d}.md`);
+  await fs.mkdir(path.dirname(logPath), { recursive: true });
+  const line = `- ${nowIso()} ${message}\n`;
+  if (!fssync.existsSync(logPath)) {
+    await fs.writeFile(logPath, `# Admin Actions — ${d}\n\n`, 'utf8');
+  }
+  await fs.appendFile(logPath, line, 'utf8');
+}
+
+function rel(p) {
+  return path.relative(ROOT, p) || '.';
+}
+
+function escapeHtml(s) {
+  return s
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;');
+}
+
+await ensureDirs();
+
+app.listen(ADMIN_PORT, ADMIN_HOST, () => {
+  console.log(`UOS admin server listening on http://${ADMIN_HOST}:${ADMIN_PORT}`);
+});

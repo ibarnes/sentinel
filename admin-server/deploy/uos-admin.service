@@ -1,0 +1,14 @@
+[Unit]
+Description=UOS Admin Upload Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ec2-user/.openclaw/workspace/admin-server
+EnvironmentFile=/home/ec2-user/.openclaw/workspace/admin-server/.env
+ExecStart=/usr/bin/node /home/ec2-user/.openclaw/workspace/admin-server/src/server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

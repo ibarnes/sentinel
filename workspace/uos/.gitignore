@@ -1,0 +1,7 @@
+inbox/**
+archive/**
+current/*.md
+!current/.gitkeep
+!inbox/.gitkeep
+!archive/.gitkeep
+UOS_INDEX.md
