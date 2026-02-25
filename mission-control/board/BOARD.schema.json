@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["version", "tasks"],
+  "properties": {
+    "version": { "type": "integer" },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "status",
+          "priority",
+          "comments",
+          "created_at",
+          "updated_at",
+          "created_by",
+          "updated_by"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string", "minLength": 1 },
+          "status": { "type": "string", "enum": ["Backlog", "Doing", "Blocked", "Ready for Review", "Done"] },
+          "owner": { "type": ["string", "null"] },
+          "due_date": { "type": ["string", "null"] },
+          "priority": { "type": "string", "enum": ["P0", "P1", "P2", "P3"] },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "linked_refs": { "type": "array", "items": { "type": "string" } },
+          "description": { "type": ["string", "null"] },
+          "comments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "author", "text", "created_at"],
+              "properties": {
+                "id": { "type": "string" },
+                "author": { "type": "string" },
+                "text": { "type": "string" },
+                "created_at": { "type": "string" }
+              }
+            }
+          },
+          "request_approval": { "type": ["object", "null"] },
+          "created_at": { "type": "string" },
+          "updated_at": { "type": "string" },
+          "created_by": { "type": "string" },
+          "updated_by": { "type": "string" }
+        }
+      }
+    }
+  }
+}

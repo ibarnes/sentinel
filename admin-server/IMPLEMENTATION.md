@@ -108,6 +108,30 @@ See: `admin-server/deploy/uos-admin.service`
    - `dashboard/state/changelog.md` appended
    - `mission-control/logs/admin-actions/YYYY-MM-DD.md` appended
 
+## Team board layer (new)
+- Team auth routes:
+  - `GET/POST /auth/login`
+  - `POST /auth/logout`
+  - `GET/POST /auth/invite/:token`
+- Admin invite endpoint:
+  - `POST /api/auth/invite`
+- Board UI:
+  - `GET /board`
+- Board API:
+  - `GET /api/board`
+  - `POST /api/tasks`
+  - `PATCH /api/tasks/:id`
+  - `POST /api/tasks/:id/move`
+  - `POST /api/tasks/:id/comment`
+  - `POST /api/tasks/:id/request-approval`
+  - `POST /api/tasks/:id/approve` (admin only)
+- Persistence + schema:
+  - `mission-control/board/BOARD.json`
+  - `mission-control/board/BOARD.schema.json`
+- Append-only logs:
+  - `mission-control/board/history/YYYY-MM-DD.jsonl`
+  - `mission-control/activity/YYYY-MM-DD.jsonl`
+
 ## Security notes
 - Password hash only (bcrypt), no plaintext storage
 - Cookie is HttpOnly + Secure + strict same-site

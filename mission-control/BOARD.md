@@ -16,6 +16,7 @@ Last Updated: 2026-02-24
 - [ ] RP-0002 — Scoring Thresholds v1 (Workflow A + B)
 - [ ] RP-0007 — Password-Protected Admin Upload UI for UOS Files
 - [ ] RP-0008 — Overnight Command Interface Readiness Plan
+- [ ] RP-0009 — Team Kanban + Auth + Audit Layer
 
 ## Done
 - [x] RP-0001 — Mission Control Operating Scaffold (Approved by Isaac, 2026-02-24)

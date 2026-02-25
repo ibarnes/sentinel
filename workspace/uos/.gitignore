@@ -1,6 +1,6 @@
 inbox/**
 archive/**
-current/*.md
+current/**
 !current/.gitkeep
 !inbox/.gitkeep
 !archive/.gitkeep
