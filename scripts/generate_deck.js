@@ -169,8 +169,11 @@ function parsePromptSlides(prompt){
       }
 
       let bullets=[];
-      if(/[•\-]/.test(rest)){
-        bullets=rest.split(/[•\n\-]+/).map(x=>x.trim()).filter(Boolean);
+      if(/[•\n]/.test(rest) || /(^|\n)\s*[-–]\s+/.test(rest)){
+        bullets=rest
+          .split(/[•\n]+/)
+          .map(x=>x.replace(/^\s*[-–]\s+/, '').trim())
+          .filter(Boolean);
       } else {
         bullets=rest.split(/[.?!]+/).map(x=>x.trim()).filter(Boolean);
       }
