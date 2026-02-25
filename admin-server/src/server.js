@@ -10,6 +10,7 @@ import pdfParse from 'pdf-parse';
 import mammoth from 'mammoth';
 
 const app = express();
+app.set('trust proxy', 1);
 
 const ROOT = path.resolve('/home/ec2-user/.openclaw/workspace');
 const UOS_ROOT = path.join(ROOT, 'workspace', 'uos');
@@ -119,6 +120,21 @@ const upload = multer({
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.use('/dashboard', (req, res, next) => {
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
+    return res.status(405).send('Method not allowed');
+  }
+  return next();
+});
+app.use('/dashboard', express.static(path.join(ROOT, 'dashboard'), {
+  index: false,
+  fallthrough: false,
+  setHeaders(res) {
+    res.setHeader('Cache-Control', 'no-store');
+  }
+}));
+
 app.use(
   session({
     name: 'uos_admin_session',
