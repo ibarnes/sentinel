@@ -128,6 +128,45 @@ function renderTemplate(html, ctx){
   return out;
 }
 
+function bulletsToHtml(items, copyProvider){
+  const arr = Array.isArray(items) ? items : [];
+  let parentOpen = false;
+  const out = [];
+
+  const isParent = (t) => /:\s*$/.test(t) || /^month\s+\d+\s*:/i.test(t);
+  const isSiblingParent = (t) => /^month\s+\d+\s*:/i.test(t) || /^phase\s+\d+\s*:/i.test(t) || /^gate\s+\d+\s*:/i.test(t);
+
+  for (let i = 0; i < arr.length; i++) {
+    const raw = arr[i];
+    const text = String(raw || '').trim();
+    if (!text) continue;
+
+    if (isParent(text)) {
+      parentOpen = true;
+      out.push(`<li class="parent">${text}</li>`);
+      continue;
+    }
+
+    const prev = i > 0 ? String(arr[i-1] || '').trim() : '';
+    if (parentOpen) {
+      // If this line looks like a new parent section, close child mode first.
+      if (isSiblingParent(text)) {
+        out.push(`<li class="parent">${text}</li>`);
+        parentOpen = true;
+      } else {
+        out.push(`<li class="sub">${text}</li>`);
+      }
+    } else if (isParent(prev)) {
+      out.push(`<li class="sub">${text}</li>`);
+      parentOpen = true;
+    } else {
+      out.push(`<li>${text}</li>`);
+    }
+  }
+
+  return out.join('');
+}
+
 function firstSentence(s){
   const t=String(s||'').trim();
   const m=t.match(/(.+?[.!?])(\s|$)/);
@@ -315,13 +354,13 @@ async function main(){
   for(let i=0;i<slides.length;i++){
     const s = slides[i];
     const layoutHtml = await fs.readFile(path.join(tRoot,'slide-layouts',`${s.layout}.html`),'utf8');
-    const bulletItems = [];
+    const normalizedBullets = [];
     for (const b of (s.bullets || [])) {
-      bulletItems.push(`<li>${await applyReadability(b, copy_provider)}</li>`);
+      normalizedBullets.push(await applyReadability(b, copy_provider));
     }
-    const bullets = bulletItems.join('');
+    const bullets = bulletsToHtml(normalizedBullets, copy_provider);
     const html = renderTemplate(layoutHtml,{...s, bullets});
-    await writeFile(path.join(slidesDir, `${String(i+1).padStart(3,'0')}.html`), `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../slide.css"></head><body>${html}</body></html>`);
+    await writeFile(path.join(slidesDir, `${String(i+1).padStart(3,'0')}.html`), `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../slide.css"><style>.bullets li.sub{margin-left:1.4rem;list-style-type:circle;opacity:.95}.bullets li.parent{font-weight:600}</style></head><body>${html}</body></html>`);
   }
 
   const statuses=[];
