@@ -3,7 +3,10 @@
   "buyer_id": null,
   "deck_type": "utc-internal",
   "template_id": "sovereign-memo",
-  "generated_at": "2026-02-25T04:17:38.497Z",
+  "copy_provider": "local",
+  "prompt": "SLIDE 1 Title: Energy and Water Demand Is Rising • West Africa faces power shortages. • Many cities face water stress. • Industry cannot grow without both. • Demand already exists. This is not future demand. It is current reality. ⸻ SLIDE 2 Title: Long-Term Infrastructure Capital Exists • GCC sovereign capital seeks stable, long-term returns. • Power and water assets are familiar investments. • Infrastructure matches long-duration mandates. • Capital is available, but disciplined. Capital is ready. It requires structure. ⸻ SLIDE 3 Title: Projects Stall Before FID Final Investment Decision (FID) often stalls because: • Too many actors are involved. • Currency risk is unclear. • Capital stack is not aligned. • Governance is not defined. • Risk allocation is incomplete. The assets make sense. The structure does not. ⸻ SLIDE 4 Title: A Corridor Platform Approach Instead of separate projects: • One governed corridor platform • Standardized power and water agreements • Defined capital structure • Clear FID boundary • Repeatable governance model Structure replaces fragmentation. ⸻ SLIDE 5 Title: When Governance Is Clear, Capital Moves When structure is defined: • Decision rights are known. • Risk is bounded. • Currency strategy is planned. • Capital can commit safely. • FID becomes signable. The bottleneck is not turbines. It is pre-FID structure. ⸻ SLIDE 6 Title: Alignment with Sovereign Mandates This platform supports: • Energy security • Water security • Regional stability • Cross-border cooperation • Long-term infrastructure ownership This is sovereign-scale work. ⸻ SLIDE 7 Title: Risk Is Reduced Through Structure The corridor model: • Shares risk across actors • Standardizes contracts • Defines dispute pathways • Protects capital before FID • Limits political exposure Clarity lowers uncertainty. ⸻ SLIDE 8 Title: Strategic Positioning Participation at platform level: • Strengthens regional influence • Builds long-term relationships • Anchors infrastructure growth • Aligns capital with sovereign priorities Control comes from structure. ⸻ SLIDE 9 Title: Capital Altitude Is Required This platform requires: • FID-level authority • Strong balance sheets • Long-term perspective • Comfort with multi-actor governance Execution companies cannot anchor this. It requires sovereign-level capital. ⸻ SLIDE 10 Title: Phase 1 — Pre-FID Structuring Before capital commits: • Capital stack is defined • Governance model is locked • Risk allocation is written • Currency plan is structured • FID conditions are documented No construction begins yet. Structure comes first. ⸻ SLIDE 11 Title: Governance Roles Clear separation of roles: • Sovereign capital: Anchor capital and oversight • African sovereigns: Policy and guarantees • Operators: Build and operate assets • Platform architect: Commitment structure only Execution remains external. ⸻ SLIDE 12 Title: Capital Governance & Transparency Layer Purpose: To ensure clarity and alignment across sovereign participants. This layer supports governance. It does not replace legal agreements. It provides: • Digital record of equity ownership • Tracking of capital commitments and releases • Milestone-based activation of distributions • Shared audit visibility across participants It does not: • Replace contracts • Manage operations • Change regulatory authority Structured transparency protects capital alignment. ⸻ SLIDE 13 Title: Capital Sequencing Timeline Structured 90–120 day pre-FID phase: Month 1: • Governance mapping • Capital stack design Month 2: • Risk allocation • Agreement standardization Month 3: • FID boundary confirmation • Commitment readiness Then FID decision. ⸻ SLIDE 14 Title: The Next Gate If aligned, the next step is: • Define a Pre-FID Structuring Mandate • Confirm scope and timeline • Confirm capital authority • Begin commitment architecture",
+  "auto_generate": false,
+  "generated_at": "2026-02-25T15:38:07.793Z",
   "reading_level_target": "8-9",
   "constraints": {
     "max_words_per_bullet": 12,
@@ -25,48 +28,274 @@
   },
   "slides": [
     {
+      "slide_id": "001",
+      "purpose": "Open the deck",
       "layout": "title",
-      "kicker": "Structural Proof",
+      "copy": {
+        "title": "West Africa Energy Corridor",
+        "subtitle": "SLIDE 1 Title: Energy and Water Demand Is Rising • West Africa",
+        "footer": "INIT-001 • utc-internal"
+      },
       "title": "West Africa Energy Corridor",
-      "subtitle": "Pressure to initiative alignment for execution discipline.",
-      "footer": "INIT-001 • utc-internal"
+      "bullets": [],
+      "images": [],
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {},
+      "revisions_count": 0
     },
     {
+      "slide_id": "002",
+      "purpose": "Prove structural inevitability",
       "layout": "section",
-      "kicker": "Structural Inevitability",
-      "title": "Gravity",
+      "copy": {
+        "title": "Energy and Water Demand Is Rising",
+        "bullets": [
+          "West Africa faces power shortages.",
+          "Many cities face water stress."
+        ],
+        "footer": "INIT-001 • utc-internal"
+      },
+      "title": "Energy and Water Demand Is Rising",
       "bullets": [
-        "Macro shift: Power demand rises while grid reliability lags. Capital and governance",
-        "Capital bottleneck: funding does not meet project timing",
-        "Governance bottleneck: approvals and sequencing are fragmented",
-        "Resolution: align mandate, sequencing, and control gates",
-        "Outcome: lower execution risk and faster mandate delivery"
+        "West Africa faces power shortages.",
+        "Many cities face water stress."
       ],
-      "footer": "No hype. Mechanical logic only."
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic, no text, infrastructure governance map",
+          "provider": "placeholder",
+          "output_path": "presentations/INIT-001/decks/utc-internal/assets/002-img-001.png"
+        }
+      ],
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 9.352500000000003,
+        "density_score": 0.17777777777777778,
+        "overflow_risk": "low",
+        "pass": true,
+        "fail": []
+      },
+      "revisions_count": 0
     },
     {
-      "layout": "proof",
-      "title": "Mandate Mirror",
+      "slide_id": "003",
+      "purpose": "Prove mandate fit",
+      "layout": "section",
+      "copy": {
+        "title": "Long-Term Infrastructure Capital Exists",
+        "bullets": [
+          "GCC sovereign capital seeks stable returns.",
+          "Infrastructure matches mandates."
+        ],
+        "footer": "INIT-001 • utc-internal"
+      },
+      "title": "Long-Term Infrastructure Capital Exists",
       "bullets": [
-        "Mandate fit: Buyer mandate profile required",
-        "Regional fit: N/A",
-        "Sector fit: N/A",
-        "Leverage: structure expands control and policy impact",
-        "Risk: phased gates compress downside"
+        "GCC sovereign capital seeks stable returns.",
+        "Infrastructure matches mandates."
       ],
-      "footer": "Buyer: Internal"
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic, no text, infrastructure governance map",
+          "provider": "placeholder",
+          "output_path": "presentations/INIT-001/decks/utc-internal/assets/003-img-001.png"
+        }
+      ],
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 16.961538461538463,
+        "density_score": 0.14444444444444443,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
     },
     {
+      "slide_id": "004",
+      "purpose": "Prove controlled activation",
       "layout": "diagram",
-      "title": "Controlled Activation",
-      "image": "../assets/img-001.png",
-      "footer": "Capital sequencing and governance gates"
+      "copy": {
+        "title": "Projects Stall Before FID",
+        "bullets": [
+          "Too many actors are involved.",
+          "Governance is not defined."
+        ],
+        "footer": "INIT-001 • utc-internal"
+      },
+      "title": "Projects Stall Before FID",
+      "bullets": [
+        "Too many actors are involved.",
+        "Governance is not defined."
+      ],
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic, no text, infrastructure governance map",
+          "provider": "placeholder",
+          "output_path": "presentations/INIT-001/decks/utc-internal/assets/004-img-001.png"
+        }
+      ],
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 9.700000000000003,
+        "density_score": 0.14444444444444443,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
     },
     {
+      "slide_id": "005",
+      "purpose": "Prove structural progression",
+      "layout": "section",
+      "copy": {
+        "title": "A Corridor Platform Approach",
+        "bullets": [
+          "One governed corridor platform",
+          "Defined capital structure."
+        ],
+        "footer": "INIT-001 • utc-internal"
+      },
+      "title": "A Corridor Platform Approach",
+      "bullets": [
+        "One governed corridor platform",
+        "Defined capital structure."
+      ],
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic, no text, infrastructure governance map",
+          "provider": "placeholder",
+          "output_path": "presentations/INIT-001/decks/utc-internal/assets/005-img-001.png"
+        }
+      ],
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 14.803636363636365,
+        "density_score": 0.12222222222222222,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "006",
+      "purpose": "Prove structural progression",
+      "layout": "section",
+      "copy": {
+        "title": "The Next Gate",
+        "bullets": [
+          "Define mandate",
+          "Confirm timeline"
+        ],
+        "footer": "INIT-001 • utc-internal"
+      },
+      "title": "The Next Gate",
+      "bullets": [
+        "Define mandate",
+        "Confirm timeline"
+      ],
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic, no text, infrastructure governance map",
+          "provider": "placeholder",
+          "output_path": "presentations/INIT-001/decks/utc-internal/assets/006-img-001.png"
+        }
+      ],
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 12.291428571428572,
+        "density_score": 0.07777777777777778,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "007",
+      "purpose": "Close with next gate",
       "layout": "close",
+      "copy": {
+        "title": "If aligned, Gate 1 starts here.",
+        "subtitle": "Define scope, authority, and timeline.",
+        "footer": "Sentinel v2"
+      },
       "title": "If aligned, Gate 1 starts here.",
-      "subtitle": "Next action is controlled initiation, not persuasion.",
-      "footer": "Sentinel Presentation Engine v1"
+      "bullets": [],
+      "images": [],
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 6,
+        "density_score": 0.2,
+        "overflow_risk": "low",
+        "pass": true,
+        "fail": []
+      },
+      "revisions_count": 0
     }
   ],
   "images": [
@@ -80,5 +309,13 @@
   ],
   "status": {
     "images": "needs_images"
+  },
+  "deckPlan": {
+    "template_id": "dark-institutional",
+    "slide_count": 7,
+    "deck_type": "utc-internal",
+    "initiative_id": "INIT-001",
+    "buyer_id": null,
+    "prompt": "SLIDE 1 Title: Energy and Water Demand Is Rising • West Africa faces power shortages. • Many cities face water stress. ⸻ SLIDE 2 Title: Long-Term Infrastructure Capital Exists • GCC sovereign capital seeks stable returns. • Infrastructure matches mandates. ⸻ SLIDE 3 Title: Projects Stall Before FID • Too many actors are involved. • Governance is not defined. ⸻ SLIDE 4 Title: A Corridor Platform Approach • One governed corridor platform • Defined capital structure. ⸻ SLIDE 5 Title: The Next Gate • Define mandate • Confirm timeline"
   }
 }

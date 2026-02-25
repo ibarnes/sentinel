@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["deckPlan", "slides"],
+  "properties": {
+    "deckPlan": {
+      "type": "object",
+      "required": ["template_id", "deck_type", "initiative_id", "slide_count", "constraints"],
+      "properties": {
+        "audience": { "type": "string" },
+        "template_id": { "type": "string" },
+        "deck_type": { "type": "string" },
+        "initiative_id": { "type": "string" },
+        "buyer_id": { "type": ["string", "null"] },
+        "slide_count": { "type": "integer" },
+        "constraints": {
+          "type": "object",
+          "properties": {
+            "max_bullets": { "type": "integer" },
+            "max_words_per_bullet": { "type": "integer" },
+            "target_grade_level": { "type": "string" }
+          }
+        }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slide_id", "purpose", "layout", "copy", "constraints", "qa", "revisions_count"],
+        "properties": {
+          "slide_id": { "type": "string" },
+          "purpose": { "type": "string" },
+          "layout": { "type": "string" },
+          "copy": {
+            "type": "object",
+            "properties": {
+              "title": { "type": "string" },
+              "bullets": { "type": "array", "items": { "type": "string" } },
+              "footer": { "type": ["string", "null"] }
+            }
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "slot_id": { "type": "string" },
+                "prompt": { "type": "string" },
+                "provider": { "type": "string" },
+                "output_path": { "type": "string" }
+              }
+            }
+          },
+          "constraints": {
+            "type": "object",
+            "properties": {
+              "max_bullets": { "type": "integer" },
+              "max_words_per_bullet": { "type": "integer" },
+              "target_grade_level": { "type": "string" }
+            }
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "sources": { "type": "array", "items": { "type": "string" } }
+            }
+          },
+          "qa": {
+            "type": "object",
+            "properties": {
+              "readability_score": { "type": ["number", "null"] },
+              "density_score": { "type": ["number", "null"] },
+              "overflow_risk": { "type": ["string", "null"] },
+              "pass": { "type": ["boolean", "null"] },
+              "fail": { "type": "array", "items": { "type": "string" } }
+            }
+          },
+          "revisions_count": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

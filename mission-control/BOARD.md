@@ -19,6 +19,7 @@ Last Updated: 2026-02-24
 - [ ] RP-0009 — Team Kanban + Auth + Audit Layer
 - [ ] RP-0008 — Activity Feed + Review Packet Governance Layer
 - [ ] RP-0010 — HTML5 Presentation Engine v1
+- [ ] RP-0011 — Presentation Maker v2 (Slide-Agent Pipeline)
 
 ## Done
 - [x] RP-0001 — Mission Control Operating Scaffold (Approved by Isaac, 2026-02-24)

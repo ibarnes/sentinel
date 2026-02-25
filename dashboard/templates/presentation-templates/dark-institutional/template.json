@@ -1,0 +1,11 @@
+{
+  "id": "dark-institutional",
+  "name": "Dark Institutional",
+  "description": "High-contrast institutional theme with disciplined spacing and single focal area.",
+  "layouts": ["title", "section", "proof", "diagram", "close"],
+  "tokens": {
+    "typography_scale": [12, 14, 18, 24, 40],
+    "spacing_scale": [4, 8, 12, 16, 24, 32],
+    "grid": "12-col"
+  }
+}

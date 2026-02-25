@@ -428,7 +428,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
       <form method="post" action="/api/presentations/generate" class="row g-2">
         <input type="hidden" name="initiative_id" value="${escapeHtml(i.initiative_id)}" />
         <div class="col-md-3"><label class="form-label">Type</label><select class="form-select" name="deck_type"><option value="utc-internal">UTC Internal</option><option value="buyer-mandate-mirror">Buyer Mandate Mirror</option></select></div>
-        <div class="col-md-3"><label class="form-label">Template</label><select class="form-select" name="template_id"><option>sovereign-memo</option><option>clean-minimal</option><option>blueprint</option></select></div>
+        <div class="col-md-3"><label class="form-label">Template</label><select class="form-select" name="template_id"><option>sovereign-memo</option><option>clean-minimal</option><option>blueprint</option><option>dark-institutional</option></select></div>
         <div class="col-md-3"><label class="form-label">Image Provider</label><select class="form-select" name="image_provider"><option value="placeholder">Placeholder</option><option value="openai">OpenAI</option><option value="gemini">Gemini</option><option value="grok">Grok (xAI)</option></select></div>
         <div class="col-md-3"><label class="form-label">Copy Provider</label><select class="form-select" name="copy_provider"><option value="local">Local Rewriter</option><option value="claude">Claude (Anthropic)</option></select></div>
         <div class="col-md-3"><label class="form-label">Buyer (for mirror)</label><select class="form-select" name="buyer_id"><option value="">(none)</option>${linkedBuyers.map(b=>`<option ${b.buyer_id===buyer_id?'selected':''} value="${b.buyer_id}">${escapeHtml(b.buyer_id)}</option>`).join('')}</select></div>
@@ -478,7 +478,7 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
             <label class="form-label">Deck Type</label>
             <select class="form-select" name="deck_type"><option value="utc-internal">UTC Internal</option><option value="buyer-mandate-mirror">Buyer Mandate Mirror</option></select>
             <label class="form-label">Template</label>
-            <select class="form-select" name="template_id"><option>sovereign-memo</option><option>clean-minimal</option><option>blueprint</option></select>
+            <select class="form-select" name="template_id"><option>sovereign-memo</option><option>clean-minimal</option><option>blueprint</option><option>dark-institutional</option></select>
             <label class="form-label">Image Provider</label>
             <select class="form-select" name="image_provider"><option value="placeholder">Placeholder</option><option value="openai">OpenAI</option><option value="gemini">Gemini</option><option value="grok">Grok (xAI)</option></select>
             <label class="form-label">Copy Provider</label>
@@ -498,7 +498,22 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
           <div class="d-flex justify-content-between align-items-center"><h5 class="mb-0">Slides Preview</h5><a id="openDeck" class="btn btn-sm btn-outline-secondary" target="_blank" href="#">Open Deck</a></div>
           <div id="slideList" class="small text-muted my-2">No deck generated yet.</div>
           <div class="row g-2 mb-2" id="thumbRow"></div>
-          <iframe id="deckFrame" style="width:100%;height:58vh;border:1px solid #ddd;border-radius:8px"></iframe>
+          <iframe id="deckFrame" style="width:100%;height:44vh;border:1px solid #ddd;border-radius:8px"></iframe>
+
+          <div class="card mt-2"><div class="card-body">
+            <h6 class="mb-2">Slide Editor v1 (SlideSpec source)</h6>
+            <div class="row g-2">
+              <div class="col-md-2"><label class="form-label">Slide</label><select id="editSlideId" class="form-select"></select></div>
+              <div class="col-md-4"><label class="form-label">Layout</label><select id="editLayout" class="form-select"><option>title</option><option>section</option><option>proof</option><option>diagram</option><option>close</option></select></div>
+              <div class="col-md-6"><label class="form-label">Title</label><input id="editTitle" class="form-control" /></div>
+              <div class="col-12"><label class="form-label">Bullets (one per line)</label><textarea id="editBullets" rows="5" class="form-control"></textarea></div>
+              <div class="col-md-8"><label class="form-label">Image prompt (slot 1)</label><input id="editImagePrompt" class="form-control" /></div>
+              <div class="col-md-4 d-flex align-items-end gap-2">
+                <button id="saveSlideBtn" class="btn btn-primary" type="button">Save + Re-render Slide</button>
+                <button id="regenImageBtn" class="btn btn-outline-secondary" type="button">Regen Image</button>
+              </div>
+            </div>
+          </div></div>
         </div></div>
       </div>
     </div>
@@ -506,6 +521,39 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
   <script>
     let lastDeckPath = '';
     let lastDeckRoot = '';
+    let deckSpec = null;
+    let selectedSlide = '';
+
+    async function loadDeckSpec(){
+      if(!lastDeckRoot) return;
+      const r = await fetch(lastDeckRoot + '/deck.json?t=' + Date.now());
+      if(!r.ok) return;
+      deckSpec = await r.json();
+      const sel = document.getElementById('editSlideId');
+      sel.innerHTML = '';
+      (deckSpec.slides || []).forEach(s => {
+        const o = document.createElement('option');
+        o.value = s.slide_id;
+        o.textContent = s.slide_id + ' — ' + (s.copy?.title || s.title || 'Slide');
+        sel.appendChild(o);
+      });
+      if((deckSpec.slides||[]).length){
+        selectedSlide = (deckSpec.slides[0].slide_id);
+        sel.value = selectedSlide;
+        populateEditor(selectedSlide);
+      }
+    }
+
+    function populateEditor(slideId){
+      selectedSlide = slideId;
+      const s = (deckSpec?.slides || []).find(x => x.slide_id === slideId);
+      if(!s) return;
+      document.getElementById('editLayout').value = s.layout || 'section';
+      document.getElementById('editTitle').value = s.copy?.title || s.title || '';
+      document.getElementById('editBullets').value = (s.copy?.bullets || s.bullets || []).join('\n');
+      document.getElementById('editImagePrompt').value = s.images?.[0]?.prompt || '';
+      document.getElementById('deckFrame').src = lastDeckRoot + '/slides/' + slideId + '.html?t=' + Date.now();
+    }
 
     function renderThumbs(slideCount){
       const row = document.getElementById('thumbRow');
@@ -534,7 +582,7 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
       const fd = new FormData(form);
       const payload = Object.fromEntries(fd.entries());
       payload.auto_generate = !!auto;
-      const r = await fetch('/api/presentations/studio/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+      const r = await fetch('/api/presentations/pipeline-v2/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
       const j = await r.json();
       if(!r.ok){ alert(j.error || 'Generation failed'); return; }
       lastDeckRoot = '/' + j.deck;
@@ -543,11 +591,88 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
       document.getElementById('deckFrame').src = lastDeckPath + '?t=' + Date.now();
       document.getElementById('slideList').textContent = 'Deck: ' + j.deck + ' • Slides: ' + j.slideCount + ' • Images: ' + j.images;
       renderThumbs(j.slideCount || 0);
+      await loadDeckSpec();
     }
+
+    async function saveSlide(regenImage){
+      if(!lastDeckRoot || !selectedSlide) return;
+      const payload = {
+        deck: lastDeckRoot.replace(/^\//,''),
+        slide_id: selectedSlide,
+        layout: document.getElementById('editLayout').value,
+        title: document.getElementById('editTitle').value,
+        bullets: document.getElementById('editBullets').value.split('\n').map(x=>x.trim()).filter(Boolean),
+        image_prompt: document.getElementById('editImagePrompt').value,
+        regen_image: !!regenImage
+      };
+      const r = await fetch('/api/presentations/slide/update', {method:'PATCH', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+      const j = await r.json();
+      if(!r.ok){ alert(j.error || 'Slide update failed'); return; }
+      await loadDeckSpec();
+      renderThumbs((deckSpec?.slides || []).length);
+      populateEditor(selectedSlide);
+    }
+
     document.getElementById('btnGenerate').addEventListener('click', ()=>generate(false));
     document.getElementById('btnAuto').addEventListener('click', ()=>generate(true));
+    document.getElementById('editSlideId').addEventListener('change', (e)=>populateEditor(e.target.value));
+    document.getElementById('saveSlideBtn').addEventListener('click', ()=>saveSlide(false));
+    document.getElementById('regenImageBtn').addEventListener('click', ()=>saveSlide(true));
   </script>
   </body></html>`);
+});
+
+app.post('/api/presentations/pipeline-v2/generate', requireRole('architect','editor'), async (req, res) => {
+  const initiative_id = String(req.body.initiative_id || '');
+  const buyer_id = String(req.body.buyer_id || '');
+  const deck_type = String(req.body.deck_type || 'utc-internal');
+  const template_id = String(req.body.template_id || 'sovereign-memo');
+  const image_provider = String(req.body.image_provider || 'placeholder');
+  const prompt = String(req.body.prompt || '');
+
+  const cmd = ['node', path.join(ROOT,'scripts/deck_pipeline_v2.js'), '--initiative_id', initiative_id, '--deck_type', deck_type, '--template_id', template_id, '--image_provider', image_provider, '--prompt', prompt];
+  if (buyer_id) cmd.push('--buyer_id', buyer_id);
+  const { spawnSync } = await import('node:child_process');
+  const r = spawnSync(cmd[0], cmd.slice(1), { cwd: ROOT, encoding:'utf8', env: process.env });
+  if (r.status !== 0) return res.status(500).json({ error: (r.stderr || r.stdout || 'pipeline v2 failed').trim() });
+
+  const out = JSON.parse((r.stdout || '{}').trim() || '{}');
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req)||'editor', event_type: 'workflow.complete', entity_type: 'presentation', entity_id: `${initiative_id}:${deck_type}`, meta: { stage: 'pipeline_v2', template_id, image_provider, buyer_id: buyer_id || null } });
+  await createSnapshot('presentation.pipeline_v2.generate');
+  res.json({ ok:true, deck: out.deck || '', slideCount: out.slideCount || 0, images: out.images || 'pipeline' });
+});
+
+app.patch('/api/presentations/slide/update', requireRole('architect','editor'), async (req, res) => {
+  const deck = String(req.body.deck || '');
+  const slide_id = String(req.body.slide_id || '');
+  if (!deck || !slide_id) return res.status(400).json({ error: 'deck and slide_id required' });
+  const deckPath = path.join(ROOT, deck, 'deck.json');
+  const spec = await readJson(deckPath, null);
+  if (!spec || !Array.isArray(spec.slides)) return res.status(404).json({ error: 'deck not found' });
+  const s = spec.slides.find(x => x.slide_id === slide_id);
+  if (!s) return res.status(404).json({ error: 'slide not found' });
+
+  s.layout = String(req.body.layout || s.layout || 'section');
+  s.copy = s.copy || {};
+  s.copy.title = String(req.body.title || s.copy.title || '');
+  s.copy.bullets = Array.isArray(req.body.bullets) ? req.body.bullets : (s.copy.bullets || []);
+  if (!Array.isArray(s.bullets)) s.bullets = [];
+  s.bullets = s.copy.bullets;
+  s.title = s.copy.title;
+  if (!Array.isArray(s.images)) s.images = [];
+  if (!s.images[0]) s.images[0] = { slot_id: 'img-001', prompt: '', provider: 'placeholder', output_path: `${deck}/assets/${slide_id}-img-001.png` };
+  if (typeof req.body.image_prompt === 'string') s.images[0].prompt = req.body.image_prompt;
+
+  await writeJson(deckPath, spec);
+
+  const cmd = ['node', path.join(ROOT,'scripts/deck_pipeline_v2.js'), '--deck_path', deck, '--template_id', spec.deckPlan?.template_id || 'sovereign-memo', '--rerender_slide', slide_id];
+  if (Boolean(req.body.regen_image) && s.images[0]?.prompt) cmd.push('--image_provider', s.images[0].provider || 'placeholder');
+  const { spawnSync } = await import('node:child_process');
+  const r = spawnSync(cmd[0], cmd.slice(1), { cwd: ROOT, encoding:'utf8', env: process.env });
+  if (r.status !== 0) return res.status(500).json({ error: (r.stderr || r.stdout || 'rerender failed').trim() });
+
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req)||'editor', event_type: 'workflow.run', entity_type: 'presentation_slide', entity_id: `${deck}:${slide_id}`, meta: { action: 'slide_update' } });
+  res.json({ ok: true, slide_id });
 });
 
 app.post('/api/presentations/studio/generate', requireRole('architect','editor'), async (req, res) => {
