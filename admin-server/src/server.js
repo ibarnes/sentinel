@@ -68,12 +68,31 @@ function uiHead(title) {
   .dropzone { border: 2px dashed var(--bs-border-color); border-radius: .75rem; padding: .9rem; background: var(--bs-tertiary-bg); }
   .dropzone.dragover { border-color: var(--bs-primary); background: color-mix(in srgb, var(--bs-primary) 8%, white); }
   .mono { font-family: ui-monospace,SFMono-Regular,Menlo,monospace; }
+
+  /* Mobile nav fixes */
+  .oc-nav { align-items: flex-start; gap: .5rem; }
+  .oc-nav .navbar-nav .nav-link { padding-left: 0; padding-right: .6rem; }
+  @media (max-width: 768px) {
+    .oc-nav { padding: .8rem !important; }
+    .oc-nav .navbar-brand { width: 100%; margin-right: 0; }
+    .oc-nav .navbar-nav {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .15rem .75rem;
+      margin-bottom: .25rem;
+    }
+    .oc-nav .team-btn,
+    .oc-nav .logout-btn {
+      width: 100%;
+    }
+  }
 </style>`;
 }
 
 function adminNav(active = '') {
   const is = (k) => active === k ? 'active' : '';
-  return `<nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3">
+  return `<nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3 oc-nav">
     <a class="navbar-brand fw-bold" href="/admin">Sentinel Admin</a>
     <div class="navbar-nav me-auto">
       <a class="nav-link ${is('panel')}" href="/admin">Panel</a>
@@ -84,15 +103,15 @@ function adminNav(active = '') {
       <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
     </div>
-    <form method="post" action="/admin/logout" class="d-flex m-0">
-      <button class="btn btn-sm btn-outline-secondary" type="submit">Logout</button>
+    <form method="post" action="/admin/logout" class="d-flex m-0 w-100 w-md-auto">
+      <button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button>
     </form>
   </nav>`;
 }
 
 function dashboardNav(active = '') {
   const is = (k) => active === k ? 'active' : '';
-  return `<nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3">
+  return `<nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3 oc-nav">
     <a class="navbar-brand fw-bold" href="/dashboard/">Sentinel Dashboard</a>
     <div class="navbar-nav me-auto">
       <a class="nav-link ${is('home')}" href="/dashboard/">Home</a>
@@ -102,7 +121,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
       <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio">Presentation Studio</a>
     </div>
-    <a class="btn btn-sm btn-outline-secondary" href="/board">Team Board</a>
+    <a class="btn btn-sm btn-outline-secondary team-btn" href="/board">Team Board</a>
   </nav>`;
 }
 
