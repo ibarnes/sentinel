@@ -159,6 +159,13 @@ function parsePromptSlides(prompt){
       bullets=rest.split(/[.?!]+/).map(x=>x.trim()).filter(Boolean);
     }
     bullets=normalizeBullets(bullets);
+    if (bullets.length === 0) {
+      bullets = normalizeBullets([
+        `${title}.`,
+        'Define the structural bottleneck.',
+        'State the decision gate and owner.'
+      ]);
+    }
     blocks.push({title, bullets});
   }
   return blocks;
