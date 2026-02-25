@@ -1350,15 +1350,20 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
   const canWrite = ['architect', 'editor'].includes(u.role);
   res.type('html').send(`<!doctype html><html><head>${uiHead('Task Board')}</head><body>
   <div class="app-shell">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3 oc-nav">
       <a class="navbar-brand fw-bold" href="/board">Task Board</a>
       <div class="navbar-nav me-auto">
+        <a class="nav-link" href="/dashboard/">Dashboard</a>
+        <a class="nav-link" href="/dashboard/buyers">Buyers</a>
+        <a class="nav-link" href="/dashboard/presentation-studio">Presentation Studio</a>
         <span class="nav-link disabled">${escapeHtml(u.username)} (${escapeHtml(u.role)})</span>
       </div>
-      <form method="post" action="/auth/logout" class="d-flex m-0"><button class="btn btn-sm btn-outline-secondary" type="submit">Logout</button></form>
+      <form method="post" action="/auth/logout" class="d-flex m-0 w-100 w-md-auto"><button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button></form>
     </nav>
 
     <div class="d-flex flex-wrap gap-2 mb-3">
+      <a class="btn btn-outline-secondary" href="/dashboard/">Go to Dashboard</a>
+      <a class="btn btn-outline-secondary" href="/dashboard/presentation-studio">Open Presentation Studio</a>
       ${canWrite ? '<button id="newTaskBtn" class="btn btn-primary">New Task</button>' : ''}
       ${u.role === 'architect' ? '<button id="inviteBtn" class="btn btn-outline-primary">Create Invite Link</button>' : ''}
     </div>
