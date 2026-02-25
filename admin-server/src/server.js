@@ -435,7 +435,7 @@ app.post('/api/presentations/export', requireRole('architect','editor','observer
   return res.type('application/json').send(r.stdout || '{}');
 });
 
-app.get('/dashboard/presentation-studio', requireRole('architect','editor','observer'), async (req, res) => {
+app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const initiative_id = String(req.query.initiative_id || initiatives[0]?.initiative_id || '');
