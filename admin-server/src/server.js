@@ -843,7 +843,7 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
       localStorage.setItem('studio:lastDeckRoot', lastDeckRoot);
       await loadDeckSpec();
       renderThumbs((deckSpec?.slides || []).length);
-      document.getElementById('slideList').textContent = 'Deck: ' + lastDeckRoot.replace(/^\//,'') + ' • Slides: ' + ((deckSpec?.slides || []).length || 0);
+      document.getElementById('slideList').textContent = 'Deck: ' + lastDeckRoot.replace(/^\\//,'') + ' • Slides: ' + ((deckSpec?.slides || []).length || 0);
     }
 
     async function loadDeckSpec(){
