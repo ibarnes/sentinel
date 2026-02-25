@@ -434,7 +434,10 @@ app.get('/dashboard/uos', async (_req, res) => {
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard UOS')}</head><body><div class="app-shell">
     ${dashboardNav('uos')}
-    <h3>UOS Documents</h3>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h3 class="mb-0">UOS Documents</h3>
+      <a class="btn btn-sm btn-primary" href="/admin/upload">Upload UOS Documents</a>
+    </div>
     <div class="row g-3 mb-3">
       <div class="col-12 col-lg-6"><div class="card"><div class="card-body">
         <h6>Latest Publish</h6>
@@ -466,9 +469,23 @@ app.get('/dashboard/buyers', async (req, res) => {
   const filtered = buyers.filter(b => !sector || (b.sector_focus || []).includes(sector))
     .sort((a,b)=>Number(b.score||0)-Number(a.score||0));
   const sectors = [...new Set(buyers.flatMap(b=>b.sector_focus||[]))].sort();
+  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
-    <h3>Buyers</h3>
+    <div class="d-flex justify-content-between align-items-center mb-2"><h3 class="mb-0">Buyers</h3>${canEdit ? '<button class="btn btn-sm btn-primary" data-bs-toggle="collapse" data-bs-target="#addBuyerBox">Add Buyer</button>' : ''}</div>
+    ${canEdit ? `<div id="addBuyerBox" class="collapse mb-3"><div class="card"><div class="card-body">
+      <h6>Add Buyer</h6>
+      <form method="post" action="/api/buyers" class="row g-2">
+        <div class="col-md-3"><input class="form-control" name="buyer_id" placeholder="Buyer ID (e.g., PIF)" required></div>
+        <div class="col-md-5"><input class="form-control" name="name" placeholder="Buyer name" required></div>
+        <div class="col-md-2"><input class="form-control" name="type" placeholder="Type" value="Sovereign"></div>
+        <div class="col-md-2"><input class="form-control" name="score" placeholder="Score" value="1.0"></div>
+        <div class="col-12"><textarea class="form-control" name="mandate_summary" rows="2" placeholder="Mandate summary"></textarea></div>
+        <div class="col-md-6"><input class="form-control" name="geo_focus" placeholder="Geo focus (comma separated)"></div>
+        <div class="col-md-6"><input class="form-control" name="sector_focus" placeholder="Sector focus (comma separated)"></div>
+        <div class="col-12"><button class="btn btn-primary" type="submit">Save Buyer</button></div>
+      </form>
+    </div></div></div>` : ''}
     <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div></form>
     <div class="table-responsive"><table class="table table-sm"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Sectors</th></tr></thead><tbody>${filtered.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('')}</tbody></table></div>
   </div></body></html>`);
@@ -1898,6 +1915,40 @@ loadBoard();
 
 app.get('/api/me', requireAnyAuth, async (req, res) => {
   res.json({ user: currentUser(req), effectiveRole: effectiveRole(req) });
+});
+
+app.post('/api/buyers', requireRole('architect','editor'), async (req, res) => {
+  const buyersPath = path.join(ROOT, 'dashboard/data/buyers.json');
+  const buyers = await readJson(buyersPath, []);
+
+  const buyer_id = String(req.body.buyer_id || '').trim().toUpperCase();
+  const name = String(req.body.name || '').trim();
+  if (!buyer_id || !name) return res.status(400).send('buyer_id and name are required');
+  if (buyers.some((b) => String(b.buyer_id || '').toUpperCase() === buyer_id)) {
+    return res.status(409).send('buyer_id already exists');
+  }
+
+  const parseList = (v) => String(v || '').split(',').map((x) => x.trim()).filter(Boolean);
+  const buyer = {
+    buyer_id,
+    name,
+    type: String(req.body.type || 'Sovereign').trim(),
+    mandate_summary: String(req.body.mandate_summary || '').trim(),
+    geo_focus: parseList(req.body.geo_focus),
+    sector_focus: parseList(req.body.sector_focus),
+    score: Number.parseFloat(String(req.body.score || '1.0')) || 1.0,
+    pressure_factors: {
+      capital_deployment: 'Medium',
+      regional_alignment: 'Medium',
+      timing_urgency: 'Medium'
+    },
+    initiatives: []
+  };
+
+  buyers.push(buyer);
+  await writeJson(buyersPath, buyers);
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'task.create', entity_type: 'buyer', entity_id: buyer_id, meta: { name } });
+  res.redirect('/dashboard/buyers');
 });
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {
