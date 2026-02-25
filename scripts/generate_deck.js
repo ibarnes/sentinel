@@ -135,6 +135,8 @@ async function main(){
   const template_id = arg('template_id','sovereign-memo');
   const image_provider = arg('image_provider','placeholder');
   const copy_provider = arg('copy_provider','local');
+  const prompt = arg('prompt','');
+  const auto_generate = String(arg('auto_generate','false')) === 'true';
   if(!initiative_id) throw new Error('initiative_id required');
 
   const buyers = await readJson(path.join(ROOT,'dashboard/data/buyers.json'));
@@ -156,8 +158,12 @@ async function main(){
   const assetsDir = path.join(deckAbs,'assets');
   await fs.mkdir(slidesDir,{recursive:true}); await fs.mkdir(assetsDir,{recursive:true});
 
+  const promptLine = prompt ? `Operator intent: ${prompt}` : '';
+  const generatedHint = auto_generate ? 'Auto-generated draft from initiative and buyer context.' : 'Prompt-guided draft.';
+
   const baseBullets = normalizeBullets([
     `Macro shift: ${initiative.macro_gravity_summary}`,
+    promptLine,
     `Capital bottleneck: funding does not meet project timing`,
     `Governance bottleneck: approvals and sequencing are fragmented`,
     `Resolution: align mandate, sequencing, and control gates`,
@@ -169,17 +175,19 @@ async function main(){
     `Regional fit: ${(buyer?.geo_focus||[]).join(', ') || 'N/A'}`,
     `Sector fit: ${(buyer?.sector_focus||[]).join(', ') || 'N/A'}`,
     `Leverage: structure expands control and policy impact`,
-    `Risk: phased gates compress downside`
+    `Risk: phased gates compress downside`,
+    promptLine
   ]);
 
   const activationBullets = normalizeBullets([
     'Gate 1: confirm mandate fit and governance sponsor',
     'Gate 2: lock capital sequencing and decision rights',
     'Gate 3: launch scoped work package with controls',
-    'Gate 4: review KPIs and expand by trigger rules'
+    'Gate 4: review KPIs and expand by trigger rules',
+    generatedHint
   ]);
 
-  const titleSubtitle = await applyReadability('Pressure to initiative alignment for execution discipline.', copy_provider);
+  const titleSubtitle = await applyReadability(prompt || 'Pressure to initiative alignment for execution discipline.', copy_provider);
   const closeSubtitle = await applyReadability('Next action is controlled initiation, not persuasion.', copy_provider);
 
   const slides = [
@@ -194,6 +202,8 @@ async function main(){
 
   const deckJson = {
     initiative_id, buyer_id: buyer?.buyer_id||null, deck_type, template_id, copy_provider,
+    prompt,
+    auto_generate,
     generated_at: new Date().toISOString(),
     reading_level_target:'8-9',
     constraints:{max_words_per_bullet:12,max_lines_per_bullet:2,max_bullets:6,no_hype:true},

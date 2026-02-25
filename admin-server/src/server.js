@@ -100,6 +100,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('activity')}" href="/dashboard/activity">Activity</a>
       <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
+      <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio">Presentation Studio</a>
     </div>
     <a class="btn btn-sm btn-outline-secondary" href="/board">Team Board</a>
   </nav>`;
@@ -432,6 +433,104 @@ app.post('/api/presentations/export', requireRole('architect','editor','observer
   const r = spawnSync('node', [path.join(ROOT,'scripts/export_deck.js'), '--deck', deck, '--format', format], { cwd: ROOT, encoding:'utf8', env: process.env });
   if (r.status !== 0) return res.status(500).send(`export failed: ${r.stderr || r.stdout}`);
   return res.type('application/json').send(r.stdout || '{}');
+});
+
+app.get('/dashboard/presentation-studio', requireRole('architect','editor','observer'), async (req, res) => {
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const initiative_id = String(req.query.initiative_id || initiatives[0]?.initiative_id || '');
+  const buyer_id = String(req.query.buyer_id || '');
+
+  const optsInitiatives = initiatives.map(i => `<option value="${i.initiative_id}" ${i.initiative_id===initiative_id?'selected':''}>${escapeHtml(i.initiative_id)} — ${escapeHtml(i.name)}</option>`).join('');
+  const optsBuyers = ['<option value="">(none)</option>', ...buyers.map(b => `<option value="${b.buyer_id}" ${b.buyer_id===buyer_id?'selected':''}>${escapeHtml(b.buyer_id)} — ${escapeHtml(b.name)}</option>` )].join('');
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Presentation Studio')}</head><body>
+  <div class="app-shell" style="max-width:1400px">
+    ${dashboardNav('studio')}
+    <div class="row g-3">
+      <div class="col-12 col-lg-4">
+        <div class="card shadow-sm"><div class="card-body">
+          <h5>Prompt + Generate</h5>
+          <form id="studioForm" class="vstack gap-2">
+            <label class="form-label">Initiative</label>
+            <select class="form-select" name="initiative_id">${optsInitiatives}</select>
+            <label class="form-label">Buyer (optional)</label>
+            <select class="form-select" name="buyer_id">${optsBuyers}</select>
+            <label class="form-label">Deck Type</label>
+            <select class="form-select" name="deck_type"><option value="utc-internal">UTC Internal</option><option value="buyer-mandate-mirror">Buyer Mandate Mirror</option></select>
+            <label class="form-label">Template</label>
+            <select class="form-select" name="template_id"><option>sovereign-memo</option><option>clean-minimal</option><option>blueprint</option></select>
+            <label class="form-label">Image Provider</label>
+            <select class="form-select" name="image_provider"><option value="placeholder">Placeholder</option><option value="openai">OpenAI</option><option value="gemini">Gemini</option><option value="grok">Grok (xAI)</option></select>
+            <label class="form-label">Copy Provider</label>
+            <select class="form-select" name="copy_provider"><option value="local">Local Rewriter</option><option value="claude">Claude</option></select>
+            <label class="form-label">Prompt</label>
+            <textarea class="form-control" rows="8" name="prompt" placeholder="Tell Sentinel what to change in this deck..."></textarea>
+            <div class="d-flex gap-2 flex-wrap">
+              <button class="btn btn-primary" type="button" id="btnGenerate">Generate from Prompt</button>
+              <button class="btn btn-outline-primary" type="button" id="btnAuto">Generate for Me</button>
+            </div>
+            <small class="text-muted">Slides are HTML + CSS. Prompt updates slide content and regenerates preview.</small>
+          </form>
+        </div></div>
+      </div>
+      <div class="col-12 col-lg-8">
+        <div class="card shadow-sm"><div class="card-body">
+          <div class="d-flex justify-content-between align-items-center"><h5 class="mb-0">Slides Preview</h5><a id="openDeck" class="btn btn-sm btn-outline-secondary" target="_blank" href="#">Open Deck</a></div>
+          <div id="slideList" class="small text-muted my-2">No deck generated yet.</div>
+          <iframe id="deckFrame" style="width:100%;height:68vh;border:1px solid #ddd;border-radius:8px"></iframe>
+        </div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    let lastDeckPath = '';
+    async function generate(auto){
+      const form = document.getElementById('studioForm');
+      const fd = new FormData(form);
+      const payload = Object.fromEntries(fd.entries());
+      payload.auto_generate = !!auto;
+      const r = await fetch('/api/presentations/studio/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
+      const j = await r.json();
+      if(!r.ok){ alert(j.error || 'Generation failed'); return; }
+      lastDeckPath = '/' + j.deck + '/index.html';
+      document.getElementById('openDeck').href = lastDeckPath;
+      document.getElementById('deckFrame').src = lastDeckPath + '?t=' + Date.now();
+      document.getElementById('slideList').textContent = 'Deck: ' + j.deck + ' • Slides: ' + j.slideCount + ' • Images: ' + j.images;
+    }
+    document.getElementById('btnGenerate').addEventListener('click', ()=>generate(false));
+    document.getElementById('btnAuto').addEventListener('click', ()=>generate(true));
+  </script>
+  </body></html>`);
+});
+
+app.post('/api/presentations/studio/generate', requireRole('architect','editor'), async (req, res) => {
+  const initiative_id = String(req.body.initiative_id || '');
+  const buyer_id = String(req.body.buyer_id || '');
+  const deck_type = String(req.body.deck_type || 'utc-internal');
+  const template_id = String(req.body.template_id || 'sovereign-memo');
+  const image_provider = String(req.body.image_provider || 'placeholder');
+  const copy_provider = String(req.body.copy_provider || 'local');
+  const prompt = String(req.body.prompt || '');
+  const auto_generate = Boolean(req.body.auto_generate);
+
+  const cmd = ['node', path.join(ROOT,'scripts/generate_deck.js'), '--initiative_id', initiative_id, '--deck_type', deck_type, '--template_id', template_id, '--image_provider', image_provider, '--copy_provider', copy_provider, '--prompt', prompt, '--auto_generate', auto_generate ? 'true' : 'false'];
+  if (buyer_id) cmd.push('--buyer_id', buyer_id);
+  const { spawnSync } = await import('node:child_process');
+  const r = spawnSync(cmd[0], cmd.slice(1), { cwd: ROOT, encoding:'utf8', env: process.env });
+  if (r.status !== 0) return res.status(500).json({ error: (r.stderr || r.stdout || 'generation failed').trim() });
+
+  const out = JSON.parse((r.stdout || '{}').trim() || '{}');
+  const deckPath = out.deck || '';
+  let slideCount = 0;
+  try {
+    const d = await readJson(path.join(ROOT, deckPath, 'deck.json'), {});
+    slideCount = (d.slides || []).length;
+  } catch {}
+
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req)||'editor', event_type: 'workflow.run', entity_type: 'presentation', entity_id: `${initiative_id}:${deck_type}`, meta: { template_id, image_provider, copy_provider, buyer_id: buyer_id || null, auto_generate } });
+  await createSnapshot('presentation.studio.generate');
+  res.json({ ok:true, deck: deckPath, slideCount, images: out.images || 'unknown' });
 });
 
 app.post('/api/presentations/generate', requireRole('architect','editor'), async (req, res) => {
