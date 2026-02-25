@@ -221,7 +221,7 @@ function parsePromptSlides(prompt){
 
       // Heuristic: split a lead-in clause out of title so it can render as non-bullet intro.
       let introLine = '';
-      const leadMatch = title.match(/\b(Instead of[^:]*:?|When[^:]*:?|Before capital commits:?|This platform supports:?|The corridor model:?|Participation at platform level:?|If aligned, the next step is:?)\s*$/i);
+      const leadMatch = title.match(/\b(Instead of[^:]*:?|When[^:]*:?|Before capital commits:?|This platform supports:?|The corridor model:?|Participation at platform level:?|If aligned, the next step is:?|Month\s+\d+\s*:?)\s*$/i);
       if (leadMatch && title.length > leadMatch[1].length + 6) {
         introLine = leadMatch[1].trim();
         title = title.slice(0, title.length - leadMatch[1].length).trim();
@@ -379,16 +379,27 @@ async function main(){
     const s = slides[i];
     const layoutHtml = await fs.readFile(path.join(tRoot,'slide-layouts',`${s.layout}.html`),'utf8');
     const normalizedBullets = [];
-    for (const b of (s.bullets || [])) {
-      if (String(b).startsWith('__INTRO__ ')) {
-        normalizedBullets.push(String(b));
-      } else {
-        normalizedBullets.push(await applyReadability(b, copy_provider));
+    const rawBullets = (s.bullets || []);
+    for (let bi = 0; bi < rawBullets.length; bi++) {
+      const raw = String(rawBullets[bi] || '').trim();
+      if (!raw) continue;
+
+      // Preserve structural lead-ins and parent markers with trailing ':'
+      if (raw.startsWith('__INTRO__ ')) {
+        normalizedBullets.push(raw);
+        continue;
       }
+      if (/:\s*$/.test(raw)) {
+        if (bi === 0) normalizedBullets.push('__INTRO__ ' + raw);
+        else normalizedBullets.push(raw);
+        continue;
+      }
+
+      normalizedBullets.push(await applyReadability(raw, copy_provider));
     }
     const bullets = bulletsToHtml(normalizedBullets, copy_provider);
     const html = renderTemplate(layoutHtml,{...s, bullets});
-    await writeFile(path.join(slidesDir, `${String(i+1).padStart(3,'0')}.html`), `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../slide.css"><style>.bullets li.intro{list-style:none;margin-left:0;padding-left:0;font-weight:500;opacity:.95}.bullets li.sub{margin-left:1.4rem;list-style-type:circle;opacity:.95}.bullets li.parent{font-weight:600}</style></head><body>${html}</body></html>`);
+    await writeFile(path.join(slidesDir, `${String(i+1).padStart(3,'0')}.html`), `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../slide.css"><style>.bullets li.intro{list-style:none;margin-left:0;padding-left:0;font-weight:500;opacity:.95}.bullets li.sub{margin-left:1.4rem;list-style-type:circle;opacity:.95}.bullets li.parent{list-style:none;margin-left:0;padding-left:0;font-weight:600;opacity:.95}</style></head><body>${html}</body></html>`);
   }
 
   const statuses=[];
