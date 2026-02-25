@@ -525,6 +525,18 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
     let deckSpec = null;
     let selectedSlide = '';
 
+    async function setDeckRoot(root){
+      if(!root) return;
+      lastDeckRoot = root;
+      lastDeckPath = lastDeckRoot + '/index.html';
+      document.getElementById('openDeck').href = lastDeckPath;
+      document.getElementById('deckFrame').src = lastDeckPath + '?t=' + Date.now();
+      localStorage.setItem('studio:lastDeckRoot', lastDeckRoot);
+      await loadDeckSpec();
+      renderThumbs((deckSpec?.slides || []).length);
+      document.getElementById('slideList').textContent = 'Deck: ' + lastDeckRoot.replace(/^\//,'') + ' • Slides: ' + ((deckSpec?.slides || []).length || 0);
+    }
+
     async function loadDeckSpec(){
       if(!lastDeckRoot) return;
       const r = await fetch(lastDeckRoot + '/deck.json?t=' + Date.now());
@@ -586,13 +598,8 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
       const r = await fetch('/api/presentations/pipeline-v2/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)});
       const j = await r.json();
       if(!r.ok){ alert(j.error || 'Generation failed'); return; }
-      lastDeckRoot = '/' + j.deck;
-      lastDeckPath = lastDeckRoot + '/index.html';
-      document.getElementById('openDeck').href = lastDeckPath;
-      document.getElementById('deckFrame').src = lastDeckPath + '?t=' + Date.now();
+      await setDeckRoot('/' + j.deck);
       document.getElementById('slideList').textContent = 'Deck: ' + j.deck + ' • Slides: ' + j.slideCount + ' • Images: ' + j.images;
-      renderThumbs(j.slideCount || 0);
-      await loadDeckSpec();
     }
 
     async function saveSlide(regenImage){
@@ -633,6 +640,13 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
     document.getElementById('saveSlideBtn').addEventListener('click', ()=>saveSlide(false));
     document.getElementById('regenImageBtn').addEventListener('click', ()=>saveSlide(true));
     document.getElementById('deleteSlideBtn').addEventListener('click', ()=>deleteSlide());
+
+    // Restore last deck after refresh so slide editor is not empty.
+    const savedDeck = localStorage.getItem('studio:lastDeckRoot');
+    if (savedDeck) {
+      setDeckRoot(savedDeck).catch(()=>{});
+    }
+
   </script>
   </body></html>`);
 });
