@@ -16,6 +16,55 @@ function simplify(t){return String(t||'').replace(/\b(revolutionary|game-changin
 function normalizeBullets(arr){return (arr||[]).map(simplify).filter(Boolean).slice(0,6)}
 function rel(p){return path.relative(ROOT,p)}
 
+function bulletsToHtml(items){
+  const arr = Array.isArray(items) ? items : [];
+  let parentOpen = false;
+  const out = [];
+
+  const isParent = (t) => /:\s*$/.test(t) || /^month\s+\d+\s*:/i.test(t);
+  const isSiblingParent = (t) => /^month\s+\d+\s*:/i.test(t) || /^phase\s+\d+\s*:/i.test(t) || /^gate\s+\d+\s*:/i.test(t);
+
+  for (let i = 0; i < arr.length; i++) {
+    const text = String(arr[i] || '').trim();
+    if (!text) continue;
+
+    if (text.startsWith('__INTRO__ ')) {
+      out.push(`<li class="intro">${text.replace('__INTRO__ ', '')}</li>`);
+      parentOpen = false;
+      continue;
+    }
+
+    if (i === 0 && /:\s*$/.test(text) && arr.length > 1) {
+      out.push(`<li class="intro">${text}</li>`);
+      parentOpen = false;
+      continue;
+    }
+
+    if (isParent(text)) {
+      out.push(`<li class="parent">${text}</li>`);
+      parentOpen = true;
+      continue;
+    }
+
+    const prev = i > 0 ? String(arr[i - 1] || '').trim() : '';
+    if (parentOpen) {
+      if (isSiblingParent(text)) {
+        out.push(`<li class="parent">${text}</li>`);
+        parentOpen = true;
+      } else {
+        out.push(`<li class="sub">${text}</li>`);
+      }
+    } else if (isParent(prev)) {
+      out.push(`<li class="sub">${text}</li>`);
+      parentOpen = true;
+    } else {
+      out.push(`<li>${text}</li>`);
+    }
+  }
+
+  return out.join('');
+}
+
 function parsePromptSlides(prompt){
   const txt=String(prompt||'').replaceAll('⸻','\n');
   const rx=/SLIDE\s+(\d+)\s*[:.-]?/ig;
@@ -91,10 +140,10 @@ async function renderSlide(deckDir, templateId, slide){
   const tRoot=path.join(TEMPLATES,templateId);
   const layoutPath=path.join(tRoot,'slide-layouts',`${slide.layout}.html`);
   const layout = await fs.readFile(layoutPath,'utf8').catch(()=>'<section class="slide"><h2>{{title}}</h2><ul class="bullets">{{bullets}}</ul></section>');
-  const bullets=(slide.bullets||[]).map(b=>`<li>${b}</li>`).join('');
+  const bullets = bulletsToHtml(slide.bullets || []);
   const html = layout.replaceAll('{{title}}',slide.copy.title||slide.title).replaceAll('{{kicker}}','STRUCTURAL PROOF').replaceAll('{{subtitle}}',slide.copy.subtitle||'').replaceAll('{{footer}}',slide.copy.footer||'').replaceAll('{{bullets}}',bullets).replaceAll('{{image}}', slide.images?.[0]?.output_path ? '../'+path.basename(slide.images[0].output_path):'');
   const css = await fs.readFile(path.join(tRoot,'slide.css'),'utf8');
-  const full = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../slide.css"><style>.bullets{max-width:70ch}.bullets li{margin:.35rem 0}.bullets li.sub{margin-left:1.4rem;list-style-type:circle}</style></head><body>${html}</body></html>`;
+  const full = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="../slide.css"><style>.bullets{max-width:70ch}.bullets li{margin:.35rem 0}.bullets li.intro{list-style:none;margin-left:0;padding-left:0;font-weight:500;opacity:.95}.bullets li.parent{list-style:none;margin-left:0;padding-left:0;font-weight:600;opacity:.95}.bullets li.sub{margin-left:1.4rem;list-style-type:circle;opacity:.95}</style></head><body>${html}</body></html>`;
   await fs.writeFile(path.join(deckDir,'slide.css'),css,'utf8');
   await fs.mkdir(path.join(deckDir,'slides'),{recursive:true});
   await fs.writeFile(path.join(deckDir,'slides',`${slide.slide_id}.html`),full,'utf8');
