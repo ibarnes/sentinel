@@ -196,7 +196,9 @@ async function main(){
   await fs.mkdir(slidesDir,{recursive:true});
   await fs.mkdir(assetsDir,{recursive:true});
 
-  const promptLine = prompt ? `Operator intent: ${prompt}` : '';
+  const promptSlides = parsePromptSlides(prompt);
+  const promptShort = firstSentence(prompt);
+  const promptLine = promptShort ? `Operator intent: ${promptShort}` : '';
   const generatedHint = auto_generate ? 'Auto-generated draft from initiative and buyer context.' : 'Prompt-guided draft.';
 
   const baseBullets = normalizeBullets([
