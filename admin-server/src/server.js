@@ -78,11 +78,30 @@ function adminNav(active = '') {
     <div class="navbar-nav me-auto">
       <a class="nav-link ${is('panel')}" href="/admin">Panel</a>
       <a class="nav-link ${is('upload')}" href="/admin/upload">Upload</a>
-      <a class="nav-link" href="/dashboard/">Dashboard</a>
+      <a class="nav-link ${is('dashboard')}" href="/dashboard/">Dashboard</a>
+      <a class="nav-link ${is('buyers')}" href="/dashboard/buyers">Buyers</a>
+      <a class="nav-link ${is('activity')}" href="/dashboard/activity">Activity</a>
+      <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
+      <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
     </div>
     <form method="post" action="/admin/logout" class="d-flex m-0">
       <button class="btn btn-sm btn-outline-secondary" type="submit">Logout</button>
     </form>
+  </nav>`;
+}
+
+function dashboardNav(active = '') {
+  const is = (k) => active === k ? 'active' : '';
+  return `<nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3">
+    <a class="navbar-brand fw-bold" href="/dashboard/">Sentinel Dashboard</a>
+    <div class="navbar-nav me-auto">
+      <a class="nav-link ${is('home')}" href="/dashboard/">Home</a>
+      <a class="nav-link ${is('buyers')}" href="/dashboard/buyers">Buyers</a>
+      <a class="nav-link ${is('activity')}" href="/dashboard/activity">Activity</a>
+      <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
+      <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
+    </div>
+    <a class="btn btn-sm btn-outline-secondary" href="/board">Team Board</a>
   </nav>`;
 }
 
@@ -260,6 +279,7 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
   res.type('html').send(`<!doctype html>
 <html><head>${uiHead('Dashboard')}</head><body>
   <div class="app-shell">
+    ${dashboardNav('home')}
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h3 class="m-0">Operations Dashboard</h3>
       <div class="d-flex gap-2">
@@ -294,6 +314,7 @@ app.get('/dashboard/activity', async (req, res) => {
   const date = req.query.date ? String(req.query.date) : undefined;
   const events = await readActivityEvents({ limit: 1000, actor, entity_type, date, maxScan: 1000 });
   res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard Activity')}</head><body><div class="app-shell">
+    ${dashboardNav('activity')}
     <h3>Activity Feed</h3>
     <form class="row g-2 mb-3" method="get" action="/dashboard/activity">
       <div class="col"><input class="form-control" name="actor" placeholder="actor" value="${escapeHtml(actor || '')}"></div>
@@ -310,6 +331,7 @@ app.get('/dashboard/activity', async (req, res) => {
 app.get('/dashboard/review', async (_req, res) => {
   const rps = await listReviewPackets(200);
   res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard Review Packets')}</head><body><div class="app-shell">
+    ${dashboardNav('review')}
     <h3>Review Packets</h3>
     <div class="table-responsive"><table class="table table-sm"><thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th></tr></thead><tbody>
       ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td>${escapeHtml(r.title||'')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td></tr>`).join('')) || '<tr><td colspan="7">No review packets</td></tr>'}
@@ -321,6 +343,7 @@ app.get('/dashboard/board', async (_req, res) => {
   const board = await readJson(BOARD_FILE, defaultBoard());
   const counts = Object.fromEntries(BOARD_COLUMNS.map(c => [c, board.tasks.filter(t => t.status===c).length]));
   res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard Board')}</head><body><div class="app-shell">
+    ${dashboardNav('board')}
     <h3>Board Snapshot</h3>
     <div class="row g-2 mb-3">${BOARD_COLUMNS.map(c=>`<div class="col"><div class="card"><div class="card-body"><div class="small text-muted">${c}</div><div class="h4">${counts[c]}</div></div></div></div>`).join('')}</div>
     <a class="btn btn-primary" href="/board">Open Board UI</a>
@@ -334,6 +357,7 @@ app.get('/dashboard/buyers', async (req, res) => {
     .sort((a,b)=>Number(b.score||0)-Number(a.score||0));
   const sectors = [...new Set(buyers.flatMap(b=>b.sector_focus||[]))].sort();
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
+    ${dashboardNav('buyers')}
     <h3>Buyers</h3>
     <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div></form>
     <div class="table-responsive"><table class="table table-sm"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Sectors</th></tr></thead><tbody>${filtered.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('')}</tbody></table></div>
@@ -348,6 +372,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
   if(!b) return res.status(404).send('Buyer not found');
   const linked = initiatives.filter(i => (b.initiatives||[]).includes(i.initiative_id));
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyer Detail')}</head><body><div class="app-shell">
+    ${dashboardNav('buyers')}
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/buyers">← Buyers</a>
     <h3>${escapeHtml(b.name)}</h3>
     <p>${escapeHtml(b.mandate_summary || '')}</p>
@@ -372,6 +397,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
     walk(decksRoot);
   }
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiative Detail')}</head><body><div class="app-shell">
+    ${dashboardNav('buyers')}
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/buyers">← Buyers</a>
     <h3>${escapeHtml(i.name)}</h3>
     <p>${escapeHtml(i.macro_gravity_summary || '')}</p>
