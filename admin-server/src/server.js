@@ -41,6 +41,36 @@ if (!ADMIN_PASSWORD_HASH || !ADMIN_SESSION_SECRET) {
   process.exit(1);
 }
 
+function uiHead(title) {
+  return `
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>${title}</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css" rel="stylesheet">
+<style>
+  .app-shell { max-width: 1100px; margin: 24px auto; padding: 0 12px; }
+  .dropzone { border: 2px dashed var(--bs-border-color); border-radius: .75rem; padding: .9rem; background: var(--bs-tertiary-bg); }
+  .dropzone.dragover { border-color: var(--bs-primary); background: color-mix(in srgb, var(--bs-primary) 8%, white); }
+  .mono { font-family: ui-monospace,SFMono-Regular,Menlo,monospace; }
+</style>`;
+}
+
+function adminNav(active = '') {
+  const is = (k) => active === k ? 'active' : '';
+  return `<nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3">
+    <a class="navbar-brand fw-bold" href="/admin">Sentinel Admin</a>
+    <div class="navbar-nav me-auto">
+      <a class="nav-link ${is('panel')}" href="/admin">Panel</a>
+      <a class="nav-link ${is('upload')}" href="/admin/upload">Upload</a>
+      <a class="nav-link" href="/dashboard/">Dashboard</a>
+    </div>
+    <form method="post" action="/admin/logout" class="d-flex m-0">
+      <button class="btn btn-sm btn-outline-secondary" type="submit">Logout</button>
+    </form>
+  </nav>`;
+}
+
 async function ensureDirs() {
   const dirs = [
     INBOX_ROOT,
@@ -136,28 +166,24 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
   } catch {}
   const updated = Array.isArray(state?.updatedDocs) ? state.updatedDocs.join(', ') : 'N/A';
   res.type('html').send(`<!doctype html>
-<html><head><meta charset="utf-8"/><title>Dashboard (Read-Only)</title>
-<style>
-body{font-family:sans-serif;max-width:860px;margin:28px auto;padding:0 14px;line-height:1.4}
-.card{border:1px solid #ddd;border-radius:12px;padding:16px}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
-.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
-.btn-primary{background:#2563eb;color:#fff}
-.btn-secondary{background:#f3f4f6;color:#111}
-.muted{color:#555}
-code{background:#f6f8fa;padding:2px 6px;border-radius:6px}
-</style></head><body>
-  <div class="card">
-    <h2>Dashboard (Read-Only)</h2>
-    <p><strong>Last updated:</strong> ${escapeHtml(state?.lastUpdated || 'N/A')}</p>
-    <p><strong>Updated docs:</strong> ${escapeHtml(updated)}</p>
-    <p><strong>Archive batch:</strong> <code>${escapeHtml(state?.latestArchiveBatch || 'N/A')}</code></p>
-    <div class="actions">
-      <a class="btn btn-primary" href="/">Open Main App</a>
-      <a class="btn btn-secondary" href="/dashboard/state/state.json">View state.json</a>
-      <a class="btn btn-secondary" href="/dashboard/state/changelog.md">View changelog</a>
+<html><head>${uiHead('Dashboard (Read-Only)')}</head><body>
+  <div class="app-shell" style="max-width:860px">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="card-title">Dashboard (Read-Only)</h3>
+        <ul class="list-group list-group-flush mb-3">
+          <li class="list-group-item d-flex justify-content-between"><span>Last updated</span><span class="mono small">${escapeHtml(state?.lastUpdated || 'N/A')}</span></li>
+          <li class="list-group-item d-flex justify-content-between"><span>Updated docs</span><span>${escapeHtml(updated)}</span></li>
+          <li class="list-group-item d-flex justify-content-between"><span>Archive batch</span><span class="mono small">${escapeHtml(state?.latestArchiveBatch || 'N/A')}</span></li>
+        </ul>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn btn-primary" href="/">Open Main App</a>
+          <a class="btn btn-outline-secondary" href="/dashboard/state/state.json">View state.json</a>
+          <a class="btn btn-outline-secondary" href="/dashboard/state/changelog.md">View changelog</a>
+        </div>
+        <p class="text-muted mt-3 mb-0">This route is intentionally read-only.</p>
+      </div>
     </div>
-    <p class="muted">This route is intentionally read-only.</p>
   </div>
 </body></html>`);
 });
@@ -190,15 +216,22 @@ app.get('/healthz', (_req, res) => res.json({ ok: true, ts: nowIso() }));
 
 app.get('/admin/login', (_req, res) => {
   res.type('html').send(`<!doctype html>
-<html><head><meta charset="utf-8"/><title>Admin Login</title>
-<style>body{font-family:sans-serif;max-width:560px;margin:40px auto;padding:0 16px}input,button{padding:8px;font-size:16px}label{display:block;margin:12px 0 6px}</style></head>
+<html><head>${uiHead('Admin Login')}</head>
 <body>
-<h1>Sentinel Admin Login</h1>
-<form method="post" action="/admin/login">
-  <label>Password</label>
-  <input type="password" name="password" required autofocus />
-  <button type="submit">Login</button>
-</form>
+<div class="app-shell" style="max-width:560px">
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <h3 class="mb-3">Sentinel Admin Login</h3>
+      <form method="post" action="/admin/login" class="vstack gap-3">
+        <div>
+          <label class="form-label">Password</label>
+          <input class="form-control" type="password" name="password" required autofocus />
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
 </body></html>`);
 });
 
@@ -239,37 +272,36 @@ app.get('/admin', requireAuth, async (_req, res) => {
     : 0;
 
   res.type('html').send(`<!doctype html>
-<html><head><meta charset="utf-8"/><title>Admin Panel</title>
-<style>
-body{font-family:sans-serif;max-width:980px;margin:26px auto;padding:0 14px;line-height:1.35}
-.grid{display:grid;grid-template-columns:1fr;gap:12px}
-.card{border:1px solid #ddd;border-radius:12px;padding:14px}
-h1{margin:0 0 10px 0}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
-.btn-primary{background:#2563eb;color:#fff}
-.btn-secondary{background:#f3f4f6;color:#111}
-.muted{color:#555}
-@media (min-width: 860px){.grid{grid-template-columns:1.1fr 1fr}}
-</style></head><body>
-<h1>Sentinel Admin Panel</h1>
-<div class="grid">
-  <div class="card">
-    <h3>UOS Upload</h3>
-    <p class="muted">Upload files for Execution Engine, Canon, and Revenue OS.</p>
-    <div class="actions">
-      <a class="btn btn-primary" href="/admin/upload">Go to Upload</a>
-      <a class="btn btn-secondary" href="/dashboard/">View Dashboard</a>
+<html><head>${uiHead('Admin Panel')}</head><body>
+<div class="app-shell">
+  ${adminNav('panel')}
+  <div class="row g-3">
+    <div class="col-12 col-lg-7">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h4 class="card-title">UOS Upload Control</h4>
+          <p class="text-muted">Upload files for Execution Engine, Canon, and Revenue OS.</p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary" href="/admin/upload">Go to Upload</a>
+            <a class="btn btn-outline-secondary" href="/dashboard/">View Dashboard</a>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h3>Latest State</h3>
-    <p><strong>Last updated:</strong> ${escapeHtml(state?.lastUpdated || 'N/A')}</p>
-    <p><strong>Updated docs:</strong> ${escapeHtml(updated)}</p>
-    <p><strong>Total active files:</strong> ${totalFiles}</p>
-    <p><strong>Archive batch:</strong> ${escapeHtml(state?.latestArchiveBatch || 'N/A')}</p>
-    <form method="post" action="/admin/logout"><button type="submit">Logout</button></form>
+    <div class="col-12 col-lg-5">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h4 class="card-title">Latest State</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between"><span>Last updated</span><span class="mono small">${escapeHtml(state?.lastUpdated || 'N/A')}</span></li>
+            <li class="list-group-item d-flex justify-content-between"><span>Updated docs</span><span class="small">${escapeHtml(updated)}</span></li>
+            <li class="list-group-item d-flex justify-content-between"><span>Total active files</span><strong>${totalFiles}</strong></li>
+            <li class="list-group-item d-flex justify-content-between"><span>Archive batch</span><span class="mono small">${escapeHtml(state?.latestArchiveBatch || 'N/A')}</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </body></html>`);
@@ -277,82 +309,57 @@ h1{margin:0 0 10px 0}
 
 app.get('/admin/upload', requireAuth, (_req, res) => {
   res.type('html').send(`<!doctype html>
-<html><head><meta charset="utf-8"/><title>UOS Upload</title>
-<style>
-*{box-sizing:border-box}
-body{font-family:sans-serif;max-width:1100px;margin:20px auto;padding:0 12px;line-height:1.35}
-label{display:block;margin:10px 0 6px;font-weight:600}
-input,button{font-size:16px}
-input[type="file"]{width:100%}
-button{padding:10px 14px;margin-top:14px;min-height:42px;cursor:pointer}
-.card{border:1px solid #ddd;padding:14px;border-radius:12px}
-.grid{display:grid;grid-template-columns:1fr;gap:12px}
-.zone{border:2px dashed #bbb;border-radius:12px;padding:14px;background:#fafafa;min-width:0}
-.zone.dragover{border-color:#2b6cb0;background:#edf2f7}
-.muted{color:#555;font-size:14px}
-.counter{display:inline-block;padding:2px 8px;border-radius:999px;background:#eef2ff;font-size:12px;margin-left:8px;vertical-align:middle}
-.small{font-size:13px;color:#444;margin-top:6px;max-height:100px;overflow:auto;word-break:break-word}
-
-/* Tablet and up */
-@media (min-width: 760px){
-  .card{padding:18px}
-  .grid{grid-template-columns:1fr 1fr;gap:14px}
-  .zone[data-input="revenueOS"]{grid-column:1 / -1}
-}
-
-/* Desktop */
-@media (min-width: 1080px){
-  .grid{grid-template-columns:1fr 1fr 1fr}
-  .zone[data-input="revenueOS"]{grid-column:auto}
-}
-
-/* Small phones */
-@media (max-width: 420px){
-  body{padding:0 8px}
-  h1{font-size:1.25rem}
-  .counter{display:block;margin:6px 0 0 0;width:max-content}
-  button{width:100%}
-}
-</style></head>
+<html><head>${uiHead('UOS Upload')}</head>
 <body>
-<h1>UOS Admin Upload</h1>
-<div class="card">
-  <p>Upload multiple docs per category (.md, .txt, .pdf, .docx), max 20MB each file.</p>
-  <form id="uploadForm" method="post" action="/admin/upload" enctype="multipart/form-data">
-    <div class="grid">
-      <div class="zone" data-input="executionEngine">
-        <label>Execution Engine <span class="counter" id="executionEngineCount">0 files</span></label>
-        <input type="file" id="executionEngine" name="executionEngine" multiple required />
-        <div class="muted">Drag & drop files here or use file picker.</div>
-        <div class="small" id="executionEngineList"></div>
+<div class="app-shell">
+${adminNav('upload')}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h3 class="card-title">UOS Admin Upload</h3>
+    <p class="text-muted">Upload multiple docs per category (.md, .txt, .pdf, .docx), max 20MB each file.</p>
+
+    <form id="uploadForm" method="post" action="/admin/upload" enctype="multipart/form-data" class="vstack gap-3">
+      <div class="row g-3">
+        <div class="col-12 col-lg-4">
+          <div class="dropzone" data-input="executionEngine">
+            <label class="form-label d-flex justify-content-between">Execution Engine <span class="badge text-bg-primary" id="executionEngineCount">0 files</span></label>
+            <input class="form-control" type="file" id="executionEngine" name="executionEngine" multiple required />
+            <div class="form-text">Drag & drop files here or use file picker.</div>
+            <div class="small mt-2" id="executionEngineList"></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="dropzone" data-input="canon">
+            <label class="form-label d-flex justify-content-between">Canon <span class="badge text-bg-primary" id="canonCount">0 files</span></label>
+            <input class="form-control" type="file" id="canon" name="canon" multiple required />
+            <div class="form-text">Drag & drop files here or use file picker.</div>
+            <div class="small mt-2" id="canonList"></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="dropzone" data-input="revenueOS">
+            <label class="form-label d-flex justify-content-between">Revenue OS <span class="badge text-bg-primary" id="revenueOSCount">0 files</span></label>
+            <input class="form-control" type="file" id="revenueOS" name="revenueOS" multiple required />
+            <div class="form-text">Drag & drop files here or use file picker.</div>
+            <div class="small mt-2" id="revenueOSList"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="zone" data-input="canon">
-        <label>Canon <span class="counter" id="canonCount">0 files</span></label>
-        <input type="file" id="canon" name="canon" multiple required />
-        <div class="muted">Drag & drop files here or use file picker.</div>
-        <div class="small" id="canonList"></div>
+      <div class="d-flex flex-wrap gap-2">
+        <button class="btn btn-primary" type="submit">Upload + Rebuild Dashboard State</button>
       </div>
-
-      <div class="zone" data-input="revenueOS">
-        <label>Revenue OS <span class="counter" id="revenueOSCount">0 files</span></label>
-        <input type="file" id="revenueOS" name="revenueOS" multiple required />
-        <div class="muted">Drag & drop files here or use file picker.</div>
-        <div class="small" id="revenueOSList"></div>
-      </div>
-    </div>
-
-    <button type="submit">Upload + Rebuild Dashboard State</button>
-  </form>
-  <form method="post" action="/admin/logout"><button type="submit">Logout</button></form>
+    </form>
+  </div>
+</div>
 </div>
 
 <script>
 const allowed = new Set(['.md','.txt','.pdf','.docx']);
 const maxBytes = 20 * 1024 * 1024;
-
 function ext(name){ const i=name.lastIndexOf('.'); return i>=0 ? name.slice(i).toLowerCase() : ''; }
-
 function render(inputId){
   const input = document.getElementById(inputId);
   const count = document.getElementById(inputId + 'Count');
@@ -366,7 +373,6 @@ function render(inputId){
     return '<div>' + f.name + (flags ? ' ⚠️ ' + flags : '') + '</div>';
   }).join('') || '<em>No files selected</em>';
 }
-
 function mergeFiles(input, droppedFiles){
   const dt = new DataTransfer();
   Array.from(input.files || []).forEach(f => dt.items.add(f));
@@ -374,22 +380,19 @@ function mergeFiles(input, droppedFiles){
   input.files = dt.files;
   render(input.id);
 }
-
 ['executionEngine','canon','revenueOS'].forEach(id => {
   const input = document.getElementById(id);
   input.addEventListener('change', () => render(id));
   render(id);
-
-  const zone = document.querySelector('.zone[data-input="' + id + '"]');
+  const zone = document.querySelector('.dropzone[data-input="' + id + '"]');
   ['dragenter','dragover'].forEach(evt => zone.addEventListener(evt, (e) => { e.preventDefault(); zone.classList.add('dragover'); }));
   ['dragleave','drop'].forEach(evt => zone.addEventListener(evt, (e) => { e.preventDefault(); zone.classList.remove('dragover'); }));
-  zone.addEventListener('drop', (e) => {
-    mergeFiles(input, e.dataTransfer.files);
-  });
+  zone.addEventListener('drop', (e) => mergeFiles(input, e.dataTransfer.files));
 });
 </script>
 </body></html>`);
 });
+
 
 app.post(
   '/admin/upload',
@@ -477,25 +480,21 @@ app.post(
       await appendAdminLog(`UPLOAD_SUCCESS count=${updates.length} files=${updates.map((u) => u.originalName).join(',')} archive=${rel(archiveDir)}`);
 
       res.type('html').send(`<!doctype html>
-<html><head><meta charset="utf-8"/><title>Upload Complete</title>
-<style>
-body{font-family:sans-serif;max-width:760px;margin:28px auto;padding:0 14px;line-height:1.4}
-.card{border:1px solid #ddd;border-radius:12px;padding:16px}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
-.btn-primary{background:#2563eb;color:#fff}
-.btn-secondary{background:#f3f4f6;color:#111}
-pre{background:#f8fafc;border:1px solid #e5e7eb;padding:10px;border-radius:8px;overflow:auto}
-</style></head><body>
-  <div class="card">
-    <h2>Upload complete</h2>
-    <p>State rebuilt and snapshot written.</p>
-    <pre>${escapeHtml(JSON.stringify({ updatedCategories: [...new Set(updates.map((u) => u.key))], totalFiles: updates.length, archiveDir: rel(archiveDir), at: nowIso() }, null, 2))}</pre>
-    <div class="actions">
-      <a class="btn btn-primary" href="/dashboard/">View Dashboard</a>
-      <a class="btn btn-secondary" href="/admin/upload">Upload Another Batch</a>
+<html><head>${uiHead('Upload Complete')}</head><body>
+<div class="app-shell" style="max-width:860px">
+  ${adminNav('upload')}
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h3 class="card-title">Upload complete</h3>
+      <p class="text-muted">State rebuilt and snapshot written.</p>
+      <pre class="p-3 bg-body-tertiary border rounded">${escapeHtml(JSON.stringify({ updatedCategories: [...new Set(updates.map((u) => u.key))], totalFiles: updates.length, archiveDir: rel(archiveDir), at: nowIso() }, null, 2))}</pre>
+      <div class="d-flex flex-wrap gap-2 mt-2">
+        <a class="btn btn-primary" href="/dashboard/">View Dashboard</a>
+        <a class="btn btn-outline-secondary" href="/admin/upload">Upload Another Batch</a>
+      </div>
     </div>
   </div>
+</div>
 </body></html>`);
     } catch (err) {
       await appendAdminLog(`UPLOAD_ERROR error=${String(err?.message || err)}`);
