@@ -550,7 +550,7 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
       if(!s) return;
       document.getElementById('editLayout').value = s.layout || 'section';
       document.getElementById('editTitle').value = s.copy?.title || s.title || '';
-      document.getElementById('editBullets').value = (s.copy?.bullets || s.bullets || []).join('\n');
+      document.getElementById('editBullets').value = (s.copy?.bullets || s.bullets || []).join('\\n');
       document.getElementById('editImagePrompt').value = s.images?.[0]?.prompt || '';
       document.getElementById('deckFrame').src = lastDeckRoot + '/slides/' + slideId + '.html?t=' + Date.now();
     }
