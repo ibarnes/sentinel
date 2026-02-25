@@ -1575,7 +1575,7 @@ function render(){
     return [
       '<div class="col-12 col-xl"><div class="card h-100">',
       '<div class="card-header"><strong>' + c + '</strong> <span class="badge text-bg-light">' + tasks.length + '</span></div>',
-      '<div class="card-body" data-column="' + c + '" ondragover="allowDrop(event)" ondrop="dropTask(event,\'' + c + '\')">',
+      '<div class="card-body" data-column="' + c + '" ondragover="allowDrop(event)" ondrop="dropTask(event,this.dataset.column)">',
       tasks.map(cardHTML).join(''),
       '</div></div></div>'
     ].join('');
