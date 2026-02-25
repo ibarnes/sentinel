@@ -360,10 +360,11 @@ app.get('/dashboard/activity', async (req, res) => {
 
 app.get('/dashboard/review', async (req, res) => {
   const page = Math.max(1, Number.parseInt(String(req.query.page || '1'), 10) || 1);
+  const showAll = String(req.query.showAll || 'false') === 'true';
   const pageSizeRaw = Number.parseInt(String(req.query.pageSize || '25'), 10) || 25;
-  const pageSize = Math.min(100, Math.max(10, pageSizeRaw));
 
   const all = await listReviewPackets(5000);
+  const pageSize = showAll ? Math.max(1, all.length) : Math.min(100, Math.max(10, pageSizeRaw));
   const total = all.length;
   const totalPages = Math.max(1, Math.ceil(total / pageSize));
   const safePage = Math.min(page, totalPages);
@@ -378,6 +379,10 @@ app.get('/dashboard/review', async (req, res) => {
     <div class="d-flex justify-content-between align-items-center mb-2">
       <h3 class="mb-0">Review Packets</h3>
       <div class="small text-muted">Total: ${total} • Page ${safePage}/${totalPages}</div>
+    </div>
+    <div class="d-flex gap-2 mb-2">
+      <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review?showAll=true">Show All</a>
+      <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review?page=1&pageSize=25">Paged View</a>
     </div>
     <div class="table-responsive"><table class="table table-sm"><thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th></tr></thead><tbody>
       ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td>${escapeHtml(r.title||'')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td></tr>`).join('')) || '<tr><td colspan="7">No review packets</td></tr>'}
@@ -1373,9 +1378,14 @@ async function readActivityEvents({ limit = 20, actor, entity_type, date, maxSca
 async function listReviewPackets(limit = 50) {
   const files = (await fs.readdir(REVIEW_PACKET_ROOT).catch(() => []))
     .filter((f) => /^RP-\d+/i.test(f) && f.endsWith('.md'))
-    .sort()
-    .reverse()
+    .sort((a, b) => {
+      const na = Number((a.match(/^RP-(\d+)/i) || [0, 0])[1]);
+      const nb = Number((b.match(/^RP-(\d+)/i) || [0, 0])[1]);
+      if (na !== nb) return nb - na;
+      return b.localeCompare(a);
+    })
     .slice(0, limit);
+
   const out = [];
   for (const f of files) {
     const full = path.join(REVIEW_PACKET_ROOT, f);
@@ -1388,7 +1398,20 @@ async function listReviewPackets(limit = 50) {
         if (i > 0) front[line.slice(0, i).trim()] = line.slice(i + 1).trim();
       }
     }
-    out.push({ path: rel(full), ...front });
+
+    const rpFromFile = (f.match(/^(RP-\d+)/i) || [null, null])[1];
+    const titleFromHeader = ((txt.match(/^#\s+(.+)$/m) || [null, null])[1] || '').trim();
+
+    out.push({
+      rp_id: front.rp_id || rpFromFile || 'N/A',
+      title: front.title || titleFromHeader || f,
+      linked_task: front.linked_task || '',
+      created_at: front.created_at || '',
+      created_by: front.created_by || '',
+      status: front.status || (m ? 'Draft' : 'Legacy'),
+      recommended_action: front.recommended_action || '',
+      path: rel(full),
+    });
   }
   return out;
 }

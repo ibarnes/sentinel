@@ -1,4 +1,16 @@
-# RP-0008 — Overnight Command Interface Readiness Plan
+---
+rp_id: RP-0012
+title: Overnight Command Interface Readiness Plan
+linked_task: TASK-OPS-OVERNIGHT
+created_by: sentinel
+created_at: 2026-02-25T00:00:00Z
+status: Archived
+recommended_action: Monitor
+architect_decision: null
+architect_notes: null
+---
+
+# RP-0012 — Overnight Command Interface Readiness Plan
 
 ## Objective
 Prepare the current admin/dashboard stack to be team-ready as a command interface by tomorrow morning.
