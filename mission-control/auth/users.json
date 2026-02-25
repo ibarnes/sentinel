@@ -1,4 +1,45 @@
 {
-  "users": [],
-  "invites": []
+  "users": [
+    {
+      "id": "ca0858e3-7892-4ac1-b257-ed82b180a463",
+      "username": "isaac",
+      "role": "architect",
+      "passwordHash": "$2a$12$5upJI2A3ngH9ptZAtEHooe8vbqMI/Sk73B2wLxs4ubovCdXoS2Uoq",
+      "active": true,
+      "createdAt": "2026-02-25T05:13:34.722Z",
+      "invitedBy": "isaac"
+    }
+  ],
+  "invites": [
+    {
+      "token": "7ba573d1c8b70160554487b2590c01dc53d6646a",
+      "role": "architect",
+      "createdAt": "2026-02-25T05:07:25.337Z",
+      "createdBy": "isaac",
+      "expiresAt": "2026-03-04T05:07:25.337Z",
+      "usedAt": "2026-02-25T05:13:34.722Z",
+      "usedBy": "isaac"
+    },
+    {
+      "token": "c8ff17dc7ea4f64db8e18bf9cf43225ba1c7b09c",
+      "role": "architect",
+      "createdAt": "2026-02-25T05:13:01.870Z",
+      "createdBy": "isaac",
+      "expiresAt": "2026-03-04T05:13:01.870Z"
+    },
+    {
+      "token": "8aba9a0b7bc22d1a2bd76b16dc3ce47876756890",
+      "role": "observer",
+      "createdAt": "2026-02-25T16:50:42.982Z",
+      "createdBy": "isaac",
+      "expiresAt": "2026-03-04T16:50:42.982Z"
+    },
+    {
+      "token": "beec09535ae0da596a2dd9414d5d60349473e5c7",
+      "role": "observer",
+      "createdAt": "2026-02-25T17:07:06.035Z",
+      "createdBy": "isaac",
+      "expiresAt": "2026-03-04T17:07:06.035Z"
+    }
+  ]
 }

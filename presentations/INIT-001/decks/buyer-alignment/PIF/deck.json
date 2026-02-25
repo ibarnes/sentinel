@@ -2,8 +2,11 @@
   "initiative_id": "INIT-001",
   "buyer_id": "PIF",
   "deck_type": "buyer-mandate-mirror",
-  "template_id": "clean-minimal",
-  "generated_at": "2026-02-25T04:22:09.743Z",
+  "template_id": "blueprint",
+  "copy_provider": "local",
+  "prompt": "SLIDE 1. Buyer context. SLIDE 2. Mandate. SLIDE 3. Region. SLIDE 4. Sector. SLIDE 5. Fit. SLIDE 6. Gaps. SLIDE 7. Compression. SLIDE 8. Sequencing. SLIDE 9. Controls. SLIDE 10. Roles. SLIDE 11. Decision gates. SLIDE 12. Timeline. SLIDE 13. Trigger. SLIDE 14. Gate 1.",
+  "auto_generate": false,
+  "generated_at": "2026-02-25T14:02:15.559Z",
   "reading_level_target": "8-9",
   "constraints": {
     "max_words_per_bullet": 12,
@@ -12,9 +15,9 @@
     "no_hype": true
   },
   "template": {
-    "id": "clean-minimal",
-    "name": "Clean Minimal",
-    "description": "Simple white layout with restrained accents.",
+    "id": "blueprint",
+    "name": "Blueprint",
+    "description": "Technical blueprint style with grid overlays.",
     "layouts": [
       "title",
       "section",
@@ -28,39 +31,106 @@
       "layout": "title",
       "kicker": "Structural Proof",
       "title": "West Africa Energy Corridor",
-      "subtitle": "Pressure to initiative alignment for execution discipline.",
+      "subtitle": "SLIDE 1.",
       "footer": "INIT-001 • buyer-mandate-mirror"
     },
     {
       "layout": "section",
-      "kicker": "Structural Inevitability",
-      "title": "Gravity",
-      "bullets": [
-        "Macro shift: Power demand rises while grid reliability lags. Capital and governance",
-        "Capital bottleneck: funding does not meet project timing",
-        "Governance bottleneck: approvals and sequencing are fragmented",
-        "Resolution: align mandate, sequencing, and control gates",
-        "Outcome: lower execution risk and faster mandate delivery"
-      ],
-      "footer": "No hype. Mechanical logic only."
+      "kicker": "Structural Proof",
+      "title": "Buyer context",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
     },
     {
-      "layout": "proof",
-      "title": "Mandate Mirror",
-      "bullets": [
-        "Mandate fit: Deploy large capital into strategic sectors with regional impact.",
-        "Regional fit: MENA, Africa",
-        "Sector fit: Infrastructure, Energy, Digital",
-        "Leverage: structure expands control and policy impact",
-        "Risk: phased gates compress downside"
-      ],
-      "footer": "Buyer: Public Investment Fund"
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Mandate",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
     },
     {
-      "layout": "diagram",
-      "title": "Controlled Activation",
-      "image": "../assets/img-001.png",
-      "footer": "Capital sequencing and governance gates"
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Region",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Sector",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Fit",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Gaps",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Compression",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Sequencing",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Controls",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Roles",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Decision gates",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Timeline",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Trigger",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
+    },
+    {
+      "layout": "section",
+      "kicker": "Structural Proof",
+      "title": "Gate 1",
+      "bullets": [],
+      "footer": "INIT-001 • buyer-mandate-mirror"
     },
     {
       "layout": "close",

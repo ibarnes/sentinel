@@ -1,0 +1,207 @@
+{
+  "deck": "presentations/INIT-001/decks/buyer-alignment/GIC",
+  "generated_at": "2026-02-25T16:46:58.038Z",
+  "slides": [
+    {
+      "slide_id": "001",
+      "title": "West Africa Energy Corridor",
+      "qa": {}
+    },
+    {
+      "slide_id": "002",
+      "title": "Energy and Water Demand Is Rising",
+      "qa": {
+        "readability_score": 8.418268398268399,
+        "density_score": 0.36666666666666664,
+        "overflow_risk": "low",
+        "pass": true,
+        "fail": []
+      }
+    },
+    {
+      "slide_id": "003",
+      "title": "Long-Term Infrastructure Capital Exists",
+      "qa": {
+        "readability_score": 15.212207792207792,
+        "density_score": 0.36666666666666664,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "004",
+      "title": "Projects Stall Before FID",
+      "qa": {
+        "readability_score": 10.206147186147184,
+        "density_score": 0.36666666666666664,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "005",
+      "title": "A Corridor Platform Approach",
+      "qa": {
+        "readability_score": 14.450879120879122,
+        "density_score": 0.28888888888888886,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "006",
+      "title": "When Governance Is Clear, Capital Moves",
+      "qa": {
+        "readability_score": 9.57,
+        "density_score": 0.3111111111111111,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "007",
+      "title": "Alignment with Sovereign Mandates",
+      "qa": {
+        "readability_score": 19.501746031746034,
+        "density_score": 0.2,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "008",
+      "title": "Risk Is Reduced Through Structure",
+      "qa": {
+        "readability_score": 12.788809523809526,
+        "density_score": 0.26666666666666666,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "009",
+      "title": "Strategic Positioning",
+      "qa": {
+        "readability_score": 15.247142857142858,
+        "density_score": 0.26666666666666666,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "010",
+      "title": "Capital Altitude Is Required",
+      "qa": {
+        "readability_score": 14.934906832298136,
+        "density_score": 0.25555555555555554,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "011",
+      "title": "Phase 1 — Pre-FID Structuring",
+      "qa": {
+        "readability_score": 11.255714285714287,
+        "density_score": 0.3111111111111111,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "012",
+      "title": "Governance Roles",
+      "qa": {
+        "readability_score": 15.974761904761905,
+        "density_score": 0.3333333333333333,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "013",
+      "title": "Capital Governance & Transparency Layer",
+      "qa": {
+        "readability_score": 13.162949308755767,
+        "density_score": 0.34444444444444444,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "014",
+      "title": "Capital Sequencing Timeline",
+      "qa": {
+        "readability_score": 10.310676691729324,
+        "density_score": 0.2111111111111111,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "015",
+      "title": "The Next Gate",
+      "qa": {
+        "readability_score": 11.536666666666665,
+        "density_score": 0.26666666666666666,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "016",
+      "title": "If aligned, Gate 1 starts here.",
+      "qa": {
+        "readability_score": 6,
+        "density_score": 0.2,
+        "overflow_risk": "low",
+        "pass": true,
+        "fail": []
+      }
+    }
+  ],
+  "summary": {
+    "total": 16,
+    "pass": 3,
+    "fail": 13
+  }
+}

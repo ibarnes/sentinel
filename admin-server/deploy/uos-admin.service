@@ -7,8 +7,7 @@ Type=simple
 User=ec2-user
 Group=ec2-user
 WorkingDirectory=/home/ec2-user/.openclaw/workspace/admin-server
-EnvironmentFile=/home/ec2-user/.openclaw/workspace/admin-server/.env
-ExecStart=/usr/bin/node /home/ec2-user/.openclaw/workspace/admin-server/src/server.js
+ExecStart=/bin/bash -lc 'set -a; source /home/ec2-user/.openclaw/workspace/admin-server/.env; set +a; exec /usr/bin/node /home/ec2-user/.openclaw/workspace/admin-server/src/server.js'
 Restart=always
 RestartSec=5
 

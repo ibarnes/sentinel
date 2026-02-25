@@ -1,6 +1,6 @@
 {
   "deck": "presentations/INIT-001/decks/utc-internal",
-  "generated_at": "2026-02-25T15:44:33.875Z",
+  "generated_at": "2026-02-25T16:51:16.532Z",
   "slides": [
     {
       "slide_id": "001",
@@ -9,10 +9,10 @@
     },
     {
       "slide_id": "002",
-      "title": "Energy and Water Demand Is Rising",
+      "title": "One",
       "qa": {
-        "readability_score": 9.352500000000003,
-        "density_score": 0.17777777777777778,
+        "readability_score": 2.5000000000000036,
+        "density_score": 0.022222222222222223,
         "overflow_risk": "low",
         "pass": true,
         "fail": []
@@ -20,58 +20,17 @@
     },
     {
       "slide_id": "003",
-      "title": "Long-Term Infrastructure Capital Exists",
+      "title": "Three",
       "qa": {
-        "readability_score": 16.961538461538463,
-        "density_score": 0.14444444444444443,
+        "readability_score": -3.3999999999999986,
+        "density_score": 0.022222222222222223,
         "overflow_risk": "low",
-        "pass": false,
-        "fail": [
-          "readability_high"
-        ]
+        "pass": true,
+        "fail": []
       }
     },
     {
       "slide_id": "004",
-      "title": "Projects Stall Before FID",
-      "qa": {
-        "readability_score": 9.700000000000003,
-        "density_score": 0.14444444444444443,
-        "overflow_risk": "low",
-        "pass": false,
-        "fail": [
-          "readability_high"
-        ]
-      }
-    },
-    {
-      "slide_id": "005",
-      "title": "A Corridor Platform Approach",
-      "qa": {
-        "readability_score": 14.803636363636365,
-        "density_score": 0.12222222222222222,
-        "overflow_risk": "low",
-        "pass": false,
-        "fail": [
-          "readability_high"
-        ]
-      }
-    },
-    {
-      "slide_id": "006",
-      "title": "The Next Gate",
-      "qa": {
-        "readability_score": 12.291428571428572,
-        "density_score": 0.07777777777777778,
-        "overflow_risk": "low",
-        "pass": false,
-        "fail": [
-          "readability_high"
-        ]
-      }
-    },
-    {
-      "slide_id": "007",
       "title": "If aligned, Gate 1 starts here.",
       "qa": {
         "readability_score": 6,
@@ -83,8 +42,8 @@
     }
   ],
   "summary": {
-    "total": 7,
-    "pass": 3,
-    "fail": 4
+    "total": 4,
+    "pass": 4,
+    "fail": 0
   }
 }

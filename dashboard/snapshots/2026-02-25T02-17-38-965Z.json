@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 1,
+  "lastUpdated": "2026-02-25T01:28:49.460Z",
+  "updatedDocs": [
+    "Execution Engine",
+    "Canon",
+    "Revenue OS"
+  ],
+  "uosCurrent": {
+    "execution-engine": {
+      "title": "Execution Engine",
+      "currentDir": "workspace/uos/current/execution-engine",
+      "fileCount": 13,
+      "files": [
+        {
+          "currentPath": "workspace/uos/current/execution-engine/001-UOS_____Coordinator_Manual.md",
+          "sourceUpload": "UOS_____Coordinator_Manual.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__001-UOS_____Coordinator_Manual.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__001-UOS_____Coordinator_Manual.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/002-UOS_____Analyst_Manual.md",
+          "sourceUpload": "UOS_____Analyst_Manual.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__002-UOS_____Analyst_Manual.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__002-UOS_____Analyst_Manual.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/003-UOS_____Subsidiary_Launch_Playbook.md",
+          "sourceUpload": "UOS_____Subsidiary_Launch_Playbook.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__003-UOS_____Subsidiary_Launch_Playbook.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__003-UOS_____Subsidiary_Launch_Playbook.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/004-USG_VISION_PATTERN_TEMPLATE.md",
+          "sourceUpload": "USG_VISION_PATTERN_TEMPLATE.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__004-USG_VISION_PATTERN_TEMPLATE.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__004-USG_VISION_PATTERN_TEMPLATE.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/005-UOS_____Escalation_Framework.md",
+          "sourceUpload": "UOS_____Escalation_Framework.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__005-UOS_____Escalation_Framework.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__005-UOS_____Escalation_Framework.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/006-UOS_____Documentation___Versioning_Standards.md",
+          "sourceUpload": "UOS_____Documentation___Versioning_Standards.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__006-UOS_____Documentation___Versioning_Standards.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__006-UOS_____Documentation___Versioning_Standards.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/007-UOS_____Communication_Framework.md",
+          "sourceUpload": "UOS_____Communication_Framework.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__007-UOS_____Communication_Framework.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__007-UOS_____Communication_Framework.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/008-UOS_____Quality_Bar_System.md",
+          "sourceUpload": "UOS_____Quality_Bar_System.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__008-UOS_____Quality_Bar_System.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__008-UOS_____Quality_Bar_System.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/009-UOS_____ENGAGEMENT_TENETS.md",
+          "sourceUpload": "UOS_____ENGAGEMENT_TENETS.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__009-UOS_____ENGAGEMENT_TENETS.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__009-UOS_____ENGAGEMENT_TENETS.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/010-UOS_GATES_1-7_Consolidated.md",
+          "sourceUpload": "UOS_GATES_1-7_Consolidated.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__010-UOS_GATES_1-7_Consolidated.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__010-UOS_GATES_1-7_Consolidated.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/011-UOS_____Friction_Management_System.md",
+          "sourceUpload": "UOS_____Friction_Management_System.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__011-UOS_____Friction_Management_System.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__011-UOS_____Friction_Management_System.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/012-UOS_____Operator_Manual.md",
+          "sourceUpload": "UOS_____Operator_Manual.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__012-UOS_____Operator_Manual.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__012-UOS_____Operator_Manual.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/execution-engine/013-USG_SOP_____Meeting_Qualification___Scheduling.md",
+          "sourceUpload": "USG_SOP_____Meeting_Qualification___Scheduling.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__013-USG_SOP_____Meeting_Qualification___Scheduling.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/execution-engine__013-USG_SOP_____Meeting_Qualification___Scheduling.md"
+        }
+      ]
+    },
+    "canon": {
+      "title": "Canon",
+      "currentDir": "workspace/uos/current/canon",
+      "fileCount": 5,
+      "files": [
+        {
+          "currentPath": "workspace/uos/current/canon/001-USG_CANON_____EXECUTION_CONSTRAINTS.md",
+          "sourceUpload": "USG_CANON_____EXECUTION_CONSTRAINTS.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/canon__001-USG_CANON_____EXECUTION_CONSTRAINTS.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/canon__001-USG_CANON_____EXECUTION_CONSTRAINTS.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/canon/002-USG_CANON_____SUPREMACY___CONFLICT_ORDER__v1.0_.md",
+          "sourceUpload": "USG_CANON_____SUPREMACY___CONFLICT_ORDER__v1.0_.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/canon__002-USG_CANON_____SUPREMACY___CONFLICT_ORDER__v1.0_.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/canon__002-USG_CANON_____SUPREMACY___CONFLICT_ORDER__v1.0_.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/canon/003-USG_ROLE___AUTHORITY_CANON.md",
+          "sourceUpload": "USG_ROLE___AUTHORITY_CANON.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/canon__003-USG_ROLE___AUTHORITY_CANON.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/canon__003-USG_ROLE___AUTHORITY_CANON.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/canon/004-USG_EXTERNAL_TRANSLATION_CANON__v1.md",
+          "sourceUpload": "USG_EXTERNAL_TRANSLATION_CANON__v1.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/canon__004-USG_EXTERNAL_TRANSLATION_CANON__v1.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/canon__004-USG_EXTERNAL_TRANSLATION_CANON__v1.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/canon/005-USG_Gravity_Law_v1.0.md",
+          "sourceUpload": "USG_Gravity_Law_v1.0.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/canon__005-USG_Gravity_Law_v1.0.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/canon__005-USG_Gravity_Law_v1.0.md"
+        }
+      ]
+    },
+    "revenue-os": {
+      "title": "Revenue OS",
+      "currentDir": "workspace/uos/current/revenue-os",
+      "fileCount": 19,
+      "files": [
+        {
+          "currentPath": "workspace/uos/current/revenue-os/001-Revenue_OS_____USG_READINESS_QUESTION_____PHRASEBOOK___NO-GO_EXITS.md",
+          "sourceUpload": "Revenue_OS_____USG_READINESS_QUESTION_____PHRASEBOOK___NO-GO_EXITS.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__001-Revenue_OS_____USG_READINESS_QUESTION_____PHRASEBOOK___NO-GO_EXITS.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__001-Revenue_OS_____USG_READINESS_QUESTION_____PHRASEBOOK___NO-GO_EXITS.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/002-Revenue_OS_____USG_NO-ANALOGY_RULE.md",
+          "sourceUpload": "Revenue_OS_____USG_NO-ANALOGY_RULE.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__002-Revenue_OS_____USG_NO-ANALOGY_RULE.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__002-Revenue_OS_____USG_NO-ANALOGY_RULE.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/003-Revenue_OS_____USG_PLATFORM_ENGAGEMENT_LIFECYCLE.md",
+          "sourceUpload": "Revenue_OS_____USG_PLATFORM_ENGAGEMENT_LIFECYCLE.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__003-Revenue_OS_____USG_PLATFORM_ENGAGEMENT_LIFECYCLE.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__003-Revenue_OS_____USG_PLATFORM_ENGAGEMENT_LIFECYCLE.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/004-REVENUE_OS_____PLATFORM_ARCHITECTURE_CONSTRAINTS.md",
+          "sourceUpload": "REVENUE_OS_____PLATFORM_ARCHITECTURE_CONSTRAINTS.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__004-REVENUE_OS_____PLATFORM_ARCHITECTURE_CONSTRAINTS.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__004-REVENUE_OS_____PLATFORM_ARCHITECTURE_CONSTRAINTS.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/005-Current_State___Constraints_Brief__v2_.md",
+          "sourceUpload": "Current_State___Constraints_Brief__v2_.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__005-Current_State___Constraints_Brief__v2_.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__005-Current_State___Constraints_Brief__v2_.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/006-REVENUE_OS_____CONSTRAINTS_____PLATFORM_ARCHITECTURE_VS_SERVICE.md",
+          "sourceUpload": "REVENUE_OS_____CONSTRAINTS_____PLATFORM_ARCHITECTURE_VS_SERVICE.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__006-REVENUE_OS_____CONSTRAINTS_____PLATFORM_ARCHITECTURE_VS_SERVICE.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__006-REVENUE_OS_____CONSTRAINTS_____PLATFORM_ARCHITECTURE_VS_SERVICE.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/007-Revenue_OS_____USG_BUYER_CLASS_MAP.md",
+          "sourceUpload": "Revenue_OS_____USG_BUYER_CLASS_MAP.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__007-Revenue_OS_____USG_BUYER_CLASS_MAP.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__007-Revenue_OS_____USG_BUYER_CLASS_MAP.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/008-Revenue_OS_____THE_PLATFORM_BUILD_PATTERN__PBP_.md",
+          "sourceUpload": "Revenue_OS_____THE_PLATFORM_BUILD_PATTERN__PBP_.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__008-Revenue_OS_____THE_PLATFORM_BUILD_PATTERN__PBP_.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__008-Revenue_OS_____THE_PLATFORM_BUILD_PATTERN__PBP_.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/009-Revenue_OS_____UOS_DOCTRINE__STRUCTURAL_PLATFORM_ARCHITECTURE.md",
+          "sourceUpload": "Revenue_OS_____UOS_DOCTRINE__STRUCTURAL_PLATFORM_ARCHITECTURE.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__009-Revenue_OS_____UOS_DOCTRINE__STRUCTURAL_PLATFORM_ARCHITECTURE.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__009-Revenue_OS_____UOS_DOCTRINE__STRUCTURAL_PLATFORM_ARCHITECTURE.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/010-USG_COMMITMENT_ARCHITECTURE_____PRE-FID_STRUCTURAL_DISCIPLINE.md",
+          "sourceUpload": "USG_COMMITMENT_ARCHITECTURE_____PRE-FID_STRUCTURAL_DISCIPLINE.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__010-USG_COMMITMENT_ARCHITECTURE_____PRE-FID_STRUCTURAL_DISCIPLINE.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__010-USG_COMMITMENT_ARCHITECTURE_____PRE-FID_STRUCTURAL_DISCIPLINE.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/011-Revenue_OS_____USG_BUYER_ACTIVATION_SEQUENCE__BAS_.md",
+          "sourceUpload": "Revenue_OS_____USG_BUYER_ACTIVATION_SEQUENCE__BAS_.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__011-Revenue_OS_____USG_BUYER_ACTIVATION_SEQUENCE__BAS_.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__011-Revenue_OS_____USG_BUYER_ACTIVATION_SEQUENCE__BAS_.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/012-Revenue_OS______Canon_Documents.md",
+          "sourceUpload": "Revenue_OS______Canon_Documents.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__012-Revenue_OS______Canon_Documents.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__012-Revenue_OS______Canon_Documents.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/013-Revenue_OS_____Platform_Architecture_Discipline.md",
+          "sourceUpload": "Revenue_OS_____Platform_Architecture_Discipline.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__013-Revenue_OS_____Platform_Architecture_Discipline.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__013-Revenue_OS_____Platform_Architecture_Discipline.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/014-Revenue_OS_____USG_GO_-_NO-GO_ENGAGEMENT_RULE.md",
+          "sourceUpload": "Revenue_OS_____USG_GO_-_NO-GO_ENGAGEMENT_RULE.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__014-Revenue_OS_____USG_GO_-_NO-GO_ENGAGEMENT_RULE.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__014-Revenue_OS_____USG_GO_-_NO-GO_ENGAGEMENT_RULE.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/015-Revenue_OS_____Platform_Architecture_Economics___Pricing_Canon.md",
+          "sourceUpload": "Revenue_OS_____Platform_Architecture_Economics___Pricing_Canon.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__015-Revenue_OS_____Platform_Architecture_Economics___Pricing_Canon.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__015-Revenue_OS_____Platform_Architecture_Economics___Pricing_Canon.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/016-UOS_ADDENDUM_____SURVIVAL_INFRASTRUCTURE.md",
+          "sourceUpload": "UOS_ADDENDUM_____SURVIVAL_INFRASTRUCTURE.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__016-UOS_ADDENDUM_____SURVIVAL_INFRASTRUCTURE.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__016-UOS_ADDENDUM_____SURVIVAL_INFRASTRUCTURE.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/017-Revenue_OS_-_Gate_0_____PLATFORM_ENTRY___MANDATE_DISCIPLINE.md",
+          "sourceUpload": "Revenue_OS_-_Gate_0_____PLATFORM_ENTRY___MANDATE_DISCIPLINE.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__017-Revenue_OS_-_Gate_0_____PLATFORM_ENTRY___MANDATE_DISCIPLINE.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__017-Revenue_OS_-_Gate_0_____PLATFORM_ENTRY___MANDATE_DISCIPLINE.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/018-Revenue_OS_____USG_BUYER_DOCTRINE.md",
+          "sourceUpload": "Revenue_OS_____USG_BUYER_DOCTRINE.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__018-Revenue_OS_____USG_BUYER_DOCTRINE.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__018-Revenue_OS_____USG_BUYER_DOCTRINE.md"
+        },
+        {
+          "currentPath": "workspace/uos/current/revenue-os/019-Revenue_OS_____USG_PLATFORM_READINESS_SYSTEM__PRS_.md",
+          "sourceUpload": "Revenue_OS_____USG_PLATFORM_READINESS_SYSTEM__PRS_.pdf",
+          "archiveOriginalPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__019-Revenue_OS_____USG_PLATFORM_READINESS_SYSTEM__PRS_.pdf",
+          "archiveNormalizedPath": "workspace/uos/archive/2026-02-25T01-28-47-428Z/revenue-os__019-Revenue_OS_____USG_PLATFORM_READINESS_SYSTEM__PRS_.md"
+        }
+      ]
+    }
+  },
+  "latestArchiveBatch": "workspace/uos/archive/2026-02-25T01-28-47-428Z",
+  "board": {
+    "counts": {
+      "Backlog": 0,
+      "Doing": 0,
+      "Blocked": 0,
+      "Ready for Review": 1,
+      "Done": 0
+    },
+    "top10": [
+      {
+        "id": "d72c616f-f207-4f18-a789-c07cdcb37ecc",
+        "title": "Gov Test",
+        "status": "Ready for Review",
+        "priority": "P1",
+        "due_date": null,
+        "owner": null,
+        "review_packet_id": "RP-0010"
+      }
+    ],
+    "last10Activity": [
+      {
+        "ts": "2026-02-25T02:17:38.960Z",
+        "actor": "ed1",
+        "role": "editor",
+        "event_type": "task.move",
+        "entity_type": "task",
+        "entity_id": "d72c616f-f207-4f18-a789-c07cdcb37ecc",
+        "meta": {
+          "before": {
+            "status": "Backlog",
+            "review_packet_id": null
+          },
+          "after": {
+            "status": "Ready for Review",
+            "review_packet_id": "RP-0010"
+          }
+        }
+      },
+      {
+        "ts": "2026-02-25T02:17:38.958Z",
+        "actor": "ed1",
+        "role": "editor",
+        "event_type": "rp.ready_for_review",
+        "entity_type": "review_packet",
+        "entity_id": "RP-0010",
+        "meta": {
+          "linked_task": "d72c616f-f207-4f18-a789-c07cdcb37ecc"
+        }
+      },
+      {
+        "ts": "2026-02-25T02:17:38.956Z",
+        "actor": "ed1",
+        "role": "editor",
+        "event_type": "rp.create",
+        "entity_type": "review_packet",
+        "entity_id": "RP-0010",
+        "meta": {
+          "linked_task": "d72c616f-f207-4f18-a789-c07cdcb37ecc",
+          "path": "mission-control/review-packets/RP-0010-gov_test_review_packet.md"
+        }
+      },
+      {
+        "ts": "2026-02-25T02:17:38.909Z",
+        "actor": "ed1",
+        "role": "editor",
+        "event_type": "task.create",
+        "entity_type": "task",
+        "entity_id": "d72c616f-f207-4f18-a789-c07cdcb37ecc",
+        "meta": {
+          "before": null,
+          "after": {
+            "id": "d72c616f-f207-4f18-a789-c07cdcb37ecc",
+            "title": "Gov Test",
+            "status": "Backlog",
+            "owner": null,
+            "due_date": null,
+            "priority": "P1",
+            "tags": [],
+            "linked_refs": [],
+            "description": "",
+            "comments": [],
+            "request_approval": null,
+            "created_at": "2026-02-25T02:17:38.907Z",
+            "updated_at": "2026-02-25T02:17:38.907Z",
+            "created_by": "ed1",
+            "updated_by": "ed1"
+          }
+        }
+      },
+      {
+        "ts": "2026-02-25T02:17:38.888Z",
+        "actor": "ed1",
+        "role": "editor",
+        "event_type": "login.success",
+        "entity_type": "auth",
+        "entity_id": "team",
+        "meta": {
+          "ip": "127.0.0.1"
+        }
+      },
+      {
+        "ts": "2026-02-25T02:17:38.442Z",
+        "actor": "ed1",
+        "role": "editor",
+        "event_type": "admin.invite.accept",
+        "entity_type": "user",
+        "entity_id": "ed1",
+        "meta": {
+          "role": "editor"
+        }
+      },
+      {
+        "ts": "2026-02-25T02:17:37.981Z",
+        "actor": "isaac",
+        "role": "architect",
+        "event_type": "admin.invite.create",
+        "entity_type": "user",
+        "entity_id": "editor",
+        "meta": {
+          "inviteUrl": "https://claw.hiethel.ai/auth/invite/003cc58946fccd742a5eae534a32d9e309f05809"
+        }
+      },
+      {
+        "ts": "2026-02-25T02:17:37.958Z",
+        "actor": "isaac",
+        "role": "architect",
+        "event_type": "login.success",
+        "entity_type": "auth",
+        "entity_id": "admin",
+        "meta": {
+          "ip": "127.0.0.1"
+        }
+      }
+    ]
+  },
+  "pendingReviewPackets": 1
+}

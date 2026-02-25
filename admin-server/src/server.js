@@ -518,11 +518,13 @@ app.get('/dashboard/buyers', async (req, res) => {
       const j = await r.json();
       const ideas = j.ideas || [];
       if(!ideas.length){ box.innerHTML = '<div class="text-muted">No suggestions.</div>'; return; }
-      box.innerHTML = ideas.map((x,i)=>`<div class="card mb-2"><div class="card-body">
-        <div class="d-flex justify-content-between align-items-center"><strong>${x.name}</strong><button class="btn btn-sm btn-success" data-idx="${i}">Use this</button></div>
-        <div class="small text-muted">Status: ${x.status}</div>
-        <div class="small">${x.macro_gravity_summary}</div>
-      </div></div>`).join('');
+      box.innerHTML = ideas.map((x,i)=>{
+        return '<div class="card mb-2"><div class="card-body">' +
+          '<div class="d-flex justify-content-between align-items-center"><strong>' + x.name + '</strong><button class="btn btn-sm btn-success" data-idx="' + i + '">Use this</button></div>' +
+          '<div class="small text-muted">Status: ' + x.status + '</div>' +
+          '<div class="small">' + x.macro_gravity_summary + '</div>' +
+        '</div></div>';
+      }).join('');
       box.querySelectorAll('button[data-idx]').forEach(btn => btn.addEventListener('click', () => createInitiative(ideas[Number(btn.dataset.idx)])));
     });
   </script>` : ''}
