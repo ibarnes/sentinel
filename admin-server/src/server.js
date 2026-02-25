@@ -112,6 +112,7 @@ function adminNav(active = '') {
       <a class="nav-link ${is('activity')}" href="/dashboard/activity">Activity</a>
       <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
+      <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
     </div>
     <form method="post" action="/admin/logout" class="d-flex m-0 w-100 w-md-auto">
       <button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button>
@@ -129,6 +130,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('activity')}" href="/dashboard/activity">Activity</a>
       <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
+      <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
       <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio">Presentation Studio</a>
     </div>
     <a class="btn btn-sm btn-outline-secondary team-btn" href="/board">Team Board</a>
@@ -410,6 +412,51 @@ app.get('/dashboard/board', async (_req, res) => {
     <h3>Board Snapshot</h3>
     <div class="row g-2 mb-3">${BOARD_COLUMNS.map(c=>`<div class="col"><div class="card"><div class="card-body"><div class="small text-muted">${c}</div><div class="h4">${counts[c]}</div></div></div></div>`).join('')}</div>
     <a class="btn btn-primary" href="/board">Open Board UI</a>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/uos', async (_req, res) => {
+  const state = await readJson(DASHBOARD_STATE_FILE, {});
+  const idxPath = path.join(UOS_ROOT, 'UOS_INDEX.md');
+  const indexTxt = await fs.readFile(idxPath, 'utf8').catch(() => 'UOS index not found.');
+
+  let currentFiles = [];
+  for (const key of ['execution-engine', 'canon', 'revenue-os']) {
+    const dir = path.join(CURRENT_ROOT, key);
+    if (fssync.existsSync(dir)) {
+      const files = await fs.readdir(dir);
+      currentFiles.push(...files.filter(f => f.endsWith('.md')).map(f => `${key}/${f}`));
+    }
+  }
+
+  const pendingRoot = path.join(UOS_ROOT, 'pending');
+  const pendingBatches = (await fs.readdir(pendingRoot).catch(() => [])).sort().reverse();
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard UOS')}</head><body><div class="app-shell">
+    ${dashboardNav('uos')}
+    <h3>UOS Documents</h3>
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-lg-6"><div class="card"><div class="card-body">
+        <h6>Latest Publish</h6>
+        <p class="mb-1"><strong>Timestamp:</strong> ${escapeHtml(state.latestUosPublish || 'N/A')}</p>
+        <p class="mb-1"><strong>Batch:</strong> ${escapeHtml(state.latestUosPublishedBatch || 'N/A')}</p>
+        <p class="mb-0"><strong>Current docs:</strong> ${currentFiles.length}</p>
+      </div></div></div>
+      <div class="col-12 col-lg-6"><div class="card"><div class="card-body">
+        <h6>Pending Batches</h6>
+        <ul class="mb-0">${pendingBatches.slice(0,20).map(b => `<li class="mono small">${escapeHtml(b)}</li>`).join('') || '<li>None</li>'}</ul>
+      </div></div></div>
+    </div>
+
+    <div class="card mb-3"><div class="card-body">
+      <h6>Current UOS Markdown Files</h6>
+      <ul>${currentFiles.map(f => `<li class="mono small">${escapeHtml(f)}</li>`).join('') || '<li>No current files</li>'}</ul>
+    </div></div>
+
+    <div class="card"><div class="card-body">
+      <h6>UOS Index</h6>
+      <pre class="small" style="max-height:45vh;overflow:auto">${escapeHtml(indexTxt)}</pre>
+    </div></div>
   </div></body></html>`);
 });
 
