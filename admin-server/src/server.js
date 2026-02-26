@@ -84,7 +84,7 @@ function uiHead(title) {
   body { min-height: 100vh; }
   a { color: #86b2ff; text-decoration: none; }
   a:hover { color: #a3c6ff; }
-  .app-shell { max-width: 1240px; margin: 24px auto; padding: 0 16px; }
+  .app-shell { --sidebar-w: 252px; max-width: 1380px; margin: 24px auto; padding: 0 16px; }
   .page-title { font-size: 1.65rem; font-weight: 650; margin: 0; letter-spacing: -0.02em; }
   .section-title { font-size: 1rem; font-weight: 600; margin: 0; }
   .text-muted { color: var(--text-muted) !important; }
@@ -198,29 +198,17 @@ function uiHead(title) {
   }
 
   /* SaaS sidebar navigation */
-  .app-shell {
-    max-width: 1380px;
-    margin: 24px auto;
-    padding: 0 16px 0 296px;
-  }
-
-  // .oc-nav {
-  //   top: 24px;
-  //   left: max(16px, calc((100vw - 1380px) / 2 + 16px));
-  //   width: 252px;
-  //   max-height: calc(100vh - 48px);
-  //   overflow: auto;
-  //   display: grid;
-  //   grid-template-columns: 252px minmax(0, 1fr);
-  //   gap: 20px;
-  //   max-width: 1380px;
-  // }
-  .app-shell > .oc-nav { grid-column: 1; }
-  .app-shell > :not(.oc-nav) { grid-column: 2; }
+  .app-shell {  }
 
   .oc-nav {
-    top: 16px;
-    align-self: start;
+    position: fixed;
+    top: 24px;
+    left: max(16px, calc((100vw - 1380px) / 2 + 16px));
+    z-index: 20;
+    width: var(--sidebar-w);
+    max-height: calc(100vh - 48px);
+    overflow: auto;
+    scrollbar-gutter: stable;
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -229,7 +217,10 @@ function uiHead(title) {
     border-radius: var(--radius-lg);
     padding: 14px;
     box-shadow: var(--shadow-sm);
-    min-height: calc(100vh - 48px);
+  }
+  .app-shell > .oc-nav ~ * {
+    margin-left: calc(var(--sidebar-w) + 28px);
+    min-width: 0;
   }
   .oc-nav-title {
     font-size: .96rem;
@@ -258,35 +249,15 @@ function uiHead(title) {
   .oc-nav-footer .btn { width: 100%; justify-content: center; }
 
   @media (max-width: 992px) {
-    .app-shell { grid-template-columns: 1fr; gap: 14px; }
-    .app-shell > .oc-nav,
-    .app-shell > :not(.oc-nav) { grid-column: 1; }
+    .app-shell { padding: 0 12px; }
+    .app-shell > .oc-nav ~ * { margin-left: 0; }
     .oc-nav {
       position: static;
-      min-height: 0;
+      width: auto;
+      max-height: none;
+      overflow: visible;
+      margin-bottom: 12px;
       padding: 12px;
-  /* Mobile nav fixes */
-  .oc-nav { align-items: center; gap: .75rem; padding: .75rem 1rem !important; }
-  .oc-nav .navbar-brand { color: var(--text); letter-spacing: -0.01em; }
-  .oc-nav .navbar-nav { gap: .3rem; }
-  .oc-nav .navbar-nav .nav-link {
-    color: var(--text-muted);
-    border-radius: 10px;
-    padding: .42rem .7rem;
-    line-height: 1.2;
-    transition: all var(--tr-fast);
-  }
-  .oc-nav .navbar-nav .nav-link:hover { color: var(--text); background: rgba(255,255,255,.05); }
-  .oc-nav .navbar-nav .nav-link.active { color: #f4f8ff; background: var(--accent-soft); border: 1px solid rgba(79, 140, 255, .45); }
-  @media (max-width: 768px) {
-    .oc-nav { padding: .8rem !important; }
-    .oc-nav .navbar-brand { width: 100%; margin-right: 0; }
-    .oc-nav .navbar-nav {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .15rem .75rem;
-      margin-bottom: .25rem;
     }
     .oc-nav-links {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -294,7 +265,6 @@ function uiHead(title) {
     }
   }
   @media (max-width: 640px) {
-    .app-shell { padding: 0 12px; }
     .oc-nav-links { grid-template-columns: 1fr; }
   }
 </style>`;
@@ -324,7 +294,7 @@ function adminNav(active = '') {
 function dashboardNav(active = '') {
   const is = (k) => active === k ? 'active' : '';
   return `<nav class="oc-nav" aria-label="Dashboard navigation">
-    <a class="oc-nav-title" href="/dashboard/">Sentinel Dashboard</a>
+    <a class="oc-nav-title" href="/dashboard/">UOS Dashboard</a>
     <div class="oc-nav-links">
       <a class="nav-link ${is('home')}" href="/dashboard/">Home</a>
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers">Buyers</a>
