@@ -205,7 +205,6 @@ function uiHead(title) {
   }
 
   .oc-nav {
-    position: fixed;
     top: 24px;
     left: max(16px, calc((100vw - 1380px) / 2 + 16px));
     width: 252px;
