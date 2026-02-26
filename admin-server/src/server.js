@@ -2010,6 +2010,7 @@ function cardHTML(t){
   const comments = (t.comments || []).length;
   let actionButtons = '';
   if (canWrite) {
+    const moveOptions = columns.map((c) => '<option value="' + c + '"' + (c === t.status ? ' selected' : '') + '>' + c + '</option>').join('');
     actionButtons = '<div class="mt-2 d-flex gap-1 flex-wrap">' +
       '<button class="btn btn-sm btn-outline-secondary js-edit" data-id="' + t.id + '">Edit</button>' +
       '<button class="btn btn-sm btn-outline-secondary js-comment" data-id="' + t.id + '">Comment</button>' +
@@ -2017,6 +2018,10 @@ function cardHTML(t){
       ((me.role === 'architect' && t.request_approval && !t.request_approval.approved)
         ? '<button class="btn btn-sm btn-success js-approve" data-id="' + t.id + '">Approve</button>'
         : '') +
+      '</div>' +
+      '<div class="mt-2 d-flex gap-1 align-items-center">' +
+      '<select class="form-select form-select-sm js-move-select" data-id="' + t.id + '" style="max-width: 170px;">' + moveOptions + '</select>' +
+      '<button class="btn btn-sm btn-primary js-move-btn" data-id="' + t.id + '">Move</button>' +
       '</div>';
   }
 
@@ -2052,6 +2057,12 @@ function render(){
     document.querySelectorAll('.js-comment').forEach(btn => btn.addEventListener('click', () => openCommentModal(btn.dataset.id)));
     document.querySelectorAll('.js-request').forEach(btn => btn.addEventListener('click', () => requestApproval(btn.dataset.id)));
     document.querySelectorAll('.js-approve').forEach(btn => btn.addEventListener('click', () => approveTask(btn.dataset.id)));
+    document.querySelectorAll('.js-move-btn').forEach(btn => btn.addEventListener('click', async () => {
+      const id = btn.dataset.id;
+      const sel = document.querySelector('.js-move-select[data-id="' + id + '"]');
+      if (!sel) return;
+      await moveTaskTo(id, sel.value);
+    }));
   }
 }
 
@@ -2062,12 +2073,16 @@ async function loadBoard(){
 }
 
 function allowDrop(e){ if (canWrite) e.preventDefault(); }
+async function moveTaskTo(id, status){
+  if (!canWrite) return;
+  await fetch('/api/tasks/' + encodeURIComponent(id) + '/move', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ status }) });
+  await loadBoard();
+}
 async function dropTask(e, status){
   if (!canWrite) return;
   e.preventDefault();
   const id = e.dataTransfer.getData('text/plain');
-  await fetch('/api/tasks/' + encodeURIComponent(id) + '/move', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ status }) });
-  await loadBoard();
+  await moveTaskTo(id, status);
 }
 
 async function quickTaskFlow(existing){
