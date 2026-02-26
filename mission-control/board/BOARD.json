@@ -633,6 +633,77 @@
       "updated_at": "2026-02-26T22:48:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0028",
+      "title": "US-UI1 Replace board edit modal with persistent right-side detail panel",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "story",
+        "board-ui",
+        "epic:EP-E",
+        "user-story"
+      ],
+      "linked_refs": [
+        "board",
+        "task-detail-panel"
+      ],
+      "description": "Swap modal editing for a non-blocking side panel with full task fields (title, description, acceptance, tags, links, comments, status, owner, priority) and inline save actions.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:55:00Z",
+      "updated_at": "2026-02-26T22:55:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0029",
+      "title": "TS-UI1.1 Implement board task detail drawer component + route/state binding",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "story:US-UI1"
+      ],
+      "linked_refs": [
+        "/dashboard/board"
+      ],
+      "description": "Add right-side drawer panel opened by task click; preserve board context; support keyboard close and mobile collapse.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:55:00Z",
+      "updated_at": "2026-02-26T22:55:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0030",
+      "title": "TS-UI1.2 Wire drawer form fields to existing task update APIs + validation",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "story:US-UI1"
+      ],
+      "linked_refs": [
+        "task update api"
+      ],
+      "description": "Bind all editable fields and save actions; keep audit logging and governance checks unchanged.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:55:00Z",
+      "updated_at": "2026-02-26T22:55:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
