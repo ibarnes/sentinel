@@ -84,7 +84,7 @@ function uiHead(title) {
   body { min-height: 100vh; }
   a { color: #86b2ff; text-decoration: none; }
   a:hover { color: #a3c6ff; }
-  .app-shell { max-width: 1380px; margin: 24px auto; padding: 0 16px; }
+  .app-shell { --sidebar-w: 252px; max-width: 1380px; margin: 24px auto; padding: 0 16px; }
   .page-title { font-size: 1.65rem; font-weight: 650; margin: 0; letter-spacing: -0.02em; }
   .section-title { font-size: 1rem; font-weight: 600; margin: 0; }
   .text-muted { color: var(--text-muted) !important; }
@@ -198,7 +198,7 @@ function uiHead(title) {
   }
 
   /* SaaS sidebar navigation */
-  .app-shell { --sidebar-w: 252px; }
+  .app-shell {  }
 
   .oc-nav {
     position: fixed;
