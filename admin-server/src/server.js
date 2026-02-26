@@ -197,6 +197,64 @@ function uiHead(title) {
     .studio-actions .btn, .studio-editor-actions .btn { width:100%; }
   }
 
+  /* SaaS sidebar navigation */
+  .app-shell {
+    display: grid;
+    grid-template-columns: 252px minmax(0, 1fr);
+    gap: 20px;
+    max-width: 1380px;
+  }
+  .app-shell > .oc-nav { grid-column: 1; }
+  .app-shell > :not(.oc-nav) { grid-column: 2; }
+
+  .oc-nav {
+    position: sticky;
+    top: 16px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    box-shadow: var(--shadow-sm);
+    min-height: calc(100vh - 48px);
+  }
+  .oc-nav-title {
+    font-size: .96rem;
+    font-weight: 650;
+    letter-spacing: .01em;
+    color: var(--text);
+    padding: 4px 6px 10px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .oc-nav-links { display: grid; gap: 4px; }
+  .oc-nav .nav-link {
+    color: var(--text-muted);
+    border-radius: 10px;
+    padding: .54rem .66rem;
+    line-height: 1.25;
+    transition: all var(--tr-fast);
+    border: 1px solid transparent;
+  }
+  .oc-nav .nav-link:hover { color: var(--text); background: rgba(255,255,255,.045); }
+  .oc-nav .nav-link.active {
+    color: #f4f8ff;
+    background: var(--accent-soft);
+    border-color: rgba(79, 140, 255, .45);
+  }
+  .oc-nav-footer { margin-top: auto; display: grid; gap: 8px; }
+  .oc-nav-footer .btn { width: 100%; justify-content: center; }
+
+  @media (max-width: 992px) {
+    .app-shell { grid-template-columns: 1fr; gap: 14px; }
+    .app-shell > .oc-nav,
+    .app-shell > :not(.oc-nav) { grid-column: 1; }
+    .oc-nav {
+      position: static;
+      min-height: 0;
+      padding: 12px;
   /* Mobile nav fixes */
   .oc-nav { align-items: center; gap: .75rem; padding: .75rem 1rem !important; }
   .oc-nav .navbar-brand { color: var(--text); letter-spacing: -0.01em; }
@@ -220,19 +278,23 @@ function uiHead(title) {
       gap: .15rem .75rem;
       margin-bottom: .25rem;
     }
-    .oc-nav .team-btn,
-    .oc-nav .logout-btn {
-      width: 100%;
+    .oc-nav-links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
     }
+  }
+  @media (max-width: 640px) {
+    .app-shell { padding: 0 12px; }
+    .oc-nav-links { grid-template-columns: 1fr; }
   }
 </style>`;
 }
 
 function adminNav(active = '') {
   const is = (k) => active === k ? 'active' : '';
-  return `<nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3 oc-nav">
-    <a class="navbar-brand fw-bold" href="/admin">Sentinel Admin</a>
-    <div class="navbar-nav me-auto">
+  return `<nav class="oc-nav" aria-label="Admin navigation">
+    <a class="oc-nav-title" href="/admin">Sentinel Admin</a>
+    <div class="oc-nav-links">
       <a class="nav-link ${is('panel')}" href="/admin">Panel</a>
       <a class="nav-link ${is('upload')}" href="/admin/upload">Upload</a>
       <a class="nav-link ${is('dashboard')}" href="/dashboard/">Dashboard</a>
@@ -243,7 +305,7 @@ function adminNav(active = '') {
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
     </div>
-    <form method="post" action="/admin/logout" class="d-flex m-0 w-100 w-md-auto">
+    <form method="post" action="/admin/logout" class="oc-nav-footer m-0">
       <button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button>
     </form>
   </nav>`;
@@ -251,9 +313,9 @@ function adminNav(active = '') {
 
 function dashboardNav(active = '') {
   const is = (k) => active === k ? 'active' : '';
-  return `<nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3 oc-nav">
-    <a class="navbar-brand fw-bold" href="/dashboard/">Sentinel Dashboard</a>
-    <div class="navbar-nav me-auto">
+  return `<nav class="oc-nav" aria-label="Dashboard navigation">
+    <a class="oc-nav-title" href="/dashboard/">Sentinel Dashboard</a>
+    <div class="oc-nav-links">
       <a class="nav-link ${is('home')}" href="/dashboard/">Home</a>
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers">Buyers</a>
       <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives">Initiatives</a>
@@ -263,7 +325,9 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
       <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio">Presentation Studio</a>
     </div>
-    <a class="btn btn-sm btn-outline-secondary team-btn" href="/board">Team Board</a>
+    <div class="oc-nav-footer">
+      <a class="btn btn-sm btn-outline-secondary team-btn" href="/board">Team Board</a>
+    </div>
   </nav>`;
 }
 
