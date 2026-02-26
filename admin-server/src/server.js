@@ -9,6 +9,7 @@ import crypto from 'crypto';
 import pdfParse from 'pdf-parse';
 import mammoth from 'mammoth';
 import Ajv from 'ajv';
+import nodemailer from 'nodemailer';
 
 const app = express();
 app.set('trust proxy', 1);
@@ -51,9 +52,29 @@ const ADMIN_COOKIE_SECURE = String(process.env.ADMIN_COOKIE_SECURE || 'true') ==
 const ADMIN_PORT = Number(process.env.ADMIN_PORT || '4180');
 const ADMIN_HOST = process.env.ADMIN_HOST || '127.0.0.1';
 
+const SMTP_HOST = process.env.SMTP_HOST || '';
+const SMTP_PORT = Number(process.env.SMTP_PORT || '587');
+const SMTP_SECURE = String(process.env.SMTP_SECURE || 'false') === 'true';
+const SMTP_USER = process.env.SMTP_USER || '';
+const SMTP_PASS = process.env.SMTP_PASS || '';
+const MAIL_FROM = process.env.MAIL_FROM || SMTP_USER || '';
+
 if (!ADMIN_PASSWORD_HASH || !ADMIN_SESSION_SECRET) {
   console.error('Missing ADMIN_PASSWORD_HASH or ADMIN_SESSION_SECRET env var. Ref: admin-server/.env.example');
   process.exit(1);
+}
+
+let mailTransport = null;
+function getMailTransport() {
+  if (mailTransport) return mailTransport;
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS || !MAIL_FROM) return null;
+  mailTransport = nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: SMTP_SECURE,
+    auth: { user: SMTP_USER, pass: SMTP_PASS }
+  });
+  return mailTransport;
 }
 
 function uiHead(title) {
@@ -2649,6 +2670,45 @@ app.post('/api/events', requireRole('architect'), async (req, res) => {
     await createSnapshot(`event.${event_type}`);
   }
   res.json({ ok: true });
+});
+
+app.post('/api/email/send', requireRole('architect','editor'), async (req, res) => {
+  const transport = getMailTransport();
+  if (!transport) {
+    return res.status(503).json({ error: 'mail sender not configured', required: ['SMTP_HOST','SMTP_PORT','SMTP_SECURE','SMTP_USER','SMTP_PASS','MAIL_FROM'] });
+  }
+
+  const toRaw = String(req.body.to || '').trim();
+  const subject = String(req.body.subject || '').trim();
+  const text = String(req.body.text || '').trim();
+  const html = String(req.body.html || '').trim();
+
+  if (!toRaw || !subject || (!text && !html)) {
+    return res.status(400).json({ error: 'to, subject, and text|html are required' });
+  }
+
+  const to = toRaw.split(',').map((v) => v.trim()).filter(Boolean);
+  try {
+    const info = await transport.sendMail({
+      from: MAIL_FROM,
+      to,
+      subject,
+      text: text || undefined,
+      html: html || undefined
+    });
+    await appendAuditEvent({
+      ts: nowIso(),
+      actor: getUserLabel(req),
+      role: effectiveRole(req) || 'architect',
+      event_type: 'email.send',
+      entity_type: 'email',
+      entity_id: info.messageId || null,
+      meta: { to, subject }
+    });
+    res.json({ ok: true, messageId: info.messageId, accepted: info.accepted || [] });
+  } catch (err) {
+    res.status(500).json({ error: 'send failed', detail: String(err?.message || err) });
+  }
 });
 
 app.post('/api/uos/publish/:batch/:rpId', requireRole('architect'), async (req, res) => {
