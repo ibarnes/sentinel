@@ -8,15 +8,21 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
-      "tags": ["epic", "presentation-v2", "phase-1"],
-      "linked_refs": ["PSv2"],
+      "tags": [
+        "epic",
+        "presentation-v2",
+        "phase-1"
+      ],
+      "linked_refs": [
+        "PSv2"
+      ],
       "description": "Define DeckSpec v2 and SlideSpec v2, including legacy mapping from v1 fields. Acceptance: existing v1 flows still run under feature flag off.",
       "comments": [],
       "request_approval": null,
       "created_at": "2026-02-26T22:40:42Z",
-      "updated_at": "2026-02-26T22:40:42Z",
+      "updated_at": "2026-02-26T22:46:06.787Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "isaac"
     },
     {
       "id": "TASK-0002",
@@ -25,8 +31,14 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
-      "tags": ["story", "epic:EP-A", "api"],
-      "linked_refs": ["GET /api/presentation-studio/decks"],
+      "tags": [
+        "story",
+        "epic:EP-A",
+        "api"
+      ],
+      "linked_refs": [
+        "GET /api/presentation-studio/decks"
+      ],
       "description": "Persist deckId, initiativeId, buyerId, deckType, template theme, providers, savepoint pointer. Acceptance: deck loads by initiativeId/deckType/buyerId.",
       "comments": [],
       "request_approval": null,
@@ -42,8 +54,14 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
-      "tags": ["story", "epic:EP-A", "slides"],
-      "linked_refs": ["PATCH /api/presentation-studio/decks/{deckId}/slides/{slideId}"],
+      "tags": [
+        "story",
+        "epic:EP-A",
+        "slides"
+      ],
+      "linked_refs": [
+        "PATCH /api/presentation-studio/decks/{deckId}/slides/{slideId}"
+      ],
       "description": "Add templateId, slots, constraints, imagePlans, qa, pipeline fields. Map legacy title/bullets/imagePrompt/layout into slots/templateId.",
       "comments": [],
       "request_approval": null,
@@ -59,8 +77,14 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
-      "tags": ["epic", "presentation-v2", "api"],
-      "linked_refs": ["PSv2 APIs"],
+      "tags": [
+        "epic",
+        "presentation-v2",
+        "api"
+      ],
+      "linked_refs": [
+        "PSv2 APIs"
+      ],
       "description": "Implement minimal deck/slides/templates/savepoints/pipeline status routes for v2.",
       "comments": [],
       "request_approval": null,
@@ -76,8 +100,14 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
-      "tags": ["story", "epic:EP-B", "api"],
-      "linked_refs": ["/api/presentation-studio/decks"],
+      "tags": [
+        "story",
+        "epic:EP-B",
+        "api"
+      ],
+      "linked_refs": [
+        "/api/presentation-studio/decks"
+      ],
       "description": "Create/read/update deck metadata and current save point. Acceptance: selector-driven load works from UI.",
       "comments": [],
       "request_approval": null,
@@ -93,8 +123,14 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
-      "tags": ["story", "epic:EP-B", "slides"],
-      "linked_refs": ["/api/presentation-studio/decks/{deckId}/slides"],
+      "tags": [
+        "story",
+        "epic:EP-B",
+        "slides"
+      ],
+      "linked_refs": [
+        "/api/presentation-studio/decks/{deckId}/slides"
+      ],
       "description": "CRUD slide specs in deck order with re-render hooks. Acceptance: single-slide update without full regen.",
       "comments": [],
       "request_approval": null,
@@ -110,8 +146,14 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
-      "tags": ["epic", "presentation-v2", "templates"],
-      "linked_refs": ["TemplateLibrary"],
+      "tags": [
+        "epic",
+        "presentation-v2",
+        "templates"
+      ],
+      "linked_refs": [
+        "TemplateLibrary"
+      ],
       "description": "Ship canonical templates with slot schemas and API reads.",
       "comments": [],
       "request_approval": null,
@@ -127,8 +169,14 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
-      "tags": ["story", "epic:EP-C", "templates"],
-      "linked_refs": ["GET /api/presentation-studio/templates"],
+      "tags": [
+        "story",
+        "epic:EP-C",
+        "templates"
+      ],
+      "linked_refs": [
+        "GET /api/presentation-studio/templates"
+      ],
       "description": "cover-hero, two-col-bullets, feature-grid, layered-diagram, flywheel, comparison-matrix, timeline, closing-cta.",
       "comments": [],
       "request_approval": null,
@@ -144,8 +192,14 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
-      "tags": ["epic", "presentation-v2", "savepoints"],
-      "linked_refs": ["/api/presentation-studio/decks/{deckId}/savepoints"],
+      "tags": [
+        "epic",
+        "presentation-v2",
+        "savepoints"
+      ],
+      "linked_refs": [
+        "/api/presentation-studio/decks/{deckId}/savepoints"
+      ],
       "description": "Create/list/restore save points with frozen DeckSpec/SlideSpecs and render refs.",
       "comments": [],
       "request_approval": null,
@@ -161,8 +215,14 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
-      "tags": ["epic", "presentation-v2", "ui"],
-      "linked_refs": ["/dashboard/initiative/:id"],
+      "tags": [
+        "epic",
+        "presentation-v2",
+        "ui"
+      ],
+      "linked_refs": [
+        "/dashboard/initiative/:id"
+      ],
       "description": "Add DeckContextBar, ModePanel (AI Slides/Team Chat), Source/QA tabs and bottom command bar while preserving v1 paths.",
       "comments": [],
       "request_approval": null,
@@ -178,8 +238,14 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
-      "tags": ["epic", "presentation-v2", "pipeline"],
-      "linked_refs": ["POST /api/presentation-studio/decks/{deckId}/pipeline/run"],
+      "tags": [
+        "epic",
+        "presentation-v2",
+        "pipeline"
+      ],
+      "linked_refs": [
+        "POST /api/presentation-studio/decks/{deckId}/pipeline/run"
+      ],
       "description": "Enable slide/deck run + status polling + targeted instruction application (critique->rewrite->render->qa).",
       "comments": [],
       "request_approval": null,
@@ -195,13 +261,376 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
-      "tags": ["epic", "dashboard", "signals"],
-      "linked_refs": ["Pressure Surface"],
+      "tags": [
+        "epic",
+        "dashboard",
+        "signals"
+      ],
+      "linked_refs": [
+        "Pressure Surface"
+      ],
       "description": "Track Monitor/Verified/Actioned signals with sources, confidence, buyer/initiative links, and deck handoff hook.",
       "comments": [],
       "request_approval": null,
       "created_at": "2026-02-26T22:40:42Z",
       "updated_at": "2026-02-26T22:40:42Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0013",
+      "title": "US-A1 As an editor, I can load a deck by initiative/deck selectors",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "story",
+        "epic:EP-A",
+        "user-story"
+      ],
+      "linked_refs": [
+        "EP-A",
+        "selectors"
+      ],
+      "description": "Story under EP-A: selector-based deck retrieval returns a stable DeckSpec v2 object.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0014",
+      "title": "TS-A1.1 Create DeckSpec v2 schema + defaults",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A1"
+      ],
+      "linked_refs": [
+        "schema",
+        "deckspec-v2"
+      ],
+      "description": "Define deckId, initiativeId, buyerId, deckType, theme, providers, slideOrder, savepoint pointer.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0015",
+      "title": "TS-A1.2 Implement deck resolver by selectors",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A1"
+      ],
+      "linked_refs": [
+        "resolver",
+        "compatibility"
+      ],
+      "description": "Load/create DeckSpec using initiativeId+deckType+buyerId; preserve v1 fallback behavior.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0016",
+      "title": "US-A2 As an editor, I can edit legacy slide fields without breaking v2",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "story",
+        "epic:EP-A",
+        "user-story"
+      ],
+      "linked_refs": [
+        "EP-A",
+        "slidespec-v2"
+      ],
+      "description": "Story under EP-A: legacy title/bullets/imagePrompt map safely into SlideSpec v2 slots/templateId.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0017",
+      "title": "TS-A2.1 Add SlideSpec v2 mapper (legacy->slots)",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A2"
+      ],
+      "linked_refs": [
+        "mapper",
+        "legacy-compat"
+      ],
+      "description": "Implement mapping layout->templateId and legacy fields to slots structure.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0018",
+      "title": "TS-A2.2 Persist pipeline/qa/render metadata on slide records",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A2"
+      ],
+      "linked_refs": [
+        "pipeline",
+        "qa",
+        "render"
+      ],
+      "description": "Add pipeline stage state, qa flags/score, rendered refs; keep optional for old slides.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0019",
+      "title": "US-B1 As a user, I can manage deck records via API",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "story",
+        "epic:EP-B",
+        "user-story"
+      ],
+      "linked_refs": [
+        "EP-B",
+        "api:decks"
+      ],
+      "description": "Story under EP-B: create/get/update deck metadata via presentation-studio endpoints.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0020",
+      "title": "TS-B1.1 Implement GET/POST /api/presentation-studio/decks",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B1"
+      ],
+      "linked_refs": [
+        "GET/POST decks"
+      ],
+      "description": "Add list/create with selector filters and validation.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0021",
+      "title": "TS-B1.2 Implement PATCH /api/presentation-studio/decks/{deckId}",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B1"
+      ],
+      "linked_refs": [
+        "PATCH decks"
+      ],
+      "description": "Update styleMode/providers/globalTemplateTheme/currentSavePointId.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0022",
+      "title": "US-B2 As a user, I can CRUD slides in a deck via API",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "story",
+        "epic:EP-B",
+        "user-story"
+      ],
+      "linked_refs": [
+        "EP-B",
+        "api:slides"
+      ],
+      "description": "Story under EP-B: slide-level operations support add/edit/delete without full regen.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0023",
+      "title": "TS-B2.1 Implement slide list/get endpoints",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B2"
+      ],
+      "linked_refs": [
+        "GET slides"
+      ],
+      "description": "GET deck slides + GET single slide by slideId.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0024",
+      "title": "TS-B2.2 Implement slide create/update/delete endpoints",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B2"
+      ],
+      "linked_refs": [
+        "mutations",
+        "slide-order"
+      ],
+      "description": "POST/PATCH/DELETE slide endpoints with order maintenance.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0025",
+      "title": "US-B3 As a user, I can fetch templates and savepoints via API",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "story",
+        "epic:EP-B",
+        "user-story"
+      ],
+      "linked_refs": [
+        "EP-B",
+        "api:templates",
+        "api:savepoints"
+      ],
+      "description": "Story under EP-B: template list/detail and savepoint list/create/restore endpoints available.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0026",
+      "title": "TS-B3.1 Implement template list/detail endpoints",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B3"
+      ],
+      "linked_refs": [
+        "templates-api"
+      ],
+      "description": "GET /templates and /templates/{templateId}.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0027",
+      "title": "TS-B3.2 Implement savepoint list/create/restore endpoints",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B3"
+      ],
+      "linked_refs": [
+        "savepoints-api"
+      ],
+      "description": "GET/POST savepoints and POST restore by savePointId.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-02-26T22:48:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
