@@ -255,6 +255,28 @@ function uiHead(title) {
       position: static;
       min-height: 0;
       padding: 12px;
+  /* Mobile nav fixes */
+  .oc-nav { align-items: center; gap: .75rem; padding: .75rem 1rem !important; }
+  .oc-nav .navbar-brand { color: var(--text); letter-spacing: -0.01em; }
+  .oc-nav .navbar-nav { gap: .3rem; }
+  .oc-nav .navbar-nav .nav-link {
+    color: var(--text-muted);
+    border-radius: 10px;
+    padding: .42rem .7rem;
+    line-height: 1.2;
+    transition: all var(--tr-fast);
+  }
+  .oc-nav .navbar-nav .nav-link:hover { color: var(--text); background: rgba(255,255,255,.05); }
+  .oc-nav .navbar-nav .nav-link.active { color: #f4f8ff; background: var(--accent-soft); border: 1px solid rgba(79, 140, 255, .45); }
+  @media (max-width: 768px) {
+    .oc-nav { padding: .8rem !important; }
+    .oc-nav .navbar-brand { width: 100%; margin-right: 0; }
+    .oc-nav .navbar-nav {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .15rem .75rem;
+      margin-bottom: .25rem;
     }
     .oc-nav-links {
       grid-template-columns: repeat(2, minmax(0, 1fr));
