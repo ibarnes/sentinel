@@ -204,22 +204,21 @@ function uiHead(title) {
     padding: 0 16px 0 296px;
   }
 
-  .oc-nav {
-    top: 24px;
-    left: max(16px, calc((100vw - 1380px) / 2 + 16px));
-    width: 252px;
-    max-height: calc(100vh - 48px);
-    overflow: auto;
-    display: grid;
-    grid-template-columns: 252px minmax(0, 1fr);
-    gap: 20px;
-    max-width: 1380px;
-  }
+  // .oc-nav {
+  //   top: 24px;
+  //   left: max(16px, calc((100vw - 1380px) / 2 + 16px));
+  //   width: 252px;
+  //   max-height: calc(100vh - 48px);
+  //   overflow: auto;
+  //   display: grid;
+  //   grid-template-columns: 252px minmax(0, 1fr);
+  //   gap: 20px;
+  //   max-width: 1380px;
+  // }
   .app-shell > .oc-nav { grid-column: 1; }
   .app-shell > :not(.oc-nav) { grid-column: 2; }
 
   .oc-nav {
-    position: sticky;
     top: 16px;
     align-self: start;
     display: flex;
