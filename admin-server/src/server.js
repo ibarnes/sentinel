@@ -211,6 +211,18 @@ function uiHead(title) {
     width: 252px;
     max-height: calc(100vh - 48px);
     overflow: auto;
+    display: grid;
+    grid-template-columns: 252px minmax(0, 1fr);
+    gap: 20px;
+    max-width: 1380px;
+  }
+  .app-shell > .oc-nav { grid-column: 1; }
+  .app-shell > :not(.oc-nav) { grid-column: 2; }
+
+  .oc-nav {
+    position: sticky;
+    top: 16px;
+    align-self: start;
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -219,6 +231,7 @@ function uiHead(title) {
     border-radius: var(--radius-lg);
     padding: 14px;
     box-shadow: var(--shadow-sm);
+    min-height: calc(100vh - 48px);
   }
   .oc-nav-title {
     font-size: .96rem;
@@ -247,14 +260,35 @@ function uiHead(title) {
   .oc-nav-footer .btn { width: 100%; justify-content: center; }
 
   @media (max-width: 992px) {
-    .app-shell { padding: 0 12px; }
+    .app-shell { grid-template-columns: 1fr; gap: 14px; }
+    .app-shell > .oc-nav,
+    .app-shell > :not(.oc-nav) { grid-column: 1; }
     .oc-nav {
       position: static;
-      width: auto;
-      max-height: none;
-      overflow: visible;
-      margin-bottom: 12px;
+      min-height: 0;
       padding: 12px;
+  /* Mobile nav fixes */
+  .oc-nav { align-items: center; gap: .75rem; padding: .75rem 1rem !important; }
+  .oc-nav .navbar-brand { color: var(--text); letter-spacing: -0.01em; }
+  .oc-nav .navbar-nav { gap: .3rem; }
+  .oc-nav .navbar-nav .nav-link {
+    color: var(--text-muted);
+    border-radius: 10px;
+    padding: .42rem .7rem;
+    line-height: 1.2;
+    transition: all var(--tr-fast);
+  }
+  .oc-nav .navbar-nav .nav-link:hover { color: var(--text); background: rgba(255,255,255,.05); }
+  .oc-nav .navbar-nav .nav-link.active { color: #f4f8ff; background: var(--accent-soft); border: 1px solid rgba(79, 140, 255, .45); }
+  @media (max-width: 768px) {
+    .oc-nav { padding: .8rem !important; }
+    .oc-nav .navbar-brand { width: 100%; margin-right: 0; }
+    .oc-nav .navbar-nav {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .15rem .75rem;
+      margin-bottom: .25rem;
     }
     .oc-nav-links {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -262,6 +296,7 @@ function uiHead(title) {
     }
   }
   @media (max-width: 640px) {
+    .app-shell { padding: 0 12px; }
     .oc-nav-links { grid-template-columns: 1fr; }
   }
 </style>`;
@@ -291,7 +326,7 @@ function adminNav(active = '') {
 function dashboardNav(active = '') {
   const is = (k) => active === k ? 'active' : '';
   return `<nav class="oc-nav" aria-label="Dashboard navigation">
-    <a class="oc-nav-title" href="/dashboard/">UOS Dashboard</a>
+    <a class="oc-nav-title" href="/dashboard/">Sentinel Dashboard</a>
     <div class="oc-nav-links">
       <a class="nav-link ${is('home')}" href="/dashboard/">Home</a>
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers">Buyers</a>
