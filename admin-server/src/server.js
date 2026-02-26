@@ -62,12 +62,130 @@ function uiHead(title) {
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>${title}</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/lux/bootstrap.min.css" rel="stylesheet">
 <style>
-  .app-shell { max-width: 1100px; margin: 24px auto; padding: 0 12px; }
+  :root {
+    --bg: #0f1115;
+    --surface: #151922;
+    --surface-elevated: #1a202b;
+    --border: #252c39;
+    --text: #e8ecf3;
+    --text-muted: #9aa5b4;
+    --accent: #4f8cff;
+    --accent-soft: rgba(79, 140, 255, 0.16);
+    --radius-sm: 12px;
+    --radius-md: 14px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 12px 24px rgba(2, 8, 20, 0.18);
+    --shadow-lg: 0 20px 44px rgba(2, 8, 20, 0.28);
+    --tr-fast: 180ms ease;
+  }
+
+  html, body { background: var(--bg); color: var(--text); font-family: Inter, "Segoe UI", Roboto, sans-serif; }
+  body { min-height: 100vh; }
+  a { color: #86b2ff; text-decoration: none; }
+  a:hover { color: #a3c6ff; }
+  .app-shell { max-width: 1240px; margin: 24px auto; padding: 0 16px; }
+  .page-title { font-size: 1.65rem; font-weight: 650; margin: 0; letter-spacing: -0.02em; }
+  .section-title { font-size: 1rem; font-weight: 600; margin: 0; }
+  .text-muted { color: var(--text-muted) !important; }
+
+  .surface-card,
+  .card,
+  .navbar,
+  .form-control,
+  .form-select,
+  .table,
+  .list-group-item,
+  .dropdown-menu {
+    background: var(--surface) !important;
+    color: var(--text);
+    border-color: var(--border) !important;
+  }
+
+  .card,
+  .navbar,
+  .form-control,
+  .form-select,
+  .btn,
+  .table,
+  .dropdown-menu {
+    border-radius: var(--radius-md) !important;
+  }
+
+  .card,
+  .navbar { box-shadow: var(--shadow-sm); }
+  .card.elevated { box-shadow: var(--shadow-lg); background: var(--surface-elevated) !important; }
+
+  .form-control,
+  .form-select {
+    min-height: 40px;
+    color: var(--text);
+  }
+  .form-control::placeholder { color: #7f8998; }
+  .form-control:focus,
+  .form-select:focus,
+  .btn:focus,
+  .nav-link:focus {
+    box-shadow: 0 0 0 3px var(--accent-soft) !important;
+    border-color: var(--accent) !important;
+    outline: none;
+  }
+
+  .btn { transition: all var(--tr-fast); min-height: 38px; }
+  .btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #f8fbff;
+  }
+  .btn-primary:hover { background: #669bff; border-color: #669bff; }
+  .btn-outline-secondary,
+  .btn-outline-primary {
+    border-color: var(--border);
+    color: var(--text);
+  }
+  .btn-outline-secondary:hover,
+  .btn-outline-primary:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: #394457;
+    color: var(--text);
+  }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-muted);
+  }
+  .btn-ghost:hover { color: var(--text); background: rgba(255,255,255,.04); }
+
+  .metric-card { min-height: 126px; }
+  .metric-label { color: var(--text-muted); font-size: .78rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+  .metric-value { font-size: 1.9rem; line-height: 1.05; font-weight: 680; letter-spacing: -0.02em; }
+
+  .table { --bs-table-bg: transparent; --bs-table-color: var(--text); margin-bottom: 0; }
+  .table thead th {
+    background: rgba(255,255,255,.03);
+    color: #c7d1df;
+    border-bottom: 1px solid var(--border);
+    font-size: .76rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    font-weight: 600;
+    padding: .85rem .9rem;
+  }
+  .table td {
+    border-color: rgba(255,255,255,.06);
+    padding: .82rem .9rem;
+    vertical-align: middle;
+  }
+  .table tbody tr:nth-child(even) { background: rgba(255,255,255,.015); }
+  .table tbody tr { transition: background var(--tr-fast); }
+  .table tbody tr:hover { background: rgba(79,140,255,.09); }
+
+  .mono { font-family: ui-monospace,SFMono-Regular,Menlo,monospace; }
   .dropzone { border: 2px dashed var(--bs-border-color); border-radius: .75rem; padding: .9rem; background: var(--bs-tertiary-bg); }
   .dropzone.dragover { border-color: var(--bs-primary); background: color-mix(in srgb, var(--bs-primary) 8%, white); }
-  .mono { font-family: ui-monospace,SFMono-Regular,Menlo,monospace; }
+
+  .panel-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 16px; }
+  .panel-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 
   /* Studio button/layout polish */
   .studio-actions { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; }
@@ -79,32 +197,82 @@ function uiHead(title) {
     .studio-actions .btn, .studio-editor-actions .btn { width:100%; }
   }
 
-  /* Mobile nav fixes */
-  .oc-nav { align-items: flex-start; gap: .5rem; }
-  .oc-nav .navbar-nav .nav-link { padding-left: 0; padding-right: .6rem; }
-  @media (max-width: 768px) {
-    .oc-nav { padding: .8rem !important; }
-    .oc-nav .navbar-brand { width: 100%; margin-right: 0; }
-    .oc-nav .navbar-nav {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .15rem .75rem;
-      margin-bottom: .25rem;
+  /* SaaS sidebar navigation */
+  .app-shell {
+    display: grid;
+    grid-template-columns: 252px minmax(0, 1fr);
+    gap: 20px;
+    max-width: 1380px;
+  }
+  .app-shell > .oc-nav { grid-column: 1; }
+  .app-shell > :not(.oc-nav) { grid-column: 2; }
+
+  .oc-nav {
+    position: sticky;
+    top: 16px;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    box-shadow: var(--shadow-sm);
+    min-height: calc(100vh - 48px);
+  }
+  .oc-nav-title {
+    font-size: .96rem;
+    font-weight: 650;
+    letter-spacing: .01em;
+    color: var(--text);
+    padding: 4px 6px 10px;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .oc-nav-links { display: grid; gap: 4px; }
+  .oc-nav .nav-link {
+    color: var(--text-muted);
+    border-radius: 10px;
+    padding: .54rem .66rem;
+    line-height: 1.25;
+    transition: all var(--tr-fast);
+    border: 1px solid transparent;
+  }
+  .oc-nav .nav-link:hover { color: var(--text); background: rgba(255,255,255,.045); }
+  .oc-nav .nav-link.active {
+    color: #f4f8ff;
+    background: var(--accent-soft);
+    border-color: rgba(79, 140, 255, .45);
+  }
+  .oc-nav-footer { margin-top: auto; display: grid; gap: 8px; }
+  .oc-nav-footer .btn { width: 100%; justify-content: center; }
+
+  @media (max-width: 992px) {
+    .app-shell { grid-template-columns: 1fr; gap: 14px; }
+    .app-shell > .oc-nav,
+    .app-shell > :not(.oc-nav) { grid-column: 1; }
+    .oc-nav {
+      position: static;
+      min-height: 0;
+      padding: 12px;
     }
-    .oc-nav .team-btn,
-    .oc-nav .logout-btn {
-      width: 100%;
+    .oc-nav-links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
     }
+  }
+  @media (max-width: 640px) {
+    .app-shell { padding: 0 12px; }
+    .oc-nav-links { grid-template-columns: 1fr; }
   }
 </style>`;
 }
 
 function adminNav(active = '') {
   const is = (k) => active === k ? 'active' : '';
-  return `<nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3 oc-nav">
-    <a class="navbar-brand fw-bold" href="/admin">Sentinel Admin</a>
-    <div class="navbar-nav me-auto">
+  return `<nav class="oc-nav" aria-label="Admin navigation">
+    <a class="oc-nav-title" href="/admin">Sentinel Admin</a>
+    <div class="oc-nav-links">
       <a class="nav-link ${is('panel')}" href="/admin">Panel</a>
       <a class="nav-link ${is('upload')}" href="/admin/upload">Upload</a>
       <a class="nav-link ${is('dashboard')}" href="/dashboard/">Dashboard</a>
@@ -115,7 +283,7 @@ function adminNav(active = '') {
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
     </div>
-    <form method="post" action="/admin/logout" class="d-flex m-0 w-100 w-md-auto">
+    <form method="post" action="/admin/logout" class="oc-nav-footer m-0">
       <button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button>
     </form>
   </nav>`;
@@ -123,9 +291,9 @@ function adminNav(active = '') {
 
 function dashboardNav(active = '') {
   const is = (k) => active === k ? 'active' : '';
-  return `<nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3 oc-nav">
-    <a class="navbar-brand fw-bold" href="/dashboard/">Sentinel Dashboard</a>
-    <div class="navbar-nav me-auto">
+  return `<nav class="oc-nav" aria-label="Dashboard navigation">
+    <a class="oc-nav-title" href="/dashboard/">Sentinel Dashboard</a>
+    <div class="oc-nav-links">
       <a class="nav-link ${is('home')}" href="/dashboard/">Home</a>
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers">Buyers</a>
       <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives">Initiatives</a>
@@ -135,8 +303,36 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
       <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio">Presentation Studio</a>
     </div>
-    <a class="btn btn-sm btn-outline-secondary team-btn" href="/board">Team Board</a>
+    <div class="oc-nav-footer">
+      <a class="btn btn-sm btn-outline-secondary team-btn" href="/board">Team Board</a>
+    </div>
   </nav>`;
+}
+
+function pageHeader(title, actions = '', meta = '') {
+  return `<div class="panel-header">
+    <div>
+      <h1 class="page-title">${title}</h1>
+      ${meta ? `<div class="small text-muted mt-1">${meta}</div>` : ''}
+    </div>
+    ${actions ? `<div class="panel-actions">${actions}</div>` : ''}
+  </div>`;
+}
+
+function statCard(label, value, meta = '') {
+  return `<div class="card metric-card"><div class="card-body d-flex flex-column justify-content-between">
+    <div class="metric-label">${label}</div>
+    <div class="metric-value">${value}</div>
+    ${meta ? `<div class="small text-muted mono">${meta}</div>` : ''}
+  </div></div>`;
+}
+
+function tableShell(headers, rows, emptyRow = '', colspan = headers.length) {
+  const content = rows.length ? rows.join('') : `<tr><td colspan="${colspan}" class="text-muted">${emptyRow || 'No rows'}</td></tr>`;
+  return `<div class="card"><div class="table-responsive"><table class="table table-sm align-middle">
+    <thead><tr>${headers.map((h) => `<th>${h}</th>`).join('')}</tr></thead>
+    <tbody>${content}</tbody>
+  </table></div></div>`;
 }
 
 async function ensureDirs() {
@@ -314,30 +510,24 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
 <html><head>${uiHead('Dashboard')}</head><body>
   <div class="app-shell">
     ${dashboardNav('home')}
-    <div class="d-flex justify-content-between align-items-center mb-3">
-      <h3 class="m-0">Operations Dashboard</h3>
-      <div class="d-flex gap-2">
-        <a class="btn btn-outline-secondary btn-sm" href="/dashboard/activity">Activity</a>
-        <a class="btn btn-outline-secondary btn-sm" href="/dashboard/review">Review Packets</a>
-        <a class="btn btn-outline-secondary btn-sm" href="/dashboard/board">Board</a>
-      </div>
-    </div>
+    ${pageHeader('Operations Dashboard', `
+      <a class="btn btn-outline-secondary btn-sm" href="/dashboard/activity">Activity</a>
+      <a class="btn btn-outline-secondary btn-sm" href="/dashboard/review">Review Packets</a>
+      <a class="btn btn-primary btn-sm" href="/dashboard/board">Board</a>
+    `, 'Mission Control overview')}
 
     <div class="row g-3 mb-3">
-      <div class="col-12 col-md-6 col-xl-3"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Active Tasks</div><div class="h3">${Object.values(boardCounts).reduce((a,b)=>a+Number(b||0),0)}</div></div></div></div>
-      <div class="col-12 col-md-6 col-xl-3"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Pending Review Packets</div><div class="h3">${pendingRps}</div></div></div></div>
-      <div class="col-12 col-md-6 col-xl-3"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Latest UOS Publish</div><div class="small mono">${escapeHtml(latestUosPublish)}</div></div></div></div>
-      <div class="col-12 col-md-6 col-xl-3"><div class="card shadow-sm"><div class="card-body"><div class="text-muted small">Last Updated</div><div class="small mono">${escapeHtml(state.lastUpdated || 'N/A')}</div></div></div></div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Active Tasks', Object.values(boardCounts).reduce((a,b)=>a+Number(b||0),0))}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Pending Review Packets', pendingRps)}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Latest UOS Publish', '-', escapeHtml(latestUosPublish))}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Last Updated', '-', escapeHtml(state.lastUpdated || 'N/A'))}</div>
     </div>
 
-    <div class="card shadow-sm">
-      <div class="card-header">Recent Activity (last 20)</div>
-      <div class="table-responsive">
-        <table class="table table-sm mb-0"><thead><tr><th>Time</th><th>Actor</th><th>Event</th><th>Entity</th></tr></thead><tbody>
-          ${(recent.map(e => `<tr><td class="mono small">${escapeHtml(e.ts || '')}</td><td>${escapeHtml(e.actor || '')}</td><td>${escapeHtml(e.event_type || '')}</td><td>${escapeHtml((e.entity_type || '') + ':' + (e.entity_id || ''))}</td></tr>`).join('')) || '<tr><td colspan="4" class="text-muted">No activity yet</td></tr>'}
-        </tbody></table>
-      </div>
-    </div>
+    ${tableShell(
+      ['Time', 'Actor', 'Event', 'Entity'],
+      recent.map(e => `<tr><td class="mono small">${escapeHtml(e.ts || '')}</td><td>${escapeHtml(e.actor || '')}</td><td>${escapeHtml(e.event_type || '')}</td><td>${escapeHtml((e.entity_type || '') + ':' + (e.entity_id || ''))}</td></tr>`),
+      'No activity yet'
+    )}
   </div>
 </body></html>`);
 });
@@ -349,14 +539,14 @@ app.get('/dashboard/activity', async (req, res) => {
   const events = await readActivityEvents({ limit: 1000, actor, entity_type, date, maxScan: 1000 });
   res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard Activity')}</head><body><div class="app-shell">
     ${dashboardNav('activity')}
-    <h3>Activity Feed</h3>
+    ${pageHeader('Activity Feed')}
     <form class="row g-2 mb-3" method="get" action="/dashboard/activity">
       <div class="col"><input class="form-control" name="actor" placeholder="actor" value="${escapeHtml(actor || '')}"></div>
       <div class="col"><input class="form-control" name="entity_type" placeholder="entity_type" value="${escapeHtml(entity_type || '')}"></div>
       <div class="col"><input class="form-control" name="date" placeholder="YYYY-MM-DD" value="${escapeHtml(date || '')}"></div>
       <div class="col-auto"><button class="btn btn-primary" type="submit">Filter</button></div>
     </form>
-    <div class="table-responsive"><table class="table table-sm"><thead><tr><th>ts</th><th>actor</th><th>role</th><th>event_type</th><th>entity</th><th>meta</th></tr></thead><tbody>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ts</th><th>actor</th><th>role</th><th>event_type</th><th>entity</th><th>meta</th></tr></thead><tbody>
       ${(events.map(e => `<tr><td class="mono small">${escapeHtml(e.ts||'')}</td><td>${escapeHtml(e.actor||'')}</td><td>${escapeHtml(e.role||'')}</td><td>${escapeHtml(e.event_type||'')}</td><td>${escapeHtml((e.entity_type||'')+':' + (e.entity_id||''))}</td><td><code>${escapeHtml(JSON.stringify(e.meta||{}))}</code></td></tr>`).join('')) || '<tr><td colspan="6">No events</td></tr>'}
     </tbody></table></div>
   </div></body></html>`);
@@ -381,16 +571,16 @@ app.get('/dashboard/review', async (req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard Review Packets')}</head><body><div class="app-shell">
     ${dashboardNav('review')}
     <div class="d-flex justify-content-between align-items-center mb-2">
-      <h3 class="mb-0">Review Packets</h3>
+      <h1 class="page-title">Review Packets</h1>
       <div class="small text-muted">Total: ${total} • Page ${safePage}/${totalPages}</div>
     </div>
     <div class="d-flex gap-2 mb-2">
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review?showAll=true">Show All</a>
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review?page=1&pageSize=25">Paged View</a>
     </div>
-    <div class="table-responsive"><table class="table table-sm"><thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th></tr></thead><tbody>
+    <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th></tr></thead><tbody>
       ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td>${escapeHtml(r.title||'')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td></tr>`).join('')) || '<tr><td colspan="7">No review packets</td></tr>'}
-    </tbody></table></div>
+    </tbody></table></div></div>
 
     <div class="d-flex flex-wrap gap-2 align-items-center mt-2">
       <a class="btn btn-sm btn-outline-secondary ${safePage <= 1 ? 'disabled' : ''}" href="${safePage <= 1 ? '#' : qp(1)}">« First</a>
@@ -411,8 +601,8 @@ app.get('/dashboard/board', async (_req, res) => {
   const counts = Object.fromEntries(BOARD_COLUMNS.map(c => [c, board.tasks.filter(t => t.status===c).length]));
   res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard Board')}</head><body><div class="app-shell">
     ${dashboardNav('board')}
-    <h3>Board Snapshot</h3>
-    <div class="row g-2 mb-3">${BOARD_COLUMNS.map(c=>`<div class="col"><div class="card"><div class="card-body"><div class="small text-muted">${c}</div><div class="h4">${counts[c]}</div></div></div></div>`).join('')}</div>
+    ${pageHeader('Board Snapshot')}
+    <div class="row g-3 mb-3">${BOARD_COLUMNS.map(c=>`<div class="col-12 col-md-6 col-xl">${statCard(c, counts[c])}</div>`).join('')}</div>
     <a class="btn btn-primary" href="/board">Open Board UI</a>
   </div></body></html>`);
 });
@@ -437,7 +627,7 @@ app.get('/dashboard/uos', async (_req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard UOS')}</head><body><div class="app-shell">
     ${dashboardNav('uos')}
     <div class="d-flex justify-content-between align-items-center mb-2">
-      <h3 class="mb-0">UOS Documents</h3>
+      <h1 class="page-title">UOS Documents</h1>
       <a class="btn btn-sm btn-primary" href="/admin/upload">Upload UOS Documents</a>
     </div>
     <div class="row g-3 mb-3">
@@ -474,7 +664,7 @@ app.get('/dashboard/buyers', async (req, res) => {
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
-    <div class="d-flex justify-content-between align-items-center mb-2"><h3 class="mb-0">Buyers</h3>${canEdit ? '<button class="btn btn-sm btn-primary" data-bs-toggle="collapse" data-bs-target="#addBuyerBox">Add Buyer</button>' : ''}</div>
+    <div class="d-flex justify-content-between align-items-center mb-2"><h1 class="page-title">Buyers</h1>${canEdit ? '<button class="btn btn-sm btn-primary" data-bs-toggle="collapse" data-bs-target="#addBuyerBox">Add Buyer</button>' : ''}</div>
     ${canEdit ? `<div id="addBuyerBox" class="collapse mb-3"><div class="card"><div class="card-body">
       <h6>Add Buyer</h6>
       <form method="post" action="/api/buyers" class="row g-2">
@@ -489,7 +679,7 @@ app.get('/dashboard/buyers', async (req, res) => {
       </form>
     </div></div></div>` : ''}
     <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div></form>
-    <div class="table-responsive"><table class="table table-sm"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Sectors</th></tr></thead><tbody>${filtered.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('')}</tbody></table></div>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Sectors</th></tr></thead><tbody>${filtered.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('')}</tbody></table></div>
 
     ${canEdit ? `<div class="card mt-3"><div class="card-body">
       <h6>Initiative Idea Builder (UOS-grounded)</h6>
@@ -538,8 +728,8 @@ app.get('/dashboard/initiatives', async (_req, res) => {
   const sorted = [...initiatives].sort((a,b)=>String(a.initiative_id).localeCompare(String(b.initiative_id)));
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
-    <h3>Initiatives</h3>
-    <div class="table-responsive"><table class="table table-sm"><thead><tr><th>ID</th><th>Name</th><th>Status</th><th>Linked Buyers</th></tr></thead><tbody>
+    ${pageHeader('Initiatives')}
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Name</th><th>Status</th><th>Linked Buyers</th></tr></thead><tbody>
       ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.status || '')}</td><td>${escapeHtml((i.linked_buyers || []).map(b=>byId[b]||b).join(', '))}</td></tr>`).join('') || '<tr><td colspan="4">No initiatives</td></tr>'}
     </tbody></table></div>
   </div></body></html>`);
@@ -695,7 +885,7 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
       localStorage.setItem('studio:lastDeckRoot', lastDeckRoot);
       await loadDeckSpec();
       renderThumbs((deckSpec?.slides || []).length);
-      document.getElementById('slideList').textContent = 'Deck: ' + lastDeckRoot.replace(/^\//,'') + ' • Slides: ' + ((deckSpec?.slides || []).length || 0);
+      document.getElementById('slideList').textContent = 'Deck: ' + lastDeckRoot.replace(/^\\//,'') + ' • Slides: ' + ((deckSpec?.slides || []).length || 0);
     }
 
     async function loadDeckSpec(){
