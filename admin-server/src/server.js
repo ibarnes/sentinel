@@ -84,7 +84,7 @@ function uiHead(title) {
   body { min-height: 100vh; }
   a { color: #86b2ff; text-decoration: none; }
   a:hover { color: #a3c6ff; }
-  .app-shell { --sidebar-w: 252px; max-width: 1380px; margin: 24px auto; padding: 0 16px; }
+  .app-shell { max-width: 1380px; margin: 24px auto; padding: 0 16px; }
   .page-title { font-size: 1.65rem; font-weight: 650; margin: 0; letter-spacing: -0.02em; }
   .section-title { font-size: 1rem; font-weight: 600; margin: 0; }
   .text-muted { color: var(--text-muted) !important; }
@@ -198,7 +198,7 @@ function uiHead(title) {
   }
 
   /* SaaS sidebar navigation */
-  .app-shell {  }
+  .app-shell { --sidebar-w: 252px; }
 
   .oc-nav {
     position: fixed;
@@ -1916,15 +1916,16 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
   const canWrite = ['architect', 'editor'].includes(u.role);
   res.type('html').send(`<!doctype html><html><head>${uiHead('Task Board')}</head><body>
   <div class="app-shell">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary border rounded-3 px-3 mb-3 oc-nav">
-      <a class="navbar-brand fw-bold" href="/board">Task Board</a>
-      <div class="navbar-nav me-auto">
+    <nav class="oc-nav" aria-label="Board navigation">
+      <a class="oc-nav-title" href="/board">Task Board</a>
+      <div class="oc-nav-links">
         <a class="nav-link" href="/dashboard/">Dashboard</a>
         <a class="nav-link" href="/dashboard/buyers">Buyers</a>
         <a class="nav-link" href="/dashboard/presentation-studio">Presentation Studio</a>
-        <span class="nav-link disabled">${escapeHtml(u.username)} (${escapeHtml(u.role)})</span>
+        <a class="nav-link active" href="/board">Board</a>
       </div>
-      <form method="post" action="/auth/logout" class="d-flex m-0 w-100 w-md-auto"><button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button></form>
+      <div class="small text-muted">${escapeHtml(u.username)} (${escapeHtml(u.role)})</div>
+      <form method="post" action="/auth/logout" class="oc-nav-footer m-0"><button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button></form>
     </nav>
 
     <div class="d-flex flex-wrap gap-2 mb-3">
