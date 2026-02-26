@@ -199,6 +199,18 @@ function uiHead(title) {
 
   /* SaaS sidebar navigation */
   .app-shell {
+    max-width: 1380px;
+    margin: 24px auto;
+    padding: 0 16px 0 296px;
+  }
+
+  .oc-nav {
+    position: fixed;
+    top: 24px;
+    left: max(16px, calc((100vw - 1380px) / 2 + 16px));
+    width: 252px;
+    max-height: calc(100vh - 48px);
+    overflow: auto;
     display: grid;
     grid-template-columns: 252px minmax(0, 1fr);
     gap: 20px;
