@@ -21,7 +21,8 @@
     },
     "initiatives": [
       "INIT-001"
-    ]
+    ],
+    "website": "https://www.pif.gov.sa"
   },
   {
     "buyer_id": "GIC",
@@ -43,7 +44,8 @@
     },
     "initiatives": [
       "INIT-001"
-    ]
+    ],
+    "website": "https://www.gic.com.kw"
   },
   {
     "buyer_id": "AFC",
@@ -69,7 +71,8 @@
       "timing_urgency": "Medium"
     },
     "transfer_hypothesis": "AFC project-preparation budget (AIFF/development) funds early structuring, feasibility, governance alignment, and pre-FID readiness. If mandate approved, capital can flow through project/SPV development accounts into USG milestone-based structuring fees.",
-    "initiatives": []
+    "initiatives": [],
+    "website": "https://www.africafc.org"
   },
   {
     "buyer_id": "NSIA",
@@ -93,7 +96,8 @@
       "regional_alignment": "High",
       "timing_urgency": "Medium"
     },
-    "initiatives": []
+    "initiatives": [],
+    "website": "https://www.nsia.com.ng"
   },
   {
     "buyer_id": "FMF-NG",
@@ -115,7 +119,8 @@
       "regional_alignment": "High",
       "timing_urgency": "Medium"
     },
-    "initiatives": []
+    "initiatives": [],
+    "website": "https://www.finance.gov.ng"
   },
   {
     "buyer_id": "ADFD",
@@ -138,7 +143,8 @@
       "regional_alignment": "Medium",
       "timing_urgency": "Medium"
     },
-    "initiatives": []
+    "initiatives": [],
+    "website": "https://www.adfd.ae"
   },
   {
     "buyer_id": "SFD",
@@ -161,7 +167,8 @@
       "regional_alignment": "Medium",
       "timing_urgency": "Medium"
     },
-    "initiatives": []
+    "initiatives": [],
+    "website": "https://www.sfd.gov.sa"
   },
   {
     "buyer_id": "AfDB",
@@ -184,7 +191,8 @@
       "regional_alignment": "High",
       "timing_urgency": "Medium"
     },
-    "initiatives": []
+    "initiatives": [],
+    "website": "https://www.afdb.org"
   },
   {
     "buyer_id": "IFC",
@@ -207,6 +215,7 @@
       "regional_alignment": "Medium",
       "timing_urgency": "Medium"
     },
-    "initiatives": []
+    "initiatives": [],
+    "website": "https://www.ifc.org"
   }
 ]
