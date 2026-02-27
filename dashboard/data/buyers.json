@@ -22,7 +22,31 @@
     "initiatives": [
       "INIT-001"
     ],
-    "website": "https://www.pif.gov.sa"
+    "website": "https://www.pif.gov.sa",
+    "transfer_chain": {
+      "stored_energy_source": "Strategic Sector Investment Allocation",
+      "budget_program": "PIF Infrastructure / Energy Investment Envelope",
+      "funding_type": "Investment Program Allocation",
+      "approval_authority": "PIF Investment Committee",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Gulf capital redeployment into strategic regional infrastructure",
+      "linked_signals_30d": "1 Medium (Gulf Sovereign Capital Reallocation)",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Structured cross-border platform reduces deployment friction and aligns with strategic regional positioning",
+      "linked_initiative": "West Africa Energy Corridor",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Mandate pathway memo + governance structure + capital stack clarity",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "1 / 4",
+      "critical_blocker": "No verified development allocation pathway",
+      "transfer_vehicle": "Development allocation or mandate agreement",
+      "payment_trigger": "Investment Committee approval of structured platform",
+      "estimated_time_to_transfer": "6\u201312 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate",
+      "promote_trigger": "FID approval",
+      "recurrence_potential": "Medium (platform-based)"
+    }
   },
   {
     "buyer_id": "GIC",
@@ -45,7 +69,31 @@
     "initiatives": [
       "INIT-001"
     ],
-    "website": "https://www.gic.com.kw"
+    "website": "https://www.gic.com.kw",
+    "transfer_chain": {
+      "stored_energy_source": "GCC-backed Direct Investment Allocation",
+      "budget_program": "Infrastructure Co-Investment Program",
+      "funding_type": "Investment Program Allocation",
+      "approval_authority": "GIC Investment Committee",
+      "verification_status": "Unverified",
+      "confidence_level": "Low\u2013Medium",
+      "primary_infrastructure_pressure": "Regional capital seeking cross-border infrastructure yield",
+      "linked_signals_30d": "1 Medium (Gulf capital reallocation theme)",
+      "signal_trend": "Stable",
+      "strategic_alignment_thesis": "Governance-structured platforms reduce cross-border execution risk and accelerate deployment velocity",
+      "linked_initiative": "West Africa Energy Corridor",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Structured mandate pathway + defined capital stack + sponsor alignment",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "TBD",
+      "critical_blocker": "No verified development allocation pathway inside GIC",
+      "transfer_vehicle": "Development mandate agreement or co-development structure",
+      "payment_trigger": "Investment Committee approval of structured platform engagement",
+      "estimated_time_to_transfer": "6\u201312 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate",
+      "promote_trigger": "Co-investment approval / capital deployment",
+      "recurrence_potential": "Medium"
+    }
   },
   {
     "buyer_id": "AFC",
@@ -72,7 +120,31 @@
     },
     "transfer_hypothesis": "AFC project-preparation budget (AIFF/development) funds early structuring, feasibility, governance alignment, and pre-FID readiness. If mandate approved, capital can flow through project/SPV development accounts into USG milestone-based structuring fees.",
     "initiatives": [],
-    "website": "https://www.africafc.org"
+    "website": "https://www.africafc.org",
+    "transfer_chain": {
+      "stored_energy_source": "AIFF Project Preparation Allocation",
+      "budget_program": "Africa Infrastructure Financing Facility (AIFF)",
+      "funding_type": "Project Preparation",
+      "approval_authority": "AFC Investment Committee",
+      "verification_status": "Partially Verified",
+      "confidence_level": "High",
+      "primary_infrastructure_pressure": "Infrastructure funding gap + bankability constraints",
+      "linked_signals_30d": "1 High",
+      "signal_trend": "Stable to Rising",
+      "strategic_alignment_thesis": "Governance compression accelerates financial close and de-risks deployment",
+      "linked_initiative": "Energy Corridor",
+      "recognition_evidence_status": "Partial",
+      "required_governance_artifacts": "Defined pathway + feasibility scope alignment",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "2 / 4",
+      "critical_blocker": "Formal scope alignment",
+      "transfer_vehicle": "Project preparation mandate agreement",
+      "payment_trigger": "Approval of structuring scope",
+      "estimated_time_to_transfer": "3\u20136 months",
+      "mandate_fee_structure": "Development / structuring fee",
+      "promote_trigger": "Financial close",
+      "recurrence_potential": "High"
+    }
   },
   {
     "buyer_id": "NSIA",
@@ -97,7 +169,31 @@
       "timing_urgency": "Medium"
     },
     "initiatives": [],
-    "website": "https://www.nsia.com.ng"
+    "website": "https://www.nsia.com.ng",
+    "transfer_chain": {
+      "stored_energy_source": "Infrastructure Fund Allocation",
+      "budget_program": "NSIA Infrastructure Fund \u2013 Development Envelope",
+      "funding_type": "Development Budget",
+      "approval_authority": "NSIA Board",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Domestic infrastructure delivery gap",
+      "linked_signals_30d": "2 High",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Structured governance increases speed to deploy sovereign capital",
+      "linked_initiative": "TBD",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "SPV structure + capital stack definition",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "TBD",
+      "critical_blocker": "No formal engagement path",
+      "transfer_vehicle": "Co-development agreement",
+      "payment_trigger": "Approval of structuring mandate",
+      "estimated_time_to_transfer": "6\u201312 months",
+      "mandate_fee_structure": "Pre-FID structuring fee",
+      "promote_trigger": "SPV capitalization",
+      "recurrence_potential": "High (domestic pipeline)"
+    }
   },
   {
     "buyer_id": "FMF-NG",
@@ -120,7 +216,31 @@
       "timing_urgency": "Medium"
     },
     "initiatives": [],
-    "website": "https://www.finance.gov.ng"
+    "website": "https://www.finance.gov.ng",
+    "transfer_chain": {
+      "stored_energy_source": "National Capital Expenditure Allocation (Infrastructure Line)",
+      "budget_program": "Federal Infrastructure Development Budget",
+      "funding_type": "Fiscal Allocation",
+      "approval_authority": "Federal Executive Council / Budget Office",
+      "verification_status": "Unverified",
+      "confidence_level": "Low\u2013Medium",
+      "primary_infrastructure_pressure": "Infrastructure funding gap + fiscal efficiency constraints",
+      "linked_signals_30d": "2 High (Financing Gap + Grid Instability)",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Governance clarity reduces fiscal leakage and accelerates structured capital approval",
+      "linked_initiative": "TBD",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Formal mandate structure + executive approval memo + budget designation",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "TBD",
+      "critical_blocker": "No formal budget designation for structuring services",
+      "transfer_vehicle": "Advisory mandate agreement funded via CAPEX allocation",
+      "payment_trigger": "Executive Council approval of structured infrastructure program",
+      "estimated_time_to_transfer": "9\u201318 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate",
+      "promote_trigger": "Project approval under national program",
+      "recurrence_potential": "High (if programmatic)"
+    }
   },
   {
     "buyer_id": "ADFD",
@@ -144,7 +264,31 @@
       "timing_urgency": "Medium"
     },
     "initiatives": [],
-    "website": "https://www.adfd.ae"
+    "website": "https://www.adfd.ae",
+    "transfer_chain": {
+      "stored_energy_source": "Development Assistance Program Allocation",
+      "budget_program": "Project Preparation / Technical Assistance Window",
+      "funding_type": "Technical Assistance / Development Budget",
+      "approval_authority": "ADFD Board",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Bilateral infrastructure deployment mandate + geopolitical capital positioning",
+      "linked_signals_30d": "1 Medium (Gulf\u2013Africa capital reallocation)",
+      "signal_trend": "Stable",
+      "strategic_alignment_thesis": "Structured governance enables safe bilateral infrastructure deployment",
+      "linked_initiative": "West Africa Energy Corridor (potential alignment)",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Defined project preparation scope + bilateral alignment memo",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "TBD",
+      "critical_blocker": "No confirmed eligibility for governance-architecture services",
+      "transfer_vehicle": "Technical Assistance agreement",
+      "payment_trigger": "Approval of project preparation engagement",
+      "estimated_time_to_transfer": "6\u201312 months",
+      "mandate_fee_structure": "Structuring / preparation fee",
+      "promote_trigger": "Loan approval / bilateral financing commitment",
+      "recurrence_potential": "Medium"
+    }
   },
   {
     "buyer_id": "SFD",
@@ -168,7 +312,31 @@
       "timing_urgency": "Medium"
     },
     "initiatives": [],
-    "website": "https://www.sfd.gov.sa"
+    "website": "https://www.sfd.gov.sa",
+    "transfer_chain": {
+      "stored_energy_source": "Bilateral Infrastructure Loan Preparation Allocation",
+      "budget_program": "Technical Assistance / Loan Preparation Window",
+      "funding_type": "Technical Assistance",
+      "approval_authority": "SFD Board",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Strategic bilateral infrastructure deployment + development impact mandates",
+      "linked_signals_30d": "1 Medium",
+      "signal_trend": "Stable",
+      "strategic_alignment_thesis": "Governance-structured pathways reduce bilateral execution risk and accelerate loan approval",
+      "linked_initiative": "TBD",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Mandate pathway + eligibility validation + defined prep scope",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "TBD",
+      "critical_blocker": "No confirmed structuring eligibility under TA window",
+      "transfer_vehicle": "Technical Assistance agreement",
+      "payment_trigger": "Board approval of preparation engagement",
+      "estimated_time_to_transfer": "6\u201312 months",
+      "mandate_fee_structure": "Pre-FID structuring fee",
+      "promote_trigger": "Loan approval milestone",
+      "recurrence_potential": "Medium"
+    }
   },
   {
     "buyer_id": "AfDB",
@@ -192,7 +360,31 @@
       "timing_urgency": "Medium"
     },
     "initiatives": [],
-    "website": "https://www.afdb.org"
+    "website": "https://www.afdb.org",
+    "transfer_chain": {
+      "stored_energy_source": "Project Preparation Facility (PPF)",
+      "budget_program": "ADF Technical Assistance Window",
+      "funding_type": "Technical Assistance",
+      "approval_authority": "AfDB Board / Facility Management",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Continental infrastructure financing gap",
+      "linked_signals_30d": "2 High",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Structured governance reduces approval friction and accelerates multilateral participation",
+      "linked_initiative": "None yet",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Mandate pathway + eligibility confirmation",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "3 / 4",
+      "critical_blocker": "No linked task + no review packet",
+      "transfer_vehicle": "Technical Assistance agreement",
+      "payment_trigger": "Approval of project prep engagement",
+      "estimated_time_to_transfer": "6\u20139 months",
+      "mandate_fee_structure": "Structuring advisory fee",
+      "promote_trigger": "Co-financing commitment",
+      "recurrence_potential": "Medium"
+    }
   },
   {
     "buyer_id": "IFC",
@@ -216,6 +408,30 @@
       "timing_urgency": "Medium"
     },
     "initiatives": [],
-    "website": "https://www.ifc.org"
+    "website": "https://www.ifc.org",
+    "transfer_chain": {
+      "stored_energy_source": "Upstream Advisory Budget",
+      "budget_program": "IFC Upstream Services",
+      "funding_type": "Technical Assistance",
+      "approval_authority": "Regional Investment Committee",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Private-sector bankability gap",
+      "linked_signals_30d": "1 Medium",
+      "signal_trend": "Stable",
+      "strategic_alignment_thesis": "Governance compression accelerates private-sector deployment",
+      "linked_initiative": "TBD",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Eligibility alignment",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "TBD",
+      "critical_blocker": "Advisory scope qualification",
+      "transfer_vehicle": "Advisory agreement",
+      "payment_trigger": "Engagement approval",
+      "estimated_time_to_transfer": "6\u20139 months",
+      "mandate_fee_structure": "Advisory structuring fee",
+      "promote_trigger": "Investment participation",
+      "recurrence_potential": "Medium"
+    }
   }
 ]

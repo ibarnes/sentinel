@@ -847,6 +847,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
 
   const canUpgradeToVerified = !!String(b.transfer_hypothesis || '').trim() && (highRecent >= 1 || mediumRecent >= 2) && buyerTasks.length >= 1;
   const canUpgradeToActioned = inProgressCount >= 1 && linked.length >= 1;
+  const tc = b.transfer_chain || null;
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyer Detail')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
@@ -859,6 +860,52 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     <ul>${linked.map(i=>`<li><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?buyer_id=${encodeURIComponent(b.buyer_id)}">${escapeHtml(i.name)}</a></li>`).join('') || '<li>None</li>'}</ul>
 
     ${b.transfer_hypothesis ? `<div class="card mb-3"><div class="card-body"><h6>Transfer Hypothesis</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(String(b.transfer_hypothesis || ''))}</pre></div></div>` : ''}
+
+    ${tc ? `<details class="card mb-3">
+      <summary class="card-header"><strong>Transfer Chain (Operational View)</strong></summary>
+      <div class="card-body">
+        <h6>1️⃣ Stored Energy (Source Account)</h6>
+        <ul class="small">
+          <li><strong>Stored Energy Source:</strong> ${escapeHtml(tc.stored_energy_source || 'TBD')}</li>
+          <li><strong>Budget Program / Facility:</strong> ${escapeHtml(tc.budget_program || 'TBD')}</li>
+          <li><strong>Funding Type:</strong> ${escapeHtml(tc.funding_type || 'TBD')}</li>
+          <li><strong>Approval Authority:</strong> ${escapeHtml(tc.approval_authority || 'TBD')}</li>
+          <li><strong>Verification Status:</strong> ${escapeHtml(tc.verification_status || 'TBD')}</li>
+          <li><strong>Confidence Level:</strong> ${escapeHtml(tc.confidence_level || 'TBD')}</li>
+        </ul>
+        <h6>2️⃣ Pressure Surface</h6>
+        <ul class="small">
+          <li><strong>Primary Infrastructure Pressure:</strong> ${escapeHtml(tc.primary_infrastructure_pressure || 'TBD')}</li>
+          <li><strong>Linked Signals (30d):</strong> ${escapeHtml(tc.linked_signals_30d || 'TBD')}</li>
+          <li><strong>Signal Trend:</strong> ${escapeHtml(tc.signal_trend || 'TBD')}</li>
+        </ul>
+        <h6>3️⃣ Value Recognition</h6>
+        <ul class="small">
+          <li><strong>Strategic Alignment Thesis:</strong> ${escapeHtml(tc.strategic_alignment_thesis || 'TBD')}</li>
+          <li><strong>Linked Initiative:</strong> ${escapeHtml(tc.linked_initiative || 'TBD')}</li>
+          <li><strong>Recognition Evidence Status:</strong> ${escapeHtml(tc.recognition_evidence_status || 'TBD')}</li>
+        </ul>
+        <h6>4️⃣ Release Conditions</h6>
+        <ul class="small">
+          <li><strong>Required Governance Artifacts:</strong> ${escapeHtml(tc.required_governance_artifacts || 'TBD')}</li>
+          <li><strong>Mandate Pathway Stage:</strong> ${escapeHtml(tc.mandate_pathway_stage || 'TBD')}</li>
+          <li><strong>Checklist Coverage:</strong> ${escapeHtml(tc.checklist_coverage || 'TBD')}</li>
+          <li><strong>Critical Blocker:</strong> ${escapeHtml(tc.critical_blocker || 'TBD')}</li>
+        </ul>
+        <h6>5️⃣ Transfer</h6>
+        <ul class="small">
+          <li><strong>Transfer Vehicle:</strong> ${escapeHtml(tc.transfer_vehicle || 'TBD')}</li>
+          <li><strong>Payment Trigger:</strong> ${escapeHtml(tc.payment_trigger || 'TBD')}</li>
+          <li><strong>Estimated Time to Transfer:</strong> ${escapeHtml(tc.estimated_time_to_transfer || 'TBD')}</li>
+        </ul>
+        <h6>6️⃣ Value Capture</h6>
+        <ul class="small mb-0">
+          <li><strong>Mandate Fee Structure:</strong> ${escapeHtml(tc.mandate_fee_structure || 'TBD')}</li>
+          <li><strong>Promote Trigger:</strong> ${escapeHtml(tc.promote_trigger || 'TBD')}</li>
+          <li><strong>Recurrence Potential:</strong> ${escapeHtml(tc.recurrence_potential || 'TBD')}</li>
+        </ul>
+      </div>
+    </details>` : ''}
 
     <details class="card mb-3">
       <summary class="card-header"><strong>Decision Snapshot</strong></summary>
