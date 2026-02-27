@@ -433,5 +433,61 @@
       "promote_trigger": "Investment participation",
       "recurrence_potential": "Medium"
     }
+  },
+  {
+    "buyer_id": "MUBADALA",
+    "name": "Mubadala Investment Company",
+    "type": "Sovereign Capital / Global Investment Platform",
+    "signal_status": "Monitor",
+    "score": 2.1,
+    "website": "https://www.mubadala.com",
+    "confidence": "Medium-High",
+    "verification_path": "Upgrade to Verified after identifying a specific Pre-FID structuring mandate within Direct Investments or Infrastructure platform",
+    "mandate_summary": "Deploy long-term sovereign capital across strategic sectors globally while supporting Abu Dhabi\u2019s economic transformation and capital formation objectives.",
+    "geo_focus": [
+      "UAE",
+      "MENA",
+      "Africa",
+      "Global"
+    ],
+    "sector_focus": [
+      "Infrastructure",
+      "Energy",
+      "Advanced Manufacturing",
+      "Technology"
+    ],
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "High",
+      "timing_urgency": "Medium"
+    },
+    "transfer_hypothesis": "As Mubadala pursues cross-border, capital-intensive infrastructure platforms requiring multi-actor coordination, structural ambiguity and FID sequencing risk create demand for pre-FID commitment architecture, enabling USG to secure a mandate-backed structuring fee before capital deployment.",
+    "initiatives": [
+      "INIT-001"
+    ],
+    "transfer_chain": {
+      "stored_energy_source": "Direct Investments Allocation (Infrastructure / Strategic Platforms)",
+      "budget_program": "Direct Investments Platform / Infrastructure & Real Assets Allocation",
+      "funding_type": "Investment Program Allocation",
+      "approval_authority": "Mubadala Investment Committee / Board",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Cross-border infrastructure deployment requiring defined capital stack and governance before FID",
+      "linked_signals_30d": "1 Medium (Gulf capital reallocation toward Africa infrastructure)",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Commitment architecture reduces deployment friction, protects downside exposure, and enables clean FID sequencing across jurisdictions.",
+      "linked_initiative": "West Africa Energy Corridor",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Pre-FID mandate memo, capital stack architecture, governance alignment map, FID boundary definition",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "0 / 4",
+      "critical_blocker": "No confirmed Pre-FID structuring mandate pathway within specific Mubadala investment platform",
+      "transfer_vehicle": "Pre-FID Infrastructure Structuring Mandate Agreement",
+      "payment_trigger": "Investment Committee approval of platform architecture engagement",
+      "estimated_time_to_transfer": "6-12 months",
+      "mandate_fee_structure": "Pre-FID Platform Architecture Mandate Fee",
+      "promote_trigger": "Final Investment Decision (FID) or Capital Close",
+      "recurrence_potential": "High (if platform-level engagement established)"
+    }
   }
 ]
