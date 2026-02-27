@@ -47,5 +47,12 @@
     "title": "Title TBD",
     "status": "active",
     "role": "Analyst"
+  },
+  {
+    "name": "Isaac Barnes",
+    "email": "isaac@unifiedstategroup.com",
+    "title": "Founder",
+    "role": "Architect",
+    "status": "active"
   }
 ]
