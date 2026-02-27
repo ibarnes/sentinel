@@ -899,8 +899,8 @@ app.get('/dashboard/team', async (_req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Team')}</head><body><div class="app-shell">
     ${dashboardNav('team')}
     ${pageHeader('Team Directory', '', 'USG operator contacts and roles')}
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Name</th><th>Title</th><th>Email</th><th>Status</th></tr></thead><tbody>
-      ${sorted.map((m)=>`<tr><td>${escapeHtml(m.name || '')}</td><td>${escapeHtml(m.title || 'TBD')}</td><td>${m.email ? `<a href="mailto:${escapeHtml(m.email)}">${escapeHtml(m.email)}</a>` : '—'}</td><td>${escapeHtml(m.status || 'active')}</td></tr>`).join('') || '<tr><td colspan="4">No team records</td></tr>'}
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Name</th><th>Title</th><th>Role</th><th>Email</th><th>Status</th></tr></thead><tbody>
+      ${sorted.map((m)=>`<tr><td>${escapeHtml(m.name || '')}</td><td>${escapeHtml(m.title || 'TBD')}</td><td>${escapeHtml(m.role || 'TBD')}</td><td>${m.email ? `<a href="mailto:${escapeHtml(m.email)}">${escapeHtml(m.email)}</a>` : '—'}</td><td>${escapeHtml(m.status || 'active')}</td></tr>`).join('') || '<tr><td colspan="5">No team records</td></tr>'}
     </tbody></table></div>
   </div></body></html>`);
 });

@@ -1,38 +1,51 @@
 [
   {
-    "name": "Bryan Klints",
+    "name": "Bryan Klint",
     "email": "bryan@unifiedstategroup.com",
     "title": "Title TBD",
-    "status": "active"
+    "status": "active",
+    "role": "Originator"
   },
   {
     "name": "Cedric Hill",
     "email": "Cedric@unifiedstategroup.com",
     "title": "Partner",
-    "status": "active"
+    "status": "active",
+    "role": "Analyst"
   },
   {
     "name": "Tyreek Moore",
     "email": "tyreek@unifiedstategroup.com",
     "title": "COO",
-    "status": "active"
+    "status": "active",
+    "role": "Governor"
   },
   {
     "name": "Richard Hoffman",
     "email": "Richard@unifiedstategroup.com",
     "title": "President",
-    "status": "active"
+    "status": "active",
+    "role": "Originator"
   },
   {
     "name": "Maryan Ali",
     "email": "Maryan@unifiedstategroup.com",
     "title": "Chief Strategy Officer",
-    "status": "active"
+    "status": "active",
+    "role": "Curator"
   },
   {
     "name": "Monica Colon",
     "email": "Monica@unifiedstategroup.com",
     "title": "Chief of Staff",
-    "status": "active"
+    "status": "active",
+    "role": "Coordinator"
+  },
+  {
+    "name": "Alex",
+    "email": "",
+    "title": "Title TBD",
+    "status": "active",
+    "role": "Analyst"
   }
 ]
