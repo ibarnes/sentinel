@@ -70,5 +70,143 @@
     },
     "transfer_hypothesis": "AFC project-preparation budget (AIFF/development) funds early structuring, feasibility, governance alignment, and pre-FID readiness. If mandate approved, capital can flow through project/SPV development accounts into USG milestone-based structuring fees.",
     "initiatives": []
+  },
+  {
+    "buyer_id": "NSIA",
+    "name": "Nigeria Sovereign Investment Authority",
+    "type": "Sovereign Capital / National Balance Sheet",
+    "signal_status": "Monitor",
+    "verification_path": "Upgrade to Verified after mandate pathway mapping",
+    "mandate_summary": "Sovereign-backed infrastructure allocation and co-development capital.",
+    "geo_focus": [
+      "Nigeria",
+      "Africa"
+    ],
+    "sector_focus": [
+      "Infrastructure"
+    ],
+    "score": 1.9,
+    "confidence": "Medium",
+    "transfer_hypothesis": "National infrastructure pressure conversion plus governance compression can accelerate pre-FID approvals and structured capital deployment.",
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "High",
+      "timing_urgency": "Medium"
+    },
+    "initiatives": []
+  },
+  {
+    "buyer_id": "FMF-NG",
+    "name": "Federal Ministry of Finance (Nigeria)",
+    "type": "Sovereign Capital / Fiscal Authority",
+    "signal_status": "Monitor",
+    "mandate_summary": "National infrastructure mandate alignment and capital allocation clarity.",
+    "geo_focus": [
+      "Nigeria"
+    ],
+    "sector_focus": [
+      "Infrastructure"
+    ],
+    "score": 1.8,
+    "confidence": "Medium",
+    "transfer_hypothesis": "Infrastructure pressure can be converted into a structured approval pathway and mandate issuance with governance-compressed execution.",
+    "pressure_factors": {
+      "capital_deployment": "Medium",
+      "regional_alignment": "High",
+      "timing_urgency": "Medium"
+    },
+    "initiatives": []
+  },
+  {
+    "buyer_id": "ADFD",
+    "name": "Abu Dhabi Fund for Development",
+    "type": "Sovereign Capital / Bilateral Development",
+    "signal_status": "Monitor",
+    "mandate_summary": "International infrastructure financing with early structuring support.",
+    "geo_focus": [
+      "MENA",
+      "Africa"
+    ],
+    "sector_focus": [
+      "Infrastructure"
+    ],
+    "score": 1.8,
+    "confidence": "Medium",
+    "transfer_hypothesis": "Governance clarity and bilateral capital pathways support pre-FID structuring mandates.",
+    "pressure_factors": {
+      "capital_deployment": "Medium",
+      "regional_alignment": "Medium",
+      "timing_urgency": "Medium"
+    },
+    "initiatives": []
+  },
+  {
+    "buyer_id": "SFD",
+    "name": "Saudi Fund for Development",
+    "type": "Sovereign Capital / Development Fund",
+    "signal_status": "Monitor",
+    "mandate_summary": "Development-aligned infrastructure capital deployment.",
+    "geo_focus": [
+      "MENA",
+      "Africa"
+    ],
+    "sector_focus": [
+      "Infrastructure"
+    ],
+    "score": 1.8,
+    "confidence": "Medium",
+    "transfer_hypothesis": "Risk compression and governance structure can improve readiness for capital deployment.",
+    "pressure_factors": {
+      "capital_deployment": "Medium",
+      "regional_alignment": "Medium",
+      "timing_urgency": "Medium"
+    },
+    "initiatives": []
+  },
+  {
+    "buyer_id": "AfDB",
+    "name": "African Development Bank",
+    "type": "Institutional Capital / Multilateral DFI",
+    "signal_status": "Monitor",
+    "verification_path": "Verify upon PPF engagement review",
+    "mandate_summary": "Project Preparation Facilities plus infrastructure financing.",
+    "geo_focus": [
+      "Africa"
+    ],
+    "sector_focus": [
+      "Infrastructure"
+    ],
+    "score": 2.0,
+    "confidence": "Medium",
+    "transfer_hypothesis": "Governance structuring and path-to-FID acceleration can align multilateral credibility with execution pathways.",
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "High",
+      "timing_urgency": "Medium"
+    },
+    "initiatives": []
+  },
+  {
+    "buyer_id": "IFC",
+    "name": "International Finance Corporation",
+    "type": "Institutional Capital / Private Sector DFI",
+    "signal_status": "Monitor",
+    "mandate_summary": "Pre-FID structuring plus private-sector infrastructure investment.",
+    "geo_focus": [
+      "Global",
+      "Africa"
+    ],
+    "sector_focus": [
+      "Infrastructure"
+    ],
+    "score": 1.9,
+    "confidence": "Medium",
+    "transfer_hypothesis": "Governance alignment and bankability enhancement can unlock blended capital pathways.",
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "Medium",
+      "timing_urgency": "Medium"
+    },
+    "initiatives": []
   }
 ]
