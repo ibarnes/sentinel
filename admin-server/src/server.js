@@ -25,6 +25,7 @@ const DASHBOARD_STATE_FILE = path.join(ROOT, 'dashboard', 'state', 'state.json')
 const DASHBOARD_CHANGELOG = path.join(ROOT, 'dashboard', 'state', 'changelog.md');
 const DASHBOARD_SNAPSHOTS = path.join(ROOT, 'dashboard', 'snapshots');
 const DASHBOARD_SIGNALS_FILE = path.join(ROOT, 'dashboard', 'data', 'signals.json');
+const DASHBOARD_TEAM_FILE = path.join(ROOT, 'dashboard', 'data', 'team.json');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
 
@@ -445,6 +446,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
       <a class="nav-link ${is('signals')}" href="/dashboard/signals">Signals</a>
+      <a class="nav-link ${is('team')}" href="/dashboard/team">Team</a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
       <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio">Presentation Studio</a>
     </div>
@@ -887,6 +889,18 @@ app.get('/dashboard/signals', async (_req, res) => {
     ${pageHeader('Signal Register', '', 'Pressure surface tracking over time')}
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody>
       ${sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${escapeHtml((s.buyer_ids || []).map((id) => byId[id] || id).join(', '))}</td></tr>`).join('') || '<tr><td colspan="5">No signals yet</td></tr>'}
+    </tbody></table></div>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/team', async (_req, res) => {
+  const team = await readJson(DASHBOARD_TEAM_FILE, []);
+  const sorted = [...team].sort((a,b)=>String(a.name||'').localeCompare(String(b.name||'')));
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Team')}</head><body><div class="app-shell">
+    ${dashboardNav('team')}
+    ${pageHeader('Team Directory', '', 'USG operator contacts and roles')}
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Name</th><th>Title</th><th>Email</th><th>Status</th></tr></thead><tbody>
+      ${sorted.map((m)=>`<tr><td>${escapeHtml(m.name || '')}</td><td>${escapeHtml(m.title || 'TBD')}</td><td>${m.email ? `<a href="mailto:${escapeHtml(m.email)}">${escapeHtml(m.email)}</a>` : '—'}</td><td>${escapeHtml(m.status || 'active')}</td></tr>`).join('') || '<tr><td colspan="4">No team records</td></tr>'}
     </tbody></table></div>
   </div></body></html>`);
 });

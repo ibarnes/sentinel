@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Bryan Klints",
+    "email": "bryan@unifiedstategroup.com",
+    "title": "Title TBD",
+    "status": "active"
+  },
+  {
+    "name": "Cedric Hill",
+    "email": "Cedric@unifiedstategroup.com",
+    "title": "Partner",
+    "status": "active"
+  },
+  {
+    "name": "Tyreek Moore",
+    "email": "tyreek@unifiedstategroup.com",
+    "title": "COO",
+    "status": "active"
+  },
+  {
+    "name": "Richard Hoffman",
+    "email": "Richard@unifiedstategroup.com",
+    "title": "Title TBD",
+    "status": "active"
+  },
+  {
+    "name": "Maryan Ali",
+    "email": "Maryan@unifiedstategroup.com",
+    "title": "Title TBD",
+    "status": "active"
+  },
+  {
+    "name": "Monica Colon",
+    "email": "Monica@unifiedstategroup.com",
+    "title": "Title TBD",
+    "status": "active"
+  }
+]
