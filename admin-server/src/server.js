@@ -905,16 +905,19 @@ app.get('/dashboard/team', async (_req, res) => {
   </div></body></html>`);
 });
 
-app.get('/dashboard/initiatives', async (_req, res) => {
+app.get('/dashboard/initiatives', async (req, res) => {
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const byId = Object.fromEntries(buyers.map(b => [b.buyer_id, b.name]));
+  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const sorted = [...initiatives].sort((a,b)=>String(a.initiative_id).localeCompare(String(b.initiative_id)));
+  const gateOptions = ['Gate 1','Gate 2','Gate 3','Gate 4','Gate 5','Gate 6','Gate 7'];
+  const inferGate = (i) => i.gate_stage || (String(i.status || '').toLowerCase()==='pre-fid' ? 'Gate 1' : 'Gate 1');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
-    ${pageHeader('Initiatives')}
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Name</th><th>Status</th><th>Linked Buyers</th></tr></thead><tbody>
-      ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.status || '')}</td><td>${escapeHtml((i.linked_buyers || []).map(b=>byId[b]||b).join(', '))}</td></tr>`).join('') || '<tr><td colspan="4">No initiatives</td></tr>'}
+    ${pageHeader('Initiatives', '', 'Gate 1–7 is the canonical initiative workflow')}
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Name</th><th>Gate Stage</th><th>Linked Buyers</th><th>Updated</th></tr></thead><tbody>
+      ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="d-flex gap-1 align-items-center"><select name="gate_stage" class="form-select form-select-sm" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form>` : escapeHtml(inferGate(i))}</td><td>${escapeHtml((i.linked_buyers || []).map(b=>byId[b]||b).join(', '))}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td></tr>`).join('') || '<tr><td colspan="5">No initiatives</td></tr>'}
     </tbody></table></div>
   </div></body></html>`);
 });
@@ -2740,6 +2743,24 @@ app.post('/api/initiatives', requireRole('architect','editor'), async (req, res)
 
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'task.create', entity_type: 'initiative', entity_id: initiative_id, meta: { name, linked_buyers } });
   res.json(initiative);
+});
+
+app.post('/api/initiatives/:id/gate', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  const gate = String(req.body.gate_stage || '').trim();
+  const allowed = new Set(['Gate 1','Gate 2','Gate 3','Gate 4','Gate 5','Gate 6','Gate 7']);
+  if (!allowed.has(gate)) return res.status(400).send('invalid gate_stage');
+
+  const initiativesPath = path.join(ROOT, 'dashboard/data/initiatives.json');
+  const initiatives = await readJson(initiativesPath, []);
+  const i = initiatives.find((x) => x.initiative_id === id);
+  if (!i) return res.status(404).send('initiative not found');
+
+  i.gate_stage = gate;
+  i.gate_updated_at = nowIso();
+  await writeJson(initiativesPath, initiatives);
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'initiative.gate.update', entity_type: 'initiative', entity_id: id, meta: { gate_stage: gate } });
+  res.redirect('/dashboard/initiatives');
 });
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {
