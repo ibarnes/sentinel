@@ -5,8 +5,12 @@
     "status": "Monitor",
     "confidence": "Medium",
     "observed_at": "2026-02-26T23:25:00Z",
-    "buyer_ids": ["AFC"],
-    "initiative_ids": ["USG"],
+    "buyer_ids": [
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
     "summary": "AFC project-preparation capital (AIFF/development budget) appears aligned to pre-FID structuring pathways that could support USG mandate-based development fees.",
     "flow": "AFC prep budget -> project/SPV development account -> USG retainer/milestone/success fees",
     "verification_note": "Sizing assumptions are unverified and should remain Monitor until first-party AFC docs or Tier-1 corroboration.",
@@ -14,6 +18,142 @@
       {
         "label": "User-provided AFC transfer hypothesis",
         "url": "internal://chat/2026-02-26"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-02-27-NG-001",
+    "title": "Nigeria Infrastructure Financing Gap Escalation",
+    "status": "Monitor",
+    "confidence": "High",
+    "observed_at": "2026-02-27T00:00:00Z",
+    "buyer_ids": [
+      "NSIA",
+      "FMF-NG",
+      "AfDB"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Nigeria\u2019s infrastructure financing gap remains materially above available annual public allocation capacity. The widening gap increases pressure on sovereign capital allocation authorities to approve structured, governance-aligned platforms that compress risk before FID. This strengthens the probability of mandate-based pre-FID structuring engagements.",
+    "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+    "sources": [
+      {
+        "label": "User-provided strategic signal intake",
+        "url": "internal://chat/2026-02-27"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-02-27-NG-002",
+    "title": "National Grid Instability / Capacity Shortfall",
+    "status": "Monitor",
+    "confidence": "High",
+    "observed_at": "2026-02-27T00:00:00Z",
+    "buyer_ids": [
+      "NSIA",
+      "FMF-NG",
+      "AfDB",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Ongoing grid instability and generation-to-distribution inefficiencies continue to constrain economic output. Persistent energy pressure increases urgency for structured energy infrastructure pathways with clear capital stack definition and decision sequencing before execution.",
+    "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+    "sources": [
+      {
+        "label": "User-provided strategic signal intake",
+        "url": "internal://chat/2026-02-27"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-02-27-GULF-001",
+    "title": "Gulf Sovereign Capital Reallocation Toward Africa Infrastructure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-02-27T00:00:00Z",
+    "buyer_ids": [
+      "PIF",
+      "GIC",
+      "SFD",
+      "ADFD"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Recent directional capital flows indicate sustained Gulf sovereign interest in cross-border infrastructure deployment across Africa. This increases probability of sovereign-aligned platform mandates where governance clarity precedes capital commitment.",
+    "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+    "sources": [
+      {
+        "label": "User-provided strategic signal intake",
+        "url": "internal://chat/2026-02-27"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-02-27-AFDB-001",
+    "title": "AfDB Project Preparation Facility Activation Expansion",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-02-27T00:00:00Z",
+    "buyer_ids": [
+      "AfDB"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "African Development Bank project preparation programs continue to support pre-FID structuring and feasibility pipelines. Expansion or prioritization of preparation facilities increases likelihood of institutional capital engaging at the governance-architecture stage.",
+    "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+    "sources": [
+      {
+        "label": "User-provided strategic signal intake",
+        "url": "internal://chat/2026-02-27"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-02-27-USNG-001",
+    "title": "U.S.\u2013Nigeria Strategic Infrastructure Alignment",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-02-27T00:00:00Z",
+    "buyer_ids": [
+      "NSIA",
+      "FMF-NG"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Ongoing U.S.\u2013Nigeria cooperation in infrastructure and energy sectors improves perceived political risk alignment and strengthens downstream bankability pathways. While catalytic capital participates below governance, this alignment increases sovereign confidence in structured platforms.",
+    "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+    "sources": [
+      {
+        "label": "User-provided strategic signal intake",
+        "url": "internal://chat/2026-02-27"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-02-27-FISCAL-001",
+    "title": "Sovereign Fiscal Constraint Tightening",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-02-27T00:00:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Fiscal constraint pressures increase emphasis on disciplined capital allocation and risk compression before project approval. This heightens demand for governance clarity, defined capital stacks, and structured pre-FID sequencing.",
+    "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+    "sources": [
+      {
+        "label": "User-provided strategic signal intake",
+        "url": "internal://chat/2026-02-27"
       }
     ]
   }
