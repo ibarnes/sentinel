@@ -4,29 +4,71 @@
     "name": "Public Investment Fund",
     "type": "Sovereign",
     "mandate_summary": "Deploy large capital into strategic sectors with regional impact.",
-    "geo_focus": ["MENA", "Africa"],
-    "sector_focus": ["Infrastructure", "Energy", "Digital"],
+    "geo_focus": [
+      "MENA",
+      "Africa"
+    ],
+    "sector_focus": [
+      "Infrastructure",
+      "Energy",
+      "Digital"
+    ],
     "score": 2.2,
     "pressure_factors": {
       "capital_deployment": "High",
       "regional_alignment": "Medium",
       "timing_urgency": "Low"
     },
-    "initiatives": ["INIT-001"]
+    "initiatives": [
+      "INIT-001"
+    ]
   },
   {
     "buyer_id": "GIC",
     "name": "Gulf Investment Corporation",
     "type": "Sovereign",
     "mandate_summary": "Support GCC-linked strategic investments with disciplined execution.",
-    "geo_focus": ["MENA"],
-    "sector_focus": ["Infrastructure", "Utilities"],
+    "geo_focus": [
+      "MENA"
+    ],
+    "sector_focus": [
+      "Infrastructure",
+      "Utilities"
+    ],
     "score": 1.8,
     "pressure_factors": {
       "capital_deployment": "Medium",
       "regional_alignment": "High",
       "timing_urgency": "Medium"
     },
-    "initiatives": ["INIT-001"]
+    "initiatives": [
+      "INIT-001"
+    ]
+  },
+  {
+    "buyer_id": "AFC",
+    "name": "Africa Finance Corporation",
+    "type": "DFI",
+    "mandate_summary": "Mobilize and deploy infrastructure capital across Africa, with strong emphasis on project preparation and bankability.",
+    "geo_focus": [
+      "Africa",
+      "Sub-Saharan Africa"
+    ],
+    "sector_focus": [
+      "Infrastructure",
+      "Transport",
+      "Energy",
+      "Digital"
+    ],
+    "score": 2.1,
+    "signal_status": "Monitor",
+    "confidence": "Medium",
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "High",
+      "timing_urgency": "Medium"
+    },
+    "transfer_hypothesis": "AFC project-preparation budget (AIFF/development) funds early structuring, feasibility, governance alignment, and pre-FID readiness. If mandate approved, capital can flow through project/SPV development accounts into USG milestone-based structuring fees.",
+    "initiatives": []
   }
 ]

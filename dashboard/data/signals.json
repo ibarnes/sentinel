@@ -1,0 +1,20 @@
+[
+  {
+    "signal_id": "SIG-2026-02-26-AFC-001",
+    "title": "AFC Project Preparation Capital Path to USG",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-02-26T23:25:00Z",
+    "buyer_ids": ["AFC"],
+    "initiative_ids": ["USG"],
+    "summary": "AFC project-preparation capital (AIFF/development budget) appears aligned to pre-FID structuring pathways that could support USG mandate-based development fees.",
+    "flow": "AFC prep budget -> project/SPV development account -> USG retainer/milestone/success fees",
+    "verification_note": "Sizing assumptions are unverified and should remain Monitor until first-party AFC docs or Tier-1 corroboration.",
+    "sources": [
+      {
+        "label": "User-provided AFC transfer hypothesis",
+        "url": "internal://chat/2026-02-26"
+      }
+    ]
+  }
+]

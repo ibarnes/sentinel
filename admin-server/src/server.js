@@ -24,6 +24,7 @@ const UOS_INDEX = path.join(UOS_ROOT, 'UOS_INDEX.md');
 const DASHBOARD_STATE_FILE = path.join(ROOT, 'dashboard', 'state', 'state.json');
 const DASHBOARD_CHANGELOG = path.join(ROOT, 'dashboard', 'state', 'changelog.md');
 const DASHBOARD_SNAPSHOTS = path.join(ROOT, 'dashboard', 'snapshots');
+const DASHBOARD_SIGNALS_FILE = path.join(ROOT, 'dashboard', 'data', 'signals.json');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
 
@@ -323,6 +324,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('activity')}" href="/dashboard/activity">Activity</a>
       <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
+      <a class="nav-link ${is('signals')}" href="/dashboard/signals">Signals</a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
       <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio">Presentation Studio</a>
     </div>
@@ -701,8 +703,8 @@ app.get('/dashboard/buyers', async (req, res) => {
         <div class="col-12"><button class="btn btn-primary" type="submit">Save Buyer</button></div>
       </form>
     </div></div></div>` : ''}
-    <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div></form>
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Sectors</th></tr></thead><tbody>${filtered.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('')}</tbody></table></div>
+    <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div><div class="col-auto"><a class="btn btn-outline-secondary" href="/dashboard/signals">Open Signal Register</a></div></form>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Tracking</th><th>Sectors</th></tr></thead><tbody>${filtered.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a><div class="small text-muted mono">${escapeHtml(b.buyer_id || '')}</div></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td><span class="badge text-bg-${String(b.signal_status||'Monitor') === 'Verified' ? 'success' : (String(b.signal_status||'Monitor') === 'Actioned' ? 'primary' : 'secondary')}">${escapeHtml(String(b.signal_status||'Monitor'))}</span></td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('')}</tbody></table></div>
 
     ${canEdit ? `<div class="card mt-3"><div class="card-body">
       <h6>Initiative Idea Builder (UOS-grounded)</h6>
@@ -744,6 +746,25 @@ app.get('/dashboard/buyers', async (req, res) => {
 </body></html>`);
 });
 
+app.get('/dashboard/signals', async (_req, res) => {
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const byId = Object.fromEntries(buyers.map((b) => [b.buyer_id, b.name]));
+  const sorted = [...signals].sort((a, b) => String(b.observed_at || '').localeCompare(String(a.observed_at || '')));
+  const statusBadge = (s) => {
+    const v = String(s || 'Monitor');
+    const cls = v === 'Verified' ? 'success' : (v === 'Actioned' ? 'primary' : 'secondary');
+    return `<span class="badge text-bg-${cls}">${escapeHtml(v)}</span>`;
+  };
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Signals')}</head><body><div class="app-shell">
+    ${dashboardNav('signals')}
+    ${pageHeader('Signal Register', '', 'Pressure surface tracking over time')}
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody>
+      ${sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${escapeHtml((s.buyer_ids || []).map((id) => byId[id] || id).join(', '))}</td></tr>`).join('') || '<tr><td colspan="5">No signals yet</td></tr>'}
+    </tbody></table></div>
+  </div></body></html>`);
+});
+
 app.get('/dashboard/initiatives', async (_req, res) => {
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
@@ -770,7 +791,8 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/buyers">← Buyers</a>
     <h3>${escapeHtml(b.name)}</h3>
     <p>${escapeHtml(b.mandate_summary || '')}</p>
-    <ul><li><strong>Score:</strong> ${b.score ?? ''}</li><li><strong>Geo:</strong> ${escapeHtml((b.geo_focus||[]).join(', '))}</li><li><strong>Sectors:</strong> ${escapeHtml((b.sector_focus||[]).join(', '))}</li></ul>
+    <ul><li><strong>Score:</strong> ${b.score ?? ''}</li><li><strong>Geo:</strong> ${escapeHtml((b.geo_focus||[]).join(', '))}</li><li><strong>Sectors:</strong> ${escapeHtml((b.sector_focus||[]).join(', '))}</li><li><strong>Tracking Status:</strong> ${escapeHtml(String(b.signal_status || 'Monitor'))}</li></ul>
+    ${b.transfer_hypothesis ? `<div class="card mb-3"><div class="card-body"><h6>Transfer Hypothesis</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(String(b.transfer_hypothesis || ''))}</pre></div></div>` : ''}
     <h5>Linked Initiatives</h5>
     <ul>${linked.map(i=>`<li><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?buyer_id=${encodeURIComponent(b.buyer_id)}">${escapeHtml(i.name)}</a></li>`).join('') || '<li>None</li>'}</ul>
   </div></body></html>`);
