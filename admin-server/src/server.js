@@ -809,7 +809,7 @@ app.get('/dashboard/buyers', async (req, res) => {
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
-    <div class="d-flex justify-content-between align-items-center mb-2"><h1 class="page-title">Buyers</h1>${canEdit ? '<button id="addBuyerToggle" class="btn btn-sm btn-primary" type="button">Add Buyer</button>' : ''}</div>
+    <div class="d-flex justify-content-between align-items-center mb-2"><h1 class="page-title">Buyers</h1>${canEdit ? '<button id="addBuyerToggle" class="btn btn-sm btn-primary" type="button">Add Buyer</button>' : '<a class="btn btn-sm btn-outline-secondary" href="/auth/login">Login to edit</a>'}</div>
     ${canEdit ? `<div id="addBuyerBox" class="collapse mb-3"><div class="card"><div class="card-body">
       <h6>Add Buyer</h6>
       <form method="post" action="/api/buyers" class="row g-2">
