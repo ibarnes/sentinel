@@ -104,6 +104,7 @@ function uiHead(title) {
 
   html, body { background: var(--bg); color: var(--text); font-family: Inter, "Segoe UI", Roboto, sans-serif; }
   body { min-height: 100vh; }
+  body.nav-drawer-open { overflow: hidden; }
   a { color: #86b2ff; text-decoration: none; }
   a:hover { color: #a3c6ff; }
   .app-shell { max-width: 1380px; margin: 24px auto; padding: 0 16px; }
@@ -269,27 +270,105 @@ function uiHead(title) {
   }
   .oc-nav-footer { margin-top: auto; display: grid; gap: 8px; }
   .oc-nav-footer .btn { width: 100%; justify-content: center; }
+  .oc-nav-toggle,
+  .oc-nav-backdrop { display: none; }
 
-  @media (max-width: 992px) {
+  @media (max-width: 1023px) {
     .app-shell { padding: 0 12px; }
     .app-shell > .oc-nav ~ * { margin-left: 0; }
+
+    .oc-nav-toggle {
+      display: inline-flex;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1061;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+
+    .oc-nav-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1040;
+      background: rgba(0,0,0,.45);
+      backdrop-filter: blur(1px);
+    }
+
     .oc-nav {
-      position: static;
-      width: auto;
-      max-height: none;
-      overflow: visible;
-      margin-bottom: 12px;
-      padding: 12px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: min(84vw, 320px);
+      max-height: 100vh;
+      height: 100vh;
+      border-radius: 0 14px 14px 0;
+      padding: 14px;
+      z-index: 1050;
+      transform: translateX(-108%);
+      transition: transform var(--tr-fast);
+      overflow: auto;
+      margin: 0;
     }
-    .oc-nav-links {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 6px;
-    }
+
+    .app-shell.nav-open .oc-nav { transform: translateX(0); }
+    .app-shell.nav-open .oc-nav-backdrop { display: block; }
+    .oc-nav-links { grid-template-columns: 1fr; gap: 6px; }
   }
-  @media (max-width: 640px) {
-    .oc-nav-links { grid-template-columns: 1fr; }
+</style>
+<script>
+(function(){
+  function setupNavDrawer(){
+    const mobile = window.matchMedia('(max-width: 1023px)').matches;
+    document.querySelectorAll('.app-shell').forEach((shell)=>{
+      const nav = shell.querySelector(':scope > .oc-nav');
+      if(!nav) return;
+      let toggle = shell.querySelector(':scope > .oc-nav-toggle');
+      let backdrop = shell.querySelector(':scope > .oc-nav-backdrop');
+      if(!toggle){
+        toggle = document.createElement('button');
+        toggle.className = 'oc-nav-toggle';
+        toggle.type = 'button';
+        toggle.setAttribute('aria-label','Open navigation');
+        toggle.textContent = '☰';
+        shell.prepend(toggle);
+      }
+      if(!backdrop){
+        backdrop = document.createElement('button');
+        backdrop.className = 'oc-nav-backdrop';
+        backdrop.type = 'button';
+        backdrop.setAttribute('aria-label','Close navigation');
+        shell.prepend(backdrop);
+      }
+
+      const close = ()=>{ shell.classList.remove('nav-open'); document.body.classList.remove('nav-drawer-open'); };
+      const open = ()=>{ if(!mobile) return; shell.classList.add('nav-open'); document.body.classList.add('nav-drawer-open'); };
+      const toggleDrawer = ()=>{ if(shell.classList.contains('nav-open')) close(); else open(); };
+
+      if(!toggle.dataset.bound){
+        toggle.addEventListener('click', toggleDrawer);
+        backdrop.addEventListener('click', close);
+        nav.querySelectorAll('a').forEach((a)=>a.addEventListener('click', close));
+        toggle.dataset.bound = '1';
+      }
+
+      if(!mobile) close();
+    });
   }
-</style>`;
+
+  window.addEventListener('resize', setupNavDrawer);
+  window.addEventListener('DOMContentLoaded', setupNavDrawer);
+})();
+</script>`;
 }
 
 function adminNav(active = '') {
