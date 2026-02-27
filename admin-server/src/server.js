@@ -783,15 +783,78 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
   const id = String(req.params.id);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const board = await readJson(BOARD_FILE, { version: 1, tasks: [] });
   const b = buyers.find(x=>x.buyer_id===id);
   if(!b) return res.status(404).send('Buyer not found');
+
   const linked = initiatives.filter(i => (b.initiatives||[]).includes(i.initiative_id));
+  const buyerSignals = signals
+    .filter((s) => Array.isArray(s.buyer_ids) && s.buyer_ids.includes(id))
+    .sort((a,b) => String(b.observed_at || '').localeCompare(String(a.observed_at || '')));
+
+  const statusWeight = { High: 3, Medium: 2, Low: 1 };
+  const pressureIndex = buyerSignals.slice(0, 10).reduce((sum, s) => sum + (statusWeight[String(s.confidence || 'Low')] || 1), 0);
+  const trend = pressureIndex >= 6 ? 'Rising' : (pressureIndex >= 3 ? 'Stable' : 'Low');
+  const topSignals = buyerSignals.slice(0,2);
+
+  const buyerTasks = (board.tasks || [])
+    .filter((t) => {
+      const refs = (t.linked_refs || []).map((x) => String(x).toUpperCase());
+      const tags = (t.tags || []).map((x) => String(x).toUpperCase());
+      return refs.includes(id) || tags.includes(`BUYER:${id}`);
+    })
+    .filter((t) => !['Done'].includes(String(t.status || '')))
+    .sort((a,b) => String(a.priority || 'P3').localeCompare(String(b.priority || 'P3')))
+    .slice(0,3);
+
+  const nextAction = buyerTasks[0]?.title || 'No action set yet';
+  const nextOwnerDue = buyerTasks[0] ? `${buyerTasks[0].owner || 'Unassigned'} / ${buyerTasks[0].due_date || 'No due date'}` : 'Unassigned / No due date';
+  const blocker = buyerSignals.length ? 'Verification evidence path still open' : 'No linked signals yet';
+
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyer Detail')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/buyers">← Buyers</a>
     <h3>${escapeHtml(b.name)}</h3>
     <p>${escapeHtml(b.mandate_summary || '')}</p>
     <ul><li><strong>Score:</strong> ${b.score ?? ''}</li><li><strong>Geo:</strong> ${escapeHtml((b.geo_focus||[]).join(', '))}</li><li><strong>Sectors:</strong> ${escapeHtml((b.sector_focus||[]).join(', '))}</li><li><strong>Tracking Status:</strong> ${escapeHtml(String(b.signal_status || 'Monitor'))}</li></ul>
+
+    <div class="card mb-3"><div class="card-body">
+      <h6>Decision Snapshot</h6>
+      <ul class="mb-0">
+        <li><strong>Buyer Stage:</strong> ${escapeHtml(String(b.signal_status || 'Monitor'))}</li>
+        <li><strong>Next Best Action:</strong> ${escapeHtml(nextAction)}</li>
+        <li><strong>Owner / Due:</strong> ${escapeHtml(nextOwnerDue)}</li>
+        <li><strong>Primary Blocker:</strong> ${escapeHtml(blocker)}</li>
+      </ul>
+    </div></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <h6>Pressure Surface (Last 30 Days)</h6>
+      <ul class="mb-0">
+        <li><strong>Pressure Index:</strong> ${pressureIndex}</li>
+        <li><strong>Signal Trend:</strong> ${escapeHtml(trend)}</li>
+        <li><strong>Top Signal #1:</strong> ${topSignals[0] ? `${escapeHtml(topSignals[0].title || '')} (${escapeHtml(topSignals[0].confidence || 'Low')})` : 'None'}</li>
+        <li><strong>Top Signal #2:</strong> ${topSignals[1] ? `${escapeHtml(topSignals[1].title || '')} (${escapeHtml(topSignals[1].confidence || 'Low')})` : 'None'}</li>
+      </ul>
+      <div class="small mt-2"><a href="/dashboard/signals">Open full Signal Register →</a></div>
+    </div></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <h6>Mandate Pathway</h6>
+      <ul class="mb-0">
+        <li><strong>Pathway Stage:</strong> ${buyerSignals.length ? 'Evidence Gathering' : 'Not Started'}</li>
+        <li><strong>Evidence Coverage:</strong> ${buyerSignals.length} / 4 complete</li>
+        <li><strong>Latest Review Packet:</strong> Not linked yet</li>
+        <li><strong>Upgrade Readiness:</strong> ${buyerSignals.length >= 2 ? 'Partial' : 'Not Ready'}</li>
+      </ul>
+    </div></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <h6>Execution Queue (Top 3)</h6>
+      <ul class="mb-0">${buyerTasks.map((t)=>`<li>${escapeHtml(t.title)} <span class="text-muted small">(${escapeHtml(t.priority || 'P2')} · ${escapeHtml(t.status || 'Backlog')})</span></li>`).join('') || '<li>No linked execution tasks</li>'}</ul>
+    </div></div>
+
     ${b.transfer_hypothesis ? `<div class="card mb-3"><div class="card-body"><h6>Transfer Hypothesis</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(String(b.transfer_hypothesis || ''))}</pre></div></div>` : ''}
     <h5>Linked Initiatives</h5>
     <ul>${linked.map(i=>`<li><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?buyer_id=${encodeURIComponent(b.buyer_id)}">${escapeHtml(i.name)}</a></li>`).join('') || '<li>None</li>'}</ul>
