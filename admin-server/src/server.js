@@ -794,9 +794,37 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     .sort((a,b) => String(b.observed_at || '').localeCompare(String(a.observed_at || '')));
 
   const statusWeight = { High: 3, Medium: 2, Low: 1 };
-  const pressureIndex = buyerSignals.slice(0, 10).reduce((sum, s) => sum + (statusWeight[String(s.confidence || 'Low')] || 1), 0);
-  const trend = pressureIndex >= 6 ? 'Rising' : (pressureIndex >= 3 ? 'Stable' : 'Low');
-  const topSignals = buyerSignals.slice(0,2);
+  const nowMs = Date.now();
+  const dayMs = 24 * 60 * 60 * 1000;
+  const recencyFactor = (ageDays) => {
+    if (ageDays <= 7) return 1.0;
+    if (ageDays <= 14) return 0.7;
+    if (ageDays <= 30) return 0.4;
+    return 0;
+  };
+  const weightedScore = (s) => {
+    const observed = Date.parse(String(s.observed_at || ''));
+    if (!Number.isFinite(observed)) return 0;
+    const ageDays = Math.max(0, (nowMs - observed) / dayMs);
+    return (statusWeight[String(s.confidence || 'Low')] || 1) * recencyFactor(ageDays);
+  };
+
+  const currentWindow = buyerSignals.filter((s) => {
+    const observed = Date.parse(String(s.observed_at || ''));
+    return Number.isFinite(observed) && (nowMs - observed) <= (30 * dayMs);
+  });
+
+  const previousWindow = buyerSignals.filter((s) => {
+    const observed = Date.parse(String(s.observed_at || ''));
+    if (!Number.isFinite(observed)) return false;
+    const age = nowMs - observed;
+    return age > (30 * dayMs) && age <= (60 * dayMs);
+  });
+
+  const pressureIndex = Number(currentWindow.reduce((sum, s) => sum + weightedScore(s), 0).toFixed(1));
+  const previousPressure = Number(previousWindow.reduce((sum, s) => sum + weightedScore(s), 0).toFixed(1));
+  const trend = pressureIndex > previousPressure ? 'Rising' : (pressureIndex < previousPressure ? 'Cooling' : 'Stable');
+  const topSignals = currentWindow.slice(0,2);
 
   const buyerTasks = (board.tasks || [])
     .filter((t) => {
