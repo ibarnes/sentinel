@@ -156,5 +156,27 @@
         "url": "internal://chat/2026-02-27"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-02-27-PIF-STRAT-001",
+    "title": "PIF Strategy Leadership Shift Toward Domestic Alignment",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-02-27T21:49:00Z",
+    "buyer_ids": [
+      "PIF"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Reported appointment of acting strategy lead at PIF with explicit alignment toward domestic development priorities suggests stronger Vision-2030 bias in capital deployment posture.",
+    "flow": "Leadership change -> strategy realignment -> domestic deployment bias -> tighter criteria for external allocations",
+    "verification_note": "High relevance signal. Keep Monitor until first-party PIF statement or threshold corroboration is met.",
+    "sources": [
+      {
+        "label": "Bloomberg report (user-provided summary)",
+        "url": "internal://chat/2026-02-27-pif-strategy"
+      }
+    ]
   }
 ]
