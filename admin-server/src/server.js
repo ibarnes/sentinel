@@ -789,6 +789,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
   if(!b) return res.status(404).send('Buyer not found');
 
   const linked = initiatives.filter(i => (b.initiatives||[]).includes(i.initiative_id));
+  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const buyerSignals = signals
     .filter((s) => Array.isArray(s.buyer_ids) && s.buyer_ids.includes(id))
     .sort((a,b) => String(b.observed_at || '').localeCompare(String(a.observed_at || '')));
@@ -826,6 +827,9 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
   const trend = pressureIndex > previousPressure ? 'Rising' : (pressureIndex < previousPressure ? 'Cooling' : 'Stable');
   const topSignals = currentWindow.slice(0,2);
 
+  const highRecent = currentWindow.filter((s) => String(s.confidence || '') === 'High').length;
+  const mediumRecent = currentWindow.filter((s) => String(s.confidence || '') === 'Medium').length;
+
   const buyerTasks = (board.tasks || [])
     .filter((t) => {
       const refs = (t.linked_refs || []).map((x) => String(x).toUpperCase());
@@ -836,9 +840,13 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     .sort((a,b) => String(a.priority || 'P3').localeCompare(String(b.priority || 'P3')))
     .slice(0,3);
 
+  const inProgressCount = buyerTasks.filter((t) => ['Doing','Ready for Review'].includes(String(t.status || ''))).length;
   const nextAction = buyerTasks[0]?.title || 'No action set yet';
   const nextOwnerDue = buyerTasks[0] ? `${buyerTasks[0].owner || 'Unassigned'} / ${buyerTasks[0].due_date || 'No due date'}` : 'Unassigned / No due date';
   const blocker = buyerSignals.length ? 'Verification evidence path still open' : 'No linked signals yet';
+
+  const canUpgradeToVerified = !!String(b.transfer_hypothesis || '').trim() && (highRecent >= 1 || mediumRecent >= 2) && buyerTasks.length >= 1;
+  const canUpgradeToActioned = inProgressCount >= 1 && linked.length >= 1;
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyer Detail')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
@@ -870,12 +878,21 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
 
     <div class="card mb-3"><div class="card-body">
       <h6>Mandate Pathway</h6>
-      <ul class="mb-0">
+      <ul class="mb-2">
         <li><strong>Pathway Stage:</strong> ${buyerSignals.length ? 'Evidence Gathering' : 'Not Started'}</li>
         <li><strong>Evidence Coverage:</strong> ${buyerSignals.length} / 4 complete</li>
         <li><strong>Latest Review Packet:</strong> Not linked yet</li>
-        <li><strong>Upgrade Readiness:</strong> ${buyerSignals.length >= 2 ? 'Partial' : 'Not Ready'}</li>
+        <li><strong>Upgrade Readiness:</strong> ${canUpgradeToVerified || canUpgradeToActioned ? 'Ready' : (buyerSignals.length >= 1 ? 'Partial' : 'Not Ready')}</li>
       </ul>
+      <div class="small text-muted mb-2">Status Guardrails</div>
+      <ul class="small mb-3">
+        <li>Monitor → Verified: transfer hypothesis + (≥1 High OR ≥2 Medium signals in 30d) + ≥1 linked task (${canUpgradeToVerified ? '✅ ready' : '❌ blocked'})</li>
+        <li>Verified → Actioned: ≥1 in-progress linked task + ≥1 linked initiative (${canUpgradeToActioned ? '✅ ready' : '❌ blocked'})</li>
+      </ul>
+      ${canEdit ? `<div class="d-flex gap-2 flex-wrap">
+        ${String(b.signal_status || 'Monitor') === 'Monitor' ? `<form method="post" action="/api/buyers/${encodeURIComponent(b.buyer_id)}/upgrade-status"><input type="hidden" name="to" value="Verified"/><button class="btn btn-sm btn-success" ${canUpgradeToVerified ? '' : 'disabled'}>Upgrade to Verified</button></form>` : ''}
+        ${String(b.signal_status || 'Monitor') === 'Verified' ? `<form method="post" action="/api/buyers/${encodeURIComponent(b.buyer_id)}/upgrade-status"><input type="hidden" name="to" value="Actioned"/><button class="btn btn-sm btn-primary" ${canUpgradeToActioned ? '' : 'disabled'}>Upgrade to Actioned</button></form>` : ''}
+      </div>` : ''}
     </div></div>
 
     <div class="card mb-3"><div class="card-body">
@@ -2311,6 +2328,62 @@ loadBoard();
 
 app.get('/api/me', requireAnyAuth, async (req, res) => {
   res.json({ user: currentUser(req), effectiveRole: effectiveRole(req) });
+});
+
+app.post('/api/buyers/:id/upgrade-status', requireRole('architect','editor'), async (req, res) => {
+  const buyerId = String(req.params.id || '').trim();
+  const target = String(req.body.to || '').trim();
+  if (!buyerId || !['Verified','Actioned'].includes(target)) return res.status(400).send('invalid request');
+
+  const buyersPath = path.join(ROOT, 'dashboard/data/buyers.json');
+  const buyers = await readJson(buyersPath, []);
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const board = await readJson(BOARD_FILE, { version: 1, tasks: [] });
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+
+  const b = buyers.find((x) => x.buyer_id === buyerId);
+  if (!b) return res.status(404).send('buyer not found');
+
+  const from = String(b.signal_status || 'Monitor');
+  const buyerSignals = signals.filter((s) => Array.isArray(s.buyer_ids) && s.buyer_ids.includes(buyerId));
+  const nowMs = Date.now();
+  const dayMs = 24 * 60 * 60 * 1000;
+  const recent = buyerSignals.filter((s) => {
+    const t = Date.parse(String(s.observed_at || ''));
+    return Number.isFinite(t) && (nowMs - t) <= (30 * dayMs);
+  });
+  const highCount = recent.filter((s) => String(s.confidence || '') === 'High').length;
+  const mediumCount = recent.filter((s) => String(s.confidence || '') === 'Medium').length;
+
+  const linkedTasks = (board.tasks || []).filter((t) => {
+    const refs = (t.linked_refs || []).map((x) => String(x).toUpperCase());
+    const tags = (t.tags || []).map((x) => String(x).toUpperCase());
+    return refs.includes(buyerId.toUpperCase()) || tags.includes(`BUYER:${buyerId.toUpperCase()}`);
+  });
+  const inProgress = linkedTasks.filter((t) => ['Doing','Ready for Review'].includes(String(t.status || ''))).length;
+  const linkedInitiatives = initiatives.filter((i) => Array.isArray(i.linked_buyers) && i.linked_buyers.includes(buyerId)).length;
+
+  const reasons = [];
+  if (from === 'Monitor' && target === 'Verified') {
+    if (!String(b.transfer_hypothesis || '').trim()) reasons.push('missing_transfer_hypothesis');
+    if (!(highCount >= 1 || mediumCount >= 2)) reasons.push('insufficient_recent_signal_evidence');
+    if (!linkedTasks.length) reasons.push('no_linked_execution_task');
+  } else if (from === 'Verified' && target === 'Actioned') {
+    if (inProgress < 1) reasons.push('no_in_progress_execution_task');
+    if (linkedInitiatives < 1) reasons.push('no_linked_initiative');
+  } else {
+    reasons.push(`invalid_transition_${from}_to_${target}`);
+  }
+
+  if (reasons.length) {
+    return res.status(400).json({ error: 'upgrade_blocked', from, to: target, reasons });
+  }
+
+  b.signal_status = target;
+  b.status_updated_at = nowIso();
+  await writeJson(buyersPath, buyers);
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'buyer.status.upgrade', entity_type: 'buyer', entity_id: buyerId, meta: { from, to: target } });
+  return res.redirect('/dashboard/buyer/' + encodeURIComponent(buyerId));
 });
 
 app.post('/api/buyers', requireRole('architect','editor'), async (req, res) => {
