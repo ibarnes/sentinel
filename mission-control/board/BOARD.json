@@ -704,6 +704,241 @@
       "updated_at": "2026-02-26T22:55:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0031",
+      "title": "US-A3 Pipeline Engine (slide + deck runs)",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "story",
+        "epic:EP-A",
+        "user-story"
+      ],
+      "linked_refs": [
+        "pipeline/run",
+        "pipeline/status"
+      ],
+      "description": "Acceptance: run by scope, stage status persisted, QA updated after run. Dependencies: US-A1, US-A2.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T23:20:00Z",
+      "updated_at": "2026-02-26T23:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0032",
+      "title": "TS-A3.1 Implement pipeline run endpoint with persisted runId",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A3"
+      ],
+      "linked_refs": [
+        "POST /api/presentation-studio/decks/{deckId}/pipeline/run"
+      ],
+      "description": "Implement POST /api/presentation-studio/decks/{deckId}/pipeline/run with stages plan,draft,critique,rewrite,render,qa; scope deck|slide.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T23:20:00Z",
+      "updated_at": "2026-02-26T23:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0033",
+      "title": "US-A4 SavePoint versioning and restore",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "story",
+        "epic:EP-A",
+        "user-story"
+      ],
+      "linked_refs": [
+        "savepoints"
+      ],
+      "description": "Acceptance: create/list/restore savepoints; restore updates preview atomically.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T23:20:00Z",
+      "updated_at": "2026-02-26T23:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0034",
+      "title": "TS-A4.1 Implement savepoint create/list/restore APIs",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A4"
+      ],
+      "linked_refs": [
+        "POST /savepoints",
+        "GET /savepoints",
+        "POST /savepoints/{id}/restore"
+      ],
+      "description": "POST/GET savepoints and POST restore; immutable snapshot refs for DeckSpec+SlideSpec+render.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T23:20:00Z",
+      "updated_at": "2026-02-26T23:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0035",
+      "title": "US-B1 AI Slides mode panel and instruction loop",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "story",
+        "epic:EP-B",
+        "user-story"
+      ],
+      "linked_refs": [
+        "ModePanel",
+        "AICommandInput"
+      ],
+      "description": "Acceptance: AI Slides tab visible, instruction input triggers pipeline, styleMode persists.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T23:20:00Z",
+      "updated_at": "2026-02-26T23:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0036",
+      "title": "TS-B1.1 Add AI command input + style toggle wiring",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B1"
+      ],
+      "linked_refs": [
+        "PATCH /api/presentation-studio/decks/{deckId}"
+      ],
+      "description": "Route instruction to pipeline run; persist DeckSpec.styleMode professional|creative.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T23:20:00Z",
+      "updated_at": "2026-02-26T23:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0037",
+      "title": "US-B2 Team Chat per deck",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "story",
+        "epic:EP-B",
+        "user-story"
+      ],
+      "linked_refs": [
+        "team-chat"
+      ],
+      "description": "Acceptance: chat messages persist per deck and support optional slide references.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T23:20:00Z",
+      "updated_at": "2026-02-26T23:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0038",
+      "title": "TS-B2.1 Implement TeamChatThread model + message APIs",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B2"
+      ],
+      "linked_refs": [
+        "GET /chat",
+        "POST /chat/messages"
+      ],
+      "description": "GET chat thread and POST chat messages scoped to deckId; include optional slideId.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T23:20:00Z",
+      "updated_at": "2026-02-26T23:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0039",
+      "title": "TS-API.1 Implement templates endpoint and validation",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "api"
+      ],
+      "linked_refs": [
+        "GET /api/presentation-studio/templates"
+      ],
+      "description": "GET /api/presentation-studio/templates returns >=8 templates with slotsSchema and constraintsDefaults; reject invalid templateId assignments.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T23:20:00Z",
+      "updated_at": "2026-02-26T23:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0040",
+      "title": "TS-QA.1 Enforce QA blocking flags on export/publish",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "qa",
+        "guardrails"
+      ],
+      "linked_refs": [
+        "qa_rules"
+      ],
+      "description": "Block export when OVERFLOW or INCONSISTENT_HEADER flags exist; add auto-fix trigger.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-02-26T23:20:00Z",
+      "updated_at": "2026-02-26T23:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
