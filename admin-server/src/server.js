@@ -858,18 +858,23 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     <h5>Linked Initiatives</h5>
     <ul>${linked.map(i=>`<li><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?buyer_id=${encodeURIComponent(b.buyer_id)}">${escapeHtml(i.name)}</a></li>`).join('') || '<li>None</li>'}</ul>
 
-    <div class="card mb-3"><div class="card-body">
-      <h6>Decision Snapshot</h6>
+    ${b.transfer_hypothesis ? `<div class="card mb-3"><div class="card-body"><h6>Transfer Hypothesis</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(String(b.transfer_hypothesis || ''))}</pre></div></div>` : ''}
+
+    <details class="card mb-3">
+      <summary class="card-header"><strong>Decision Snapshot</strong></summary>
+      <div class="card-body">
       <ul class="mb-0">
         <li><strong>Buyer Stage:</strong> ${escapeHtml(String(b.signal_status || 'Monitor'))}</li>
         <li><strong>Next Best Action:</strong> ${escapeHtml(nextAction)}</li>
         <li><strong>Owner / Due:</strong> ${escapeHtml(nextOwnerDue)}</li>
         <li><strong>Primary Blocker:</strong> ${escapeHtml(blocker)}</li>
       </ul>
-    </div></div>
+      </div>
+    </details>
 
-    <div class="card mb-3"><div class="card-body">
-      <h6>Pressure Surface (Last 30 Days)</h6>
+    <details class="card mb-3">
+      <summary class="card-header"><strong>Pressure Surface (Last 30 Days)</strong></summary>
+      <div class="card-body">
       <ul class="mb-0">
         <li><strong>Pressure Index:</strong> ${pressureIndex}</li>
         <li><strong>Signal Trend:</strong> ${escapeHtml(trend)}</li>
@@ -877,10 +882,12 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
         <li><strong>Top Signal #2:</strong> ${topSignals[1] ? `${escapeHtml(topSignals[1].title || '')} (${escapeHtml(topSignals[1].confidence || 'Low')})` : 'None'}</li>
       </ul>
       <div class="small mt-2"><a href="/dashboard/signals">Open full Signal Register →</a></div>
-    </div></div>
+      </div>
+    </details>
 
-    <div class="card mb-3"><div class="card-body">
-      <h6>Mandate Pathway</h6>
+    <details class="card mb-3">
+      <summary class="card-header"><strong>Mandate Pathway</strong></summary>
+      <div class="card-body">
       <ul class="mb-2">
         <li><strong>Pathway Stage:</strong> ${buyerSignals.length ? 'Evidence Gathering' : 'Not Started'}</li>
         <li><strong>Evidence Coverage:</strong> ${buyerSignals.length} / 4 complete</li>
@@ -896,14 +903,15 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
         ${String(b.signal_status || 'Monitor') === 'Monitor' ? `<form method="post" action="/api/buyers/${encodeURIComponent(b.buyer_id)}/upgrade-status"><input type="hidden" name="to" value="Verified"/><button class="btn btn-sm btn-success" ${canUpgradeToVerified ? '' : 'disabled'}>Upgrade to Verified</button></form>` : ''}
         ${String(b.signal_status || 'Monitor') === 'Verified' ? `<form method="post" action="/api/buyers/${encodeURIComponent(b.buyer_id)}/upgrade-status"><input type="hidden" name="to" value="Actioned"/><button class="btn btn-sm btn-primary" ${canUpgradeToActioned ? '' : 'disabled'}>Upgrade to Actioned</button></form>` : ''}
       </div>` : ''}
-    </div></div>
+      </div>
+    </details>
 
-    <div class="card mb-3"><div class="card-body">
-      <h6>Execution Queue (Top 3)</h6>
+    <details class="card mb-3">
+      <summary class="card-header"><strong>Execution Queue (Top 3)</strong></summary>
+      <div class="card-body">
       <ul class="mb-0">${buyerTasks.map((t)=>`<li>${escapeHtml(t.title)} <span class="text-muted small">(${escapeHtml(t.priority || 'P2')} · ${escapeHtml(t.status || 'Backlog')})</span></li>`).join('') || '<li>No linked execution tasks</li>'}</ul>
-    </div></div>
-
-    ${b.transfer_hypothesis ? `<div class="card mb-3"><div class="card-body"><h6>Transfer Hypothesis</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(String(b.transfer_hypothesis || ''))}</pre></div></div>` : ''}
+      </div>
+    </details>
   </div></body></html>`);
 });
 
