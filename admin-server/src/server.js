@@ -855,6 +855,9 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     <p>${escapeHtml(b.mandate_summary || '')}</p>
     <ul><li><strong>Score:</strong> ${b.score ?? ''}</li><li><strong>Geo:</strong> ${escapeHtml((b.geo_focus||[]).join(', '))}</li><li><strong>Sectors:</strong> ${escapeHtml((b.sector_focus||[]).join(', '))}</li><li><strong>Tracking Status:</strong> ${escapeHtml(String(b.signal_status || 'Monitor'))}</li></ul>
 
+    <h5>Linked Initiatives</h5>
+    <ul>${linked.map(i=>`<li><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?buyer_id=${encodeURIComponent(b.buyer_id)}">${escapeHtml(i.name)}</a></li>`).join('') || '<li>None</li>'}</ul>
+
     <div class="card mb-3"><div class="card-body">
       <h6>Decision Snapshot</h6>
       <ul class="mb-0">
@@ -901,8 +904,6 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     </div></div>
 
     ${b.transfer_hypothesis ? `<div class="card mb-3"><div class="card-body"><h6>Transfer Hypothesis</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(String(b.transfer_hypothesis || ''))}</pre></div></div>` : ''}
-    <h5>Linked Initiatives</h5>
-    <ul>${linked.map(i=>`<li><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?buyer_id=${encodeURIComponent(b.buyer_id)}">${escapeHtml(i.name)}</a></li>`).join('') || '<li>None</li>'}</ul>
   </div></body></html>`);
 });
 
