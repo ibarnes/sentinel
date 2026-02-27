@@ -271,29 +271,51 @@ function uiHead(title) {
   .oc-nav-footer { margin-top: auto; display: grid; gap: 8px; }
   .oc-nav-footer .btn { width: 100%; justify-content: center; }
   .oc-nav-toggle,
-  .oc-nav-backdrop { display: none; }
+  .oc-nav-backdrop,
+  .oc-mobile-topbar { display: none; }
 
   @media (max-width: 1023px) {
-    .app-shell { padding: 0 12px; }
+    .app-shell { padding: 0 12px; --mobile-topbar-h: 56px; }
     .app-shell > .oc-nav ~ * { margin-left: 0; }
+
+    .oc-mobile-topbar {
+      display: flex;
+      position: sticky;
+      top: 0;
+      z-index: 1035;
+      height: var(--mobile-topbar-h);
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      background: color-mix(in srgb, var(--surface-elevated) 94%, black 6%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .oc-mobile-title {
+      font-size: .95rem;
+      font-weight: 620;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     .oc-nav-toggle {
       display: inline-flex;
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      z-index: 1061;
-      width: 42px;
-      height: 42px;
+      width: 38px;
+      height: 38px;
       align-items: center;
       justify-content: center;
       border-radius: 10px;
       border: 1px solid var(--border);
       background: var(--surface-elevated);
       color: var(--text);
-      box-shadow: var(--shadow-sm);
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       line-height: 1;
+      flex: 0 0 auto;
     }
 
     .oc-nav-backdrop {
@@ -332,16 +354,35 @@ function uiHead(title) {
     document.querySelectorAll('.app-shell').forEach((shell)=>{
       const nav = shell.querySelector(':scope > .oc-nav');
       if(!nav) return;
+
+      let topbar = shell.querySelector(':scope > .oc-mobile-topbar');
       let toggle = shell.querySelector(':scope > .oc-nav-toggle');
       let backdrop = shell.querySelector(':scope > .oc-nav-backdrop');
+
+      if(!topbar){
+        topbar = document.createElement('div');
+        topbar.className = 'oc-mobile-topbar';
+        shell.prepend(topbar);
+      }
+
       if(!toggle){
         toggle = document.createElement('button');
         toggle.className = 'oc-nav-toggle';
         toggle.type = 'button';
         toggle.setAttribute('aria-label','Open navigation');
         toggle.textContent = '☰';
-        shell.prepend(toggle);
       }
+
+      if(!topbar.querySelector('.oc-nav-toggle')) topbar.prepend(toggle);
+
+      let title = topbar.querySelector('.oc-mobile-title');
+      if(!title){
+        title = document.createElement('div');
+        title.className = 'oc-mobile-title';
+        title.textContent = (nav.querySelector('.oc-nav-title')?.textContent || 'Navigation').trim();
+        topbar.appendChild(title);
+      }
+
       if(!backdrop){
         backdrop = document.createElement('button');
         backdrop.className = 'oc-nav-backdrop';
