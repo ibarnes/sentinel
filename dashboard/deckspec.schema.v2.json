@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DeckSpecV2Store",
+  "type": "object",
+  "required": [
+    "version",
+    "decks"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer"
+    },
+    "decks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "deckId",
+          "initiativeId",
+          "buyerId",
+          "deckType",
+          "globalTemplateTheme",
+          "styleMode",
+          "copyProvider",
+          "imageProvider",
+          "slideOrder",
+          "createdAt",
+          "updatedAt",
+          "currentSavePointId"
+        ],
+        "properties": {
+          "deckId": {
+            "type": "string"
+          },
+          "initiativeId": {
+            "type": "string"
+          },
+          "buyerId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "deckType": {
+            "type": "string"
+          },
+          "globalTemplateTheme": {
+            "type": "string"
+          },
+          "styleMode": {
+            "type": "string",
+            "enum": [
+              "professional",
+              "creative"
+            ]
+          },
+          "copyProvider": {
+            "type": "string"
+          },
+          "imageProvider": {
+            "type": "string"
+          },
+          "slideOrder": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "currentSavePointId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

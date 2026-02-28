@@ -304,7 +304,7 @@
     {
       "id": "TASK-0014",
       "title": "TS-A1.1 Create DeckSpec v2 schema + defaults",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -318,10 +318,17 @@
         "deckspec-v2"
       ],
       "description": "Define deckId, initiativeId, buyerId, deckType, theme, providers, slideOrder, savepoint pointer.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "note-0014-1",
+          "author": "sentinel",
+          "text": "Implemented DeckSpec v2 schema + default store scaffolding in admin server. Added schema/data files bootstrap at startup.",
+          "created_at": "2026-02-28T23:56:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-02-27T23:24:00Z",
+      "updated_at": "2026-02-28T23:56:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },

@@ -26,6 +26,8 @@ const DASHBOARD_CHANGELOG = path.join(ROOT, 'dashboard', 'state', 'changelog.md'
 const DASHBOARD_SNAPSHOTS = path.join(ROOT, 'dashboard', 'snapshots');
 const DASHBOARD_SIGNALS_FILE = path.join(ROOT, 'dashboard', 'data', 'signals.json');
 const DASHBOARD_TEAM_FILE = path.join(ROOT, 'dashboard', 'data', 'team.json');
+const DASHBOARD_DECKSPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'deckspecs.v2.json');
+const DASHBOARD_DECKSPEC_SCHEMA_FILE = path.join(ROOT, 'dashboard', 'deckspec.schema.v2.json');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
 
@@ -1887,6 +1889,65 @@ function defaultUsers() {
   return { users: [], invites: [] };
 }
 
+function deckSpecSchemaV2() {
+  return {
+    $schema: 'http://json-schema.org/draft-07/schema#',
+    title: 'DeckSpecV2Store',
+    type: 'object',
+    required: ['version', 'decks'],
+    properties: {
+      version: { type: 'integer' },
+      decks: {
+        type: 'array',
+        items: {
+          type: 'object',
+          required: ['deckId', 'initiativeId', 'buyerId', 'deckType', 'globalTemplateTheme', 'styleMode', 'copyProvider', 'imageProvider', 'slideOrder', 'createdAt', 'updatedAt', 'currentSavePointId'],
+          properties: {
+            deckId: { type: 'string' },
+            initiativeId: { type: 'string' },
+            buyerId: { type: ['string', 'null'] },
+            deckType: { type: 'string' },
+            globalTemplateTheme: { type: 'string' },
+            styleMode: { type: 'string', enum: ['professional', 'creative'] },
+            copyProvider: { type: 'string' },
+            imageProvider: { type: 'string' },
+            slideOrder: { type: 'array', items: { type: 'string' } },
+            createdAt: { type: 'string' },
+            updatedAt: { type: 'string' },
+            currentSavePointId: { type: ['string', 'null'] }
+          }
+        }
+      }
+    }
+  };
+}
+
+function defaultDeckSpecStore() {
+  return { version: 2, decks: [] };
+}
+
+function defaultDeckSpecV2({ initiativeId = '', buyerId = null, deckType = 'utc-internal', globalTemplateTheme = 'sovereign-memo', styleMode = 'professional', copyProvider = 'local', imageProvider = 'placeholder' } = {}) {
+  const safeInitiative = String(initiativeId || 'INIT-000');
+  const safeBuyer = buyerId ? String(buyerId) : null;
+  const safeDeckType = String(deckType || 'utc-internal');
+  const deckId = `${safeInitiative}::${safeDeckType}::${safeBuyer || 'none'}`;
+  const ts = nowIso();
+  return {
+    deckId,
+    initiativeId: safeInitiative,
+    buyerId: safeBuyer,
+    deckType: safeDeckType,
+    globalTemplateTheme: String(globalTemplateTheme || 'sovereign-memo'),
+    styleMode: styleMode === 'creative' ? 'creative' : 'professional',
+    copyProvider: String(copyProvider || 'local'),
+    imageProvider: String(imageProvider || 'placeholder'),
+    slideOrder: [],
+    createdAt: ts,
+    updatedAt: ts,
+    currentSavePointId: null,
+  };
+}
+
 async function ensureTeamAndBoardFiles() {
   if (!fssync.existsSync(TEAM_USERS_FILE)) {
     await fs.writeFile(TEAM_USERS_FILE, JSON.stringify(defaultUsers(), null, 2));
@@ -1896,6 +1957,12 @@ async function ensureTeamAndBoardFiles() {
   }
   if (!fssync.existsSync(BOARD_FILE)) {
     await fs.writeFile(BOARD_FILE, JSON.stringify(defaultBoard(), null, 2));
+  }
+  if (!fssync.existsSync(DASHBOARD_DECKSPEC_SCHEMA_FILE)) {
+    await fs.writeFile(DASHBOARD_DECKSPEC_SCHEMA_FILE, JSON.stringify(deckSpecSchemaV2(), null, 2));
+  }
+  if (!fssync.existsSync(DASHBOARD_DECKSPECS_FILE)) {
+    await fs.writeFile(DASHBOARD_DECKSPECS_FILE, JSON.stringify(defaultDeckSpecStore(), null, 2));
   }
   await loadBoardValidator();
 }
