@@ -106,3 +106,6 @@
   - Remaining weights pending explicit confirmation
 - Breakout trigger:
   - If Structural Fit = 5 AND Pre-FID ≥ 4 AND Mandate90d ≥ 3 → Auto Tier 1 candidate
+
+# Project Status Snapshot (2026-02-28)
+- Workflow C (Artifact Factory) has been queued for today and remains non-immediate by rule (queued tasks only; run at scheduled window after intake).
