@@ -1,0 +1,10 @@
+{
+  "workflow": "C",
+  "name": "Artifact Factory",
+  "status": "queued",
+  "queued_at_utc": "2026-02-28T04:00:00Z",
+  "execute_after_local": "2026-02-28T23:00:00-05:00",
+  "execute_immediately": false,
+  "tasks": [],
+  "notes": "System reminder queue event. Awaiting Isaac task intake; do not execute immediately."
+}

@@ -1,0 +1,1 @@
+{"ts":"2026-02-28T04:00:00Z","actor":"sentinel","role":"operator","event_type":"workflow.queue","entity_type":"workflow","entity_id":"workflow-c","meta":{"status":"queued","execute_immediately":false}}
