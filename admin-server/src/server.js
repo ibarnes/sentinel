@@ -1164,6 +1164,11 @@ app.get('/dashboard/presentation-studio', requireAnyAuth, async (req, res) => {
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const initiative_id = String(req.query.initiative_id || initiatives[0]?.initiative_id || '');
   const buyer_id = String(req.query.buyer_id || '');
+  const deck_type = String(req.query.deck_type || 'utc-internal');
+
+  if (initiative_id) {
+    await getOrCreateDeckSpecBySelectors({ initiativeId: initiative_id, buyerId: buyer_id || null, deckType: deck_type }, { createIfMissing: true });
+  }
 
   const optsInitiatives = initiatives.map(i => `<option value="${i.initiative_id}" ${i.initiative_id===initiative_id?'selected':''}>${escapeHtml(i.initiative_id)} — ${escapeHtml(i.name)}</option>`).join('');
   const optsBuyers = ['<option value="">(none)</option>', ...buyers.map(b => `<option value="${b.buyer_id}" ${b.buyer_id===buyer_id?'selected':''}>${escapeHtml(b.buyer_id)} — ${escapeHtml(b.name)}</option>` )].join('');
@@ -1983,6 +1988,46 @@ async function readJson(filePath, fallback) {
 async function writeJson(filePath, value) {
   await fs.mkdir(path.dirname(filePath), { recursive: true });
   await fs.writeFile(filePath, JSON.stringify(value, null, 2), 'utf8');
+}
+
+async function readDeckSpecStore() {
+  const store = await readJson(DASHBOARD_DECKSPECS_FILE, defaultDeckSpecStore());
+  if (!store || typeof store !== 'object') return defaultDeckSpecStore();
+  if (!Array.isArray(store.decks)) store.decks = [];
+  if (!store.version) store.version = 2;
+  return store;
+}
+
+async function writeDeckSpecStore(store) {
+  await writeJson(DASHBOARD_DECKSPECS_FILE, store);
+}
+
+function resolveDeckSelectors(input = {}) {
+  return {
+    initiativeId: String(input.initiativeId || input.initiative_id || '').trim(),
+    deckType: String(input.deckType || input.deck_type || 'utc-internal').trim() || 'utc-internal',
+    buyerId: input.buyerId || input.buyer_id ? String(input.buyerId || input.buyer_id).trim() : null,
+  };
+}
+
+async function getOrCreateDeckSpecBySelectors(input = {}, { createIfMissing = true } = {}) {
+  const sel = resolveDeckSelectors(input);
+  if (!sel.initiativeId) return { error: 'initiativeId required', status: 400 };
+
+  const store = await readDeckSpecStore();
+  let deck = store.decks.find((d) => String(d.initiativeId) === sel.initiativeId && String(d.deckType) === sel.deckType && String(d.buyerId || '') === String(sel.buyerId || ''));
+
+  if (!deck && createIfMissing) {
+    deck = defaultDeckSpecV2({
+      initiativeId: sel.initiativeId,
+      buyerId: sel.buyerId,
+      deckType: sel.deckType,
+    });
+    store.decks.push(deck);
+    await writeDeckSpecStore(store);
+  }
+
+  return { deck: deck || null, selectors: sel, store };
 }
 
 function sanitizeTaskPatch(input = {}) {
@@ -2828,6 +2873,14 @@ app.post('/api/initiatives/:id/gate', requireRole('architect','editor'), async (
   await writeJson(initiativesPath, initiatives);
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'initiative.gate.update', entity_type: 'initiative', entity_id: id, meta: { gate_stage: gate } });
   res.redirect('/dashboard/initiatives');
+});
+
+app.get('/api/presentation-studio/decks/resolve', requireRole('architect','editor','observer'), async (req, res) => {
+  const createIfMissing = String(req.query.createIfMissing || 'true') !== 'false';
+  const resolved = await getOrCreateDeckSpecBySelectors(req.query, { createIfMissing });
+  if (resolved.error) return res.status(resolved.status || 400).json({ error: resolved.error });
+  if (!resolved.deck) return res.status(404).json({ error: 'deck not found', selectors: resolved.selectors });
+  return res.json({ ok: true, selectors: resolved.selectors, deck: resolved.deck });
 });
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {

@@ -335,7 +335,7 @@
     {
       "id": "TASK-0015",
       "title": "TS-A1.2 Implement deck resolver by selectors",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -349,10 +349,17 @@
         "compatibility"
       ],
       "description": "Load/create DeckSpec using initiativeId+deckType+buyerId; preserve v1 fallback behavior.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "note-0015-1",
+          "author": "sentinel",
+          "text": "Implemented selector resolver helpers and deck auto-create path; added /api/presentation-studio/decks/resolve endpoint.",
+          "created_at": "2026-02-29T00:00:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-02-27T23:24:00Z",
+      "updated_at": "2026-02-29T00:00:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
