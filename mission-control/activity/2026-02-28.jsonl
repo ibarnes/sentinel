@@ -1,3 +1,4 @@
 {"ts":"2026-02-28T04:00:00Z","actor":"sentinel","role":"operator","event_type":"workflow.queue","entity_type":"workflow","entity_id":"workflow-c","meta":{"status":"queued","execute_immediately":false}}
 {"ts": "2026-02-28T11:30:00Z", "actor": "sentinel", "role": "operator", "event_type": "workflow.run", "entity_type": "workflow", "entity_id": "workflow-a", "meta": {"version": "v3_1", "status": "completed"}}
 {"ts":"2026-02-28T12:00:00Z","actor":"sentinel","role":"operator","event_type":"workflow.run","entity_type":"workflow","entity_id":"workflow-b","meta":{"status":"completed","output":"RP-0013","accounts_ranked":5,"expected_accounts":10,"reason":"insufficient-approved-crm-inputs"}}
+{"ts":"2026-02-28T12:15:00Z","actor":"sentinel","role":"operator","event_type":"brief.generate","entity_type":"brief","entity_id":"2026-02-28-morning-brief","meta":{"path":"mission-control/briefs/2026-02-28-morning-brief.md"}}
