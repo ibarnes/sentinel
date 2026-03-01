@@ -19,7 +19,8 @@
         "label": "User-provided AFC transfer hypothesis",
         "url": "internal://chat/2026-02-26"
       }
-    ]
+    ],
+    "signal_class": "Capital Reality"
   },
   {
     "signal_id": "SIG-2026-02-27-NG-001",
@@ -42,7 +43,8 @@
         "label": "User-provided strategic signal intake",
         "url": "internal://chat/2026-02-27"
       }
-    ]
+    ],
+    "signal_class": "Structural Ambiguity"
   },
   {
     "signal_id": "SIG-2026-02-27-NG-002",
@@ -66,7 +68,8 @@
         "label": "User-provided strategic signal intake",
         "url": "internal://chat/2026-02-27"
       }
-    ]
+    ],
+    "signal_class": "Platform Pressure"
   },
   {
     "signal_id": "SIG-2026-02-27-GULF-001",
@@ -90,7 +93,8 @@
         "label": "User-provided strategic signal intake",
         "url": "internal://chat/2026-02-27"
       }
-    ]
+    ],
+    "signal_class": "Capital Reality"
   },
   {
     "signal_id": "SIG-2026-02-27-AFDB-001",
@@ -111,7 +115,8 @@
         "label": "User-provided strategic signal intake",
         "url": "internal://chat/2026-02-27"
       }
-    ]
+    ],
+    "signal_class": "FID Definability"
   },
   {
     "signal_id": "SIG-2026-02-27-USNG-001",
@@ -133,7 +138,8 @@
         "label": "User-provided strategic signal intake",
         "url": "internal://chat/2026-02-27"
       }
-    ]
+    ],
+    "signal_class": "Ecosystem / Theater"
   },
   {
     "signal_id": "SIG-2026-02-27-FISCAL-001",
@@ -155,7 +161,8 @@
         "label": "User-provided strategic signal intake",
         "url": "internal://chat/2026-02-27"
       }
-    ]
+    ],
+    "signal_class": "Structural Ambiguity"
   },
   {
     "signal_id": "SIG-2026-02-27-PIF-STRAT-001",
@@ -177,7 +184,8 @@
         "label": "Bloomberg report (user-provided summary)",
         "url": "internal://chat/2026-02-27-pif-strategy"
       }
-    ]
+    ],
+    "signal_class": "Ecosystem / Theater"
   },
   {
     "signal_id": "SIG-2026-03-01-PIF-ALUMINUM-001",
@@ -199,7 +207,8 @@
         "label": "PIF official press release",
         "url": "https://www.pif.gov.sa/en/news-and-insights/press-releases/2026/pif-and-red-sea-aluminium-holdings-sign-initial-terms-to-develop-an-advanced-integrated-aluminum-complex-in-saudi-arabia/"
       }
-    ]
+    ],
+    "signal_class": "Capital Reality"
   },
   {
     "signal_id": "SIG-2026-03-01-PIF-VENDOR-GATE-001",
@@ -222,6 +231,7 @@
         "label": "PIF Vendor Gate",
         "url": "https://www.pif.gov.sa/en/vendor-gate/"
       }
-    ]
+    ],
+    "signal_class": "Sponsor Altitude"
   }
 ]
