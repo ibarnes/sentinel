@@ -1497,6 +1497,14 @@ app.patch('/api/presentations/slide/update', requireRole('architect','editor'), 
   if (!s.images[0]) s.images[0] = { slot_id: 'img-001', prompt: '', provider: 'placeholder', output_path: `${deck}/assets/${slide_id}-img-001.png` };
   if (typeof req.body.image_prompt === 'string') s.images[0].prompt = req.body.image_prompt;
 
+  // TASK-0051: legacy fields -> SlideSpec v2 slots mapping (non-breaking)
+  s.slots = legacyFieldsToSlotsContract({
+    title: s.copy.title || s.title || '',
+    bullets: s.copy.bullets || s.bullets || [],
+    imagePrompt: s.images?.[0]?.prompt || ''
+  });
+  s.slots_schema_version = 2;
+
   await writeJson(deckPath, spec);
 
   const cmd = ['node', path.join(ROOT,'scripts/deck_pipeline_v2.js'), '--deck_path', deck, '--template_id', spec.deckPlan?.template_id || 'sovereign-memo', '--rerender_slide', slide_id];
@@ -3146,6 +3154,7 @@ app.post('/api/presentation-studio/slides/normalize-layout', requireRole('archit
   if (!spec || !Array.isArray(spec.slides)) return res.status(404).json({ error: 'deck not found' });
 
   let normalized = 0;
+  let slotsMapped = 0;
   for (const s of spec.slides) {
     const resolved = resolveTemplateIdFromLegacyLayout(s.layout);
     const before = s.template_id || null;
@@ -3159,11 +3168,49 @@ app.post('/api/presentation-studio/slides/normalize-layout', requireRole('archit
         normalizedAt: nowIso(),
       };
     }
+
+    // TASK-0052: persist slots normalization
+    const nextSlots = legacyFieldsToSlotsContract({
+      title: s.copy?.title || s.title || '',
+      bullets: s.copy?.bullets || s.bullets || [],
+      imagePrompt: s.images?.[0]?.prompt || ''
+    });
+    if (JSON.stringify(s.slots || {}) !== JSON.stringify(nextSlots)) slotsMapped += 1;
+    s.slots = nextSlots;
+    s.slots_schema_version = 2;
+
     if (before !== s.template_id) normalized += 1;
   }
 
   await writeJson(deckPath, spec);
-  return res.json({ ok: true, deck, normalized, slideCount: spec.slides.length });
+  return res.json({ ok: true, deck, normalized, slotsMapped, slideCount: spec.slides.length });
+});
+
+app.get('/api/presentation-studio/slides/slots-preview', requireRole('architect','editor','observer'), async (req, res) => {
+  const deck = String(req.query.deck || '').trim();
+  const slide_id = String(req.query.slide_id || '').trim();
+  if (!deck || !slide_id) return res.status(400).json({ error: 'deck and slide_id required' });
+  const deckPath = path.join(ROOT, deck, 'deck.json');
+  const spec = await readJson(deckPath, null);
+  if (!spec || !Array.isArray(spec.slides)) return res.status(404).json({ error: 'deck not found' });
+  const s = spec.slides.find((x) => String(x.slide_id) === slide_id);
+  if (!s) return res.status(404).json({ error: 'slide not found' });
+
+  const computed = legacyFieldsToSlotsContract({
+    title: s.copy?.title || s.title || '',
+    bullets: s.copy?.bullets || s.bullets || [],
+    imagePrompt: s.images?.[0]?.prompt || ''
+  });
+
+  return res.json({
+    ok: true,
+    deck,
+    slide_id,
+    persistedSlots: s.slots || null,
+    computedSlots: computed,
+    slotsSchemaVersion: s.slots_schema_version || null,
+    template_id: s.template_id || null
+  });
 });
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {

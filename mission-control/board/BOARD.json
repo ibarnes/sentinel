@@ -1245,7 +1245,7 @@
     {
       "id": "TASK-0051",
       "title": "TS-A2.1b.2 Implement legacy title/bullets/imagePrompt -> slots mapper",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1260,17 +1260,24 @@
         "TASK-0046"
       ],
       "description": "Map legacy title, bullets, and image prompt into slots while preserving existing fields for backward compatibility.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-0051-1",
+          "author": "sentinel",
+          "text": "Implemented legacy title/bullets/imagePrompt -> slots mapping in slide update flow; preserves legacy fields.",
+          "created_at": "2026-03-01T23:02:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-01T01:44:00Z",
-      "updated_at": "2026-03-01T02:37:00Z",
+      "updated_at": "2026-03-01T23:02:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0052",
       "title": "TS-A2.1b.3 Persist slot normalization + add smoke verify endpoint",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1285,10 +1292,17 @@
         "TASK-0046"
       ],
       "description": "Persist slots in deck slide records and expose a smoke endpoint to verify normalized slot output on a selected deck/slide.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-0052-1",
+          "author": "sentinel",
+          "text": "Persisted slot normalization in normalize endpoint and added slots-preview smoke endpoint.",
+          "created_at": "2026-03-01T23:02:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-01T01:44:00Z",
-      "updated_at": "2026-03-01T01:44:00Z",
+      "updated_at": "2026-03-01T23:02:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
