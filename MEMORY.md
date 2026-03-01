@@ -106,6 +106,17 @@
   - Remaining weights pending explicit confirmation
 - Breakout trigger:
   - If Structural Fit = 5 AND Pre-FID ≥ 4 AND Mandate90d ≥ 3 → Auto Tier 1 candidate
+- 2026-03-01 review: no scoring model or weighting changes approved.
 
-# Project Status Snapshot (2026-02-28)
-- Workflow C (Artifact Factory) has been queued for today and remains non-immediate by rule (queued tasks only; run at scheduled window after intake).
+# Project Status Snapshot (2026-03-01)
+- Workflow C (Artifact Factory) queued at 04:00 UTC reminder; execution remains deferred to scheduled local window (23:00 ET) and never immediate.
+- Presentation Studio v2 decomposition advanced:
+  - Ready for Review: TASK-0047, TASK-0048, TASK-0049, TASK-0050
+  - In Progress: TASK-0051
+  - Backlog next: TASK-0052
+
+# Communication Operating Rule (2026-03-01)
+- Proactive update protocol is mandatory during active build windows:
+  - Send status at least every 30 minutes.
+  - Send immediate notice when work stops/pauses (idle, blocked, waiting, error).
+  - Do not wait for Isaac to ping for status.
