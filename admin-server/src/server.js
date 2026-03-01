@@ -143,10 +143,26 @@ function uiHead(title) {
   .card.elevated { box-shadow: var(--shadow-lg); background: var(--surface-elevated) !important; }
 
   .form-control,
-  .form-select {
+  .form-select,
+  textarea.form-control,
+  input.form-control {
     min-height: 40px;
-    color: var(--text);
+    color: var(--text) !important;
+    -webkit-text-fill-color: var(--text) !important;
+    caret-color: var(--text);
   }
+  .form-control:active,
+  .form-control:focus,
+  .form-select:active,
+  .form-select:focus,
+  textarea.form-control:active,
+  textarea.form-control:focus,
+  input.form-control:active,
+  input.form-control:focus {
+    color: var(--text) !important;
+    -webkit-text-fill-color: var(--text) !important;
+  }
+  .form-select option { background: var(--surface); color: var(--text); }
   .form-control::placeholder { color: #7f8998; }
   .form-control:focus,
   .form-select:focus,
