@@ -233,5 +233,32 @@
       }
     ],
     "signal_class": "Sponsor Altitude"
+  },
+  {
+    "signal_id": "SIG-2026-03-01-DANGOTE-SINOMA-001",
+    "title": "Dangote Cement and Sinoma sign strategic framework for 12 construction/expansion projects",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium-High",
+    "observed_at": "2026-03-01T22:17:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AfDB",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-653305"
+    ],
+    "summary": "Reported MOU signing in Lagos between Dangote Cement and Sinoma for execution of twelve new construction and expansion projects, indicating active infrastructure/industrial execution momentum.",
+    "flow": "Strategic framework signing -> project execution pipeline visibility -> stronger near-term infrastructure deployment signal",
+    "verification_note": "Monitor until corroborated by first-party release page or Tier-1 independent reporting with full attribution.",
+    "sources": [
+      {
+        "label": "User-provided X post text (Dangote Group account context)",
+        "url": "https://x.com/dangotegroup/status/2027419467332931602?s=46"
+      }
+    ]
   }
 ]
