@@ -1961,9 +1961,24 @@ const LEGACY_LAYOUT_TO_TEMPLATE_ID = Object.freeze({
   close: 'closing-cta',
 });
 
+const LEGACY_LAYOUT_FALLBACK_TEMPLATE_ID = 'two-col-bullets';
+
 function mapLegacyLayoutToTemplateId(layout) {
   const key = String(layout || '').trim().toLowerCase();
   return LEGACY_LAYOUT_TO_TEMPLATE_ID[key] || null;
+}
+
+function resolveTemplateIdFromLegacyLayout(layout) {
+  const mapped = mapLegacyLayoutToTemplateId(layout);
+  if (mapped) {
+    return { templateId: mapped, fallbackApplied: false, normalizedLayout: String(layout || '').trim().toLowerCase() };
+  }
+  return {
+    templateId: LEGACY_LAYOUT_FALLBACK_TEMPLATE_ID,
+    fallbackApplied: true,
+    normalizedLayout: String(layout || '').trim().toLowerCase() || null,
+    note: 'legacy layout missing or unknown; fallback template applied',
+  };
 }
 
 async function ensureTeamAndBoardFiles() {
@@ -2898,8 +2913,17 @@ app.get('/api/presentation-studio/decks/resolve', requireRole('architect','edito
 
 app.get('/api/presentation-studio/layout-map', requireRole('architect','editor','observer'), async (req, res) => {
   const layout = String(req.query.layout || '').trim();
-  const templateId = mapLegacyLayoutToTemplateId(layout);
-  return res.json({ ok: true, layout, templateId, mapping: LEGACY_LAYOUT_TO_TEMPLATE_ID });
+  const resolved = resolveTemplateIdFromLegacyLayout(layout);
+  return res.json({
+    ok: true,
+    layout,
+    templateId: resolved.templateId,
+    fallbackApplied: resolved.fallbackApplied,
+    normalizedLayout: resolved.normalizedLayout,
+    note: resolved.note || null,
+    fallbackTemplateId: LEGACY_LAYOUT_FALLBACK_TEMPLATE_ID,
+    mapping: LEGACY_LAYOUT_TO_TEMPLATE_ID,
+  });
 });
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {

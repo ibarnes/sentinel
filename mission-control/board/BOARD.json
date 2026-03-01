@@ -1142,7 +1142,7 @@
     {
       "id": "TASK-0048",
       "title": "TS-A2.1a.2 Implement fallback resolver for missing/unknown layouts",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1157,17 +1157,24 @@
         "TASK-0045"
       ],
       "description": "If legacy layout missing or unknown, resolve to safe default templateId and mark normalization note for compatibility.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-0048-1",
+          "author": "sentinel",
+          "text": "Added fallback resolver for missing/unknown layouts with safe default template and metadata (fallbackApplied/note).",
+          "created_at": "2026-03-01T01:39:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-01T01:33:00Z",
-      "updated_at": "2026-03-01T01:36:00Z",
+      "updated_at": "2026-03-01T01:39:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0049",
       "title": "TS-A2.1a.3 Wire mapper integration path + smoke test",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1185,7 +1192,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-01T01:33:00Z",
-      "updated_at": "2026-03-01T01:33:00Z",
+      "updated_at": "2026-03-01T01:39:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
