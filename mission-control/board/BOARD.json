@@ -1055,7 +1055,7 @@
     {
       "id": "TASK-0045",
       "title": "TS-A2.1a Map legacy layout -> templateId with fallback rules",
-      "status": "In Progress",
+      "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1069,10 +1069,17 @@
         "TASK-0017"
       ],
       "description": "Add deterministic mapping from legacy layout values to templateId. Include fallback when layout missing/unknown.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "decomp-0045-1",
+          "author": "sentinel",
+          "text": "Further decomposed into TASK-0047/0048/0049 for atomic execution.",
+          "created_at": "2026-03-01T01:33:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-01T00:10:00Z",
-      "updated_at": "2026-03-01T00:10:00Z",
+      "updated_at": "2026-03-01T01:33:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -1097,6 +1104,81 @@
       "request_approval": null,
       "created_at": "2026-03-01T00:10:00Z",
       "updated_at": "2026-03-01T00:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0047",
+      "title": "TS-A2.1a.1 Define legacy layout -> templateId mapping table",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A2",
+        "decomposed",
+        "mapper"
+      ],
+      "linked_refs": [
+        "TASK-0045"
+      ],
+      "description": "Create deterministic mapping dictionary for legacy layouts (title/section/proof/diagram/close) to v2 template IDs.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-01T01:33:00Z",
+      "updated_at": "2026-03-01T01:33:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0048",
+      "title": "TS-A2.1a.2 Implement fallback resolver for missing/unknown layouts",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A2",
+        "decomposed",
+        "mapper"
+      ],
+      "linked_refs": [
+        "TASK-0045"
+      ],
+      "description": "If legacy layout missing or unknown, resolve to safe default templateId and mark normalization note for compatibility.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-01T01:33:00Z",
+      "updated_at": "2026-03-01T01:33:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0049",
+      "title": "TS-A2.1a.3 Wire mapper integration path + smoke test",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A2",
+        "decomposed",
+        "mapper"
+      ],
+      "linked_refs": [
+        "TASK-0045"
+      ],
+      "description": "Hook layout mapper into slide normalization flow and verify mapped templateId appears in generated/loaded SlideSpec records.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-01T01:33:00Z",
+      "updated_at": "2026-03-01T01:33:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
