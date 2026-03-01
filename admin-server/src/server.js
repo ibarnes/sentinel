@@ -916,8 +916,10 @@ app.get('/dashboard/signals', async (req, res) => {
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const byId = Object.fromEntries(buyers.map((b) => [b.buyer_id, b.name]));
-  const sorted = [...signals].sort((a, b) => String(b.observed_at || '').localeCompare(String(a.observed_at || '')));
-  const classes = ['Capital Reality','FID Definability','Structural Ambiguity','Sponsor Altitude','Ecosystem / Theater'];
+  const classes = ['Capital Reality','FID Definability','Structural Ambiguity','Platform Pressure','Sponsor Altitude','Ecosystem / Theater'];
+  const selectedClass = String(req.query.signal_class || 'All');
+  const filteredSignals = selectedClass === 'All' ? signals : signals.filter((s) => String(s.signal_class || '') === selectedClass);
+  const sorted = [...filteredSignals].sort((a, b) => String(b.observed_at || '').localeCompare(String(a.observed_at || '')));
   const statusBadge = (s) => {
     const v = String(s || 'Monitor');
     const cls = v === 'Verified' ? 'success' : (v === 'Actioned' ? 'primary' : 'secondary');
@@ -926,6 +928,16 @@ app.get('/dashboard/signals', async (req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signals')}</head><body><div class="app-shell">
     ${dashboardNav('signals')}
     ${pageHeader('Signal Register', '', 'Pressure surface tracking over time')}
+    <form method="get" action="/dashboard/signals" class="row g-2 mb-3">
+      <div class="col-md-4">
+        <label class="form-label">Filter by Signal Class</label>
+        <select class="form-select" name="signal_class">
+          <option ${selectedClass==='All'?'selected':''}>All</option>
+          ${classes.map((c)=>`<option ${selectedClass===c?'selected':''}>${c}</option>`).join('')}
+        </select>
+      </div>
+      <div class="col-md-2 d-flex align-items-end"><button class="btn btn-outline-primary">Apply</button></div>
+    </form>
     ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Signal</strong></summary><div class="card-body"><form method="post" action="/api/signals" class="row g-2"><div class="col-md-4"><label class="form-label">Title *</label><input class="form-control" name="title" required /></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select" name="status"><option>Monitor</option><option>Verified</option><option>Actioned</option></select></div><div class="col-md-2"><label class="form-label">Confidence</label><select class="form-select" name="confidence"><option>High</option><option>Medium</option><option>Low</option></select></div><div class="col-md-4"><label class="form-label">Signal Class *</label><select class="form-select" name="signal_class" required>${classes.map((c)=>`<option>${c}</option>`).join('')}</select></div><div class="col-md-4"><label class="form-label">Buyer IDs (comma)</label><input class="form-control" name="buyer_ids" placeholder="PIF, AFC" /></div><div class="col-md-8"><label class="form-label">Summary</label><input class="form-control" name="summary" /></div><div class="col-12"><button class="btn btn-sm btn-primary">Save Signal</button></div></form></div></details>` : ''}
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Signal Class</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody>
       ${sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${escapeHtml((s.buyer_ids || []).map((id) => byId[id] || id).join(', '))}</td></tr>`).join('') || '<tr><td colspan="6">No signals yet</td></tr>'}
@@ -3060,7 +3072,7 @@ app.post('/api/initiatives/:id/gate', requireRole('architect','editor'), async (
 });
 
 app.post('/api/signals', requireRole('architect','editor'), async (req, res) => {
-  const classes = new Set(['Capital Reality','FID Definability','Structural Ambiguity','Sponsor Altitude','Ecosystem / Theater']);
+  const classes = new Set(['Capital Reality','FID Definability','Structural Ambiguity','Platform Pressure','Sponsor Altitude','Ecosystem / Theater']);
   const title = String(req.body.title || '').trim();
   const signalClass = String(req.body.signal_class || '').trim();
   if (!title || !classes.has(signalClass)) {
