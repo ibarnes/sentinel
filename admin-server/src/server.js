@@ -1050,7 +1050,28 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
       <summary class="card-header"><strong>Access Paths (Top 3)</strong></summary>
       <div class="card-body">
         <div class="small text-muted mb-2">Who in-network can open a trusted path into this buyer.</div>
-        <ul class="mb-0">${accessPaths.map((p) => `<li><strong>${escapeHtml(p.name || 'Unknown')}</strong> — ${escapeHtml(p.role || 'Role TBD')} · Score ${escapeHtml(String(p.influence_score ?? '0'))}<br/><span class="text-muted">Best ask: ${escapeHtml(p.best_ask_type || 'TBD')} · Status: ${escapeHtml(p.status || 'TBD')}</span></li>`).join('') || '<li>No access paths mapped yet.</li>'}</ul>
+        <ul class="mb-3">${accessPaths.map((p) => `<li class="mb-2"><strong>${escapeHtml(p.name || 'Unknown')}</strong> — ${escapeHtml(p.role || 'Role TBD')} · Score ${escapeHtml(String(p.influence_score ?? '0'))}<br/><span class="text-muted">Best ask: ${escapeHtml(p.best_ask_type || 'TBD')} · Status: ${escapeHtml(p.status || 'TBD')}</span>${canEdit ? `<form method="post" action="/api/contact-paths/${encodeURIComponent(p.path_id || '')}/delete" class="d-inline ms-2"><input type="hidden" name="buyer_id" value="${escapeHtml(b.buyer_id)}"/><button class="btn btn-sm btn-outline-danger">Delete</button></form>` : ''}</li>`).join('') || '<li>No access paths mapped yet.</li>'}</ul>
+        ${canEdit ? `<details>
+          <summary class="small"><strong>Add / Update Access Path</strong></summary>
+          <form method="post" action="/api/contact-paths" class="row g-2 mt-2">
+            <input type="hidden" name="buyer_id" value="${escapeHtml(b.buyer_id)}" />
+            <div class="col-md-3"><label class="form-label">Path ID (optional)</label><input class="form-control" name="path_id" placeholder="PATH-${escapeHtml(b.buyer_id)}-001" /></div>
+            <div class="col-md-3"><label class="form-label">Name *</label><input class="form-control" name="name" required /></div>
+            <div class="col-md-3"><label class="form-label">Role</label><input class="form-control" name="role" /></div>
+            <div class="col-md-3"><label class="form-label">Org</label><input class="form-control" name="org" /></div>
+            <div class="col-md-2"><label class="form-label">Access</label><input type="number" step="1" min="0" max="5" class="form-control" name="access_score" value="3" /></div>
+            <div class="col-md-2"><label class="form-label">Credibility</label><input type="number" step="1" min="0" max="5" class="form-control" name="credibility_score" value="3" /></div>
+            <div class="col-md-2"><label class="form-label">Relevance</label><input type="number" step="1" min="0" max="5" class="form-control" name="relevance_score" value="3" /></div>
+            <div class="col-md-2"><label class="form-label">Freshness(d)</label><input type="number" step="1" min="0" class="form-control" name="freshness_days" value="7" /></div>
+            <div class="col-md-2"><label class="form-label">Influence</label><input type="number" step="0.1" min="0" max="5" class="form-control" name="influence_score" value="3.0" /></div>
+            <div class="col-md-2"><label class="form-label">Status</label><select class="form-select" name="status"><option>Ready</option><option>Warming</option><option>Blocked</option></select></div>
+            <div class="col-12"><label class="form-label">Best Ask Type</label><input class="form-control" name="best_ask_type" /></div>
+            <div class="col-12"><label class="form-label">Evidence Note</label><textarea class="form-control" name="evidence_note" rows="2"></textarea></div>
+            <div class="col-md-6"><label class="form-label">Last Touch</label><input class="form-control" name="last_touch_at" placeholder="YYYY-MM-DD" /></div>
+            <div class="col-md-6"><label class="form-label">Next Touch</label><input class="form-control" name="next_touch_at" placeholder="YYYY-MM-DD" /></div>
+            <div class="col-12"><button class="btn btn-sm btn-primary">Save Access Path</button></div>
+          </form>
+        </details>` : ''}
       </div>
     </details>
 
@@ -2751,6 +2772,54 @@ loadBoard();
 
 app.get('/api/me', requireAnyAuth, async (req, res) => {
   res.json({ user: currentUser(req), effectiveRole: effectiveRole(req) });
+});
+
+app.post('/api/contact-paths', requireRole('architect','editor'), async (req, res) => {
+  const file = DASHBOARD_CONTACT_PATHS_FILE;
+  const rows = await readJson(file, []);
+  const body = req.body || {};
+  const buyer_id = String(body.buyer_id || '').trim();
+  const name = String(body.name || '').trim();
+  if (!buyer_id || !name) return res.status(400).send('buyer_id and name required');
+
+  const path_id = String(body.path_id || `PATH-${buyer_id}-${Date.now()}`).trim();
+  const item = {
+    path_id,
+    buyer_id,
+    contact_id: String(body.contact_id || '').trim() || null,
+    name,
+    org: String(body.org || '').trim(),
+    role: String(body.role || '').trim(),
+    relationship_type: String(body.relationship_type || '').trim() || 'partner',
+    access_score: Number(body.access_score || 0),
+    credibility_score: Number(body.credibility_score || 0),
+    relevance_score: Number(body.relevance_score || 0),
+    freshness_days: Number(body.freshness_days || 0),
+    influence_score: Number(body.influence_score || 0),
+    evidence_note: String(body.evidence_note || '').trim(),
+    best_ask_type: String(body.best_ask_type || '').trim(),
+    last_touch_at: String(body.last_touch_at || '').trim(),
+    next_touch_at: String(body.next_touch_at || '').trim(),
+    status: String(body.status || 'Ready').trim()
+  };
+
+  const idx = rows.findIndex((r) => String(r.path_id) === path_id);
+  if (idx >= 0) rows[idx] = { ...rows[idx], ...item };
+  else rows.push(item);
+  await writeJson(file, rows);
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'contact_path.upsert', entity_type: 'contact_path', entity_id: path_id, meta: { buyer_id } });
+  res.redirect('/dashboard/buyer/' + encodeURIComponent(buyer_id));
+});
+
+app.post('/api/contact-paths/:id/delete', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  const buyer_id = String(req.body.buyer_id || '').trim();
+  const file = DASHBOARD_CONTACT_PATHS_FILE;
+  const rows = await readJson(file, []);
+  const next = rows.filter((r) => String(r.path_id) !== id);
+  await writeJson(file, next);
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'contact_path.delete', entity_type: 'contact_path', entity_id: id, meta: { buyer_id } });
+  res.redirect('/dashboard/buyer/' + encodeURIComponent(buyer_id || ''));
 });
 
 app.post('/api/buyers/:id/upgrade-status', requireRole('architect','editor'), async (req, res) => {
