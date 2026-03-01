@@ -26,6 +26,7 @@ const DASHBOARD_CHANGELOG = path.join(ROOT, 'dashboard', 'state', 'changelog.md'
 const DASHBOARD_SNAPSHOTS = path.join(ROOT, 'dashboard', 'snapshots');
 const DASHBOARD_SIGNALS_FILE = path.join(ROOT, 'dashboard', 'data', 'signals.json');
 const DASHBOARD_TEAM_FILE = path.join(ROOT, 'dashboard', 'data', 'team.json');
+const DASHBOARD_CONTACT_PATHS_FILE = path.join(ROOT, 'dashboard', 'data', 'contact_paths.json');
 const DASHBOARD_DECKSPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'deckspecs.v2.json');
 const DASHBOARD_DECKSPEC_SCHEMA_FILE = path.join(ROOT, 'dashboard', 'deckspec.schema.v2.json');
 
@@ -963,6 +964,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const contactPaths = await readJson(DASHBOARD_CONTACT_PATHS_FILE, []);
   const board = await readJson(BOARD_FILE, { version: 1, tasks: [] });
   const b = buyers.find(x=>x.buyer_id===id);
   if(!b) return res.status(404).send('Buyer not found');
@@ -1027,6 +1029,10 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
   const canUpgradeToVerified = !!String(b.transfer_hypothesis || '').trim() && (highRecent >= 1 || mediumRecent >= 2) && buyerTasks.length >= 1;
   const canUpgradeToActioned = inProgressCount >= 1 && linked.length >= 1;
   const tc = b.transfer_chain || null;
+  const accessPaths = (contactPaths || [])
+    .filter((p) => String(p.buyer_id || '').toUpperCase() === String(id || '').toUpperCase())
+    .sort((a, b) => Number(b.influence_score || 0) - Number(a.influence_score || 0))
+    .slice(0, 3);
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyer Detail')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
@@ -1039,6 +1045,14 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     <ul>${linked.map(i=>`<li><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?buyer_id=${encodeURIComponent(b.buyer_id)}">${escapeHtml(i.name)}</a></li>`).join('') || '<li>None</li>'}</ul>
 
     ${b.transfer_hypothesis ? `<div class="card mb-3"><div class="card-body"><h6>Transfer Hypothesis</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(String(b.transfer_hypothesis || ''))}</pre></div></div>` : ''}
+
+    <details class="card mb-3" open>
+      <summary class="card-header"><strong>Access Paths (Top 3)</strong></summary>
+      <div class="card-body">
+        <div class="small text-muted mb-2">Who in-network can open a trusted path into this buyer.</div>
+        <ul class="mb-0">${accessPaths.map((p) => `<li><strong>${escapeHtml(p.name || 'Unknown')}</strong> — ${escapeHtml(p.role || 'Role TBD')} · Score ${escapeHtml(String(p.influence_score ?? '0'))}<br/><span class="text-muted">Best ask: ${escapeHtml(p.best_ask_type || 'TBD')} · Status: ${escapeHtml(p.status || 'TBD')}</span></li>`).join('') || '<li>No access paths mapped yet.</li>'}</ul>
+      </div>
+    </details>
 
     ${tc ? `<details class="card mb-3">
       <summary class="card-header"><strong>Transfer Chain (Operational View)</strong></summary>
