@@ -1162,7 +1162,9 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
     <p>${escapeHtml(i.macro_gravity_summary || '')}</p>
     <p><strong>Status:</strong> ${escapeHtml(i.status || '')}</p>
     <h5>Linked Buyers</h5><ul>${linkedBuyers.map(b=>`<li>${escapeHtml(b.name)}</li>`).join('')}</ul>
-    <div class="card"><div class="card-body">
+    <h5 class="mt-3">Decks</h5>
+    <ul>${deckLinks.map(p=>`<li><a href="/${p}">${escapeHtml(p)}</a></li>`).join('') || '<li>No decks yet</li>'}</ul>
+    <div class="card mt-3"><div class="card-body">
       <h5>Create Presentation</h5>
       <form method="post" action="/api/presentations/generate" class="row g-2">
         <input type="hidden" name="initiative_id" value="${escapeHtml(i.initiative_id)}" />
@@ -1175,8 +1177,6 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
         <div class="col-12"><button class="btn btn-primary">Generate</button></div>
       </form>
     </div></div>
-    <h5 class="mt-3">Decks</h5>
-    <ul>${deckLinks.map(p=>`<li><a href="/${p}">${escapeHtml(p)}</a></li>`).join('') || '<li>No decks yet</li>'}</ul>
   </div></body></html>`);
 });
 
