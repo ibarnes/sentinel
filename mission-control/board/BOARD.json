@@ -390,7 +390,7 @@
     {
       "id": "TASK-0017",
       "title": "TS-A2.1 Add SlideSpec v2 mapper (legacy->slots)",
-      "status": "In Progress",
+      "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -404,10 +404,17 @@
         "legacy-compat"
       ],
       "description": "Implement mapping layout->templateId and legacy fields to slots structure.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "decomp-0017-1",
+          "author": "sentinel",
+          "text": "Decomposed into TASK-0045 and TASK-0046 for atomic delivery.",
+          "created_at": "2026-03-01T00:10:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-02-27T23:24:00Z",
+      "updated_at": "2026-03-01T00:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -1042,6 +1049,54 @@
       "request_approval": null,
       "created_at": "2026-02-27T23:24:00Z",
       "updated_at": "2026-02-27T23:24:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0045",
+      "title": "TS-A2.1a Map legacy layout -> templateId with fallback rules",
+      "status": "In Progress",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A2",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0017"
+      ],
+      "description": "Add deterministic mapping from legacy layout values to templateId. Include fallback when layout missing/unknown.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-01T00:10:00Z",
+      "updated_at": "2026-03-01T00:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0046",
+      "title": "TS-A2.1b Map legacy title/bullets/imagePrompt -> SlideSpec v2 slots",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-A",
+        "story:US-A2",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0017"
+      ],
+      "description": "Map legacy fields into slots object and persist compatibly; include mapper tests/validation checks.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-01T00:10:00Z",
+      "updated_at": "2026-03-01T00:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
