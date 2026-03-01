@@ -1392,6 +1392,17 @@ app.patch('/api/presentations/slide/update', requireRole('architect','editor'), 
   if (!s) return res.status(404).json({ error: 'slide not found' });
 
   s.layout = String(req.body.layout || s.layout || 'section');
+  const layoutResolution = resolveTemplateIdFromLegacyLayout(s.layout);
+  s.template_id = layoutResolution.templateId;
+  if (layoutResolution.fallbackApplied) {
+    s.normalization = {
+      ...(s.normalization || {}),
+      layoutFallbackApplied: true,
+      legacyLayout: s.layout,
+      note: layoutResolution.note,
+      normalizedAt: nowIso(),
+    };
+  }
   s.copy = s.copy || {};
   s.copy.title = String(req.body.title || s.copy.title || '');
   s.copy.bullets = Array.isArray(req.body.bullets) ? req.body.bullets : (s.copy.bullets || []);
@@ -2924,6 +2935,34 @@ app.get('/api/presentation-studio/layout-map', requireRole('architect','editor',
     fallbackTemplateId: LEGACY_LAYOUT_FALLBACK_TEMPLATE_ID,
     mapping: LEGACY_LAYOUT_TO_TEMPLATE_ID,
   });
+});
+
+app.post('/api/presentation-studio/slides/normalize-layout', requireRole('architect','editor'), async (req, res) => {
+  const deck = String(req.body.deck || '').trim();
+  if (!deck) return res.status(400).json({ error: 'deck required' });
+  const deckPath = path.join(ROOT, deck, 'deck.json');
+  const spec = await readJson(deckPath, null);
+  if (!spec || !Array.isArray(spec.slides)) return res.status(404).json({ error: 'deck not found' });
+
+  let normalized = 0;
+  for (const s of spec.slides) {
+    const resolved = resolveTemplateIdFromLegacyLayout(s.layout);
+    const before = s.template_id || null;
+    s.template_id = resolved.templateId;
+    if (resolved.fallbackApplied) {
+      s.normalization = {
+        ...(s.normalization || {}),
+        layoutFallbackApplied: true,
+        legacyLayout: s.layout || null,
+        note: resolved.note,
+        normalizedAt: nowIso(),
+      };
+    }
+    if (before !== s.template_id) normalized += 1;
+  }
+
+  await writeJson(deckPath, spec);
+  return res.json({ ok: true, deck, normalized, slideCount: spec.slides.length });
 });
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {
