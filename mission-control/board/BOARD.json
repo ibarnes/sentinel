@@ -1213,7 +1213,7 @@
     {
       "id": "TASK-0050",
       "title": "TS-A2.1b.1 Define SlideSpec v2 slot schema + mapper contract",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1228,17 +1228,24 @@
         "TASK-0046"
       ],
       "description": "Define minimal canonical slots object (headline, bullets, imageSlots) and a deterministic mapper contract from legacy fields.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-0050-1",
+          "author": "sentinel",
+          "text": "Defined v2 slot schema constant and legacy->slots mapper contract function; exposed contract endpoint for validation.",
+          "created_at": "2026-03-01T02:37:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-01T01:44:00Z",
-      "updated_at": "2026-03-01T01:44:00Z",
+      "updated_at": "2026-03-01T02:37:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0051",
       "title": "TS-A2.1b.2 Implement legacy title/bullets/imagePrompt -> slots mapper",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1256,7 +1263,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-01T01:44:00Z",
-      "updated_at": "2026-03-01T01:44:00Z",
+      "updated_at": "2026-03-01T02:37:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },

@@ -1992,6 +1992,31 @@ function resolveTemplateIdFromLegacyLayout(layout) {
   };
 }
 
+const SLIDE_SPEC_V2_SLOT_SCHEMA = Object.freeze({
+  version: 2,
+  required: ['headline', 'bullets', 'imageSlots'],
+  defaults: {
+    headline: '',
+    bullets: [],
+    imageSlots: [
+      { slotId: 'img-001', prompt: '' }
+    ]
+  }
+});
+
+function legacyFieldsToSlotsContract({ title = '', bullets = [], imagePrompt = '' } = {}) {
+  const normalizedBullets = Array.isArray(bullets)
+    ? bullets.map((x) => String(x || '').trim()).filter(Boolean)
+    : [];
+  return {
+    headline: String(title || '').trim(),
+    bullets: normalizedBullets,
+    imageSlots: [
+      { slotId: 'img-001', prompt: String(imagePrompt || '').trim() }
+    ]
+  };
+}
+
 async function ensureTeamAndBoardFiles() {
   if (!fssync.existsSync(TEAM_USERS_FILE)) {
     await fs.writeFile(TEAM_USERS_FILE, JSON.stringify(defaultUsers(), null, 2));
@@ -2934,6 +2959,18 @@ app.get('/api/presentation-studio/layout-map', requireRole('architect','editor',
     note: resolved.note || null,
     fallbackTemplateId: LEGACY_LAYOUT_FALLBACK_TEMPLATE_ID,
     mapping: LEGACY_LAYOUT_TO_TEMPLATE_ID,
+    slotSchema: SLIDE_SPEC_V2_SLOT_SCHEMA,
+  });
+});
+
+app.get('/api/presentation-studio/slots/contract', requireRole('architect','editor','observer'), async (req, res) => {
+  const title = String(req.query.title || '');
+  const bullets = String(req.query.bullets || '').split('\n').map((x) => x.trim()).filter(Boolean);
+  const imagePrompt = String(req.query.imagePrompt || '');
+  return res.json({
+    ok: true,
+    slotSchema: SLIDE_SPEC_V2_SLOT_SCHEMA,
+    exampleSlots: legacyFieldsToSlotsContract({ title, bullets, imagePrompt }),
   });
 });
 
