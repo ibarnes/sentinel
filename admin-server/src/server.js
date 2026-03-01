@@ -911,11 +911,13 @@ app.get('/dashboard/buyers', async (req, res) => {
 </body></html>`);
 });
 
-app.get('/dashboard/signals', async (_req, res) => {
+app.get('/dashboard/signals', async (req, res) => {
   const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const byId = Object.fromEntries(buyers.map((b) => [b.buyer_id, b.name]));
   const sorted = [...signals].sort((a, b) => String(b.observed_at || '').localeCompare(String(a.observed_at || '')));
+  const classes = ['Capital Reality','FID Definability','Structural Ambiguity','Sponsor Altitude','Ecosystem / Theater'];
   const statusBadge = (s) => {
     const v = String(s || 'Monitor');
     const cls = v === 'Verified' ? 'success' : (v === 'Actioned' ? 'primary' : 'secondary');
@@ -924,8 +926,9 @@ app.get('/dashboard/signals', async (_req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signals')}</head><body><div class="app-shell">
     ${dashboardNav('signals')}
     ${pageHeader('Signal Register', '', 'Pressure surface tracking over time')}
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody>
-      ${sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${escapeHtml((s.buyer_ids || []).map((id) => byId[id] || id).join(', '))}</td></tr>`).join('') || '<tr><td colspan="5">No signals yet</td></tr>'}
+    ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Signal</strong></summary><div class="card-body"><form method="post" action="/api/signals" class="row g-2"><div class="col-md-4"><label class="form-label">Title *</label><input class="form-control" name="title" required /></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select" name="status"><option>Monitor</option><option>Verified</option><option>Actioned</option></select></div><div class="col-md-2"><label class="form-label">Confidence</label><select class="form-select" name="confidence"><option>High</option><option>Medium</option><option>Low</option></select></div><div class="col-md-4"><label class="form-label">Signal Class *</label><select class="form-select" name="signal_class" required>${classes.map((c)=>`<option>${c}</option>`).join('')}</select></div><div class="col-md-4"><label class="form-label">Buyer IDs (comma)</label><input class="form-control" name="buyer_ids" placeholder="PIF, AFC" /></div><div class="col-md-8"><label class="form-label">Summary</label><input class="form-control" name="summary" /></div><div class="col-12"><button class="btn btn-sm btn-primary">Save Signal</button></div></form></div></details>` : ''}
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Signal Class</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody>
+      ${sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${escapeHtml((s.buyer_ids || []).map((id) => byId[id] || id).join(', '))}</td></tr>`).join('') || '<tr><td colspan="6">No signals yet</td></tr>'}
     </tbody></table></div>
   </div></body></html>`);
 });
@@ -3054,6 +3057,38 @@ app.post('/api/initiatives/:id/gate', requireRole('architect','editor'), async (
   await writeJson(initiativesPath, initiatives);
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'initiative.gate.update', entity_type: 'initiative', entity_id: id, meta: { gate_stage: gate } });
   res.redirect('/dashboard/initiatives');
+});
+
+app.post('/api/signals', requireRole('architect','editor'), async (req, res) => {
+  const classes = new Set(['Capital Reality','FID Definability','Structural Ambiguity','Sponsor Altitude','Ecosystem / Theater']);
+  const title = String(req.body.title || '').trim();
+  const signalClass = String(req.body.signal_class || '').trim();
+  if (!title || !classes.has(signalClass)) {
+    return res.status(400).send('title and valid signal_class are required');
+  }
+
+  const status = String(req.body.status || 'Monitor').trim();
+  const confidence = String(req.body.confidence || 'Medium').trim();
+  const buyer_ids = String(req.body.buyer_ids || '').split(',').map((x) => x.trim()).filter(Boolean);
+  const summary = String(req.body.summary || '').trim();
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const signal_id = `SIG-${Date.now()}`;
+  signals.push({
+    signal_id,
+    title,
+    signal_class: signalClass,
+    status,
+    confidence,
+    observed_at: nowIso(),
+    buyer_ids,
+    initiative_ids: [],
+    summary,
+    verification_note: '',
+    sources: []
+  });
+  await writeJson(DASHBOARD_SIGNALS_FILE, signals);
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'signal.create', entity_type: 'signal', entity_id: signal_id, meta: { signal_class: signalClass } });
+  res.redirect('/dashboard/signals');
 });
 
 app.get('/api/presentation-studio/decks/resolve', requireRole('architect','editor','observer'), async (req, res) => {
