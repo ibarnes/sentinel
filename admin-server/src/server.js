@@ -1953,6 +1953,19 @@ function defaultDeckSpecV2({ initiativeId = '', buyerId = null, deckType = 'utc-
   };
 }
 
+const LEGACY_LAYOUT_TO_TEMPLATE_ID = Object.freeze({
+  title: 'cover-hero',
+  section: 'two-col-bullets',
+  proof: 'feature-grid',
+  diagram: 'layered-diagram',
+  close: 'closing-cta',
+});
+
+function mapLegacyLayoutToTemplateId(layout) {
+  const key = String(layout || '').trim().toLowerCase();
+  return LEGACY_LAYOUT_TO_TEMPLATE_ID[key] || null;
+}
+
 async function ensureTeamAndBoardFiles() {
   if (!fssync.existsSync(TEAM_USERS_FILE)) {
     await fs.writeFile(TEAM_USERS_FILE, JSON.stringify(defaultUsers(), null, 2));
@@ -2881,6 +2894,12 @@ app.get('/api/presentation-studio/decks/resolve', requireRole('architect','edito
   if (resolved.error) return res.status(resolved.status || 400).json({ error: resolved.error });
   if (!resolved.deck) return res.status(404).json({ error: 'deck not found', selectors: resolved.selectors });
   return res.json({ ok: true, selectors: resolved.selectors, deck: resolved.deck });
+});
+
+app.get('/api/presentation-studio/layout-map', requireRole('architect','editor','observer'), async (req, res) => {
+  const layout = String(req.query.layout || '').trim();
+  const templateId = mapLegacyLayoutToTemplateId(layout);
+  return res.json({ ok: true, layout, templateId, mapping: LEGACY_LAYOUT_TO_TEMPLATE_ID });
 });
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {

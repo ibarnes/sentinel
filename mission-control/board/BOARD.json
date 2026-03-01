@@ -1110,7 +1110,7 @@
     {
       "id": "TASK-0047",
       "title": "TS-A2.1a.1 Define legacy layout -> templateId mapping table",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1125,17 +1125,24 @@
         "TASK-0045"
       ],
       "description": "Create deterministic mapping dictionary for legacy layouts (title/section/proof/diagram/close) to v2 template IDs.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-0047-1",
+          "author": "sentinel",
+          "text": "Added legacy layout->templateId mapping table and mapper helper; exposed read-only mapping endpoint for validation.",
+          "created_at": "2026-03-01T01:36:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-01T01:33:00Z",
-      "updated_at": "2026-03-01T01:33:00Z",
+      "updated_at": "2026-03-01T01:36:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0048",
       "title": "TS-A2.1a.2 Implement fallback resolver for missing/unknown layouts",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1153,7 +1160,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-01T01:33:00Z",
-      "updated_at": "2026-03-01T01:33:00Z",
+      "updated_at": "2026-03-01T01:36:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
