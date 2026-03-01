@@ -163,6 +163,24 @@ function uiHead(title) {
     -webkit-text-fill-color: var(--text) !important;
   }
   .form-select option { background: var(--surface); color: var(--text); }
+
+  /* Login pages keep legacy light field readability */
+  body.login-page .form-control,
+  body.login-page .form-select,
+  body.login-page textarea.form-control,
+  body.login-page input.form-control {
+    color: #212529 !important;
+    -webkit-text-fill-color: #212529 !important;
+    caret-color: #212529;
+    background: #ffffff !important;
+  }
+  body.login-page .form-control:focus,
+  body.login-page .form-control:active,
+  body.login-page .form-select:focus,
+  body.login-page .form-select:active {
+    color: #212529 !important;
+    -webkit-text-fill-color: #212529 !important;
+  }
   .form-control::placeholder { color: #7f8998; }
   .form-control:focus,
   .form-select:focus,
@@ -1549,7 +1567,7 @@ app.get('/healthz', (_req, res) => res.json({ ok: true, ts: nowIso() }));
 app.get('/admin/login', (_req, res) => {
   res.type('html').send(`<!doctype html>
 <html><head>${uiHead('Admin Login')}</head>
-<body>
+<body class="login-page">
 <div class="app-shell" style="max-width:560px">
   <div class="card shadow-sm">
     <div class="card-body p-4">
@@ -2366,7 +2384,7 @@ function getUserLabel(req) {
 }
 
 app.get('/auth/login', (_req, res) => {
-  res.type('html').send(`<!doctype html><html><head>${uiHead('Team Login')}</head><body>
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Team Login')}</head><body class="login-page">
   <div class="app-shell" style="max-width:560px">
     <div class="card shadow-sm"><div class="card-body p-4">
       <h3>Team Login</h3>
