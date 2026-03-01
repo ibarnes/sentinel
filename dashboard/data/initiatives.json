@@ -15,6 +15,21 @@
       }
     },
     "gate_stage": "Gate 1",
-    "gate_updated_at": "2026-02-27T20:40:00Z"
+    "gate_updated_at": "2026-02-27T22:54:38.512Z"
+  },
+  {
+    "initiative_id": "INIT-653305",
+    "name": "MENA Cross-Border Infrastructure Activation Program",
+    "status": "Pre-FID",
+    "macro_gravity_summary": "A structured activation platform designed to convert regional pressure into deployable cross-border infrastructure. Focused on digital sovereignty, distributed energy resilience, and corridor integration. Built to align with Public Investment Fund mandate priorities by accelerating projects from concept to FID with clear governance, defined capital pathways, and early risk allocation.",
+    "linked_buyers": [
+      "PIF"
+    ],
+    "presentations": {
+      "utc_internal": "presentations/INIT-653305/decks/utc-internal/index.html",
+      "buyer_alignment": {
+        "PIF": "presentations/INIT-653305/decks/buyer-alignment/PIF/index.html"
+      }
+    }
   }
 ]
