@@ -1,0 +1,1 @@
+{"ts":"2026-03-01T00:00:00Z","actor":"sentinel","role":"operator","event_type":"intake.prompt.triggered","entity_type":"workflow","entity_id":"workflow-c","meta":{"template":"mission-control/templates/EVENING_INTAKE_PROMPT.md","delivery":"internal-only","user_visible":false}}
