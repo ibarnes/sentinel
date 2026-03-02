@@ -1091,7 +1091,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     </details>
 
     <details class="card mb-3">
-      <summary class="card-header"><strong>Buyer State</strong></summary>
+      <summary class="card-header"><strong>Buyer Access</strong></summary>
       <div class="card-body">
         ${b.buyer_state ? `
           <h6>How You Actually Reach ${escapeHtml(b.buyer_id || 'Buyer')}</h6>
