@@ -687,9 +687,11 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
   const state = await readJson(DASHBOARD_STATE_FILE, {});
   const liveBoard = await readJson(BOARD_FILE, defaultBoard());
   const boardCounts = Object.fromEntries(BOARD_COLUMNS.map((c) => [c, (liveBoard.tasks || []).filter((t) => t.status === c).length]));
-  const pendingRps = state.pendingReviewPackets ?? 0;
-  const latestUosPublish = state.latestUosPublish || 'N/A';
-  const recent = await readActivityEvents({ limit: 20 });
+  const packets = await listReviewPackets(300);
+  const pendingRps = packets.filter((rp) => String(rp.status || '').toLowerCase() === 'ready for review').length;
+  const recent = await readActivityEvents({ limit: 200 });
+  const latestUosPublish = (recent.find((e) => String(e.event_type || '') === 'uos.publish')?.ts) || 'N/A';
+  const lastUpdatedLive = recent[0]?.ts || state.lastUpdated || 'N/A';
 
   res.type('html').send(`<!doctype html>
 <html><head>${uiHead('Dashboard')}</head><body>
@@ -705,7 +707,7 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
       <div class="col-12 col-md-6 col-xl-3">${statCard('Active Tasks', Object.values(boardCounts).reduce((a,b)=>a+Number(b||0),0))}</div>
       <div class="col-12 col-md-6 col-xl-3">${statCard('Pending Review Packets', pendingRps)}</div>
       <div class="col-12 col-md-6 col-xl-3">${statCard('Latest UOS Publish', '-', escapeHtml(latestUosPublish))}</div>
-      <div class="col-12 col-md-6 col-xl-3">${statCard('Last Updated', '-', escapeHtml(state.lastUpdated || 'N/A'))}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Last Updated', '-', escapeHtml(lastUpdatedLive))}</div>
     </div>
 
     ${tableShell(
