@@ -1,0 +1,1 @@
+If fid boundary is undefined and capital stack sequencing remains unresolved, downside absorption cannot be assigned.

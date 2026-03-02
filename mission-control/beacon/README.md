@@ -32,3 +32,9 @@ Exit codes:
 2. Run linter.
 3. If `REJECT`, revise until `PASS`.
 4. Submit only PASS drafts to approval gate.
+
+## Fixtures
+- `examples/weak.txt` -> REJECT (Rule A/B)
+- `examples/soft-term-fail.txt` -> REJECT (L1 soft-term dictionary)
+- `examples/hard-term-fail.txt` -> REJECT (L2 insufficient hard-term matches)
+- `examples/hard-term-pass.txt` -> PASS (meets hard-term threshold)

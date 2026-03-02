@@ -2153,7 +2153,7 @@
     {
       "id": "TASK-0085",
       "title": "TS-SBP1.2-L3 Add lint fixtures for soft/hard-term enforcement",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2167,17 +2167,24 @@
         "lint-fixtures"
       ],
       "description": "Add pass/fail fixtures and update readme examples for expanded lint policy.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-sbp-l3",
+          "author": "sentinel",
+          "text": "Added soft/hard-term fixtures and updated beacon lint README with fixture expectations.",
+          "created_at": "2026-03-02T19:47:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:44:00Z",
+      "updated_at": "2026-03-02T19:47:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0086",
       "title": "TS-SBP2.2a Build weekly beacon board template",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2194,7 +2201,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T17:39:00Z",
+      "updated_at": "2026-03-02T19:47:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
