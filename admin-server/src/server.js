@@ -3154,17 +3154,30 @@ app.post('/api/beacons', requireRole('architect','editor'), async (req, res) => 
   const title = String(req.body.title || '').trim();
   const draft_text = String(req.body.draft_text || '').trim();
   const status = String(req.body.status || 'draft').trim();
+  const signal_id = String(req.body.signal_id || '').trim();
+  const initiative_id = String(req.body.initiative_id || '').trim();
+  const mandate_implication = String(req.body.mandate_implication || '').trim();
 
   if (!title || !draft_text) return res.status(400).json({ error: 'title and draft_text are required' });
   if (!beaconStatusAllowed(status)) return res.status(400).json({ error: 'invalid status' });
+  if (!signal_id || !initiative_id || !mandate_implication) {
+    return res.status(400).json({ error: 'signal_id, initiative_id, and mandate_implication are required' });
+  }
+
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const hasSignal = signals.some((s) => String(s.signal_id || '') === signal_id);
+  const hasInitiative = initiatives.some((i) => String(i.initiative_id || '') === initiative_id);
+  if (!hasSignal) return res.status(400).json({ error: 'invalid signal_id' });
+  if (!hasInitiative) return res.status(400).json({ error: 'invalid initiative_id' });
 
   const beacon = {
     beacon_id: `BEACON-${Date.now()}`,
     title,
     status,
-    signal_id: String(req.body.signal_id || '').trim() || null,
-    initiative_id: String(req.body.initiative_id || '').trim() || null,
-    mandate_implication: String(req.body.mandate_implication || '').trim() || null,
+    signal_id,
+    initiative_id,
+    mandate_implication,
     draft_text,
     lint_status: 'UNKNOWN',
     lint_violations: [],

@@ -1997,7 +1997,7 @@
     {
       "id": "TASK-0080",
       "title": "TS-SBP2.1c Enforce required signal/initiative/mandate linkage",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -2011,17 +2011,24 @@
         "linkage-enforcement"
       ],
       "description": "Block submission unless signal_id, initiative_id, mandate_implication are present.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-sbp2-1c",
+          "author": "sentinel",
+          "text": "Enforced required signal_id/initiative_id/mandate_implication and existence validation in /api/beacons.",
+          "created_at": "2026-03-02T18:52:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T18:41:00Z",
+      "updated_at": "2026-03-02T18:52:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0081",
       "title": "TS-SBP2.3a Add beacon status transition endpoint",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2038,7 +2045,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T17:39:00Z",
+      "updated_at": "2026-03-02T18:52:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
