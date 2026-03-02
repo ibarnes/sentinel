@@ -1873,7 +1873,7 @@
     {
       "id": "TASK-0075",
       "title": "TS-SBP3.2 Draft beacon #2: downside absorber ambiguity",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -1886,17 +1886,24 @@
         "beacon-2"
       ],
       "description": "Structural risk framing only; validate against lint gate.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-sbp3-2",
+          "author": "sentinel",
+          "text": "Drafted beacon #2 and linted PASS. File: mission-control/beacon/drafts/beacon-02-downside-absorber.md",
+          "created_at": "2026-03-02T20:18:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T20:06:00Z",
+      "updated_at": "2026-03-02T20:18:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0076",
       "title": "TS-SBP3.3 Draft beacon #3: sequencing failure before FID",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -1912,7 +1919,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T16:14:00Z",
+      "updated_at": "2026-03-02T20:18:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },

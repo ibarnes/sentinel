@@ -1,0 +1,1 @@
+When downside absorption is undefined, FID boundary remains nominal even if term sheets circulate. Capital stack sequencing cannot close because no actor is structurally assigned first-loss jurisdiction, and governance jurisdiction drifts at the exact point commitment should harden. Unassigned downside is a signature blocker, not a negotiation detail.
