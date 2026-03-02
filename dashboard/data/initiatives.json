@@ -14,8 +14,8 @@
         "PIF": "presentations/INIT-001/decks/buyer-alignment/PIF/index.html"
       }
     },
-    "gate_stage": "Gate 1",
-    "gate_updated_at": "2026-02-27T22:54:38.512Z",
+    "gate_stage": "Gate 0",
+    "gate_updated_at": "2026-03-02T15:44:00Z",
     "infrastructure_category": "Energy"
   },
   {
@@ -32,7 +32,9 @@
         "PIF": "presentations/INIT-653305/decks/buyer-alignment/PIF/index.html"
       }
     },
-    "infrastructure_category": "Multi"
+    "infrastructure_category": "Multi",
+    "gate_stage": "Gate 0",
+    "gate_updated_at": "2026-03-02T15:44:00Z"
   },
   {
     "initiative_id": "INIT-AI-OPT-A",
