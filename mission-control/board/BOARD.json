@@ -1843,7 +1843,7 @@
     {
       "id": "TASK-0074",
       "title": "TS-SBP3.1 Draft beacon #1: FID stalls despite approved capital",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -1856,17 +1856,24 @@
         "beacon-1"
       ],
       "description": "One-sentence structural framing + 80-120 word micro-brief, no CTA, no authority claims.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-sbp3-1",
+          "author": "sentinel",
+          "text": "Drafted beacon #1 and linted PASS (Rule A/B/L1/L2). File: mission-control/beacon/drafts/beacon-01-fid-stalls.md",
+          "created_at": "2026-03-02T20:06:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T19:58:00Z",
+      "updated_at": "2026-03-02T20:06:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0075",
       "title": "TS-SBP3.2 Draft beacon #2: downside absorber ambiguity",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -1882,7 +1889,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T16:14:00Z",
+      "updated_at": "2026-03-02T20:06:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },

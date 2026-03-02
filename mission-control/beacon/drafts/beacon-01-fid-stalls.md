@@ -1,0 +1,1 @@
+If FID boundary is undefined and capital stack sequencing remains unresolved, approved capital does not sign. Downside absorption stays unassigned, governance jurisdiction fragments across counterparties, and signature risk compounds even as alignment appears complete. Approval latency is a structural output of commitment ambiguity, not a sourcing problem.
