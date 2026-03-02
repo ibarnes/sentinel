@@ -1090,7 +1090,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
       </div>
     </details>
 
-    <details class="card mb-3" open>
+    <details class="card mb-3">
       <summary class="card-header"><strong>Buyer State</strong></summary>
       <div class="card-body">
         ${b.buyer_state ? `
