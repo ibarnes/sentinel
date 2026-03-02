@@ -2644,6 +2644,10 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
       <div class="oc-nav-links">
         <a class="nav-link" href="/dashboard/">Dashboard</a>
         <a class="nav-link" href="/dashboard/buyers">Buyers</a>
+        <a class="nav-link" href="/dashboard/signals">Signals</a>
+        <a class="nav-link" href="/dashboard/beacons">Beacons</a>
+        <a class="nav-link" href="/dashboard/initiatives">Initiatives</a>
+        <a class="nav-link" href="/dashboard/team">Team</a>
         <a class="nav-link" href="/dashboard/presentation-studio">Presentation Studio</a>
         <a class="nav-link active" href="/board">Board</a>
       </div>
