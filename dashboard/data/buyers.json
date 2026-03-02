@@ -238,7 +238,86 @@
       "Access Physics = Bankability bottleneck relevance + IC-aligned conduit entry",
       "Distribution Mechanics = Governance-compression positioning through trusted institutional channels",
       "Conversion Physics = De-risk bankability -> secure project-preparation mandate before financial close"
-    ]
+    ],
+    "buyer_state": {
+      "reach_profile": [
+        "Moderate shielding",
+        "Investment Committee\u2013gated approvals",
+        "High infrastructure risk exposure",
+        "Strong bankability sensitivity",
+        "Institutional channel dependence"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Bankability gaps",
+            "Feasibility-to-FID sequencing risk",
+            "Capital stack fragmentation",
+            "Sovereign coordination delays"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Investment Committee references",
+            "Project-preparation leads",
+            "Sovereign counterparties",
+            "Co-development partners",
+            "Legal / structuring advisors trusted by AFC"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "AIFF allocation cycles",
+            "Major corridor announcements",
+            "Sovereign-backed infrastructure pushes",
+            "Energy grid instability spikes",
+            "Large co-financing announcements"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Project preparation leadership",
+            "Investment Committee\u2013adjacent sponsor",
+            "Strategic infrastructure head"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: MODERATE-HIGH \u2014 No broad marketing. Targeted institutional entry only.",
+        "Decision Speed: MODERATE \u2014 3\u20136 month structuring window typical.",
+        "Risk Exposure: HIGH \u2014 Focus on downside protection and financial close acceleration.",
+        "Altitude Sensitivity: HIGH \u2014 Institutional credibility signals required.",
+        "Channel Dependence: HIGH \u2014 Warm sovereign or capital conduits preferred."
+      ],
+      "channels": {
+        "primary": [
+          "Sovereign-aligned introducer",
+          "Co-development alignment",
+          "AIFF / project-preparation scope dialogue",
+          "Governance and feasibility compression discussion"
+        ],
+        "secondary": [
+          "Sector-aligned corridor memo routed via IC-adjacent contact"
+        ],
+        "avoid": [
+          "Cold proposal submissions",
+          "Generic advisory positioning",
+          "Contractor-style capability decks",
+          "\u201cExploratory partnership\u201d framing"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: Identify what project/corridor cannot reach financial close safely due to bankability constraints.",
+        "Step 2 \u2014 Platform Framing: Define structuring boundary, capital stack sequencing, governance alignment path, and financial-close compression thesis (no advisory drift).",
+        "Step 3 \u2014 Structural Alignment: Confirm what must be structurally defined before AIFF/project-preparation capital can be approved.",
+        "Step 4 \u2014 Mandate Execution: Secure project-preparation/structuring mandate with fee before financial close and no performance dependency.",
+        "Step 5 \u2014 Financial Close Trigger: Capital deploys into project/SPV; promote/recurring structuring rights activate at structural milestone."
+      ]
+    }
   },
   {
     "buyer_id": "NSIA",
