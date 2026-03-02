@@ -231,7 +231,14 @@
       "mandate_fee_structure": "Development / structuring fee",
       "promote_trigger": "Financial close",
       "recurrence_potential": "High"
-    }
+    },
+    "website_notes": [
+      "Identity = Development finance institution deploying infrastructure capital with project-preparation authority",
+      "Identification = Pre-FID structuring authority aligned to bankability acceleration, not execution consultant",
+      "Access Physics = Bankability bottleneck relevance + IC-aligned conduit entry",
+      "Distribution Mechanics = Governance-compression positioning through trusted institutional channels",
+      "Conversion Physics = De-risk bankability -> secure project-preparation mandate before financial close"
+    ]
   },
   {
     "buyer_id": "NSIA",
