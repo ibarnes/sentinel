@@ -1025,45 +1025,46 @@
         "primary": [
           "Direct investment leadership routing",
           "Co-investor alignment",
-          "Platform-level structuring memo"
+          "Platform-level capital stack memo"
         ],
         "secondary": [
-          "Governance-first memo via IC-adjacent contact"
+          "Governance-first white paper tied to real infrastructure opportunity"
         ],
         "avoid": [
-          "Execution/consulting framing",
-          "Generic networking outreach",
-          "Exploratory non-mandate requests"
+          "Advisory language",
+          "Execution support framing",
+          "Helping build positioning",
+          "Generic exploratory meetings"
         ]
       },
       "conversion_steps": [
-        "Step 1 \u2014 Platform Pressure: identify platform blocked from safe FID by structural ambiguity.",
-        "Step 2 \u2014 Platform Framing: define scope, governance boundary, capital sequencing logic, and FID definition.",
-        "Step 3 \u2014 Structural Alignment: confirm what must be structurally true before capital commitment.",
-        "Step 4 \u2014 Mandate Execution: secure paid Pre-FID Infrastructure Structuring Mandate.",
-        "Step 5 \u2014 FID Trigger: capital commits under defined structure; USG participation activates at FID milestone."
+        "Step 1 \u2014 Platform Pressure: Identify an infrastructure platform that cannot reach FID safely due to structural ambiguity.",
+        "Step 2 \u2014 Platform Framing: Define scope, governance boundary, capital sequencing, and FID definition (no unpaid modeling).",
+        "Step 3 \u2014 Structural Alignment: Ask what must be structurally true before capital can commit and FID can be signed.",
+        "Step 4 \u2014 Mandate Execution: Secure paid Pre-FID Infrastructure Structuring Mandate.",
+        "Step 5 \u2014 FID Trigger: Capital commits under defined architecture; promote activates at FID."
       ]
     },
     "transfer_chain": {
-      "stored_energy_source": "Anschutz private permanent capital base",
-      "budget_program": "Direct strategic investment allocation",
-      "funding_type": "Direct equity / structured industrial investment",
-      "approval_authority": "Investment Committee / principal-level authority",
+      "stored_energy_source": "Private family capital allocation",
+      "budget_program": "Direct infrastructure / energy investment allocation",
+      "funding_type": "Direct equity / structured vehicle investment",
+      "approval_authority": "Investment Committee / principal authority",
       "verification_status": "Unverified",
       "confidence_level": "Medium",
-      "primary_infrastructure_pressure": "Industrial platform deployment blocked by governance/capital sequencing ambiguity",
+      "primary_infrastructure_pressure": "Large-scale capital deployment requiring governance clarity",
       "linked_signals_30d": "TBD",
       "signal_trend": "TBD",
-      "strategic_alignment_thesis": "Defined commitment architecture reduces industrial deployment risk and accelerates FID clarity.",
+      "strategic_alignment_thesis": "Commitment architecture reduces irreversibility risk in capital-intensive infrastructure deployment.",
       "linked_initiative": "TBD",
       "recognition_evidence_status": "None",
-      "required_governance_artifacts": "Defined FID boundary + capital stack clarity + risk allocation matrix + governance alignment model",
+      "required_governance_artifacts": "Defined FID boundary + capital stack architecture + risk allocation matrix + governance decision jurisdiction",
       "mandate_pathway_stage": "Evidence Gathering",
       "checklist_coverage": "0 / 4",
-      "critical_blocker": "No verified live platform scope",
+      "critical_blocker": "No live infrastructure platform locked for structuring",
       "transfer_vehicle": "Signed Pre-FID Structuring Mandate",
       "payment_trigger": "Mandate acceptance",
-      "estimated_time_to_transfer": "30-120 days (if platform is concrete)",
+      "estimated_time_to_transfer": "60-120 days (if platform is concrete)",
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "FID",
       "recurrence_potential": "High (platform-based)"
