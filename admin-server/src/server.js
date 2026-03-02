@@ -1182,7 +1182,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     </details>
 
     <details class="card mb-3">
-      <summary class="card-header"><strong>Mandate Pathway</strong></summary>
+      <summary class="card-header"><strong>Mandate Readiness</strong></summary>
       <div class="card-body">
       <ul class="mb-2">
         <li><strong>Pathway Stage:</strong> ${buyerSignals.length ? 'Evidence Gathering' : 'Not Started'}</li>
