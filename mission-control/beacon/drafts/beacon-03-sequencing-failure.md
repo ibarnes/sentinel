@@ -1,0 +1,1 @@
+If capital stack sequencing is undefined at pre-FID, governance jurisdiction cannot bind commitments in the order risk must be absorbed. FID boundary then becomes procedural theater: signatures are possible on paper while downside absorption remains structurally unpriced. Sequencing failure is commitment failure, not execution delay.
