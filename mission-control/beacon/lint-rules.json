@@ -22,5 +22,17 @@
       "we are working on",
       "contact us"
     ]
+  },
+  "ruleL1_noSoftTerms": {
+    "description": "Reject soft/non-structural positioning language",
+    "bannedPhrases": [
+      "innovation",
+      "coordination",
+      "transformation",
+      "game changer",
+      "revolutionary",
+      "exciting opportunity",
+      "unlock potential"
+    ]
   }
 }
