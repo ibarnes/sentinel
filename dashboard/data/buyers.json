@@ -1206,5 +1206,141 @@
       "promote_trigger": "Financial close (FID)",
       "recurrence_potential": "Medium (platform-based; dependent on development alignment)"
     }
+  },
+  {
+    "buyer_id": "KOCH",
+    "name": "Koch Industries / Koch Investments Group (KIG)",
+    "type": "Principal Capital / Family-Controlled Industrial Conglomerate",
+    "signal_status": "Monitor",
+    "score": 2.0,
+    "website": "https://www.kochind.com",
+    "confidence": "Medium",
+    "mandate_summary": "Privately held, family-controlled industrial conglomerate with large-scale capital deployment across energy, infrastructure, manufacturing, logistics, and technology.",
+    "geo_focus": [
+      "United States (global footprint)"
+    ],
+    "sector_focus": [
+      "Energy",
+      "Infrastructure",
+      "Industrials",
+      "Logistics",
+      "Manufacturing",
+      "Technology"
+    ],
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "Medium",
+      "timing_urgency": "Medium"
+    },
+    "website_notes": [
+      "Identity = Pre-FID Infrastructure Structuring Authority aligned to large-scale industrial capital deployment",
+      "Identification = Commitment architecture architect (capital stack + governance + FID sequencing), not operator, not consultant, not subcontractor",
+      "Access Physics = Industrial-scale capital bottleneck relevance + principal-level investment routing",
+      "Distribution Mechanics = Capital-to-capital thesis delivery through Koch Investments Group (KIG); no execution framing",
+      "Conversion Physics = Define commitment architecture that enables safe FID on complex industrial platforms -> secure paid Pre-FID Structuring Mandate before capital deployment"
+    ],
+    "initiatives": [],
+    "transfer_hypothesis": "Koch deploys substantial private industrial capital across capital-intensive sectors. When a large multi-actor infrastructure platform cannot safely reach FID due to capital stack misalignment, governance ambiguity, or sequencing risk, Koch (via KIG) can authorize a Pre-FID Infrastructure Structuring Mandate. Upon structural clarity and defined FID boundary, capital deploys through a defined vehicle at FID, with USG participation activating at structural milestone (FID), not operational performance.",
+    "buyer_state": {
+      "reach_profile": [
+        "Principal-controlled capital (family-owned)",
+        "Centralized investment authority through Koch Investments Group",
+        "Deep industrial and energy literacy",
+        "High execution capability internally",
+        "Strong preference for structural clarity before deployment"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Capital stack fragmentation",
+            "Multi-actor coordination risk",
+            "Undefined FID threshold",
+            "Industrial irreversibility exposure",
+            "Governance misalignment across partners"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Koch Investments Group (direct investment arm)",
+            "Corporate strategy leadership",
+            "Co-investors in infrastructure/energy platforms",
+            "Trusted structuring/legal advisors"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Large-scale energy/midstream expansions",
+            "Cross-border industrial deployments",
+            "Critical minerals/infrastructure investments",
+            "Multi-party platform build-outs"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Koch Investments Group leadership",
+            "Principal-level capital allocation authority",
+            "Corporate investment committee"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: HIGH \u2014 Industrial discipline. No exploratory engagement.",
+        "Decision Speed: MODERATE \u2014 Faster than sovereigns; slower than single-family offices.",
+        "Risk Exposure: VERY HIGH \u2014 Large capital exposure; industrial and reputational sensitivity.",
+        "Altitude Sensitivity: CRITICAL \u2014 Must avoid execution bleed.",
+        "Channel Dependence: MEDIUM \u2014 Warm conduit preferred; strong thesis can open door."
+      ],
+      "channels": {
+        "primary": [
+          "Direct routing to Koch Investments Group",
+          "Capital stack thesis aligned with energy/infrastructure platform",
+          "Co-investor alignment entry"
+        ],
+        "secondary": [
+          "Governance-first structuring memo tied to live industrial opportunity"
+        ],
+        "avoid": [
+          "Execution support framing",
+          "Helping build language",
+          "Advisory positioning",
+          "Subcontractor optics"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: identify industrial-scale platform blocked from safe FID by structural ambiguity.",
+        "Step 2 \u2014 Platform Framing: define platform scope, capital stack architecture, governance boundary, explicit FID definition (no unpaid modeling).",
+        "Step 3 \u2014 Structural Alignment: confirm what must be structurally defined before capital can commit and FID can be signed.",
+        "Step 4 \u2014 Mandate Execution: secure paid Pre-FID Infrastructure Structuring Mandate.",
+        "Step 5 \u2014 FID Trigger: capital commits under defined architecture; promote activates at FID milestone."
+      ]
+    },
+    "transfer_chain": {
+      "stored_energy_source": "Private industrial capital base",
+      "budget_program": "Direct infrastructure / energy investment allocation",
+      "funding_type": "Direct equity / structured industrial investment",
+      "approval_authority": "Investment Committee / principal authority",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Capital-intensive industrial deployment requiring governance clarity",
+      "linked_signals_30d": "TBD",
+      "signal_trend": "TBD",
+      "strategic_alignment_thesis": "Commitment architecture reduces structural risk in large-scale industrial FID decisions.",
+      "linked_initiative": "Energy/infrastructure initiative aligned with Koch footprint",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Defined FID boundary + capital stack sequencing + risk allocation matrix + decision jurisdiction clarity",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "0 / 4",
+      "critical_blocker": "Risk of internal structuring preference",
+      "transfer_vehicle": "Signed Pre-FID Structuring Mandate",
+      "payment_trigger": "Mandate acceptance",
+      "estimated_time_to_transfer": "60-120 days (if platform is live and aligned)",
+      "mandate_fee_structure": "Pre-FID structuring mandate",
+      "promote_trigger": "FID",
+      "recurrence_potential": "Medium (platform-based; depends on structural alignment)"
+    }
   }
 ]
