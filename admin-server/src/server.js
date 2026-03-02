@@ -3215,6 +3215,12 @@ app.post('/api/beacons/:id/transition', requireRole('architect','editor'), async
   const toStatus = String(req.body.to_status || '').trim();
   if (!id || !beaconStatusAllowed(toStatus)) return res.status(400).json({ error: 'invalid request' });
 
+  const role = effectiveRole(req) || 'editor';
+  const architectOnly = new Set(['approved', 'published']);
+  if (architectOnly.has(toStatus) && role !== 'architect') {
+    return res.status(403).json({ error: 'architect_required', to_status: toStatus });
+  }
+
   const q = await readBeaconQueue();
   const b = q.beacons.find((x) => String(x.beacon_id || '') === id);
   if (!b) return res.status(404).json({ error: 'beacon not found' });
@@ -3226,9 +3232,22 @@ app.post('/api/beacons/:id/transition', requireRole('architect','editor'), async
 
   b.status = toStatus;
   b.updated_at = nowIso();
-  if (toStatus === 'published') b.published_at = nowIso();
+  if (toStatus === 'approved') b.approved_by = getUserLabel(req);
+  if (toStatus === 'published') {
+    b.published_at = nowIso();
+    if (!b.approved_by) b.approved_by = getUserLabel(req);
+  }
+
   await writeBeaconQueue(q);
-  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'beacon.transition', entity_type: 'beacon', entity_id: id, meta: { from, to: toStatus } });
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role,
+    event_type: 'beacon.transition',
+    entity_type: 'beacon',
+    entity_id: id,
+    meta: { from, to: toStatus, architect_required: architectOnly.has(toStatus) }
+  });
   return res.json({ ok: true, beacon: b });
 });
 
