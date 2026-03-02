@@ -971,7 +971,7 @@ app.get('/dashboard/initiatives', async (req, res) => {
   const byId = Object.fromEntries(buyers.map(b => [b.buyer_id, b.name]));
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const category = String(req.query.category || 'All');
-  const categories = ['All', ...new Set(initiatives.map((i)=>String(i.infrastructure_category || '').trim()).filter(Boolean))];
+  const categories = ['All', ...new Set(initiatives.map((i)=>String(i.infrastructure_category || '').trim()).filter((c)=>Boolean(c) && c !== 'All'))];
   const filtered = category === 'All' ? initiatives : initiatives.filter((i)=>String(i.infrastructure_category || '') === category);
   const sorted = [...filtered].sort((a,b)=>String(a.initiative_id).localeCompare(String(b.initiative_id)));
   const gateOptions = ['Gate 0','Gate 1','Gate 2','Gate 3','Gate 4','Gate 5','Gate 6','Gate 7'];
