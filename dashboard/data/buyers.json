@@ -796,5 +796,142 @@
       "promote_trigger": "FID",
       "recurrence_potential": "High (platform-based)"
     }
+  },
+  {
+    "buyer_id": "HCC",
+    "name": "Henry Crown & Company",
+    "type": "Principal Capital / Private Investment Firm",
+    "signal_status": "Monitor",
+    "score": 2.0,
+    "website": "https://www.henrycrown.com",
+    "confidence": "Medium",
+    "mandate_summary": "Private investment firm managing diversified family capital across industrial, infrastructure, real estate, and public equity platforms.",
+    "geo_focus": [
+      "United States (Chicago-based)"
+    ],
+    "sector_focus": [
+      "Infrastructure",
+      "Industrials",
+      "Energy",
+      "Real Assets",
+      "Private Equity"
+    ],
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "Medium",
+      "timing_urgency": "Medium"
+    },
+    "website_notes": [
+      "Identity = Pre-FID Infrastructure Structuring Authority aligned to long-horizon industrial family capital",
+      "Identification = Platform architect (commitment architecture + FID sequencing), not consultant, not operator",
+      "Access Physics = Industrial-scale capital deployment bottlenecks + principal-level conduit entry",
+      "Distribution Mechanics = Direct routing to investment leadership with a defined platform thesis (no exploratory framing)",
+      "Conversion Physics = Replace structural ambiguity with defined commitment architecture -> secure paid Pre-FID Structuring Mandate before capital deployment"
+    ],
+    "initiatives": [
+      "INIT-653305"
+    ],
+    "transfer_hypothesis": "Henry Crown & Company deploys long-term family capital across industrial-scale platforms. When a multi-actor infrastructure platform cannot reach FID safely due to governance, capital stack, or sequencing ambiguity, Crown can authorize a paid Pre-FID Infrastructure Structuring Mandate. Capital deploys through defined vehicles at FID, with USG participation activating at structural milestone (FID), not operational performance.",
+    "buyer_state": {
+      "reach_profile": [
+        "Principal-controlled capital",
+        "Investment Committee\u2013gated decisions",
+        "Deep industrial literacy",
+        "Long-duration capital posture",
+        "High sensitivity to governance and sequencing discipline"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Capital stack misalignment",
+            "Industrial partner coordination risk",
+            "Undefined FID threshold",
+            "Risk allocation asymmetry",
+            "Cross-border deployment friction"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Investment leadership",
+            "Industrial platform partners",
+            "Co-investors in infrastructure transactions",
+            "Trusted structuring/legal advisors"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Large infrastructure platform expansions",
+            "Multi-actor industrial deals",
+            "Capital redeployment cycles",
+            "Cross-border growth initiatives"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Principal-level investment authority",
+            "Head of direct investments",
+            "Platform investment leadership"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: MODERATE-HIGH \u2014 No broad outreach. Targeted routing only.",
+        "Decision Speed: MODERATE \u2014 Faster than sovereigns, slower than individual family principals.",
+        "Risk Exposure: HIGH \u2014 Industrial capital with reputational sensitivity.",
+        "Altitude Sensitivity: HIGH \u2014 Must remain strictly above execution.",
+        "Channel Dependence: MEDIUM \u2014 Warm conduit preferred; structured thesis can open door."
+      ],
+      "channels": {
+        "primary": [
+          "Direct investment leadership routing",
+          "Co-investor alignment",
+          "Platform-level structuring memo"
+        ],
+        "secondary": [
+          "Governance-first white memo tied to real industrial platform"
+        ],
+        "avoid": [
+          "Consulting framing",
+          "Support language",
+          "Execution participation positioning",
+          "Hypothetical exploration meetings"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: identify real industrial infrastructure platform blocked from safe FID by structural ambiguity.",
+        "Step 2 \u2014 Platform Framing: define scope, governance boundary, capital sequencing logic, and FID definition (no unpaid modeling).",
+        "Step 3 \u2014 Structural Alignment: confirm what must be structurally defined before capital commitment and FID sign-off.",
+        "Step 4 \u2014 Mandate Execution: secure paid Pre-FID Infrastructure Structuring Mandate.",
+        "Step 5 \u2014 FID Trigger: capital commits under defined structure; promote activates at FID milestone."
+      ]
+    },
+    "transfer_chain": {
+      "stored_energy_source": "Crown family permanent capital base",
+      "budget_program": "Direct investment allocation",
+      "funding_type": "Direct equity / structured industrial investment",
+      "approval_authority": "Investment Committee / principal-level authority",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Industrial-scale capital deployment requiring governance clarity",
+      "linked_signals_30d": "TBD",
+      "signal_trend": "TBD",
+      "strategic_alignment_thesis": "Defined commitment architecture reduces industrial deployment risk and accelerates FID clarity.",
+      "linked_initiative": "West Africa Energy Corridor / U.S.-anchored infrastructure initiative",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Defined FID boundary + capital stack clarity + risk allocation matrix + governance alignment model",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "0 / 4",
+      "critical_blocker": "No verified live platform scope",
+      "transfer_vehicle": "Signed Pre-FID Structuring Mandate",
+      "payment_trigger": "Mandate acceptance",
+      "estimated_time_to_transfer": "30-120 days (if platform is concrete)",
+      "mandate_fee_structure": "Pre-FID structuring mandate",
+      "promote_trigger": "FID",
+      "recurrence_potential": "High (platform-based)"
+    }
   }
 ]
