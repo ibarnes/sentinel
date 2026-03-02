@@ -961,13 +961,16 @@ app.get('/dashboard/signals', async (req, res) => {
 
 app.get('/dashboard/beacons', requireAnyAuth, async (req, res) => {
   const q = await readBeaconQueue();
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const rows = [...(q.beacons || [])].sort((a,b)=>String(b.updated_at||'').localeCompare(String(a.updated_at||'')));
   const nextOptions = ['draft','harden','review','approved','published','hold','rejected'];
   res.type('html').send(`<!doctype html><html><head>${uiHead('Beacons')}</head><body><div class="app-shell">
     ${dashboardNav('beacons')}
     ${pageHeader('Beacons Queue', '', 'Sponsor Beacon operating queue with governance transitions')}
-    ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Beacon Draft</strong></summary><div class="card-body"><form method="post" action="/api/beacons" class="row g-2"><div class="col-md-4"><label class="form-label">Title</label><input class="form-control" name="title" required /></div><div class="col-md-4"><label class="form-label">Signal ID</label><input class="form-control" name="signal_id" required /></div><div class="col-md-4"><label class="form-label">Initiative ID</label><input class="form-control" name="initiative_id" required /></div><div class="col-12"><label class="form-label">Mandate Implication</label><input class="form-control" name="mandate_implication" required /></div><div class="col-12"><label class="form-label">Draft Text</label><textarea class="form-control" name="draft_text" rows="3" required></textarea></div><div class="col-12"><button class="btn btn-sm btn-primary">Create Beacon</button></div></form></div></details>` : ''}
+    ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Generate Beacon from Signal</strong></summary><div class="card-body"><form method="post" action="/api/beacons/generate-from-signal" class="row g-2"><div class="col-md-4"><label class="form-label">Signal</label><select class="form-select" name="signal_id" required>${signals.map((s)=>`<option value="${escapeHtml(s.signal_id || '')}">${escapeHtml(s.signal_id || '')} — ${escapeHtml(s.title || '')}</option>`).join('')}</select></div><div class="col-md-4"><label class="form-label">Initiative</label><select class="form-select" name="initiative_id" required>${initiatives.map((i)=>`<option value="${escapeHtml(i.initiative_id || '')}">${escapeHtml(i.initiative_id || '')} — ${escapeHtml(i.name || '')}</option>`).join('')}</select></div><div class="col-md-4"><label class="form-label">Mandate Implication</label><input class="form-control" name="mandate_implication" required /></div><div class="col-12"><button class="btn btn-sm btn-success">Generate Beacon</button></div></form></div></details>
+    <details class="card mb-3"><summary class="card-header"><strong>Add Beacon Draft</strong></summary><div class="card-body"><form method="post" action="/api/beacons" class="row g-2"><div class="col-md-4"><label class="form-label">Title</label><input class="form-control" name="title" required /></div><div class="col-md-4"><label class="form-label">Signal ID</label><input class="form-control" name="signal_id" required /></div><div class="col-md-4"><label class="form-label">Initiative ID</label><input class="form-control" name="initiative_id" required /></div><div class="col-12"><label class="form-label">Mandate Implication</label><input class="form-control" name="mandate_implication" required /></div><div class="col-12"><label class="form-label">Draft Text</label><textarea class="form-control" name="draft_text" rows="3" required></textarea></div><div class="col-12"><button class="btn btn-sm btn-primary">Create Beacon</button></div></form></div></details>` : ''}
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Beacon</th><th>Status</th><th>Signal</th><th>Initiative</th><th>Lint</th><th>Updated</th><th>Actions</th></tr></thead><tbody>
       ${rows.map((b)=>`<tr><td><strong>${escapeHtml(b.title || b.beacon_id || '')}</strong><div class="small mono text-muted">${escapeHtml(b.beacon_id || '')}</div></td><td>${escapeHtml(b.status || '')}</td><td>${escapeHtml(b.signal_id || '')}</td><td>${escapeHtml(b.initiative_id || '')}</td><td>${escapeHtml(b.lint_status || 'UNKNOWN')}</td><td class="mono small">${escapeHtml(String(b.updated_at || '').slice(0,19).replace('T',' '))}</td><td>${canEdit ? `<form method="post" action="/api/beacons/${encodeURIComponent(b.beacon_id || '')}/transition" class="d-flex gap-1"><select class="form-select form-select-sm" name="to_status">${nextOptions.map((s)=>`<option>${s}</option>`).join('')}</select><button class="btn btn-sm btn-outline-primary">Move</button></form>` : '—'}</td></tr>`).join('') || '<tr><td colspan="7">No beacons in queue</td></tr>'}
     </tbody></table></div>
@@ -3227,6 +3230,52 @@ app.post('/api/beacons', requireRole('architect','editor'), async (req, res) => 
     return res.redirect('/dashboard/beacons');
   }
   return res.json({ ok: true, beacon });
+});
+
+function autoDraftBeaconFromSignal(signal) {
+  const title = String(signal?.title || 'Structural Commitment Friction');
+  const summary = String(signal?.summary || '').trim();
+  const friction = summary || 'A platform-level bottleneck is preventing safe commitment at pre-FID.';
+  const boundary = 'If FID boundary and downside absorption are undefined, governance jurisdiction cannot bind signatures safely.';
+  const implication = 'Capital stack sequencing must be defined before commitment can harden.';
+  const draft = `${friction} ${boundary} ${implication}`.trim();
+  return { title: `Beacon: ${title}`, draft_text: draft };
+}
+
+app.post('/api/beacons/generate-from-signal', requireRole('architect','editor'), async (req, res) => {
+  const signal_id = String(req.body.signal_id || '').trim();
+  const initiative_id = String(req.body.initiative_id || '').trim();
+  const mandate_implication = String(req.body.mandate_implication || '').trim();
+  if (!signal_id || !initiative_id || !mandate_implication) {
+    return res.status(400).json({ error: 'signal_id, initiative_id, mandate_implication are required' });
+  }
+
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const signal = signals.find((s) => String(s.signal_id || '') === signal_id);
+  if (!signal) return res.status(400).json({ error: 'invalid signal_id' });
+
+  const q = await readBeaconQueue();
+  const auto = autoDraftBeaconFromSignal(signal);
+  const beacon = {
+    beacon_id: `BEACON-${Date.now()}`,
+    title: auto.title,
+    status: 'draft',
+    signal_id,
+    initiative_id,
+    mandate_implication,
+    draft_text: auto.draft_text,
+    lint_status: 'UNKNOWN',
+    lint_violations: [],
+    created_at: nowIso(),
+    updated_at: nowIso(),
+    created_by: getUserLabel(req),
+    approved_by: null,
+    published_at: null
+  };
+  q.beacons.push(beacon);
+  await writeBeaconQueue(q);
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'beacon.generate', entity_type: 'beacon', entity_id: beacon.beacon_id, meta: { signal_id, initiative_id } });
+  return res.redirect('/dashboard/beacons');
 });
 
 app.post('/api/beacons/:id/transition', requireRole('architect','editor'), async (req, res) => {
