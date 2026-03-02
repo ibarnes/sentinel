@@ -685,7 +685,8 @@ app.use('/dashboard', (req, res, next) => {
 
 app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
   const state = await readJson(DASHBOARD_STATE_FILE, {});
-  const boardCounts = state.board?.counts || {};
+  const liveBoard = await readJson(BOARD_FILE, defaultBoard());
+  const boardCounts = Object.fromEntries(BOARD_COLUMNS.map((c) => [c, (liveBoard.tasks || []).filter((t) => t.status === c).length]));
   const pendingRps = state.pendingReviewPackets ?? 0;
   const latestUosPublish = state.latestUosPublish || 'N/A';
   const recent = await readActivityEvents({ limit: 20 });
