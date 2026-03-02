@@ -1069,5 +1069,142 @@
       "promote_trigger": "FID",
       "recurrence_potential": "High (platform-based)"
     }
+  },
+  {
+    "buyer_id": "DFC",
+    "name": "U.S. International Development Finance Corporation (DFC)",
+    "type": "Federal Development Finance Institution",
+    "signal_status": "Monitor",
+    "score": 2.1,
+    "website": "https://www.dfc.gov",
+    "confidence": "High",
+    "mandate_summary": "Federal development finance institution deploying debt, equity, and project preparation capital to advance U.S.-aligned infrastructure, energy, and strategic development objectives.",
+    "geo_focus": [
+      "Global (Emerging Markets focus)"
+    ],
+    "sector_focus": [
+      "Infrastructure",
+      "Energy",
+      "Digital",
+      "Critical Minerals",
+      "Supply Chain"
+    ],
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "High",
+      "timing_urgency": "Medium"
+    },
+    "website_notes": [
+      "Identity = Pre-FID Infrastructure Structuring Authority aligned to development capital deployment",
+      "Identification = Bankability compression architect (commitment architecture + FID sequencing), not advisor, not implementer",
+      "Access Physics = Project-preparation bottleneck relevance + IC-aligned conduit entry",
+      "Distribution Mechanics = Institutional routing through investment officers; governance-first framing only",
+      "Conversion Physics = De-risk bankability -> secure paid Pre-FID Structuring Mandate before capital deployment"
+    ],
+    "initiatives": [],
+    "transfer_hypothesis": "DFC deploys development-aligned capital through structured investment approvals. When a nation-scale infrastructure platform cannot reach financial close (FID) due to governance, capital stack, or sequencing ambiguity, DFC can support a Pre-FID Infrastructure Structuring Mandate tied to project preparation. Upon structural clarity and defined FID boundary, DFC capital deploys through a vehicle or financing structure, with USG participation activating at structural milestone (FID), not operational performance.",
+    "buyer_state": {
+      "reach_profile": [
+        "Committee-gated approvals (Investment Committee authority)",
+        "Development policy overlay",
+        "High compliance and legal review",
+        "Strong emphasis on bankability and risk containment",
+        "Requires definable FID threshold"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Bankability gap blocking financial close",
+            "Capital stack misalignment",
+            "Governance ambiguity across sovereign + operator + capital",
+            "Undefined FID threshold",
+            "Cross-border coordination risk"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Infrastructure investment officers",
+            "Project preparation leadership",
+            "Sovereign counterparties already aligned with DFC",
+            "Co-financing partners",
+            "Legal/structuring advisors trusted by DFC"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Large emerging market infrastructure announcements",
+            "U.S. strategic supply chain initiatives",
+            "Critical minerals / energy security deployments",
+            "Country compact or bilateral financing cycles"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Investment Committee\u2013adjacent sponsor",
+            "Infrastructure investment leadership",
+            "Project preparation authority"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: HIGH \u2014 Formal process. Structured engagement only.",
+        "Decision Speed: SLOW-MODERATE \u2014 3\u20136+ month structuring window typical.",
+        "Risk Exposure: VERY HIGH \u2014 Political, sovereign, reputational, compliance risk.",
+        "Altitude Sensitivity: HIGH \u2014 Must remain above execution.",
+        "Channel Dependence: HIGH \u2014 Warm sovereign or capital conduit preferred."
+      ],
+      "channels": {
+        "primary": [
+          "Sovereign-aligned introducer",
+          "Co-financing partner alignment",
+          "Defined project preparation dialogue",
+          "Governance and capital sequencing memo"
+        ],
+        "secondary": [
+          "Sector-aligned infrastructure brief routed through IC-adjacent officer"
+        ],
+        "avoid": [
+          "Advisory framing",
+          "Hypothetical exploration",
+          "Vendor introduction without mandate",
+          "Execution support positioning"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: identify development-aligned infrastructure platform blocked from financial close by structural ambiguity.",
+        "Step 2 \u2014 Platform Framing: define scope boundary, capital sequencing, governance model, and explicit FID definition (no unpaid modeling).",
+        "Step 3 \u2014 Structural Alignment: confirm what must be structurally defined before capital can deploy and FID can be approved.",
+        "Step 4 \u2014 Mandate Execution: secure paid Pre-FID Infrastructure Structuring Mandate tied to project preparation.",
+        "Step 5 \u2014 FID Trigger: capital commits at financial close; promote activates at structural milestone."
+      ]
+    },
+    "transfer_chain": {
+      "stored_energy_source": "DFC investment allocation (debt/equity authority)",
+      "budget_program": "Infrastructure / Energy investment envelope",
+      "funding_type": "Debt, equity, guarantees, project preparation",
+      "approval_authority": "DFC Investment Committee",
+      "verification_status": "Partially Verified",
+      "confidence_level": "High",
+      "primary_infrastructure_pressure": "Development-aligned capital allocated but structurally unable to deploy",
+      "linked_signals_30d": "TBD",
+      "signal_trend": "TBD",
+      "strategic_alignment_thesis": "Defined commitment architecture accelerates bankability and reduces deployment risk.",
+      "linked_initiative": "West Africa Energy Corridor / Emerging market platform",
+      "recognition_evidence_status": "Partial",
+      "required_governance_artifacts": "Defined FID boundary + capital stack clarity + risk allocation matrix + sovereign alignment structure",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "0 / 4",
+      "critical_blocker": "No verified live capital allocation tied to specific platform",
+      "transfer_vehicle": "Signed Pre-FID Structuring Mandate",
+      "payment_trigger": "Mandate approval",
+      "estimated_time_to_transfer": "3-6+ months",
+      "mandate_fee_structure": "Pre-FID structuring mandate",
+      "promote_trigger": "Financial close (FID)",
+      "recurrence_potential": "Medium (platform-based; dependent on development alignment)"
+    }
   }
 ]
