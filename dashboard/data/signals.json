@@ -260,5 +260,29 @@
         "url": "https://x.com/dangotegroup/status/2027419467332931602?s=46"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-DFC-NDAA-001",
+    "title": "DFC FY26 NDAA mandate expansion materially increases strategic capital deployment headroom",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "High",
+    "observed_at": "2026-03-02T03:41:00Z",
+    "buyer_ids": [
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-653305"
+    ],
+    "summary": "Reported FY26 NDAA changes significantly expand DFC balance-sheet capacity, equity flexibility, and strategic sector/geographic investment authorities, improving pre-FID platform structuring feasibility across critical sectors.",
+    "flow": "Expanded mandate/capacity -> stronger early-stage de-risking tools -> improved pre-FID structuring viability -> higher probability of capital deployment at FID",
+    "verification_note": "High relevance. Keep Monitor until first-party statutory/official confirmation links are attached in-source bundle.",
+    "sources": [
+      {
+        "label": "User-provided strategic summary (FY26 NDAA/DFC)",
+        "url": "internal://chat/2026-03-02-dfc-ndaa"
+      }
+    ]
   }
 ]
