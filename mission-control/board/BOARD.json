@@ -1674,7 +1674,7 @@
     {
       "id": "TASK-0068",
       "title": "TS-SBP1.2 Implement lint guardrails for Rule A/Rule B",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1689,10 +1689,17 @@
         "rule-b"
       ],
       "description": "Add deterministic lint checks that auto-reject drafts containing authority claims or mandate-offer language.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-sbp1-2",
+          "author": "sentinel",
+          "text": "Implemented lint rules + script + usage docs + pass/reject examples for Rule A/B guardrails.",
+          "created_at": "2026-03-02T17:31:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T16:56:00Z",
+      "updated_at": "2026-03-02T17:31:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },

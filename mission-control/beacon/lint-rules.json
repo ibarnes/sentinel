@@ -1,0 +1,26 @@
+{
+  "ruleA_noAuthorityClaims": {
+    "description": "No future-tense authority claims",
+    "bannedPhrases": [
+      "we help",
+      "we support",
+      "we guide",
+      "we solve",
+      "we can",
+      "we will"
+    ]
+  },
+  "ruleB_noMandateOffer": {
+    "description": "No embedded mandate offer / CTA",
+    "bannedPhrases": [
+      "if this is you, let's talk",
+      "if this is you let\u2019s talk",
+      "reach out",
+      "dm me",
+      "book time",
+      "we're working on",
+      "we are working on",
+      "contact us"
+    ]
+  }
+}

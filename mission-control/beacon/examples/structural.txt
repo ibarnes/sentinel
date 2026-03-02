@@ -1,0 +1,1 @@
+If FID requires multiple signatures but downside absorption is undefined, the platform is structurally unsignable.
