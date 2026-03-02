@@ -842,8 +842,15 @@ app.get('/dashboard/uos', async (_req, res) => {
 app.get('/dashboard/buyers', async (req, res) => {
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const sector = req.query.sector ? String(req.query.sector) : '';
+  const page = Math.max(1, Number(req.query.page || 1));
+  const perPage = Math.min(50, Math.max(5, Number(req.query.per_page || 10)));
   const filtered = buyers.filter(b => !sector || (b.sector_focus || []).includes(sector))
     .sort((a,b)=>Number(b.score||0)-Number(a.score||0));
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / perPage));
+  const currentPage = Math.min(page, totalPages);
+  const start = (currentPage - 1) * perPage;
+  const pageRows = filtered.slice(start, start + perPage);
   const sectors = [...new Set(buyers.flatMap(b=>b.sector_focus||[]))].sort();
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
@@ -862,8 +869,9 @@ app.get('/dashboard/buyers', async (req, res) => {
         <div class="col-12"><button class="btn btn-primary" type="submit">Save Buyer</button></div>
       </form>
     </div></div></div>` : ''}
-    <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div><div class="col-auto"><a class="btn btn-outline-secondary" href="/dashboard/signals">Open Signal Register</a></div></form>
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Tracking</th><th>Sectors</th></tr></thead><tbody>${filtered.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a><div class="small text-muted mono">${escapeHtml(b.buyer_id || '')}</div></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td><span class="badge text-bg-${String(b.signal_status||'Monitor') === 'Verified' ? 'success' : (String(b.signal_status||'Monitor') === 'Actioned' ? 'primary' : 'secondary')}">${escapeHtml(String(b.signal_status||'Monitor'))}</span></td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('')}</tbody></table></div>
+    <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-2"><select class="form-select" name="per_page"><option value="10" ${perPage===10?'selected':''}>10</option><option value="20" ${perPage===20?'selected':''}>20</option><option value="50" ${perPage===50?'selected':''}>50</option></select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div><div class="col-auto"><a class="btn btn-outline-secondary" href="/dashboard/signals">Open Signal Register</a></div></form>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Tracking</th><th>Sectors</th></tr></thead><tbody>${pageRows.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a><div class="small text-muted mono">${escapeHtml(b.buyer_id || '')}</div></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td><span class="badge text-bg-${String(b.signal_status||'Monitor') === 'Verified' ? 'success' : (String(b.signal_status||'Monitor') === 'Actioned' ? 'primary' : 'secondary')}">${escapeHtml(String(b.signal_status||'Monitor'))}</span></td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('') || '<tr><td colspan="5">No buyers found</td></tr>'}</tbody></table></div>
+    <div class="d-flex justify-content-between align-items-center small text-muted mb-3"><span>Showing ${start + 1}-${Math.min(start + perPage, total)} of ${total}</span><div class="btn-group btn-group-sm"><a class="btn btn-outline-secondary ${currentPage<=1?'disabled':''}" href="?sector=${encodeURIComponent(sector)}&per_page=${perPage}&page=${Math.max(1,currentPage-1)}">Prev</a><span class="btn btn-outline-secondary disabled">Page ${currentPage} / ${totalPages}</span><a class="btn btn-outline-secondary ${currentPage>=totalPages?'disabled':''}" href="?sector=${encodeURIComponent(sector)}&per_page=${perPage}&page=${Math.min(totalPages,currentPage+1)}">Next</a></div></div>
 
     ${canEdit ? `<div class="card mt-3"><div class="card-body">
       <h6>Initiative Idea Builder (UOS-grounded)</h6>
