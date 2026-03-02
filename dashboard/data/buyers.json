@@ -933,5 +933,140 @@
       "promote_trigger": "FID",
       "recurrence_potential": "High (platform-based)"
     }
+  },
+  {
+    "buyer_id": "ANSCHUTZ",
+    "name": "The Anschutz Corporation",
+    "type": "Principal Capital / Private Industrial Investment Platform",
+    "signal_status": "Monitor",
+    "score": 2.0,
+    "website": "https://www.anschutz.com",
+    "confidence": "Medium",
+    "mandate_summary": "Privately held family-controlled industrial and infrastructure investment platform with diversified exposure across energy, real assets, transportation, entertainment, and telecommunications.",
+    "geo_focus": [
+      "United States (Denver-based; national + international footprint)"
+    ],
+    "sector_focus": [
+      "Energy",
+      "Infrastructure",
+      "Real Assets",
+      "Logistics",
+      "Transport",
+      "Telecommunications"
+    ],
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "Medium",
+      "timing_urgency": "Medium"
+    },
+    "website_notes": [
+      "Identity = Pre-FID Infrastructure Structuring Authority aligned to industrial-scale private capital deployment",
+      "Identification = Commitment architecture architect (capital stack + governance + FID sequencing), not operator, not advisor",
+      "Access Physics = Industrial platform bottleneck relevance + principal-level capital routing",
+      "Distribution Mechanics = Direct, thesis-driven routing to investment leadership; no execution framing",
+      "Conversion Physics = Replace structural ambiguity with defined commitment architecture -> secure paid Pre-FID Structuring Mandate before capital moves"
+    ],
+    "initiatives": [],
+    "transfer_hypothesis": "Anschutz deploys long-duration private capital across capital-intensive sectors (energy, infrastructure, logistics). When a large multi-actor infrastructure platform cannot safely reach FID due to governance or capital stack ambiguity, Anschutz can authorize a Pre-FID Infrastructure Structuring Mandate. Capital then deploys through a defined vehicle at FID, with USG participation activating at the structural milestone (FID), not operational performance.",
+    "buyer_state": {
+      "reach_profile": [
+        "Principal-controlled capital",
+        "Investment Committee\u2013gated authority",
+        "Deep energy and infrastructure literacy",
+        "High sensitivity to industrial risk allocation",
+        "Prefers structural clarity before deployment"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Capital stack misalignment",
+            "Governance ambiguity",
+            "Undefined FID boundary",
+            "Cross-actor coordination risk",
+            "Infrastructure irreversibility exposure"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Direct investment leadership",
+            "Strategic investment officers",
+            "Co-investors in energy/infrastructure transactions",
+            "Trusted legal/structuring advisors"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Large-scale energy infrastructure expansions",
+            "Transmission/logistics platform growth",
+            "Multi-actor capital partnerships",
+            "Cross-border industrial deployments"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Principal-level authority",
+            "Investment Committee\u2013adjacent leadership",
+            "Strategic capital deployment heads"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: MODERATE-HIGH \u2014 No broad outreach. Structured memo only.",
+        "Decision Speed: MODERATE \u2014 Industrial discipline; not bureaucratic but not impulsive.",
+        "Risk Exposure: HIGH \u2014 Capital-intensive sectors; downside containment critical.",
+        "Altitude Sensitivity: HIGH \u2014 Must remain above execution.",
+        "Channel Dependence: MEDIUM \u2014 Warm conduit preferred; cold possible if thesis is strong."
+      ],
+      "channels": {
+        "primary": [
+          "Direct investment leadership routing",
+          "Co-investor alignment",
+          "Platform-level structuring memo"
+        ],
+        "secondary": [
+          "Governance-first memo via IC-adjacent contact"
+        ],
+        "avoid": [
+          "Execution/consulting framing",
+          "Generic networking outreach",
+          "Exploratory non-mandate requests"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: identify platform blocked from safe FID by structural ambiguity.",
+        "Step 2 \u2014 Platform Framing: define scope, governance boundary, capital sequencing logic, and FID definition.",
+        "Step 3 \u2014 Structural Alignment: confirm what must be structurally true before capital commitment.",
+        "Step 4 \u2014 Mandate Execution: secure paid Pre-FID Infrastructure Structuring Mandate.",
+        "Step 5 \u2014 FID Trigger: capital commits under defined structure; USG participation activates at FID milestone."
+      ]
+    },
+    "transfer_chain": {
+      "stored_energy_source": "Anschutz private permanent capital base",
+      "budget_program": "Direct strategic investment allocation",
+      "funding_type": "Direct equity / structured industrial investment",
+      "approval_authority": "Investment Committee / principal-level authority",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Industrial platform deployment blocked by governance/capital sequencing ambiguity",
+      "linked_signals_30d": "TBD",
+      "signal_trend": "TBD",
+      "strategic_alignment_thesis": "Defined commitment architecture reduces industrial deployment risk and accelerates FID clarity.",
+      "linked_initiative": "TBD",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Defined FID boundary + capital stack clarity + risk allocation matrix + governance alignment model",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "0 / 4",
+      "critical_blocker": "No verified live platform scope",
+      "transfer_vehicle": "Signed Pre-FID Structuring Mandate",
+      "payment_trigger": "Mandate acceptance",
+      "estimated_time_to_transfer": "30-120 days (if platform is concrete)",
+      "mandate_fee_structure": "Pre-FID structuring mandate",
+      "promote_trigger": "FID",
+      "recurrence_potential": "High (platform-based)"
+    }
   }
 ]
