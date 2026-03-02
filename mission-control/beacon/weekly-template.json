@@ -1,0 +1,39 @@
+{
+  "template_id": "BEACON-WEEKLY-CYCLE-V1",
+  "name": "Weekly Sponsor Beacon Cycle",
+  "cadence": "weekly",
+  "days": [
+    {
+      "day": "Monday",
+      "task": "Select one live friction signal",
+      "output": "Selected signal_id + initiative_id + mandate implication"
+    },
+    {
+      "day": "Tuesday",
+      "task": "Draft one beacon (60-140 words)",
+      "output": "Draft text in beacon queue status=draft"
+    },
+    {
+      "day": "Wednesday",
+      "task": "Architecture hardening",
+      "output": "Refined text status=harden"
+    },
+    {
+      "day": "Thursday",
+      "task": "Approve or reject",
+      "output": "architect decision status=approved|rejected|hold"
+    },
+    {
+      "day": "Friday",
+      "task": "Publish or hold",
+      "output": "status=published|hold"
+    }
+  ],
+  "rules": {
+    "no_cta": true,
+    "ruleA_authority_claims": "forbidden",
+    "ruleB_mandate_offer": "forbidden",
+    "lint_required": true,
+    "linkage_required": ["signal_id", "initiative_id", "mandate_implication"]
+  }
+}

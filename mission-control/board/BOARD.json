@@ -2184,7 +2184,7 @@
     {
       "id": "TASK-0086",
       "title": "TS-SBP2.2a Build weekly beacon board template",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2198,17 +2198,24 @@
         "weekly-template"
       ],
       "description": "Create recurring Mon-Fri template tasks tied to one beacon per week.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-sbp-22a",
+          "author": "sentinel",
+          "text": "Added weekly beacon template JSON and seeded recurring Monday-Friday board tasks.",
+          "created_at": "2026-03-02T19:53:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:47:00Z",
+      "updated_at": "2026-03-02T19:53:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0087",
       "title": "TS-SBP2.2b Add cadence runbook documentation",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2225,7 +2232,117 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T17:39:00Z",
+      "updated_at": "2026-03-02T19:53:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0088",
+      "title": "Beacon Weekly \u2014 Monday signal selection",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "beacon-weekly",
+        "story:US-SBP2"
+      ],
+      "linked_refs": [
+        "BEACON-WEEKLY-CYCLE-V1"
+      ],
+      "description": "Pick one live friction signal and link one initiative + mandate implication.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T19:53:00Z",
+      "updated_at": "2026-03-02T19:53:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0089",
+      "title": "Beacon Weekly \u2014 Tuesday draft",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "beacon-weekly",
+        "story:US-SBP2"
+      ],
+      "linked_refs": [
+        "BEACON-WEEKLY-CYCLE-V1"
+      ],
+      "description": "Draft one beacon in queue (60-140 words, structural framing only).",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T19:53:00Z",
+      "updated_at": "2026-03-02T19:53:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0090",
+      "title": "Beacon Weekly \u2014 Wednesday hardening",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "beacon-weekly",
+        "story:US-SBP2"
+      ],
+      "linked_refs": [
+        "BEACON-WEEKLY-CYCLE-V1"
+      ],
+      "description": "Harden architecture language and remove soft/non-structural phrasing.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T19:53:00Z",
+      "updated_at": "2026-03-02T19:53:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0091",
+      "title": "Beacon Weekly \u2014 Thursday approval",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "beacon-weekly",
+        "story:US-SBP2"
+      ],
+      "linked_refs": [
+        "BEACON-WEEKLY-CYCLE-V1"
+      ],
+      "description": "Architect approval/reject/hold decision with audit trail.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T19:53:00Z",
+      "updated_at": "2026-03-02T19:53:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0092",
+      "title": "Beacon Weekly \u2014 Friday publish/hold",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "beacon-weekly",
+        "story:US-SBP2"
+      ],
+      "linked_refs": [
+        "BEACON-WEEKLY-CYCLE-V1"
+      ],
+      "description": "Publish approved beacon or hold with reason.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T19:53:00Z",
+      "updated_at": "2026-03-02T19:53:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
