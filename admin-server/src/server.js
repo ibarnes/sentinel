@@ -1055,7 +1055,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     <h3>${escapeHtml(b.name)}</h3>
     <p>${escapeHtml(b.mandate_summary || '')}</p>
     <ul><li><strong>Score:</strong> ${b.score ?? ''}</li><li><strong>Geo:</strong> ${escapeHtml((b.geo_focus||[]).join(', '))}</li><li><strong>Sectors:</strong> ${escapeHtml((b.sector_focus||[]).join(', '))}</li><li><strong>Tracking Status:</strong> ${escapeHtml(String(b.signal_status || 'Monitor'))}</li><li><strong>Website:</strong> ${b.website ? `<a href="${escapeHtml(String(b.website))}" target="_blank" rel="noopener noreferrer">${escapeHtml(String(b.website))}</a>` : 'Not set'}</li></ul>
-    ${Array.isArray(b.website_notes) && b.website_notes.length ? `<div class="card mb-3"><div class="card-body"><h6>Strategic Buyer Profile</h6><ul class="mb-0">${b.website_notes.map((n)=>`<li>${escapeHtml(String(n))}</li>`).join('')}</ul></div></div>` : ''}
+    ${Array.isArray(b.website_notes) && b.website_notes.length ? `<div class="card mb-3"><div class="card-body"><h6>USG Positioning</h6><ul class="mb-0">${b.website_notes.map((n)=>`<li>${escapeHtml(String(n))}</li>`).join('')}</ul></div></div>` : ''}
 
     <details class="card mb-3">
       <summary class="card-header"><strong>Linked Initiatives</strong></summary>
