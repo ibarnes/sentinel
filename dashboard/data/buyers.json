@@ -1342,5 +1342,140 @@
       "promote_trigger": "FID",
       "recurrence_potential": "Medium (platform-based; depends on structural alignment)"
     }
+  },
+  {
+    "buyer_id": "COX",
+    "name": "Cox Enterprises",
+    "type": "Principal Capital / Family-Controlled Diversified Platform",
+    "signal_status": "Monitor",
+    "score": 2.0,
+    "website": "https://www.coxenterprises.com",
+    "confidence": "Medium",
+    "mandate_summary": "Privately held, family-controlled diversified investment and operating platform with capital deployment across energy, infrastructure, telecommunications, logistics, and technology.",
+    "geo_focus": [
+      "United States (Atlanta-based; national footprint)"
+    ],
+    "sector_focus": [
+      "Energy",
+      "Infrastructure",
+      "Telecommunications",
+      "Digital",
+      "Logistics"
+    ],
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "Medium",
+      "timing_urgency": "Medium"
+    },
+    "website_notes": [
+      "Identity = Pre-FID Infrastructure Structuring Authority aligned to multi-sector family-controlled capital deployment",
+      "Identification = Commitment architecture architect (capital stack + governance + FID sequencing), not consultant, not operator, not portfolio support",
+      "Access Physics = Portfolio-level capital deployment bottlenecks + principal-level investment routing",
+      "Distribution Mechanics = Direct capital-to-capital engagement through corporate investment leadership; no execution framing",
+      "Conversion Physics = Collapse structural ambiguity in cross-actor infrastructure platforms -> secure paid Pre-FID Structuring Mandate before capital deployment"
+    ],
+    "initiatives": [],
+    "transfer_hypothesis": "Cox Enterprises deploys long-horizon private capital across operating subsidiaries and strategic investments. When a large multi-actor infrastructure or energy platform cannot safely reach FID due to governance, capital stack, or sequencing ambiguity, Cox can authorize a Pre-FID Infrastructure Structuring Mandate. Capital then deploys at FID through a defined vehicle or equity structure, with USG participation activating at the structural milestone (FID), not operational performance.",
+    "buyer_state": {
+      "reach_profile": [
+        "Principal-controlled capital",
+        "Corporate investment arm with structured decision process",
+        "Portfolio-company heavy orientation",
+        "Deep operating expertise across sectors",
+        "Strong risk discipline"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Multi-actor coordination risk",
+            "Capital stack misalignment",
+            "Undefined FID threshold",
+            "Governance ambiguity",
+            "Cross-jurisdiction infrastructure complexity"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Corporate investment leadership",
+            "Strategy and capital allocation heads",
+            "Co-investors in infrastructure/energy platforms",
+            "Trusted structuring/legal advisors"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Large infrastructure or energy expansions",
+            "Telecommunications infrastructure scaling",
+            "Multi-party strategic partnerships",
+            "Capital redeployment cycles"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Corporate investment authority",
+            "Principal-level capital allocation decision makers",
+            "Investment Committee\u2013adjacent leadership"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: MODERATE \u2014 Structured thesis required.",
+        "Decision Speed: MODERATE \u2014 Corporate governance but not public-sector drag.",
+        "Risk Exposure: HIGH \u2014 Industrial and reputational risk sensitivity.",
+        "Altitude Sensitivity: HIGH \u2014 Must remain above portfolio-company execution.",
+        "Channel Dependence: MEDIUM \u2014 Warm conduit helpful; strong platform thesis can open door."
+      ],
+      "channels": {
+        "primary": [
+          "Corporate investment routing",
+          "Platform-level capital stack memo",
+          "Co-investor alignment"
+        ],
+        "secondary": [
+          "Governance + FID boundary framing tied to defined infrastructure opportunity"
+        ],
+        "avoid": [
+          "Advisory support positioning",
+          "Execution facilitation framing",
+          "Portfolio-optimization optics",
+          "Helping build language"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: identify infrastructure/energy platform blocked from safe FID by structural ambiguity.",
+        "Step 2 \u2014 Platform Framing: define platform scope, governance boundary, capital sequencing logic, and explicit FID definition (no unpaid modeling).",
+        "Step 3 \u2014 Structural Alignment: confirm what must be structurally defined before capital can commit and FID can be signed.",
+        "Step 4 \u2014 Mandate Execution: secure paid Pre-FID Infrastructure Structuring Mandate.",
+        "Step 5 \u2014 FID Trigger: capital commits under defined architecture; promote activates at FID milestone."
+      ]
+    },
+    "transfer_chain": {
+      "stored_energy_source": "Private family-controlled capital allocation",
+      "budget_program": "Corporate investment / strategic capital allocation",
+      "funding_type": "Direct equity / structured investment",
+      "approval_authority": "Investment Committee / principal authority",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Capital-intensive infrastructure deployment requiring governance clarity",
+      "linked_signals_30d": "TBD",
+      "signal_trend": "TBD",
+      "strategic_alignment_thesis": "Commitment architecture reduces structural risk and clarifies capital deployment sequencing.",
+      "linked_initiative": "TBD",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Defined FID boundary + capital stack clarity + risk allocation matrix + decision jurisdiction mapping",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "0 / 4",
+      "critical_blocker": "Portfolio execution gravity risk",
+      "transfer_vehicle": "Signed Pre-FID Structuring Mandate",
+      "payment_trigger": "Mandate acceptance",
+      "estimated_time_to_transfer": "60-120 days (if platform is live)",
+      "mandate_fee_structure": "Pre-FID structuring mandate",
+      "promote_trigger": "FID",
+      "recurrence_potential": "Medium (platform-based; dependent on governance alignment)"
+    }
   }
 ]
