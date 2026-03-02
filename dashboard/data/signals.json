@@ -512,11 +512,15 @@
     ],
     "summary": "Live licensed and revenue-generating financial-energy operating system in Nigeria with 2000+ physical fuel nodes, corporate client traction, and multi-layer money/energy/commerce/governance integration.",
     "flow": "Licensed banking + active revenue + physical node density -> execution credibility and definability lift for infrastructure and capital mandate pathways",
-    "verification_note": "Tier 1 internal signal weighting due to regulated status, active revenues, and physical infrastructure footprint. Add App Store URL and partner attribution for external-source completeness.",
+    "verification_note": "Tier 1 internal signal weighting due to regulated status, active revenues, and physical infrastructure footprint. Add App Store URL and partner attribution for external-source completeness. App Store URL attached.",
     "sources": [
       {
         "label": "User-provided operational proof summary",
         "url": "internal://chat/2026-03-02-live-financial-energy-os"
+      },
+      {
+        "label": "Apple App Store listing \u2014 Quick Microfinance Bank",
+        "url": "https://apps.apple.com/us/app/quick-microfinance-bank/id1614636080"
       }
     ],
     "internal_weight_tier": "Tier 1",
