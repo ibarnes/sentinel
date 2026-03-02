@@ -54,7 +54,86 @@
       "Access Physics = Capital-to-capital conduit + bottleneck relevance",
       "Distribution Mechanics = Precision routing through trusted channels",
       "Conversion Physics = Collapse structural ambiguity -> secure mandate before FID"
-    ]
+    ],
+    "buyer_state": {
+      "reach_profile": [
+        "High shielding",
+        "Committee-gated decisions",
+        "High risk exposure",
+        "High altitude symmetry sensitivity",
+        "High channel dependence"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Cross-border governance ambiguity",
+            "Capital stack misalignment",
+            "Multi-actor coordination risk",
+            "FID sequencing risk"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "CFO-level conduits",
+            "Investment Committee references",
+            "Sovereign-aligned capital partners",
+            "Co-investors",
+            "Legal / structuring advisors already trusted"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "New strategy cycles (2026\u20132030 plan)",
+            "Major capital redeployments",
+            "Announced mega-platform investments",
+            "Vendor gate updates",
+            "New sector expansion pushes"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Investment Committee exposure",
+            "Principal-level sponsor",
+            "Strategic investment head"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: HIGH \u2014 No broad marketing.",
+        "Decision Speed: SLOW \u2014 Long cycle. Sequencing matters.",
+        "Risk Exposure: MASSIVE \u2014 Reduce downside first.",
+        "Altitude Sensitivity: CRITICAL \u2014 Capital-to-capital signals only.",
+        "Channel Dependence: HIGH \u2014 Warm conduits required."
+      ],
+      "channels": {
+        "primary": [
+          "Trusted sovereign-aligned introducer",
+          "Co-investor alignment",
+          "Capital stack collaboration entry",
+          "Legal/governance structuring referral"
+        ],
+        "secondary": [
+          "Strategic sector alignment memo routed through IC-adjacent contact"
+        ],
+        "avoid": [
+          "Cold email campaigns",
+          "Thought leadership targeting them",
+          "Event sponsorship as primary entry",
+          "\u201cLet\u2019s explore\u201d meetings"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: Identify structural ambiguity blocking safe FID commitment.",
+        "Step 2 \u2014 Platform Framing: Define scope, capital alignment logic, FID boundary, governance architecture (no advisory drift).",
+        "Step 3 \u2014 Structural Alignment: Confirm structural prerequisites before FID can be signed.",
+        "Step 4 \u2014 Mandate Execution: Secure pre-FID infrastructure structuring mandate (fee before architecture).",
+        "Step 5 \u2014 FID Trigger: Capital commits under defined structure; promote activates at structural milestone."
+      ]
+    }
   },
   {
     "buyer_id": "GIC",

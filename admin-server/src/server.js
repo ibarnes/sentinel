@@ -1090,6 +1090,26 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
       </div>
     </details>
 
+    <details class="card mb-3" open>
+      <summary class="card-header"><strong>Buyer State</strong></summary>
+      <div class="card-body">
+        ${b.buyer_state ? `
+          <h6>How You Actually Reach ${escapeHtml(b.buyer_id || 'Buyer')}</h6>
+          <ul class="small">${(b.buyer_state.reach_profile || []).map((x)=>`<li>${escapeHtml(String(x))}</li>`).join('')}</ul>
+          <h6>The 4 Real Pathways</h6>
+          ${(b.buyer_state.pathways || []).map((p)=>`<div class="mb-2"><strong>${escapeHtml(String(p.title||''))}</strong><ul class="small mb-1">${(p.points||[]).map((x)=>`<li>${escapeHtml(String(x))}</li>`).join('')}</ul></div>`).join('')}
+          <h6>How You Move Inside Their System</h6>
+          <ul class="small">${(b.buyer_state.system_dynamics || []).map((x)=>`<li>${escapeHtml(String(x))}</li>`).join('')}</ul>
+          <h6>Channels That Fit</h6>
+          <div class="small"><strong>Primary</strong><ul>${((b.buyer_state.channels||{}).primary || []).map((x)=>`<li>${escapeHtml(String(x))}</li>`).join('')}</ul></div>
+          <div class="small"><strong>Secondary</strong><ul>${((b.buyer_state.channels||{}).secondary || []).map((x)=>`<li>${escapeHtml(String(x))}</li>`).join('')}</ul></div>
+          <div class="small"><strong>Avoid</strong><ul>${((b.buyer_state.channels||{}).avoid || []).map((x)=>`<li>${escapeHtml(String(x))}</li>`).join('')}</ul></div>
+          <h6>How It Converts to Mandate</h6>
+          <ol class="small mb-0">${(b.buyer_state.conversion_steps || []).map((x)=>`<li>${escapeHtml(String(x))}</li>`).join('')}</ol>
+        ` : `<div class="small text-muted">No buyer-state profile yet for this buyer.</div>`}
+      </div>
+    </details>
+
     ${tc ? `<details class="card mb-3">
       <summary class="card-header"><strong>Transfer Chain (Operational View)</strong></summary>
       <div class="card-body">
