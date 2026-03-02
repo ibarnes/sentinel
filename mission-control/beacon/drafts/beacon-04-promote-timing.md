@@ -1,0 +1,1 @@
+If promote activates after operations instead of at FID boundary, governance jurisdiction has already transferred risk without pricing structural downside absorption. Capital stack sequencing then rewards execution outcomes while commitment architecture remains unpriced at signature. Promote timing is an architecture signal of whether commitment risk was actually resolved.
