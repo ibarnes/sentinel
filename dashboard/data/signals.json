@@ -490,5 +490,36 @@
         "url": "https://africa.businessinsider.com/local/markets/nigeria-touts-a-dollar25-billion-plan-to-end-its-electricity-problems/n1z4237"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-NG-LIVE-FINENERGY-001",
+    "title": "Live Regulated Financial-Energy Operating System \u2014 Nigeria",
+    "signal_class": "Capital Reality",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-02T21:25:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "AfDB",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-653305",
+      "INIT-AI-OPT-D"
+    ],
+    "summary": "Live licensed and revenue-generating financial-energy operating system in Nigeria with 2000+ physical fuel nodes, corporate client traction, and multi-layer money/energy/commerce/governance integration.",
+    "flow": "Licensed banking + active revenue + physical node density -> execution credibility and definability lift for infrastructure and capital mandate pathways",
+    "verification_note": "Tier 1 internal signal weighting due to regulated status, active revenues, and physical infrastructure footprint. Add App Store URL and partner attribution for external-source completeness.",
+    "sources": [
+      {
+        "label": "User-provided operational proof summary",
+        "url": "internal://chat/2026-03-02-live-financial-energy-os"
+      }
+    ],
+    "internal_weight_tier": "Tier 1",
+    "execution_capability_proof": "Very Strong"
   }
 ]
