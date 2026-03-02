@@ -13,6 +13,8 @@ def norm(s: str) -> str:
 def lint(text: str):
     t = norm(text)
     violations = []
+    hard_term_hits = []
+
     for rule_id, rule in RULES.items():
         for phrase in rule.get('bannedPhrases', []):
             if phrase in t:
@@ -21,7 +23,21 @@ def lint(text: str):
                     'phrase': phrase,
                     'description': rule.get('description', '')
                 })
-    return violations
+
+    req = RULES.get('ruleL2_requiredHardTerms', {})
+    required = req.get('requiredPhrases', [])
+    min_required = int(req.get('minRequiredMatches', 0))
+    for phrase in required:
+        if phrase in t:
+            hard_term_hits.append(phrase)
+    if len(hard_term_hits) < min_required:
+        violations.append({
+            'rule': 'ruleL2_requiredHardTerms',
+            'phrase': ', '.join(required),
+            'description': f"requires at least {min_required} hard-term matches; found {len(hard_term_hits)}"
+        })
+
+    return violations, hard_term_hits
 
 
 def main():
@@ -30,10 +46,11 @@ def main():
     else:
         text = sys.stdin.read()
 
-    violations = lint(text)
+    violations, hard_term_hits = lint(text)
     out = {
         'status': 'PASS' if not violations else 'REJECT',
         'violationCount': len(violations),
+        'hardTermHits': hard_term_hits,
         'violations': violations
     }
     print(json.dumps(out, indent=2))

@@ -34,5 +34,15 @@
       "exciting opportunity",
       "unlock potential"
     ]
+  },
+  "ruleL2_requiredHardTerms": {
+    "description": "Require structural hard terms in beacon text",
+    "requiredPhrases": [
+      "fid boundary",
+      "downside absorption",
+      "governance jurisdiction",
+      "capital stack sequencing"
+    ],
+    "minRequiredMatches": 2
   }
 }

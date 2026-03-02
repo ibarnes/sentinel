@@ -2122,7 +2122,7 @@
     {
       "id": "TASK-0084",
       "title": "TS-SBP1.2-L2 Add required hard-term checker",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2136,17 +2136,24 @@
         "lint-hard-terms"
       ],
       "description": "Require hard terms: FID boundary, downside absorption, governance jurisdiction, capital stack sequencing.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-sbp-l2",
+          "author": "sentinel",
+          "text": "Added required hard-term matching rule (min 2 matches) and lint output hardTermHits.",
+          "created_at": "2026-03-02T19:44:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:36:00Z",
+      "updated_at": "2026-03-02T19:44:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0085",
       "title": "TS-SBP1.2-L3 Add lint fixtures for soft/hard-term enforcement",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2163,7 +2170,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T17:39:00Z",
+      "updated_at": "2026-03-02T19:44:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
