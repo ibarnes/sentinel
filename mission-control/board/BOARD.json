@@ -1843,7 +1843,7 @@
     {
       "id": "TASK-0074",
       "title": "TS-SBP3.1 Draft beacon #1: FID stalls despite approved capital",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -1859,7 +1859,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T16:14:00Z",
+      "updated_at": "2026-03-02T19:58:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2215,7 +2215,7 @@
     {
       "id": "TASK-0087",
       "title": "TS-SBP2.2b Add cadence runbook documentation",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2229,10 +2229,17 @@
         "runbook"
       ],
       "description": "Document weekly operating cadence and handoff rules.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-sbp-22b",
+          "author": "sentinel",
+          "text": "Added weekly cadence runbook with objective, Mon-Fri steps, guardrails, and failure/handoff rules.",
+          "created_at": "2026-03-02T19:58:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:53:00Z",
+      "updated_at": "2026-03-02T19:58:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
