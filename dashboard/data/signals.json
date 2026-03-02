@@ -461,5 +461,34 @@
         "url": "internal://chat/2026-03-02-ai-spillover"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-NG-GRID-PLAN-001",
+    "title": "Nigeria outlines ~$25B plan aimed at resolving electricity system constraints",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-02T21:08:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AfDB",
+      "AFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-AI-OPT-D",
+      "INIT-653305"
+    ],
+    "summary": "Reported national-scale electricity investment plan indicates elevated urgency around power reliability, transmission/distribution upgrades, and financing architecture requirements.",
+    "flow": "Grid constraint pressure -> large capital plan signal -> increased need for governance + capital sequencing before bankable execution",
+    "verification_note": "Monitor pending first-party government release or Tier-1 corroboration with detailed attribution.",
+    "sources": [
+      {
+        "label": "Business Insider Africa report",
+        "url": "https://africa.businessinsider.com/local/markets/nigeria-touts-a-dollar25-billion-plan-to-end-its-electricity-problems/n1z4237"
+      }
+    ]
   }
 ]
