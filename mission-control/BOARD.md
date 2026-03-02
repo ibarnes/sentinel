@@ -21,6 +21,7 @@ Last Updated: 2026-02-24
 - [ ] RP-0010 — HTML5 Presentation Engine v1
 - [ ] RP-0011 — Presentation Maker v2 (Slide-Agent Pipeline)
 - [ ] RP-0014 — Workflow B Top Target Queue (2026-03-01)
+- [ ] RP-0015 — Workflow B Top Target Queue (2026-03-02)
 
 ## Done
 - [x] RP-0001 — Mission Control Operating Scaffold (Approved by Isaac, 2026-02-24)

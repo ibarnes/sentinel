@@ -2,3 +2,4 @@
 {"ts":"2026-03-02T01:27:52.910Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
 {"ts":"2026-03-02T04:00:00Z","actor":"sentinel","role":"operator","event_type":"workflow.queue","entity_type":"workflow","entity_id":"workflow-c","meta":{"status":"queued","execute_immediately":false}}
 {"ts":"2026-03-02T11:30:00Z","actor":"sentinel","role":"operator","event_type":"workflow.run","entity_type":"workflow","entity_id":"workflow-a","meta":{"version":"v3_1","status":"completed","output":"mission-control/workflow-a/out/workflow-a-v3_1-2026-03-02T11-31-47-165Z.json"}}
+{"ts":"2026-03-02T12:00:00Z","actor":"sentinel","role":"operator","event_type":"workflow.run","entity_type":"workflow","entity_id":"workflow-b","meta":{"status":"completed","output":"RP-0015","accounts_ranked":5,"expected_accounts":10,"reason":"insufficient-approved-crm-inputs"}}
