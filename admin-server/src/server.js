@@ -2224,8 +2224,24 @@ async function writeBeaconQueue(queue) {
   await writeJson(BEACON_QUEUE_FILE, queue);
 }
 
+const BEACON_STATUS_FLOW = {
+  draft: ['harden', 'hold', 'rejected'],
+  harden: ['review', 'hold', 'rejected'],
+  review: ['approved', 'rejected', 'hold'],
+  approved: ['published', 'hold'],
+  hold: ['draft', 'harden', 'review'],
+  rejected: ['draft'],
+  published: []
+};
+
 function beaconStatusAllowed(v) {
   return new Set(['draft', 'harden', 'review', 'approved', 'published', 'hold', 'rejected']).has(String(v || ''));
+}
+
+function canTransitionBeaconStatus(fromStatus, toStatus) {
+  const from = String(fromStatus || '').trim();
+  const to = String(toStatus || '').trim();
+  return (BEACON_STATUS_FLOW[from] || []).includes(to);
 }
 
 function resolveDeckSelectors(input = {}) {
@@ -3192,6 +3208,28 @@ app.post('/api/beacons', requireRole('architect','editor'), async (req, res) => 
   await writeBeaconQueue(q);
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'beacon.create', entity_type: 'beacon', entity_id: beacon.beacon_id, meta: { status: beacon.status } });
   return res.json({ ok: true, beacon });
+});
+
+app.post('/api/beacons/:id/transition', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  const toStatus = String(req.body.to_status || '').trim();
+  if (!id || !beaconStatusAllowed(toStatus)) return res.status(400).json({ error: 'invalid request' });
+
+  const q = await readBeaconQueue();
+  const b = q.beacons.find((x) => String(x.beacon_id || '') === id);
+  if (!b) return res.status(404).json({ error: 'beacon not found' });
+
+  const from = String(b.status || 'draft');
+  if (!canTransitionBeaconStatus(from, toStatus)) {
+    return res.status(400).json({ error: 'invalid transition', from, to: toStatus });
+  }
+
+  b.status = toStatus;
+  b.updated_at = nowIso();
+  if (toStatus === 'published') b.published_at = nowIso();
+  await writeBeaconQueue(q);
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'beacon.transition', entity_type: 'beacon', entity_id: id, meta: { from, to: toStatus } });
+  return res.json({ ok: true, beacon: b });
 });
 
 app.post('/api/signals', requireRole('architect','editor'), async (req, res) => {
