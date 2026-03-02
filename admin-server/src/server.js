@@ -1066,7 +1066,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
 
     ${b.transfer_hypothesis ? `<div class="card mb-3"><div class="card-body"><h6>Transfer Hypothesis</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(String(b.transfer_hypothesis || ''))}</pre></div></div>` : ''}
 
-    <details class="card mb-3" open>
+    <details class="card mb-3">
       <summary class="card-header"><strong>Access Paths (Top 3)</strong></summary>
       <div class="card-body">
         <div class="small text-muted mb-2">Who in-network can open a trusted path into this buyer.</div>
