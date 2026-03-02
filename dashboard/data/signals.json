@@ -284,5 +284,93 @@
         "url": "internal://chat/2026-03-02-dfc-ndaa"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-DFC-SONGWE-001",
+    "title": "Songwe Hill Rare Earths (Malawi) pre-FID structuring window",
+    "signal_class": "FID Definability",
+    "status": "Monitor",
+    "confidence": "High",
+    "observed_at": "2026-03-02T03:55:00Z",
+    "buyer_ids": [
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "DFC project development funding tied to FEED/value engineering creates a defined pre-FID structuring window before financing commitment.",
+    "verification_note": "User-provided strategic candidate set; maintain Monitor pending first-party/Tier-1 source bundle.",
+    "sources": [
+      {
+        "label": "User-provided DFC live platform candidate analysis",
+        "url": "internal://chat/2026-03-02-dfc-candidates"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-DFC-KATPAR-001",
+    "title": "Severniy Katpar Tungsten (Kazakhstan) LOI-stage commitment gap",
+    "signal_class": "Structural Ambiguity",
+    "status": "Monitor",
+    "confidence": "Medium-High",
+    "observed_at": "2026-03-02T03:55:00Z",
+    "buyer_ids": [
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "LOI exploration for large debt/project development funding indicates active interest but unresolved commitment architecture.",
+    "verification_note": "User-provided strategic candidate set; maintain Monitor pending first-party/Tier-1 source bundle.",
+    "sources": [
+      {
+        "label": "User-provided DFC live platform candidate analysis",
+        "url": "internal://chat/2026-03-02-dfc-candidates"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-DFC-BANIO-001",
+    "title": "Banio Potash (Gabon) feasibility-to-license structuring gap",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-02T03:55:00Z",
+    "buyer_ids": [
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Feasibility/ESIA and licensing/logistics dependencies create a multi-agency pre-FID bottleneck suitable for governance/capital sequencing structuring.",
+    "verification_note": "User-provided strategic candidate set; maintain Monitor pending first-party/Tier-1 source bundle.",
+    "sources": [
+      {
+        "label": "User-provided DFC live platform candidate analysis",
+        "url": "internal://chat/2026-03-02-dfc-candidates"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-DFC-ORION-001",
+    "title": "Orion critical minerals consortium as platform deployment channel",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-02T03:55:00Z",
+    "buyer_ids": [
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Active consortium capital platform indicates deal-by-deal deployment pathway with structuring relevance at platform interface.",
+    "verification_note": "User-provided strategic candidate set; maintain Monitor pending first-party/Tier-1 source bundle.",
+    "sources": [
+      {
+        "label": "User-provided DFC live platform candidate analysis",
+        "url": "internal://chat/2026-03-02-dfc-candidates"
+      }
+    ]
   }
 ]
