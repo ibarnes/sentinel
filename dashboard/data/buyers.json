@@ -20,7 +20,8 @@
       "timing_urgency": "Low"
     },
     "initiatives": [
-      "INIT-001"
+      "INIT-001",
+      "INIT-653305"
     ],
     "website": "https://www.pif.gov.sa",
     "transfer_chain": {
@@ -46,7 +47,14 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "FID approval",
       "recurrence_potential": "Medium (platform-based)"
-    }
+    },
+    "website_notes": [
+      "Identity = Sovereign capital allocator with FID authority",
+      "Identification = Pre-FID structuring authority, not consultant",
+      "Access Physics = Capital-to-capital conduit + bottleneck relevance",
+      "Distribution Mechanics = Precision routing through trusted channels",
+      "Conversion Physics = Collapse structural ambiguity -> secure mandate before FID"
+    ]
   },
   {
     "buyer_id": "GIC",
@@ -351,7 +359,7 @@
     "sector_focus": [
       "Infrastructure"
     ],
-    "score": 2.0,
+    "score": 2,
     "confidence": "Medium",
     "transfer_hypothesis": "Governance structuring and path-to-FID acceleration can align multilateral credibility with execution pathways.",
     "pressure_factors": {
