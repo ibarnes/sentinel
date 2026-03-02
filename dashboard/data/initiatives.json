@@ -41,7 +41,7 @@
     ],
     "gate_stage": "Gate 0",
     "gate_updated_at": "2026-03-02T15:20:00Z",
-    "infrastructure_category": "Economic infrastructure",
+    "infrastructure_category": "Economic",
     "primary_buyer_id": "FMF-NG"
   },
   {
@@ -53,7 +53,7 @@
     ],
     "gate_stage": "Gate 0",
     "gate_updated_at": "2026-03-02T15:20:00Z",
-    "infrastructure_category": "Digital infrastructure",
+    "infrastructure_category": "Digital",
     "primary_buyer_id": "DFC"
   },
   {
@@ -65,7 +65,7 @@
     ],
     "gate_stage": "Gate 0",
     "gate_updated_at": "2026-03-02T15:20:00Z",
-    "infrastructure_category": "Digital infrastructure",
+    "infrastructure_category": "Digital",
     "primary_buyer_id": "PIF"
   },
   {
@@ -77,7 +77,7 @@
     ],
     "gate_stage": "Gate 0",
     "gate_updated_at": "2026-03-02T15:20:00Z",
-    "infrastructure_category": "Energy infrastructure",
+    "infrastructure_category": "Energy",
     "primary_buyer_id": "AFC"
   }
 ]
