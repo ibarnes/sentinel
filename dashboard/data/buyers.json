@@ -662,5 +662,139 @@
       "promote_trigger": "Final Investment Decision (FID) or Capital Close",
       "recurrence_potential": "High (if platform-level engagement established)"
     }
+  },
+  {
+    "buyer_id": "TPO",
+    "name": "The Pritzker Organization (TPO)",
+    "type": "Principal Capital / Family Investment Platform",
+    "signal_status": "Monitor",
+    "score": 2.0,
+    "website": "https://pritzkerorg.com",
+    "confidence": "Medium",
+    "mandate_summary": "Use permanent family capital to grow businesses and build long-term platform investments.",
+    "geo_focus": [
+      "United States (Chicago + New York offices)"
+    ],
+    "sector_focus": [
+      "Industrials",
+      "Business services",
+      "Technology",
+      "Logistics",
+      "Manufacturing",
+      "Aerospace & Defense",
+      "Infrastructure"
+    ],
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "Medium",
+      "timing_urgency": "Medium"
+    },
+    "website_notes": [
+      "Identity = Pre-FID Infrastructure Structuring Authority for principal-controlled capital deploying platform-scale infrastructure",
+      "Identification = Platform architect (commitment architecture + FID sequencing), not operator, not consultant",
+      "Access Physics = Principal-level capital-to-capital entry + \"FID is blocked by structural ambiguity\" relevance",
+      "Distribution Mechanics = Quiet direct routing through investment leadership; thesis-driven memo, not marketing",
+      "Conversion Physics = Collapse commitment risk -> secure paid Pre-FID Structuring Mandate before any modeling/execution"
+    ],
+    "initiatives": [
+      "INIT-653305"
+    ],
+    "transfer_hypothesis": "TPO\u2019s permanent capital base enables direct, long-duration platform investments. When a platform-level infrastructure thesis is real but cannot safely reach FID due to capital stack/governance ambiguity, TPO can authorize a paid Pre-FID structuring mandate to define commitment architecture. TPO capital then deploys through an SPV/platform vehicle at FID, with USG structural participation activating at the structural milestone (FID), not operational performance.",
+    "buyer_state": {
+      "reach_profile": [
+        "High discretion (principal-controlled capital)",
+        "Small team / high signal-to-noise preference",
+        "Direct investment posture (not traditional PE fund; not traditional family office)",
+        "Prefers long-term platform build (buy to build)",
+        "Committee gating exists, but faster than public institutions"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Capital stack misalignment (who funds what, when)",
+            "Governance ambiguity (who decides, who signs, who can stall)",
+            "FID boundary unclear (what constitutes go)",
+            "Cross-actor coordination risk (multiple power centers)"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "CEO / investment leadership conduits",
+            "Direct investment team relationships",
+            "Co-investors / platform partners already trusted by TPO"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Large platform acquisitions / partnerships",
+            "Platform formation or scale windows"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Principal-level investment authority",
+            "Platform investment leadership",
+            "Capital stack decision-makers"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: MODERATE-HIGH \u2014 No broad outreach.",
+        "Decision Speed: MODERATE \u2014 Faster than sovereigns; still disciplined.",
+        "Risk Exposure: HIGH \u2014 Lead with downside containment and FID clarity.",
+        "Altitude Sensitivity: HIGH \u2014 Stay above execution framing.",
+        "Channel Dependence: MEDIUM \u2014 Warm conduit preferred; cold possible only with concrete platform structure."
+      ],
+      "channels": {
+        "primary": [
+          "Direct investment leadership introduction",
+          "Co-investor alignment",
+          "Platform partnership routing"
+        ],
+        "secondary": [
+          "One-page Commitment Architecture memo aligned to platform posture"
+        ],
+        "avoid": [
+          "Generic let's connect messages",
+          "Capability decks",
+          "Execution / consulting framing"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: identify what platform cannot reach FID safely now.",
+        "Step 2 \u2014 Platform Framing: define scope boundary, FID definition, governance map, capital stack logic (no advisory drift).",
+        "Step 3 \u2014 Structural Alignment: confirm what must be structurally true before FID and capital deployment.",
+        "Step 4 \u2014 Mandate Execution: secure paid Pre-FID Infrastructure Structuring Mandate.",
+        "Step 5 \u2014 FID Trigger: capital commits under defined structure; USG participation activates at FID milestone."
+      ]
+    },
+    "transfer_chain": {
+      "stored_energy_source": "Permanent family capital base / platform investment capital",
+      "budget_program": "Platform investment allocation (varies by deal)",
+      "funding_type": "Direct equity / structured investment",
+      "approval_authority": "Investment leadership / IC (internal)",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Large platform opportunity exists; FID is blocked by commitment architecture ambiguity",
+      "linked_signals_30d": "TBD",
+      "signal_trend": "TBD",
+      "strategic_alignment_thesis": "Defined commitment architecture reduces irreversibility risk and enables long-duration platform deployment",
+      "linked_initiative": "West Africa Energy Corridor / U.S. anchor capital formation",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Mandate scope + governance model + FID definition + capital sequencing",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "0 / 4",
+      "critical_blocker": "No verified internal conduit / no live platform scope locked",
+      "transfer_vehicle": "Signed Pre-FID Structuring Mandate",
+      "payment_trigger": "Mandate acceptance",
+      "estimated_time_to_transfer": "30-90 days (if platform is concrete)",
+      "mandate_fee_structure": "Pre-FID structuring mandate fee",
+      "promote_trigger": "FID",
+      "recurrence_potential": "High (platform-based)"
+    }
   }
 ]
