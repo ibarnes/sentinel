@@ -27,6 +27,8 @@ const DASHBOARD_SNAPSHOTS = path.join(ROOT, 'dashboard', 'snapshots');
 const DASHBOARD_SIGNALS_FILE = path.join(ROOT, 'dashboard', 'data', 'signals.json');
 const DASHBOARD_TEAM_FILE = path.join(ROOT, 'dashboard', 'data', 'team.json');
 const DASHBOARD_CONTACT_PATHS_FILE = path.join(ROOT, 'dashboard', 'data', 'contact_paths.json');
+const BEACON_QUEUE_FILE = path.join(ROOT, 'mission-control', 'beacon', 'beacons.json');
+const BEACON_QUEUE_SCHEMA_FILE = path.join(ROOT, 'mission-control', 'beacon', 'beacons.schema.json');
 const DASHBOARD_DECKSPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'deckspecs.v2.json');
 const DASHBOARD_DECKSPEC_SCHEMA_FILE = path.join(ROOT, 'dashboard', 'deckspec.schema.v2.json');
 
@@ -2165,6 +2167,14 @@ async function ensureTeamAndBoardFiles() {
   if (!fssync.existsSync(DASHBOARD_DECKSPECS_FILE)) {
     await fs.writeFile(DASHBOARD_DECKSPECS_FILE, JSON.stringify(defaultDeckSpecStore(), null, 2));
   }
+  if (!fssync.existsSync(BEACON_QUEUE_SCHEMA_FILE)) {
+    await fs.copyFile(path.join(ROOT, 'mission-control', 'beacon', 'beacons.schema.json'), BEACON_QUEUE_SCHEMA_FILE).catch(async () => {
+      await fs.writeFile(BEACON_QUEUE_SCHEMA_FILE, JSON.stringify({ version: 1 }, null, 2));
+    });
+  }
+  if (!fssync.existsSync(BEACON_QUEUE_FILE)) {
+    await fs.writeFile(BEACON_QUEUE_FILE, JSON.stringify(defaultBeaconQueue(), null, 2));
+  }
   await loadBoardValidator();
 }
 
@@ -2196,6 +2206,26 @@ async function readDeckSpecStore() {
 
 async function writeDeckSpecStore(store) {
   await writeJson(DASHBOARD_DECKSPECS_FILE, store);
+}
+
+function defaultBeaconQueue() {
+  return { version: 1, beacons: [] };
+}
+
+async function readBeaconQueue() {
+  const q = await readJson(BEACON_QUEUE_FILE, defaultBeaconQueue());
+  if (!q || typeof q !== 'object') return defaultBeaconQueue();
+  if (!Array.isArray(q.beacons)) q.beacons = [];
+  if (!q.version) q.version = 1;
+  return q;
+}
+
+async function writeBeaconQueue(queue) {
+  await writeJson(BEACON_QUEUE_FILE, queue);
+}
+
+function beaconStatusAllowed(v) {
+  return new Set(['draft', 'harden', 'review', 'approved', 'published', 'hold', 'rejected']).has(String(v || ''));
 }
 
 function resolveDeckSelectors(input = {}) {
@@ -3117,6 +3147,38 @@ app.post('/api/initiatives/:id/gate', requireRole('architect','editor'), async (
   await writeJson(initiativesPath, initiatives);
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'initiative.gate.update', entity_type: 'initiative', entity_id: id, meta: { gate_stage: gate } });
   res.redirect('/dashboard/initiatives');
+});
+
+app.post('/api/beacons', requireRole('architect','editor'), async (req, res) => {
+  const q = await readBeaconQueue();
+  const title = String(req.body.title || '').trim();
+  const draft_text = String(req.body.draft_text || '').trim();
+  const status = String(req.body.status || 'draft').trim();
+
+  if (!title || !draft_text) return res.status(400).json({ error: 'title and draft_text are required' });
+  if (!beaconStatusAllowed(status)) return res.status(400).json({ error: 'invalid status' });
+
+  const beacon = {
+    beacon_id: `BEACON-${Date.now()}`,
+    title,
+    status,
+    signal_id: String(req.body.signal_id || '').trim() || null,
+    initiative_id: String(req.body.initiative_id || '').trim() || null,
+    mandate_implication: String(req.body.mandate_implication || '').trim() || null,
+    draft_text,
+    lint_status: 'UNKNOWN',
+    lint_violations: [],
+    created_at: nowIso(),
+    updated_at: nowIso(),
+    created_by: getUserLabel(req),
+    approved_by: null,
+    published_at: null
+  };
+
+  q.beacons.push(beacon);
+  await writeBeaconQueue(q);
+  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'beacon.create', entity_type: 'beacon', entity_id: beacon.beacon_id, meta: { status: beacon.status } });
+  return res.json({ ok: true, beacon });
 });
 
 app.post('/api/signals', requireRole('architect','editor'), async (req, res) => {
