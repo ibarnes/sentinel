@@ -1935,7 +1935,7 @@
     {
       "id": "TASK-0078",
       "title": "TS-SBP2.1a Create beacon queue schema and storage file",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1949,17 +1949,24 @@
         "beacons.json"
       ],
       "description": "Define beacons queue fields/status enum and initialize mission-control/beacon/beacons.json store.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-sbp2-1a",
+          "author": "sentinel",
+          "text": "Created mission-control/beacon/beacons.schema.json and initialized beacons.json store.",
+          "created_at": "2026-03-02T18:21:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T17:39:00Z",
+      "updated_at": "2026-03-02T18:21:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0079",
       "title": "TS-SBP2.1b Add beacon create endpoint + validation",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1976,7 +1983,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T17:39:00Z",
+      "updated_at": "2026-03-02T18:21:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },

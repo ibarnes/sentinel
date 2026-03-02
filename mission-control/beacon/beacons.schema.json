@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SponsorBeaconQueue",
+  "type": "object",
+  "required": ["version", "beacons"],
+  "properties": {
+    "version": { "type": "integer" },
+    "beacons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "beacon_id",
+          "title",
+          "status",
+          "signal_id",
+          "initiative_id",
+          "mandate_implication",
+          "draft_text",
+          "created_at",
+          "updated_at",
+          "created_by"
+        ],
+        "properties": {
+          "beacon_id": { "type": "string" },
+          "title": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "harden", "review", "approved", "published", "hold", "rejected"]
+          },
+          "signal_id": { "type": "string" },
+          "initiative_id": { "type": "string" },
+          "mandate_implication": { "type": "string" },
+          "draft_text": { "type": "string" },
+          "lint_status": { "type": "string", "enum": ["PASS", "REJECT", "UNKNOWN"] },
+          "lint_violations": { "type": "array", "items": { "type": "string" } },
+          "created_at": { "type": "string" },
+          "updated_at": { "type": "string" },
+          "created_by": { "type": "string" },
+          "approved_by": { "type": ["string", "null"] },
+          "published_at": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}
