@@ -372,5 +372,94 @@
         "url": "internal://chat/2026-03-02-dfc-candidates"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-AI-FRICTION-001",
+    "title": "Africa AI spillover friction: data sovereignty and cross-border governance vacuum",
+    "signal_class": "Ecosystem / Theater",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-02T15:20:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AfDB"
+    ],
+    "initiative_ids": [],
+    "summary": "Gulf AI compute proximity increases cross-border data flow pressure while many African jurisdictions lack mature AI data governance and negotiation frameworks.",
+    "verification_note": "Strategy insight logged for monitoring; escalate to Verified with first-party or Tier-1 corroboration.",
+    "sources": [
+      {
+        "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
+        "url": "internal://chat/2026-03-02-ai-spillover"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-AI-FRICTION-002",
+    "title": "Africa AI spillover friction: energy and edge infrastructure readiness gap",
+    "signal_class": "FID Definability",
+    "status": "Monitor",
+    "confidence": "High",
+    "observed_at": "2026-03-02T15:20:00Z",
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "DFC"
+    ],
+    "initiative_ids": [],
+    "summary": "AI utility is constrained without stable power, fiber backbone, edge nodes, and AI-ready facilities; physical/digital dependencies create pre-FID bottlenecks.",
+    "verification_note": "Strategy insight logged for monitoring; escalate to Verified with first-party or Tier-1 corroboration.",
+    "sources": [
+      {
+        "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
+        "url": "internal://chat/2026-03-02-ai-spillover"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-AI-FRICTION-003",
+    "title": "Africa AI spillover friction: public-sector AI adoption readiness deficit",
+    "signal_class": "Structural Ambiguity",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-02T15:20:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "DFC"
+    ],
+    "initiative_ids": [],
+    "summary": "Government adoption pathways remain under-structured across ministries, creating uncertainty in demand formation and implementation sequencing.",
+    "verification_note": "Strategy insight logged for monitoring; escalate to Verified with first-party or Tier-1 corroboration.",
+    "sources": [
+      {
+        "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
+        "url": "internal://chat/2026-03-02-ai-spillover"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-02-AI-FRICTION-004",
+    "title": "Africa AI spillover friction: capital structuring gap for AI-enabled infrastructure",
+    "signal_class": "FID Definability",
+    "status": "Monitor",
+    "confidence": "High",
+    "observed_at": "2026-03-02T15:20:00Z",
+    "buyer_ids": [
+      "AFC",
+      "PIF",
+      "DFC",
+      "AfDB"
+    ],
+    "initiative_ids": [],
+    "summary": "Capital interest exists, but pre-FID platform structuring, blended stack design, and risk containment models are not standardized across markets.",
+    "verification_note": "Strategy insight logged for monitoring; escalate to Verified with first-party or Tier-1 corroboration.",
+    "sources": [
+      {
+        "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
+        "url": "internal://chat/2026-03-02-ai-spillover"
+      }
+    ]
   }
 ]

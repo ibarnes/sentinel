@@ -1305,6 +1305,294 @@
       "updated_at": "2026-03-01T23:02:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0053",
+      "title": "INIT-AI-OPT-A \u2014 Scope memo",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-A",
+        "category:economic-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-A",
+        "FMF-NG"
+      ],
+      "description": "Scope memo for National AI Readiness Architecture (Economic infrastructure) with primary buyer FMF-NG.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0054",
+      "title": "INIT-AI-OPT-A \u2014 Buyer mapping",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-A",
+        "category:economic-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-A",
+        "FMF-NG"
+      ],
+      "description": "Buyer mapping for National AI Readiness Architecture (Economic infrastructure) with primary buyer FMF-NG.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0055",
+      "title": "INIT-AI-OPT-A \u2014 Mandate pathway draft",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-A",
+        "category:economic-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-A",
+        "FMF-NG"
+      ],
+      "description": "Mandate pathway draft for National AI Readiness Architecture (Economic infrastructure) with primary buyer FMF-NG.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0056",
+      "title": "INIT-AI-OPT-B \u2014 Scope memo",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-B",
+        "category:digital-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-B",
+        "DFC"
+      ],
+      "description": "Scope memo for Sector AI Infrastructure Platform (Digital infrastructure) with primary buyer DFC.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0057",
+      "title": "INIT-AI-OPT-B \u2014 Buyer mapping",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-B",
+        "category:digital-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-B",
+        "DFC"
+      ],
+      "description": "Buyer mapping for Sector AI Infrastructure Platform (Digital infrastructure) with primary buyer DFC.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0058",
+      "title": "INIT-AI-OPT-B \u2014 Mandate pathway draft",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-B",
+        "category:digital-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-B",
+        "DFC"
+      ],
+      "description": "Mandate pathway draft for Sector AI Infrastructure Platform (Digital infrastructure) with primary buyer DFC.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0059",
+      "title": "INIT-AI-OPT-C \u2014 Scope memo",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-C",
+        "category:digital-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-C",
+        "PIF"
+      ],
+      "description": "Scope memo for Gulf-Africa Digital Corridor Design (Digital infrastructure) with primary buyer PIF.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0060",
+      "title": "INIT-AI-OPT-C \u2014 Buyer mapping",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-C",
+        "category:digital-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-C",
+        "PIF"
+      ],
+      "description": "Buyer mapping for Gulf-Africa Digital Corridor Design (Digital infrastructure) with primary buyer PIF.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0061",
+      "title": "INIT-AI-OPT-C \u2014 Mandate pathway draft",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-C",
+        "category:digital-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-C",
+        "PIF"
+      ],
+      "description": "Mandate pathway draft for Gulf-Africa Digital Corridor Design (Digital infrastructure) with primary buyer PIF.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0062",
+      "title": "INIT-AI-OPT-D \u2014 Scope memo",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-D",
+        "category:energy-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-D",
+        "AFC"
+      ],
+      "description": "Scope memo for Energy-Backed AI Industrial Zones (Energy infrastructure) with primary buyer AFC.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0063",
+      "title": "INIT-AI-OPT-D \u2014 Buyer mapping",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-D",
+        "category:energy-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-D",
+        "AFC"
+      ],
+      "description": "Buyer mapping for Energy-Backed AI Industrial Zones (Energy infrastructure) with primary buyer AFC.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0064",
+      "title": "INIT-AI-OPT-D \u2014 Mandate pathway draft",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "initiative-exec",
+        "initiative:INIT-AI-OPT-D",
+        "category:energy-infrastructure"
+      ],
+      "linked_refs": [
+        "INIT-AI-OPT-D",
+        "AFC"
+      ],
+      "description": "Mandate pathway draft for Energy-Backed AI Industrial Zones (Energy infrastructure) with primary buyer AFC.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-02T15:20:00Z",
+      "updated_at": "2026-03-02T15:20:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }

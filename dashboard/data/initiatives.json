@@ -31,5 +31,53 @@
         "PIF": "presentations/INIT-653305/decks/buyer-alignment/PIF/index.html"
       }
     }
+  },
+  {
+    "initiative_id": "INIT-AI-OPT-A",
+    "name": "National AI Readiness Architecture",
+    "status": "Pre-FID",
+    "linked_buyers": [
+      "FMF-NG"
+    ],
+    "gate_stage": "Gate 0",
+    "gate_updated_at": "2026-03-02T15:20:00Z",
+    "infrastructure_category": "Economic infrastructure",
+    "primary_buyer_id": "FMF-NG"
+  },
+  {
+    "initiative_id": "INIT-AI-OPT-B",
+    "name": "Sector AI Infrastructure Platform",
+    "status": "Pre-FID",
+    "linked_buyers": [
+      "DFC"
+    ],
+    "gate_stage": "Gate 0",
+    "gate_updated_at": "2026-03-02T15:20:00Z",
+    "infrastructure_category": "Digital infrastructure",
+    "primary_buyer_id": "DFC"
+  },
+  {
+    "initiative_id": "INIT-AI-OPT-C",
+    "name": "Gulf-Africa Digital Corridor Design",
+    "status": "Pre-FID",
+    "linked_buyers": [
+      "PIF"
+    ],
+    "gate_stage": "Gate 0",
+    "gate_updated_at": "2026-03-02T15:20:00Z",
+    "infrastructure_category": "Digital infrastructure",
+    "primary_buyer_id": "PIF"
+  },
+  {
+    "initiative_id": "INIT-AI-OPT-D",
+    "name": "Energy-Backed AI Industrial Zones",
+    "status": "Pre-FID",
+    "linked_buyers": [
+      "AFC"
+    ],
+    "gate_stage": "Gate 0",
+    "gate_updated_at": "2026-03-02T15:20:00Z",
+    "infrastructure_category": "Energy infrastructure",
+    "primary_buyer_id": "AFC"
   }
 ]

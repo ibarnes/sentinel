@@ -970,14 +970,18 @@ app.get('/dashboard/initiatives', async (req, res) => {
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const byId = Object.fromEntries(buyers.map(b => [b.buyer_id, b.name]));
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
-  const sorted = [...initiatives].sort((a,b)=>String(a.initiative_id).localeCompare(String(b.initiative_id)));
-  const gateOptions = ['Gate 1','Gate 2','Gate 3','Gate 4','Gate 5','Gate 6','Gate 7'];
+  const category = String(req.query.category || 'All');
+  const categories = ['All', ...new Set(initiatives.map((i)=>String(i.infrastructure_category || '').trim()).filter(Boolean))];
+  const filtered = category === 'All' ? initiatives : initiatives.filter((i)=>String(i.infrastructure_category || '') === category);
+  const sorted = [...filtered].sort((a,b)=>String(a.initiative_id).localeCompare(String(b.initiative_id)));
+  const gateOptions = ['Gate 0','Gate 1','Gate 2','Gate 3','Gate 4','Gate 5','Gate 6','Gate 7'];
   const inferGate = (i) => i.gate_stage || (String(i.status || '').toLowerCase()==='pre-fid' ? 'Gate 1' : 'Gate 1');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
-    ${pageHeader('Initiatives', '', 'Gate 1–7 is the canonical initiative workflow')}
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Name</th><th>Gate Stage</th><th>Linked Buyers</th><th>Updated</th></tr></thead><tbody>
-      ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="d-flex gap-1 align-items-center"><select name="gate_stage" class="form-select form-select-sm" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form>` : escapeHtml(inferGate(i))}</td><td>${escapeHtml((i.linked_buyers || []).map(b=>byId[b]||b).join(', '))}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td></tr>`).join('') || '<tr><td colspan="5">No initiatives</td></tr>'}
+    ${pageHeader('Initiatives', '', 'Gate 0–7 is the canonical initiative workflow')}
+    <form method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-4"><label class="form-label">Infrastructure Type</label><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div><div class="col-md-2 d-flex align-items-end"><button class="btn btn-outline-primary">Apply</button></div></form>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Name</th><th>Infrastructure Type</th><th>Gate Stage</th><th>Linked Buyers</th><th>Updated</th></tr></thead><tbody>
+      ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="d-flex gap-1 align-items-center"><select name="gate_stage" class="form-select form-select-sm" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form>` : escapeHtml(inferGate(i))}</td><td>${escapeHtml((i.linked_buyers || []).map(b=>byId[b]||b).join(', '))}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td></tr>`).join('') || '<tr><td colspan="6">No initiatives</td></tr>'}
     </tbody></table></div>
   </div></body></html>`);
 });
@@ -3097,7 +3101,7 @@ app.post('/api/initiatives', requireRole('architect','editor'), async (req, res)
 app.post('/api/initiatives/:id/gate', requireRole('architect','editor'), async (req, res) => {
   const id = String(req.params.id || '').trim();
   const gate = String(req.body.gate_stage || '').trim();
-  const allowed = new Set(['Gate 1','Gate 2','Gate 3','Gate 4','Gate 5','Gate 6','Gate 7']);
+  const allowed = new Set(['Gate 0','Gate 1','Gate 2','Gate 3','Gate 4','Gate 5','Gate 6','Gate 7']);
   if (!allowed.has(gate)) return res.status(400).send('invalid gate_stage');
 
   const initiativesPath = path.join(ROOT, 'dashboard/data/initiatives.json');
