@@ -1644,7 +1644,7 @@
     {
       "id": "TASK-0067",
       "title": "TS-SBP1.1 Create Beacon Doctrine spec + examples",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1657,17 +1657,24 @@
         "beacon-doctrine"
       ],
       "description": "Write doctrine artifact with allowed/disallowed patterns, examples of weak vs structural sentences, and review gate criteria.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "done-sbp1-1",
+          "author": "sentinel",
+          "text": "Doctrine created at mission-control/beacon/DOCTRINE.md with Rule A/B, allowed/disallowed patterns, examples, and approval gate criteria.",
+          "created_at": "2026-03-02T16:56:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T16:14:00Z",
+      "updated_at": "2026-03-02T16:56:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0068",
       "title": "TS-SBP1.2 Implement lint guardrails for Rule A/Rule B",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1685,7 +1692,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T16:14:00Z",
+      "updated_at": "2026-03-02T16:56:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
