@@ -485,6 +485,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
       <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
       <a class="nav-link ${is('signals')}" href="/dashboard/signals">Signals</a>
+      <a class="nav-link ${is('beacons')}" href="/dashboard/beacons">Beacons</a>
       <a class="nav-link ${is('team')}" href="/dashboard/team">Team</a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
       <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio">Presentation Studio</a>
@@ -954,6 +955,21 @@ app.get('/dashboard/signals', async (req, res) => {
     ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Signal</strong></summary><div class="card-body"><form method="post" action="/api/signals" class="row g-2"><div class="col-md-4"><label class="form-label">Title *</label><input class="form-control" name="title" required /></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select" name="status"><option>Monitor</option><option>Verified</option><option>Actioned</option></select></div><div class="col-md-2"><label class="form-label">Confidence</label><select class="form-select" name="confidence"><option>High</option><option>Medium</option><option>Low</option></select></div><div class="col-md-4"><label class="form-label">Signal Class *</label><select class="form-select" name="signal_class" required>${classes.map((c)=>`<option>${c}</option>`).join('')}</select></div><div class="col-md-4"><label class="form-label">Buyer IDs (comma)</label><input class="form-control" name="buyer_ids" placeholder="PIF, AFC" /></div><div class="col-md-8"><label class="form-label">Summary</label><input class="form-control" name="summary" /></div><div class="col-12"><button class="btn btn-sm btn-primary">Save Signal</button></div></form></div></details>` : ''}
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Signal Class</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody>
       ${sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${escapeHtml((s.buyer_ids || []).map((id) => byId[id] || id).join(', '))}</td></tr>`).join('') || '<tr><td colspan="6">No signals yet</td></tr>'}
+    </tbody></table></div>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/beacons', requireAnyAuth, async (req, res) => {
+  const q = await readBeaconQueue();
+  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
+  const rows = [...(q.beacons || [])].sort((a,b)=>String(b.updated_at||'').localeCompare(String(a.updated_at||'')));
+  const nextOptions = ['draft','harden','review','approved','published','hold','rejected'];
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Beacons')}</head><body><div class="app-shell">
+    ${dashboardNav('beacons')}
+    ${pageHeader('Beacons Queue', '', 'Sponsor Beacon operating queue with governance transitions')}
+    ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Beacon Draft</strong></summary><div class="card-body"><form method="post" action="/api/beacons" class="row g-2"><div class="col-md-4"><label class="form-label">Title</label><input class="form-control" name="title" required /></div><div class="col-md-4"><label class="form-label">Signal ID</label><input class="form-control" name="signal_id" required /></div><div class="col-md-4"><label class="form-label">Initiative ID</label><input class="form-control" name="initiative_id" required /></div><div class="col-12"><label class="form-label">Mandate Implication</label><input class="form-control" name="mandate_implication" required /></div><div class="col-12"><label class="form-label">Draft Text</label><textarea class="form-control" name="draft_text" rows="3" required></textarea></div><div class="col-12"><button class="btn btn-sm btn-primary">Create Beacon</button></div></form></div></details>` : ''}
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Beacon</th><th>Status</th><th>Signal</th><th>Initiative</th><th>Lint</th><th>Updated</th><th>Actions</th></tr></thead><tbody>
+      ${rows.map((b)=>`<tr><td><strong>${escapeHtml(b.title || b.beacon_id || '')}</strong><div class="small mono text-muted">${escapeHtml(b.beacon_id || '')}</div></td><td>${escapeHtml(b.status || '')}</td><td>${escapeHtml(b.signal_id || '')}</td><td>${escapeHtml(b.initiative_id || '')}</td><td>${escapeHtml(b.lint_status || 'UNKNOWN')}</td><td class="mono small">${escapeHtml(String(b.updated_at || '').slice(0,19).replace('T',' '))}</td><td>${canEdit ? `<form method="post" action="/api/beacons/${encodeURIComponent(b.beacon_id || '')}/transition" class="d-flex gap-1"><select class="form-select form-select-sm" name="to_status">${nextOptions.map((s)=>`<option>${s}</option>`).join('')}</select><button class="btn btn-sm btn-outline-primary">Move</button></form>` : '—'}</td></tr>`).join('') || '<tr><td colspan="7">No beacons in queue</td></tr>'}
     </tbody></table></div>
   </div></body></html>`);
 });
@@ -3207,6 +3223,9 @@ app.post('/api/beacons', requireRole('architect','editor'), async (req, res) => 
   q.beacons.push(beacon);
   await writeBeaconQueue(q);
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'beacon.create', entity_type: 'beacon', entity_id: beacon.beacon_id, meta: { status: beacon.status } });
+  if (String(req.headers['content-type'] || '').includes('application/x-www-form-urlencoded')) {
+    return res.redirect('/dashboard/beacons');
+  }
   return res.json({ ok: true, beacon });
 });
 
@@ -3248,6 +3267,9 @@ app.post('/api/beacons/:id/transition', requireRole('architect','editor'), async
     entity_id: id,
     meta: { from, to: toStatus, architect_required: architectOnly.has(toStatus) }
   });
+  if (String(req.headers['content-type'] || '').includes('application/x-www-form-urlencoded')) {
+    return res.redirect('/dashboard/beacons');
+  }
   return res.json({ ok: true, beacon: b });
 });
 
