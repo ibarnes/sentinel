@@ -1054,7 +1054,8 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/buyers">← Buyers</a>
     <h3>${escapeHtml(b.name)}</h3>
     <p>${escapeHtml(b.mandate_summary || '')}</p>
-    <ul><li><strong>Score:</strong> ${b.score ?? ''}</li><li><strong>Geo:</strong> ${escapeHtml((b.geo_focus||[]).join(', '))}</li><li><strong>Sectors:</strong> ${escapeHtml((b.sector_focus||[]).join(', '))}</li><li><strong>Tracking Status:</strong> ${escapeHtml(String(b.signal_status || 'Monitor'))}</li><li><strong>Website:</strong> ${b.website ? `<a href="${escapeHtml(String(b.website))}" target="_blank" rel="noopener noreferrer">${escapeHtml(String(b.website))}</a>` : 'Not set'}${Array.isArray(b.website_notes) && b.website_notes.length ? `<ul class="mt-2 mb-0">${b.website_notes.map((n)=>`<li>${escapeHtml(String(n))}</li>`).join('')}</ul>` : ''}</li></ul>
+    <ul><li><strong>Score:</strong> ${b.score ?? ''}</li><li><strong>Geo:</strong> ${escapeHtml((b.geo_focus||[]).join(', '))}</li><li><strong>Sectors:</strong> ${escapeHtml((b.sector_focus||[]).join(', '))}</li><li><strong>Tracking Status:</strong> ${escapeHtml(String(b.signal_status || 'Monitor'))}</li><li><strong>Website:</strong> ${b.website ? `<a href="${escapeHtml(String(b.website))}" target="_blank" rel="noopener noreferrer">${escapeHtml(String(b.website))}</a>` : 'Not set'}</li></ul>
+    ${Array.isArray(b.website_notes) && b.website_notes.length ? `<div class="card mb-3"><div class="card-body"><h6>Strategic Buyer Profile</h6><ul class="mb-0">${b.website_notes.map((n)=>`<li>${escapeHtml(String(n))}</li>`).join('')}</ul></div></div>` : ''}
 
     <h5>Linked Initiatives</h5>
     <ul>${linked.map(i=>`<li><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?buyer_id=${encodeURIComponent(b.buyer_id)}">${escapeHtml(i.name)}</a></li>`).join('') || '<li>None</li>'}</ul>
