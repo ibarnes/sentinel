@@ -3,9 +3,63 @@
     "https://www.pif.gov.sa/en/news-and-insights/",
     "https://www.pif.gov.sa/en/"
   ],
+  "AFC": [
+    "https://www.africafc.org/media-centre/",
+    "https://www.africafc.org/"
+  ],
+  "AfDB": [
+    "https://www.afdb.org/en/news-and-events",
+    "https://www.afdb.org/en"
+  ],
+  "NSIA": [
+    "https://nsia.com.ng/news/",
+    "https://nsia.com.ng/"
+  ],
+  "IFC": [
+    "https://www.ifc.org/en/pressroom",
+    "https://www.ifc.org/"
+  ],
   "GIC": [
     "https://www.gic.com.kw/en/media-center/",
     "https://www.gic.com.kw/"
+  ],
+  "FMF-NG": [
+    "https://www.finance.gov.ng/category/press-release/",
+    "https://www.finance.gov.ng/"
+  ],
+  "ADFD": [
+    "https://www.adfd.ae/media-centre/",
+    "https://www.adfd.ae/"
+  ],
+  "SFD": [
+    "https://www.sfd.gov.sa/en/media-center/",
+    "https://www.sfd.gov.sa/en"
+  ],
+  "MUBADALA": [
+    "https://www.mubadala.com/en/news",
+    "https://www.mubadala.com/"
+  ],
+  "TPO": [
+    "https://pritzkerorg.com/",
+    "https://pritzkerorg.com/investment-criteria/"
+  ],
+  "HCC": [
+    "https://www.henrycrown.com/"
+  ],
+  "ANSCHUTZ": [
+    "https://www.anschutz.com/"
+  ],
+  "KOCH": [
+    "https://www.kochind.com/newsroom/",
+    "https://www.kochind.com/"
+  ],
+  "COX": [
+    "https://www.coxenterprises.com/news/",
+    "https://www.coxenterprises.com/"
+  ],
+  "DFC": [
+    "https://www.dfc.gov/media/press-releases",
+    "https://www.dfc.gov/our-work"
   ],
   "Brookfield": [
     "https://bep.brookfield.com/press-releases",

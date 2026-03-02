@@ -1,8 +1,51 @@
 PIF:
   press: https://www.pif.gov.sa/en/news-and-insights/
   leadership: https://www.pif.gov.sa/en/about/
+AFC:
+  press: https://www.africafc.org/media-centre/
+  about: https://www.africafc.org/about/
+AfDB:
+  press: https://www.afdb.org/en/news-and-events
+  about: https://www.afdb.org/en/about-us
+NSIA:
+  press: https://nsia.com.ng/news/
+  about: https://nsia.com.ng/about-us/
+IFC:
+  press: https://www.ifc.org/en/pressroom
+  about: https://www.ifc.org/en/about
 GIC:
   press: https://www.gic.com.kw/en/media-center/
+  about: https://www.gic.com.kw/
+FMF-NG:
+  press: https://www.finance.gov.ng/category/press-release/
+  about: https://www.finance.gov.ng/
+ADFD:
+  press: https://www.adfd.ae/media-centre/
+  about: https://www.adfd.ae/
+SFD:
+  press: https://www.sfd.gov.sa/en/media-center/
+  about: https://www.sfd.gov.sa/en
+MUBADALA:
+  press: https://www.mubadala.com/en/news
+  about: https://www.mubadala.com/en/who-we-are
+TPO:
+  press: https://pritzkerorg.com/
+  criteria: https://pritzkerorg.com/investment-criteria/
+HCC:
+  press: https://www.henrycrown.com/
+  about: https://www.henrycrown.com/
+ANSCHUTZ:
+  press: https://www.anschutz.com/
+  about: https://www.anschutz.com/
+KOCH:
+  press: https://www.kochind.com/newsroom/
+  about: https://www.kochind.com/about/
+COX:
+  press: https://www.coxenterprises.com/news/
+  about: https://www.coxenterprises.com/about-us/
+DFC:
+  press: https://www.dfc.gov/media/press-releases
+  about: https://www.dfc.gov/our-work
 Brookfield:
   press: https://bep.brookfield.com/press-releases
 GIP:
