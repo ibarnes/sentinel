@@ -15,7 +15,8 @@
       }
     },
     "gate_stage": "Gate 1",
-    "gate_updated_at": "2026-02-27T22:54:38.512Z"
+    "gate_updated_at": "2026-02-27T22:54:38.512Z",
+    "infrastructure_category": "Energy"
   },
   {
     "initiative_id": "INIT-653305",
@@ -30,7 +31,8 @@
       "buyer_alignment": {
         "PIF": "presentations/INIT-653305/decks/buyer-alignment/PIF/index.html"
       }
-    }
+    },
+    "infrastructure_category": "All"
   },
   {
     "initiative_id": "INIT-AI-OPT-A",
