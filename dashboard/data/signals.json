@@ -666,5 +666,167 @@
         "url": "https://www.larsentoubro.com/pressreleases/2026/2026-02-18-lt-teaming-with-nvidia-to-build-india-s-largest-gigawatt-scale-ai-factory"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-PIF-PROCUREMENT-CYCLE-001",
+    "title": "PIF-linked Diriyah procurement cycle expands across hospitality/smart infrastructure",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T16:13:00Z",
+    "buyer_ids": [
+      "PIF"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Q1 2026 award activity indicates active procurement windows across construction, mobility, digital systems, and asset-tech scope.",
+    "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+    "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+    "sources": [
+      {
+        "label": "Daily Buyer Intelligence Brief (user-provided)",
+        "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-IFC-AFDB-GRID-CLIMATE-001",
+    "title": "IFC/AfDB maintain climate-grid financing momentum in MENA and Sub-Saharan corridors",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T16:13:00Z",
+    "buyer_ids": [
+      "IFC",
+      "AfDB"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Climate-aligned transmission, grid stabilization, and blended-finance channels remain active with procurement and co-finance implications.",
+    "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+    "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+    "sources": [
+      {
+        "label": "Daily Buyer Intelligence Brief (user-provided)",
+        "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-NSIA-HEALTH-IMPACT-001",
+    "title": "NSIA accelerates healthcare infrastructure and impact-fund deployment",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T16:13:00Z",
+    "buyer_ids": [
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Healthcare infrastructure plus blended capital deployment suggests scalable co-investment surfaces and operating-platform opportunities.",
+    "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+    "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+    "sources": [
+      {
+        "label": "Daily Buyer Intelligence Brief (user-provided)",
+        "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-ADFD-AGRI-AI-001",
+    "title": "ADFD cooperation themes expand across agriculture and AI-linked capability programs",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T16:13:00Z",
+    "buyer_ids": [
+      "ADFD"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Food-security and digital-productivity themes are converging into combined infrastructure and data-modernization opportunity channels.",
+    "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+    "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+    "sources": [
+      {
+        "label": "Daily Buyer Intelligence Brief (user-provided)",
+        "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-SFD-HEALTH-FOOD-001",
+    "title": "SFD financing posture remains concentrated on global health and food-security lanes",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T16:13:00Z",
+    "buyer_ids": [
+      "SFD"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Health and food-security aligned projects continue to present higher-probability funding pathways with co-financing structures.",
+    "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+    "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+    "sources": [
+      {
+        "label": "Daily Buyer Intelligence Brief (user-provided)",
+        "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-DFC-CRITICAL-MINERALS-001",
+    "title": "DFC deepens critical-minerals and energy-security corridor investment posture",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T16:13:00Z",
+    "buyer_ids": [
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Strategic supply-chain alignment remains a dominant filter; transactions with geopolitical relevance and development impact have stronger fit.",
+    "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+    "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+    "sources": [
+      {
+        "label": "Daily Buyer Intelligence Brief (user-provided)",
+        "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+      }
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-COX-CHARTER-INTEGRATION-001",
+    "title": "Charter-Cox integration planning indicates modernization and systems-spend window",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T16:13:00Z",
+    "buyer_ids": [
+      "COX"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Post-approval integration likely drives network modernization, cybersecurity, migration, and reliability-focused execution demand.",
+    "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+    "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+    "sources": [
+      {
+        "label": "Daily Buyer Intelligence Brief (user-provided)",
+        "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+      }
+    ]
   }
 ]
