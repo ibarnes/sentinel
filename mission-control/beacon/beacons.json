@@ -48,6 +48,22 @@
       "created_by": "Sentinel",
       "approved_by": null,
       "published_at": null
+    },
+    {
+      "beacon_id": "BEACON-1772551545619",
+      "title": "Beacon: India AI factory scale-up raises infrastructure urgency threshold",
+      "status": "draft",
+      "signal_id": "SIG-2026-03-03-IN-LT-NVIDIA-AI-FACTORY-001",
+      "initiative_id": "USG",
+      "mandate_implication": "AI infrastructure commitments are moving toward sovereign-scale execution; mandate framing should emphasize speed, power density planning, and governance-defined capital sequencing.",
+      "draft_text": "The L&T\u2013NVIDIA announcement indicates that sovereign-scale AI infrastructure is moving from narrative to execution. This raises the urgency threshold for platforms that still treat compute infrastructure as optional or deferred. Commitment architecture should now prioritize power-secure deployment, phased capacity milestones, and governance clarity that allows capital to move before strategic windows close.",
+      "lint_status": "UNKNOWN",
+      "lint_violations": [],
+      "created_at": "2026-03-03T15:25:45Z",
+      "updated_at": "2026-03-03T15:25:45Z",
+      "created_by": "Sentinel",
+      "approved_by": null,
+      "published_at": null
     }
   ]
 }

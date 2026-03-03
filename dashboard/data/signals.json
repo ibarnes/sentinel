@@ -635,5 +635,32 @@
         "url": "internal://chat/2026-03-03-clarity-act-summary"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-IN-LT-NVIDIA-AI-FACTORY-001",
+    "title": "L&T and NVIDIA announce India gigawatt-scale AI factory initiative",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-03T15:25:00Z",
+    "buyer_ids": [
+      "PIF",
+      "MUBADALA",
+      "AFC",
+      "DFC",
+      "IFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "L&T announced a strategic partnership with NVIDIA to build sovereign gigawatt-scale AI factory infrastructure in India, with phased capacity references including Chennai cluster expansion.",
+    "flow": "Sovereign AI infrastructure scaling + hyperscale compute partnership -> accelerated regional competitive pressure -> stronger capital allocation urgency for AI-enabled infrastructure platforms",
+    "verification_note": "Verified via first-party L&T press release.",
+    "sources": [
+      {
+        "label": "L&T official press release",
+        "url": "https://www.larsentoubro.com/pressreleases/2026/2026-02-18-lt-teaming-with-nvidia-to-build-india-s-largest-gigawatt-scale-ai-factory"
+      }
+    ]
   }
 ]
