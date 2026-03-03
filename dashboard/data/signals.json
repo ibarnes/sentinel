@@ -555,5 +555,30 @@
       "talent recruitment",
       "bank/institutional relationship depth"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-RW-INIR-SMR-001",
+    "title": "Rwanda launches INIR-readiness pathway for nuclear program with SMR orientation",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-03T00:07:00Z",
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Rwanda has moved into formal nuclear-readiness sequencing with pre-INIR/INIR engagement and explicit SMR planning context, signaling institutional commitment to long-horizon baseload capacity buildout.",
+    "flow": "Formal IAEA-readiness process + national regulator positioning -> sovereign energy program credibility -> higher probability of structured capital and execution mandates.",
+    "verification_note": "First-party Rwanda regulator source attached (RAEB/RISA). Keep additional IAEA mission outputs for continued verification hardening.",
+    "sources": [
+      {
+        "label": "RAEB/RISA official update: Rwanda Hosts Pre-INIR Mission",
+        "url": "https://raeb.prod.risa.rw/updates/news-detail/rwanda-hosts-pre-inir-mission-to-strengthen-nuclear-energy-readiness"
+      }
+    ]
   }
 ]
