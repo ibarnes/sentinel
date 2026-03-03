@@ -858,5 +858,32 @@
         "url": "https://dig.watch/updates/new-ai-innovation-hub-aims-to-position-ethiopia-as-regional-leader"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-NG-US-CRUDE-CONCENTRATION-001",
+    "title": "Nigeria accounts for majority share of Africa-to-U.S. crude flows amid U.S. import decline",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T21:07:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "DFC",
+      "AFC",
+      "AfDB"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "summary": "Reported U.S. trade data suggests Nigeria contributed ~52% of Africa-origin crude exports to the U.S. in 2025 while total U.S. African crude imports declined year-on-year.",
+    "flow": "Concentrated export dependency + U.S. sourcing shift -> strategic pressure on Nigeria energy/FX resilience planning -> higher urgency for diversified capital and infrastructure sequencing",
+    "verification_note": "Monitor pending direct first-party U.S. Census data table attachment and/or additional Tier-1 corroboration.",
+    "sources": [
+      {
+        "label": "Business Insider Africa report",
+        "url": "https://africa.businessinsider.com/local/markets/half-of-africas-oil-to-the-us-comes-from-one-country-as-the-us-cuts-african-oil/tx5zxk0"
+      }
+    ]
   }
 ]

@@ -128,6 +128,22 @@
       "created_by": "Sentinel",
       "approved_by": null,
       "published_at": null
+    },
+    {
+      "beacon_id": "BEACON-1772572042482",
+      "title": "Beacon: Nigeria-U.S. crude concentration sharpens diversification urgency",
+      "status": "draft",
+      "signal_id": "SIG-2026-03-03-NG-US-CRUDE-CONCENTRATION-001",
+      "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
+      "mandate_implication": "Export concentration and shifting U.S. demand profile increase urgency for resilient capital sequencing and diversification-linked infrastructure strategy.",
+      "draft_text": "Nigeria\u2019s large share of Africa-to-U.S. crude flows, alongside declining overall U.S. African imports, highlights concentration risk within a changing demand map. Commitment architecture should now prioritize diversification resilience: define how energy-linked capital can support broader fiscal and infrastructure stability rather than single-channel export dependence. The mandate posture should emphasize downside protection, sequencing discipline, and bankable transition pathways.",
+      "lint_status": "UNKNOWN",
+      "lint_violations": [],
+      "created_at": "2026-03-03T21:07:22Z",
+      "updated_at": "2026-03-03T21:07:22Z",
+      "created_by": "Sentinel",
+      "approved_by": null,
+      "published_at": null
     }
   ]
 }
