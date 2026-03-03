@@ -64,6 +64,54 @@
       "created_by": "Sentinel",
       "approved_by": null,
       "published_at": null
+    },
+    {
+      "beacon_id": "BEACON-1772554522557-1",
+      "title": "Beacon: PIF procurement velocity creates near-term mandate window",
+      "status": "draft",
+      "signal_id": "SIG-2026-03-03-PIF-PROCUREMENT-CYCLE-001",
+      "initiative_id": "USG",
+      "mandate_implication": "Active procurement cycles justify immediate pre-FID structuring offers tied to digital systems, efficiency, and asset-tech layers.",
+      "draft_text": "Diriyah-cycle procurement activity indicates that capital is already in motion and selection windows are active. The mandate posture should shift from broad relationship building to targeted conversion: define where governance, integration, and performance architecture can reduce execution risk for award pathways already underway. Delay increases displacement risk by incumbent EPC ecosystems.",
+      "lint_status": "UNKNOWN",
+      "lint_violations": [],
+      "created_at": "2026-03-03T16:15:22Z",
+      "updated_at": "2026-03-03T16:15:22Z",
+      "created_by": "Sentinel",
+      "approved_by": null,
+      "published_at": null
+    },
+    {
+      "beacon_id": "BEACON-1772554522557-2",
+      "title": "Beacon: DFC corridor posture favors geopolitically-aligned structured deals",
+      "status": "draft",
+      "signal_id": "SIG-2026-03-03-DFC-CRITICAL-MINERALS-001",
+      "initiative_id": "USG",
+      "mandate_implication": "DFC momentum in critical-minerals and energy-security corridors supports mandate pathways that combine development impact with strategic supply-chain logic.",
+      "draft_text": "DFC allocation behavior is reinforcing a corridor-first investment thesis tied to strategic minerals and energy security. Commitment conditions improve when transactions are framed with explicit geopolitical relevance, measurable development outcomes, and clean governance sequencing before financial close. The mandate move is to package bankable structures that satisfy both policy and capital discipline simultaneously.",
+      "lint_status": "UNKNOWN",
+      "lint_violations": [],
+      "created_at": "2026-03-03T16:15:22Z",
+      "updated_at": "2026-03-03T16:15:22Z",
+      "created_by": "Sentinel",
+      "approved_by": null,
+      "published_at": null
+    },
+    {
+      "beacon_id": "BEACON-1772554522557-3",
+      "title": "Beacon: IFC/AfDB grid-climate channels support bankability-first execution",
+      "status": "draft",
+      "signal_id": "SIG-2026-03-03-IFC-AFDB-GRID-CLIMATE-001",
+      "initiative_id": "USG",
+      "mandate_implication": "Active multilateral climate-grid financing windows favor proposals with measurable impact, compliance readiness, and co-financing structure clarity.",
+      "draft_text": "IFC and AfDB channel activity confirms that grid reliability, transition infrastructure, and blended-finance structures remain fundable where execution risk is compressed. The current opportunity is not narrative positioning but bankability architecture: climate tagging discipline, compliance-ready documentation, and clear co-financing mechanics. Mandate conversion should prioritize definable milestones that accelerate approval through institutional gates.",
+      "lint_status": "UNKNOWN",
+      "lint_violations": [],
+      "created_at": "2026-03-03T16:15:22Z",
+      "updated_at": "2026-03-03T16:15:22Z",
+      "created_by": "Sentinel",
+      "approved_by": null,
+      "published_at": null
     }
   ]
 }
