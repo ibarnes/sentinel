@@ -885,5 +885,33 @@
         "url": "https://africa.businessinsider.com/local/markets/half-of-africas-oil-to-the-us-comes-from-one-country-as-the-us-cuts-african-oil/tx5zxk0"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-DANGOTE-INDUSTRIAL-STACK-001",
+    "title": "Dangote outlines post-refinery industrial expansion into steel, power, and ports with NGX listing pathway",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T22:06:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "AfDB",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "USG"
+    ],
+    "summary": "Narrative indicates refinery scale as phase one, expansion toward steel/power/port infrastructure, major employment ramp, and potential domestic equity participation via NGX listing.",
+    "flow": "Industrial stack integration + domestic market participation pathway -> stronger sovereign-scale manufacturing and logistics thesis -> rising urgency for infrastructure-linked capital sequencing",
+    "verification_note": "Monitor pending direct primary-source links (NYT interview text, company statement, or filing/NGX documentation) and additional Tier-1 corroboration.",
+    "sources": [
+      {
+        "label": "User-provided summary of Dangote expansion narrative",
+        "url": "internal://chat/2026-03-03-dangote-industrial-stack"
+      }
+    ]
   }
 ]
