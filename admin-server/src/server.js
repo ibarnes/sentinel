@@ -860,6 +860,24 @@ app.get('/dashboard/buyers', async (req, res) => {
   const pageRows = filtered.slice(start, start + perPage);
   const sectors = [...new Set(buyers.flatMap(b=>b.sector_focus||[]))].sort();
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
+  const hqCountryByBuyerId = {
+    PIF: 'Saudi Arabia',
+    GIC: 'Kuwait',
+    AFC: 'Nigeria',
+    NSIA: 'Nigeria',
+    'FMF-NG': 'Nigeria',
+    ADFD: 'United Arab Emirates',
+    SFD: 'Saudi Arabia',
+    AfDB: 'Côte d’Ivoire',
+    IFC: 'United States',
+    MUBADALA: 'United Arab Emirates',
+    TPO: 'United States',
+    HCC: 'United States',
+    ANSCHUTZ: 'United States',
+    DFC: 'United States',
+    KOCH: 'United States',
+    COX: 'United States',
+  };
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
     <div class="d-flex justify-content-between align-items-center mb-2"><h1 class="page-title">Buyers</h1>${canEdit ? '<button id="addBuyerToggle" class="btn btn-sm btn-primary" type="button">Add Buyer</button>' : '<a class="btn btn-sm btn-outline-secondary" href="/auth/login">Login to edit</a>'}</div>
@@ -877,7 +895,7 @@ app.get('/dashboard/buyers', async (req, res) => {
       </form>
     </div></div></div>` : ''}
     <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-2"><select class="form-select" name="per_page"><option value="10" ${perPage===10?'selected':''}>10</option><option value="20" ${perPage===20?'selected':''}>20</option><option value="50" ${perPage===50?'selected':''}>50</option></select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div><div class="col-auto"><a class="btn btn-outline-secondary" href="/dashboard/signals">Open Signal Register</a></div></form>
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Buyer</th><th>Type</th><th>Score</th><th>Tracking</th><th>Sectors</th></tr></thead><tbody>${pageRows.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a><div class="small text-muted mono">${escapeHtml(b.buyer_id || '')}</div></td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td><span class="badge text-bg-${String(b.signal_status||'Monitor') === 'Verified' ? 'success' : (String(b.signal_status||'Monitor') === 'Actioned' ? 'primary' : 'secondary')}">${escapeHtml(String(b.signal_status||'Monitor'))}</span></td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('') || '<tr><td colspan="5">No buyers found</td></tr>'}</tbody></table></div>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Buyer</th><th>HQ Country</th><th>Type</th><th>Score</th><th>Tracking</th><th>Sectors</th></tr></thead><tbody>${pageRows.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a><div class="small text-muted mono">${escapeHtml(b.buyer_id || '')}</div></td><td>${escapeHtml(b.hq_country || hqCountryByBuyerId[String(b.buyer_id || '')] || '—')}</td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td><span class="badge text-bg-${String(b.signal_status||'Monitor') === 'Verified' ? 'success' : (String(b.signal_status||'Monitor') === 'Actioned' ? 'primary' : 'secondary')}">${escapeHtml(String(b.signal_status||'Monitor'))}</span></td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('') || '<tr><td colspan="6">No buyers found</td></tr>'}</tbody></table></div>
     <div class="d-flex justify-content-between align-items-center small text-muted mb-3"><span>Showing ${start + 1}-${Math.min(start + perPage, total)} of ${total}</span><div class="btn-group btn-group-sm"><a class="btn btn-outline-secondary ${currentPage<=1?'disabled':''}" href="?sector=${encodeURIComponent(sector)}&per_page=${perPage}&page=${Math.max(1,currentPage-1)}">Prev</a><span class="btn btn-outline-secondary disabled">Page ${currentPage} / ${totalPages}</span><a class="btn btn-outline-secondary ${currentPage>=totalPages?'disabled':''}" href="?sector=${encodeURIComponent(sector)}&per_page=${perPage}&page=${Math.min(totalPages,currentPage+1)}">Next</a></div></div>
 
     ${canEdit ? `<div class="card mt-3"><div class="card-body">
