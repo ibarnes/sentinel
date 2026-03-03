@@ -580,5 +580,32 @@
         "url": "https://raeb.prod.risa.rw/updates/news-detail/rwanda-hosts-pre-inir-mission-to-strengthen-nuclear-energy-readiness"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-NG-FX-RESERVES-001",
+    "title": "Nigeria net FX reserves rise 772% to $34.8B; gross reserves reach $50.45B in Feb 2026",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T15:06:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "DFC",
+      "AfDB",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "summary": "Reported reserve expansion materially improves macro buffer optics and may reduce perceived FX fragility in Nigeria, supporting higher confidence for structured capital commitments.",
+    "flow": "Reserve rebuild + transparency narrative -> lower macro-risk perception -> improved pre-FID convertibility conditions for sovereign/DFI capital",
+    "verification_note": "Monitor pending first-party CBN release or two Tier-1 full-source confirmations per sovereign verification threshold.",
+    "sources": [
+      {
+        "label": "User-provided macro summary (CBN Governor attribution)",
+        "url": "internal://chat/2026-03-03-ng-reserves-772"
+      }
+    ]
   }
 ]
