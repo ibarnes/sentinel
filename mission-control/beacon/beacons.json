@@ -32,6 +32,22 @@
       "created_by": "Sentinel",
       "approved_by": null,
       "published_at": null
+    },
+    {
+      "beacon_id": "BEACON-1772551469430",
+      "title": "Beacon: CLARITY Act shifts U.S. digital-asset commitment architecture",
+      "status": "draft",
+      "signal_id": "SIG-2026-03-03-US-CLARITY-ACT-001",
+      "initiative_id": "USG",
+      "mandate_implication": "Regulatory boundary clarity and stronger enforcement rails can unlock compliant infrastructure mandates by reducing legal ambiguity at commitment stage.",
+      "draft_text": "The CLARITY Act framing indicates a structural shift from enforcement ambiguity toward rules-based jurisdiction and compliance expectations. If enacted on this trajectory, commitment conditions improve for regulated digital-asset infrastructure because legal boundary risk becomes more definable. The immediate move is to position mandate pathways around compliant onshore architecture, explicit control-point governance, and investor-protection alignment, rather than speculative token narratives.",
+      "lint_status": "UNKNOWN",
+      "lint_violations": [],
+      "created_at": "2026-03-03T15:24:29Z",
+      "updated_at": "2026-03-03T15:24:29Z",
+      "created_by": "Sentinel",
+      "approved_by": null,
+      "published_at": null
     }
   ]
 }

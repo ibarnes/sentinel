@@ -607,5 +607,33 @@
         "url": "internal://chat/2026-03-03-ng-reserves-772"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-US-CLARITY-ACT-001",
+    "title": "U.S. CLARITY Act advances digital-asset market structure (SEC/CFTC line + illicit-finance controls)",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T15:24:00Z",
+    "buyer_ids": [
+      "DFC",
+      "IFC",
+      "TPO",
+      "HCC",
+      "KOCH",
+      "COX"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Senate Banking Committee fact-sheet package positions CLARITY Act as a rules-of-the-road framework for digital assets, with investor protections, SEC/CFTC jurisdiction clarity, DeFi control-point logic, and expanded illicit-finance enforcement tools.",
+    "flow": "Regulatory clarity + enforcement certainty -> reduced legal ambiguity for compliant digital-asset infrastructure -> improved onshore capital formation conditions",
+    "verification_note": "Monitor pending first-party Senate Banking Committee release pages and bill text links attached directly in source set.",
+    "sources": [
+      {
+        "label": "User-provided CLARITY Act summary text",
+        "url": "internal://chat/2026-03-03-clarity-act-summary"
+      }
+    ]
   }
 ]
