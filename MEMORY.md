@@ -1,9 +1,7 @@
 # Buyer Shortlist
-- Public Investment Fund (PIF)
-- Gulf Investment Corporation (GIC)
-- Brookfield Renewable
-- Global Infrastructure Partners (GIP)
-- Nigeria Mortgage Fund
+- Legacy seed shortlist (historical): PIF, GIC, Brookfield Renewable, GIP, Nigeria Mortgage Fund
+- **Canonical current ranking source:** `dashboard/data/buyers.json` (sort by `score` descending)
+- Rule (2026-03-03): for any ranked buyer output/email, always use Buyers page data first; do not default to legacy shortlist.
 
 # Active Operating Rules
 - Structured + Safe Mode
