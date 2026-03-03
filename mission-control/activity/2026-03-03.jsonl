@@ -1,1 +1,3 @@
 {"ts":"2026-03-03T00:00:00Z","actor":"sentinel","role":"operator","event_type":"intake.prompt.triggered","entity_type":"workflow","entity_id":"workflow-c","meta":{"template":"mission-control/templates/EVENING_INTAKE_PROMPT.md","delivery":"internal-only","user_visible":false}}
+{"ts":"2026-03-03T00:34:40.121Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-03T11:30:00Z","actor":"sentinel","role":"operator","event_type":"workflow.run","entity_type":"workflow","entity_id":"workflow-a","meta":{"version":"v3_1","status":"completed","output":"mission-control/workflow-a/out/workflow-a-v3_1-2026-03-03T11-31-21-679Z.json"}}
