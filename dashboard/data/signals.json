@@ -828,5 +828,35 @@
         "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-03-ET-AI-UNIPOD-001",
+    "title": "Ethiopia launches AI UniPod to build national AI capacity and regional leadership posture",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-03T20:43:00Z",
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "DFC",
+      "IFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Ethiopia launched an AI University Innovation Pod in Addis Ababa via Ethiopian AI Institute, Addis Ababa University, and UNDP Timbuktoo collaboration, signaling sovereign AI capability formation.",
+    "flow": "National AI institution-building + university partnership + UNDP backing -> stronger regional AI ecosystem capacity -> rising infrastructure and talent-platform investment pressure",
+    "verification_note": "Monitor; multi-source media corroboration attached. Upgrade when first-party Ethiopian institute/government or UNDP release is attached.",
+    "sources": [
+      {
+        "label": "AllAfrica report",
+        "url": "https://allafrica.com/stories/202602170117.html"
+      },
+      {
+        "label": "DIG Watch update",
+        "url": "https://dig.watch/updates/new-ai-innovation-hub-aims-to-position-ethiopia-as-regional-leader"
+      }
+    ]
   }
 ]

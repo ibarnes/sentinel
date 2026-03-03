@@ -112,6 +112,22 @@
       "created_by": "Sentinel",
       "approved_by": null,
       "published_at": null
+    },
+    {
+      "beacon_id": "BEACON-1772570641192",
+      "title": "Beacon: Ethiopia AI institution-build raises East Africa platform pressure",
+      "status": "draft",
+      "signal_id": "SIG-2026-03-03-ET-AI-UNIPOD-001",
+      "initiative_id": "USG",
+      "mandate_implication": "Sovereign-backed AI capability formation raises regional competitiveness and supports earlier-stage infrastructure and talent-capacity mandate pathways.",
+      "draft_text": "The Ethiopia AI UniPod launch signals that AI capability formation is becoming institutionally anchored through state, university, and multilateral coordination. This shifts the regional baseline from isolated pilots toward formal ecosystem buildout. Mandate posture should emphasize infrastructure readiness, governance-defined implementation pathways, and workforce-linked deployment models before competitive positioning hardens.",
+      "lint_status": "UNKNOWN",
+      "lint_violations": [],
+      "created_at": "2026-03-03T20:44:01Z",
+      "updated_at": "2026-03-03T20:44:01Z",
+      "created_by": "Sentinel",
+      "approved_by": null,
+      "published_at": null
     }
   ]
 }
