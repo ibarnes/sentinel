@@ -600,11 +600,15 @@
     ],
     "summary": "Reported reserve expansion materially improves macro buffer optics and may reduce perceived FX fragility in Nigeria, supporting higher confidence for structured capital commitments.",
     "flow": "Reserve rebuild + transparency narrative -> lower macro-risk perception -> improved pre-FID convertibility conditions for sovereign/DFI capital",
-    "verification_note": "Monitor pending first-party CBN release or two Tier-1 full-source confirmations per sovereign verification threshold.",
+    "verification_note": "Monitor pending first-party CBN release or two Tier-1 full-source confirmations per sovereign verification threshold. Business Insider Africa source attached.",
     "sources": [
       {
         "label": "User-provided macro summary (CBN Governor attribution)",
         "url": "internal://chat/2026-03-03-ng-reserves-772"
+      },
+      {
+        "label": "Business Insider Africa report",
+        "url": "https://africa.businessinsider.com/local/markets/nigerias-net-reserves-surge-772-to-dollar348bn-as-fx-reforms-boost-buffers/w2gxc0c"
       }
     ]
   },
