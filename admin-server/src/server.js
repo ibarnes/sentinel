@@ -940,6 +940,7 @@ app.get('/dashboard/signals', async (req, res) => {
     const cls = v === 'Verified' ? 'success' : (v === 'Actioned' ? 'primary' : 'secondary');
     return `<span class="badge text-bg-${cls}">${escapeHtml(v)}</span>`;
   };
+  const signalRowsJson = JSON.stringify(sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${escapeHtml((s.buyer_ids || []).map((id) => byId[id] || id).join(', '))}</td></tr>`)).replace(/</g, '\\u003c');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signals')}</head><body><div class="app-shell">
     ${dashboardNav('signals')}
     ${pageHeader('Signal Register', '', 'Pressure surface tracking over time')}
@@ -954,10 +955,42 @@ app.get('/dashboard/signals', async (req, res) => {
       <div class="col-md-2 d-flex align-items-end"><button class="btn btn-outline-primary">Apply</button></div>
     </form>
     ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Signal</strong></summary><div class="card-body"><form method="post" action="/api/signals" class="row g-2"><div class="col-md-4"><label class="form-label">Title *</label><input class="form-control" name="title" required /></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select" name="status"><option>Monitor</option><option>Verified</option><option>Actioned</option></select></div><div class="col-md-2"><label class="form-label">Confidence</label><select class="form-select" name="confidence"><option>High</option><option>Medium</option><option>Low</option></select></div><div class="col-md-4"><label class="form-label">Signal Class *</label><select class="form-select" name="signal_class" required>${classes.map((c)=>`<option>${c}</option>`).join('')}</select></div><div class="col-md-4"><label class="form-label">Buyer IDs (comma)</label><input class="form-control" name="buyer_ids" placeholder="PIF, AFC" /></div><div class="col-md-8"><label class="form-label">Summary</label><input class="form-control" name="summary" /></div><div class="col-12"><button class="btn btn-sm btn-primary">Save Signal</button></div></form></div></details>` : ''}
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Signal Class</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody>
-      ${sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${escapeHtml((s.buyer_ids || []).map((id) => byId[id] || id).join(', '))}</td></tr>`).join('') || '<tr><td colspan="6">No signals yet</td></tr>'}
-    </tbody></table></div>
-  </div></body></html>`);
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Signal Class</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody id="signalsTbody"></tbody></table></div>
+    <div id="signalsEnd" class="text-center small text-muted py-3"></div>
+    <div id="signalsSentinel" style="height:1px"></div>
+  </div>
+  <script>
+    (() => {
+      const rows = ${signalRowsJson};
+      const tbody = document.getElementById('signalsTbody');
+      const sentinel = document.getElementById('signalsSentinel');
+      const end = document.getElementById('signalsEnd');
+      if (!tbody || !sentinel || !end) return;
+
+      const pageSize = 20;
+      let idx = 0;
+      function renderNext() {
+        if (idx >= rows.length) {
+          end.textContent = rows.length ? 'End of signals' : 'No signals yet';
+          return false;
+        }
+        const slice = rows.slice(idx, idx + pageSize).join('');
+        tbody.insertAdjacentHTML('beforeend', slice);
+        idx += pageSize;
+        end.textContent = idx < rows.length ? ('Loaded ' + Math.min(idx, rows.length) + ' of ' + rows.length) : 'End of signals';
+        return idx < rows.length;
+      }
+
+      renderNext();
+      const io = new IntersectionObserver((entries) => {
+        if (!entries.some(e => e.isIntersecting)) return;
+        const hasMore = renderNext();
+        if (!hasMore) io.disconnect();
+      }, { rootMargin: '300px 0px' });
+      io.observe(sentinel);
+    })();
+  </script>
+  </body></html>`);
 });
 
 app.get('/dashboard/beacons', requireAnyAuth, async (req, res) => {
