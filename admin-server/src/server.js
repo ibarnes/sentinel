@@ -884,6 +884,7 @@ app.get('/dashboard/buyers', async (req, res) => {
     EBRD: 'United Kingdom',
     IDB: 'United States',
     TEMASEK: 'Singapore',
+    ADQ: 'United Arab Emirates',
   };
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
