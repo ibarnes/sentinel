@@ -958,7 +958,7 @@ app.get('/dashboard/signals', async (req, res) => {
     const cls = v === 'Verified' ? 'success' : (v === 'Actioned' ? 'primary' : 'secondary');
     return `<span class="badge text-bg-${cls}">${escapeHtml(v)}</span>`;
   };
-  const signalRowsJson = JSON.stringify(sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${escapeHtml((s.buyer_ids || []).map((id) => byId[id] || id).join(', '))}</td></tr>`)).replace(/</g, '\\u003c');
+  const signalRowsJson = JSON.stringify(sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${(s.buyer_ids || []).map((id) => `<span class="badge text-bg-light border me-1" title="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td></tr>`)).replace(/</g, '\\u003c');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signals')}</head><body><div class="app-shell">
     ${dashboardNav('signals')}
     ${pageHeader('Signal Register', '', 'Pressure surface tracking over time')}
