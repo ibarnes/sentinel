@@ -885,6 +885,7 @@ app.get('/dashboard/buyers', async (req, res) => {
     IDB: 'United States',
     TEMASEK: 'Singapore',
     ADQ: 'United Arab Emirates',
+    QIA: 'Qatar',
   };
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
