@@ -3119,6 +3119,7 @@ app.post('/api/buyers/:id/upgrade-status', requireRole('architect','editor'), as
 
   b.signal_status = target;
   b.status_updated_at = nowIso();
+  b.updated_at = nowIso();
   await writeJson(buyersPath, buyers);
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'buyer.status.upgrade', entity_type: 'buyer', entity_id: buyerId, meta: { from, to: target } });
   return res.redirect('/dashboard/buyer/' + encodeURIComponent(buyerId));
@@ -3136,6 +3137,7 @@ app.post('/api/buyers', requireRole('architect','editor'), async (req, res) => {
   }
 
   const parseList = (v) => String(v || '').split(',').map((x) => x.trim()).filter(Boolean);
+  const ts = nowIso();
   const buyer = {
     buyer_id,
     name,
@@ -3149,12 +3151,14 @@ app.post('/api/buyers', requireRole('architect','editor'), async (req, res) => {
       regional_alignment: 'Medium',
       timing_urgency: 'Medium'
     },
-    initiatives: []
+    initiatives: [],
+    created_at: ts,
+    updated_at: ts
   };
 
   buyers.push(buyer);
   await writeJson(buyersPath, buyers);
-  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'task.create', entity_type: 'buyer', entity_id: buyer_id, meta: { name } });
+  await appendAuditEvent({ ts, actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'buyer.create', entity_type: 'buyer', entity_id: buyer_id, meta: { name } });
   res.redirect('/dashboard/buyers');
 });
 

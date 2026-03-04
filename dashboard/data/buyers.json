@@ -133,7 +133,9 @@
         "Step 4 \u2014 Mandate Execution: Secure pre-FID infrastructure structuring mandate (fee before architecture).",
         "Step 5 \u2014 FID Trigger: Capital commits under defined structure; promote activates at structural milestone."
       ]
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "GIC",
@@ -180,7 +182,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "Co-investment approval / capital deployment",
       "recurrence_potential": "Medium"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "AFC",
@@ -317,7 +321,9 @@
         "Step 4 \u2014 Mandate Execution: Secure project-preparation/structuring mandate with fee before financial close and no performance dependency.",
         "Step 5 \u2014 Financial Close Trigger: Capital deploys into project/SPV; promote/recurring structuring rights activate at structural milestone."
       ]
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "NSIA",
@@ -366,7 +372,9 @@
       "mandate_fee_structure": "Pre-FID structuring fee",
       "promote_trigger": "SPV capitalization",
       "recurrence_potential": "High (domestic pipeline)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "FMF-NG",
@@ -413,7 +421,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "Project approval under national program",
       "recurrence_potential": "High (if programmatic)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "ADFD",
@@ -461,7 +471,9 @@
       "mandate_fee_structure": "Structuring / preparation fee",
       "promote_trigger": "Loan approval / bilateral financing commitment",
       "recurrence_potential": "Medium"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "SFD",
@@ -509,7 +521,9 @@
       "mandate_fee_structure": "Pre-FID structuring fee",
       "promote_trigger": "Loan approval milestone",
       "recurrence_potential": "Medium"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "AfDB",
@@ -557,7 +571,9 @@
       "mandate_fee_structure": "Structuring advisory fee",
       "promote_trigger": "Co-financing commitment",
       "recurrence_potential": "Medium"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "IFC",
@@ -605,7 +621,9 @@
       "mandate_fee_structure": "Advisory structuring fee",
       "promote_trigger": "Investment participation",
       "recurrence_potential": "Medium"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "MUBADALA",
@@ -661,7 +679,9 @@
       "mandate_fee_structure": "Pre-FID Platform Architecture Mandate Fee",
       "promote_trigger": "Final Investment Decision (FID) or Capital Close",
       "recurrence_potential": "High (if platform-level engagement established)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "TPO",
@@ -795,7 +815,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate fee",
       "promote_trigger": "FID",
       "recurrence_potential": "High (platform-based)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "HCC",
@@ -932,7 +954,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "FID",
       "recurrence_potential": "High (platform-based)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "ANSCHUTZ",
@@ -1068,7 +1092,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "FID",
       "recurrence_potential": "High (platform-based)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "DFC",
@@ -1205,7 +1231,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "Financial close (FID)",
       "recurrence_potential": "Medium (platform-based; dependent on development alignment)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "KOCH",
@@ -1341,7 +1369,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "FID",
       "recurrence_potential": "Medium (platform-based; depends on structural alignment)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "COX",
@@ -1476,7 +1506,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "FID",
       "recurrence_potential": "Medium (platform-based; dependent on governance alignment)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "WORLDBANK",
@@ -1623,7 +1655,9 @@
       "mandate_fee_structure": "Pre-FID infrastructure structuring mandate.",
       "promote_trigger": "FID approval or capital close.",
       "recurrence_potential": "High \u2014 multiple sovereign infrastructure platforms."
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "ADB",
@@ -1765,7 +1799,9 @@
       "mandate_fee_structure": "Pre-FID infrastructure structuring mandate",
       "promote_trigger": "FID approval or capital close",
       "recurrence_potential": "High \u2014 regional infrastructure platforms."
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "EBRD",
@@ -1910,7 +1946,9 @@
       "mandate_fee_structure": "Pre-FID infrastructure structuring mandate",
       "promote_trigger": "FID approval or capital close",
       "recurrence_potential": "Medium \u2014 regional infrastructure platforms."
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "IDB",
@@ -2053,7 +2091,9 @@
       "mandate_fee_structure": "Pre-FID infrastructure structuring mandate",
       "promote_trigger": "FID approval or capital close",
       "recurrence_potential": "Medium \u2014 regional infrastructure platforms."
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "TEMASEK",
@@ -2192,7 +2232,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "FID approval",
       "recurrence_potential": "High (platform-based)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "ADQ",
@@ -2335,7 +2377,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "FID approval",
       "recurrence_potential": "High (platform-based)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "QIA",
@@ -2478,7 +2522,9 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "FID approval",
       "recurrence_potential": "High (platform-based)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   },
   {
     "buyer_id": "JBIC",
@@ -2621,6 +2667,8 @@
       "mandate_fee_structure": "Pre-FID structuring mandate",
       "promote_trigger": "FID approval",
       "recurrence_potential": "Medium (platform-based)"
-    }
+    },
+    "created_at": "2026-03-04T20:26:29Z",
+    "updated_at": "2026-03-04T20:26:29Z"
   }
 ]
