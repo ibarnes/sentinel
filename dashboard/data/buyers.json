@@ -2479,5 +2479,148 @@
       "promote_trigger": "FID approval",
       "recurrence_potential": "High (platform-based)"
     }
+  },
+  {
+    "buyer_id": "JBIC",
+    "name": "Japan Bank for International Cooperation (JBIC)",
+    "type": "Sovereign-Backed Policy Finance Institution",
+    "signal_status": "Monitor",
+    "score": 2.0,
+    "website": "https://www.jbic.go.jp",
+    "confidence": "Medium",
+    "mandate_summary": "Provide sovereign-backed financing to support Japanese strategic infrastructure, energy, and industrial investment globally.",
+    "geo_focus": [
+      "Asia",
+      "Africa",
+      "MENA",
+      "Global"
+    ],
+    "sector_focus": [
+      "Energy",
+      "Infrastructure",
+      "Supply Chain",
+      "Industrials"
+    ],
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "High",
+      "timing_urgency": "Medium"
+    },
+    "website_notes": [
+      "Identity = Pre-FID Infrastructure Structuring Authority aligned to sovereign capital deployment",
+      "Identification = Pre-FID structuring authority, not consultant",
+      "Access Physics = Capital-to-capital conduit + bottleneck relevance",
+      "Distribution Mechanics = Precision routing through trusted sovereign and industrial channels",
+      "Conversion Physics = Collapse structural ambiguity -> secure mandate before FID"
+    ],
+    "initiatives": [],
+    "transfer_hypothesis": "When cross-border infrastructure and energy platforms cannot safely reach FID due to governance and capital-stack ambiguity, USG can define commitment architecture pre-FID and convert this into a paid structuring mandate before sovereign-backed financing deployment.",
+    "buyer_state": {
+      "reach_profile": [
+        "High shielding",
+        "Committee-gated decisions",
+        "High capital exposure",
+        "High altitude symmetry sensitivity",
+        "High channel dependence"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Cross-border governance ambiguity",
+            "Capital stack misalignment",
+            "Multi-actor infrastructure coordination risk",
+            "FID sequencing risk",
+            "Strategic supply chain infrastructure requiring sovereign capital alignment"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Japanese industrial sponsors",
+            "Energy platform operators",
+            "Strategic infrastructure developers",
+            "Export credit agency relationships",
+            "Trusted legal and structuring advisors"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Japanese strategic infrastructure investment cycles",
+            "Energy transition infrastructure deployment",
+            "Global supply chain resilience initiatives",
+            "Large-scale LNG and energy infrastructure investments",
+            "Japanese industrial overseas expansion programs"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "JBIC investment committee",
+            "Principal-level sponsor",
+            "Infrastructure investment leadership",
+            "Strategic financing leadership"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: HIGH \u2014 Institutional sovereign lender.",
+        "Decision Speed: SLOW \u2014 Sovereign financing review cycle.",
+        "Risk Exposure: HIGH \u2014 Strategic national investment exposure.",
+        "Altitude Sensitivity: CRITICAL \u2014 Capital-to-capital alignment required.",
+        "Channel Dependence: HIGH \u2014 Warm institutional conduits required."
+      ],
+      "channels": {
+        "primary": [
+          "Japanese industrial sponsor alignment",
+          "Co-investor capital alignment",
+          "Infrastructure platform collaboration entry",
+          "Legal/governance structuring referral"
+        ],
+        "secondary": [
+          "Strategic infrastructure platform memo routed through financing leadership",
+          "Energy infrastructure structuring discussion"
+        ],
+        "avoid": [
+          "Cold institutional outreach",
+          "Thought leadership targeting them",
+          "Event networking as primary entry",
+          "Exploratory advisory discussions",
+          "Vendor-driven introductions"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: Identify structural ambiguity blocking safe sovereign-backed capital deployment.",
+        "Step 2 \u2014 Platform Framing: Define platform scope, capital alignment logic, FID boundary, and governance architecture.",
+        "Step 3 \u2014 Structural Alignment: Confirm structural prerequisites before sovereign financing approval.",
+        "Step 4 \u2014 Mandate Execution: Secure pre-FID infrastructure structuring mandate (fee before architecture).",
+        "Step 5 \u2014 FID Trigger: Capital commits under defined structure; promote activates at structural milestone."
+      ]
+    },
+    "transfer_chain": {
+      "stored_energy_source": "Strategic Infrastructure Financing Allocation",
+      "budget_program": "JBIC Overseas Infrastructure and Energy Financing Programs",
+      "funding_type": "Sovereign-backed infrastructure financing",
+      "approval_authority": "JBIC Investment Committee",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Japanese strategic capital deployment into global infrastructure and energy platforms.",
+      "linked_signals_30d": "Japanese-backed infrastructure and energy investment initiatives expanding across Asia and emerging markets.",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Structured cross-border infrastructure platform reduces capital deployment risk and aligns with Japanese strategic investment objectives.",
+      "linked_initiative": "Potential global infrastructure platform candidate.",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Mandate pathway memo + Governance structure + Capital stack clarity",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "1 / 4",
+      "critical_blocker": "No verified Japanese strategic investment pathway identified.",
+      "transfer_vehicle": "Sovereign infrastructure structuring mandate",
+      "payment_trigger": "Financing committee approval of structured infrastructure platform",
+      "estimated_time_to_transfer": "9\u201318 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate",
+      "promote_trigger": "FID approval",
+      "recurrence_potential": "Medium (platform-based)"
+    }
   }
 ]
