@@ -880,6 +880,7 @@ app.get('/dashboard/buyers', async (req, res) => {
     KOCH: 'United States',
     COX: 'United States',
     WORLDBANK: 'United States',
+    ADB: 'Philippines',
   };
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
