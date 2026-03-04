@@ -2054,5 +2054,144 @@
       "promote_trigger": "FID approval or capital close",
       "recurrence_potential": "Medium \u2014 regional infrastructure platforms."
     }
+  },
+  {
+    "buyer_id": "TEMASEK",
+    "name": "Temasek",
+    "type": "Sovereign Capital / Global Investment Platform",
+    "signal_status": "Monitor",
+    "score": 2.2,
+    "website": "https://www.temasek.com",
+    "confidence": "Medium",
+    "mandate_summary": "Deploy sovereign capital globally into strategic infrastructure, technology, and energy transition platforms.",
+    "geo_focus": [
+      "Asia",
+      "Global"
+    ],
+    "sector_focus": [
+      "Infrastructure",
+      "Energy Transition",
+      "Digital",
+      "Technology"
+    ],
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "High",
+      "timing_urgency": "Medium"
+    },
+    "website_notes": [
+      "Identity = Pre-FID Infrastructure Structuring Authority aligned to sovereign capital deployment",
+      "Identification = Pre-FID structuring authority, not consultant",
+      "Access Physics = Capital-to-capital conduit + bottleneck relevance",
+      "Distribution Mechanics = Precision routing through trusted channels",
+      "Conversion Physics = Collapse structural ambiguity -> secure mandate before FID"
+    ],
+    "initiatives": [],
+    "transfer_hypothesis": "When cross-border infrastructure platforms cannot safely reach FID due to governance and capital-stack ambiguity, USG can define commitment architecture pre-FID and convert this into a paid structuring mandate before capital deployment.",
+    "buyer_state": {
+      "reach_profile": [
+        "High shielding",
+        "Committee-gated decisions",
+        "High risk exposure",
+        "High altitude symmetry sensitivity",
+        "High channel dependence"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Cross-border governance ambiguity",
+            "Capital stack misalignment",
+            "Multi-actor coordination risk",
+            "FID sequencing risk"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Co-investment partners",
+            "Infrastructure investment platforms",
+            "Institutional capital partners",
+            "Strategic sovereign investment advisors",
+            "Trusted legal and structuring advisors"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Global infrastructure capital redeployment cycles",
+            "Energy transition investment pushes",
+            "Strategic digital infrastructure initiatives",
+            "Major regional infrastructure programs",
+            "New strategic sector expansions"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Investment Committee exposure",
+            "Principal-level sponsor",
+            "Strategic investment head",
+            "Infrastructure investment leadership"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: HIGH \u2014 No broad marketing.",
+        "Decision Speed: SLOW \u2014 Institutional investment cycle.",
+        "Risk Exposure: HIGH \u2014 Strategic sovereign capital deployment.",
+        "Altitude Sensitivity: CRITICAL \u2014 Capital-to-capital alignment required.",
+        "Channel Dependence: HIGH \u2014 Warm conduits required."
+      ],
+      "channels": {
+        "primary": [
+          "Co-investor alignment",
+          "Trusted sovereign capital introducer",
+          "Capital stack collaboration entry",
+          "Legal/governance structuring referral"
+        ],
+        "secondary": [
+          "Strategic sector alignment memo routed through infrastructure investment leadership",
+          "Cross-border infrastructure platform memo"
+        ],
+        "avoid": [
+          "Cold email outreach",
+          "Thought leadership targeting them",
+          "Event-driven networking as primary entry",
+          "Let's explore opportunities conversations"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: Identify structural ambiguity blocking safe FID commitment.",
+        "Step 2 \u2014 Platform Framing: Define platform scope, capital alignment logic, FID boundary, and governance architecture.",
+        "Step 3 \u2014 Structural Alignment: Confirm structural prerequisites before FID can be signed.",
+        "Step 4 \u2014 Mandate Execution: Secure pre-FID infrastructure structuring mandate (fee before architecture).",
+        "Step 5 \u2014 FID Trigger: Capital commits under defined structure; promote activates at structural milestone."
+      ]
+    },
+    "transfer_chain": {
+      "stored_energy_source": "Strategic Sovereign Investment Allocation",
+      "budget_program": "Temasek Infrastructure / Strategic Investment Programs",
+      "funding_type": "Sovereign investment allocation",
+      "approval_authority": "Temasek Investment Committee",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Global infrastructure and energy transition platforms requiring coordinated capital formation.",
+      "linked_signals_30d": "Infrastructure and energy transition investment programs expanding globally.",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Structured cross-border infrastructure platform reduces deployment friction and aligns with sovereign investment strategy.",
+      "linked_initiative": "Potential global infrastructure platform candidate.",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "Mandate pathway memo + Governance structure + Capital stack clarity",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "1 / 4",
+      "critical_blocker": "No verified investment allocation pathway identified.",
+      "transfer_vehicle": "Sovereign investment mandate",
+      "payment_trigger": "Investment Committee approval of structured infrastructure platform",
+      "estimated_time_to_transfer": "6\u201312 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate",
+      "promote_trigger": "FID approval",
+      "recurrence_potential": "High (platform-based)"
+    }
   }
 ]
