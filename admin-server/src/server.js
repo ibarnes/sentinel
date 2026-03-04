@@ -1221,7 +1221,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
       </div>
     </details>
 
-    <details class="card mb-3" open>
+    <details class="card mb-3">
       <summary class="card-header"><strong>Decision Architecture</strong></summary>
       <div class="card-body">
         <div class="small text-muted mb-2">Who influences buyer decisions and which lane they control.</div>
