@@ -1477,5 +1477,152 @@
       "promote_trigger": "FID",
       "recurrence_potential": "Medium (platform-based; dependent on governance alignment)"
     }
+  },
+  {
+    "buyer_id": "WORLDBANK",
+    "name": "World Bank (IBRD / IDA)",
+    "type": "Institutional Capital / Multilateral Development Bank",
+    "signal_status": "Monitor",
+    "score": 2.1,
+    "website": "https://www.worldbank.org",
+    "confidence": "Medium",
+    "mandate_summary": "Enable sovereign infrastructure platforms by financing development projects and structuring global capital flows into emerging markets.",
+    "geo_focus": [
+      "Global",
+      "Africa",
+      "Asia",
+      "Latin America",
+      "MENA"
+    ],
+    "sector_focus": [
+      "Infrastructure",
+      "Energy",
+      "Transport",
+      "Digital",
+      "Water",
+      "Climate"
+    ],
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "High",
+      "timing_urgency": "Medium"
+    },
+    "website_notes": [
+      "Identity = Pre-FID infrastructure structuring authority aligned with sovereign infrastructure deployment and multilateral capital formation.",
+      "Identification = Commitment architecture authority that resolves sovereign capital stack ambiguity before MDB project preparation and financing approval.",
+      "Access Physics = Sovereign borrower alignment + multilateral capital structuring relevance.",
+      "Distribution Mechanics = Precision routing through sovereign ministries, project preparation facilities, and MDB-aligned advisory or structuring channels.",
+      "Conversion Physics = Collapse capital stack ambiguity -> enable project preparation approval -> secure structuring mandate before FID."
+    ],
+    "initiatives": [],
+    "transfer_hypothesis": "When sovereign infrastructure platforms cannot reach bankability due to capital stack and governance ambiguity, USG can define commitment architecture before project preparation approval. This enables a pre-FID structuring mandate and de-risks eventual MDB-linked deployment.",
+    "buyer_state": {
+      "reach_profile": [
+        "High shielding",
+        "Committee-gated decisions",
+        "Multi-layer institutional review",
+        "Country government alignment required",
+        "Heavy documentation standards"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "capital stack misalignment",
+            "multi-actor governance risk",
+            "project preparation ambiguity",
+            "cross-border infrastructure coordination complexity",
+            "FID sequencing risk"
+          ]
+        },
+        {
+          "title": "Existing Capital Conduits (Critical)",
+          "points": [
+            "Country ministry relationships",
+            "Infrastructure finance advisors",
+            "Project preparation facility teams",
+            "Development finance co-investors",
+            "MDB-aligned structuring firms"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Country infrastructure strategy cycles",
+            "Major development program launches",
+            "Energy transition initiatives",
+            "Large-scale climate infrastructure programs",
+            "Regional corridor initiatives"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Country minister / sovereign sponsor",
+            "World Bank regional infrastructure director",
+            "Sector program head",
+            "Investment committee equivalent approval bodies"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: HIGH \u2014 Institutional gatekeeping.",
+        "Decision Speed: VERY SLOW \u2014 multi-stage review cycles.",
+        "Risk Exposure: EXTREME \u2014 sovereign lending risk.",
+        "Altitude Sensitivity: CRITICAL \u2014 sovereign-to-institution alignment required.",
+        "Channel Dependence: VERY HIGH \u2014 formal entry channels."
+      ],
+      "channels": {
+        "primary": [
+          "Sovereign ministry alignment",
+          "Co-financing institution collaboration",
+          "MDB-aligned infrastructure advisors",
+          "Project preparation facility introduction",
+          "Development finance co-investor alignment"
+        ],
+        "secondary": [
+          "Policy-aligned infrastructure platform memo routed through sovereign ministry",
+          "Infrastructure strategy alignment discussion with sector leadership"
+        ],
+        "avoid": [
+          "Cold outreach",
+          "Generic infrastructure proposals",
+          "Conference networking as primary entry",
+          "Exploratory advisory conversations",
+          "Vendor-led introductions"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 \u2014 Platform Pressure: A sovereign infrastructure platform exists but cannot reach bankability due to capital stack or governance ambiguity.",
+        "Step 2 \u2014 Platform Framing: Define platform scope, capital stack architecture, FID boundary, and governance structure.",
+        "Step 3 \u2014 Structural Alignment: Confirm capital stack and governance architecture required before MDB project preparation approval.",
+        "Step 4 \u2014 Mandate Execution: Secure Pre-FID infrastructure structuring mandate tied to platform architecture.",
+        "Step 5 \u2014 FID Trigger: Platform becomes bankable; capital deployment begins; MDB financing activates."
+      ]
+    },
+    "transfer_chain": {
+      "stored_energy_source": "Sovereign Infrastructure Development Financing",
+      "budget_program": "World Bank Infrastructure Financing Programs",
+      "funding_type": "Sovereign development financing allocation",
+      "approval_authority": "World Bank Board + Country Government",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Emerging market infrastructure platforms requiring coordinated capital formation and governance structure.",
+      "linked_signals_30d": "Infrastructure investment initiatives across energy transition, transport corridors, and digital infrastructure.",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Defined platform architecture reduces sovereign capital deployment risk and enables MDB project preparation approval.",
+      "linked_initiative": "Potential sovereign infrastructure platform.",
+      "recognition_evidence_status": "None",
+      "required_governance_artifacts": "platform architecture definition + capital stack structure + governance model + FID sequencing clarity",
+      "mandate_pathway_stage": "Evidence Gathering",
+      "checklist_coverage": "1 / 4",
+      "critical_blocker": "No sovereign-aligned mandate pathway identified yet.",
+      "transfer_vehicle": "Sovereign infrastructure structuring mandate.",
+      "payment_trigger": "Formal mandate issuance prior to project preparation or capital deployment.",
+      "estimated_time_to_transfer": "9\u201318 months",
+      "mandate_fee_structure": "Pre-FID infrastructure structuring mandate.",
+      "promote_trigger": "FID approval or capital close.",
+      "recurrence_potential": "High \u2014 multiple sovereign infrastructure platforms."
+    }
   }
 ]
