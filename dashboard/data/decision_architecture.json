@@ -1,0 +1,32 @@
+[
+  {
+    "buyer_id": "DFC",
+    "person": "Ben Black",
+    "title": "Chief Executive Officer",
+    "lane": "Executive / Investment Committee",
+    "influence": "High",
+    "engagement_use": "Executive alignment, strategic mandate framing, and final authority context.",
+    "source_url": "https://www.dfc.gov/who-we-are/ben-black",
+    "updated_at": "2026-03-04"
+  },
+  {
+    "buyer_id": "DFC",
+    "person": "Conor Coleman",
+    "title": "Head of Investments; Chief of Staff",
+    "lane": "Investments / IC Process",
+    "influence": "High",
+    "engagement_use": "Investment-committee pathway, structuring fit, and portfolio-level capital logic.",
+    "source_url": "https://www.dfc.gov/who-we-are/conor-coleman",
+    "updated_at": "2026-03-04"
+  },
+  {
+    "buyer_id": "DFC",
+    "person": "Caroline Vik",
+    "title": "Chief Policy Officer",
+    "lane": "Policy / Strategic Alignment",
+    "influence": "Medium",
+    "engagement_use": "Policy narrative alignment, strategic competition framing, and foreign-policy coherence.",
+    "source_url": "https://www.dfc.gov/who-we-are/caroline-vik",
+    "updated_at": "2026-03-04"
+  }
+]

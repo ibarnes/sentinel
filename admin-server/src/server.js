@@ -27,6 +27,7 @@ const DASHBOARD_SNAPSHOTS = path.join(ROOT, 'dashboard', 'snapshots');
 const DASHBOARD_SIGNALS_FILE = path.join(ROOT, 'dashboard', 'data', 'signals.json');
 const DASHBOARD_TEAM_FILE = path.join(ROOT, 'dashboard', 'data', 'team.json');
 const DASHBOARD_CONTACT_PATHS_FILE = path.join(ROOT, 'dashboard', 'data', 'contact_paths.json');
+const DASHBOARD_DECISION_ARCH_FILE = path.join(ROOT, 'dashboard', 'data', 'decision_architecture.json');
 const BEACON_QUEUE_FILE = path.join(ROOT, 'mission-control', 'beacon', 'beacons.json');
 const BEACON_QUEUE_SCHEMA_FILE = path.join(ROOT, 'mission-control', 'beacon', 'beacons.schema.json');
 const DASHBOARD_DECKSPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'deckspecs.v2.json');
@@ -1096,6 +1097,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
   const contactPaths = await readJson(DASHBOARD_CONTACT_PATHS_FILE, []);
+  const decisionArch = await readJson(DASHBOARD_DECISION_ARCH_FILE, []);
   const board = await readJson(BOARD_FILE, { version: 1, tasks: [] });
   const b = buyers.find(x=>x.buyer_id===id);
   if(!b) return res.status(404).send('Buyer not found');
@@ -1164,6 +1166,14 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
     .filter((p) => String(p.buyer_id || '').toUpperCase() === String(id || '').toUpperCase())
     .sort((a, b) => Number(b.influence_score || 0) - Number(a.influence_score || 0))
     .slice(0, 3);
+  const daLevel = String(req.query.da || 'all').toLowerCase();
+  const decisionRows = (decisionArch || [])
+    .filter((x) => String(x.buyer_id || '').toUpperCase() === String(id || '').toUpperCase())
+    .filter((x) => daLevel === 'all' ? true : String(x.influence || '').toLowerCase() === daLevel)
+    .sort((a, b) => {
+      const w = { high: 3, medium: 2, low: 1 };
+      return (w[String(b.influence || '').toLowerCase()] || 0) - (w[String(a.influence || '').toLowerCase()] || 0);
+    });
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyer Detail')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
@@ -1208,6 +1218,22 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
             <div class="col-12"><button class="btn btn-sm btn-primary">Save Access Path</button></div>
           </form>
         </details>` : ''}
+      </div>
+    </details>
+
+    <details class="card mb-3" open>
+      <summary class="card-header"><strong>Decision Architecture</strong></summary>
+      <div class="card-body">
+        <div class="small text-muted mb-2">Who influences buyer decisions and which lane they control.</div>
+        <div class="btn-group btn-group-sm mb-2" role="group" aria-label="Decision Architecture filter">
+          <a class="btn ${daLevel==='all'?'btn-primary':'btn-outline-primary'}" href="?da=all">All</a>
+          <a class="btn ${daLevel==='high'?'btn-primary':'btn-outline-primary'}" href="?da=high">High</a>
+          <a class="btn ${daLevel==='medium'?'btn-primary':'btn-outline-primary'}" href="?da=medium">Medium</a>
+          <a class="btn ${daLevel==='low'?'btn-primary':'btn-outline-primary'}" href="?da=low">Low</a>
+        </div>
+        <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Person</th><th>Role</th><th>Lane</th><th>Influence</th><th>Engagement Use</th><th>Source</th></tr></thead><tbody>
+          ${decisionRows.map((r)=>`<tr><td>${escapeHtml(r.person || '')}</td><td>${escapeHtml(r.title || '')}</td><td>${escapeHtml(r.lane || '')}</td><td><span class="badge text-bg-${String(r.influence||'').toLowerCase()==='high'?'danger':(String(r.influence||'').toLowerCase()==='medium'?'warning':'secondary')}">${escapeHtml(r.influence || 'Low')}</span></td><td>${escapeHtml(r.engagement_use || '')}</td><td>${r.source_url ? `<a href="${escapeHtml(String(r.source_url))}" target="_blank" rel="noopener noreferrer">Profile</a>` : '—'}</td></tr>`).join('') || '<tr><td colspan="6">No decision-architecture entries yet for this buyer.</td></tr>'}
+        </tbody></table></div>
       </div>
     </details>
 
