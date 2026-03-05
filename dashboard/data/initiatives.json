@@ -121,7 +121,7 @@
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
-    "name": "Dangote Global Export Architecture (Phase 2)",
+    "name": "Gulf\u2013Africa Trade Corridor Platform",
     "status": "Pre-FID / Formation",
     "gate_stage": "Gate 1",
     "gate_updated_at": "2026-03-05T20:13:00Z",
@@ -136,8 +136,14 @@
       "PARTNER-UAE-LOGISTICS",
       "PARTNER-GLOBAL-TRADING-HOUSES"
     ],
-    "macro_gravity_summary": "Dangote refinery's domestic-first stabilization phase creates a sequenced window to design future export architecture. A UAE-based corridor can serve as the Phase-2 export valve once domestic obligations are secured and export allocations become consistent.",
+    "macro_gravity_summary": "The stabilization of Dangote refinery and other African supply nodes creates a window to architect a Gulf\u2013Africa trade corridor. A UAE-based platform can aggregate Gulf demand, coordinate logistics, and route refined products and other commodities from African supply anchors to global markets.",
     "structural_role": "USG designs phase-gated commitment architecture: domestic-priority compatibility now, export-valve activation criteria next, and global distribution scale once allocation thresholds are met.",
-    "fid_event_definition": "Formal corridor SPV/JV execution triggered by sustained export allocation, anchored sponsor commitments, approved trade-finance lines, and contracted multi-year offtake under UAE operating structure."
+    "fid_event_definition": "Formal corridor SPV/JV execution triggered by sustained export allocation, anchored sponsor commitments, approved trade-finance lines, and contracted multi-year offtake under UAE operating structure.",
+    "phase_label": "Phase-2 export corridor once African supply nodes reach stable export allocation.",
+    "supply_anchors": [
+      "Dangote Refinery",
+      "Bestaf Infrastructure",
+      "African Commodity Producers"
+    ]
   }
 ]

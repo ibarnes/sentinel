@@ -1,6 +1,6 @@
 ---
 rp_id: RP-0028
-title: Phase-Gated Corridor Activation Criteria — Dangote Global Export Architecture
+title: Phase-Gated Corridor Activation Criteria — Gulf–Africa Trade Corridor Platform
 linked_task: null
 created_by: sentinel
 created_at: 2026-03-05T20:36:00Z
@@ -10,10 +10,10 @@ architect_decision: null
 architect_notes: null
 ---
 
-# Phase-Gated Corridor Activation Criteria — Dangote Global Export Architecture
+# Phase-Gated Corridor Activation Criteria — Gulf–Africa Trade Corridor Platform
 
 ## Summary
-Corridor opportunity remains valid but should be positioned as Phase-2 export architecture. Immediate posture shifts from export volume capture to activation-condition design.
+Corridor opportunity remains valid but should be positioned as a Phase-2 export corridor once African supply nodes reach stable export allocation. Immediate posture shifts from export volume capture to activation-condition design.
 
 ## Observations
 - Dangote public stance: domestic supply insulation is immediate priority.
@@ -49,7 +49,7 @@ Corridor opportunity remains valid but should be positioned as Phase-2 export ar
 
 ## Repositioning Language (Approved)
 - Replace: "Immediate export trading platform"
-- With: **"Dangote Global Export Architecture (Phase 2)"**
+- With: **"Gulf–Africa Trade Corridor Platform (Phase-2 export corridor once African supply nodes reach stable export allocation)"**
 
 ## Next Actions
 1. Track gate indicators weekly in signals module.
