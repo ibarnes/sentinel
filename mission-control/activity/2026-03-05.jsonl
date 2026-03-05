@@ -7,3 +7,4 @@
 {"ts":"2026-03-05T11:30:00Z","actor":"sentinel","role":"operator","event_type":"workflow.run","entity_type":"workflow","entity_id":"workflow-a","meta":{"status":"completed","output":"mission-control/workflow-a/out/workflow-a-v3_1-2026-03-05T11-31-25-709Z.json","internal_only":true}}
 {"ts":"2026-03-05T11:40:00Z","actor":"sentinel","role":"operator","event_type":"task.update","entity_type":"task","entity_id":"TASK-0094","meta":{"status":"Ready for Review","review_packet_id":"RP-0021"}}
 {"ts":"2026-03-05T11:40:00Z","actor":"sentinel","role":"operator","event_type":"task.update","entity_type":"task","entity_id":"TASK-0095","meta":{"status":"In Progress","note":"endpoint wired; smoke pending auth session"}}
+{"ts":"2026-03-05T12:00:00Z","actor":"sentinel","role":"operator","event_type":"workflow.run","entity_type":"workflow","entity_id":"workflow-b","meta":{"status":"completed","output":"mission-control/review-packets/RP-0022-workflow-b-top-target-queue-2026-03-05.md"}}
