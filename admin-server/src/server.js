@@ -773,7 +773,7 @@ app.get('/dashboard/review', async (req, res) => {
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review?page=1&pageSize=25">Paged View</a>
     </div>
     <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Title</th><th>Compact</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th></tr></thead><tbody>
-      ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td>${escapeHtml(r.title||'')}</td><td class="small" style="max-width:420px">${escapeHtml(r.compact||'—')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td></tr>`).join('')) || '<tr><td colspan="8">No review packets</td></tr>'}
+      ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td><a href="/dashboard/review/${encodeURIComponent(r.rp_id || '')}">${escapeHtml(r.title||'')}</a></td><td class="small" style="max-width:420px">${escapeHtml(r.compact||'—')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td></tr>`).join('')) || '<tr><td colspan="8">No review packets</td></tr>'}
     </tbody></table></div></div>
 
     <div class="d-flex flex-wrap gap-2 align-items-center mt-2">
@@ -787,6 +787,29 @@ app.get('/dashboard/review', async (req, res) => {
         <button class="btn btn-sm btn-primary" type="submit">Go</button>
       </form>
     </div>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/review/:rpId', async (req, res) => {
+  const rpId = String(req.params.rpId || '').trim();
+  const rp = await parseRpFileById(rpId);
+  if (!rp) {
+    return res.status(404).type('html').send(`<!doctype html><html><head>${uiHead('Review Packet Not Found')}</head><body><div class="app-shell">${dashboardNav('review')}${pageHeader('Review Packet Not Found')}<p>No review packet found for <code>${escapeHtml(rpId)}</code>.</p><a class="btn btn-secondary" href="/dashboard/review">Back to Review Packets</a></div></body></html>`);
+  }
+
+  const body = rp.text.replace(/^---\n[\s\S]*?\n---\n?/, '').trim();
+  const frontRows = Object.entries(rp.front || {})
+    .map(([k, v]) => `<tr><th style="width:220px">${escapeHtml(k)}</th><td>${escapeHtml(String(v ?? ''))}</td></tr>`)
+    .join('') || '<tr><td colspan="2">No metadata</td></tr>';
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead(`Review Packet ${rpId}`)}</head><body><div class="app-shell">
+    ${dashboardNav('review')}
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h1 class="page-title">${escapeHtml(rp.front?.title || rpId)}</h1>
+      <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review">Back to list</a>
+    </div>
+    <div class="card mb-3"><div class="table-responsive"><table class="table table-sm align-middle"><tbody>${frontRows}</tbody></table></div></div>
+    <div class="card"><div class="card-body"><pre style="white-space:pre-wrap;word-break:break-word;max-height:none" class="small">${escapeHtml(body)}</pre></div></div>
   </div></body></html>`);
 });
 
