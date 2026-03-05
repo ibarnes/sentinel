@@ -1004,5 +1004,36 @@
         "url": "https://www.aboutamazon.com/news/policy-news-views/amazon-data-centers-power-costs-white-house-pledge"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-05-DFC-MARITIME-BACKSTOP-001",
+    "title": "U.S. DFC mobilizes political risk insurance/guarantees for Gulf maritime trade",
+    "signal_class": "Capital Reality",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-05T15:42:00Z",
+    "buyer_ids": [
+      "DFC",
+      "AFC",
+      "AfDB",
+      "GIC",
+      "PIF"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "First-party DFC release confirms readiness to deploy political risk insurance and guaranty products for maritime trade and energy flows in the Gulf, introducing a sovereign risk-transfer backstop during conflict-driven insurance stress.",
+    "flow": "private war-risk withdrawal -> sovereign insurance/guaranty backstop -> reduced actuarial blockade risk -> partial normalization of shipping and energy flow confidence",
+    "verification_note": "First-party DFC media release (2026-03-03) corroborates Trump-posted policy direction; implementation terms (eligibility/pricing/claims mechanics) remain execution variables.",
+    "sources": [
+      {
+        "label": "DFC official media release",
+        "url": "https://www.dfc.gov/media/press-releases/dfcs-political-risk-insurance-and-guaranty-products-will-support-private"
+      },
+      {
+        "label": "Reuters coverage",
+        "url": "https://www.reuters.com/business/energy/us-considering-oil-tanker-insurance-support-ease-middle-east-crude-shipments-2026-03-03/"
+      }
+    ]
   }
 ]
