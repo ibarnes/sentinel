@@ -385,8 +385,27 @@ function uiHead(title) {
     .app-shell.nav-collapsed .oc-nav .nav-link {
       justify-content: center;
       padding: .5rem 0;
+      position: relative;
+    }
+    .app-shell.nav-collapsed .oc-nav .nav-link:hover::after {
+      content: attr(title);
+      position: absolute;
+      left: calc(100% + 10px);
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      background: #0f141d;
+      color: #e8ecf3;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 4px 8px;
+      font-size: .75rem;
+      z-index: 30;
+      box-shadow: var(--shadow-sm);
+      pointer-events: none;
     }
     .app-shell.nav-collapsed .oc-nav .nav-label { display: none; }
+    .app-shell.nav-collapsed .oc-nav .oc-nav-user { display: none; }
     .app-shell.nav-collapsed .oc-desktop-toggle {
       right: auto;
       left: 50%;
@@ -3005,7 +3024,7 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
         <a class="nav-link" href="/dashboard/presentation-studio" title="Presentation Studio"><i data-lucide="presentation" class="nav-icon"></i><span class="nav-label">Presentation Studio</span></a>
         <a class="nav-link active" href="/board" title="Board"><i data-lucide="kanban-square" class="nav-icon"></i><span class="nav-label">Board</span></a>
       </div>
-      <div class="small text-muted">${escapeHtml(u.username)} (${escapeHtml(u.role)})</div>
+      <div class="small text-muted oc-nav-user">${escapeHtml(u.username)} (${escapeHtml(u.role)})</div>
       <form method="post" action="/auth/logout" class="oc-nav-footer m-0"><button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button></form>
     </nav>
 
