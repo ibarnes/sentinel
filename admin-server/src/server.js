@@ -368,7 +368,7 @@ function uiHead(title) {
     .app-shell.nav-collapsed > .oc-nav {
       width: var(--sidebar-collapsed-w);
       padding: 10px 8px;
-      overflow: hidden;
+      overflow: visible;
     }
     .app-shell.nav-collapsed > .oc-nav ~ * {
       margin-left: calc(var(--sidebar-collapsed-w) + 28px);
