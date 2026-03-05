@@ -1068,5 +1068,39 @@
       "Sovereign + EPC Alignment",
       "Platform Origination"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-05-UAE-REFINED-CORRIDOR-001",
+    "title": "UAE refined-products corridor platform forming around Dangote export coordination",
+    "signal_class": "Pre-FID Origin Window",
+    "status": "Active / Forming",
+    "confidence": "Medium-High",
+    "observed_at": "2026-03-05T20:26:00Z",
+    "buyer_ids": [
+      "GIC",
+      "PIF",
+      "AFC",
+      "DFC",
+      "IFC"
+    ],
+    "initiative_ids": [
+      "INIT-UAE-REFINED-CORRIDOR-001",
+      "USG"
+    ],
+    "summary": "Formation signal: Singapore HoldCo + UAE DMCC OpCo governance concept, anchor capital intent (TAFF), refinery supply participation, and trade-finance-led debt layer indicate an early commitment-architecture window for a refined-products distribution platform.",
+    "flow": "refinery export pressure + corridor demand + anchor sponsor concept -> commitment architecture design -> bankability package -> capital and offtake closure",
+    "verification_note": "User-provided formation blueprint; keep as Active/Forming until first-party corporate/regulatory documents are attached.",
+    "sources": [
+      {
+        "label": "Internal operator brief (Isaac)",
+        "url": "internal://chat/2026-03-05-uae-refined-products-corridor"
+      }
+    ],
+    "tags": [
+      "Capital Formation Gap",
+      "Sponsor/GP Structuring",
+      "Trade Finance Stack",
+      "UAE Corridor"
+    ]
   }
 ]

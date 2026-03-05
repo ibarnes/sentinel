@@ -118,5 +118,25 @@
     "macro_gravity_summary": "Government land/power enablement plus L&T execution and Nvidia anchoring create high-pressure pre-FID conditions for a gigawatt-scale AI campus, with unresolved sponsor governance and capital-stack sequencing as the primary bottleneck.",
     "structural_role": "USG designs commitment architecture pre-FID: governance, capital sequencing, risk allocation, and bankability package.",
     "fid_event_definition": "Capital close + tenancy/offtake commitments + governance package ratification + EPC NTP + power/land enforceable terms"
+  },
+  {
+    "initiative_id": "INIT-UAE-REFINED-CORRIDOR-001",
+    "name": "UAE Refined Products Corridor Platform",
+    "status": "Pre-FID / Formation",
+    "gate_stage": "Gate 1",
+    "gate_updated_at": "2026-03-05T20:26:00Z",
+    "infrastructure_category": "Energy",
+    "primary_buyer_id": "GIC",
+    "linked_buyers": [
+      "GIC",
+      "PIF",
+      "AFC",
+      "DFC",
+      "IFC",
+      "AfDB"
+    ],
+    "macro_gravity_summary": "A UAE-based platform coordinating Dangote refinery export volumes with global buyers through structured governance, capital sponsorship, and logistics distribution.",
+    "structural_role": "USG defines commitment architecture (governance, capital sequencing, risk allocation, bankability) before broad investor outreach.",
+    "fid_event_definition": "Committed refinery export allocation + anchor buyer commitments + approved trade finance lines + UAE operating license + contracted distribution architecture"
   }
 ]
