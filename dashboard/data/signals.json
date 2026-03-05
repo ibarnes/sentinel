@@ -1035,5 +1035,38 @@
         "url": "https://www.reuters.com/business/energy/us-considering-oil-tanker-insurance-support-ease-middle-east-crude-shipments-2026-03-03/"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-05-IN-AP-AI-FACTORY-001",
+    "title": "Andhra Pradesh AI gigawatt campus shows pre-FID platform pressure with capital-formation gap",
+    "signal_class": "Pre-FID Origin Window",
+    "status": "Active / Forming",
+    "confidence": "High",
+    "observed_at": "2026-03-05T16:06:00Z",
+    "buyer_ids": [
+      "GIC",
+      "PIF",
+      "AFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "INIT-AP-AI-FACTORY-001",
+      "USG"
+    ],
+    "summary": "Government land/power alignment, L&T EPC execution backbone, and Nvidia anchor with reported 15% equity indicate strong deployment pressure; capital sponsor structure, governance map, risk allocation, and bankability sequencing remain undefined.",
+    "flow": "sovereign enablement + EPC credibility + hyperscaler anchor -> demand pressure rises -> absent commitment architecture delays capital close -> origin window for platform design",
+    "verification_note": "Direct operator-context note indicates capital stack is not yet structured; treat as high-conviction forming signal pending linked public docs for all specifics.",
+    "sources": [
+      {
+        "label": "Internal operator brief (Isaac)",
+        "url": "internal://chat/2026-03-05-ap-ai-factory-platform-pressure"
+      }
+    ],
+    "tags": [
+      "Capital Formation Gap",
+      "Hyperscaler Anchor",
+      "Sovereign + EPC Alignment",
+      "Platform Origination"
+    ]
   }
 ]

@@ -88,8 +88,8 @@
     "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
     "name": "Nigeria Financial & Energy Circulation Spine",
     "status": "Execution-Layer Infrastructure (Subsidiary)",
-    "gate_stage": "Gate 0",
-    "gate_updated_at": "2026-03-02T21:27:00Z",
+    "gate_stage": "Gate 5",
+    "gate_updated_at": "2026-03-02T21:29:21.303Z",
     "infrastructure_category": "Economic",
     "primary_buyer_id": "FMF-NG",
     "linked_buyers": [
@@ -100,5 +100,23 @@
     ],
     "macro_gravity_summary": "A licensed, revenue-generating microfinance banking and financial circulation system embedded in Nigeria, integrating: regulated banking core, wallet and payment rails, 2000+ fuel station QR redemption nodes, enterprise allocation controls, and a governance control plane.",
     "structural_role": "UDG executes. USG architects scale, governance alignment, and regional expansion sequencing."
+  },
+  {
+    "initiative_id": "INIT-AP-AI-FACTORY-001",
+    "name": "Hyperscaler-Aligned AI Infrastructure Platform (Andhra Pradesh)",
+    "status": "Pre-FID / Formation",
+    "gate_stage": "Gate 0",
+    "gate_updated_at": "2026-03-05T16:06:00Z",
+    "infrastructure_category": "Digital",
+    "primary_buyer_id": "GIC",
+    "linked_buyers": [
+      "GIC",
+      "PIF",
+      "AFC",
+      "DFC"
+    ],
+    "macro_gravity_summary": "Government land/power enablement plus L&T execution and Nvidia anchoring create high-pressure pre-FID conditions for a gigawatt-scale AI campus, with unresolved sponsor governance and capital-stack sequencing as the primary bottleneck.",
+    "structural_role": "USG designs commitment architecture pre-FID: governance, capital sequencing, risk allocation, and bankability package.",
+    "fid_event_definition": "Capital close + tenancy/offtake commitments + governance package ratification + EPC NTP + power/land enforceable terms"
   }
 ]
