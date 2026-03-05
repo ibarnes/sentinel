@@ -1070,37 +1070,33 @@
     ]
   },
   {
-    "signal_id": "SIG-2026-03-05-UAE-REFINED-CORRIDOR-001",
-    "title": "UAE refined-products corridor platform forming around Dangote export coordination",
+    "signal_id": "SIG-2026-03-05-DANGOTE-EXPORT-001",
+    "title": "Dangote refinery begins international export tenders",
     "signal_class": "Pre-FID Origin Window",
-    "status": "Active / Forming",
-    "confidence": "Medium-High",
-    "observed_at": "2026-03-05T20:26:00Z",
+    "status": "Active",
+    "confidence": "High",
+    "observed_at": "2026-03-05T20:13:00Z",
     "buyer_ids": [
-      "GIC",
-      "PIF",
-      "AFC",
-      "DFC",
-      "IFC"
+      "BUYER-TAFF"
     ],
     "initiative_ids": [
-      "INIT-UAE-REFINED-CORRIDOR-001",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
       "USG"
     ],
-    "summary": "Formation signal: Singapore HoldCo + UAE DMCC OpCo governance concept, anchor capital intent (TAFF), refinery supply participation, and trade-finance-led debt layer indicate an early commitment-architecture window for a refined-products distribution platform.",
-    "flow": "refinery export pressure + corridor demand + anchor sponsor concept -> commitment architecture design -> bankability package -> capital and offtake closure",
-    "verification_note": "User-provided formation blueprint; keep as Active/Forming until first-party corporate/regulatory documents are attached.",
+    "summary": "Dangote refinery tendered ~84,000 tons of jet fuel and diesel for export, signaling transition into international refined products distribution.",
+    "flow": "Refinery capacity ramp \u2192 export cargo tenders \u2192 global distribution demand \u2192 need for structured export corridor.",
+    "verification_note": "Export tenders confirm refinery has moved into operational export phase supporting feasibility of long-term corridor structure.",
     "sources": [
       {
-        "label": "Internal operator brief (Isaac)",
-        "url": "internal://chat/2026-03-05-uae-refined-products-corridor"
+        "label": "Business Insider Africa",
+        "url": "https://africa.businessinsider.com"
       }
     ],
     "tags": [
-      "Capital Formation Gap",
-      "Sponsor/GP Structuring",
-      "Trade Finance Stack",
-      "UAE Corridor"
+      "Dangote Refinery",
+      "Refined Products Export",
+      "Global Distribution",
+      "Trade Corridor Formation"
     ]
   }
 ]

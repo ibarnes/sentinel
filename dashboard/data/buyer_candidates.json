@@ -29,37 +29,20 @@
     "source": "internal://chat/2026-03-05-ap-ai-factory-platform-pressure"
   },
   {
-    "candidate_id": "CAND-2026-03-05-TAFF-ANCHOR-001",
-    "name": "TAFF",
-    "candidate_type": "Anchor Candidate",
-    "initiative_id": "INIT-UAE-REFINED-CORRIDOR-001",
-    "role_hypothesis": "Sponsor/GP anchor via family capital with governance influence",
-    "engagement_trigger": "After vessel blueprint sign-off and anchor rights + obligations are fixed",
+    "candidate_id": "CAND-2026-03-05-TAFF-001",
+    "name": "Tariq Al Futtaim Family Foundation (TAFF)",
+    "candidate_type": "Anchor Buyer",
+    "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "role_hypothesis": "Capital anchor and corridor sponsor coordinating global offtake demand and UAE-based trade infrastructure.",
+    "engagement_trigger": "Execution of proxy mandate and 90-day Verified Value Sprint to validate refinery volumes and corridor economics.",
     "why_relevant": [
-      "Provides early sponsor credibility",
-      "Can absorb first-mover structuring risk",
-      "Improves LP and trade-finance confidence"
+      "Family capital capable of anchoring corridor platform",
+      "Strategic position within UAE logistics and trading ecosystem",
+      "Ability to aggregate global buyers and distribution channels"
     ],
     "status": "Forming",
     "owner": "sentinel",
-    "created_at": "2026-03-05T20:26:00Z",
-    "source": "internal://chat/2026-03-05-uae-refined-products-corridor"
-  },
-  {
-    "candidate_id": "CAND-2026-03-05-UAE-TRADING-HOUSES-001",
-    "name": "Strategic Trading Houses / Commodity Investors / Family Offices",
-    "candidate_type": "Capital Class Basket",
-    "initiative_id": "INIT-UAE-REFINED-CORRIDOR-001",
-    "role_hypothesis": "LP and offtake-aligned capital cohort after sponsor architecture is fixed",
-    "engagement_trigger": "Post-structure outreach with defined rights, allocation logic, and commitment sequence",
-    "why_relevant": [
-      "Aligns capital with physical offtake",
-      "Supports inventory/cargo financing resilience",
-      "Enables staged scale-up of distribution corridor"
-    ],
-    "status": "Forming",
-    "owner": "sentinel",
-    "created_at": "2026-03-05T20:26:00Z",
-    "source": "internal://chat/2026-03-05-uae-refined-products-corridor"
+    "created_at": "2026-03-05T20:13:00Z",
+    "source": "internal://chat/dangote-uae-corridor"
   }
 ]

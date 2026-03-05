@@ -120,23 +120,24 @@
     "fid_event_definition": "Capital close + tenancy/offtake commitments + governance package ratification + EPC NTP + power/land enforceable terms"
   },
   {
-    "initiative_id": "INIT-UAE-REFINED-CORRIDOR-001",
-    "name": "UAE Refined Products Corridor Platform",
+    "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "name": "Dangote\u2013UAE Global Refined Products Trade Corridor",
     "status": "Pre-FID / Formation",
     "gate_stage": "Gate 1",
-    "gate_updated_at": "2026-03-05T20:26:00Z",
-    "infrastructure_category": "Energy",
-    "primary_buyer_id": "GIC",
+    "gate_updated_at": "2026-03-05T20:13:00Z",
+    "infrastructure_category": "Energy / Commodities Logistics",
+    "primary_buyer_id": "BUYER-TAFF",
     "linked_buyers": [
-      "GIC",
-      "PIF",
-      "AFC",
-      "DFC",
-      "IFC",
-      "AfDB"
+      "BUYER-TAFF"
     ],
-    "macro_gravity_summary": "A UAE-based platform coordinating Dangote refinery export volumes with global buyers through structured governance, capital sponsorship, and logistics distribution.",
-    "structural_role": "USG defines commitment architecture (governance, capital sequencing, risk allocation, bankability) before broad investor outreach.",
-    "fid_event_definition": "Committed refinery export allocation + anchor buyer commitments + approved trade finance lines + UAE operating license + contracted distribution architecture"
+    "partners": [
+      "PARTNER-DANGOTE",
+      "PARTNER-MRS-HOLDINGS",
+      "PARTNER-UAE-LOGISTICS",
+      "PARTNER-GLOBAL-TRADING-HOUSES"
+    ],
+    "macro_gravity_summary": "Dangote refinery entering export phase creates structural need for coordinated global distribution of refined products. A UAE-based corridor enables aggregation of offtake demand, logistics coordination, and capital-backed trade finance for international markets.",
+    "structural_role": "USG acts as the architecture and governance layer coordinating refinery supply, family capital sponsorship, and global distribution partners through a UAE-based corridor platform.",
+    "fid_event_definition": "Execution of corridor SPV/JV with committed refinery export allocation, anchored TAFF sponsorship, and multi-year global offtake agreements supported by UAE logistics and distribution partners."
   }
 ]

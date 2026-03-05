@@ -1,0 +1,16 @@
+[
+  {
+    "partner_id": "PARTNER-DANGOTE",
+    "name": "Dangote Petroleum Refinery",
+    "role": "Supply Anchor",
+    "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "contribution": "Primary refined products supply for corridor export distribution."
+  },
+  {
+    "partner_id": "PARTNER-MRS-HOLDINGS",
+    "name": "MRS Holdings",
+    "role": "Distribution Partner",
+    "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "contribution": "Regional and international distribution network for refined petroleum products."
+  }
+]
