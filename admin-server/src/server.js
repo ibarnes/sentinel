@@ -316,10 +316,11 @@ function uiHead(title) {
   .oc-nav-toggle,
   .oc-nav-backdrop,
   .oc-mobile-topbar,
-  .oc-desktop-unfold,
   .oc-desktop-toggle { display: none; }
 
   @media (min-width: 1024px) {
+    .app-shell { --sidebar-collapsed-w: 56px; }
+
     .oc-desktop-toggle {
       display: inline-flex;
       position: absolute;
@@ -335,36 +336,29 @@ function uiHead(title) {
       color: var(--text-muted);
       line-height: 1;
       font-size: .9rem;
+      z-index: 2;
     }
     .oc-desktop-toggle:hover { color: var(--text); background: rgba(255,255,255,.06); }
 
     .app-shell.nav-collapsed > .oc-nav {
-      transform: translateX(calc(-1 * (var(--sidebar-w) + 28px)));
-      opacity: 0;
-      pointer-events: none;
-      transition: transform var(--tr-fast), opacity var(--tr-fast);
+      width: var(--sidebar-collapsed-w);
+      padding: 10px 8px;
+      overflow: hidden;
     }
     .app-shell.nav-collapsed > .oc-nav ~ * {
-      margin-left: 0;
+      margin-left: calc(var(--sidebar-collapsed-w) + 28px);
     }
-
-    .oc-desktop-unfold {
-      position: fixed;
-      top: 24px;
-      left: max(16px, calc((100vw - 1380px) / 2 + 16px));
-      z-index: 21;
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--surface-elevated);
-      color: var(--text);
-      box-shadow: var(--shadow-sm);
-      align-items: center;
-      justify-content: center;
-      line-height: 1;
+    .app-shell.nav-collapsed .oc-nav-title,
+    .app-shell.nav-collapsed .oc-nav-links,
+    .app-shell.nav-collapsed .oc-nav-footer {
+      display: none;
     }
-    .app-shell.nav-collapsed .oc-desktop-unfold { display: inline-flex; }
+    .app-shell.nav-collapsed .oc-desktop-toggle {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 12px;
+    }
   }
 
   @media (max-width: 1023px) {
@@ -455,7 +449,6 @@ function uiHead(title) {
       let toggle = shell.querySelector(':scope > .oc-nav-toggle');
       let backdrop = shell.querySelector(':scope > .oc-nav-backdrop');
       let deskToggle = nav.querySelector(':scope > .oc-desktop-toggle');
-      let unfold = shell.querySelector(':scope > .oc-desktop-unfold');
 
       if(!topbar){
         topbar = document.createElement('div');
@@ -498,14 +491,6 @@ function uiHead(title) {
         nav.appendChild(deskToggle);
       }
 
-      if(!unfold){
-        unfold = document.createElement('button');
-        unfold.className = 'oc-desktop-unfold';
-        unfold.type = 'button';
-        unfold.setAttribute('aria-label','Expand sidebar');
-        unfold.textContent = '⟩';
-        shell.prepend(unfold);
-      }
 
       const close = ()=>{ shell.classList.remove('nav-open'); document.body.classList.remove('nav-drawer-open'); };
       const open = ()=>{ if(!mobile) return; shell.classList.add('nav-open'); document.body.classList.add('nav-drawer-open'); };
@@ -514,9 +499,14 @@ function uiHead(title) {
       const applyCollapsed = (collapsed)=>{
         if(!desktop){
           shell.classList.remove('nav-collapsed');
+          deskToggle.textContent = '⟨';
+          deskToggle.setAttribute('aria-label','Collapse sidebar');
           return;
         }
-        shell.classList.toggle('nav-collapsed', !!collapsed);
+        const isCollapsed = !!collapsed;
+        shell.classList.toggle('nav-collapsed', isCollapsed);
+        deskToggle.textContent = isCollapsed ? '⟩' : '⟨';
+        deskToggle.setAttribute('aria-label', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
       };
 
       const persisted = localStorage.getItem(COLLAPSE_KEY) === '1';
@@ -528,12 +518,9 @@ function uiHead(title) {
         nav.querySelectorAll('a').forEach((a)=>a.addEventListener('click', close));
 
         deskToggle.addEventListener('click', ()=>{
-          localStorage.setItem(COLLAPSE_KEY, '1');
-          applyCollapsed(true);
-        });
-        unfold.addEventListener('click', ()=>{
-          localStorage.setItem(COLLAPSE_KEY, '0');
-          applyCollapsed(false);
+          const nextCollapsed = !shell.classList.contains('nav-collapsed');
+          localStorage.setItem(COLLAPSE_KEY, nextCollapsed ? '1' : '0');
+          applyCollapsed(nextCollapsed);
         });
 
         toggle.dataset.bound = '1';
