@@ -771,8 +771,8 @@ app.get('/dashboard/review', async (req, res) => {
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review?showAll=true">Show All</a>
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review?page=1&pageSize=25">Paged View</a>
     </div>
-    <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Title</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th></tr></thead><tbody>
-      ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td>${escapeHtml(r.title||'')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td></tr>`).join('')) || '<tr><td colspan="7">No review packets</td></tr>'}
+    <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Title</th><th>Compact</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th></tr></thead><tbody>
+      ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td>${escapeHtml(r.title||'')}</td><td class="small" style="max-width:420px">${escapeHtml(r.compact||'—')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td></tr>`).join('')) || '<tr><td colspan="8">No review packets</td></tr>'}
     </tbody></table></div></div>
 
     <div class="d-flex flex-wrap gap-2 align-items-center mt-2">
@@ -2549,6 +2549,14 @@ async function listReviewPackets(limit = 50) {
     const rpFromFile = (f.match(/^(RP-\d+)/i) || [null, null])[1];
     const titleFromHeader = ((txt.match(/^#\s+(.+)$/m) || [null, null])[1] || '').trim();
 
+    const summaryBlock = ((txt.match(/^##\s+Summary\s*\n([\s\S]*?)(\n##\s+|$)/m) || [null, ''])[1] || '')
+      .replace(/```[\s\S]*?```/g, ' ')
+      .replace(/\[[^\]]*\]\([^\)]*\)/g, '$1')
+      .replace(/[#>*_`-]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const compact = summaryBlock ? (summaryBlock.length > 180 ? `${summaryBlock.slice(0, 177)}...` : summaryBlock) : '';
+
     out.push({
       rp_id: front.rp_id || rpFromFile || 'N/A',
       title: front.title || titleFromHeader || f,
@@ -2557,6 +2565,7 @@ async function listReviewPackets(limit = 50) {
       created_by: front.created_by || '',
       status: front.status || (m ? 'Draft' : 'Legacy'),
       recommended_action: front.recommended_action || '',
+      compact,
       path: rel(full),
     });
   }
