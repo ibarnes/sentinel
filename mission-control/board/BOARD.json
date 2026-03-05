@@ -1046,16 +1046,28 @@
       "tags": [
         "task",
         "story:US-H1",
-        "epic:EP-H"
+        "epic:EP-H",
+        "decomposition-parent",
+        "recovery-sweep"
       ],
       "linked_refs": [
-        "/api/presentation-studio/decks/{deckId}/pipeline/run"
+        "/api/presentation-studio/decks/{deckId}/pipeline/run",
+        "TASK-0093",
+        "TASK-0094",
+        "TASK-0095"
       ],
       "description": "Create atomic first slice: validate input + create persisted run record with started status.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "decomp-20260305-0730",
+          "author": "sentinel",
+          "text": "Recovery sweep decomposition: split stalled TASK-0043 into TASK-0093, TASK-0094, TASK-0095 (30–90 min slices with acceptance criteria).",
+          "created_at": "2026-03-05T07:30:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-02-27T23:24:00Z",
-      "updated_at": "2026-02-27T23:24:00Z",
+      "updated_at": "2026-03-05T07:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2408,6 +2420,88 @@
       "request_approval": null,
       "created_at": "2026-03-02T19:53:00Z",
       "updated_at": "2026-03-02T19:53:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0093",
+      "title": "TS-H1.1a Define /pipeline/run validation contract (request/response + error codes)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0043"
+      ],
+      "description": "Produce explicit contract for POST /api/presentation-studio/decks/{deckId}/pipeline/run including required fields, allowed stages/scope, and deterministic 4xx error model.\nAcceptance Criteria:\n- Request schema documented with required/optional fields and enums.\n- Response schema includes runId, status, timestamps, and echo of validated scope/stages.\n- Error matrix covers invalid deckId, invalid scope, invalid stages, duplicate stage names, and malformed payload.",
+      "comments": [
+        {
+          "id": "done-contract-20260305",
+          "author": "sentinel",
+          "text": "Completed contract artifact: mission-control/review-packets/RP-0020-pipeline-run-validation-contract.md",
+          "created_at": "2026-03-05T07:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-05T07:30:00Z",
+      "updated_at": "2026-03-05T07:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0094",
+      "title": "TS-H1.1b Implement runId + run-record persistence helper",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0043"
+      ],
+      "description": "Add helper for creating pipeline run records with deterministic shape and persistence target.\nAcceptance Criteria:\n- runId generation format defined and implemented.\n- Persisted record contains deckId, scope, stages, status=started, createdAt/updatedAt.\n- Helper is unit-testable or smoke-verified with fixture write/read.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-05T07:30:00Z",
+      "updated_at": "2026-03-05T07:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0095",
+      "title": "TS-H1.1c Wire POST /pipeline/run endpoint + smoke verification",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0043"
+      ],
+      "description": "Implement endpoint using validation + persistence helper and verify with smoke calls.\nAcceptance Criteria:\n- Valid request returns 201 with runId and started status.\n- Invalid request returns 400 with actionable error payload.\n- Audit event emitted for pipeline.run.created with runId/deckId metadata.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-05T07:30:00Z",
+      "updated_at": "2026-03-05T07:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
