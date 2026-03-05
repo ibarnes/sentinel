@@ -107,16 +107,16 @@
 - 2026-03-01 review: no scoring model or weighting changes approved.
 - 2026-03-02 maintenance: no new scoring changes approved.
 
-# Project Status Snapshot (2026-03-04)
+# Project Status Snapshot (2026-03-05)
 - Workflow C queue discipline reconfirmed on schedule:
   - 00:00 UTC intake trigger logged internal-only.
   - 04:00 UTC queue event recorded; `execute_immediately=false`.
   - Execution remains deferred to local 23:00 ET window pending explicit queued tasks.
-- Presentation Studio v2 decomposition unchanged from prior snapshot:
-  - Ready for Review: TASK-0047, TASK-0048, TASK-0049, TASK-0050
-  - In Progress: TASK-0051
-  - Backlog next: TASK-0052
-- Scoring policy status: no scoring model or weighting changes approved on 2026-03-04 maintenance.
+- Presentation Studio active build progress (Board Build Window):
+  - Deck APIs (GET/POST/PATCH) implemented in `admin-server/src/server.js`.
+  - Review packet generated: `mission-control/review-packets/RP-0018-presentation-studio-deck-apis-get-post-patch.md`.
+  - Board movement: TASK-0020 and TASK-0021 advanced to Ready for Review (no Done transitions).
+- Scoring policy status: no scoring model or weighting changes approved on 2026-03-05 maintenance.
 
 # Communication Operating Rule (2026-03-01)
 - Proactive update protocol is mandatory during active build windows:
