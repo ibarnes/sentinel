@@ -2,3 +2,6 @@
 {"ts":"2026-03-05T04:10:00Z","actor":"sentinel","role":"operator","event_type":"task.update","entity_type":"task","entity_id":"TASK-0021","meta":{"status":"Ready for Review","review_packet_id":"RP-0018"}}
 {"ts":"2026-03-05T07:30:00Z","actor":"sentinel","action":"decompose","task_id":"TASK-0043","children":["TASK-0093","TASK-0094","TASK-0095"],"note":"Late-night recovery sweep mandatory decomposition gate."}
 {"ts":"2026-03-05T07:30:00Z","actor":"sentinel","action":"status_change","task_id":"TASK-0093","from":"Backlog","to":"Ready for Review","note":"Unblock subtask executed with RP-0020 contract artifact."}
+{"ts":"2026-03-05T17:30:00Z","actor":"sentinel","action":"decompose","task_id":"TASK-0095","children":["TASK-0096","TASK-0097"],"note":"Midday board sweep decomposition gate: split remaining smoke closure into harness delivery + live evidence execution."}
+{"ts":"2026-03-05T17:30:00Z","actor":"sentinel","action":"status_change","task_id":"TASK-0096","from":"Backlog","to":"Ready for Review","note":"Smoke harness script implemented with RP-0026."}
+{"ts":"2026-03-05T17:30:00Z","actor":"sentinel","action":"status_change","task_id":"TASK-0097","from":"Backlog","to":"In Progress","note":"Live authenticated smoke execution pending session cookie."}

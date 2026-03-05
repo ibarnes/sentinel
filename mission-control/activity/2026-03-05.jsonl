@@ -8,3 +8,9 @@
 {"ts":"2026-03-05T11:40:00Z","actor":"sentinel","role":"operator","event_type":"task.update","entity_type":"task","entity_id":"TASK-0094","meta":{"status":"Ready for Review","review_packet_id":"RP-0021"}}
 {"ts":"2026-03-05T11:40:00Z","actor":"sentinel","role":"operator","event_type":"task.update","entity_type":"task","entity_id":"TASK-0095","meta":{"status":"In Progress","note":"endpoint wired; smoke pending auth session"}}
 {"ts":"2026-03-05T12:00:00Z","actor":"sentinel","role":"operator","event_type":"workflow.run","entity_type":"workflow","entity_id":"workflow-b","meta":{"status":"completed","output":"mission-control/review-packets/RP-0022-workflow-b-top-target-queue-2026-03-05.md"}}
+{"ts":"2026-03-05T13:07:32.573Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-05T13:50:54.931Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-05T13:50:55.481Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-05T16:16:29.776Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"172.56.69.205"}}
+{"ts":"2026-03-05T17:09:41.948Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-05T17:30:00Z","actor":"sentinel","role":"operator","event_type":"board.progress_sweep","entity_type":"task_stream","entity_id":"TASK-0043","meta":{"continued_in_progress":"TASK-0095","decomposed":["TASK-0096","TASK-0097"],"moved_to_ready_for_review":["TASK-0096"],"blocked":["TASK-0097"]}}

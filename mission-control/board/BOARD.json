@@ -2510,7 +2510,9 @@
         "recovery-sweep"
       ],
       "linked_refs": [
-        "TASK-0043"
+        "TASK-0043",
+        "TASK-0096",
+        "TASK-0097"
       ],
       "description": "Implement endpoint using validation + persistence helper and verify with smoke calls.\nAcceptance Criteria:\n- Valid request returns 201 with runId and started status.\n- Invalid request returns 400 with actionable error payload.\n- Audit event emitted for pipeline.run.created with runId/deckId metadata.",
       "comments": [
@@ -2519,11 +2521,91 @@
           "author": "sentinel",
           "text": "Wired POST /pipeline/run endpoint and audit event; pending authenticated HTTP smoke (201 + 400 paths) before Ready for Review.",
           "created_at": "2026-03-05T11:40:00Z"
+        },
+        {
+          "id": "progress-0095-20260305-1730",
+          "author": "sentinel",
+          "text": "Decomposed remaining smoke closure into TASK-0096 (harness) and TASK-0097 (live authenticated execution evidence). Harness delivered with RP-0026; final close pending session cookie-backed run.",
+          "created_at": "2026-03-05T17:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-03-05T11:40:00Z",
+      "updated_at": "2026-03-05T17:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0096",
+      "title": "TS-H1.1c.1 Add reusable authenticated smoke harness script for /pipeline/run",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0095",
+        "scripts/pipeline-run-smoke.sh"
+      ],
+      "description": "Create reusable script that exercises 201 valid path and 400 invalid path for POST /pipeline/run with session cookie input.\nAcceptance Criteria:\n- Script accepts BASE_URL/COOKIE/DECK_ID env vars.\n- Valid request path asserts HTTP 201 and prints response body.\n- Invalid request path asserts HTTP 400 and prints response body.",
+      "comments": [
+        {
+          "id": "done-0096-20260305",
+          "author": "sentinel",
+          "text": "Implemented scripts/pipeline-run-smoke.sh and documented in RP-0026.",
+          "created_at": "2026-03-05T17:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-05T17:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0026-pipeline-run-smoke-harness.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-05T17:30:00Z",
+      "updated_at": "2026-03-05T17:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0026"
+    },
+    {
+      "id": "TASK-0097",
+      "title": "TS-H1.1c.2 Execute authenticated live smoke (201 + 400) and capture evidence",
+      "status": "In Progress",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0095",
+        "TASK-0096"
+      ],
+      "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
+      "comments": [
+        {
+          "id": "progress-0097-20260305",
+          "author": "sentinel",
+          "text": "Blocked in cron context: no authenticated session cookie available. Awaiting Isaac-run evidence or explicit credentialed execution window.",
+          "created_at": "2026-03-05T17:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-05T17:30:00Z",
+      "updated_at": "2026-03-05T17:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
