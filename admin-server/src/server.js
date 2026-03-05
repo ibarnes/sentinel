@@ -284,6 +284,16 @@ function uiHead(title) {
     padding: 14px;
     box-shadow: var(--shadow-sm);
   }
+  .app-shell > .oc-nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -14px;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,.16), transparent);
+    pointer-events: none;
+  }
   .app-shell > .oc-nav ~ * {
     margin-left: calc(var(--sidebar-w) + 28px);
     min-width: 0;
@@ -304,7 +314,12 @@ function uiHead(title) {
     line-height: 1.25;
     transition: all var(--tr-fast);
     border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
+  .oc-nav .nav-icon { width: 18px; text-align: center; opacity: .95; }
+  .oc-nav .nav-label { white-space: nowrap; }
   .oc-nav .nav-link:hover { color: var(--text); background: rgba(255,255,255,.045); }
   .oc-nav .nav-link.active {
     color: #f4f8ff;
@@ -349,15 +364,24 @@ function uiHead(title) {
       margin-left: calc(var(--sidebar-collapsed-w) + 28px);
     }
     .app-shell.nav-collapsed .oc-nav-title,
-    .app-shell.nav-collapsed .oc-nav-links,
     .app-shell.nav-collapsed .oc-nav-footer {
       display: none;
     }
+    .app-shell.nav-collapsed .oc-nav-links {
+      display: grid;
+      gap: 8px;
+      margin-top: 36px;
+    }
+    .app-shell.nav-collapsed .oc-nav .nav-link {
+      justify-content: center;
+      padding: .5rem 0;
+    }
+    .app-shell.nav-collapsed .oc-nav .nav-label { display: none; }
     .app-shell.nav-collapsed .oc-desktop-toggle {
       right: auto;
       left: 50%;
       transform: translateX(-50%);
-      top: 12px;
+      top: 8px;
     }
   }
 
@@ -541,15 +565,15 @@ function adminNav(active = '') {
   return `<nav class="oc-nav" aria-label="Admin navigation">
     <a class="oc-nav-title" href="/admin">Sentinel Admin</a>
     <div class="oc-nav-links">
-      <a class="nav-link ${is('panel')}" href="/admin">Panel</a>
-      <a class="nav-link ${is('upload')}" href="/admin/upload">Upload</a>
-      <a class="nav-link ${is('dashboard')}" href="/dashboard/">Dashboard</a>
-      <a class="nav-link ${is('buyers')}" href="/dashboard/buyers">Buyers</a>
-      <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives">Initiatives</a>
-      <a class="nav-link ${is('activity')}" href="/dashboard/activity">Activity</a>
-      <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
-      <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
-      <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
+      <a class="nav-link ${is('panel')}" href="/admin" title="Panel"><span class="nav-icon">🧭</span><span class="nav-label">Panel</span></a>
+      <a class="nav-link ${is('upload')}" href="/admin/upload" title="Upload"><span class="nav-icon">⤴️</span><span class="nav-label">Upload</span></a>
+      <a class="nav-link ${is('dashboard')}" href="/dashboard/" title="Dashboard"><span class="nav-icon">🏠</span><span class="nav-label">Dashboard</span></a>
+      <a class="nav-link ${is('buyers')}" href="/dashboard/buyers" title="Buyers"><span class="nav-icon">🏦</span><span class="nav-label">Buyers</span></a>
+      <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives" title="Initiatives"><span class="nav-icon">🧩</span><span class="nav-label">Initiatives</span></a>
+      <a class="nav-link ${is('activity')}" href="/dashboard/activity" title="Activity"><span class="nav-icon">📈</span><span class="nav-label">Activity</span></a>
+      <a class="nav-link ${is('review')}" href="/dashboard/review" title="Review"><span class="nav-icon">📝</span><span class="nav-label">Review</span></a>
+      <a class="nav-link ${is('board')}" href="/dashboard/board" title="Board"><span class="nav-icon">📋</span><span class="nav-label">Board</span></a>
+      <a class="nav-link ${is('uos')}" href="/dashboard/uos" title="UOS"><span class="nav-icon">📚</span><span class="nav-label">UOS</span></a>
     </div>
     <form method="post" action="/admin/logout" class="oc-nav-footer m-0">
       <button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button>
@@ -562,17 +586,17 @@ function dashboardNav(active = '') {
   return `<nav class="oc-nav" aria-label="Dashboard navigation">
     <a class="oc-nav-title" href="/dashboard/">UOS Dashboard</a>
     <div class="oc-nav-links">
-      <a class="nav-link ${is('home')}" href="/dashboard/">Home</a>
-      <a class="nav-link ${is('buyers')}" href="/dashboard/buyers">Buyers</a>
-      <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives">Initiatives</a>
-      <a class="nav-link ${is('activity')}" href="/dashboard/activity">Activity</a>
-      <a class="nav-link ${is('review')}" href="/dashboard/review">Review</a>
-      <a class="nav-link ${is('board')}" href="/dashboard/board">Board</a>
-      <a class="nav-link ${is('signals')}" href="/dashboard/signals">Signals</a>
-      <a class="nav-link ${is('beacons')}" href="/dashboard/beacons">Beacons</a>
-      <a class="nav-link ${is('team')}" href="/dashboard/team">Team</a>
-      <a class="nav-link ${is('uos')}" href="/dashboard/uos">UOS</a>
-      <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio">Presentation Studio</a>
+      <a class="nav-link ${is('home')}" href="/dashboard/" title="Home"><span class="nav-icon">🏠</span><span class="nav-label">Home</span></a>
+      <a class="nav-link ${is('buyers')}" href="/dashboard/buyers" title="Buyers"><span class="nav-icon">🏦</span><span class="nav-label">Buyers</span></a>
+      <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives" title="Initiatives"><span class="nav-icon">🧩</span><span class="nav-label">Initiatives</span></a>
+      <a class="nav-link ${is('activity')}" href="/dashboard/activity" title="Activity"><span class="nav-icon">📈</span><span class="nav-label">Activity</span></a>
+      <a class="nav-link ${is('review')}" href="/dashboard/review" title="Review"><span class="nav-icon">📝</span><span class="nav-label">Review</span></a>
+      <a class="nav-link ${is('board')}" href="/dashboard/board" title="Board"><span class="nav-icon">📋</span><span class="nav-label">Board</span></a>
+      <a class="nav-link ${is('signals')}" href="/dashboard/signals" title="Signals"><span class="nav-icon">📡</span><span class="nav-label">Signals</span></a>
+      <a class="nav-link ${is('beacons')}" href="/dashboard/beacons" title="Beacons"><span class="nav-icon">🛰️</span><span class="nav-label">Beacons</span></a>
+      <a class="nav-link ${is('team')}" href="/dashboard/team" title="Team"><span class="nav-icon">👥</span><span class="nav-label">Team</span></a>
+      <a class="nav-link ${is('uos')}" href="/dashboard/uos" title="UOS"><span class="nav-icon">📚</span><span class="nav-label">UOS</span></a>
+      <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio" title="Presentation Studio"><span class="nav-icon">🖼️</span><span class="nav-label">Presentation Studio</span></a>
     </div>
     <div class="oc-nav-footer">
       <a class="btn btn-sm btn-outline-secondary team-btn" href="/board">Team Board</a>
