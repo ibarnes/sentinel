@@ -921,5 +921,35 @@
         "url": "https://www.dangote.com/dangote-refinery-affirms-capacity-to-supply-75m-litres-of-pms-25m-litres-of-diesel-20m-litres-of-jet-fuel-daily/"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-05-MACRO-OIL85-001",
+    "title": "Oil near $85 reshapes African fiscal winners/losers in near-term financing windows",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium-High",
+    "observed_at": "2026-03-05T13:56:00Z",
+    "buyer_ids": [
+      "Nigeria Mortgage Fund",
+      "AFC",
+      "AfDB",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Bloomberg-cited framing indicates Nigeria and Angola as relative macro beneficiaries with oil near $85, while South Africa faces relative pressure; implications include widened fiscal room for oil-linked sovereigns but stronger domestic price sensitivity and import-stress divergence.",
+    "flow": "Oil spike vs budget benchmarks -> fiscal/capital-room divergence across sovereigns -> faster mandate timing in beneficiary markets + stress-adjusted sequencing elsewhere",
+    "verification_note": "Tier-1 Bloomberg link provided by user. Treat extreme conflict/shipping sub-claims as separately verification-gated before posture changes.",
+    "sources": [
+      {
+        "label": "Bloomberg: Nigeria/Angola winners, South Africa loser at oil near $85",
+        "url": "https://www.bloomberg.com/news/articles/2026-03-05/nigeria-angola-are-winners-with-oil-at-85-south-africa-a-loser"
+      },
+      {
+        "label": "User-provided secondary narrative excerpt",
+        "url": "internal://chat/2026-03-05-oil-spike-nigeria"
+      }
+    ]
   }
 ]
