@@ -2687,7 +2687,8 @@
       "Energy",
       "Digital",
       "Trade Corridors",
-      "Real Assets"
+      "Real Assets",
+      "Retail"
     ],
     "score": 2.3,
     "signal_status": "Active",
@@ -2730,7 +2731,7 @@
       }
     },
     "created_at": "2026-03-05T20:48:00Z",
-    "updated_at": "2026-03-05T21:04:00Z",
+    "updated_at": "2026-03-05T21:06:00Z",
     "transfer_chain": {
       "stored_energy_source": "Family capital allocation",
       "budget_program": "TAFF foundation investment mandate",
