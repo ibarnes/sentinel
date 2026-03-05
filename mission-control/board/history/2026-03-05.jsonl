@@ -1,0 +1,2 @@
+{"ts":"2026-03-05T04:10:00Z","actor":"sentinel","role":"operator","event_type":"task.update","entity_type":"task","entity_id":"TASK-0020","meta":{"status":"Ready for Review","review_packet_id":"RP-0018"}}
+{"ts":"2026-03-05T04:10:00Z","actor":"sentinel","role":"operator","event_type":"task.update","entity_type":"task","entity_id":"TASK-0021","meta":{"status":"Ready for Review","review_packet_id":"RP-0018"}}

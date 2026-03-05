@@ -1,1 +1,2 @@
 {"ts":"2026-03-05T04:00:00Z","actor":"sentinel","role":"operator","event_type":"workflow.queue","entity_type":"workflow","entity_id":"workflow-c","meta":{"status":"queued","execute_immediately":false}}
+{"ts":"2026-03-05T04:10:00Z","actor":"sentinel","role":"operator","event_type":"board.build_window.execute","entity_type":"workflow","entity_id":"night-build","meta":{"completed_subtasks":["ST-B1.1a","ST-B1.1b","ST-B1.2a"],"review_packet_id":"RP-0018"}}

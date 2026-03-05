@@ -3476,6 +3476,118 @@ app.post('/api/signals', requireRole('architect','editor'), async (req, res) => 
   res.redirect('/dashboard/signals');
 });
 
+app.get('/api/presentation-studio/decks', requireRole('architect','editor','observer'), async (req, res) => {
+  const store = await readDeckSpecStore();
+  const sel = resolveDeckSelectors(req.query || {});
+
+  const filtered = store.decks.filter((d) => {
+    if (sel.initiativeId && String(d.initiativeId) !== sel.initiativeId) return false;
+    if (sel.deckType && String(d.deckType) !== sel.deckType) return false;
+    if (sel.buyerId !== null && String(d.buyerId || '') !== String(sel.buyerId || '')) return false;
+    return true;
+  });
+
+  return res.json({
+    ok: true,
+    count: filtered.length,
+    selectors: sel,
+    decks: filtered,
+  });
+});
+
+app.post('/api/presentation-studio/decks', requireRole('architect','editor'), async (req, res) => {
+  const sel = resolveDeckSelectors(req.body || {});
+  if (!sel.initiativeId) return res.status(400).json({ error: 'initiativeId required' });
+
+  const globalTemplateTheme = String(req.body.globalTemplateTheme || req.body.templateTheme || 'sovereign-memo').trim() || 'sovereign-memo';
+  const styleMode = String(req.body.styleMode || 'professional').trim();
+  const copyProvider = String(req.body.copyProvider || 'local').trim() || 'local';
+  const imageProvider = String(req.body.imageProvider || 'placeholder').trim() || 'placeholder';
+
+  const store = await readDeckSpecStore();
+  const existing = store.decks.find((d) =>
+    String(d.initiativeId) === sel.initiativeId &&
+    String(d.deckType) === sel.deckType &&
+    String(d.buyerId || '') === String(sel.buyerId || '')
+  );
+  if (existing) return res.status(409).json({ error: 'deck already exists for selectors', selectors: sel, deck: existing });
+
+  const deck = defaultDeckSpecV2({
+    initiativeId: sel.initiativeId,
+    buyerId: sel.buyerId,
+    deckType: sel.deckType,
+    globalTemplateTheme,
+    styleMode,
+    copyProvider,
+    imageProvider,
+  });
+
+  store.decks.push(deck);
+  await writeDeckSpecStore(store);
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'deckspec.create',
+    entity_type: 'deck',
+    entity_id: deck.deckId,
+    meta: { selectors: sel }
+  });
+
+  return res.status(201).json({ ok: true, deck });
+});
+
+app.patch('/api/presentation-studio/decks/:deckId', requireRole('architect','editor'), async (req, res) => {
+  const deckId = String(req.params.deckId || '').trim();
+  if (!deckId) return res.status(400).json({ error: 'deckId required' });
+
+  const store = await readDeckSpecStore();
+  const deck = store.decks.find((d) => String(d.deckId) === deckId);
+  if (!deck) return res.status(404).json({ error: 'deck not found' });
+
+  const before = { ...deck };
+  if (typeof req.body.globalTemplateTheme === 'string') deck.globalTemplateTheme = String(req.body.globalTemplateTheme).trim() || deck.globalTemplateTheme;
+  if (typeof req.body.styleMode === 'string') {
+    const mode = String(req.body.styleMode).trim();
+    if (!['professional', 'creative'].includes(mode)) return res.status(400).json({ error: 'invalid styleMode' });
+    deck.styleMode = mode;
+  }
+  if (typeof req.body.copyProvider === 'string') deck.copyProvider = String(req.body.copyProvider).trim() || deck.copyProvider;
+  if (typeof req.body.imageProvider === 'string') deck.imageProvider = String(req.body.imageProvider).trim() || deck.imageProvider;
+  if (typeof req.body.currentSavePointId === 'string' || req.body.currentSavePointId === null) {
+    deck.currentSavePointId = req.body.currentSavePointId ? String(req.body.currentSavePointId).trim() : null;
+  }
+
+  deck.updatedAt = nowIso();
+  await writeDeckSpecStore(store);
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'deckspec.update',
+    entity_type: 'deck',
+    entity_id: deck.deckId,
+    meta: {
+      before: {
+        globalTemplateTheme: before.globalTemplateTheme,
+        styleMode: before.styleMode,
+        copyProvider: before.copyProvider,
+        imageProvider: before.imageProvider,
+        currentSavePointId: before.currentSavePointId,
+      },
+      after: {
+        globalTemplateTheme: deck.globalTemplateTheme,
+        styleMode: deck.styleMode,
+        copyProvider: deck.copyProvider,
+        imageProvider: deck.imageProvider,
+        currentSavePointId: deck.currentSavePointId,
+      }
+    }
+  });
+
+  return res.json({ ok: true, deck });
+});
+
 app.get('/api/presentation-studio/decks/resolve', requireRole('architect','editor','observer'), async (req, res) => {
   const createIfMissing = String(req.query.createIfMissing || 'true') !== 'false';
   const resolved = await getOrCreateDeckSpecBySelectors(req.query, { createIfMissing });
