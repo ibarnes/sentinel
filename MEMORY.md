@@ -123,3 +123,16 @@
   - Send status at least every 30 minutes.
   - Send immediate notice when work stops/pauses (idle, blocked, waiting, error).
   - Do not wait for Isaac to ping for status.
+
+# Execution Cadence Update (2026-03-05)
+- Approved by Isaac: tighten operational cadence to 30-minute increments for active execution windows.
+- Fast-lane rule: any task estimated at <=30 minutes is executed in the next available 30-minute slot.
+- Standard checkpoint format for each update:
+  - Done
+  - In Progress
+  - Blocker
+  - Next 30 min
+- Recommended work rhythm per hour:
+  - :00 start task
+  - :25 outcome + blocker check
+  - :30 begin next task
