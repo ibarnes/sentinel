@@ -1065,7 +1065,7 @@ app.get('/dashboard/buyers', async (req, res) => {
         <div class="col-12"><button class="btn btn-primary" type="submit">Save Buyer</button></div>
       </form>
     </div></div></div>` : ''}
-    <form class="row g-2 mb-3"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-2"><select class="form-select" name="per_page"><option value="10" ${perPage===10?'selected':''}>10</option><option value="20" ${perPage===20?'selected':''}>20</option><option value="50" ${perPage===50?'selected':''}>50</option></select></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div><div class="col-auto"><a class="btn btn-outline-secondary" href="/dashboard/signals">Open Signal Register</a></div></form>
+    <form id="buyersFilterForm" class="row g-2 mb-3" method="get" action="/dashboard/buyers"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-2"><select class="form-select" name="per_page"><option value="10" ${perPage===10?'selected':''}>10</option><option value="20" ${perPage===20?'selected':''}>20</option><option value="50" ${perPage===50?'selected':''}>50</option></select></div></form>
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Buyer</th><th>HQ Country</th><th>Type</th><th>Score</th><th>Tracking</th><th>Sectors</th></tr></thead><tbody>${pageRows.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a><div class="small text-muted mono">${escapeHtml(b.buyer_id || '')}</div></td><td>${escapeHtml(b.hq_country || hqCountryByBuyerId[String(b.buyer_id || '')] || '—')}</td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td><span class="badge text-bg-${String(b.signal_status||'Monitor') === 'Verified' ? 'success' : (String(b.signal_status||'Monitor') === 'Actioned' ? 'primary' : 'secondary')}">${escapeHtml(String(b.signal_status||'Monitor'))}</span></td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td></tr>`).join('') || '<tr><td colspan="6">No buyers found</td></tr>'}</tbody></table></div>
     <div class="d-flex justify-content-between align-items-center small text-muted mb-3"><span>Showing ${start + 1}-${Math.min(start + perPage, total)} of ${total}</span><div class="btn-group btn-group-sm"><a class="btn btn-outline-secondary ${currentPage<=1?'disabled':''}" href="?sector=${encodeURIComponent(sector)}&per_page=${perPage}&page=${Math.max(1,currentPage-1)}">Prev</a><span class="btn btn-outline-secondary disabled">Page ${currentPage} / ${totalPages}</span><a class="btn btn-outline-secondary ${currentPage>=totalPages?'disabled':''}" href="?sector=${encodeURIComponent(sector)}&per_page=${perPage}&page=${Math.min(totalPages,currentPage+1)}">Next</a></div></div>
 
@@ -1079,6 +1079,14 @@ app.get('/dashboard/buyers', async (req, res) => {
       <div id="ideaResults" class="mt-3"></div>
     </div></div>` : ''}
   </div>
+  <script>
+    document.querySelectorAll('#buyersFilterForm select').forEach((el) => {
+      el.addEventListener('change', () => {
+        const form = document.getElementById('buyersFilterForm');
+        if (form) form.submit();
+      });
+    });
+  </script>
   ${canEdit ? `<script>
     const addBuyerToggle = document.getElementById('addBuyerToggle');
     const addBuyerBox = document.getElementById('addBuyerBox');
