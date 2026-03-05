@@ -2730,6 +2730,54 @@
       }
     },
     "created_at": "2026-03-05T20:48:00Z",
-    "updated_at": "2026-03-05T20:48:00Z"
+    "updated_at": "2026-03-05T20:48:00Z",
+    "transfer_chain": {
+      "stored_energy_source": "Family capital allocation",
+      "budget_program": "TAFF foundation investment mandate",
+      "funding_type": "Family principal capital allocation",
+      "approval_authority": "Family principal decision",
+      "verification_status": "Verified relationship access",
+      "confidence_level": "High",
+      "primary_infrastructure_pressure": "Gulf demand for reliable African supply corridors.",
+      "linked_signals_30d": "Dangote refinery export ramp; Gulf retail demand growth; Middle East energy volatility",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "A Gulf-Africa corridor platform strengthens the UAE\u2019s position as a global trade hub while securing supply chains for key commodities.",
+      "linked_initiative": "Gulf\u2013Africa Trade Corridor Platform",
+      "recognition_evidence_status": "Early alignment discussions",
+      "required_governance_artifacts": "Corridor platform architecture memo; capital stack structure; SPV/JV governance model; supply anchor agreements",
+      "mandate_pathway_stage": "Alignment",
+      "checklist_coverage": "2 / 4",
+      "critical_blocker": "Refinery export allocations stabilizing.",
+      "transfer_vehicle": "Pre-FID platform architecture mandate",
+      "payment_trigger": "Mandate execution",
+      "estimated_time_to_transfer": "1\u20133 months once alignment confirmed",
+      "mandate_fee_structure": "Pre-FID platform architecture mandate",
+      "promote_trigger": "SPV formation or FID milestone",
+      "recurrence_potential": "High (multi-corridor expansion)"
+    },
+    "decision_snapshot": {
+      "buyer_stage": "Active",
+      "next_best_action": "Formalize corridor platform architecture memo.",
+      "owner": "Isaac Barnes",
+      "primary_blocker": "Supply allocation stability from refinery."
+    },
+    "pressure_surface_30d": {
+      "signal_trend": "Rising",
+      "top_signals": [
+        "Dangote refinery export tenders beginning",
+        "Middle East refinery disruptions increasing product scarcity",
+        "Gulf demand for diversified supply chains"
+      ]
+    },
+    "mandate_readiness": {
+      "pathway_stage": "Alignment",
+      "evidence_coverage": "Early structural alignment established",
+      "upgrade_readiness": "High once corridor platform structure presented"
+    },
+    "execution_queue": [
+      "Corridor platform architecture memo",
+      "Supply anchor mapping (Dangote / Bestaf)",
+      "SPV vehicle structure draft"
+    ]
   }
 ]
