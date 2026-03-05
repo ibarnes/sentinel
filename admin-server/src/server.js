@@ -315,7 +315,57 @@ function uiHead(title) {
   .oc-nav-footer .btn { width: 100%; justify-content: center; }
   .oc-nav-toggle,
   .oc-nav-backdrop,
-  .oc-mobile-topbar { display: none; }
+  .oc-mobile-topbar,
+  .oc-desktop-unfold,
+  .oc-desktop-toggle { display: none; }
+
+  @media (min-width: 1024px) {
+    .oc-desktop-toggle {
+      display: inline-flex;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      line-height: 1;
+      font-size: .9rem;
+    }
+    .oc-desktop-toggle:hover { color: var(--text); background: rgba(255,255,255,.06); }
+
+    .app-shell.nav-collapsed > .oc-nav {
+      transform: translateX(calc(-1 * (var(--sidebar-w) + 28px)));
+      opacity: 0;
+      pointer-events: none;
+      transition: transform var(--tr-fast), opacity var(--tr-fast);
+    }
+    .app-shell.nav-collapsed > .oc-nav ~ * {
+      margin-left: 0;
+    }
+
+    .oc-desktop-unfold {
+      position: fixed;
+      top: 24px;
+      left: max(16px, calc((100vw - 1380px) / 2 + 16px));
+      z-index: 21;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface-elevated);
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .app-shell.nav-collapsed .oc-desktop-unfold { display: inline-flex; }
+  }
 
   @media (max-width: 1023px) {
     .app-shell { padding: 0 12px; --mobile-topbar-h: 56px; }
@@ -392,8 +442,11 @@ function uiHead(title) {
 </style>
 <script>
 (function(){
+  const COLLAPSE_KEY = 'oc.nav.desktop.collapsed';
+
   function setupNavDrawer(){
     const mobile = window.matchMedia('(max-width: 1023px)').matches;
+    const desktop = !mobile;
     document.querySelectorAll('.app-shell').forEach((shell)=>{
       const nav = shell.querySelector(':scope > .oc-nav');
       if(!nav) return;
@@ -401,6 +454,8 @@ function uiHead(title) {
       let topbar = shell.querySelector(':scope > .oc-mobile-topbar');
       let toggle = shell.querySelector(':scope > .oc-nav-toggle');
       let backdrop = shell.querySelector(':scope > .oc-nav-backdrop');
+      let deskToggle = nav.querySelector(':scope > .oc-desktop-toggle');
+      let unfold = shell.querySelector(':scope > .oc-desktop-unfold');
 
       if(!topbar){
         topbar = document.createElement('div');
@@ -434,14 +489,53 @@ function uiHead(title) {
         shell.prepend(backdrop);
       }
 
+      if(!deskToggle){
+        deskToggle = document.createElement('button');
+        deskToggle.className = 'oc-desktop-toggle';
+        deskToggle.type = 'button';
+        deskToggle.setAttribute('aria-label','Collapse sidebar');
+        deskToggle.textContent = '⟨';
+        nav.appendChild(deskToggle);
+      }
+
+      if(!unfold){
+        unfold = document.createElement('button');
+        unfold.className = 'oc-desktop-unfold';
+        unfold.type = 'button';
+        unfold.setAttribute('aria-label','Expand sidebar');
+        unfold.textContent = '⟩';
+        shell.prepend(unfold);
+      }
+
       const close = ()=>{ shell.classList.remove('nav-open'); document.body.classList.remove('nav-drawer-open'); };
       const open = ()=>{ if(!mobile) return; shell.classList.add('nav-open'); document.body.classList.add('nav-drawer-open'); };
       const toggleDrawer = ()=>{ if(shell.classList.contains('nav-open')) close(); else open(); };
+
+      const applyCollapsed = (collapsed)=>{
+        if(!desktop){
+          shell.classList.remove('nav-collapsed');
+          return;
+        }
+        shell.classList.toggle('nav-collapsed', !!collapsed);
+      };
+
+      const persisted = localStorage.getItem(COLLAPSE_KEY) === '1';
+      applyCollapsed(persisted);
 
       if(!toggle.dataset.bound){
         toggle.addEventListener('click', toggleDrawer);
         backdrop.addEventListener('click', close);
         nav.querySelectorAll('a').forEach((a)=>a.addEventListener('click', close));
+
+        deskToggle.addEventListener('click', ()=>{
+          localStorage.setItem(COLLAPSE_KEY, '1');
+          applyCollapsed(true);
+        });
+        unfold.addEventListener('click', ()=>{
+          localStorage.setItem(COLLAPSE_KEY, '0');
+          applyCollapsed(false);
+        });
+
         toggle.dataset.bound = '1';
       }
 
