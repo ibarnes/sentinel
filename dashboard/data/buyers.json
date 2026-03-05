@@ -2694,7 +2694,7 @@
     "initiatives": [
       "INIT-2026-03-05-COMMODITY-CORRIDOR"
     ],
-    "website": "Private family foundation / DIFC entity",
+    "website": "https://www.tariqalfuttaim.ae",
     "description": "TAFF operates as a generational capital allocator with the ability to sponsor multi-actor platforms linking Gulf demand with emerging-market infrastructure systems. The foundation has direct access to UAE regulatory, logistics, and commercial networks and can anchor capital for corridor platforms connecting the Gulf with Africa.",
     "website_notes": [
       "Identity: Pre-FID Infrastructure Structuring Authority aligned to family-capital platform deployment.",
@@ -2730,7 +2730,7 @@
       }
     },
     "created_at": "2026-03-05T20:48:00Z",
-    "updated_at": "2026-03-05T20:48:00Z",
+    "updated_at": "2026-03-05T21:03:00Z",
     "transfer_chain": {
       "stored_energy_source": "Family capital allocation",
       "budget_program": "TAFF foundation investment mandate",
