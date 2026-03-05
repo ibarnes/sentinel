@@ -121,7 +121,7 @@
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
-    "name": "Dangote\u2013UAE Global Refined Products Trade Corridor",
+    "name": "Dangote Global Export Architecture (Phase 2)",
     "status": "Pre-FID / Formation",
     "gate_stage": "Gate 1",
     "gate_updated_at": "2026-03-05T20:13:00Z",
@@ -136,8 +136,8 @@
       "PARTNER-UAE-LOGISTICS",
       "PARTNER-GLOBAL-TRADING-HOUSES"
     ],
-    "macro_gravity_summary": "Dangote refinery entering export phase creates structural need for coordinated global distribution of refined products. A UAE-based corridor enables aggregation of offtake demand, logistics coordination, and capital-backed trade finance for international markets.",
-    "structural_role": "USG acts as the architecture and governance layer coordinating refinery supply, family capital sponsorship, and global distribution partners through a UAE-based corridor platform.",
-    "fid_event_definition": "Execution of corridor SPV/JV with committed refinery export allocation, anchored TAFF sponsorship, and multi-year global offtake agreements supported by UAE logistics and distribution partners."
+    "macro_gravity_summary": "Dangote refinery's domestic-first stabilization phase creates a sequenced window to design future export architecture. A UAE-based corridor can serve as the Phase-2 export valve once domestic obligations are secured and export allocations become consistent.",
+    "structural_role": "USG designs phase-gated commitment architecture: domestic-priority compatibility now, export-valve activation criteria next, and global distribution scale once allocation thresholds are met.",
+    "fid_event_definition": "Formal corridor SPV/JV execution triggered by sustained export allocation, anchored sponsor commitments, approved trade-finance lines, and contracted multi-year offtake under UAE operating structure."
   }
 ]

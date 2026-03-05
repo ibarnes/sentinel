@@ -1073,7 +1073,7 @@
     "signal_id": "SIG-2026-03-05-DANGOTE-EXPORT-001",
     "title": "Dangote refinery begins international export tenders",
     "signal_class": "Pre-FID Origin Window",
-    "status": "Active",
+    "status": "Active / Sequenced",
     "confidence": "High",
     "observed_at": "2026-03-05T20:13:00Z",
     "buyer_ids": [
@@ -1083,9 +1083,9 @@
       "INIT-2026-03-05-COMMODITY-CORRIDOR",
       "USG"
     ],
-    "summary": "Dangote refinery tendered ~84,000 tons of jet fuel and diesel for export, signaling transition into international refined products distribution.",
-    "flow": "Refinery capacity ramp \u2192 export cargo tenders \u2192 global distribution demand \u2192 need for structured export corridor.",
-    "verification_note": "Export tenders confirm refinery has moved into operational export phase supporting feasibility of long-term corridor structure.",
+    "summary": "Dangote refinery export tender activity confirms global-market connectivity, but management's domestic-priority stance implies corridor economics are Phase-2 (future export architecture) rather than immediate-scale export trading.",
+    "flow": "domestic-first stabilization -> opportunistic exports + global trading integration -> sustained excess allocation -> UAE corridor activation as export valve -> global scale distribution",
+    "verification_note": "Public statements support domestic-priority sequencing and global crude/trade linkage. Track activation triggers before treating as immediate export-volume platform.",
     "sources": [
       {
         "label": "Business Insider Africa",
@@ -1096,7 +1096,10 @@
       "Dangote Refinery",
       "Refined Products Export",
       "Global Distribution",
-      "Trade Corridor Formation"
+      "Trade Corridor Formation",
+      "Phase-Gated Activation",
+      "Domestic-First Sequencing",
+      "Future Export Valve"
     ]
   }
 ]
