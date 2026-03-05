@@ -32,6 +32,7 @@ const BEACON_QUEUE_FILE = path.join(ROOT, 'mission-control', 'beacon', 'beacons.
 const BEACON_QUEUE_SCHEMA_FILE = path.join(ROOT, 'mission-control', 'beacon', 'beacons.schema.json');
 const DASHBOARD_DECKSPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'deckspecs.v2.json');
 const DASHBOARD_DECKSPEC_SCHEMA_FILE = path.join(ROOT, 'dashboard', 'deckspec.schema.v2.json');
+const DASHBOARD_PIPELINE_RUNS_FILE = path.join(ROOT, 'dashboard', 'data', 'pipeline_runs.v1.json');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
 
@@ -2209,6 +2210,10 @@ function defaultDeckSpecStore() {
   return { version: 2, decks: [] };
 }
 
+function defaultPipelineRunStore() {
+  return { version: 1, runs: [] };
+}
+
 function defaultDeckSpecV2({ initiativeId = '', buyerId = null, deckType = 'utc-internal', globalTemplateTheme = 'sovereign-memo', styleMode = 'professional', copyProvider = 'local', imageProvider = 'placeholder' } = {}) {
   const safeInitiative = String(initiativeId || 'INIT-000');
   const safeBuyer = buyerId ? String(buyerId) : null;
@@ -2300,6 +2305,9 @@ async function ensureTeamAndBoardFiles() {
   if (!fssync.existsSync(DASHBOARD_DECKSPECS_FILE)) {
     await fs.writeFile(DASHBOARD_DECKSPECS_FILE, JSON.stringify(defaultDeckSpecStore(), null, 2));
   }
+  if (!fssync.existsSync(DASHBOARD_PIPELINE_RUNS_FILE)) {
+    await fs.writeFile(DASHBOARD_PIPELINE_RUNS_FILE, JSON.stringify(defaultPipelineRunStore(), null, 2));
+  }
   if (!fssync.existsSync(BEACON_QUEUE_SCHEMA_FILE)) {
     await fs.copyFile(path.join(ROOT, 'mission-control', 'beacon', 'beacons.schema.json'), BEACON_QUEUE_SCHEMA_FILE).catch(async () => {
       await fs.writeFile(BEACON_QUEUE_SCHEMA_FILE, JSON.stringify({ version: 1 }, null, 2));
@@ -2339,6 +2347,79 @@ async function readDeckSpecStore() {
 
 async function writeDeckSpecStore(store) {
   await writeJson(DASHBOARD_DECKSPECS_FILE, store);
+}
+
+async function readPipelineRunStore() {
+  const store = await readJson(DASHBOARD_PIPELINE_RUNS_FILE, defaultPipelineRunStore());
+  if (!store || typeof store !== 'object') return defaultPipelineRunStore();
+  if (!Array.isArray(store.runs)) store.runs = [];
+  if (!store.version) store.version = 1;
+  return store;
+}
+
+async function writePipelineRunStore(store) {
+  await writeJson(DASHBOARD_PIPELINE_RUNS_FILE, store);
+}
+
+const PIPELINE_ALLOWED_SCOPES = new Set(['deck', 'slide']);
+const PIPELINE_ALLOWED_STAGES = ['plan', 'draft', 'critique', 'rewrite', 'render', 'qa'];
+const PIPELINE_ALLOWED_STAGES_SET = new Set(PIPELINE_ALLOWED_STAGES);
+
+function normalizePipelineRunPayload(payload) {
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+    return { error: 'invalid_payload', status: 400 };
+  }
+
+  const scope = String(payload.scope || '').trim().toLowerCase();
+  if (!PIPELINE_ALLOWED_SCOPES.has(scope)) {
+    return { error: 'invalid_scope', status: 400 };
+  }
+
+  const slideId = payload.slideId == null ? null : String(payload.slideId || '').trim();
+  if (scope === 'slide' && !slideId) {
+    return { error: 'slide_id_required', status: 400 };
+  }
+
+  if (!Array.isArray(payload.stages) || payload.stages.length === 0) {
+    return { error: 'invalid_stages', status: 400 };
+  }
+
+  const stages = payload.stages.map((s) => String(s || '').trim().toLowerCase());
+  if (stages.some((s) => !PIPELINE_ALLOWED_STAGES_SET.has(s))) {
+    return { error: 'invalid_stages', status: 400 };
+  }
+
+  if (new Set(stages).size !== stages.length) {
+    return { error: 'duplicate_stages', status: 400 };
+  }
+
+  return { scope, slideId, stages };
+}
+
+function buildPipelineRunId(ts = new Date()) {
+  const z = ts.toISOString().replace(/[-:]/g, '');
+  const compact = `${z.slice(0, 8)}_${z.slice(9, 15)}`;
+  const suffix = crypto.randomBytes(3).toString('hex');
+  return `run_${compact}_${suffix}`;
+}
+
+async function createPipelineRunRecord({ deckId, scope, slideId = null, stages = [] } = {}) {
+  const now = nowIso();
+  const run = {
+    runId: buildPipelineRunId(new Date()),
+    deckId: String(deckId || '').trim(),
+    scope,
+    slideId: scope === 'slide' ? String(slideId || '').trim() : null,
+    stages,
+    status: 'started',
+    createdAt: now,
+    updatedAt: now,
+  };
+
+  const store = await readPipelineRunStore();
+  store.runs.unshift(run);
+  await writePipelineRunStore(store);
+  return run;
 }
 
 function defaultBeaconQueue() {
@@ -3697,6 +3778,42 @@ app.get('/api/presentation-studio/slides/slots-preview', requireRole('architect'
     slotsSchemaVersion: s.slots_schema_version || null,
     template_id: s.template_id || null
   });
+});
+
+app.post('/api/presentation-studio/decks/:deckId/pipeline/run', requireRole('architect','editor'), async (req, res) => {
+  const deckId = String(req.params.deckId || '').trim();
+  if (!deckId) return res.status(400).json({ error: 'invalid_payload' });
+
+  const store = await readDeckSpecStore();
+  const deck = store.decks.find((d) => String(d.deckId) === deckId);
+  if (!deck) return res.status(404).json({ error: 'deck_not_found' });
+
+  const parsed = normalizePipelineRunPayload(req.body);
+  if (parsed.error) return res.status(parsed.status || 400).json({ error: parsed.error });
+
+  const run = await createPipelineRunRecord({
+    deckId,
+    scope: parsed.scope,
+    slideId: parsed.slideId,
+    stages: parsed.stages,
+  });
+
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'pipeline.run.created',
+    entity_type: 'pipeline_run',
+    entity_id: run.runId,
+    meta: {
+      deckId,
+      scope: run.scope,
+      slideId: run.slideId,
+      stages: run.stages,
+    }
+  });
+
+  return res.status(201).json({ ok: true, run });
 });
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {
