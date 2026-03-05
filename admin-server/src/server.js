@@ -1111,7 +1111,12 @@ app.get('/dashboard/initiatives', async (req, res) => {
   const category = String(req.query.category || 'All');
   const categories = ['All', ...new Set(initiatives.map((i)=>String(i.infrastructure_category || '').trim()).filter((c)=>Boolean(c) && c !== 'All'))];
   const filtered = category === 'All' ? initiatives : initiatives.filter((i)=>String(i.infrastructure_category || '') === category);
-  const sorted = [...filtered].sort((a,b)=>String(a.initiative_id).localeCompare(String(b.initiative_id)));
+  const sorted = [...filtered].sort((a, b) => {
+    const at = Date.parse(String(a.gate_updated_at || '')) || 0;
+    const bt = Date.parse(String(b.gate_updated_at || '')) || 0;
+    if (bt !== at) return bt - at;
+    return String(a.initiative_id).localeCompare(String(b.initiative_id));
+  });
   const gateOptions = ['Gate 0','Gate 1','Gate 2','Gate 3','Gate 4','Gate 5','Gate 6','Gate 7'];
   const inferGate = (i) => i.gate_stage || (String(i.status || '').toLowerCase()==='pre-fid' ? 'Gate 1' : 'Gate 1');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
