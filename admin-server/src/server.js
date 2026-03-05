@@ -2999,14 +2999,14 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
     <nav class="oc-nav" aria-label="Board navigation">
       <a class="oc-nav-title" href="/board">Task Board</a>
       <div class="oc-nav-links">
-        <a class="nav-link" href="/dashboard/">Dashboard</a>
-        <a class="nav-link" href="/dashboard/buyers">Buyers</a>
-        <a class="nav-link" href="/dashboard/signals">Signals</a>
-        <a class="nav-link" href="/dashboard/beacons">Beacons</a>
-        <a class="nav-link" href="/dashboard/initiatives">Initiatives</a>
-        <a class="nav-link" href="/dashboard/team">Team</a>
-        <a class="nav-link" href="/dashboard/presentation-studio">Presentation Studio</a>
-        <a class="nav-link active" href="/board">Board</a>
+        <a class="nav-link" href="/dashboard/" title="Dashboard"><span class="nav-icon">HM</span><span class="nav-label">Dashboard</span></a>
+        <a class="nav-link" href="/dashboard/buyers" title="Buyers"><span class="nav-icon">BY</span><span class="nav-label">Buyers</span></a>
+        <a class="nav-link" href="/dashboard/signals" title="Signals"><span class="nav-icon">SG</span><span class="nav-label">Signals</span></a>
+        <a class="nav-link" href="/dashboard/beacons" title="Beacons"><span class="nav-icon">BC</span><span class="nav-label">Beacons</span></a>
+        <a class="nav-link" href="/dashboard/initiatives" title="Initiatives"><span class="nav-icon">IN</span><span class="nav-label">Initiatives</span></a>
+        <a class="nav-link" href="/dashboard/team" title="Team"><span class="nav-icon">TM</span><span class="nav-label">Team</span></a>
+        <a class="nav-link" href="/dashboard/presentation-studio" title="Presentation Studio"><span class="nav-icon">PS</span><span class="nav-label">Presentation Studio</span></a>
+        <a class="nav-link active" href="/board" title="Board"><span class="nav-icon">BD</span><span class="nav-label">Board</span></a>
       </div>
       <div class="small text-muted">${escapeHtml(u.username)} (${escapeHtml(u.role)})</div>
       <form method="post" action="/auth/logout" class="oc-nav-footer m-0"><button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button></form>
