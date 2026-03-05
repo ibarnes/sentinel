@@ -951,5 +951,32 @@
         "url": "internal://chat/2026-03-05-oil-spike-nigeria"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-05-NG-IFC-PPP-001",
+    "title": "Nigeria and IFC sign cooperation agreement to build PPP project pipeline",
+    "signal_class": "Sponsor Altitude",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-05T14:00:00Z",
+    "buyer_ids": [
+      "IFC",
+      "Nigeria Mortgage Fund",
+      "AFC",
+      "AfDB",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Nigeria's Federal Ministry of Budget and Economic Planning signed a cooperation agreement with IFC Transaction Advisory Services to develop a pipeline of PPP projects across transport, energy, IT, and sanitation, targeting private-capital mobilization against estimated annual infrastructure needs.",
+    "flow": "Federal-IFC agreement -> transaction-advisory pipeline build -> better-prepared investment-ready PPPs -> increased probability of near-term private capital deployment",
+    "verification_note": "First-party source: IFC official press release dated 3 Feb 2026.",
+    "sources": [
+      {
+        "label": "IFC official press release",
+        "url": "https://www.ifc.org/en/pressroom/2026/nigeria-and-ifc-sign-agreement-to-boost-infrastructure-development-through-public-"
+      }
+    ]
   }
 ]
