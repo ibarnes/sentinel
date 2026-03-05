@@ -2670,5 +2670,66 @@
     },
     "created_at": "2026-03-04T20:26:29Z",
     "updated_at": "2026-03-04T20:26:29Z"
+  },
+  {
+    "buyer_id": "BUYER-TAFF",
+    "name": "Tariq Al Futtaim Family Foundation (TAFF)",
+    "type": "Principal Capital / Family Investment Platform",
+    "mandate_summary": "Deploy family capital into long-term strategic platforms that strengthen Gulf economic positioning and cross-regional infrastructure.",
+    "geo_focus": [
+      "GCC",
+      "Middle East",
+      "Africa"
+    ],
+    "sector_focus": [
+      "Infrastructure",
+      "Logistics",
+      "Energy",
+      "Digital",
+      "Trade Corridors",
+      "Real Assets"
+    ],
+    "score": 2.3,
+    "signal_status": "Active",
+    "initiatives": [
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "website": "Private family foundation / DIFC entity",
+    "description": "TAFF operates as a generational capital allocator with the ability to sponsor multi-actor platforms linking Gulf demand with emerging-market infrastructure systems. The foundation has direct access to UAE regulatory, logistics, and commercial networks and can anchor capital for corridor platforms connecting the Gulf with Africa.",
+    "website_notes": [
+      "Identity: Pre-FID Infrastructure Structuring Authority aligned to family-capital platform deployment.",
+      "Identification: Platform architect designing corridor governance, capital stack, and commitment architecture.",
+      "Access Physics: Family-to-family trust network + direct mandate authority.",
+      "Distribution Mechanics: Trusted relationship channel through Abdulraouf and the Al-Futtaim network.",
+      "Conversion Physics: Collapse structural ambiguity -> formalize mandate -> platform architecture -> FID-ready corridor."
+    ],
+    "buyer_state": {
+      "system_dynamics": [
+        "Shielding: Medium \u2014 family governance structure but accessible through trusted relationships.",
+        "Decision Speed: Moderate \u2014 faster than sovereign funds but still deliberate.",
+        "Risk Exposure: High \u2014 family reputation and long-term capital preservation.",
+        "Altitude Sensitivity: High \u2014 must operate at platform architecture level, not execution.",
+        "Channel Dependence: High \u2014 relationship-based entry rather than institutional processes."
+      ],
+      "channels": {
+        "primary": [
+          "Family-to-family trust channels",
+          "Platform architecture proposals",
+          "Cross-border infrastructure opportunities",
+          "Capital stack collaboration"
+        ],
+        "secondary": [
+          "UAE strategic development alignment",
+          "Regional trade corridor initiatives"
+        ],
+        "avoid": [
+          "Consulting framing",
+          "Advisory language",
+          "Exploratory discussions without defined platform"
+        ]
+      }
+    },
+    "created_at": "2026-03-05T20:48:00Z",
+    "updated_at": "2026-03-05T20:48:00Z"
   }
 ]

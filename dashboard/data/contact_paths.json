@@ -55,5 +55,39 @@
     "last_touch_at": "2026-02-25",
     "next_touch_at": "2026-03-05",
     "status": "Warming"
+  },
+  {
+    "path_id": "PATH-TAFF-ISAAC-001",
+    "buyer_id": "BUYER-TAFF",
+    "contact": "Isaac Barnes",
+    "role": "Architect",
+    "access_type": "Direct",
+    "status": "Active",
+    "influence_score": 3.9,
+    "best_ask": "Formalize Pre-FID platform architecture mandate.",
+    "evidence_note": "Direct relationship through Abdulraouf and platform discussions around Unified MEA.",
+    "updated_at": "2026-03-05T20:48:00Z"
+  },
+  {
+    "path_id": "PATH-TAFF-ABDELRAOUF-001",
+    "buyer_id": "BUYER-TAFF",
+    "contact": "Abdelraouf Taher",
+    "role": "TAFF leadership / operational liaison",
+    "access_type": "Direct operational channel",
+    "status": "Active",
+    "influence_score": 3.6,
+    "best_ask": "Operational coordination + platform structuring alignment.",
+    "updated_at": "2026-03-05T20:48:00Z"
+  },
+  {
+    "path_id": "PATH-TAFF-FAISAL-NET-001",
+    "buyer_id": "BUYER-TAFF",
+    "contact": "Faisal Al Futtaim network",
+    "role": "Next-generation GCC leadership network",
+    "access_type": "Strategic network path",
+    "status": "Warming",
+    "influence_score": 3.2,
+    "best_ask": "Strategic platform alignment with UAE digital economy initiatives.",
+    "updated_at": "2026-03-05T20:48:00Z"
   }
 ]

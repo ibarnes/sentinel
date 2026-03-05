@@ -28,5 +28,29 @@
     "engagement_use": "Policy narrative alignment, strategic competition framing, and foreign-policy coherence.",
     "source_url": "https://www.dfc.gov/who-we-are/caroline-vik",
     "updated_at": "2026-03-04"
+  },
+  {
+    "id": "DA-TAFF-TARIQ-001",
+    "buyer_id": "BUYER-TAFF",
+    "name": "Tariq Al Futtaim",
+    "title": "Family principal / strategic capital allocator",
+    "influence": "High",
+    "notes": "Primary decision authority."
+  },
+  {
+    "id": "DA-TAFF-ABDELRAOUF-001",
+    "buyer_id": "BUYER-TAFF",
+    "name": "Abdelraouf Taher",
+    "title": "Foundation operations and project alignment",
+    "influence": "High",
+    "notes": "Operational coordination."
+  },
+  {
+    "id": "DA-TAFF-ADVISORS-001",
+    "buyer_id": "BUYER-TAFF",
+    "name": "Family investment advisors and DIFC counsel",
+    "title": "Strategic influence / structuring counsel",
+    "influence": "Medium",
+    "notes": "Trusted legal and structuring influence."
   }
 ]
