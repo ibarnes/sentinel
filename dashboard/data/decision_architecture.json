@@ -31,7 +31,7 @@
   },
   {
     "id": "DA-TAFF-TARIQ-001",
-    "buyer_id": "BUYER-TAFF",
+    "buyer_id": "TAFF",
     "name": "Tariq Al Futtaim",
     "title": "Family principal / strategic capital allocator",
     "influence": "High",
@@ -39,7 +39,7 @@
   },
   {
     "id": "DA-TAFF-ABDELRAOUF-001",
-    "buyer_id": "BUYER-TAFF",
+    "buyer_id": "TAFF",
     "name": "Abdelraouf Taher",
     "title": "Foundation operations and project alignment",
     "influence": "High",
@@ -47,7 +47,7 @@
   },
   {
     "id": "DA-TAFF-ADVISORS-001",
-    "buyer_id": "BUYER-TAFF",
+    "buyer_id": "TAFF",
     "name": "Family investment advisors and DIFC counsel",
     "title": "Strategic influence / structuring counsel",
     "influence": "Medium",

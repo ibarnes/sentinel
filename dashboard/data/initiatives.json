@@ -126,9 +126,9 @@
     "gate_stage": "Gate 1",
     "gate_updated_at": "2026-03-05T20:13:00Z",
     "infrastructure_category": "Energy / Commodities Logistics",
-    "primary_buyer_id": "BUYER-TAFF",
+    "primary_buyer_id": "TAFF",
     "linked_buyers": [
-      "BUYER-TAFF"
+      "TAFF"
     ],
     "partners": [
       "PARTNER-DANGOTE",

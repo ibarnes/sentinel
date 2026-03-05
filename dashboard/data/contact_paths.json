@@ -58,7 +58,7 @@
   },
   {
     "path_id": "PATH-TAFF-ISAAC-001",
-    "buyer_id": "BUYER-TAFF",
+    "buyer_id": "TAFF",
     "contact": "Isaac Barnes",
     "role": "Architect",
     "access_type": "Direct",
@@ -70,7 +70,7 @@
   },
   {
     "path_id": "PATH-TAFF-ABDELRAOUF-001",
-    "buyer_id": "BUYER-TAFF",
+    "buyer_id": "TAFF",
     "contact": "Abdelraouf Taher",
     "role": "TAFF leadership / operational liaison",
     "access_type": "Direct operational channel",
@@ -81,7 +81,7 @@
   },
   {
     "path_id": "PATH-TAFF-FAISAL-NET-001",
-    "buyer_id": "BUYER-TAFF",
+    "buyer_id": "TAFF",
     "contact": "Faisal Al Futtaim network",
     "role": "Next-generation GCC leadership network",
     "access_type": "Strategic network path",
