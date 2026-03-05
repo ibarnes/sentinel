@@ -801,6 +801,7 @@ app.get('/dashboard/review/:rpId', async (req, res) => {
   const frontRows = Object.entries(rp.front || {})
     .map(([k, v]) => `<tr><th style="width:220px">${escapeHtml(k)}</th><td>${escapeHtml(String(v ?? ''))}</td></tr>`)
     .join('') || '<tr><td colspan="2">No metadata</td></tr>';
+  const rendered = renderSimpleMarkdown(body);
 
   res.type('html').send(`<!doctype html><html><head>${uiHead(`Review Packet ${rpId}`)}</head><body><div class="app-shell">
     ${dashboardNav('review')}
@@ -809,7 +810,7 @@ app.get('/dashboard/review/:rpId', async (req, res) => {
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review">Back to list</a>
     </div>
     <div class="card mb-3"><div class="table-responsive"><table class="table table-sm align-middle"><tbody>${frontRows}</tbody></table></div></div>
-    <div class="card"><div class="card-body"><pre style="white-space:pre-wrap;word-break:break-word;max-height:none" class="small">${escapeHtml(body)}</pre></div></div>
+    <div class="card"><div class="card-body markdown-body">${rendered}</div></div>
   </div></body></html>`);
 });
 
@@ -4385,6 +4386,64 @@ function escapeHtml(s) {
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;');
+}
+
+function renderSimpleMarkdown(md) {
+  if (!md) return '<p class="text-muted">No content.</p>';
+
+  const lines = md.replace(/\r\n/g, '\n').split('\n');
+  const out = [];
+  let inUl = false;
+
+  const inline = (txt) => {
+    let t = escapeHtml(txt || '');
+    t = t.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    t = t.replace(/\*(.+?)\*/g, '<em>$1</em>');
+    t = t.replace(/`([^`]+)`/g, '<code>$1</code>');
+    t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    return t;
+  };
+
+  for (const raw of lines) {
+    const line = raw || '';
+    if (!line.trim()) {
+      if (inUl) {
+        out.push('</ul>');
+        inUl = false;
+      }
+      continue;
+    }
+
+    const h = line.match(/^(#{1,6})\s+(.+)$/);
+    if (h) {
+      if (inUl) {
+        out.push('</ul>');
+        inUl = false;
+      }
+      const lvl = Math.min(6, h[1].length);
+      out.push(`<h${lvl}>${inline(h[2])}</h${lvl}>`);
+      continue;
+    }
+
+    const li = line.match(/^\s*[-*]\s+(.+)$/);
+    if (li) {
+      if (!inUl) {
+        out.push('<ul>');
+        inUl = true;
+      }
+      out.push(`<li>${inline(li[1])}</li>`);
+      continue;
+    }
+
+    if (inUl) {
+      out.push('</ul>');
+      inUl = false;
+    }
+    out.push(`<p>${inline(line)}</p>`);
+  }
+
+  if (inUl) out.push('</ul>');
+  return out.join('\n');
 }
 
 await ensureDirs();
