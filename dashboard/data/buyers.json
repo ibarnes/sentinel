@@ -2730,7 +2730,7 @@
       }
     },
     "created_at": "2026-03-05T20:48:00Z",
-    "updated_at": "2026-03-05T21:03:00Z",
+    "updated_at": "2026-03-05T21:04:00Z",
     "transfer_chain": {
       "stored_energy_source": "Family capital allocation",
       "budget_program": "TAFF foundation investment mandate",
@@ -2778,6 +2778,7 @@
       "Corridor platform architecture memo",
       "Supply anchor mapping (Dangote / Bestaf)",
       "SPV vehicle structure draft"
-    ]
+    ],
+    "hq_country": "United Arab Emirates"
   }
 ]
