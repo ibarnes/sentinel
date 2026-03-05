@@ -978,5 +978,31 @@
         "url": "https://www.ifc.org/en/pressroom/2026/nigeria-and-ifc-sign-agreement-to-boost-infrastructure-development-through-public-"
       }
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-05-AMZN-RATEPAYER-PLEDGE-001",
+    "title": "Amazon signs White House Ratepayer Protection Pledge tied to data-center power-cost commitments",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "Medium-High",
+    "observed_at": "2026-03-05T15:18:00Z",
+    "buyer_ids": [
+      "GIC",
+      "PIF",
+      "Brookfield Renewable",
+      "GIP"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Amazon states it signed the White House Ratepayer Protection Pledge and commits to covering full data-center electricity and grid-upgrade costs under long-term utility agreements, framing policy momentum around AI-infrastructure growth with ratepayer safeguards.",
+    "flow": "Federal pledge adoption + hyperscaler cost-coverage commitments -> lower political/regulatory friction for grid interconnection and expansion -> accelerated AI-infrastructure deployment pathways",
+    "verification_note": "First-party source confirms Amazon's announced pledge participation and stated commitments; independent validation of all quantitative impact claims remains pending.",
+    "sources": [
+      {
+        "label": "Amazon policy/news post",
+        "url": "https://www.aboutamazon.com/news/policy-news-views/amazon-data-centers-power-costs-white-house-pledge"
+      }
+    ]
   }
 ]
