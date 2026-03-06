@@ -4698,57 +4698,67 @@ app.patch('/api/tasks/:id', requireRole('architect', 'editor'), async (req, res)
 });
 
 async function handleTaskMove(req, res, statusInput) {
-  const board = await readJson(BOARD_FILE, defaultBoard());
-  const id = String(req.params.id);
-  const status = String(statusInput || '');
-  if (!BOARD_COLUMNS.includes(status)) return res.status(400).json({ error: 'invalid status' });
-  const task = board.tasks.find((t) => t.id === id);
-  if (!task) return res.status(404).json({ error: 'not found' });
+  try {
+    const role = effectiveRole(req);
+    if (!role || !['architect', 'editor'].includes(role)) {
+      return res.status(403).json({ error: 'forbidden' });
+    }
 
-  if (status === 'Done' && !(task.request_approval && task.request_approval.approved)) {
-    return res.status(400).json({ error: 'task cannot move to Done without approved RP' });
+    const board = await readJson(BOARD_FILE, defaultBoard());
+    const id = String(req.params.id);
+    const status = String(statusInput || '');
+    if (!BOARD_COLUMNS.includes(status)) return res.status(400).json({ error: 'invalid status' });
+    const task = board.tasks.find((t) => t.id === id);
+    if (!task) return res.status(404).json({ error: 'not found' });
+
+    if (status === 'Done' && !(task.request_approval && task.request_approval.approved)) {
+      return res.status(400).json({ error: 'task cannot move to Done without approved RP' });
+    }
+
+    const before = { status: task.status, review_packet_id: task.review_packet_id || null };
+    task.status = status;
+
+    if (status === 'Ready for Review' && !task.review_packet_id) {
+      const rp = await createReviewPacketStub({
+        title: `${task.title} Review Packet`,
+        linkedTaskId: task.id,
+        createdBy: getUserLabel(req),
+        status: 'Draft',
+        recommendedAction: 'Approve',
+      });
+      task.review_packet_id = rp.rpId;
+      task.request_approval = {
+        requested_at: nowIso(),
+        requested_by: getUserLabel(req),
+        review_packet_stub: rp.path,
+        approved: false,
+        approved_by: null,
+        approved_at: null,
+      };
+      await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'rp.create', entity_type: 'review_packet', entity_id: rp.rpId, meta: { linked_task: task.id, path: rp.path } });
+    }
+
+    if (status === 'Ready for Review' && task.review_packet_id) {
+      await updateRpFrontmatter(task.review_packet_id, { status: 'Ready for Review' });
+      await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'rp.ready_for_review', entity_type: 'review_packet', entity_id: task.review_packet_id, meta: { linked_task: task.id } });
+    }
+
+    task.updated_at = nowIso();
+    task.updated_by = getUserLabel(req);
+
+    await writeBoard(board, getUserLabel(req), 'task.move', id, before, { status: task.status, review_packet_id: task.review_packet_id || null }, effectiveRole(req) || 'editor');
+    return res.json(task);
+  } catch (err) {
+    console.error('task.move failed', err);
+    return res.status(500).json({ error: 'move failed' });
   }
-
-  const before = { status: task.status, review_packet_id: task.review_packet_id || null };
-  task.status = status;
-
-  if (status === 'Ready for Review' && !task.review_packet_id) {
-    const rp = await createReviewPacketStub({
-      title: `${task.title} Review Packet`,
-      linkedTaskId: task.id,
-      createdBy: getUserLabel(req),
-      status: 'Draft',
-      recommendedAction: 'Approve',
-    });
-    task.review_packet_id = rp.rpId;
-    task.request_approval = {
-      requested_at: nowIso(),
-      requested_by: getUserLabel(req),
-      review_packet_stub: rp.path,
-      approved: false,
-      approved_by: null,
-      approved_at: null,
-    };
-    await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'rp.create', entity_type: 'review_packet', entity_id: rp.rpId, meta: { linked_task: task.id, path: rp.path } });
-  }
-
-  if (status === 'Ready for Review' && task.review_packet_id) {
-    await updateRpFrontmatter(task.review_packet_id, { status: 'Ready for Review' });
-    await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'rp.ready_for_review', entity_type: 'review_packet', entity_id: task.review_packet_id, meta: { linked_task: task.id } });
-  }
-
-  task.updated_at = nowIso();
-  task.updated_by = getUserLabel(req);
-
-  await writeBoard(board, getUserLabel(req), 'task.move', id, before, { status: task.status, review_packet_id: task.review_packet_id || null }, effectiveRole(req) || 'editor');
-  return res.json(task);
 }
 
-app.post('/api/tasks/:id/move', requireRole('architect', 'editor'), async (req, res) => {
+app.post('/api/tasks/:id/move', requireAnyAuth, async (req, res) => {
   return handleTaskMove(req, res, req.body.status);
 });
 
-app.get('/board/move/:id/:status', requireRole('architect', 'editor'), async (req, res) => {
+app.get('/board/move/:id/:status', requireAnyAuth, async (req, res) => {
   return handleTaskMove(req, res, req.params.status);
 });
 
