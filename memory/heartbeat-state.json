@@ -1,19 +1,12 @@
 {
-  "buyer_access_graph_hash": "f181ff2b6dc20d75a4d7e9b57f82b39da78e439ba7bd2fe9c734afcbee969681",
-  "buyer_access_last_issues": {
-    "missing_cov": [
-      "PIF",
-      "TEMASEK",
-      "ADQ",
-      "AFC",
-      "MUBADALA",
-      "WORLDBANK",
-      "QIA",
-      "AfDB"
-    ],
-    "stale_count": 0,
-    "high_no_path": [
-      "DFC"
-    ]
-  }
+  "buyerAccessGraph": {
+    "lastCheckedUtc": "2026-03-06T16:48:00Z",
+    "lastIssueSignature": "39566ecf65ee2e18f9f8bc57362237d7c3f20e4c6eeeb0e10cfa5d779abd2938",
+    "lastAlertedSignature": "39566ecf65ee2e18f9f8bc57362237d7c3f20e4c6eeeb0e10cfa5d779abd2938",
+    "notes": "Seeded to suppress duplicate Buyer Access Graph alerts when issue set is unchanged.",
+    "last_checked_utc": "2026-03-06T18:48:00Z",
+    "last_signature": "e0ea95fd4652906d0bb9f9c54ae3d423d42253ae5aadd6ec1fb4c8d1f2f1a2c6"
+  },
+  "buyerAccessAlertFingerprint": "d6e79caa1d09606f6386f58cb168852e13d13255e0e07254ca40649e2bffacf3",
+  "buyerAccessLastRunUtc": "2026-03-06T19:18:00Z"
 }
