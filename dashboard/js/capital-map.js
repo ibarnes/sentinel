@@ -65,6 +65,14 @@
     bankability_pressure: 900
   };
 
+  const pressureFixedLabels = {
+    monetary_pressure: 'Monetary Pressure\n(Central Banks)',
+    balance_sheet_pressure: 'Balance Sheet Pressure\n(Global Banks)',
+    trust_access_pressure: 'Trust & Access Pressure\n(Settlement Networks)',
+    mandate_pressure: 'Mandate Pressure\n(Institutions)',
+    bankability_pressure: 'Bankability Pressure\n(Assets / Projects)'
+  };
+
   const mandateY = pressureY.mandate_pressure;
   const bankabilityY = pressureY.bankability_pressure;
   const signalY = mandateY - 140;
@@ -106,7 +114,10 @@
 
   const elements = [
     ...rawNodes.map((n) => ({
-      data: n,
+      data: {
+        ...n,
+        display_label: pressureFixedLabels[n.id] || n.label || n.id
+      },
       position: nodePosition(n),
       locked: n.type === 'pressure_layer'
     })),
@@ -138,7 +149,7 @@
       {
         selector: 'node',
         style: {
-          'label': 'data(label)',
+          'label': 'data(display_label)',
           'font-size': labelSize,
           'min-zoomed-font-size': isMobile ? 12 : 11,
           'font-weight': 700,
@@ -601,7 +612,7 @@
     labelsOn = !labelsOn;
     cy.style()
       .selector('node')
-      .style('label', labelsOn ? 'data(label)' : '')
+      .style('label', labelsOn ? 'data(display_label)' : '')
       .update();
   });
 
