@@ -864,7 +864,12 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
 </body></html>`);
 });
 
-app.get('/capital-map', requireAnyAuth, async (_req, res) => {
+app.get('/capital-map', requireAnyAuth, async (req, res) => {
+  const qs = req.url.includes('?') ? req.url.slice(req.url.indexOf('?')) : '';
+  return res.redirect('/dashboard/capital-map' + qs);
+});
+
+app.get('/dashboard/capital-map', requireAnyAuth, async (_req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Capital Systems Map')}</head><body>
   <div class="app-shell">
     ${dashboardNav('home')}
@@ -1095,7 +1100,7 @@ app.get('/dashboard/buyers', async (req, res) => {
   };
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
-    <div class="d-flex justify-content-between align-items-center mb-2"><h1 class="page-title">Buyers</h1><a class="btn btn-sm btn-outline-secondary" href="/capital-map">View Capital Map</a></div>
+    <div class="d-flex justify-content-between align-items-center mb-2"><h1 class="page-title">Buyers</h1><a class="btn btn-sm btn-outline-secondary" href="/dashboard/capital-map">View Capital Map</a></div>
     ${canEdit ? `<div id="addBuyerBox" class="collapse mb-3"><div class="card"><div class="card-body">
       <h6>Add Buyer</h6>
       <form method="post" action="/api/buyers" class="row g-2">
@@ -1110,7 +1115,7 @@ app.get('/dashboard/buyers', async (req, res) => {
       </form>
     </div></div></div>` : ''}
     <form id="buyersFilterForm" class="row g-2 mb-3" method="get" action="/dashboard/buyers"><div class="col-4"><select class="form-select" name="sector"><option value="">All sectors</option>${sectors.map(s=>`<option ${s===sector?'selected':''}>${s}</option>`).join('')}</select></div><div class="col-2"><select class="form-select" name="per_page"><option value="10" ${perPage===10?'selected':''}>10</option><option value="20" ${perPage===20?'selected':''}>20</option><option value="50" ${perPage===50?'selected':''}>50</option></select></div></form>
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Buyer</th><th>HQ Country</th><th>Type</th><th>Score</th><th>Tracking</th><th>Sectors</th><th></th></tr></thead><tbody>${pageRows.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a><div class="small text-muted mono">${escapeHtml(b.buyer_id || '')}</div></td><td>${escapeHtml(b.hq_country || hqCountryByBuyerId[String(b.buyer_id || '')] || '—')}</td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td><span class="badge text-bg-${String(b.signal_status||'Monitor') === 'Verified' ? 'success' : (String(b.signal_status||'Monitor') === 'Actioned' ? 'primary' : 'secondary')}">${escapeHtml(String(b.signal_status||'Monitor'))}</span></td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td><td><a class="btn btn-sm btn-outline-secondary" href="/capital-map?buyer=${encodeURIComponent(String(b.buyer_id||''))}">View Capital Map</a></td></tr>`).join('') || '<tr><td colspan="7">No buyers found</td></tr>'}</tbody></table></div>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Buyer</th><th>HQ Country</th><th>Type</th><th>Score</th><th>Tracking</th><th>Sectors</th><th></th></tr></thead><tbody>${pageRows.map(b=>`<tr><td><a href="/dashboard/buyer/${encodeURIComponent(b.buyer_id)}">${escapeHtml(b.name)}</a><div class="small text-muted mono">${escapeHtml(b.buyer_id || '')}</div></td><td>${escapeHtml(b.hq_country || hqCountryByBuyerId[String(b.buyer_id || '')] || '—')}</td><td>${escapeHtml(b.type||'')}</td><td>${b.score ?? ''}</td><td><span class="badge text-bg-${String(b.signal_status||'Monitor') === 'Verified' ? 'success' : (String(b.signal_status||'Monitor') === 'Actioned' ? 'primary' : 'secondary')}">${escapeHtml(String(b.signal_status||'Monitor'))}</span></td><td>${escapeHtml((b.sector_focus||[]).join(', '))}</td><td><a class="btn btn-sm btn-outline-secondary" href="/dashboard/capital-map?buyer=${encodeURIComponent(String(b.buyer_id||''))}">View Capital Map</a></td></tr>`).join('') || '<tr><td colspan="7">No buyers found</td></tr>'}</tbody></table></div>
     <div class="d-flex justify-content-between align-items-center small text-muted mb-3"><span>Showing ${start + 1}-${Math.min(start + perPage, total)} of ${total}</span><div class="btn-group btn-group-sm"><a class="btn btn-outline-secondary ${currentPage<=1?'disabled':''}" href="?sector=${encodeURIComponent(sector)}&per_page=${perPage}&page=${Math.max(1,currentPage-1)}">Prev</a><span class="btn btn-outline-secondary disabled">Page ${currentPage} / ${totalPages}</span><a class="btn btn-outline-secondary ${currentPage>=totalPages?'disabled':''}" href="?sector=${encodeURIComponent(sector)}&per_page=${perPage}&page=${Math.min(totalPages,currentPage+1)}">Next</a></div></div>
 
     ${canEdit ? `<div class="card mt-3"><div class="card-body">
@@ -1181,10 +1186,10 @@ app.get('/dashboard/signals', async (req, res) => {
     const cls = v === 'Verified' ? 'success' : (v === 'Actioned' ? 'primary' : 'secondary');
     return `<span class="badge text-bg-${cls}">${escapeHtml(v)}</span>`;
   };
-  const signalRowsJson = JSON.stringify(sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${(s.buyer_ids || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td><a class="btn btn-sm btn-outline-secondary" href="/capital-map?signal=${encodeURIComponent(String(s.signal_id || ''))}">View Capital Map</a></td></tr>`)).replace(/</g, '\\u003c');
+  const signalRowsJson = JSON.stringify(sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><strong>${escapeHtml(s.title || '')}</strong><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${(s.buyer_ids || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td><a class="btn btn-sm btn-outline-secondary" href="/dashboard/capital-map?signal=${encodeURIComponent(String(s.signal_id || ''))}">View Capital Map</a></td></tr>`)).replace(/</g, '\\u003c');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signals')}</head><body><div class="app-shell">
     ${dashboardNav('signals')}
-    ${pageHeader('Signal Register', '<a class="btn btn-sm btn-outline-secondary" href="/capital-map">View Capital Map</a>', 'Pressure surface tracking over time')}
+    ${pageHeader('Signal Register', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/capital-map">View Capital Map</a>', 'Pressure surface tracking over time')}
     <form method="get" action="/dashboard/signals" class="row g-2 mb-3">
       <div class="col-md-4">
         <label class="form-label">Filter by Signal Class</label>
@@ -1309,10 +1314,10 @@ app.get('/dashboard/initiatives', async (req, res) => {
   const inferGate = (i) => i.gate_stage || (String(i.status || '').toLowerCase()==='pre-fid' ? 'Gate 1' : 'Gate 1');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
-    ${pageHeader('Initiatives', '<a class="btn btn-sm btn-outline-secondary" href="/capital-map">View Capital Map</a>', 'Gate 0–7 is the canonical initiative workflow')}
+    ${pageHeader('Initiatives', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/capital-map">View Capital Map</a>', 'Gate 0–7 is the canonical initiative workflow')}
     <form id="initiativesFilterForm" method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-4"><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div></form>
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Name</th><th>Infrastructure Type</th><th>Gate Stage</th><th>Linked Buyers</th><th>Updated</th><th></th></tr></thead><tbody>
-      ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="d-flex gap-1 align-items-center"><select name="gate_stage" class="form-select form-select-sm" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form>` : escapeHtml(inferGate(i))}</td><td>${(i.linked_buyers || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td><td><a class="btn btn-sm btn-outline-secondary" href="/capital-map?initiative=${encodeURIComponent(String(i.initiative_id || ''))}">View Capital Map</a></td></tr>`).join('') || '<tr><td colspan="7">No initiatives</td></tr>'}
+      ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="d-flex gap-1 align-items-center"><select name="gate_stage" class="form-select form-select-sm" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form>` : escapeHtml(inferGate(i))}</td><td>${(i.linked_buyers || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td><td><a class="btn btn-sm btn-outline-secondary" href="/dashboard/capital-map?initiative=${encodeURIComponent(String(i.initiative_id || ''))}">View Capital Map</a></td></tr>`).join('') || '<tr><td colspan="7">No initiatives</td></tr>'}
     </tbody></table></div>
   </div>
   <script>
