@@ -883,7 +883,7 @@ app.get('/capital-map', requireAnyAuth, async (_req, res) => {
       </div>
     </div>
   </div>
-  <script src="/js/capital-map.js"></script>
+  <script src="/public/js/capital-map.js"></script>
 </body></html>`);
 });
 
@@ -2001,6 +2001,15 @@ app.use('/dashboard', express.static(path.join(ROOT, 'dashboard'), {
 }));
 
 app.use('/js', express.static(path.join(ROOT, 'dashboard', 'js'), {
+  index: false,
+  fallthrough: true,
+  redirect: false,
+  setHeaders(res) {
+    res.setHeader('Cache-Control', 'no-store');
+  }
+}));
+
+app.use('/public', express.static(path.join(ROOT, 'public'), {
   index: false,
   fallthrough: true,
   redirect: false,
