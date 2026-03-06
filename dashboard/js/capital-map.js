@@ -3,6 +3,14 @@
   const detailsEl = document.getElementById('node-details');
   if (!container) return;
 
+  const isMobile = window.matchMedia('(max-width: 767px)').matches;
+  function sizeContainer() {
+    const topOffset = isMobile ? 140 : 190;
+    const h = Math.max(isMobile ? 420 : 520, window.innerHeight - topOffset);
+    container.style.height = `${h}px`;
+  }
+  sizeContainer();
+
   async function ensureCytoscape() {
     if (window.cytoscape) return true;
     const candidates = [
@@ -47,6 +55,8 @@
   const nodeIdSet = new Set(rawNodes.map((n) => n.id));
   const rawEdges = (Array.isArray(data.edges) ? data.edges : []).filter((e) => nodeIdSet.has(e.source) && nodeIdSet.has(e.target));
 
+  const nodeSize = isMobile ? 66 : 52;
+  const labelSize = isMobile ? 16 : 14;
   const pressureY = {
     monetary_pressure: 100,
     balance_sheet_pressure: 300,
@@ -119,17 +129,22 @@
     layout: {
       name: 'preset'
     },
+    userZoomingEnabled: true,
+    userPanningEnabled: true,
+    minZoom: isMobile ? 0.25 : 0.35,
+    maxZoom: isMobile ? 2.2 : 2.6,
+    wheelSensitivity: isMobile ? 0.12 : 0.2,
     style: [
       {
         selector: 'node',
         style: {
           'label': 'data(label)',
-          'font-size': 14,
-          'min-zoomed-font-size': 11,
+          'font-size': labelSize,
+          'min-zoomed-font-size': isMobile ? 12 : 11,
           'font-weight': 700,
           'color': '#f8fafc',
           'text-wrap': 'wrap',
-          'text-max-width': 180,
+          'text-max-width': isMobile ? 210 : 180,
           'text-valign': 'top',
           'text-halign': 'center',
           'text-margin-y': -14,
@@ -138,12 +153,12 @@
           'text-background-color': '#0b1220',
           'text-background-opacity': 0.78,
           'text-background-shape': 'roundrectangle',
-          'text-background-padding': 3,
+          'text-background-padding': isMobile ? 5 : 3,
           'background-color': '#4f8cff',
           'border-width': 2,
           'border-color': '#cbd5e1',
-          'width': 52,
-          'height': 52,
+          'width': nodeSize,
+          'height': nodeSize,
           'transition-property': 'opacity, border-width, border-color, width',
           'transition-duration': '240ms'
         }
@@ -252,6 +267,33 @@
     }
     return;
   }
+
+  function clampPan() {
+    const eles = cy.elements(':visible');
+    if (!eles.length) return;
+    const bb = eles.boundingBox();
+    const z = cy.zoom();
+    const w = cy.width();
+    const h = cy.height();
+    const pad = isMobile ? 36 : 60;
+
+    const minX = w - (bb.x2 * z + pad);
+    const maxX = -bb.x1 * z + pad;
+    const minY = h - (bb.y2 * z + pad);
+    const maxY = -bb.y1 * z + pad;
+
+    const pan = cy.pan();
+    const nx = Math.min(maxX, Math.max(minX, pan.x));
+    const ny = Math.min(maxY, Math.max(minY, pan.y));
+    if (nx !== pan.x || ny !== pan.y) cy.pan({ x: nx, y: ny });
+  }
+
+  cy.on('pan zoom', clampPan);
+  window.addEventListener('resize', () => {
+    sizeContainer();
+    cy.resize();
+    clampPan();
+  });
 
   const filterBuyerEl = document.getElementById('filter-buyer');
   const filterSignalEl = document.getElementById('filter-signal');

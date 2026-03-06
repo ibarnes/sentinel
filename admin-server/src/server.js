@@ -904,7 +904,7 @@ app.get('/dashboard/capital-map', requireAnyAuth, async (_req, res) => {
     <div class="row g-3">
       <div class="col-12 col-lg-9">
         <div class="card"><div class="card-body p-2">
-          <div id="capital-map" style="height:80vh;"></div>
+          <div id="capital-map" style="height:calc(100vh - 190px); min-height:520px;"></div>
         </div></div>
       </div>
       <div class="col-12 col-lg-3">
