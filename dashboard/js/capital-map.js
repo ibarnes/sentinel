@@ -603,10 +603,40 @@
     cy.animate({ fit: { eles: cy.elements(':visible'), padding: 50 }, duration: 260, easing: 'ease-in-out' });
   });
 
+  function animateCapitalPath(node) {
+    const tracedEdges = traceCapitalPath(node).filter('edge');
+    if (!tracedEdges.length) return;
+
+    const stage1 = tracedEdges.filter((e) => e.source().data('type') === 'pressure_layer' && e.target().data('type') === 'buyer');
+    const stage2 = tracedEdges.filter((e) => {
+      const a = e.source().data('type');
+      const b = e.target().data('type');
+      return (a === 'buyer' && b === 'signal') || (a === 'signal' && b === 'buyer');
+    });
+    const fallback = tracedEdges.filter((e) => !stage1.contains(e) && !stage2.contains(e));
+
+    tracedEdges.style('opacity', 0.2);
+
+    const animateSet = (set, done) => {
+      if (!set.length) return done();
+      set.animate({ style: { opacity: 1 }, duration: 800, easing: 'ease-in-out' });
+      setTimeout(done, 820);
+    };
+
+    animateSet(stage1, () => {
+      animateSet(stage2, () => {
+        if (fallback.length) {
+          fallback.animate({ style: { opacity: 1 }, duration: 800, easing: 'ease-in-out' });
+        }
+      });
+    });
+  }
+
   highlightBtn?.addEventListener('click', () => {
     const focus = cy.nodes('.focus-node');
     if (focus.length) {
       focusNode(focus[0], false);
+      animateCapitalPath(focus[0]);
       return;
     }
     if (detailsEl) {
