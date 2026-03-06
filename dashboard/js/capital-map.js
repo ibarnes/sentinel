@@ -68,23 +68,35 @@
     layout: {
       name: 'breadthfirst',
       directed: true,
-      spacingFactor: 1.2,
-      padding: 24
+      spacingFactor: 1.65,
+      padding: 48,
+      avoidOverlap: true
     },
     style: [
       {
         selector: 'node',
         style: {
           'label': 'data(label)',
-          'font-size': 11,
-          'color': '#e8ecf3',
+          'font-size': 14,
+          'min-zoomed-font-size': 11,
+          'font-weight': 700,
+          'color': '#f8fafc',
           'text-wrap': 'wrap',
-          'text-max-width': 120,
+          'text-max-width': 180,
+          'text-valign': 'top',
+          'text-halign': 'center',
+          'text-margin-y': -14,
+          'text-outline-width': 3,
+          'text-outline-color': '#0b1220',
+          'text-background-color': '#0b1220',
+          'text-background-opacity': 0.78,
+          'text-background-shape': 'roundrectangle',
+          'text-background-padding': 3,
           'background-color': '#4f8cff',
-          'border-width': 1,
-          'border-color': '#233247',
-          'width': 40,
-          'height': 40
+          'border-width': 2,
+          'border-color': '#cbd5e1',
+          'width': 52,
+          'height': 52
         }
       },
       {
@@ -103,8 +115,7 @@
       {
         selector: 'node[type = "signal"]',
         style: {
-          'background-color': '#facc15',
-          'color': '#1f2937'
+          'background-color': '#facc15'
         }
       },
       {
