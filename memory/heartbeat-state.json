@@ -5,8 +5,13 @@
     "lastAlertedSignature": "39566ecf65ee2e18f9f8bc57362237d7c3f20e4c6eeeb0e10cfa5d779abd2938",
     "notes": "Seeded to suppress duplicate Buyer Access Graph alerts when issue set is unchanged.",
     "last_checked_utc": "2026-03-06T18:48:00Z",
-    "last_signature": "e0ea95fd4652906d0bb9f9c54ae3d423d42253ae5aadd6ec1fb4c8d1f2f1a2c6"
+    "last_signature": "e0ea95fd4652906d0bb9f9c54ae3d423d42253ae5aadd6ec1fb4c8d1f2f1a2c6",
+    "lastAlertSig": "e445f9d8ccbc812c45b056c538585aeaa59f2c85eeb4e50d1a7fab8813e85941",
+    "lastAlertAtUtc": "2026-03-06T21:18:00Z"
   },
   "buyerAccessAlertFingerprint": "d6e79caa1d09606f6386f58cb168852e13d13255e0e07254ca40649e2bffacf3",
-  "buyerAccessLastRunUtc": "2026-03-06T19:18:00Z"
+  "buyerAccessLastRunUtc": "2026-03-06T19:18:00Z",
+  "lastChecks": {
+    "buyer_access_graph": 1772831924
+  }
 }
