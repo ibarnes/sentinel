@@ -994,22 +994,23 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}
   <style>
-    .pp-table thead th { font-size:.7rem; }
-    .pp-table td { padding:.55rem .6rem; }
+    .pp-table thead th { font-size:.69rem; }
+    .pp-table td { padding:.52rem .58rem; }
     .pp-table tbody tr { border-left: 2px solid transparent; }
     .pp-table tbody tr:hover { border-left-color: rgba(79,140,255,.5); }
     .pp-sector { font-weight: 620; letter-spacing:-.01em; }
     .pp-sub { color: var(--text-muted); font-size:.75rem; }
-    .pp-ppi { font-weight:700; font-size:.95rem; padding:.22rem .5rem; border:1px solid rgba(79,140,255,.35); border-radius:999px; color:#dbe8ff; background:rgba(79,140,255,.15); }
-    .pp-status { font-size:.72rem; padding:.2rem .45rem; border-radius:999px; border:1px solid var(--border); color:#d7deeb; background:rgba(255,255,255,.03); }
+    .pp-ppi { font-weight:700; font-size:.93rem; padding:.2rem .48rem; border:1px solid rgba(79,140,255,.35); border-radius:999px; color:#dbe8ff; background:rgba(79,140,255,.15); }
+    .pp-status,.pp-rel { font-size:.72rem; padding:.18rem .42rem; border-radius:999px; border:1px solid var(--border); color:#d7deeb; background:rgba(255,255,255,.03); }
     .pp-kicker { color: var(--text-muted); font-size:.72rem; text-transform: uppercase; letter-spacing:.06em; }
     .pp-signal-row { border:1px solid var(--border); border-radius:10px; padding:.55rem .65rem; background:rgba(255,255,255,.02); }
     .pp-empty { border:1px dashed var(--border); border-radius:12px; padding:18px; color:var(--text-muted); text-align:center; }
     .pp-heat-row { border-bottom:1px solid rgba(255,255,255,.06); padding:.45rem 0; }
     .pp-heat-row:last-child { border-bottom:0; }
     .pp-legend { font-size:.74rem; color:var(--text-muted); }
-    @media (max-width: 1280px){ .pp-wide-col{ display:none; } }
-    @media (max-width: 980px){ .pp-table td,.pp-table th{ padding:.5rem .45rem; } }
+    @media (max-width: 1360px){ .pp-wide-col{ display:none; } }
+    @media (max-width: 1050px){ .pp-hide-md{ display:none; } }
+    @media (max-width: 980px){ .pp-table td,.pp-table th{ padding:.48rem .4rem; } }
   </style>
   </head><body><div class="app-shell">
     ${dashboardNav('platform-pressure')}
@@ -1037,15 +1038,20 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         <th><button data-sort="region" class="btn btn-sm btn-ghost p-0">Region</button></th>
         <th><button data-sort="ppi" class="btn btn-sm btn-ghost p-0">PPI</button></th>
         <th>Status</th>
-        <th><button data-sort="delta30d" class="btn btn-sm btn-ghost p-0">30D Δ</button></th>
+        <th class="pp-hide-md">Buyer Path</th>
+        <th class="pp-hide-md">USG Relevance</th>
         <th><button data-sort="delta90d" class="btn btn-sm btn-ghost p-0">90D Δ</button></th>
         <th>Buyer Class</th>
-        <th class="pp-wide-col">FID Boundary</th>
-        <th class="pp-wide-col">Bottleneck</th>
+        <th class="pp-wide-col">Next Intelligence Action</th>
         <th><button data-sort="lastUpdated" class="btn btn-sm btn-ghost p-0">Updated</button></th>
       </tr></thead>
       <tbody id="pp-table"></tbody>
     </table></div></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Top mandate-proximate sectors by buyer class</h6><span class="pp-legend">PPI ≥ 20 or (PPI ≥ 15 and 90D Δ ≥ +4)</span></div>
+      <div id="pp-top-by-buyer" class="small"></div>
+    </div></div>
 
     <div class="row g-3 mb-3">
       <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
@@ -1067,9 +1073,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   <script>
     const platformData = ${payload};
     let rows = [...platformData.rows];
-    const tone = { 'Noise':'secondary', 'Early Pressure':'info', 'Platform Formation':'warning', 'Mandate Proximate':'success' };
     const els = {
-      table: document.getElementById('pp-table'), summary: document.getElementById('pp-summary'), heatmap: document.getElementById('pp-heatmap'),
+      table: document.getElementById('pp-table'), summary: document.getElementById('pp-summary'), heatmap: document.getElementById('pp-heatmap'), topByBuyer: document.getElementById('pp-top-by-buyer'),
       watchlist: document.getElementById('pp-watchlist'), filterLabel: document.getElementById('pp-active-filter'),
       fSector: document.getElementById('f-sector'), fRegion: document.getElementById('f-region'), fStatus: document.getElementById('f-status'), fBuyer: document.getElementById('f-buyer'),
       fFid: document.getElementById('f-fid'), fMinPpi: document.getElementById('f-min-ppi'), fSearch: document.getElementById('f-search')
@@ -1078,9 +1083,11 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     const drawerBody = document.getElementById('pp-drawer-body');
     const state = { sortBy: 'ppi', sortDir: 'desc' };
     const focusClasses = ['Sovereign Wealth Fund','DFI / MDB','Hyperscaler / Tech Platform','Strategic Industrial Sponsor'];
+    const relevanceOrder = ['Observe','Track','Engage Soon','Mandate Window'];
 
     const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c)=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-    function delta(n){ const v = Number(n||0); if(v>0) return '<span class="badge text-bg-success">+'+v+'</span>'; if(v<0) return '<span class="badge text-bg-secondary">'+v+'</span>'; return '<span class="badge text-bg-dark">0</span>'; }
+    const delta = (n) => { const v = Number(n||0); if(v>0) return '<span class="badge text-bg-success">+'+v+'</span>'; if(v<0) return '<span class="badge text-bg-secondary">'+v+'</span>'; return '<span class="badge text-bg-dark">0</span>'; };
+    const nextRel = (r) => relevanceOrder[Math.min(relevanceOrder.length-1, relevanceOrder.indexOf(r.usgRelevance || 'Track') + 1)] || 'Track';
 
     function populateFilters(){
       const uniq = (arr) => [...new Set(arr.filter(Boolean))].sort();
@@ -1102,7 +1109,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         if (els.fFid.value && r.fidBoundaryType !== els.fFid.value) return false;
         if (r.ppi < minPpi) return false;
         if (!q) return true;
-        const blob = [r.sector,r.thesisSummary,r.analystNotes,r.mainStructuralBottleneck,r.whyItMatters,(r.actors||[]).map(a=>a.name).join(' ')].join(' ').toLowerCase();
+        const blob = [r.sector,r.thesisSummary,r.analystNotes,r.mainStructuralBottleneck,r.whyItMatters,r.nextIntelligenceAction,r.buyerPath,r.usgRelevance,(r.actors||[]).map(a=>a.name).join(' ')].join(' ').toLowerCase();
         return blob.includes(q);
       });
     }
@@ -1143,13 +1150,25 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         '<td>'+esc(r.region)+'</td>'+
         '<td><span class="pp-ppi">'+esc(r.ppi)+'/25</span></td>'+
         '<td><span class="pp-status">'+esc(r.status)+'</span></td>'+
-        '<td>'+delta(r.delta30d)+'</td>'+
+        '<td class="pp-hide-md small">'+esc(r.buyerPath || 'Mixed / Multi-actor')+'</td>'+
+        '<td class="pp-hide-md"><span class="pp-rel">'+esc(r.usgRelevance || 'Track')+'</span></td>'+
         '<td>'+delta(r.delta90d)+'</td>'+
         '<td><span class="badge text-bg-light border">'+esc(r.likelyBuyerClass)+'</span></td>'+
-        '<td class="pp-wide-col small">'+esc(r.fidBoundaryType)+'</td>'+
-        '<td class="pp-wide-col small text-muted" style="max-width:260px">'+esc(r.mainStructuralBottleneck)+'</td>'+
+        '<td class="pp-wide-col small text-muted">'+esc(r.nextIntelligenceAction || 'Validate FID boundary')+'</td>'+
         '<td class="mono small">'+esc(r.lastUpdated)+'</td></tr>').join('');
       els.table.querySelectorAll('tr[data-id]').forEach(tr => tr.addEventListener('click', () => openDetail(tr.dataset.id)));
+    }
+
+    function renderTopByBuyer(list){
+      const watch = list.filter(r => r.ppi >= 20 || (r.ppi >= 15 && r.delta90d >= 4));
+      if (!watch.length) { els.topByBuyer.innerHTML = '<div class="pp-empty">No sectors currently meet mandate-proximate criteria.</div>'; return; }
+      const groups = {};
+      watch.forEach(r => { const k=r.likelyBuyerClass || 'Unspecified'; if(!groups[k]) groups[k]=[]; groups[k].push(r); });
+      const ordered = Object.entries(groups).sort((a,b)=>b[1].length-a[1].length);
+      els.topByBuyer.innerHTML = ordered.map(([k,v]) => {
+        const top = v.sort((a,b)=>b.ppi-a.ppi).slice(0,3);
+        return '<div class="mb-2"><div class="pp-kicker">'+esc(k)+'</div>'+top.map(r => '<div class="d-flex justify-content-between border rounded px-2 py-1 mb-1"><span>'+esc(r.sector)+'</span><span class="pp-legend">PPI '+r.ppi+' · 90D '+(r.delta90d>0?'+':'')+r.delta90d+'</span></div>').join('')+'</div>';
+      }).join('');
     }
 
     function renderHeatmap(list){
@@ -1200,8 +1219,21 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       return a + ' ' + b;
     }
 
+    function originationReadiness(r){
+      const cap = r.scores.capitalReality >= 4 ? 'Yes' : 'Not yet';
+      const fid = r.scores.fidDefinability >= 4 ? 'Yes' : 'Partial';
+      const buyer = ['Sovereign / DFI','Strategic Industrial Sponsor','Hyperscaler'].includes(r.buyerPath || '') ? 'Likely' : 'Mixed';
+      const mand = r.scores.mandateFeasibility >= 4 ? 'Yes' : 'Emerging';
+      const next = nextRel(r.usgRelevance || 'Track');
+      return {
+        cap, fid, buyer, mand,
+        uplift: 'To move from '+(r.usgRelevance||'Track')+' to '+next+', we need one new verifiable signal that de-risks '+(r.mainStructuralBottleneck || 'the core FID blocker')+'.'
+      };
+    }
+
     function openDetail(id){
       const r = rows.find(x => x.id === id); if (!r) return;
+      const rr = originationReadiness(r);
       const actorGroups = {};
       (r.actors || []).forEach(a => { const g = a.category || 'other'; if(!actorGroups[g]) actorGroups[g]=[]; actorGroups[g].push(a); });
       const actorHtml = Object.entries(actorGroups).map(([k,v]) => '<div class="mb-2"><div class="pp-kicker">'+esc(k.replaceAll('_',' / '))+'</div><ul class="small mb-1">'+v.map(a => '<li><strong>'+esc(a.name)+'</strong> — '+esc(a.role||'')+'</li>').join('')+'</ul></div>').join('');
@@ -1210,15 +1242,16 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       drawerBody.innerHTML =
         '<div class="mb-3"><div class="pp-kicker">Sector Priority</div><h5 class="mb-1">'+esc(r.sector)+'</h5><div class="small text-muted mb-2">'+esc(r.region)+'</div><div class="small">'+esc(r.whyItMatters)+'</div></div>'+
         '<div class="card mb-3"><div class="card-body py-2"><div class="row g-2"><div class="col-6"><div class="pp-kicker">Pressure Strength</div><div><span class="pp-ppi">'+r.ppi+'/25</span> <span class="ms-2 pp-status">'+esc(r.status)+'</span></div></div><div class="col-6"><div class="pp-kicker">Likely Buyer</div><div class="small"><strong>'+esc(r.likelyBuyerClass)+'</strong><div class="text-muted">'+esc(r.buyerRationale)+'</div></div></div><div class="col-6"><div class="pp-kicker">FID Boundary</div><div class="small">'+esc(r.fidBoundaryType)+'</div></div><div class="col-6"><div class="pp-kicker">Primary Blocker</div><div class="small">'+esc(r.mainStructuralBottleneck)+'</div></div></div></div></div>'+
+        '<div class="card mb-3"><div class="card-body py-2"><h6 class="mb-2">Origination Readiness</h6><div class="row g-2 small"><div class="col-6"><strong>Is capital real?</strong><div>'+esc(rr.cap)+'</div></div><div class="col-6"><strong>Is FID definable?</strong><div>'+esc(rr.fid)+'</div></div><div class="col-6"><strong>Is buyer above execution?</strong><div>'+esc(rr.buyer)+'</div></div><div class="col-6"><strong>Is mandate feasibility emerging?</strong><div>'+esc(rr.mand)+'</div></div><div class="col-12"><strong>USG relevance:</strong> <span class="pp-rel">'+esc(r.usgRelevance || 'Track')+'</span> · <strong>Buyer path:</strong> '+esc(r.buyerPath || 'Mixed / Multi-actor')+'</div><div class="col-12 text-muted">'+esc(rr.uplift)+'</div><div class="col-12"><strong>Next Intelligence Action:</strong> '+esc(r.nextIntelligenceAction || 'Validate FID boundary')+'</div></div></div></div>'+
         '<div class="mb-3"><h6 class="mb-2">Why this score?</h6><div class="small text-muted">'+esc(scoreInterpretation(r))+'</div></div>'+
         '<div class="mb-3"><h6 class="mb-2">PPI Breakdown</h6>'+scoreBar('Capital Reality', r.scores.capitalReality)+scoreBar('FID Definability', r.scores.fidDefinability)+scoreBar('Multi-Actor Dependency', r.scores.multiActorDependency)+scoreBar('Structural Ambiguity', r.scores.structuralAmbiguity)+scoreBar('Mandate Feasibility', r.scores.mandateFeasibility)+'<div class="pp-legend">Weighted config score: '+esc(r.weightedPpi)+'</div></div>'+
-        '<div class="mb-3"><h6 class="mb-2">Velocity</h6><div class="small">30D Δ '+delta(r.delta30d)+' · 90D Δ '+delta(r.delta90d)+'</div><div class="small text-muted mt-1">'+esc(r.velocityNote || 'No velocity note provided.')+'</div></div>'+
         '<div class="mb-3"><h6 class="mb-2">Signals Feed</h6>'+
           (signals.map(s => '<div class="pp-signal-row mb-2"><div class="d-flex justify-content-between"><strong>'+esc(s.type||'signal')+'</strong><span class="mono pp-legend">'+esc(s.date||'')+'</span></div><div class="small">'+esc(s.title||'')+'</div><div class="small text-muted">'+esc(s.summary||'No summary.')+'</div></div>').join('') || '<div class="pp-empty">No signals logged for this sector.</div>')+
         '</div>'+
         '<div class="mb-3"><h6 class="mb-2">Key Actors</h6>' + (actorHtml || '<div class="pp-empty">No mapped actors.</div>') + '</div>'+
         '<div class="mb-3"><h6 class="mb-1">Analyst Notes</h6><div class="small" style="white-space:pre-wrap">'+esc(r.analystNotes || 'No analyst notes yet.')+'</div></div>'+
-        '<div class="mb-2"><button id="pp-network-toggle" class="btn btn-sm btn-outline-secondary">Toggle Network View</button></div><div id="pp-network" style="display:none;height:260px;border:1px solid var(--border);border-radius:10px"></div>';
+        '<div class="mb-2"><button id="pp-network-toggle" class="btn btn-sm btn-outline-secondary">Toggle Network View</button></div><div id="pp-network" style="display:none;height:260px;border:1px solid var(--border);border-radius:10px"></div>'+
+        '<div class="pp-kicker mt-3">Integration refs</div><pre class="small" style="white-space:pre-wrap">'+esc(JSON.stringify(r.linkRefs || {}, null, 2))+'</pre>';
 
       drawerBody.querySelector('#pp-network-toggle')?.addEventListener('click', () => {
         const box = drawerBody.querySelector('#pp-network'); if (!box) return;
@@ -1237,7 +1270,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     function renderAll(){
       const filtered = sortRows(getFiltered());
-      renderSummary(filtered); renderTable(filtered); renderHeatmap(filtered); renderWatchlist(filtered);
+      renderSummary(filtered); renderTable(filtered); renderTopByBuyer(filtered); renderHeatmap(filtered); renderWatchlist(filtered);
       const tags = [els.fSector.value, els.fRegion.value, els.fStatus.value, els.fBuyer.value, els.fFid.value].filter(Boolean);
       const minLabel = Number(els.fMinPpi.value || 0) > 0 ? ('Min PPI ' + Number(els.fMinPpi.value || 0)) : '';
       if (minLabel) tags.push(minLabel);
