@@ -530,6 +530,66 @@
     return null;
   }
 
+  async function highestRankedBuyerNode() {
+    const endpoints = ['/dashboard/data/buyers.json', '/data/buyers.json'];
+    for (const ep of endpoints) {
+      try {
+        const r = await fetch(ep, { credentials: 'same-origin' });
+        if (!r.ok) continue;
+        const buyers = await r.json();
+        if (!Array.isArray(buyers) || !buyers.length) continue;
+        const sorted = [...buyers].sort((a, b) => Number(b?.score || 0) - Number(a?.score || 0));
+        const top = sorted[0];
+        if (!top) continue;
+
+        const tryIds = [
+          String(top.buyer_id || ''),
+          `buyer_${norm(top.buyer_id || '')}`,
+          `buyer_${norm(top.name || '')}`
+        ].filter(Boolean);
+
+        for (const id of tryIds) {
+          const n = cy.getElementById(id);
+          if (n && n.length) return n;
+        }
+      } catch (_) {}
+    }
+    return null;
+  }
+
+  function anchorBuyerNeighborhood(node) {
+    if (!node || node.empty()) return;
+    cy.elements().removeClass('filtered-out');
+
+    let keep = cy.collection().union(node);
+    const adjacentEdges = node.connectedEdges();
+    adjacentEdges.forEach((e) => {
+      const src = e.source();
+      const tgt = e.target();
+      const other = src.id() === node.id() ? tgt : src;
+      const t = other.data('type');
+      if (t === 'signal' || t === 'initiative') {
+        keep = keep.union(other).union(e);
+      }
+    });
+
+    cy.elements().difference(keep).addClass('filtered-out');
+
+    if (filterBuyerEl) filterBuyerEl.value = node.id();
+    if (filterSignalEl) filterSignalEl.value = '';
+    if (filterInitiativeEl) filterInitiativeEl.value = '';
+    if (filterPressureEl) filterPressureEl.value = '';
+
+    focusNode(node, true);
+
+    if (detailsEl) {
+      const visibleNodes = cy.nodes(':visible').length;
+      const visibleEdges = cy.edges(':visible').length;
+      const label = String(node.data('label') || node.id());
+      detailsEl.innerHTML = `<span class="text-muted">Default anchor: ${label}. Showing ${visibleNodes} nodes / ${visibleEdges} edges in buyer neighborhood.</span>`;
+    }
+  }
+
   const tip = document.createElement('div');
   tip.style.position = 'fixed';
   tip.style.zIndex = '9999';
@@ -661,8 +721,16 @@
     });
   });
 
-  const seedNode = nodeFromQuery();
-  if (seedNode) {
-    focusNode(seedNode, true);
-  }
+  (async () => {
+    const seedNode = nodeFromQuery();
+    if (seedNode) {
+      focusNode(seedNode, true);
+      return;
+    }
+
+    const topBuyer = await highestRankedBuyerNode();
+    if (topBuyer) {
+      anchorBuyerNeighborhood(topBuyer);
+    }
+  })();
 })();
