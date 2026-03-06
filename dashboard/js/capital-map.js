@@ -303,6 +303,18 @@
     return p ? (p.data('label') || p.id()) : '—';
   }
 
+  function nodeFacts(node) {
+    const connectedNodes = node.closedNeighborhood('node').toArray();
+    return {
+      name: node.data('label') || node.id(),
+      type: node.data('type') || '—',
+      pressureLayer: pickPressureLayer(node, connectedNodes),
+      buyers: uniqLabels(connectedNodes, 'buyer'),
+      signals: uniqLabels(connectedNodes, 'signal'),
+      initiatives: uniqLabels(connectedNodes, 'initiative')
+    };
+  }
+
   function renderDetails(node) {
     if (!detailsEl) return;
     if (!node) {
@@ -310,19 +322,15 @@
       return;
     }
 
-    const connectedNodes = node.closedNeighborhood('node').toArray();
-    const buyers = uniqLabels(connectedNodes, 'buyer');
-    const signals = uniqLabels(connectedNodes, 'signal');
-    const initiatives = uniqLabels(connectedNodes, 'initiative');
-    const pressureLayer = pickPressureLayer(node, connectedNodes);
+    const f = nodeFacts(node);
 
     detailsEl.innerHTML = `
-      <div class="mb-2"><strong>Name</strong><div>${node.data('label') || node.id()}</div></div>
-      <div class="mb-2"><strong>Type</strong><div>${node.data('type') || '—'}</div></div>
-      <div class="mb-2"><strong>Pressure Layer</strong><div>${pressureLayer}</div></div>
-      <div class="mb-2"><strong>Connected Buyers</strong><div>${buyers.length ? buyers.join(', ') : '—'}</div></div>
-      <div class="mb-2"><strong>Connected Signals</strong><div>${signals.length ? signals.join(', ') : '—'}</div></div>
-      <div class="mb-0"><strong>Connected Initiatives</strong><div>${initiatives.length ? initiatives.join(', ') : '—'}</div></div>
+      <div class="mb-2"><strong>Name</strong><div>${f.name}</div></div>
+      <div class="mb-2"><strong>Type</strong><div>${f.type}</div></div>
+      <div class="mb-2"><strong>Pressure Layer</strong><div>${f.pressureLayer}</div></div>
+      <div class="mb-2"><strong>Connected Buyers</strong><div>${f.buyers.length ? f.buyers.join(', ') : '—'}</div></div>
+      <div class="mb-2"><strong>Connected Signals</strong><div>${f.signals.length ? f.signals.join(', ') : '—'}</div></div>
+      <div class="mb-0"><strong>Connected Initiatives</strong><div>${f.initiatives.length ? f.initiatives.join(', ') : '—'}</div></div>
     `;
   }
 
@@ -446,6 +454,44 @@
     return null;
   }
 
+  const tip = document.createElement('div');
+  tip.style.position = 'fixed';
+  tip.style.zIndex = '9999';
+  tip.style.maxWidth = '320px';
+  tip.style.pointerEvents = 'none';
+  tip.style.padding = '8px 10px';
+  tip.style.borderRadius = '8px';
+  tip.style.border = '1px solid rgba(255,255,255,.16)';
+  tip.style.background = 'rgba(9,14,24,.95)';
+  tip.style.color = '#e8ecf3';
+  tip.style.fontSize = '12px';
+  tip.style.lineHeight = '1.35';
+  tip.style.boxShadow = '0 8px 24px rgba(0,0,0,.35)';
+  tip.style.display = 'none';
+  document.body.appendChild(tip);
+
+  function moveTip(e) {
+    tip.style.left = `${e.renderedPosition.x + 18}px`;
+    tip.style.top = `${e.renderedPosition.y + 18}px`;
+  }
+
+  cy.on('mouseover', 'node', (evt) => {
+    const f = nodeFacts(evt.target);
+    tip.innerHTML = `
+      <div><strong>Name:</strong> ${f.name}</div>
+      <div><strong>Type:</strong> ${f.type}</div>
+      <div><strong>Pressure Layer:</strong> ${f.pressureLayer}</div>
+      <div><strong>Connected Buyers:</strong> ${f.buyers.length ? f.buyers.join(', ') : '—'}</div>
+      <div><strong>Connected Signals:</strong> ${f.signals.length ? f.signals.join(', ') : '—'}</div>
+      <div><strong>Connected Initiatives:</strong> ${f.initiatives.length ? f.initiatives.join(', ') : '—'}</div>
+    `;
+    moveTip(evt);
+    tip.style.display = 'block';
+  });
+
+  cy.on('mousemove', 'node', moveTip);
+  cy.on('mouseout', 'node', () => { tip.style.display = 'none'; });
+
   cy.on('tap', 'node', (evt) => {
     focusNode(evt.target);
   });
@@ -454,6 +500,7 @@
     if (evt.target === cy) {
       clearFocus();
       renderDetails(null);
+      tip.style.display = 'none';
     }
   });
 
