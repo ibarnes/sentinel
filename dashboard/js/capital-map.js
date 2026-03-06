@@ -73,9 +73,9 @@
     bankability_pressure: 'Bankability Pressure\n(Assets / Projects)'
   };
 
-  const mandateY = pressureY.mandate_pressure;
-  const bankabilityY = pressureY.bankability_pressure;
-  const signalY = mandateY - 140;
+  const buyerY = 700;
+  const signalY = buyerY - 200;
+  const initiativeY = buyerY + 200;
 
   const typedNodes = {
     signal: rawNodes.filter((n) => n.type === 'signal'),
@@ -104,10 +104,10 @@
       return { x: signalX.get(id) || 300, y: signalY };
     }
     if (type === 'buyer') {
-      return { x: buyerX.get(id) || 300, y: mandateY };
+      return { x: buyerX.get(id) || 300, y: buyerY };
     }
     if (type === 'initiative') {
-      return { x: initiativeX.get(id) || 300, y: bankabilityY };
+      return { x: initiativeX.get(id) || 300, y: initiativeY };
     }
     return { x: 520, y: 520 };
   }
