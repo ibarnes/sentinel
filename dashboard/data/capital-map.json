@@ -25,7 +25,6 @@
       "type": "pressure_layer",
       "label": "Bankability Pressure"
     },
-
     {
       "id": "signal_ai_compute_shortage",
       "type": "signal",
@@ -36,7 +35,6 @@
       "type": "signal",
       "label": "Africa Power Deficit"
     },
-
     {
       "id": "buyer_ifc",
       "type": "buyer",
@@ -52,7 +50,6 @@
       "type": "buyer",
       "label": "PIF"
     },
-
     {
       "id": "initiative_nigeria_digital_bank",
       "type": "initiative",
@@ -69,75 +66,85 @@
       "id": "edge_pressure_1",
       "source": "monetary_pressure",
       "target": "balance_sheet_pressure",
-      "type": "pressure_flow"
+      "type": "pressure_flow",
+      "weight": 4
     },
     {
       "id": "edge_pressure_2",
       "source": "balance_sheet_pressure",
       "target": "trust_access_pressure",
-      "type": "pressure_flow"
+      "type": "pressure_flow",
+      "weight": 4
     },
     {
       "id": "edge_pressure_3",
       "source": "trust_access_pressure",
       "target": "mandate_pressure",
-      "type": "pressure_flow"
+      "type": "pressure_flow",
+      "weight": 4
     },
     {
       "id": "edge_pressure_4",
       "source": "mandate_pressure",
       "target": "bankability_pressure",
-      "type": "pressure_flow"
+      "type": "pressure_flow",
+      "weight": 4
     },
-
     {
       "id": "edge_signal_1",
       "source": "signal_ai_compute_shortage",
       "target": "buyer_pif",
-      "type": "influences"
+      "type": "influences",
+      "weight": 2
     },
     {
       "id": "edge_signal_2",
       "source": "signal_ai_compute_shortage",
       "target": "buyer_dfc",
-      "type": "influences"
+      "type": "influences",
+      "weight": 2
     },
     {
       "id": "edge_signal_3",
       "source": "signal_africa_power_deficit",
       "target": "buyer_ifc",
-      "type": "influences"
+      "type": "influences",
+      "weight": 2
     },
     {
       "id": "edge_signal_4",
       "source": "signal_africa_power_deficit",
       "target": "buyer_dfc",
-      "type": "influences"
+      "type": "influences",
+      "weight": 2
     },
-
     {
       "id": "edge_fund_1",
       "source": "buyer_ifc",
       "target": "initiative_nigeria_digital_bank",
-      "type": "funds"
+      "type": "funds",
+      "weight": 3
     },
     {
       "id": "edge_fund_2",
       "source": "buyer_dfc",
       "target": "initiative_nigeria_digital_bank",
-      "type": "funds"
+      "type": "funds",
+      "weight": 3
     },
     {
       "id": "edge_fund_3",
       "source": "buyer_dfc",
       "target": "initiative_ai_power_corridor",
-      "type": "funds"
+      "type": "funds",
+      "weight": 3
     },
     {
       "id": "edge_fund_4",
       "source": "buyer_pif",
       "target": "initiative_ai_power_corridor",
-      "type": "funds"
+      "type": "funds",
+      "weight": 3
     }
   ]
 }

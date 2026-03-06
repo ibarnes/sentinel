@@ -75,7 +75,7 @@
           'target-arrow-shape': 'triangle',
           'line-color': '#74829a',
           'target-arrow-color': '#74829a',
-          'width': 2
+          'width': 'mapData(weight, 1, 5, 2, 10)'
         }
       },
       {
