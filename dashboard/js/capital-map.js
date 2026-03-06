@@ -47,8 +47,59 @@
   const nodeIdSet = new Set(rawNodes.map((n) => n.id));
   const rawEdges = (Array.isArray(data.edges) ? data.edges : []).filter((e) => nodeIdSet.has(e.source) && nodeIdSet.has(e.target));
 
+  const pressureY = {
+    monetary_pressure: 100,
+    balance_sheet_pressure: 300,
+    trust_access_pressure: 500,
+    mandate_pressure: 700,
+    bankability_pressure: 900
+  };
+
+  const mandateY = pressureY.mandate_pressure;
+  const bankabilityY = pressureY.bankability_pressure;
+  const signalY = mandateY - 140;
+
+  const typedNodes = {
+    signal: rawNodes.filter((n) => n.type === 'signal'),
+    buyer: rawNodes.filter((n) => n.type === 'buyer'),
+    initiative: rawNodes.filter((n) => n.type === 'initiative')
+  };
+
+  function spreadX(arr, start = 220, step = 200) {
+    const out = new Map();
+    arr.forEach((n, i) => out.set(n.id, start + i * step));
+    return out;
+  }
+
+  const signalX = spreadX(typedNodes.signal);
+  const buyerX = spreadX(typedNodes.buyer);
+  const initiativeX = spreadX(typedNodes.initiative);
+
+  function nodePosition(node) {
+    const id = node.id;
+    const type = node.type;
+
+    if (pressureY[id] != null) {
+      return { x: 90, y: pressureY[id] };
+    }
+    if (type === 'signal') {
+      return { x: signalX.get(id) || 300, y: signalY };
+    }
+    if (type === 'buyer') {
+      return { x: buyerX.get(id) || 300, y: mandateY };
+    }
+    if (type === 'initiative') {
+      return { x: initiativeX.get(id) || 300, y: bankabilityY };
+    }
+    return { x: 520, y: 520 };
+  }
+
   const elements = [
-    ...rawNodes.map((n) => ({ data: n })),
+    ...rawNodes.map((n) => ({
+      data: n,
+      position: nodePosition(n),
+      locked: n.type === 'pressure_layer'
+    })),
     ...rawEdges.map((e) => ({ data: e }))
   ];
 
@@ -66,11 +117,7 @@
     container,
     elements,
     layout: {
-      name: 'breadthfirst',
-      directed: true,
-      spacingFactor: 1.65,
-      padding: 48,
-      avoidOverlap: true
+      name: 'preset'
     },
     style: [
       {
