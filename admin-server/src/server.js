@@ -3663,6 +3663,21 @@ const panelEl = document.getElementById('taskDetailPanel');
 const panel = (window.bootstrap && window.bootstrap.Offcanvas) ? new bootstrap.Offcanvas(panelEl) : null;
 let activeTaskId = null;
 
+function showTaskPanel(){
+  if (panel) return panel.show();
+  panelEl.classList.add('show');
+  panelEl.style.visibility = 'visible';
+  panelEl.style.display = 'block';
+  panelEl.style.transform = 'translateX(0)';
+}
+
+function hideTaskPanel(){
+  if (panel) return panel.hide();
+  panelEl.classList.remove('show');
+  panelEl.style.visibility = 'hidden';
+  panelEl.style.display = 'none';
+}
+
 function toArray(v){ return String(v || '').split(',').map(x => x.trim()).filter(Boolean); }
 
 function esc(s){ return String(s ?? '').replace(/[&<>]/g, (c)=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
@@ -3750,7 +3765,7 @@ function openTaskPanel(id){
   statusSel.innerHTML = columns.map(c => '<option value="' + c + '"' + (c === t.status ? ' selected' : '') + '>' + c + '</option>').join('');
   document.getElementById('panelApproveBtn').style.display = (me.role === 'architect' && t.request_approval && !t.request_approval.approved) ? '' : 'none';
   renderPanelComments(t);
-  if (panel) panel.show();
+  showTaskPanel();
 }
 
 function openNewTask(){
@@ -3768,7 +3783,7 @@ function openNewTask(){
   document.getElementById('d_status').innerHTML = columns.map(c => '<option value="' + c + '">' + c + '</option>').join('');
   document.getElementById('panelApproveBtn').style.display = 'none';
   document.getElementById('panelComments').innerHTML = '<div class="text-muted">Save task first to enable comments.</div>';
-  if (panel) panel.show();
+  showTaskPanel();
 }
 
 async function saveTask(){
@@ -3843,6 +3858,7 @@ if(document.getElementById('panelMoveBtn')) document.getElementById('panelMoveBt
   if (id) openTaskPanel(id);
 });
 if(document.getElementById('inviteBtn')) document.getElementById('inviteBtn').addEventListener('click', createInvite);
+panelEl?.querySelector('.btn-close')?.addEventListener('click', hideTaskPanel);
 loadBoard();
 </script>
   </body></html>`);
