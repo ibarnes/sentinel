@@ -788,7 +788,7 @@
       applyFilters();
       clearFocus();
       renderDetails(null);
-      cy.animate({ fit: { eles: cy.elements(':visible'), padding: 40 }, duration: 220 });
+      organizeViewport();
     });
   });
 
