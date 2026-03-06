@@ -997,6 +997,8 @@ function resolvePlatformPressureRefs(rows = [], { buyers = [], initiatives = [],
   const initiativeMap = new Map((Array.isArray(initiatives) ? initiatives : []).map((i) => [normalizeRefToken(i?.initiative_id), i]));
   const signalMap = new Map((Array.isArray(signals) ? signals : []).map((s) => [normalizeRefToken(s?.signal_id), s]));
 
+  const isCanonicalRef = (id) => String(id || '').trim().length > 0 && !String(id).includes('::');
+
   return (Array.isArray(rows) ? rows : []).map((row) => {
     const refs = row?.linkRefs || {};
     const buyerIds = Array.isArray(refs.buyerIds) ? refs.buyerIds : [];
@@ -1004,13 +1006,13 @@ function resolvePlatformPressureRefs(rows = [], { buyers = [], initiatives = [],
     const signalIds = Array.isArray(refs.signalIds) ? refs.signalIds : [];
 
     const resolvedBuyers = buyerIds
-      .map((id) => ({ id: String(id || ''), entity: buyerMap.get(normalizeRefToken(id)) || null }))
+      .map((id) => ({ id: String(id || ''), entity: isCanonicalRef(id) ? (buyerMap.get(normalizeRefToken(id)) || null) : null }))
       .filter((x) => x.id);
     const resolvedInitiatives = initiativeIds
-      .map((id) => ({ id: String(id || ''), entity: initiativeMap.get(normalizeRefToken(id)) || null }))
+      .map((id) => ({ id: String(id || ''), entity: isCanonicalRef(id) ? (initiativeMap.get(normalizeRefToken(id)) || null) : null }))
       .filter((x) => x.id);
     const resolvedSignals = signalIds
-      .map((id) => ({ id: String(id || ''), entity: signalMap.get(normalizeRefToken(id)) || null }))
+      .map((id) => ({ id: String(id || ''), entity: isCanonicalRef(id) ? (signalMap.get(normalizeRefToken(id)) || null) : null }))
       .filter((x) => x.id);
 
     const linkedSignalHydrated = resolvedSignals
@@ -1026,6 +1028,16 @@ function resolvePlatformPressureRefs(rows = [], { buyers = [], initiatives = [],
         confidence: x.entity.confidence || 'medium'
       }));
 
+    const baseSignals = Array.isArray(row?.signals) ? row.signals : [];
+    const mergedSignals = [...linkedSignalHydrated, ...baseSignals].filter(Boolean);
+    const seen = new Set();
+    const dedupedSignals = mergedSignals.filter((s) => {
+      const key = `${String(s.id || '')}::${String(s.date || '')}::${String(s.title || '')}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+
     return {
       ...row,
       linkRefs: {
@@ -1038,7 +1050,7 @@ function resolvePlatformPressureRefs(rows = [], { buyers = [], initiatives = [],
           signals: resolvedSignals.map((x) => ({ id: x.id, found: Boolean(x.entity), title: x.entity?.title || null }))
         }
       },
-      signals: linkedSignalHydrated.length ? [...linkedSignalHydrated, ...(Array.isArray(row?.signals) ? row.signals : [])] : row.signals,
+      signals: dedupedSignals,
     };
   });
 }
