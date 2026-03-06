@@ -614,7 +614,7 @@ function adminNav(active = '') {
       <a class="nav-link ${is('board')}" href="/dashboard/board" title="Board"><i data-lucide="kanban-square" class="nav-icon"></i><span class="nav-label">Board</span></a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos" title="UOS"><i data-lucide="book-open" class="nav-icon"></i><span class="nav-label">UOS</span></a>
       <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
-      <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platform Pressure"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platform Pressure</span></a>
+      <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platforms"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platforms</span></a>
     </div>
     <form method="post" action="/admin/logout" class="oc-nav-footer m-0">
       <button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button>
@@ -638,7 +638,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('team')}" href="/dashboard/team" title="Team"><i data-lucide="users" class="nav-icon"></i><span class="nav-label">Team</span></a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos" title="UOS"><i data-lucide="book-open" class="nav-icon"></i><span class="nav-label">UOS</span></a>
       <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
-      <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platform Pressure"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platform Pressure</span></a>
+      <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platforms"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platforms</span></a>
       <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio" title="Presentation Studio"><i data-lucide="presentation" class="nav-icon"></i><span class="nav-label">Presentation Studio</span></a>
     </div>
     <div class="oc-nav-footer">
@@ -3562,7 +3562,7 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
         <a class="nav-link" href="/dashboard/" title="Dashboard"><i data-lucide="layout-dashboard" class="nav-icon"></i><span class="nav-label">Dashboard</span></a>
         <a class="nav-link" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
         <a class="nav-link" href="/dashboard/signals" title="Signals"><i data-lucide="radio" class="nav-icon"></i><span class="nav-label">Signals</span></a>
-        <a class="nav-link" href="/dashboard/platform-pressure" title="Platform Pressure"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platform Pressure</span></a>
+        <a class="nav-link" href="/dashboard/platform-pressure" title="Platforms"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platforms</span></a>
         <a class="nav-link" href="/dashboard/beacons" title="Beacons"><i data-lucide="satellite" class="nav-icon"></i><span class="nav-label">Beacons</span></a>
         <a class="nav-link" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
         <a class="nav-link" href="/dashboard/team" title="Team"><i data-lucide="users" class="nav-icon"></i><span class="nav-label">Team</span></a>
