@@ -386,7 +386,8 @@ function uiHead(title) {
       margin-left: calc(var(--sidebar-collapsed-w) + 28px);
     }
     .app-shell.nav-collapsed .oc-nav-title,
-    .app-shell.nav-collapsed .oc-nav-footer {
+    .app-shell.nav-collapsed .oc-nav-footer,
+    .app-shell.nav-collapsed .oc-nav-group-label {
       display: none;
     }
     .app-shell.nav-collapsed .oc-nav-links {
