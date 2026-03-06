@@ -850,6 +850,9 @@ app.use(
 
 app.use('/dashboard', requireAnyAuth);
 app.use('/dashboard', (req, res, next) => {
+  if (req.path.startsWith('/api/')) {
+    return next();
+  }
   if (req.method !== 'GET' && req.method !== 'HEAD') {
     return res.status(405).send('Method not allowed');
   }
