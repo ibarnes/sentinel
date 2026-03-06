@@ -2,7 +2,31 @@
   const container = document.getElementById('capital-map');
   const detailsEl = document.getElementById('node-details');
   if (!container) return;
-  if (!window.cytoscape) {
+
+  async function ensureCytoscape() {
+    if (window.cytoscape) return true;
+    const candidates = [
+      '/dashboard/vendor/cytoscape.min.js',
+      'https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js'
+    ];
+    for (const src of candidates) {
+      try {
+        await new Promise((resolve, reject) => {
+          const s = document.createElement('script');
+          s.src = src;
+          s.async = true;
+          s.onload = resolve;
+          s.onerror = reject;
+          document.head.appendChild(s);
+        });
+        if (window.cytoscape) return true;
+      } catch (_) {}
+    }
+    return !!window.cytoscape;
+  }
+
+  const cytoscapeReady = await ensureCytoscape();
+  if (!cytoscapeReady) {
     if (detailsEl) detailsEl.innerHTML = '<span class="text-danger">Cytoscape failed to load.</span>';
     return;
   }
