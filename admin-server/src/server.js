@@ -611,6 +611,7 @@ function adminNav(active = '') {
       <a class="nav-link ${is('review')}" href="/dashboard/review" title="Review"><i data-lucide="file-text" class="nav-icon"></i><span class="nav-label">Review</span></a>
       <a class="nav-link ${is('board')}" href="/dashboard/board" title="Board"><i data-lucide="kanban-square" class="nav-icon"></i><span class="nav-label">Board</span></a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos" title="UOS"><i data-lucide="book-open" class="nav-icon"></i><span class="nav-label">UOS</span></a>
+      <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
     </div>
     <form method="post" action="/admin/logout" class="oc-nav-footer m-0">
       <button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button>
@@ -633,6 +634,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('beacons')}" href="/dashboard/beacons" title="Beacons"><i data-lucide="satellite" class="nav-icon"></i><span class="nav-label">Beacons</span></a>
       <a class="nav-link ${is('team')}" href="/dashboard/team" title="Team"><i data-lucide="users" class="nav-icon"></i><span class="nav-label">Team</span></a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos" title="UOS"><i data-lucide="book-open" class="nav-icon"></i><span class="nav-label">UOS</span></a>
+      <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
       <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio" title="Presentation Studio"><i data-lucide="presentation" class="nav-icon"></i><span class="nav-label">Presentation Studio</span></a>
     </div>
     <div class="oc-nav-footer">
@@ -872,7 +874,7 @@ app.get('/capital-map', requireAnyAuth, async (req, res) => {
 app.get('/dashboard/capital-map', requireAnyAuth, async (_req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Capital Systems Map')}</head><body>
   <div class="app-shell">
-    ${dashboardNav('home')}
+    ${dashboardNav('capital-map')}
     ${pageHeader('Capital Systems Map', '<button id="reset-map" class="btn btn-sm btn-outline-secondary" type="button">Reset Map</button>')}
     <div class="card mb-3"><div class="card-body py-2">
       <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
