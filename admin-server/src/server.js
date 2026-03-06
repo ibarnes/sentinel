@@ -3654,6 +3654,7 @@ const me = ${JSON.stringify(u)};
 const canWrite = ${JSON.stringify(canWrite)};
 const columns = ${JSON.stringify(BOARD_COLUMNS)};
 let boardData = { tasks: [] };
+const api = (path) => '/dashboard/api' + path;
 
 const panelEl = document.getElementById('taskDetailPanel');
 const panel = (window.bootstrap && window.bootstrap.Offcanvas) ? new bootstrap.Offcanvas(panelEl) : null;
@@ -3705,7 +3706,7 @@ function render(){
 }
 
 async function loadBoard(){
-  const r = await fetch('/api/board');
+  const r = await fetch(api('/board'));
   boardData = await r.json();
   render();
 }
@@ -3713,7 +3714,7 @@ async function loadBoard(){
 function allowDrop(e){ if (canWrite) e.preventDefault(); }
 async function moveTaskTo(id, status){
   if (!canWrite) return;
-  await fetch('/api/tasks/' + encodeURIComponent(id) + '/move', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ status }) });
+  await fetch(api('/tasks/' + encodeURIComponent(id) + '/move'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ status }) });
   await loadBoard();
 }
 async function dropTask(e, status){
@@ -3780,7 +3781,7 @@ async function saveTask(){
     description: document.getElementById('d_desc').value || ''
   };
   if (!payload.title) return alert('Title is required');
-  const url = id ? '/api/tasks/' + encodeURIComponent(id) : '/api/tasks';
+  const url = id ? api('/tasks/' + encodeURIComponent(id)) : api('/tasks');
   const method = id ? 'PATCH' : 'POST';
   const r = await fetch(url, { method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
   if(!r.ok){ alert('Save failed'); return; }
@@ -3795,7 +3796,7 @@ async function saveComment(){
   const text = document.getElementById('panelCommentText').value.trim();
   if(!id) return alert('Save task first');
   if(!text) return;
-  const r = await fetch('/api/tasks/' + encodeURIComponent(id) + '/comment', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ text }) });
+  const r = await fetch(api('/tasks/' + encodeURIComponent(id) + '/comment'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ text }) });
   if(!r.ok){ alert('Comment failed'); return; }
   document.getElementById('panelCommentText').value = '';
   await loadBoard();
@@ -3804,20 +3805,20 @@ async function saveComment(){
 
 async function requestApproval(id){
   const title = prompt('Optional review packet title (blank to skip)','') || '';
-  const r = await fetch('/api/tasks/' + encodeURIComponent(id) + '/request-approval', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ create_review_packet: !!title, review_packet_title: title })});
+  const r = await fetch(api('/tasks/' + encodeURIComponent(id) + '/request-approval'), {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ create_review_packet: !!title, review_packet_title: title })});
   if(!r.ok){ alert('Request approval failed'); return; }
   await loadBoard();
 }
 
 async function approveTask(id){
-  const r = await fetch('/api/tasks/' + encodeURIComponent(id) + '/approve', { method:'POST', headers:{'Content-Type':'application/json'}, body: '{}' });
+  const r = await fetch(api('/tasks/' + encodeURIComponent(id) + '/approve'), { method:'POST', headers:{'Content-Type':'application/json'}, body: '{}' });
   if(!r.ok){ alert('Approve failed'); return; }
   await loadBoard();
 }
 
 async function createInvite(){
   const role = prompt('Invite role (editor/observer/architect)','observer');
-  const r = await fetch('/api/auth/invite', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ role })});
+  const r = await fetch(api('/auth/invite'), {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ role })});
   const j = await r.json();
   if(!r.ok){ alert(j.error || 'Invite failed'); return; }
   prompt('Copy invite link', j.inviteUrl);
@@ -3842,6 +3843,11 @@ if(document.getElementById('inviteBtn')) document.getElementById('inviteBtn').ad
 loadBoard();
 </script>
   </body></html>`);
+});
+
+app.use('/dashboard/api', (req, _res, next) => {
+  req.url = req.originalUrl.replace(/^\/dashboard\/api/, '/api');
+  next();
 });
 
 app.get('/api/me', requireAnyAuth, async (req, res) => {
