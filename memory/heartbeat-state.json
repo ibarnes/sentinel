@@ -1,0 +1,19 @@
+{
+  "buyer_access_graph_hash": "f181ff2b6dc20d75a4d7e9b57f82b39da78e439ba7bd2fe9c734afcbee969681",
+  "buyer_access_last_issues": {
+    "missing_cov": [
+      "PIF",
+      "TEMASEK",
+      "ADQ",
+      "AFC",
+      "MUBADALA",
+      "WORLDBANK",
+      "QIA",
+      "AfDB"
+    ],
+    "stale_count": 0,
+    "high_no_path": [
+      "DFC"
+    ]
+  }
+}
