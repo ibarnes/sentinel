@@ -875,8 +875,14 @@ app.get('/dashboard/capital-map', requireAnyAuth, async (_req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Capital Systems Map')}</head><body>
   <div class="app-shell">
     ${dashboardNav('capital-map')}
-    ${pageHeader('Capital Systems Map', '<button id="reset-map" class="btn btn-sm btn-outline-secondary" type="button">Reset Map</button>')}
+    ${pageHeader('Capital Systems Map')}
     <div class="card mb-3"><div class="card-body py-2">
+      <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+        <button id="reset-map" class="btn btn-sm btn-outline-secondary" type="button">Reset Map</button>
+        <button id="center-graph" class="btn btn-sm btn-outline-secondary" type="button">Center Graph</button>
+        <button id="highlight-path" class="btn btn-sm btn-outline-secondary" type="button">Highlight Capital Path</button>
+        <button id="toggle-labels" class="btn btn-sm btn-outline-secondary" type="button">Toggle Labels</button>
+      </div>
       <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
         <span class="small text-muted">Focus Mode</span>
         <div class="btn-group btn-group-sm" role="group" aria-label="Focus Mode">

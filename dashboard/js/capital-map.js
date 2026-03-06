@@ -505,6 +505,11 @@
   });
 
   const resetBtn = document.getElementById('reset-map');
+  const centerBtn = document.getElementById('center-graph');
+  const highlightBtn = document.getElementById('highlight-path');
+  const toggleLabelsBtn = document.getElementById('toggle-labels');
+  let labelsOn = true;
+
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
       if (filterBuyerEl) filterBuyerEl.value = '';
@@ -517,6 +522,29 @@
       cy.animate({ fit: { eles: cy.elements(':visible'), padding: 40 }, duration: 260 });
     });
   }
+
+  centerBtn?.addEventListener('click', () => {
+    cy.animate({ fit: { eles: cy.elements(':visible'), padding: 50 }, duration: 260, easing: 'ease-in-out' });
+  });
+
+  highlightBtn?.addEventListener('click', () => {
+    const focus = cy.nodes('.focus-node');
+    if (focus.length) {
+      focusNode(focus[0], false);
+      return;
+    }
+    if (detailsEl) {
+      detailsEl.innerHTML = '<span class="text-warning">Select a node first to highlight its capital path.</span>';
+    }
+  });
+
+  toggleLabelsBtn?.addEventListener('click', () => {
+    labelsOn = !labelsOn;
+    cy.style()
+      .selector('node')
+      .style('label', labelsOn ? 'data(label)' : '')
+      .update();
+  });
 
   [filterBuyerEl, filterSignalEl, filterInitiativeEl, filterPressureEl].forEach((el) => {
     el?.addEventListener('change', () => {
