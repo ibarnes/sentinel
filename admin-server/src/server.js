@@ -3732,7 +3732,12 @@ async function loadBoard(){
 function allowDrop(e){ if (canWrite) e.preventDefault(); }
 async function moveTaskTo(id, status){
   if (!canWrite) return;
-  await fetch(api('/tasks/' + encodeURIComponent(id) + '/move'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ status }) });
+  const r = await fetch(api('/tasks/' + encodeURIComponent(id) + '/move'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ status }) });
+  if (!r.ok) {
+    const j = await r.json().catch(() => ({}));
+    alert(j.error || ('Move failed (' + r.status + ')'));
+    return;
+  }
   await loadBoard();
 }
 async function dropTask(e, status){
@@ -4702,9 +4707,6 @@ app.post('/api/tasks/:id/move', requireRole('architect', 'editor'), async (req, 
 
   if (status === 'Done' && !(task.request_approval && task.request_approval.approved)) {
     return res.status(400).json({ error: 'task cannot move to Done without approved RP' });
-  }
-  if (status === 'Ready for Review' && task.created_by !== getUserLabel(req) && !isArchitect(req)) {
-    return res.status(403).json({ error: 'only creator can move Draft to Ready for Review' });
   }
 
   const before = { status: task.status, review_packet_id: task.review_packet_id || null };
