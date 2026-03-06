@@ -2608,11 +2608,14 @@
         "epic:EP-H",
         "story:US-H1",
         "decomposed",
-        "recovery-sweep"
+        "recovery-sweep",
+        "decomposition-parent"
       ],
       "linked_refs": [
         "TASK-0095",
-        "TASK-0096"
+        "TASK-0096",
+        "TASK-0102",
+        "TASK-0103"
       ],
       "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
       "comments": [
@@ -2626,18 +2629,24 @@
           "at": "2026-03-06T07:30:00Z",
           "by": "sentinel",
           "text": "Still blocked in unattended cron context pending authenticated session cookie for live smoke evidence."
+        },
+        {
+          "id": "decomp-0097-20260306-1730",
+          "author": "sentinel",
+          "text": "Applied decomposition gate to blocked live-smoke work: split into TASK-0102 (execution handoff pack) and TASK-0103 (credentialed execution + evidence attach).",
+          "created_at": "2026-03-06T17:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-06T07:30:00Z",
+      "updated_at": "2026-03-06T17:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0098",
       "title": "BRS-2026-03-06 Recover stale Ready for Review queue via triage bundles",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2665,13 +2674,27 @@
           "author": "sentinel",
           "text": "Executed TASK-0100 and TASK-0101; generated RP-0032 and RP-0033; parent now waiting on Isaac approval decisions for triage bundles.",
           "created_at": "2026-03-06T11:40:00Z"
+        },
+        {
+          "id": "done-0098-20260306-1730",
+          "author": "sentinel",
+          "text": "Midday sweep closure: parent recovery task criteria satisfied (decomposition complete; TASK-0099/0100/0101 executed and packaged). Promoted to Ready for Review pending Isaac approval decisions in RP-0032/RP-0033.",
+          "created_at": "2026-03-06T17:30:00Z"
         }
       ],
-      "request_approval": null,
+      "request_approval": {
+        "requested_at": "2026-03-06T17:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0036-board-progress-sweep-midday-2026-03-06.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
       "created_at": "2026-03-06T07:30:00Z",
-      "updated_at": "2026-03-06T11:40:00Z",
+      "updated_at": "2026-03-06T17:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0036"
     },
     {
       "id": "TASK-0099",
@@ -2783,6 +2806,81 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0033"
+    },
+    {
+      "id": "TASK-0102",
+      "title": "TS-H1.1c.2a Prepare authenticated smoke execution handoff pack",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "scripts/pipeline-run-smoke.sh",
+        "mission-control/runbooks/pipeline-run-auth-smoke.md"
+      ],
+      "description": "Produce a 30-60 min operator handoff pack for authenticated /pipeline/run smoke execution, including exact env vars, command sequence, expected 201/400 outcomes, and evidence capture paths.\nAcceptance Criteria:\n- Runbook created with copy/paste command blocks.\n- Evidence file naming/location convention defined.\n- Clear pass/fail checklist included for Isaac-run or credentialed window execution.",
+      "comments": [
+        {
+          "id": "done-0102-20260306-1730",
+          "author": "sentinel",
+          "text": "Created authenticated smoke runbook and evidence checklist at mission-control/runbooks/pipeline-run-auth-smoke.md; ready for credentialed execution handoff.",
+          "created_at": "2026-03-06T17:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-06T17:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0036-board-progress-sweep-midday-2026-03-06.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-06T17:30:00Z",
+      "updated_at": "2026-03-06T17:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0036"
+    },
+    {
+      "id": "TASK-0103",
+      "title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "status": "In Progress",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0102"
+      ],
+      "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
+      "comments": [
+        {
+          "id": "progress-0103-20260306-1730",
+          "author": "sentinel",
+          "text": "Blocked pending authenticated session cookie / explicit credentialed execution window. Ready to run immediately once credential is available.",
+          "created_at": "2026-03-06T17:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-06T17:30:00Z",
+      "updated_at": "2026-03-06T17:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
