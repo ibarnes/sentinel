@@ -149,7 +149,7 @@
     },
     userZoomingEnabled: true,
     userPanningEnabled: true,
-    minZoom: isMobile ? 0.25 : 0.35,
+    minZoom: isMobile ? 0.15 : 0.2,
     maxZoom: isMobile ? 2.2 : 2.6,
     style: [
       {
@@ -311,10 +311,22 @@
     const h = cy.height();
     const pad = isMobile ? 36 : 60;
 
-    const minX = w - (bb.x2 * z + pad);
-    const maxX = -bb.x1 * z + pad;
-    const minY = h - (bb.y2 * z + pad);
-    const maxY = -bb.y1 * z + pad;
+    let minX = w - (bb.x2 * z + pad);
+    let maxX = -bb.x1 * z + pad;
+    let minY = h - (bb.y2 * z + pad);
+    let maxY = -bb.y1 * z + pad;
+
+    // If content is smaller than viewport in either axis, center it instead of snapping to an edge.
+    if (minX > maxX) {
+      const cx = (minX + maxX) / 2;
+      minX = cx;
+      maxX = cx;
+    }
+    if (minY > maxY) {
+      const cyMid = (minY + maxY) / 2;
+      minY = cyMid;
+      maxY = cyMid;
+    }
 
     const pan = cy.pan();
     const nx = Math.min(maxX, Math.max(minX, pan.x));
@@ -731,6 +743,9 @@
     const topBuyer = await highestRankedBuyerNode();
     if (topBuyer) {
       anchorBuyerNeighborhood(topBuyer);
+      return;
     }
+
+    cy.animate({ fit: { eles: cy.elements(':visible'), padding: isMobile ? 30 : 44 }, duration: 220, easing: 'ease-in-out' });
   })();
 })();
