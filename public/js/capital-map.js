@@ -3,13 +3,24 @@
   const detailsEl = document.getElementById('node-details');
   if (!container || !window.cytoscape) return;
 
-  const response = await fetch('/api/capital-map', { credentials: 'same-origin' });
-  const data = response.ok ? await response.json() : { nodes: [], edges: [] };
+  let data = { nodes: [], edges: [] };
+  try {
+    const response = await fetch('/api/capital-map', { credentials: 'same-origin' });
+    if (response.ok) {
+      data = await response.json();
+    }
+  } catch (_) {
+    data = { nodes: [], edges: [] };
+  }
 
   const elements = [
     ...(Array.isArray(data.nodes) ? data.nodes : []).map((n) => ({ data: n })),
     ...(Array.isArray(data.edges) ? data.edges : []).map((e) => ({ data: e }))
   ];
+
+  if (!elements.length && detailsEl) {
+    detailsEl.innerHTML = '<span class="text-warning">No capital-map data loaded.</span>';
+  }
 
   const cy = window.cytoscape({
     container,
