@@ -870,6 +870,17 @@ app.get('/capital-map', requireAnyAuth, async (_req, res) => {
     ${dashboardNav('home')}
     ${pageHeader('Capital Systems Map', '<button id="reset-map" class="btn btn-sm btn-outline-secondary" type="button">Reset Map</button>')}
     <div class="card mb-3"><div class="card-body py-2">
+      <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
+        <span class="small text-muted">Focus Mode</span>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Focus Mode">
+          <input type="radio" class="btn-check" name="focus-mode" id="mode-buyer" value="buyer" checked>
+          <label class="btn btn-outline-secondary" for="mode-buyer">Buyer</label>
+          <input type="radio" class="btn-check" name="focus-mode" id="mode-initiative" value="initiative">
+          <label class="btn btn-outline-secondary" for="mode-initiative">Initiative</label>
+          <input type="radio" class="btn-check" name="focus-mode" id="mode-signal" value="signal">
+          <label class="btn btn-outline-secondary" for="mode-signal">Signal</label>
+        </div>
+      </div>
       <div class="row g-2">
         <div class="col-12 col-md-3"><select id="filter-buyer" class="form-select form-select-sm"><option value="">Buyer (All)</option></select></div>
         <div class="col-12 col-md-3"><select id="filter-signal" class="form-select form-select-sm"><option value="">Signal (All)</option></select></div>

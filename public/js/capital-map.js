@@ -132,6 +132,18 @@
   const filterSignalEl = document.getElementById('filter-signal');
   const filterInitiativeEl = document.getElementById('filter-initiative');
   const filterPressureEl = document.getElementById('filter-pressure');
+  let focusMode = 'buyer';
+  document.querySelectorAll('input[name="focus-mode"]').forEach((el) => {
+    el.addEventListener('change', () => {
+      if (el.checked) {
+        focusMode = el.value;
+        const current = cy.nodes('.focus-node');
+        if (current.length) {
+          focusNode(current[0], false);
+        }
+      }
+    });
+  });
 
   function addOptions(selectEl, nodes) {
     if (!selectEl) return;
@@ -220,44 +232,56 @@
     const t = node.data('type');
     const path = cy.collection().union(node);
 
-    const buyersFrom = (src) => src.outgoers('edge').filter((e) => {
-      const ty = e.data('type');
-      return ty === 'influences' || ty === 'pressure_flow' || ty === 'depends_on';
-    }).targets().filter((n) => n.data('type') === 'buyer');
+    if (focusMode === 'buyer') {
+      // Buyer Mode: highlight capital release paths (pressure/signal -> buyer -> initiative)
+      let buyer = t === 'buyer' ? node : null;
+      if (!buyer) {
+        const upBuyer = node.incomers('edge').sources().filter((n) => n.data('type') === 'buyer');
+        const downBuyer = node.outgoers('edge').targets().filter((n) => n.data('type') === 'buyer');
+        buyer = upBuyer[0] || downBuyer[0] || null;
+      }
+      if (!buyer) return path.union(node.closedNeighborhood());
 
-    const initiativesFromBuyers = (buyers) => buyers.outgoers('edge').filter((e) => e.data('type') === 'funds').targets().filter((n) => n.data('type') === 'initiative');
-
-    if (t === 'signal' || t === 'pressure_layer') {
-      const buyers = buyersFrom(node);
-      const buyerEdges = node.outgoers('edge').filter((e) => buyers.contains(e.target()));
-      const initiatives = initiativesFromBuyers(buyers);
-      const fundEdges = buyers.outgoers('edge').filter((e) => initiatives.contains(e.target()));
-      return path.union(buyers).union(buyerEdges).union(initiatives).union(fundEdges);
-    }
-
-    if (t === 'buyer') {
-      const inbound = node.incomers('edge').filter((e) => {
-        const srcType = e.source().data('type');
-        return srcType === 'signal' || srcType === 'pressure_layer';
-      });
-      const sources = inbound.sources();
-      const out = node.outgoers('edge').filter((e) => e.data('type') === 'funds');
+      const inbound = buyer.incomers('edge').filter((e) => ['signal', 'pressure_layer'].includes(e.source().data('type')));
+      const inboundNodes = inbound.sources();
+      const out = buyer.outgoers('edge').filter((e) => e.data('type') === 'funds');
       const initiatives = out.targets().filter((n) => n.data('type') === 'initiative');
-      return path.union(inbound).union(sources).union(out).union(initiatives);
+
+      return path.union(buyer).union(inbound).union(inboundNodes).union(out).union(initiatives);
     }
 
-    if (t === 'initiative') {
-      const buyerEdges = node.incomers('edge').filter((e) => e.data('type') === 'funds');
-      const buyers = buyerEdges.sources().filter((n) => n.data('type') === 'buyer');
-      const upstreamEdges = buyers.incomers('edge').filter((e) => {
-        const srcType = e.source().data('type');
-        return srcType === 'signal' || srcType === 'pressure_layer';
-      });
+    if (focusMode === 'initiative') {
+      // Initiative Mode: highlight pressure dependencies (pressure/signal -> buyer -> initiative)
+      let initiative = t === 'initiative' ? node : null;
+      if (!initiative) {
+        const downInit = node.outgoers('edge').targets().filter((n) => n.data('type') === 'initiative');
+        const upInit = node.incomers('edge').sources().filter((n) => n.data('type') === 'initiative');
+        initiative = downInit[0] || upInit[0] || null;
+      }
+      if (!initiative) return path.union(node.closedNeighborhood());
+
+      const buyerEdges = initiative.incomers('edge').filter((e) => e.source().data('type') === 'buyer' && e.data('type') === 'funds');
+      const buyers = buyerEdges.sources();
+      const upstreamEdges = buyers.incomers('edge').filter((e) => ['signal', 'pressure_layer'].includes(e.source().data('type')));
       const upstreamNodes = upstreamEdges.sources();
-      return path.union(buyerEdges).union(buyers).union(upstreamEdges).union(upstreamNodes);
+
+      return path.union(initiative).union(buyerEdges).union(buyers).union(upstreamEdges).union(upstreamNodes);
     }
 
-    return path.union(node.closedNeighborhood());
+    // Signal Mode: highlight downstream effects (signal/pressure -> buyer -> initiative)
+    let source = (t === 'signal' || t === 'pressure_layer') ? node : null;
+    if (!source) {
+      const upstream = node.incomers('edge').sources().filter((n) => ['signal', 'pressure_layer'].includes(n.data('type')));
+      source = upstream[0] || null;
+    }
+    if (!source) return path.union(node.closedNeighborhood());
+
+    const buyerEdges = source.outgoers('edge').filter((e) => e.target().data('type') === 'buyer');
+    const buyers = buyerEdges.targets();
+    const fundEdges = buyers.outgoers('edge').filter((e) => e.data('type') === 'funds' && e.target().data('type') === 'initiative');
+    const initiatives = fundEdges.targets();
+
+    return path.union(source).union(buyerEdges).union(buyers).union(fundEdges).union(initiatives);
   }
 
   function focusNode(node, center = false) {
