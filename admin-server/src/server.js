@@ -33,6 +33,7 @@ const BEACON_QUEUE_SCHEMA_FILE = path.join(ROOT, 'mission-control', 'beacon', 'b
 const DASHBOARD_DECKSPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'deckspecs.v2.json');
 const DASHBOARD_DECKSPEC_SCHEMA_FILE = path.join(ROOT, 'dashboard', 'deckspec.schema.v2.json');
 const DASHBOARD_PIPELINE_RUNS_FILE = path.join(ROOT, 'dashboard', 'data', 'pipeline_runs.v1.json');
+const DASHBOARD_CAPITAL_MAP_FILE = path.join(ROOT, 'dashboard', 'data', 'capital-map.json');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
 
@@ -3288,6 +3289,14 @@ loadBoard();
 
 app.get('/api/me', requireAnyAuth, async (req, res) => {
   res.json({ user: currentUser(req), effectiveRole: effectiveRole(req) });
+});
+
+app.get('/api/capital-map', requireAnyAuth, async (_req, res) => {
+  const data = await readJson(DASHBOARD_CAPITAL_MAP_FILE, { nodes: [], edges: [] });
+  res.json({
+    nodes: Array.isArray(data?.nodes) ? data.nodes : [],
+    edges: Array.isArray(data?.edges) ? data.edges : [],
+  });
 });
 
 app.post('/api/contact-paths', requireRole('architect','editor'), async (req, res) => {
