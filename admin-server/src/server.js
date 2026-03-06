@@ -979,6 +979,7 @@ function normalizePlatformPressureRows(rows = []) {
       status: derivePlatformPressureStatus(ppi),
       actors: Array.isArray(row?.actors) ? row.actors : [],
       signals: Array.isArray(row?.signals) ? row.signals : [],
+      linkRefs: row?.linkRefs && typeof row.linkRefs === 'object' ? row.linkRefs : { buyerIds: [], initiativeIds: [], signalIds: [] },
       delta30d: Number(row?.delta30d || 0),
       delta90d: Number(row?.delta90d || 0),
       lastUpdated: String(row?.lastUpdated || ''),
@@ -987,9 +988,67 @@ function normalizePlatformPressureRows(rows = []) {
   });
 }
 
+function normalizeRefToken(v) {
+  return String(v || '').trim().toUpperCase();
+}
+
+function resolvePlatformPressureRefs(rows = [], { buyers = [], initiatives = [], signals = [] } = {}) {
+  const buyerMap = new Map((Array.isArray(buyers) ? buyers : []).map((b) => [normalizeRefToken(b?.buyer_id), b]));
+  const initiativeMap = new Map((Array.isArray(initiatives) ? initiatives : []).map((i) => [normalizeRefToken(i?.initiative_id), i]));
+  const signalMap = new Map((Array.isArray(signals) ? signals : []).map((s) => [normalizeRefToken(s?.signal_id), s]));
+
+  return (Array.isArray(rows) ? rows : []).map((row) => {
+    const refs = row?.linkRefs || {};
+    const buyerIds = Array.isArray(refs.buyerIds) ? refs.buyerIds : [];
+    const initiativeIds = Array.isArray(refs.initiativeIds) ? refs.initiativeIds : [];
+    const signalIds = Array.isArray(refs.signalIds) ? refs.signalIds : [];
+
+    const resolvedBuyers = buyerIds
+      .map((id) => ({ id: String(id || ''), entity: buyerMap.get(normalizeRefToken(id)) || null }))
+      .filter((x) => x.id);
+    const resolvedInitiatives = initiativeIds
+      .map((id) => ({ id: String(id || ''), entity: initiativeMap.get(normalizeRefToken(id)) || null }))
+      .filter((x) => x.id);
+    const resolvedSignals = signalIds
+      .map((id) => ({ id: String(id || ''), entity: signalMap.get(normalizeRefToken(id)) || null }))
+      .filter((x) => x.id);
+
+    const linkedSignalHydrated = resolvedSignals
+      .filter((x) => x.entity)
+      .map((x) => ({
+        id: x.entity.signal_id,
+        date: String(x.entity.observed_at || '').slice(0, 10),
+        type: x.entity.signal_class || 'signal',
+        title: x.entity.title || x.id,
+        summary: x.entity.summary || 'Linked dashboard signal.',
+        sourceCategory: 'dashboard_signals',
+        impact: x.entity.status === 'Actioned' ? 'positive' : (x.entity.status === 'Verified' ? 'neutral' : 'neutral'),
+        confidence: x.entity.confidence || 'medium'
+      }));
+
+    return {
+      ...row,
+      linkRefs: {
+        buyerIds,
+        initiativeIds,
+        signalIds,
+        resolved: {
+          buyers: resolvedBuyers.map((x) => ({ id: x.id, found: Boolean(x.entity), name: x.entity?.name || null })),
+          initiatives: resolvedInitiatives.map((x) => ({ id: x.id, found: Boolean(x.entity), name: x.entity?.name || null })),
+          signals: resolvedSignals.map((x) => ({ id: x.id, found: Boolean(x.entity), title: x.entity?.title || null }))
+        }
+      },
+      signals: linkedSignalHydrated.length ? [...linkedSignalHydrated, ...(Array.isArray(row?.signals) ? row.signals : [])] : row.signals,
+    };
+  });
+}
+
 app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   const sourceRows = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
-  const rows = normalizePlatformPressureRows(sourceRows);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const rows = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRows), { buyers, initiatives, signals });
   const payload = JSON.stringify({ rows, weights: PLATFORM_PRESSURE_WEIGHTS }).replace(/</g, '\\u003c');
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}
