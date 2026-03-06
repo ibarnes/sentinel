@@ -3732,7 +3732,7 @@ async function loadBoard(){
 function allowDrop(e){ if (canWrite) e.preventDefault(); }
 async function moveTaskTo(id, status){
   if (!canWrite) return;
-  const r = await fetch(api('/tasks/' + encodeURIComponent(id) + '/move'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ status }) });
+  const r = await fetch('/board/move/' + encodeURIComponent(id) + '/' + encodeURIComponent(status));
   if (!r.ok) {
     const j = await r.json().catch(() => ({}));
     alert(j.error || ('Move failed (' + r.status + ')'));
@@ -4697,10 +4697,10 @@ app.patch('/api/tasks/:id', requireRole('architect', 'editor'), async (req, res)
   res.json(task);
 });
 
-app.post('/api/tasks/:id/move', requireRole('architect', 'editor'), async (req, res) => {
+async function handleTaskMove(req, res, statusInput) {
   const board = await readJson(BOARD_FILE, defaultBoard());
   const id = String(req.params.id);
-  const status = String(req.body.status || '');
+  const status = String(statusInput || '');
   if (!BOARD_COLUMNS.includes(status)) return res.status(400).json({ error: 'invalid status' });
   const task = board.tasks.find((t) => t.id === id);
   if (!task) return res.status(404).json({ error: 'not found' });
@@ -4741,7 +4741,15 @@ app.post('/api/tasks/:id/move', requireRole('architect', 'editor'), async (req, 
   task.updated_by = getUserLabel(req);
 
   await writeBoard(board, getUserLabel(req), 'task.move', id, before, { status: task.status, review_packet_id: task.review_packet_id || null }, effectiveRole(req) || 'editor');
-  res.json(task);
+  return res.json(task);
+}
+
+app.post('/api/tasks/:id/move', requireRole('architect', 'editor'), async (req, res) => {
+  return handleTaskMove(req, res, req.body.status);
+});
+
+app.get('/board/move/:id/:status', requireRole('architect', 'editor'), async (req, res) => {
+  return handleTaskMove(req, res, req.params.status);
 });
 
 app.post('/api/tasks/:id/comment', requireRole('architect', 'editor'), async (req, res) => {
