@@ -868,7 +868,7 @@ app.get('/capital-map', requireAnyAuth, async (_req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Capital Systems Map')}</head><body>
   <div class="app-shell">
     ${dashboardNav('home')}
-    ${pageHeader('Capital Systems Map')}
+    ${pageHeader('Capital Systems Map', '<button id="reset-map" class="btn btn-sm btn-outline-secondary" type="button">Reset Map</button>')}
     <div class="row g-3">
       <div class="col-12 col-lg-9">
         <div class="card"><div class="card-body p-2">

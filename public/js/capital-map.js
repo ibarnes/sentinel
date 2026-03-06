@@ -166,19 +166,63 @@
     cy.elements().removeClass('dimmed focus-node focus-edge');
   }
 
+  function traceCapitalPath(node) {
+    const t = node.data('type');
+    const path = cy.collection().union(node);
+
+    const buyersFrom = (src) => src.outgoers('edge').filter((e) => {
+      const ty = e.data('type');
+      return ty === 'influences' || ty === 'pressure_flow' || ty === 'depends_on';
+    }).targets().filter((n) => n.data('type') === 'buyer');
+
+    const initiativesFromBuyers = (buyers) => buyers.outgoers('edge').filter((e) => e.data('type') === 'funds').targets().filter((n) => n.data('type') === 'initiative');
+
+    if (t === 'signal' || t === 'pressure_layer') {
+      const buyers = buyersFrom(node);
+      const buyerEdges = node.outgoers('edge').filter((e) => buyers.contains(e.target()));
+      const initiatives = initiativesFromBuyers(buyers);
+      const fundEdges = buyers.outgoers('edge').filter((e) => initiatives.contains(e.target()));
+      return path.union(buyers).union(buyerEdges).union(initiatives).union(fundEdges);
+    }
+
+    if (t === 'buyer') {
+      const inbound = node.incomers('edge').filter((e) => {
+        const srcType = e.source().data('type');
+        return srcType === 'signal' || srcType === 'pressure_layer';
+      });
+      const sources = inbound.sources();
+      const out = node.outgoers('edge').filter((e) => e.data('type') === 'funds');
+      const initiatives = out.targets().filter((n) => n.data('type') === 'initiative');
+      return path.union(inbound).union(sources).union(out).union(initiatives);
+    }
+
+    if (t === 'initiative') {
+      const buyerEdges = node.incomers('edge').filter((e) => e.data('type') === 'funds');
+      const buyers = buyerEdges.sources().filter((n) => n.data('type') === 'buyer');
+      const upstreamEdges = buyers.incomers('edge').filter((e) => {
+        const srcType = e.source().data('type');
+        return srcType === 'signal' || srcType === 'pressure_layer';
+      });
+      const upstreamNodes = upstreamEdges.sources();
+      return path.union(buyerEdges).union(buyers).union(upstreamEdges).union(upstreamNodes);
+    }
+
+    return path.union(node.closedNeighborhood());
+  }
+
   function focusNode(node, center = false) {
     if (!node || node.empty()) return;
     clearFocus();
     cy.elements().addClass('dimmed');
 
-    const neighborhood = node.closedNeighborhood();
-    neighborhood.removeClass('dimmed');
+    const traced = traceCapitalPath(node);
+    traced.removeClass('dimmed');
 
     node.addClass('focus-node');
-    node.connectedEdges().addClass('focus-edge');
+    traced.filter('edge').addClass('focus-edge');
 
     if (center) {
-      cy.animate({ fit: { eles: neighborhood, padding: 80 }, duration: 320 });
+      cy.animate({ fit: { eles: traced, padding: 80 }, duration: 320 });
     }
 
     renderDetails(node);
@@ -222,6 +266,15 @@
       renderDetails(null);
     }
   });
+
+  const resetBtn = document.getElementById('reset-map');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      clearFocus();
+      renderDetails(null);
+      cy.animate({ fit: { eles: cy.elements(), padding: 40 }, duration: 260 });
+    });
+  }
 
   const seedNode = nodeFromQuery();
   if (seedNode) {
