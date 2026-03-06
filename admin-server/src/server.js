@@ -3845,9 +3845,9 @@ loadBoard();
   </body></html>`);
 });
 
-app.all('/dashboard/api/*splat', (req, res) => {
-  const target = req.originalUrl.replace(/^\/dashboard\/api/, '/api');
-  return res.redirect(307, target);
+app.use('/dashboard/api', (req, _res, next) => {
+  req.url = '/api' + req.url;
+  next();
 });
 
 app.get('/api/me', requireAnyAuth, async (req, res) => {
