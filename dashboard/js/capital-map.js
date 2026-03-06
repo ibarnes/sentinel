@@ -150,30 +150,36 @@
         selector: 'node[type = "pressure_layer"]',
         style: {
           'shape': 'rectangle',
-          'background-color': '#ff8c42'
-        }
-      },
-      {
-        selector: 'node[type = "buyer"]',
-        style: {
-          'background-color': '#3b82f6'
+          'background-color': '#ff8c42',
+          'font-weight': 800,
+          'font-size': 15
         }
       },
       {
         selector: 'node[type = "signal"]',
         style: {
+          'shape': 'diamond',
           'background-color': '#facc15'
+        }
+      },
+      {
+        selector: 'node[type = "buyer"]',
+        style: {
+          'shape': 'ellipse',
+          'background-color': '#3b82f6'
         }
       },
       {
         selector: 'node[type = "initiative"]',
         style: {
+          'shape': 'hexagon',
           'background-color': '#22c55e'
         }
       },
       {
         selector: 'node[type = "constraint"]',
         style: {
+          'shape': 'triangle',
           'background-color': '#ef4444'
         }
       },
