@@ -3667,11 +3667,11 @@ function cardHTML(t){
   if (canWrite) {
     const moveOptions = columns.map((c) => '<option value="' + c + '"' + (c === t.status ? ' selected' : '') + '>' + c + '</option>').join('');
     actionButtons = '<div class="mt-2 d-flex gap-1 flex-wrap">' +
-      '<button class="btn btn-sm btn-outline-secondary js-edit" data-id="' + t.id + '">Edit</button>' +
-      '<button class="btn btn-sm btn-outline-secondary js-comment" data-id="' + t.id + '">Comment</button>' +
-      '<button class="btn btn-sm btn-outline-warning js-request" data-id="' + t.id + '">Request Approval</button>' +
+      '<button class="btn btn-sm btn-outline-secondary js-edit" data-id="' + t.id + '" title="Edit task" aria-label="Edit task"><i data-lucide="pencil" style="width:14px;height:14px"></i></button>' +
+      '<button class="btn btn-sm btn-outline-secondary js-comment" data-id="' + t.id + '" title="Add comment" aria-label="Add comment"><i data-lucide="message-square" style="width:14px;height:14px"></i></button>' +
+      '<button class="btn btn-sm btn-outline-warning js-request" data-id="' + t.id + '" title="Request approval" aria-label="Request approval"><i data-lucide="send" style="width:14px;height:14px"></i></button>' +
       ((me.role === 'architect' && t.request_approval && !t.request_approval.approved)
-        ? '<button class="btn btn-sm btn-success js-approve" data-id="' + t.id + '">Approve</button>'
+        ? '<button class="btn btn-sm btn-success js-approve" data-id="' + t.id + '" title="Approve" aria-label="Approve"><i data-lucide="check" style="width:14px;height:14px"></i></button>'
         : '') +
       '</div>' +
       '<div class="mt-2 d-flex gap-1 align-items-center">' +
@@ -3718,6 +3718,10 @@ function render(){
       if (!sel) return;
       await moveTaskTo(id, sel.value);
     }));
+  }
+
+  if (window.lucide && typeof window.lucide.createIcons === 'function') {
+    window.lucide.createIcons();
   }
 }
 
