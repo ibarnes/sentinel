@@ -1,7 +1,11 @@
 (async function initCapitalMap() {
   const container = document.getElementById('capital-map');
   const detailsEl = document.getElementById('node-details');
-  if (!container || !window.cytoscape) return;
+  if (!container) return;
+  if (!window.cytoscape) {
+    if (detailsEl) detailsEl.innerHTML = '<span class="text-danger">Cytoscape failed to load.</span>';
+    return;
+  }
 
   let data = { nodes: [], edges: [] };
   try {
