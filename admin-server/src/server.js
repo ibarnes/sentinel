@@ -864,6 +864,29 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
 </body></html>`);
 });
 
+app.get('/capital-map', requireAnyAuth, async (_req, res) => {
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Capital Systems Map')}</head><body>
+  <div class="app-shell">
+    ${dashboardNav('home')}
+    ${pageHeader('Capital Systems Map')}
+    <div class="row g-3">
+      <div class="col-12 col-lg-9">
+        <div class="card"><div class="card-body p-2">
+          <div id="capital-map" style="height:80vh;"></div>
+        </div></div>
+      </div>
+      <div class="col-12 col-lg-3">
+        <div class="card h-100"><div class="card-body">
+          <h6 class="mb-2">Node Details</h6>
+          <div id="node-details" class="small text-muted">Select a node to inspect.</div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/capital-map.js"></script>
+</body></html>`);
+});
+
 app.get('/dashboard/activity', async (req, res) => {
   const actor = req.query.actor ? String(req.query.actor) : undefined;
   const entity_type = req.query.entity_type ? String(req.query.entity_type) : undefined;
@@ -1969,6 +1992,15 @@ app.use('/presentations', express.static(path.join(ROOT, 'presentations'), {
 }));
 
 app.use('/dashboard', express.static(path.join(ROOT, 'dashboard'), {
+  index: false,
+  fallthrough: true,
+  redirect: false,
+  setHeaders(res) {
+    res.setHeader('Cache-Control', 'no-store');
+  }
+}));
+
+app.use('/js', express.static(path.join(ROOT, 'dashboard', 'js'), {
   index: false,
   fallthrough: true,
   redirect: false,
