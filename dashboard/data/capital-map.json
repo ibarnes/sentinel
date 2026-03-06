@@ -26,123 +26,1663 @@
       "label": "Bankability Pressure"
     },
     {
-      "id": "signal_ai_compute_shortage",
-      "type": "signal",
-      "label": "AI Compute Shortage"
+      "id": "buyer_pif",
+      "type": "buyer",
+      "label": "Public Investment Fund"
     },
     {
-      "id": "signal_africa_power_deficit",
-      "type": "signal",
-      "label": "Africa Power Deficit"
+      "id": "buyer_gic",
+      "type": "buyer",
+      "label": "Gulf Investment Corporation"
+    },
+    {
+      "id": "buyer_afc",
+      "type": "buyer",
+      "label": "Africa Finance Corporation"
+    },
+    {
+      "id": "buyer_nsia",
+      "type": "buyer",
+      "label": "Nigeria Sovereign Investment Authority"
+    },
+    {
+      "id": "buyer_fmf_ng",
+      "type": "buyer",
+      "label": "Federal Ministry of Finance (Nigeria)"
+    },
+    {
+      "id": "buyer_adfd",
+      "type": "buyer",
+      "label": "Abu Dhabi Fund for Development"
+    },
+    {
+      "id": "buyer_sfd",
+      "type": "buyer",
+      "label": "Saudi Fund for Development"
+    },
+    {
+      "id": "buyer_afdb",
+      "type": "buyer",
+      "label": "African Development Bank"
     },
     {
       "id": "buyer_ifc",
       "type": "buyer",
-      "label": "IFC"
+      "label": "International Finance Corporation"
+    },
+    {
+      "id": "buyer_mubadala",
+      "type": "buyer",
+      "label": "Mubadala Investment Company"
+    },
+    {
+      "id": "buyer_tpo",
+      "type": "buyer",
+      "label": "The Pritzker Organization (TPO)"
+    },
+    {
+      "id": "buyer_hcc",
+      "type": "buyer",
+      "label": "Henry Crown & Company"
+    },
+    {
+      "id": "buyer_anschutz",
+      "type": "buyer",
+      "label": "The Anschutz Corporation"
     },
     {
       "id": "buyer_dfc",
       "type": "buyer",
-      "label": "DFC"
+      "label": "U.S. International Development Finance Corporation (DFC)"
     },
     {
-      "id": "buyer_pif",
+      "id": "buyer_koch",
       "type": "buyer",
-      "label": "PIF"
+      "label": "Koch Industries / Koch Investments Group (KIG)"
     },
     {
-      "id": "initiative_nigeria_digital_bank",
-      "type": "initiative",
-      "label": "Nigeria Digital Bank"
+      "id": "buyer_cox",
+      "type": "buyer",
+      "label": "Cox Enterprises"
     },
     {
-      "id": "initiative_ai_power_corridor",
+      "id": "buyer_worldbank",
+      "type": "buyer",
+      "label": "World Bank (IBRD / IDA)"
+    },
+    {
+      "id": "buyer_adb",
+      "type": "buyer",
+      "label": "Asian Development Bank (ADB)"
+    },
+    {
+      "id": "buyer_ebrd",
+      "type": "buyer",
+      "label": "European Bank for Reconstruction and Development (EBRD)"
+    },
+    {
+      "id": "buyer_idb",
+      "type": "buyer",
+      "label": "Inter-American Development Bank (IDB)"
+    },
+    {
+      "id": "buyer_temasek",
+      "type": "buyer",
+      "label": "Temasek"
+    },
+    {
+      "id": "buyer_adq",
+      "type": "buyer",
+      "label": "ADQ"
+    },
+    {
+      "id": "buyer_qia",
+      "type": "buyer",
+      "label": "Qatar Investment Authority (QIA)"
+    },
+    {
+      "id": "buyer_jbic",
+      "type": "buyer",
+      "label": "Japan Bank for International Cooperation (JBIC)"
+    },
+    {
+      "id": "buyer_taff",
+      "type": "buyer",
+      "label": "Tariq Al Futtaim Family Foundation (TAFF)"
+    },
+    {
+      "id": "initiative_init_001",
       "type": "initiative",
-      "label": "AI Power Corridor"
+      "label": "West Africa Energy Corridor"
+    },
+    {
+      "id": "initiative_init_653305",
+      "type": "initiative",
+      "label": "MENA Cross-Border Infrastructure Activation Program"
+    },
+    {
+      "id": "initiative_init_ai_opt_a",
+      "type": "initiative",
+      "label": "National AI Readiness Architecture"
+    },
+    {
+      "id": "initiative_init_ai_opt_b",
+      "type": "initiative",
+      "label": "Sector AI Infrastructure Platform"
+    },
+    {
+      "id": "initiative_init_ai_opt_c",
+      "type": "initiative",
+      "label": "Gulf-Africa Digital Corridor Design"
+    },
+    {
+      "id": "initiative_init_ai_opt_d",
+      "type": "initiative",
+      "label": "Energy-Backed AI Industrial Zones"
+    },
+    {
+      "id": "initiative_init_ng_fin_energy_spine",
+      "type": "initiative",
+      "label": "Nigeria Financial & Energy Circulation Spine"
+    },
+    {
+      "id": "initiative_init_ap_ai_factory_001",
+      "type": "initiative",
+      "label": "Hyperscaler-Aligned AI Infrastructure Platform (Andhra Pradesh)"
+    },
+    {
+      "id": "initiative_init_2026_03_05_commodity_corridor",
+      "type": "initiative",
+      "label": "Gulf\u2013Africa Trade Corridor Platform"
+    },
+    {
+      "id": "signal_sig_2026_02_26_afc_001",
+      "type": "signal",
+      "label": "AFC Project Preparation Capital Path to USG"
+    },
+    {
+      "id": "signal_sig_2026_02_27_ng_001",
+      "type": "signal",
+      "label": "Nigeria Infrastructure Financing Gap Escalation"
+    },
+    {
+      "id": "signal_sig_2026_02_27_ng_002",
+      "type": "signal",
+      "label": "National Grid Instability / Capacity Shortfall"
+    },
+    {
+      "id": "signal_sig_2026_02_27_gulf_001",
+      "type": "signal",
+      "label": "Gulf Sovereign Capital Reallocation Toward Africa Infrastructure"
+    },
+    {
+      "id": "signal_sig_2026_02_27_afdb_001",
+      "type": "signal",
+      "label": "AfDB Project Preparation Facility Activation Expansion"
+    },
+    {
+      "id": "signal_sig_2026_02_27_usng_001",
+      "type": "signal",
+      "label": "U.S.\u2013Nigeria Strategic Infrastructure Alignment"
+    },
+    {
+      "id": "signal_sig_2026_02_27_fiscal_001",
+      "type": "signal",
+      "label": "Sovereign Fiscal Constraint Tightening"
+    },
+    {
+      "id": "signal_sig_2026_02_27_pif_strat_001",
+      "type": "signal",
+      "label": "PIF Strategy Leadership Shift Toward Domestic Alignment"
+    },
+    {
+      "id": "signal_sig_2026_03_01_pif_aluminum_001",
+      "type": "signal",
+      "label": "PIF signs initial terms for advanced integrated aluminum complex in Saudi Arabia"
+    },
+    {
+      "id": "signal_sig_2026_03_01_pif_vendor_gate_001",
+      "type": "signal",
+      "label": "PIF Vendor Gate as official supplier/partner pre-qualification channel"
+    },
+    {
+      "id": "signal_sig_2026_03_01_dangote_sinoma_001",
+      "type": "signal",
+      "label": "Dangote Cement and Sinoma sign strategic framework for 12 construction/expansion projects"
+    },
+    {
+      "id": "signal_sig_2026_03_02_dfc_ndaa_001",
+      "type": "signal",
+      "label": "DFC FY26 NDAA mandate expansion materially increases strategic capital deployment headroom"
+    },
+    {
+      "id": "signal_sig_2026_03_02_dfc_songwe_001",
+      "type": "signal",
+      "label": "Songwe Hill Rare Earths (Malawi) pre-FID structuring window"
+    },
+    {
+      "id": "signal_sig_2026_03_02_dfc_katpar_001",
+      "type": "signal",
+      "label": "Severniy Katpar Tungsten (Kazakhstan) LOI-stage commitment gap"
+    },
+    {
+      "id": "signal_sig_2026_03_02_dfc_banio_001",
+      "type": "signal",
+      "label": "Banio Potash (Gabon) feasibility-to-license structuring gap"
+    },
+    {
+      "id": "signal_sig_2026_03_02_dfc_orion_001",
+      "type": "signal",
+      "label": "Orion critical minerals consortium as platform deployment channel"
+    },
+    {
+      "id": "signal_sig_2026_03_02_ai_friction_001",
+      "type": "signal",
+      "label": "Africa AI spillover friction: data sovereignty and cross-border governance vacuum"
+    },
+    {
+      "id": "signal_sig_2026_03_02_ai_friction_002",
+      "type": "signal",
+      "label": "Africa AI spillover friction: energy and edge infrastructure readiness gap"
+    },
+    {
+      "id": "signal_sig_2026_03_02_ai_friction_003",
+      "type": "signal",
+      "label": "Africa AI spillover friction: public-sector AI adoption readiness deficit"
+    },
+    {
+      "id": "signal_sig_2026_03_02_ai_friction_004",
+      "type": "signal",
+      "label": "Africa AI spillover friction: capital structuring gap for AI-enabled infrastructure"
+    },
+    {
+      "id": "signal_sig_2026_03_02_ng_grid_plan_001",
+      "type": "signal",
+      "label": "Nigeria outlines ~$25B plan aimed at resolving electricity system constraints"
+    },
+    {
+      "id": "signal_sig_2026_03_02_ng_live_finenergy_001",
+      "type": "signal",
+      "label": "Live Regulated Financial-Energy Operating System \u2014 Nigeria"
+    },
+    {
+      "id": "signal_sig_2026_03_02_dfc_nyc_office_001",
+      "type": "signal",
+      "label": "DFC opens New York office at 100 Pearl St. to tighten private-capital execution loop"
+    },
+    {
+      "id": "signal_sig_2026_03_03_rw_inir_smr_001",
+      "type": "signal",
+      "label": "Rwanda launches INIR-readiness pathway for nuclear program with SMR orientation"
+    },
+    {
+      "id": "signal_sig_2026_03_03_ng_fx_reserves_001",
+      "type": "signal",
+      "label": "Nigeria net FX reserves rise 772% to $34.8B; gross reserves reach $50.45B in Feb 2026"
+    },
+    {
+      "id": "signal_sig_2026_03_03_us_clarity_act_001",
+      "type": "signal",
+      "label": "U.S. CLARITY Act advances digital-asset market structure (SEC/CFTC line + illicit-finance controls)"
+    },
+    {
+      "id": "signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001",
+      "type": "signal",
+      "label": "L&T and NVIDIA announce India gigawatt-scale AI factory initiative"
+    },
+    {
+      "id": "signal_sig_2026_03_03_pif_procurement_cycle_001",
+      "type": "signal",
+      "label": "PIF-linked Diriyah procurement cycle expands across hospitality/smart infrastructure"
+    },
+    {
+      "id": "signal_sig_2026_03_03_ifc_afdb_grid_climate_001",
+      "type": "signal",
+      "label": "IFC/AfDB maintain climate-grid financing momentum in MENA and Sub-Saharan corridors"
+    },
+    {
+      "id": "signal_sig_2026_03_03_nsia_health_impact_001",
+      "type": "signal",
+      "label": "NSIA accelerates healthcare infrastructure and impact-fund deployment"
+    },
+    {
+      "id": "signal_sig_2026_03_03_adfd_agri_ai_001",
+      "type": "signal",
+      "label": "ADFD cooperation themes expand across agriculture and AI-linked capability programs"
+    },
+    {
+      "id": "signal_sig_2026_03_03_sfd_health_food_001",
+      "type": "signal",
+      "label": "SFD financing posture remains concentrated on global health and food-security lanes"
+    },
+    {
+      "id": "signal_sig_2026_03_03_dfc_critical_minerals_001",
+      "type": "signal",
+      "label": "DFC deepens critical-minerals and energy-security corridor investment posture"
+    },
+    {
+      "id": "signal_sig_2026_03_03_cox_charter_integration_001",
+      "type": "signal",
+      "label": "Charter-Cox integration planning indicates modernization and systems-spend window"
+    },
+    {
+      "id": "signal_sig_2026_03_03_et_ai_unipod_001",
+      "type": "signal",
+      "label": "Ethiopia launches AI UniPod to build national AI capacity and regional leadership posture"
+    },
+    {
+      "id": "signal_sig_2026_03_03_ng_us_crude_concentration_001",
+      "type": "signal",
+      "label": "Nigeria accounts for majority share of Africa-to-U.S. crude flows amid U.S. import decline"
+    },
+    {
+      "id": "signal_sig_2026_03_03_dangote_industrial_stack_001",
+      "type": "signal",
+      "label": "Dangote outlines post-refinery industrial expansion into steel, power, and ports with NGX listing pathway"
+    },
+    {
+      "id": "signal_sig_2026_03_05_macro_oil85_001",
+      "type": "signal",
+      "label": "Oil near $85 reshapes African fiscal winners/losers in near-term financing windows"
+    },
+    {
+      "id": "signal_sig_2026_03_05_ng_ifc_ppp_001",
+      "type": "signal",
+      "label": "Nigeria and IFC sign cooperation agreement to build PPP project pipeline"
+    },
+    {
+      "id": "signal_sig_2026_03_05_amzn_ratepayer_pledge_001",
+      "type": "signal",
+      "label": "Amazon signs White House Ratepayer Protection Pledge tied to data-center power-cost commitments"
+    },
+    {
+      "id": "signal_sig_2026_03_05_dfc_maritime_backstop_001",
+      "type": "signal",
+      "label": "U.S. DFC mobilizes political risk insurance/guarantees for Gulf maritime trade"
+    },
+    {
+      "id": "signal_sig_2026_03_05_in_ap_ai_factory_001",
+      "type": "signal",
+      "label": "Andhra Pradesh AI gigawatt campus shows pre-FID platform pressure with capital-formation gap"
+    },
+    {
+      "id": "signal_sig_2026_03_05_dangote_export_001",
+      "type": "signal",
+      "label": "Dangote refinery begins international export tenders"
     }
   ],
   "edges": [
     {
-      "id": "edge_pressure_1",
+      "id": "edge_pressure_flow_monetary_pressure_balance_sheet_pressure",
       "source": "monetary_pressure",
       "target": "balance_sheet_pressure",
       "type": "pressure_flow",
       "weight": 4
     },
     {
-      "id": "edge_pressure_2",
+      "id": "edge_pressure_flow_balance_sheet_pressure_trust_access_pressure",
       "source": "balance_sheet_pressure",
       "target": "trust_access_pressure",
       "type": "pressure_flow",
       "weight": 4
     },
     {
-      "id": "edge_pressure_3",
+      "id": "edge_pressure_flow_trust_access_pressure_mandate_pressure",
       "source": "trust_access_pressure",
       "target": "mandate_pressure",
       "type": "pressure_flow",
       "weight": 4
     },
     {
-      "id": "edge_pressure_4",
+      "id": "edge_pressure_flow_mandate_pressure_bankability_pressure",
       "source": "mandate_pressure",
       "target": "bankability_pressure",
       "type": "pressure_flow",
       "weight": 4
     },
     {
-      "id": "edge_signal_1",
-      "source": "signal_ai_compute_shortage",
+      "id": "edge_influences_mandate_pressure_buyer_pif",
+      "source": "mandate_pressure",
       "target": "buyer_pif",
       "type": "influences",
       "weight": 2
     },
     {
-      "id": "edge_signal_2",
-      "source": "signal_ai_compute_shortage",
-      "target": "buyer_dfc",
+      "id": "edge_influences_mandate_pressure_buyer_gic",
+      "source": "mandate_pressure",
+      "target": "buyer_gic",
       "type": "influences",
       "weight": 2
     },
     {
-      "id": "edge_signal_3",
-      "source": "signal_africa_power_deficit",
+      "id": "edge_influences_mandate_pressure_buyer_afc",
+      "source": "mandate_pressure",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_nsia",
+      "source": "mandate_pressure",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_fmf_ng",
+      "source": "mandate_pressure",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_adfd",
+      "source": "mandate_pressure",
+      "target": "buyer_adfd",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_sfd",
+      "source": "mandate_pressure",
+      "target": "buyer_sfd",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_afdb",
+      "source": "mandate_pressure",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_ifc",
+      "source": "mandate_pressure",
       "target": "buyer_ifc",
       "type": "influences",
       "weight": 2
     },
     {
-      "id": "edge_signal_4",
-      "source": "signal_africa_power_deficit",
+      "id": "edge_influences_mandate_pressure_buyer_mubadala",
+      "source": "mandate_pressure",
+      "target": "buyer_mubadala",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_tpo",
+      "source": "mandate_pressure",
+      "target": "buyer_tpo",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_hcc",
+      "source": "mandate_pressure",
+      "target": "buyer_hcc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_anschutz",
+      "source": "mandate_pressure",
+      "target": "buyer_anschutz",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_dfc",
+      "source": "mandate_pressure",
       "target": "buyer_dfc",
       "type": "influences",
       "weight": 2
     },
     {
-      "id": "edge_fund_1",
-      "source": "buyer_ifc",
-      "target": "initiative_nigeria_digital_bank",
-      "type": "funds",
+      "id": "edge_influences_mandate_pressure_buyer_koch",
+      "source": "mandate_pressure",
+      "target": "buyer_koch",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_cox",
+      "source": "mandate_pressure",
+      "target": "buyer_cox",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_worldbank",
+      "source": "mandate_pressure",
+      "target": "buyer_worldbank",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_adb",
+      "source": "mandate_pressure",
+      "target": "buyer_adb",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_ebrd",
+      "source": "mandate_pressure",
+      "target": "buyer_ebrd",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_idb",
+      "source": "mandate_pressure",
+      "target": "buyer_idb",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_temasek",
+      "source": "mandate_pressure",
+      "target": "buyer_temasek",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_adq",
+      "source": "mandate_pressure",
+      "target": "buyer_adq",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_qia",
+      "source": "mandate_pressure",
+      "target": "buyer_qia",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_jbic",
+      "source": "mandate_pressure",
+      "target": "buyer_jbic",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_mandate_pressure_buyer_taff",
+      "source": "mandate_pressure",
+      "target": "buyer_taff",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_depends_on_bankability_pressure_initiative_init_001",
+      "source": "bankability_pressure",
+      "target": "initiative_init_001",
+      "type": "depends_on",
       "weight": 3
     },
     {
-      "id": "edge_fund_2",
-      "source": "buyer_dfc",
-      "target": "initiative_nigeria_digital_bank",
-      "type": "funds",
+      "id": "edge_depends_on_bankability_pressure_initiative_init_653305",
+      "source": "bankability_pressure",
+      "target": "initiative_init_653305",
+      "type": "depends_on",
       "weight": 3
     },
     {
-      "id": "edge_fund_3",
-      "source": "buyer_dfc",
-      "target": "initiative_ai_power_corridor",
-      "type": "funds",
+      "id": "edge_depends_on_bankability_pressure_initiative_init_ai_opt_a",
+      "source": "bankability_pressure",
+      "target": "initiative_init_ai_opt_a",
+      "type": "depends_on",
       "weight": 3
     },
     {
-      "id": "edge_fund_4",
+      "id": "edge_depends_on_bankability_pressure_initiative_init_ai_opt_b",
+      "source": "bankability_pressure",
+      "target": "initiative_init_ai_opt_b",
+      "type": "depends_on",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_bankability_pressure_initiative_init_ai_opt_c",
+      "source": "bankability_pressure",
+      "target": "initiative_init_ai_opt_c",
+      "type": "depends_on",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_bankability_pressure_initiative_init_ai_opt_d",
+      "source": "bankability_pressure",
+      "target": "initiative_init_ai_opt_d",
+      "type": "depends_on",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_bankability_pressure_initiative_init_ng_fin_energy_spine",
+      "source": "bankability_pressure",
+      "target": "initiative_init_ng_fin_energy_spine",
+      "type": "depends_on",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_bankability_pressure_initiative_init_ap_ai_factory_001",
+      "source": "bankability_pressure",
+      "target": "initiative_init_ap_ai_factory_001",
+      "type": "depends_on",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_bankability_pressure_initiative_init_2026_03_05_commodity_corridor",
+      "source": "bankability_pressure",
+      "target": "initiative_init_2026_03_05_commodity_corridor",
+      "type": "depends_on",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_26_afc_001_buyer_afc",
+      "source": "signal_sig_2026_02_26_afc_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_ng_001_buyer_nsia",
+      "source": "signal_sig_2026_02_27_ng_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_ng_001_buyer_fmf_ng",
+      "source": "signal_sig_2026_02_27_ng_001",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_ng_001_buyer_afdb",
+      "source": "signal_sig_2026_02_27_ng_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_ng_002_buyer_nsia",
+      "source": "signal_sig_2026_02_27_ng_002",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_ng_002_buyer_fmf_ng",
+      "source": "signal_sig_2026_02_27_ng_002",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_ng_002_buyer_afdb",
+      "source": "signal_sig_2026_02_27_ng_002",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_ng_002_buyer_afc",
+      "source": "signal_sig_2026_02_27_ng_002",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_gulf_001_buyer_pif",
+      "source": "signal_sig_2026_02_27_gulf_001",
+      "target": "buyer_pif",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_gulf_001_buyer_gic",
+      "source": "signal_sig_2026_02_27_gulf_001",
+      "target": "buyer_gic",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_gulf_001_buyer_sfd",
+      "source": "signal_sig_2026_02_27_gulf_001",
+      "target": "buyer_sfd",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_gulf_001_buyer_adfd",
+      "source": "signal_sig_2026_02_27_gulf_001",
+      "target": "buyer_adfd",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_afdb_001_buyer_afdb",
+      "source": "signal_sig_2026_02_27_afdb_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_usng_001_buyer_nsia",
+      "source": "signal_sig_2026_02_27_usng_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_usng_001_buyer_fmf_ng",
+      "source": "signal_sig_2026_02_27_usng_001",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_fiscal_001_buyer_fmf_ng",
+      "source": "signal_sig_2026_02_27_fiscal_001",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_fiscal_001_buyer_nsia",
+      "source": "signal_sig_2026_02_27_fiscal_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_02_27_pif_strat_001_buyer_pif",
+      "source": "signal_sig_2026_02_27_pif_strat_001",
+      "target": "buyer_pif",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_01_pif_aluminum_001_buyer_pif",
+      "source": "signal_sig_2026_03_01_pif_aluminum_001",
+      "target": "buyer_pif",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_01_pif_vendor_gate_001_buyer_pif",
+      "source": "signal_sig_2026_03_01_pif_vendor_gate_001",
+      "target": "buyer_pif",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_01_pif_vendor_gate_001_initiative_init_653305",
+      "source": "signal_sig_2026_03_01_pif_vendor_gate_001",
+      "target": "initiative_init_653305",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_01_dangote_sinoma_001_buyer_fmf_ng",
+      "source": "signal_sig_2026_03_01_dangote_sinoma_001",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 1
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_01_dangote_sinoma_001_buyer_nsia",
+      "source": "signal_sig_2026_03_01_dangote_sinoma_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 1
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_01_dangote_sinoma_001_buyer_afdb",
+      "source": "signal_sig_2026_03_01_dangote_sinoma_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 1
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_01_dangote_sinoma_001_buyer_afc",
+      "source": "signal_sig_2026_03_01_dangote_sinoma_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 1
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_01_dangote_sinoma_001_initiative_init_653305",
+      "source": "signal_sig_2026_03_01_dangote_sinoma_001",
+      "target": "initiative_init_653305",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_dfc_ndaa_001_buyer_dfc",
+      "source": "signal_sig_2026_03_02_dfc_ndaa_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_02_dfc_ndaa_001_initiative_init_653305",
+      "source": "signal_sig_2026_03_02_dfc_ndaa_001",
+      "target": "initiative_init_653305",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_dfc_songwe_001_buyer_dfc",
+      "source": "signal_sig_2026_03_02_dfc_songwe_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_dfc_katpar_001_buyer_dfc",
+      "source": "signal_sig_2026_03_02_dfc_katpar_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 1
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_dfc_banio_001_buyer_dfc",
+      "source": "signal_sig_2026_03_02_dfc_banio_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_dfc_orion_001_buyer_dfc",
+      "source": "signal_sig_2026_03_02_dfc_orion_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_001_buyer_fmf_ng",
+      "source": "signal_sig_2026_03_02_ai_friction_001",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_001_buyer_nsia",
+      "source": "signal_sig_2026_03_02_ai_friction_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_001_buyer_afdb",
+      "source": "signal_sig_2026_03_02_ai_friction_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_002_buyer_afc",
+      "source": "signal_sig_2026_03_02_ai_friction_002",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_002_buyer_afdb",
+      "source": "signal_sig_2026_03_02_ai_friction_002",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_002_buyer_dfc",
+      "source": "signal_sig_2026_03_02_ai_friction_002",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_003_buyer_fmf_ng",
+      "source": "signal_sig_2026_03_02_ai_friction_003",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_003_buyer_nsia",
+      "source": "signal_sig_2026_03_02_ai_friction_003",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_003_buyer_dfc",
+      "source": "signal_sig_2026_03_02_ai_friction_003",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_004_buyer_afc",
+      "source": "signal_sig_2026_03_02_ai_friction_004",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_004_buyer_pif",
+      "source": "signal_sig_2026_03_02_ai_friction_004",
+      "target": "buyer_pif",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_004_buyer_dfc",
+      "source": "signal_sig_2026_03_02_ai_friction_004",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ai_friction_004_buyer_afdb",
+      "source": "signal_sig_2026_03_02_ai_friction_004",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ng_grid_plan_001_buyer_fmf_ng",
+      "source": "signal_sig_2026_03_02_ng_grid_plan_001",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ng_grid_plan_001_buyer_nsia",
+      "source": "signal_sig_2026_03_02_ng_grid_plan_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ng_grid_plan_001_buyer_afdb",
+      "source": "signal_sig_2026_03_02_ng_grid_plan_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ng_grid_plan_001_buyer_afc",
+      "source": "signal_sig_2026_03_02_ng_grid_plan_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ng_grid_plan_001_buyer_dfc",
+      "source": "signal_sig_2026_03_02_ng_grid_plan_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_02_ng_grid_plan_001_initiative_init_ai_opt_d",
+      "source": "signal_sig_2026_03_02_ng_grid_plan_001",
+      "target": "initiative_init_ai_opt_d",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_02_ng_grid_plan_001_initiative_init_653305",
+      "source": "signal_sig_2026_03_02_ng_grid_plan_001",
+      "target": "initiative_init_653305",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ng_live_finenergy_001_buyer_fmf_ng",
+      "source": "signal_sig_2026_03_02_ng_live_finenergy_001",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ng_live_finenergy_001_buyer_nsia",
+      "source": "signal_sig_2026_03_02_ng_live_finenergy_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ng_live_finenergy_001_buyer_afc",
+      "source": "signal_sig_2026_03_02_ng_live_finenergy_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ng_live_finenergy_001_buyer_afdb",
+      "source": "signal_sig_2026_03_02_ng_live_finenergy_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_ng_live_finenergy_001_buyer_dfc",
+      "source": "signal_sig_2026_03_02_ng_live_finenergy_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_02_ng_live_finenergy_001_initiative_init_653305",
+      "source": "signal_sig_2026_03_02_ng_live_finenergy_001",
+      "target": "initiative_init_653305",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_02_ng_live_finenergy_001_initiative_init_ai_opt_d",
+      "source": "signal_sig_2026_03_02_ng_live_finenergy_001",
+      "target": "initiative_init_ai_opt_d",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_02_dfc_nyc_office_001_buyer_dfc",
+      "source": "signal_sig_2026_03_02_dfc_nyc_office_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_rw_inir_smr_001_buyer_afc",
+      "source": "signal_sig_2026_03_03_rw_inir_smr_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_rw_inir_smr_001_buyer_afdb",
+      "source": "signal_sig_2026_03_03_rw_inir_smr_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_rw_inir_smr_001_buyer_dfc",
+      "source": "signal_sig_2026_03_03_rw_inir_smr_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ng_fx_reserves_001_buyer_fmf_ng",
+      "source": "signal_sig_2026_03_03_ng_fx_reserves_001",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ng_fx_reserves_001_buyer_nsia",
+      "source": "signal_sig_2026_03_03_ng_fx_reserves_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ng_fx_reserves_001_buyer_dfc",
+      "source": "signal_sig_2026_03_03_ng_fx_reserves_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ng_fx_reserves_001_buyer_afdb",
+      "source": "signal_sig_2026_03_03_ng_fx_reserves_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ng_fx_reserves_001_buyer_afc",
+      "source": "signal_sig_2026_03_03_ng_fx_reserves_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_03_ng_fx_reserves_001_initiative_init_ng_fin_energy_spine",
+      "source": "signal_sig_2026_03_03_ng_fx_reserves_001",
+      "target": "initiative_init_ng_fin_energy_spine",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_us_clarity_act_001_buyer_dfc",
+      "source": "signal_sig_2026_03_03_us_clarity_act_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_us_clarity_act_001_buyer_ifc",
+      "source": "signal_sig_2026_03_03_us_clarity_act_001",
+      "target": "buyer_ifc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_us_clarity_act_001_buyer_tpo",
+      "source": "signal_sig_2026_03_03_us_clarity_act_001",
+      "target": "buyer_tpo",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_us_clarity_act_001_buyer_hcc",
+      "source": "signal_sig_2026_03_03_us_clarity_act_001",
+      "target": "buyer_hcc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_us_clarity_act_001_buyer_koch",
+      "source": "signal_sig_2026_03_03_us_clarity_act_001",
+      "target": "buyer_koch",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_us_clarity_act_001_buyer_cox",
+      "source": "signal_sig_2026_03_03_us_clarity_act_001",
+      "target": "buyer_cox",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001_buyer_pif",
+      "source": "signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001",
+      "target": "buyer_pif",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001_buyer_mubadala",
+      "source": "signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001",
+      "target": "buyer_mubadala",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001_buyer_afc",
+      "source": "signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001_buyer_dfc",
+      "source": "signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001_buyer_ifc",
+      "source": "signal_sig_2026_03_03_in_lt_nvidia_ai_factory_001",
+      "target": "buyer_ifc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_pif_procurement_cycle_001_buyer_pif",
+      "source": "signal_sig_2026_03_03_pif_procurement_cycle_001",
+      "target": "buyer_pif",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ifc_afdb_grid_climate_001_buyer_ifc",
+      "source": "signal_sig_2026_03_03_ifc_afdb_grid_climate_001",
+      "target": "buyer_ifc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ifc_afdb_grid_climate_001_buyer_afdb",
+      "source": "signal_sig_2026_03_03_ifc_afdb_grid_climate_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_nsia_health_impact_001_buyer_nsia",
+      "source": "signal_sig_2026_03_03_nsia_health_impact_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_adfd_agri_ai_001_buyer_adfd",
+      "source": "signal_sig_2026_03_03_adfd_agri_ai_001",
+      "target": "buyer_adfd",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_sfd_health_food_001_buyer_sfd",
+      "source": "signal_sig_2026_03_03_sfd_health_food_001",
+      "target": "buyer_sfd",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_dfc_critical_minerals_001_buyer_dfc",
+      "source": "signal_sig_2026_03_03_dfc_critical_minerals_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_cox_charter_integration_001_buyer_cox",
+      "source": "signal_sig_2026_03_03_cox_charter_integration_001",
+      "target": "buyer_cox",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_et_ai_unipod_001_buyer_afc",
+      "source": "signal_sig_2026_03_03_et_ai_unipod_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_et_ai_unipod_001_buyer_afdb",
+      "source": "signal_sig_2026_03_03_et_ai_unipod_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_et_ai_unipod_001_buyer_dfc",
+      "source": "signal_sig_2026_03_03_et_ai_unipod_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_et_ai_unipod_001_buyer_ifc",
+      "source": "signal_sig_2026_03_03_et_ai_unipod_001",
+      "target": "buyer_ifc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ng_us_crude_concentration_001_buyer_fmf_ng",
+      "source": "signal_sig_2026_03_03_ng_us_crude_concentration_001",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ng_us_crude_concentration_001_buyer_nsia",
+      "source": "signal_sig_2026_03_03_ng_us_crude_concentration_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ng_us_crude_concentration_001_buyer_dfc",
+      "source": "signal_sig_2026_03_03_ng_us_crude_concentration_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ng_us_crude_concentration_001_buyer_afc",
+      "source": "signal_sig_2026_03_03_ng_us_crude_concentration_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_ng_us_crude_concentration_001_buyer_afdb",
+      "source": "signal_sig_2026_03_03_ng_us_crude_concentration_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 2
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_03_ng_us_crude_concentration_001_initiative_init_ng_fin_energy_spine",
+      "source": "signal_sig_2026_03_03_ng_us_crude_concentration_001",
+      "target": "initiative_init_ng_fin_energy_spine",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_dangote_industrial_stack_001_buyer_fmf_ng",
+      "source": "signal_sig_2026_03_03_dangote_industrial_stack_001",
+      "target": "buyer_fmf_ng",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_dangote_industrial_stack_001_buyer_nsia",
+      "source": "signal_sig_2026_03_03_dangote_industrial_stack_001",
+      "target": "buyer_nsia",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_dangote_industrial_stack_001_buyer_afc",
+      "source": "signal_sig_2026_03_03_dangote_industrial_stack_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_dangote_industrial_stack_001_buyer_afdb",
+      "source": "signal_sig_2026_03_03_dangote_industrial_stack_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_03_dangote_industrial_stack_001_buyer_dfc",
+      "source": "signal_sig_2026_03_03_dangote_industrial_stack_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_03_dangote_industrial_stack_001_initiative_init_ng_fin_energy_spine",
+      "source": "signal_sig_2026_03_03_dangote_industrial_stack_001",
+      "target": "initiative_init_ng_fin_energy_spine",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_macro_oil85_001_buyer_afc",
+      "source": "signal_sig_2026_03_05_macro_oil85_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 1
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_macro_oil85_001_buyer_afdb",
+      "source": "signal_sig_2026_03_05_macro_oil85_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 1
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_macro_oil85_001_buyer_dfc",
+      "source": "signal_sig_2026_03_05_macro_oil85_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 1
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_ng_ifc_ppp_001_buyer_ifc",
+      "source": "signal_sig_2026_03_05_ng_ifc_ppp_001",
+      "target": "buyer_ifc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_ng_ifc_ppp_001_buyer_afc",
+      "source": "signal_sig_2026_03_05_ng_ifc_ppp_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_ng_ifc_ppp_001_buyer_afdb",
+      "source": "signal_sig_2026_03_05_ng_ifc_ppp_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_ng_ifc_ppp_001_buyer_dfc",
+      "source": "signal_sig_2026_03_05_ng_ifc_ppp_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_amzn_ratepayer_pledge_001_buyer_gic",
+      "source": "signal_sig_2026_03_05_amzn_ratepayer_pledge_001",
+      "target": "buyer_gic",
+      "type": "influences",
+      "weight": 1
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_amzn_ratepayer_pledge_001_buyer_pif",
+      "source": "signal_sig_2026_03_05_amzn_ratepayer_pledge_001",
+      "target": "buyer_pif",
+      "type": "influences",
+      "weight": 1
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_dfc_maritime_backstop_001_buyer_dfc",
+      "source": "signal_sig_2026_03_05_dfc_maritime_backstop_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_dfc_maritime_backstop_001_buyer_afc",
+      "source": "signal_sig_2026_03_05_dfc_maritime_backstop_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_dfc_maritime_backstop_001_buyer_afdb",
+      "source": "signal_sig_2026_03_05_dfc_maritime_backstop_001",
+      "target": "buyer_afdb",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_dfc_maritime_backstop_001_buyer_gic",
+      "source": "signal_sig_2026_03_05_dfc_maritime_backstop_001",
+      "target": "buyer_gic",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_dfc_maritime_backstop_001_buyer_pif",
+      "source": "signal_sig_2026_03_05_dfc_maritime_backstop_001",
+      "target": "buyer_pif",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_in_ap_ai_factory_001_buyer_gic",
+      "source": "signal_sig_2026_03_05_in_ap_ai_factory_001",
+      "target": "buyer_gic",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_in_ap_ai_factory_001_buyer_pif",
+      "source": "signal_sig_2026_03_05_in_ap_ai_factory_001",
+      "target": "buyer_pif",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_in_ap_ai_factory_001_buyer_afc",
+      "source": "signal_sig_2026_03_05_in_ap_ai_factory_001",
+      "target": "buyer_afc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_in_ap_ai_factory_001_buyer_dfc",
+      "source": "signal_sig_2026_03_05_in_ap_ai_factory_001",
+      "target": "buyer_dfc",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_05_in_ap_ai_factory_001_initiative_init_ap_ai_factory_001",
+      "source": "signal_sig_2026_03_05_in_ap_ai_factory_001",
+      "target": "initiative_init_ap_ai_factory_001",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_influences_signal_sig_2026_03_05_dangote_export_001_buyer_taff",
+      "source": "signal_sig_2026_03_05_dangote_export_001",
+      "target": "buyer_taff",
+      "type": "influences",
+      "weight": 3
+    },
+    {
+      "id": "edge_depends_on_signal_sig_2026_03_05_dangote_export_001_initiative_init_2026_03_05_commodity_corridor",
+      "source": "signal_sig_2026_03_05_dangote_export_001",
+      "target": "initiative_init_2026_03_05_commodity_corridor",
+      "type": "depends_on",
+      "weight": 2
+    },
+    {
+      "id": "edge_funds_buyer_pif_initiative_init_001",
       "source": "buyer_pif",
-      "target": "initiative_ai_power_corridor",
+      "target": "initiative_init_001",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_gic_initiative_init_001",
+      "source": "buyer_gic",
+      "target": "initiative_init_001",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_pif_initiative_init_653305",
+      "source": "buyer_pif",
+      "target": "initiative_init_653305",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_fmf_ng_initiative_init_ai_opt_a",
+      "source": "buyer_fmf_ng",
+      "target": "initiative_init_ai_opt_a",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_dfc_initiative_init_ai_opt_b",
+      "source": "buyer_dfc",
+      "target": "initiative_init_ai_opt_b",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_pif_initiative_init_ai_opt_c",
+      "source": "buyer_pif",
+      "target": "initiative_init_ai_opt_c",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_afc_initiative_init_ai_opt_d",
+      "source": "buyer_afc",
+      "target": "initiative_init_ai_opt_d",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_fmf_ng_initiative_init_ng_fin_energy_spine",
+      "source": "buyer_fmf_ng",
+      "target": "initiative_init_ng_fin_energy_spine",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_nsia_initiative_init_ng_fin_energy_spine",
+      "source": "buyer_nsia",
+      "target": "initiative_init_ng_fin_energy_spine",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_afc_initiative_init_ng_fin_energy_spine",
+      "source": "buyer_afc",
+      "target": "initiative_init_ng_fin_energy_spine",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_dfc_initiative_init_ng_fin_energy_spine",
+      "source": "buyer_dfc",
+      "target": "initiative_init_ng_fin_energy_spine",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_gic_initiative_init_ap_ai_factory_001",
+      "source": "buyer_gic",
+      "target": "initiative_init_ap_ai_factory_001",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_pif_initiative_init_ap_ai_factory_001",
+      "source": "buyer_pif",
+      "target": "initiative_init_ap_ai_factory_001",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_afc_initiative_init_ap_ai_factory_001",
+      "source": "buyer_afc",
+      "target": "initiative_init_ap_ai_factory_001",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_dfc_initiative_init_ap_ai_factory_001",
+      "source": "buyer_dfc",
+      "target": "initiative_init_ap_ai_factory_001",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_taff_initiative_init_2026_03_05_commodity_corridor",
+      "source": "buyer_taff",
+      "target": "initiative_init_2026_03_05_commodity_corridor",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_mubadala_initiative_init_001",
+      "source": "buyer_mubadala",
+      "target": "initiative_init_001",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_tpo_initiative_init_653305",
+      "source": "buyer_tpo",
+      "target": "initiative_init_653305",
+      "type": "funds",
+      "weight": 3
+    },
+    {
+      "id": "edge_funds_buyer_hcc_initiative_init_653305",
+      "source": "buyer_hcc",
+      "target": "initiative_init_653305",
       "type": "funds",
       "weight": 3
     }
