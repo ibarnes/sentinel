@@ -3848,8 +3848,9 @@ loadBoard();
   </body></html>`);
 });
 
-app.use('/dashboard/api', (req, _res, next) => {
-  req.url = '/api' + req.url;
+app.all(/^\/dashboard\/api\/(.*)$/, (req, _res, next) => {
+  const suffix = String(req.params?.[0] || '').replace(/^\/+/, '');
+  req.url = '/api/' + suffix;
   next();
 });
 
