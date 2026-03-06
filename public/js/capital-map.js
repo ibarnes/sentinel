@@ -166,7 +166,8 @@
     cy.elements().removeClass('dimmed focus-node focus-edge');
   }
 
-  function focusNode(node) {
+  function focusNode(node, center = false) {
+    if (!node || node.empty()) return;
     clearFocus();
     cy.elements().addClass('dimmed');
 
@@ -176,7 +177,39 @@
     node.addClass('focus-node');
     node.connectedEdges().addClass('focus-edge');
 
+    if (center) {
+      cy.animate({ fit: { eles: neighborhood, padding: 80 }, duration: 320 });
+    }
+
     renderDetails(node);
+  }
+
+  function norm(v) {
+    return String(v || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '_');
+  }
+
+  function nodeFromQuery() {
+    const q = new URLSearchParams(window.location.search);
+    const buyer = q.get('buyer');
+    const initiative = q.get('initiative');
+    const signal = q.get('signal');
+
+    const tryIds = [];
+    if (buyer) {
+      tryIds.push(buyer, `buyer_${norm(buyer)}`);
+    }
+    if (initiative) {
+      tryIds.push(initiative, `initiative_${norm(initiative)}`);
+    }
+    if (signal) {
+      tryIds.push(signal, `signal_${norm(signal)}`);
+    }
+
+    for (const id of tryIds) {
+      const n = cy.getElementById(id);
+      if (n && n.length) return n;
+    }
+    return null;
   }
 
   cy.on('tap', 'node', (evt) => {
@@ -189,4 +222,9 @@
       renderDetails(null);
     }
   });
+
+  const seedNode = nodeFromQuery();
+  if (seedNode) {
+    focusNode(seedNode, true);
+  }
 })();
