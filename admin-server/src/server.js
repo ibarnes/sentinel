@@ -35,6 +35,7 @@ const DASHBOARD_DECKSPEC_SCHEMA_FILE = path.join(ROOT, 'dashboard', 'deckspec.sc
 const DASHBOARD_PIPELINE_RUNS_FILE = path.join(ROOT, 'dashboard', 'data', 'pipeline_runs.v1.json');
 const DASHBOARD_SLIDE_SPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'slidespecs.v2.json');
 const DASHBOARD_CAPITAL_MAP_FILE = path.join(ROOT, 'dashboard', 'data', 'capital-map.json');
+const DASHBOARD_PLATFORM_PRESSURE_FILE = path.join(ROOT, 'dashboard', 'data', 'platform_pressure.json');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
 
@@ -613,6 +614,7 @@ function adminNav(active = '') {
       <a class="nav-link ${is('board')}" href="/dashboard/board" title="Board"><i data-lucide="kanban-square" class="nav-icon"></i><span class="nav-label">Board</span></a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos" title="UOS"><i data-lucide="book-open" class="nav-icon"></i><span class="nav-label">UOS</span></a>
       <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
+      <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platform Pressure"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platform Pressure</span></a>
     </div>
     <form method="post" action="/admin/logout" class="oc-nav-footer m-0">
       <button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button>
@@ -636,6 +638,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('team')}" href="/dashboard/team" title="Team"><i data-lucide="users" class="nav-icon"></i><span class="nav-label">Team</span></a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos" title="UOS"><i data-lucide="book-open" class="nav-icon"></i><span class="nav-label">UOS</span></a>
       <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
+      <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platform Pressure"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platform Pressure</span></a>
       <a class="nav-link ${is('studio')}" href="/dashboard/presentation-studio" title="Presentation Studio"><i data-lucide="presentation" class="nav-icon"></i><span class="nav-label">Presentation Studio</span></a>
     </div>
     <div class="oc-nav-footer">
@@ -918,6 +921,325 @@ app.get('/dashboard/capital-map', requireAnyAuth, async (_req, res) => {
   </div>
   <script src="/dashboard/js/capital-map.js"></script>
 </body></html>`);
+});
+
+app.get('/platform-pressure', requireAnyAuth, async (req, res) => {
+  const qs = req.url.includes('?') ? req.url.slice(req.url.indexOf('?')) : '';
+  return res.redirect('/dashboard/platform-pressure' + qs);
+});
+
+function clampScore(v) {
+  const n = Number(v);
+  if (!Number.isFinite(n)) return 0;
+  return Math.max(0, Math.min(5, Math.round(n)));
+}
+
+function computePpi(scores = {}) {
+  return clampScore(scores.capitalReality) + clampScore(scores.fidDefinability) + clampScore(scores.multiActorDependency) + clampScore(scores.structuralAmbiguity) + clampScore(scores.mandateFeasibility);
+}
+
+function derivePlatformPressureStatus(ppi = 0) {
+  const n = Number(ppi) || 0;
+  if (n <= 8) return 'Noise';
+  if (n <= 14) return 'Early Pressure';
+  if (n <= 19) return 'Platform Formation';
+  return 'Mandate Proximate';
+}
+
+const PLATFORM_PRESSURE_WEIGHTS = {
+  capitalReality: 0.3,
+  fidDefinability: 0.2,
+  multiActorDependency: 0.2,
+  structuralAmbiguity: 0.2,
+  mandateFeasibility: 0.1,
+};
+
+function normalizePlatformPressureRows(rows = []) {
+  return (Array.isArray(rows) ? rows : []).map((row) => {
+    const scores = {
+      capitalReality: clampScore(row?.scores?.capitalReality),
+      fidDefinability: clampScore(row?.scores?.fidDefinability),
+      multiActorDependency: clampScore(row?.scores?.multiActorDependency),
+      structuralAmbiguity: clampScore(row?.scores?.structuralAmbiguity),
+      mandateFeasibility: clampScore(row?.scores?.mandateFeasibility),
+    };
+    const ppi = Number(row?.ppi ?? computePpi(scores));
+    const weightedPpi = Number((
+      (scores.capitalReality * PLATFORM_PRESSURE_WEIGHTS.capitalReality) +
+      (scores.fidDefinability * PLATFORM_PRESSURE_WEIGHTS.fidDefinability) +
+      (scores.multiActorDependency * PLATFORM_PRESSURE_WEIGHTS.multiActorDependency) +
+      (scores.structuralAmbiguity * PLATFORM_PRESSURE_WEIGHTS.structuralAmbiguity) +
+      (scores.mandateFeasibility * PLATFORM_PRESSURE_WEIGHTS.mandateFeasibility)
+    ).toFixed(2));
+    return {
+      ...row,
+      scores,
+      ppi,
+      weightedPpi,
+      status: derivePlatformPressureStatus(ppi),
+      actors: Array.isArray(row?.actors) ? row.actors : [],
+      signals: Array.isArray(row?.signals) ? row.signals : [],
+      delta30d: Number(row?.delta30d || 0),
+      delta90d: Number(row?.delta90d || 0),
+      lastUpdated: String(row?.lastUpdated || ''),
+      region: String(row?.region || row?.theater || 'Unspecified'),
+    };
+  });
+}
+
+app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
+  const sourceRows = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
+  const rows = normalizePlatformPressureRows(sourceRows);
+  const payload = JSON.stringify({ rows, weights: PLATFORM_PRESSURE_WEIGHTS }).replace(/</g, '\\u003c');
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}</head><body><div class="app-shell">
+    ${dashboardNav('platform-pressure')}
+    ${pageHeader('Platform Pressure', '', 'Decision radar for emerging infrastructure platforms before deals are obvious')}
+
+    <div id="pp-summary" class="row g-3 mb-3"></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <div class="row g-2">
+        <div class="col-12 col-md-2"><select id="f-sector" class="form-select form-select-sm"><option value="">Sector (All)</option></select></div>
+        <div class="col-12 col-md-2"><select id="f-region" class="form-select form-select-sm"><option value="">Region (All)</option></select></div>
+        <div class="col-12 col-md-2"><select id="f-status" class="form-select form-select-sm"><option value="">Status (All)</option><option>Noise</option><option>Early Pressure</option><option>Platform Formation</option><option>Mandate Proximate</option></select></div>
+        <div class="col-12 col-md-2"><select id="f-buyer" class="form-select form-select-sm"><option value="">Buyer Class (All)</option></select></div>
+        <div class="col-12 col-md-2"><select id="f-fid" class="form-select form-select-sm"><option value="">FID Boundary (All)</option></select></div>
+        <div class="col-12 col-md-1"><input id="f-min-ppi" type="number" class="form-control form-control-sm" min="0" max="25" value="0" placeholder="Min PPI"/></div>
+        <div class="col-12 col-md-1"><button id="f-reset" class="btn btn-sm btn-outline-secondary w-100">Reset</button></div>
+      </div>
+      <div class="row g-2 mt-1">
+        <div class="col-12"><input id="f-search" class="form-control form-control-sm" placeholder="Search sector, notes, actors, bottlenecks"/></div>
+      </div>
+    </div></div>
+
+    <div class="card mb-3"><div class="table-responsive"><table class="table table-sm align-middle">
+      <thead><tr>
+        <th><button data-sort="sector" class="btn btn-sm btn-ghost p-0">Sector</button></th>
+        <th><button data-sort="region" class="btn btn-sm btn-ghost p-0">Region / Theater</button></th>
+        <th><button data-sort="ppi" class="btn btn-sm btn-ghost p-0">PPI</button></th>
+        <th><button data-sort="delta30d" class="btn btn-sm btn-ghost p-0">30D Δ</button></th>
+        <th><button data-sort="delta90d" class="btn btn-sm btn-ghost p-0">90D Δ</button></th>
+        <th>Status</th><th>Likely Buyer Class</th><th>FID Boundary Type</th><th>Main Structural Bottleneck</th><th><button data-sort="lastUpdated" class="btn btn-sm btn-ghost p-0">Last Updated</button></th>
+      </tr></thead>
+      <tbody id="pp-table"></tbody>
+    </table></div></div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
+        <h6 class="mb-3">Buyer Class Heatmap</h6>
+        <div id="pp-heatmap" class="small"></div>
+      </div></div></div>
+      <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
+        <h6 class="mb-3">Mandate-Proximate Watchlist</h6>
+        <div id="pp-watchlist" class="small"></div>
+      </div></div></div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="pp-drawer" style="width:min(760px,96vw)">
+      <div class="offcanvas-header"><h5 class="offcanvas-title">Platform Detail</h5><button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button></div>
+      <div class="offcanvas-body" id="pp-drawer-body"></div>
+    </div>
+  </div>
+
+  <script>
+    const platformData = ${payload};
+    let rows = [...platformData.rows];
+    const statusTone = { 'Noise':'secondary', 'Early Pressure':'info', 'Platform Formation':'warning', 'Mandate Proximate':'success' };
+    const allEls = {
+      table: document.getElementById('pp-table'), summary: document.getElementById('pp-summary'), heatmap: document.getElementById('pp-heatmap'),
+      watchlist: document.getElementById('pp-watchlist'),
+      fSector: document.getElementById('f-sector'), fRegion: document.getElementById('f-region'), fStatus: document.getElementById('f-status'), fBuyer: document.getElementById('f-buyer'),
+      fFid: document.getElementById('f-fid'), fMinPpi: document.getElementById('f-min-ppi'), fSearch: document.getElementById('f-search')
+    };
+    const drawerEl = document.getElementById('pp-drawer');
+    const drawerBody = document.getElementById('pp-drawer-body');
+    const drawer = window.bootstrap ? new bootstrap.Offcanvas(drawerEl) : null;
+
+    const state = { sortBy: 'ppi', sortDir: 'desc' };
+
+    function esc(s){ return String(s ?? '').replace(/[&<>]/g, (c)=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+    function deltaCell(n){
+      const v = Number(n || 0);
+      if (v > 0) return '<span class="badge text-bg-success">+' + v + '</span>';
+      if (v < 0) return '<span class="badge text-bg-secondary">' + v + '</span>';
+      return '<span class="badge text-bg-dark">0</span>';
+    }
+    function ppiStatus(ppi){ if (ppi <= 8) return 'Noise'; if (ppi <= 14) return 'Early Pressure'; if (ppi <= 19) return 'Platform Formation'; return 'Mandate Proximate'; }
+
+    function populateFilters(){
+      const uniq = (arr) => [...new Set(arr.filter(Boolean))].sort();
+      const inject = (el, vals, label) => { el.innerHTML = '<option value="">' + label + ' (All)</option>' + vals.map(v => '<option>' + esc(v) + '</option>').join(''); };
+      inject(allEls.fSector, uniq(rows.map(r => r.sector)), 'Sector');
+      inject(allEls.fRegion, uniq(rows.map(r => r.region)), 'Region');
+      inject(allEls.fBuyer, uniq(rows.map(r => r.likelyBuyerClass)), 'Buyer Class');
+      inject(allEls.fFid, uniq(rows.map(r => r.fidBoundaryType)), 'FID Boundary');
+    }
+
+    function getFiltered(){
+      const q = String(allEls.fSearch.value || '').trim().toLowerCase();
+      const minPpi = Number(allEls.fMinPpi.value || 0);
+      return rows.filter(r => {
+        if (allEls.fSector.value && r.sector !== allEls.fSector.value) return false;
+        if (allEls.fRegion.value && r.region !== allEls.fRegion.value) return false;
+        if (allEls.fStatus.value && r.status !== allEls.fStatus.value) return false;
+        if (allEls.fBuyer.value && r.likelyBuyerClass !== allEls.fBuyer.value) return false;
+        if (allEls.fFid.value && r.fidBoundaryType !== allEls.fFid.value) return false;
+        if (r.ppi < minPpi) return false;
+        if (!q) return true;
+        const blob = [r.sector, r.thesisSummary, r.analystNotes, r.mainStructuralBottleneck, r.whyItMatters, (r.actors||[]).map(a=>a.name).join(' ')].join(' ').toLowerCase();
+        return blob.includes(q);
+      });
+    }
+
+    function sortRows(list){
+      const dir = state.sortDir === 'asc' ? 1 : -1;
+      const key = state.sortBy;
+      return [...list].sort((a,b) => {
+        const av = a[key]; const bv = b[key];
+        if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * dir;
+        return String(av || '').localeCompare(String(bv || '')) * dir;
+      });
+    }
+
+    function renderSummary(list){
+      const total = list.length;
+      const mandate = list.filter(r => r.ppi >= 20).length;
+      const highest = list.slice().sort((a,b)=>b.ppi-a.ppi)[0];
+      const mover = list.slice().sort((a,b)=>b.delta90d-a.delta90d)[0];
+      const activeBuyers = new Set(list.map(r => r.likelyBuyerClass)).size;
+      const cards = [
+        ['Total sectors tracked', total, 'Filtered universe'],
+        ['Mandate-Proximate sectors', mandate, 'PPI ≥ 20'],
+        ['Highest PPI sector', highest ? (highest.sector + ' (' + highest.ppi + ')') : '—', 'Current leader'],
+        ['Fastest 90-day mover', mover ? (mover.sector + ' (+' + mover.delta90d + ')') : '—', 'Acceleration lens'],
+        ['Buyer classes currently active', activeBuyers, 'Across filtered sectors']
+      ];
+      allEls.summary.innerHTML = cards.map(c => '<div class="col-12 col-md-6 col-xl"><div class="card metric-card"><div class="card-body d-flex flex-column justify-content-between"><div class="metric-label">' + esc(c[0]) + '</div><div class="metric-value" style="font-size:1.1rem">' + esc(c[1]) + '</div><div class="small text-muted mono">' + esc(c[2]) + '</div></div></div></div>').join('');
+    }
+
+    function renderTable(list){
+      allEls.table.innerHTML = list.map(r => '<tr data-id="' + esc(r.id) + '" style="cursor:pointer">' +
+        '<td><strong>' + esc(r.sector) + '</strong></td>' +
+        '<td>' + esc(r.region) + '</td>' +
+        '<td><span class="badge text-bg-primary" style="font-size:.86rem">' + esc(r.ppi) + '/25</span></td>' +
+        '<td>' + deltaCell(r.delta30d) + '</td>' +
+        '<td>' + deltaCell(r.delta90d) + '</td>' +
+        '<td><span class="badge text-bg-' + (statusTone[r.status] || 'secondary') + '">' + esc(r.status) + '</span></td>' +
+        '<td><span class="badge text-bg-light border">' + esc(r.likelyBuyerClass) + '</span></td>' +
+        '<td>' + esc(r.fidBoundaryType) + '</td>' +
+        '<td class="small" style="max-width:260px">' + esc(r.mainStructuralBottleneck) + '</td>' +
+        '<td class="mono small">' + esc(r.lastUpdated) + '</td>' +
+      '</tr>').join('') || '<tr><td colspan="10" class="text-muted">No sectors match filters.</td></tr>';
+
+      allEls.table.querySelectorAll('tr[data-id]').forEach(tr => tr.addEventListener('click', () => openDetail(tr.dataset.id)));
+    }
+
+    function renderHeatmap(list){
+      const roll = {};
+      list.forEach(r => {
+        const key = r.likelyBuyerClass || 'Unspecified';
+        if (!roll[key]) roll[key] = { count: 0, ppi: 0, sectors: [] };
+        roll[key].count += 1;
+        roll[key].ppi += Number(r.ppi || 0);
+        roll[key].sectors.push(r.sector);
+      });
+      const rows = Object.entries(roll).sort((a,b)=>b[1].count-a[1].count);
+      allEls.heatmap.innerHTML = rows.map(([k,v]) => {
+        const avg = (v.ppi / Math.max(1,v.count)).toFixed(1);
+        const width = Math.min(100, (Number(avg) / 25) * 100);
+        return '<div class="mb-2"><div class="d-flex justify-content-between"><strong>' + esc(k) + '</strong><span>' + v.count + ' sectors · Avg PPI ' + avg + '</span></div>' +
+          '<div class="progress" style="height:8px"><div class="progress-bar bg-info" style="width:' + width + '%"></div></div>' +
+          '<div class="text-muted" style="font-size:.78rem">' + esc(v.sectors.slice(0,4).join(', ')) + (v.sectors.length>4?'...':'') + '</div></div>';
+      }).join('') || '<div class="text-muted">No buyer-class distribution available.</div>';
+    }
+
+    function renderWatchlist(list){
+      const watch = list.filter(r => r.ppi >= 20 || (r.ppi >= 15 && r.delta90d >= 4)).sort((a,b)=>b.ppi-a.ppi);
+      allEls.watchlist.innerHTML = watch.map(r => '<div class="card mb-2"><div class="card-body py-2">' +
+        '<div class="d-flex justify-content-between"><strong>' + esc(r.sector) + '</strong><span class="badge text-bg-success">PPI ' + r.ppi + '</span></div>' +
+        '<div class="small text-muted">' + esc(r.region) + ' · ' + esc(r.likelyBuyerClass) + '</div>' +
+        '<div class="small mt-1">' + esc(r.mandateFeasibilityNote || 'Buyer path is emerging') + '</div>' +
+      '</div></div>').join('') || '<div class="text-muted">No sectors currently meet watchlist thresholds.</div>';
+    }
+
+    function scoreBar(label, v){
+      const width = Math.min(100, (Number(v||0)/5)*100);
+      return '<div class="mb-2"><div class="d-flex justify-content-between"><span class="small">' + esc(label) + '</span><span class="small mono">' + v + '/5</span></div><div class="progress" style="height:8px"><div class="progress-bar" style="width:' + width + '%"></div></div></div>';
+    }
+
+    function openDetail(id){
+      const r = rows.find(x => x.id === id); if (!r) return;
+      const actorGroups = {};
+      (r.actors || []).forEach(a => { const g = a.category || 'other'; if(!actorGroups[g]) actorGroups[g]=[]; actorGroups[g].push(a); });
+      const actorHtml = Object.entries(actorGroups).map(([k,v]) => '<div class="mb-2"><div class="small text-muted text-uppercase">' + esc(k.replaceAll('_',' / ')) + '</div><ul class="small mb-1">' + v.map(a => '<li><strong>' + esc(a.name) + '</strong> — ' + esc(a.role || '') + '</li>').join('') + '</ul></div>').join('');
+      const signals = (r.signals||[]).slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));
+
+      drawerBody.innerHTML =
+        '<div class="mb-3"><h6>Sector Overview</h6><div class="small text-muted">' + esc(r.region) + '</div><p class="mb-1"><strong>' + esc(r.sector) + '</strong></p><p class="small mb-1">' + esc(r.thesisSummary) + '</p><p class="small text-muted mb-0">' + esc(r.whyItMatters) + '</p></div>' +
+        '<div class="mb-3"><h6>PPI Breakdown</h6>' +
+          scoreBar('Capital Reality', r.scores.capitalReality) +
+          scoreBar('FID Definability', r.scores.fidDefinability) +
+          scoreBar('Multi-Actor Dependency', r.scores.multiActorDependency) +
+          scoreBar('Structural Ambiguity', r.scores.structuralAmbiguity) +
+          scoreBar('Mandate Feasibility', r.scores.mandateFeasibility) +
+          '<div class="small mt-2">Total: <strong>' + r.ppi + '/25</strong> · Status: <span class="badge text-bg-' + (statusTone[r.status] || 'secondary') + '">' + esc(r.status) + '</span> · Weighted (config): ' + esc(r.weightedPpi) + '</div></div>' +
+        '<div class="mb-3"><h6>Velocity</h6><div class="small">30D Δ: ' + deltaCell(r.delta30d) + ' · 90D Δ: ' + deltaCell(r.delta90d) + '</div><div class="small text-muted mt-1">' + esc(r.velocityNote || 'No velocity note provided.') + '</div></div>' +
+        '<div class="mb-3"><h6>Platform Logic</h6><ul class="small mb-0"><li><strong>Likely buyer class:</strong> ' + esc(r.likelyBuyerClass) + '</li><li><strong>Buyer rationale:</strong> ' + esc(r.buyerRationale) + '</li><li><strong>FID boundary type:</strong> ' + esc(r.fidBoundaryType) + '</li><li><strong>Main structural bottleneck:</strong> ' + esc(r.mainStructuralBottleneck) + '</li><li><strong>Mandate feasibility note:</strong> ' + esc(r.mandateFeasibilityNote) + '</li></ul></div>' +
+        '<div class="mb-3"><h6>Key Actors</h6>' + (actorHtml || '<div class="small text-muted">No mapped actors.</div>') + '</div>' +
+        '<div class="mb-3"><h6>Signals Feed</h6><div class="table-responsive"><table class="table table-sm"><thead><tr><th>Date</th><th>Type</th><th>Source</th><th>Summary</th><th>Impact</th><th>Confidence</th></tr></thead><tbody>' +
+          (signals.map(s => '<tr><td class="mono small">' + esc(s.date || '') + '</td><td>' + esc(s.type || '') + '</td><td class="small">' + esc(s.sourceCategory || '') + '</td><td class="small">' + esc(s.summary || '') + '</td><td><span class="badge text-bg-' + (s.impact==='positive'?'success':(s.impact==='negative'?'danger':'secondary')) + '">' + esc(s.impact || 'neutral') + '</span></td><td>' + esc(s.confidence || '') + '</td></tr>').join('') || '<tr><td colspan="6" class="text-muted">No signals.</td></tr>') +
+        '</tbody></table></div></div>' +
+        '<div class="mb-3"><h6>Analyst Notes</h6><div class="small" style="white-space:pre-wrap">' + esc(r.analystNotes || 'No analyst notes yet.') + '</div></div>' +
+        '<div class="mb-2"><button id="pp-network-toggle" class="btn btn-sm btn-outline-secondary">Toggle Network View</button></div><div id="pp-network" style="display:none;height:280px;border:1px solid var(--border);border-radius:10px"></div>';
+
+      drawerBody.querySelector('#pp-network-toggle')?.addEventListener('click', () => {
+        const box = drawerBody.querySelector('#pp-network');
+        if (!box) return;
+        const show = box.style.display === 'none';
+        box.style.display = show ? 'block' : 'none';
+        if (show && window.cytoscape) {
+          const nodes = [{ data: { id: 'sector', label: r.sector, type: 'sector' } }, { data: { id: 'buyer', label: r.likelyBuyerClass, type: 'buyer' } }, { data: { id: 'fid', label: r.fidBoundaryType, type: 'fid' } }, { data: { id: 'bottleneck', label: r.mainStructuralBottleneck, type: 'bottleneck' } }]
+            .concat((r.actors || []).map((a, idx) => ({ data: { id: 'a' + idx, label: a.name, type: a.category || 'actor' } })));
+          const edges = [{ data: { source: 'sector', target: 'buyer' } }, { data: { source: 'sector', target: 'fid' } }, { data: { source: 'sector', target: 'bottleneck' } }]
+            .concat((r.actors || []).map((a, idx) => ({ data: { source: 'sector', target: 'a' + idx } })));
+          window.cytoscape({ container: box, elements: { nodes, edges },
+            style: [{ selector:'node', style:{ 'background-color':'#4f8cff','label':'data(label)','font-size':10,'color':'#d8e3f5','text-wrap':'wrap','text-max-width':120 } },
+                    { selector:'edge', style:{ 'line-color':'#5f6b7d','width':1.4,'target-arrow-shape':'triangle','target-arrow-color':'#5f6b7d','curve-style':'bezier' } }],
+            layout: { name: 'cose', animate: false, fit: true, padding: 18 }
+          });
+        }
+      });
+
+      if (drawer) drawer.show();
+    }
+
+    function renderAll(){
+      const filtered = sortRows(getFiltered());
+      renderSummary(filtered);
+      renderTable(filtered);
+      renderHeatmap(filtered);
+      renderWatchlist(filtered);
+    }
+
+    populateFilters();
+    renderAll();
+
+    ['change','keyup'].forEach(evt => {
+      [allEls.fSector, allEls.fRegion, allEls.fStatus, allEls.fBuyer, allEls.fFid, allEls.fMinPpi, allEls.fSearch].forEach(el => el.addEventListener(evt, renderAll));
+    });
+    document.getElementById('f-reset')?.addEventListener('click', () => {
+      allEls.fSector.value = ''; allEls.fRegion.value = ''; allEls.fStatus.value = ''; allEls.fBuyer.value = ''; allEls.fFid.value = ''; allEls.fMinPpi.value = '0'; allEls.fSearch.value = '';
+      renderAll();
+    });
+    document.querySelectorAll('button[data-sort]').forEach(btn => btn.addEventListener('click', () => {
+      const k = btn.getAttribute('data-sort');
+      if (state.sortBy === k) state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+      else { state.sortBy = k; state.sortDir = 'desc'; }
+      renderAll();
+    }));
+  </script>
+  </body></html>`);
 });
 
 app.get('/dashboard/activity', async (req, res) => {
@@ -3125,6 +3447,7 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
         <a class="nav-link" href="/dashboard/" title="Dashboard"><i data-lucide="layout-dashboard" class="nav-icon"></i><span class="nav-label">Dashboard</span></a>
         <a class="nav-link" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
         <a class="nav-link" href="/dashboard/signals" title="Signals"><i data-lucide="radio" class="nav-icon"></i><span class="nav-label">Signals</span></a>
+        <a class="nav-link" href="/dashboard/platform-pressure" title="Platform Pressure"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platform Pressure</span></a>
         <a class="nav-link" href="/dashboard/beacons" title="Beacons"><i data-lucide="satellite" class="nav-icon"></i><span class="nav-label">Beacons</span></a>
         <a class="nav-link" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
         <a class="nav-link" href="/dashboard/team" title="Team"><i data-lucide="users" class="nav-icon"></i><span class="nav-label">Team</span></a>

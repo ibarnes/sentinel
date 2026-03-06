@@ -1,0 +1,305 @@
+[
+  {
+    "id": "pps-ai-infrastructure",
+    "sector": "AI Infrastructure",
+    "region": "Gulf + North Africa",
+    "theater": "MENA",
+    "thesisSummary": "Sovereign compute ambitions are moving from strategy papers to land, power, and chip-allocation decisions.",
+    "whyItMatters": "First movers can lock long-term power, cooling, and tenancy structures before valuations harden.",
+    "scores": {
+      "capitalReality": 5,
+      "fidDefinability": 4,
+      "multiActorDependency": 5,
+      "structuralAmbiguity": 4,
+      "mandateFeasibility": 4
+    },
+    "delta30d": 3,
+    "delta90d": 6,
+    "likelyBuyerClass": "Sovereign Wealth Fund",
+    "buyerRationale": "Sovereigns can underwrite strategic compute sovereignty with long duration capital.",
+    "fidBoundaryType": "Power + tenancy certainty",
+    "mainStructuralBottleneck": "Grid interconnection and export-control compliant supply chain sequencing.",
+    "mandateFeasibilityNote": "Feasible when anchor tenant terms and energy offtake are contractable.",
+    "actors": [
+      { "id": "a1", "name": "National AI Ministry", "category": "ministry", "role": "Compute policy and permits" },
+      { "id": "a2", "name": "Regional Grid Operator", "category": "infrastructure_owner", "role": "Interconnection capacity owner" },
+      { "id": "a3", "name": "Sovereign Tech Fund", "category": "capital_allocator", "role": "Anchor equity" },
+      { "id": "a4", "name": "Global Hyperscaler", "category": "technology_platform", "role": "Anchor tenancy + workloads" },
+      { "id": "a5", "name": "Industrial EPC Consortium", "category": "operator", "role": "Delivery and commissioning" }
+    ],
+    "signals": [
+      { "id": "s1", "date": "2026-03-05", "type": "sovereign_strategy", "title": "National compute acceleration directive", "summary": "Cabinet-level directive moved AI capacity procurement into strategic infrastructure lane.", "sourceCategory": "Government publication", "impact": "positive", "confidence": "high" },
+      { "id": "s2", "date": "2026-02-28", "type": "capital_formation", "title": "Dedicated AI infra co-investment vehicle", "summary": "New vehicle announced with mandate to co-anchor regional data center clusters.", "sourceCategory": "Investor announcement", "impact": "positive", "confidence": "high" },
+      { "id": "s3", "date": "2026-02-20", "type": "actor_coordination", "title": "Power + hyperscaler term-sheet workshops", "summary": "Workshops indicate transition from narrative to structuring.", "sourceCategory": "Internal network intel", "impact": "positive", "confidence": "medium" }
+    ],
+    "velocityNote": "Power corridor and tenancy discussions moved from exploratory to pre-term-sheet.",
+    "analystNotes": "System pressure is increasing; buyer path is emerging through sovereign-led platform capital.",
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "id": "pps-manganese",
+    "sector": "Manganese",
+    "region": "Southern + West Africa",
+    "theater": "Africa",
+    "thesisSummary": "World-class ore supply is still externally priced; regional ferro-alloy and battery-grade refining pathways are forming.",
+    "whyItMatters": "Value capture can shift from raw export volatility to infrastructure-linked industrial earnings.",
+    "scores": { "capitalReality": 3, "fidDefinability": 3, "multiActorDependency": 5, "structuralAmbiguity": 4, "mandateFeasibility": 3 },
+    "delta30d": 2,
+    "delta90d": 5,
+    "likelyBuyerClass": "DFI / MDB",
+    "buyerRationale": "DFIs can de-risk coordination across mining, power, transport, and downstream processing.",
+    "fidBoundaryType": "Ore-to-alloy offtake stack",
+    "mainStructuralBottleneck": "Coordinated power reliability and downstream offtake certainty.",
+    "mandateFeasibilityNote": "Feasible with bundled corridor + processing + offtake package.",
+    "actors": [
+      { "id": "m1", "name": "AFC Industrial Desk", "category": "capital_allocator", "role": "Platform structuring" },
+      { "id": "m2", "name": "Mining Ministry", "category": "ministry", "role": "Concession and processing policy" },
+      { "id": "m3", "name": "Regional Smelter Operator", "category": "operator", "role": "Ferro-alloy capacity" },
+      { "id": "m4", "name": "Battery Materials Offtaker", "category": "offtaker", "role": "Demand anchor" }
+    ],
+    "signals": [
+      { "id": "sm1", "date": "2026-03-06", "type": "industrial_announcement", "title": "AFC value-chain positioning note", "summary": "Public call to re-anchor manganese demand into African steel and battery chains.", "sourceCategory": "Institutional publication", "impact": "positive", "confidence": "medium" },
+      { "id": "sm2", "date": "2026-02-27", "type": "policy_alignment", "title": "Regional steel policy coordination", "summary": "Cross-border industrial policy talks included alloy feedstock security.", "sourceCategory": "Policy brief", "impact": "positive", "confidence": "medium" },
+      { "id": "sm3", "date": "2026-02-18", "type": "capital_formation", "title": "Processing feasibility consortium", "summary": "Consortium formed to test financing model for downstream conversion.", "sourceCategory": "Industry memo", "impact": "neutral", "confidence": "medium" }
+    ],
+    "velocityNote": "Narrative has shifted from extraction to conversion economics.",
+    "analystNotes": "Capital is visible but structure is unclear at corridor level.",
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "id": "pps-copper",
+    "sector": "Copper",
+    "region": "Central + Southern Africa",
+    "theater": "Africa",
+    "thesisSummary": "Resource depth is strong but transport and processing constraints are delaying scaled value retention.",
+    "whyItMatters": "Copper underpins grid buildout and electrification; platform timing affects multiple infra sectors.",
+    "scores": { "capitalReality": 4, "fidDefinability": 3, "multiActorDependency": 4, "structuralAmbiguity": 3, "mandateFeasibility": 3 },
+    "delta30d": 1,
+    "delta90d": 3,
+    "likelyBuyerClass": "Strategic Industrial Sponsor",
+    "buyerRationale": "Strategics can contract throughput and lock downstream integration.",
+    "fidBoundaryType": "Throughput + logistics reliability",
+    "mainStructuralBottleneck": "Rail-port bottlenecks and tariff uncertainty.",
+    "mandateFeasibilityNote": "Feasible when logistics concession and processing capex are synchronized.",
+    "actors": [
+      { "id": "c1", "name": "State Mining Holding", "category": "sovereign", "role": "Concession sponsor" },
+      { "id": "c2", "name": "Rail Corridor Authority", "category": "infrastructure_owner", "role": "Transport bottleneck owner" },
+      { "id": "c3", "name": "Global Metals Trader", "category": "offtaker", "role": "Offtake structuring" }
+    ],
+    "signals": [
+      { "id": "sc1", "date": "2026-03-01", "type": "regional_program", "title": "Cross-border corridor rehabilitation package", "summary": "Program scoped to reduce ore evacuation delays.", "sourceCategory": "Regional communiqué", "impact": "positive", "confidence": "medium" },
+      { "id": "sc2", "date": "2026-02-14", "type": "eca_financing", "title": "ECA financing interest in smelting upgrades", "summary": "Early-stage financing appetite signaled for modernization projects.", "sourceCategory": "Financing desk update", "impact": "positive", "confidence": "low" },
+      { "id": "sc3", "date": "2026-01-30", "type": "actor_coordination", "title": "Operator-ministry concession reset", "summary": "Renegotiation process reduced immediate execution clarity.", "sourceCategory": "Operator brief", "impact": "negative", "confidence": "medium" }
+    ],
+    "velocityNote": "Incremental positive movement with unresolved concession friction.",
+    "analystNotes": "Buyer path is emerging but FID boundary still partly undefined.",
+    "lastUpdated": "2026-03-05"
+  },
+  {
+    "id": "pps-battery-materials",
+    "sector": "Battery Materials",
+    "region": "Pan-Africa",
+    "theater": "Africa",
+    "thesisSummary": "Integrated processing ambitions are rising faster than bankable infrastructure backstops.",
+    "whyItMatters": "Early structuring determines whether value uplift accrues locally or leaks offshore.",
+    "scores": { "capitalReality": 3, "fidDefinability": 2, "multiActorDependency": 5, "structuralAmbiguity": 5, "mandateFeasibility": 2 },
+    "delta30d": 2,
+    "delta90d": 4,
+    "likelyBuyerClass": "Export Credit / Policy Bank",
+    "buyerRationale": "Policy banks can crowd in first-loss support for strategic industrial capacity.",
+    "fidBoundaryType": "Feedstock + refining qualification",
+    "mainStructuralBottleneck": "Technology qualification and long-term offtake bankability.",
+    "mandateFeasibilityNote": "Requires anchor buyer guarantees and robust environmental permitting pathway.",
+    "actors": [
+      { "id": "bm1", "name": "Policy Bank Metals Team", "category": "capital_allocator", "role": "Credit enhancement" },
+      { "id": "bm2", "name": "Industrial Standards Agency", "category": "ministry", "role": "Certification framework" },
+      { "id": "bm3", "name": "Cathode Manufacturer", "category": "offtaker", "role": "Grade specification demand" }
+    ],
+    "signals": [
+      { "id": "sb1", "date": "2026-03-04", "type": "mdb_research", "title": "Battery value-chain diagnostics", "summary": "Study highlighted coordination gap between mining and downstream processing finance.", "sourceCategory": "MDB publication", "impact": "neutral", "confidence": "high" },
+      { "id": "sb2", "date": "2026-02-22", "type": "industrial_announcement", "title": "Refining MOU cluster", "summary": "Multiple MOUs signed without synchronized utility commitments.", "sourceCategory": "Press release", "impact": "positive", "confidence": "medium" },
+      { "id": "sb3", "date": "2026-02-10", "type": "policy_alignment", "title": "Minerals-to-manufacturing policy draft", "summary": "Draft policy created pathway but not execution sequencing.", "sourceCategory": "Policy memo", "impact": "neutral", "confidence": "medium" }
+    ],
+    "velocityNote": "Signal density is rising; execution discipline still thin.",
+    "analystNotes": "Capital is visible but structure is unclear; structural ambiguity remains the main drag.",
+    "lastUpdated": "2026-03-05"
+  },
+  {
+    "id": "pps-industrial-power-corridors",
+    "sector": "Industrial Power Corridors",
+    "region": "East + West Africa",
+    "theater": "Africa",
+    "thesisSummary": "Large industrial loads are forcing integrated transmission, generation, and offtake packaging.",
+    "whyItMatters": "Power corridor readiness often gates wider platform deployment across mining and manufacturing.",
+    "scores": { "capitalReality": 4, "fidDefinability": 4, "multiActorDependency": 5, "structuralAmbiguity": 3, "mandateFeasibility": 4 },
+    "delta30d": 3,
+    "delta90d": 5,
+    "likelyBuyerClass": "Utility / Infra Operator",
+    "buyerRationale": "Operators can own execution interface between generation assets and industrial demand clusters.",
+    "fidBoundaryType": "Load-backed transmission package",
+    "mainStructuralBottleneck": "Tariff certainty across jurisdictions.",
+    "mandateFeasibilityNote": "Near-mandate where anchor loads and sovereign guarantees are aligned.",
+    "actors": [
+      { "id": "ip1", "name": "National Utility", "category": "operator", "role": "Network operator" },
+      { "id": "ip2", "name": "Transmission SPV", "category": "infrastructure_owner", "role": "Asset owner" },
+      { "id": "ip3", "name": "Industrial Cluster Sponsor", "category": "offtaker", "role": "Anchor load" },
+      { "id": "ip4", "name": "Multilateral DFI", "category": "dfi_mdb", "role": "De-risking and guarantees" }
+    ],
+    "signals": [
+      { "id": "sip1", "date": "2026-03-03", "type": "capital_formation", "title": "Transmission financing syndicate formed", "summary": "Syndicate formed around phased corridor capex.", "sourceCategory": "Banking syndicate note", "impact": "positive", "confidence": "high" },
+      { "id": "sip2", "date": "2026-02-26", "type": "actor_coordination", "title": "Tri-party implementation cell", "summary": "Utility, ministry, and industrial sponsor created weekly coordination mechanism.", "sourceCategory": "Internal update", "impact": "positive", "confidence": "medium" },
+      { "id": "sip3", "date": "2026-02-11", "type": "policy_alignment", "title": "Tariff harmonization draft", "summary": "Draft narrowed regulatory variance but not finalized.", "sourceCategory": "Regulator draft", "impact": "neutral", "confidence": "medium" }
+    ],
+    "velocityNote": "Acceleration is clear; conversion risk remains regulatory.",
+    "analystNotes": "Buyer path is emerging with definable FID boundary.",
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "id": "pps-logistics-corridors",
+    "sector": "Logistics Corridors",
+    "region": "West + Central Africa",
+    "theater": "Africa",
+    "thesisSummary": "Trade growth is outpacing corridor quality, creating pressure for integrated rail-port-dry port platforms.",
+    "whyItMatters": "Corridor execution unlocks multiple commodity and industrial mandates simultaneously.",
+    "scores": { "capitalReality": 4, "fidDefinability": 4, "multiActorDependency": 5, "structuralAmbiguity": 4, "mandateFeasibility": 4 },
+    "delta30d": 4,
+    "delta90d": 7,
+    "likelyBuyerClass": "DFI / MDB",
+    "buyerRationale": "MDBs can convene sovereign interface while financing shared public-good infrastructure.",
+    "fidBoundaryType": "Concession + throughput guarantee",
+    "mainStructuralBottleneck": "Sovereign interface governance across corridor nodes.",
+    "mandateFeasibilityNote": "Mandate-proximate when concession terms and throughput floors are locked.",
+    "actors": [
+      { "id": "l1", "name": "Port Authority", "category": "infrastructure_owner", "role": "Terminal owner" },
+      { "id": "l2", "name": "Rail Concessionaire", "category": "operator", "role": "Rail operator" },
+      { "id": "l3", "name": "Customs Modernization Unit", "category": "ministry", "role": "Border process authority" },
+      { "id": "l4", "name": "Regional MDB", "category": "dfi_mdb", "role": "Financing + coordination" }
+    ],
+    "signals": [
+      { "id": "sl1", "date": "2026-03-06", "type": "regional_program", "title": "Multi-node corridor acceleration plan", "summary": "Program linked rail rehabilitation to port throughput upgrades.", "sourceCategory": "Regional program office", "impact": "positive", "confidence": "high" },
+      { "id": "sl2", "date": "2026-02-25", "type": "eca_financing", "title": "ECA appetite for rolling stock package", "summary": "Export credit desk signaled strong appetite for bundled package financing.", "sourceCategory": "ECA brief", "impact": "positive", "confidence": "medium" },
+      { "id": "sl3", "date": "2026-02-12", "type": "actor_coordination", "title": "Joint PMO established", "summary": "Cross-agency PMO established to manage sequencing risk.", "sourceCategory": "Implementation note", "impact": "positive", "confidence": "medium" }
+    ],
+    "velocityNote": "Fastest acceleration in the current set; mandate path is tightening.",
+    "analystNotes": "System pressure is increasing and now close to executable mandate structures.",
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "id": "pps-digital-financial-rails",
+    "sector": "Digital Financial Rails",
+    "region": "Pan-Africa",
+    "theater": "Africa",
+    "thesisSummary": "Cross-border payment interoperability pressure is compounding with sovereign digital identity and settlement agendas.",
+    "whyItMatters": "Financial rails can reduce friction for trade, remittance, and industrial supply chains.",
+    "scores": { "capitalReality": 3, "fidDefinability": 3, "multiActorDependency": 4, "structuralAmbiguity": 3, "mandateFeasibility": 3 },
+    "delta30d": 1,
+    "delta90d": 2,
+    "likelyBuyerClass": "Hyperscaler / Tech Platform",
+    "buyerRationale": "Tech platforms can provide scalable rails once policy and compliance interfaces stabilize.",
+    "fidBoundaryType": "Regulatory interoperability boundary",
+    "mainStructuralBottleneck": "Cross-jurisdiction compliance harmonization.",
+    "mandateFeasibilityNote": "Needs shared regulatory perimeter and clear liability stack.",
+    "actors": [
+      { "id": "df1", "name": "Central Bank Network", "category": "sovereign", "role": "Settlement rule-setter" },
+      { "id": "df2", "name": "Payments Switch Operator", "category": "technology_platform", "role": "Interoperability layer" },
+      { "id": "df3", "name": "Regional Commercial Banks", "category": "capital_allocator", "role": "Distribution channel" }
+    ],
+    "signals": [
+      { "id": "sdf1", "date": "2026-03-02", "type": "policy_alignment", "title": "Interoperability framework consultation", "summary": "Regulators released consultation paper for cross-border settlement standards.", "sourceCategory": "Regulatory bulletin", "impact": "neutral", "confidence": "high" },
+      { "id": "sdf2", "date": "2026-02-19", "type": "industrial_announcement", "title": "Switch integration roadmap", "summary": "Major switch operator published staged integration plan.", "sourceCategory": "Operator release", "impact": "positive", "confidence": "medium" },
+      { "id": "sdf3", "date": "2026-02-08", "type": "actor_coordination", "title": "Bank consortium implementation group", "summary": "Consortium formed but mandate scope still narrow.", "sourceCategory": "Industry association", "impact": "neutral", "confidence": "medium" }
+    ],
+    "velocityNote": "Steady but not breakout; policy convergence remains pacing item.",
+    "analystNotes": "Capital is visible but structure is only partially converged.",
+    "lastUpdated": "2026-03-05"
+  },
+  {
+    "id": "pps-water-infrastructure",
+    "sector": "Water Infrastructure",
+    "region": "North + East Africa",
+    "theater": "Africa",
+    "thesisSummary": "Urban and industrial water stress is driving demand for integrated desalination, treatment, and distribution upgrades.",
+    "whyItMatters": "Water reliability is becoming a hard precondition for industrial zone and power platform viability.",
+    "scores": { "capitalReality": 4, "fidDefinability": 4, "multiActorDependency": 4, "structuralAmbiguity": 3, "mandateFeasibility": 4 },
+    "delta30d": 2,
+    "delta90d": 4,
+    "likelyBuyerClass": "Utility / Infra Operator",
+    "buyerRationale": "Utilities have direct operating leverage and procurement pathways for phased execution.",
+    "fidBoundaryType": "Take-or-pay water offtake",
+    "mainStructuralBottleneck": "Tariff reform and creditworthy municipal offtake.",
+    "mandateFeasibilityNote": "Strong where sovereign support backs municipal payment performance.",
+    "actors": [
+      { "id": "w1", "name": "National Water Authority", "category": "sovereign", "role": "Policy and tariff authority" },
+      { "id": "w2", "name": "Municipal Utility", "category": "operator", "role": "Distribution operator" },
+      { "id": "w3", "name": "Desal Technology Provider", "category": "technology_platform", "role": "Plant technology" },
+      { "id": "w4", "name": "Infrastructure Debt Fund", "category": "capital_allocator", "role": "Long-term debt" }
+    ],
+    "signals": [
+      { "id": "sw1", "date": "2026-03-03", "type": "industrial_announcement", "title": "Industrial desal package announced", "summary": "New package linked industrial users to multi-year water supply commitments.", "sourceCategory": "Utility announcement", "impact": "positive", "confidence": "high" },
+      { "id": "sw2", "date": "2026-02-21", "type": "capital_formation", "title": "Water infra debt sleeve launched", "summary": "Fund manager launched dedicated debt sleeve for water projects.", "sourceCategory": "Fund release", "impact": "positive", "confidence": "medium" },
+      { "id": "sw3", "date": "2026-02-13", "type": "policy_alignment", "title": "Tariff stabilization mechanism", "summary": "Draft mechanism improves visibility but has not passed final approval.", "sourceCategory": "Regulator notice", "impact": "neutral", "confidence": "medium" }
+    ],
+    "velocityNote": "Acceleration is healthy and execution boundaries are becoming clearer.",
+    "analystNotes": "Buyer path is emerging with manageable ambiguity.",
+    "lastUpdated": "2026-03-06"
+  },
+  {
+    "id": "pps-food-security-infrastructure",
+    "sector": "Food Security Infrastructure",
+    "region": "North + West Africa",
+    "theater": "Africa",
+    "thesisSummary": "Storage, cold chain, and logistics gaps are increasingly treated as strategic resilience infrastructure.",
+    "whyItMatters": "Food-system reliability reduces macro fragility and supports industrial labor stability.",
+    "scores": { "capitalReality": 3, "fidDefinability": 3, "multiActorDependency": 4, "structuralAmbiguity": 3, "mandateFeasibility": 3 },
+    "delta30d": 1,
+    "delta90d": 3,
+    "likelyBuyerClass": "Family Office / Principal Capital",
+    "buyerRationale": "Principals can move quickly into regionally diversified storage and processing platforms.",
+    "fidBoundaryType": "Demand-backed storage + logistics stack",
+    "mainStructuralBottleneck": "Fragmented offtaker credit and weak aggregation.",
+    "mandateFeasibilityNote": "Better in markets with public procurement clarity.",
+    "actors": [
+      { "id": "f1", "name": "Agriculture Ministry", "category": "ministry", "role": "Policy and subsidy alignment" },
+      { "id": "f2", "name": "Cold Chain Operator", "category": "operator", "role": "Operations lead" },
+      { "id": "f3", "name": "Strategic Grain Buyer", "category": "offtaker", "role": "Demand anchor" }
+    ],
+    "signals": [
+      { "id": "sf1", "date": "2026-03-01", "type": "regional_program", "title": "Regional storage capacity plan", "summary": "Plan prioritized strategic storage nodes near major consumption centers.", "sourceCategory": "Regional agency", "impact": "positive", "confidence": "medium" },
+      { "id": "sf2", "date": "2026-02-16", "type": "capital_formation", "title": "Principal capital platform scouting", "summary": "Multiple principals initiated diligence on cold-chain rollups.", "sourceCategory": "Market intel", "impact": "positive", "confidence": "medium" },
+      { "id": "sf3", "date": "2026-02-05", "type": "policy_alignment", "title": "Procurement framework revision", "summary": "Revision improved medium-term demand visibility.", "sourceCategory": "Government notice", "impact": "neutral", "confidence": "low" }
+    ],
+    "velocityNote": "Moderate acceleration with persistent demand fragmentation.",
+    "analystNotes": "Pressure is early-stage but structurally relevant.",
+    "lastUpdated": "2026-03-04"
+  },
+  {
+    "id": "pps-industrial-zones",
+    "sector": "Industrial Zones",
+    "region": "Gulf + Africa Corridor",
+    "theater": "Interregional",
+    "thesisSummary": "Zone-led industrialization is converging with power, logistics, and digital infra platforms into bundled mandates.",
+    "whyItMatters": "Zones can become the integration point where infrastructure converts into investable growth systems.",
+    "scores": { "capitalReality": 5, "fidDefinability": 4, "multiActorDependency": 5, "structuralAmbiguity": 4, "mandateFeasibility": 4 },
+    "delta30d": 3,
+    "delta90d": 6,
+    "likelyBuyerClass": "Strategic Industrial Sponsor",
+    "buyerRationale": "Strategics can lock tenant pipelines while coordinating utility and logistics dependencies.",
+    "fidBoundaryType": "Anchor tenant + utilities lock-in",
+    "mainStructuralBottleneck": "Sequencing of land, utilities, and tenant commitments.",
+    "mandateFeasibilityNote": "Mandate-proximate where sovereign interface is centralized and governance is clear.",
+    "actors": [
+      { "id": "iz1", "name": "Zone Development Authority", "category": "sovereign", "role": "Land and permitting" },
+      { "id": "iz2", "name": "Strategic Sponsor Consortium", "category": "capital_allocator", "role": "Equity lead" },
+      { "id": "iz3", "name": "Integrated Utility Operator", "category": "operator", "role": "Power/water operations" },
+      { "id": "iz4", "name": "Global Manufacturing Offtaker", "category": "offtaker", "role": "Tenant demand anchor" }
+    ],
+    "signals": [
+      { "id": "siz1", "date": "2026-03-05", "type": "industrial_announcement", "title": "Zone expansion tied to export manufacturing", "summary": "Expansion announcement included phased tenant onboarding structure.", "sourceCategory": "Zone authority release", "impact": "positive", "confidence": "high" },
+      { "id": "siz2", "date": "2026-02-24", "type": "capital_formation", "title": "Sponsor equity pool expanded", "summary": "Strategic sponsors expanded equity pool for multi-zone rollout.", "sourceCategory": "Sponsor disclosure", "impact": "positive", "confidence": "high" },
+      { "id": "siz3", "date": "2026-02-15", "type": "actor_coordination", "title": "Unified implementation committee", "summary": "Committee formed to synchronize land, utility, and customs interfaces.", "sourceCategory": "Internal governance note", "impact": "positive", "confidence": "medium" }
+    ],
+    "velocityNote": "Pressure is sustained; execution path is increasingly explicit.",
+    "analystNotes": "System pressure is increasing and mandate feasibility is now visible.",
+    "lastUpdated": "2026-03-06"
+  }
+]
