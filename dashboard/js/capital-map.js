@@ -83,22 +83,29 @@
     initiative: rawNodes.filter((n) => n.type === 'initiative')
   };
 
-  function spreadX(arr, start = 220, step = 200) {
+  function spreadX(arr, start = 360, targetSpan = 1400) {
     const out = new Map();
-    arr.forEach((n, i) => out.set(n.id, start + i * step));
+    const n = arr.length;
+    if (!n) return out;
+    if (n === 1) {
+      out.set(arr[0].id, start + 320);
+      return out;
+    }
+    const step = Math.max(70, Math.min(130, Math.floor(targetSpan / (n - 1))));
+    arr.forEach((node, i) => out.set(node.id, start + i * step));
     return out;
   }
 
-  const signalX = spreadX(typedNodes.signal);
-  const buyerX = spreadX(typedNodes.buyer);
-  const initiativeX = spreadX(typedNodes.initiative);
+  const signalX = spreadX(typedNodes.signal, 360, 1300);
+  const buyerX = spreadX(typedNodes.buyer, 360, 1400);
+  const initiativeX = spreadX(typedNodes.initiative, 360, 1500);
 
   function nodePosition(node) {
     const id = node.id;
     const type = node.type;
 
     if (pressureY[id] != null) {
-      return { x: 90, y: pressureY[id] };
+      return { x: 180, y: pressureY[id] };
     }
     if (type === 'signal') {
       return { x: signalX.get(id) || 300, y: signalY };
