@@ -17,16 +17,26 @@
     data = { nodes: [], edges: [] };
   }
 
+  const rawNodes = Array.isArray(data.nodes) ? data.nodes : [];
+  const nodeIdSet = new Set(rawNodes.map((n) => n.id));
+  const rawEdges = (Array.isArray(data.edges) ? data.edges : []).filter((e) => nodeIdSet.has(e.source) && nodeIdSet.has(e.target));
+
   const elements = [
-    ...(Array.isArray(data.nodes) ? data.nodes : []).map((n) => ({ data: n })),
-    ...(Array.isArray(data.edges) ? data.edges : []).map((e) => ({ data: e }))
+    ...rawNodes.map((n) => ({ data: n })),
+    ...rawEdges.map((e) => ({ data: e }))
   ];
+
+  if (detailsEl) {
+    detailsEl.innerHTML = `<span class="text-muted">Loaded ${rawNodes.length} nodes / ${rawEdges.length} edges.</span>`;
+  }
 
   if (!elements.length && detailsEl) {
     detailsEl.innerHTML = '<span class="text-warning">No capital-map data loaded.</span>';
   }
 
-  const cy = window.cytoscape({
+  let cy;
+  try {
+    cy = window.cytoscape({
     container,
     elements,
     layout: {
@@ -141,7 +151,13 @@
         }
       }
     ]
-  });
+    });
+  } catch (err) {
+    if (detailsEl) {
+      detailsEl.innerHTML = `<span class="text-danger">Map render error: ${String(err && err.message ? err.message : err)}</span>`;
+    }
+    return;
+  }
 
   const filterBuyerEl = document.getElementById('filter-buyer');
   const filterSignalEl = document.getElementById('filter-signal');
