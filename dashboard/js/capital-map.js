@@ -438,13 +438,25 @@
     };
 
     const centerY = Math.max(220, cy.height() / 2);
-    const yStep = isMobile ? 86 : 70;
+
+    const estNodeHeight = (n) => {
+      const label = String(n.data('display_label') || n.data('label') || n.id());
+      const lineCount = Math.max(1, Math.ceil(label.replace(/\n/g, ' ').length / 18));
+      const textH = lineCount * (isMobile ? 16 : 14) * 1.15;
+      return Math.max(isMobile ? 82 : 70, textH + (isMobile ? 56 : 48));
+    };
 
     const placeColumn = (arr, x) => {
       if (!arr.length) return;
       const sorted = [...arr].sort((a, b) => String(a.data('label') || a.id()).localeCompare(String(b.data('label') || b.id())));
-      const top = centerY - ((sorted.length - 1) * yStep) / 2;
-      sorted.forEach((n, i) => n.position({ x, y: top + i * yStep }));
+      const heights = sorted.map(estNodeHeight);
+      const totalH = heights.reduce((s, h) => s + h, 0) + Math.max(0, sorted.length - 1) * (isMobile ? 12 : 8);
+      let y = centerY - totalH / 2;
+      sorted.forEach((n, i) => {
+        const h = heights[i];
+        n.position({ x, y: y + h / 2 });
+        y += h + (isMobile ? 12 : 8);
+      });
     };
 
     // Compact local neighborhood columns instead of global spread.
@@ -454,6 +466,12 @@
     placeColumn(cols.initiative, 680);
 
     cy.animate({ fit: { eles: cy.elements(':visible'), padding: isMobile ? 28 : 40 }, duration: 180, easing: 'ease-in-out' });
+  }
+
+  function organizeViewport() {
+    compactVisibleLayout();
+    clearFocus();
+    cy.animate({ fit: { eles: cy.elements(':visible'), padding: isMobile ? 30 : 44 }, duration: 220, easing: 'ease-in-out' });
   }
 
   function applyFilters() {
@@ -689,6 +707,7 @@
   const centerBtn = document.getElementById('center-graph');
   const highlightBtn = document.getElementById('highlight-path');
   const toggleLabelsBtn = document.getElementById('toggle-labels');
+  const organizeBtn = document.getElementById('organize-viewport');
   let labelsOn = true;
 
   if (resetBtn) {
@@ -755,6 +774,13 @@
       .selector('node')
       .style('label', labelsOn ? 'data(display_label)' : '')
       .update();
+  });
+
+  organizeBtn?.addEventListener('click', () => {
+    organizeViewport();
+    if (detailsEl) {
+      detailsEl.innerHTML = '<span class="text-muted">Organized visible nodes for viewport fit and reduced label overlap.</span>';
+    }
   });
 
   [filterBuyerEl, filterSignalEl, filterInitiativeEl, filterPressureEl].forEach((el) => {

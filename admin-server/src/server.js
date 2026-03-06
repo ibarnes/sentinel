@@ -907,6 +907,7 @@ app.get('/dashboard/capital-map', requireAnyAuth, async (_req, res) => {
         <button id="center-graph" class="btn btn-sm btn-outline-secondary" type="button">Center Graph</button>
         <button id="highlight-path" class="btn btn-sm btn-outline-secondary" type="button">Highlight Capital Path</button>
         <button id="toggle-labels" class="btn btn-sm btn-outline-secondary" type="button">Toggle Labels</button>
+        <button id="organize-viewport" class="btn btn-sm btn-outline-secondary" type="button">Organize View</button>
       </div>
       <div class="d-flex flex-wrap gap-2 align-items-center mb-2">
         <span class="small text-muted">Focus Mode</span>
