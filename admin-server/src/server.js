@@ -3657,7 +3657,7 @@ const me = ${JSON.stringify(u)};
 const canWrite = ${JSON.stringify(canWrite)};
 const columns = ${JSON.stringify(BOARD_COLUMNS)};
 let boardData = { tasks: [] };
-const api = (path) => path;
+const api = (path) => '/dashboard/api' + path;
 
 const panelEl = document.getElementById('taskDetailPanel');
 const panel = (window.bootstrap && window.bootstrap.Offcanvas) ? new bootstrap.Offcanvas(panelEl) : null;
