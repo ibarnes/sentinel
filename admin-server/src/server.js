@@ -4746,11 +4746,25 @@ async function handleTaskMove(req, res, statusInput) {
     task.updated_at = nowIso();
     task.updated_by = getUserLabel(req);
 
-    await writeBoard(board, getUserLabel(req), 'task.move', id, before, { status: task.status, review_packet_id: task.review_packet_id || null }, effectiveRole(req) || 'editor');
+    try {
+      await writeBoard(board, getUserLabel(req), 'task.move', id, before, { status: task.status, review_packet_id: task.review_packet_id || null }, effectiveRole(req) || 'editor');
+    } catch (persistErr) {
+      console.error('task.move writeBoard failed, falling back to direct board write', persistErr);
+      await writeJson(BOARD_FILE, board);
+      await appendAuditEvent({
+        ts: nowIso(),
+        actor: getUserLabel(req),
+        role: effectiveRole(req) || 'editor',
+        event_type: 'task.move.fallback',
+        entity_type: 'task',
+        entity_id: id,
+        meta: { before, after: { status: task.status, review_packet_id: task.review_packet_id || null }, error: String(persistErr?.message || persistErr) }
+      });
+    }
     return res.json(task);
   } catch (err) {
     console.error('task.move failed', err);
-    return res.status(500).json({ error: 'move failed' });
+    return res.status(500).json({ error: 'move failed', detail: String(err?.message || err) });
   }
 }
 
