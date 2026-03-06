@@ -3638,7 +3638,7 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
         <button id="panelSaveBtn" class="btn btn-sm btn-primary">Save</button>
         <button id="panelRequestBtn" class="btn btn-sm btn-outline-warning">Request Approval</button>
         <button id="panelApproveBtn" class="btn btn-sm btn-success" style="display:none">Approve</button>
-        <button id="panelMoveBtn" class="btn btn-sm btn-outline-secondary">Move to Selected Status</button>
+        <button id="panelMoveBtn" class="btn btn-sm btn-dark">Move to Selected Status</button>
       </div>
       <div class="mt-3">
         <label class="form-label small">Add comment</label>
