@@ -32,13 +32,15 @@
   }
 
   let data = { nodes: [], edges: [] };
-  try {
-    const response = await fetch('/api/capital-map', { credentials: 'same-origin' });
-    if (response.ok) {
-      data = await response.json();
-    }
-  } catch (_) {
-    data = { nodes: [], edges: [] };
+  const dataEndpoints = ['/api/capital-map', '/dashboard/api/capital-map'];
+  for (const ep of dataEndpoints) {
+    try {
+      const response = await fetch(ep, { credentials: 'same-origin' });
+      if (response.ok) {
+        data = await response.json();
+        break;
+      }
+    } catch (_) {}
   }
 
   const rawNodes = Array.isArray(data.nodes) ? data.nodes : [];

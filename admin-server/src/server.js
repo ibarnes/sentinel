@@ -3358,13 +3358,16 @@ app.get('/api/me', requireAnyAuth, async (req, res) => {
   res.json({ user: currentUser(req), effectiveRole: effectiveRole(req) });
 });
 
-app.get('/api/capital-map', async (_req, res) => {
+const serveCapitalMap = async (_req, res) => {
   const data = await readJson(DASHBOARD_CAPITAL_MAP_FILE, { nodes: [], edges: [] });
   res.json({
     nodes: Array.isArray(data?.nodes) ? data.nodes : [],
     edges: Array.isArray(data?.edges) ? data.edges : [],
   });
-});
+};
+
+app.get('/api/capital-map', serveCapitalMap);
+app.get('/dashboard/api/capital-map', serveCapitalMap);
 
 app.post('/api/contact-paths', requireRole('architect','editor'), async (req, res) => {
   const file = DASHBOARD_CONTACT_PATHS_FILE;
