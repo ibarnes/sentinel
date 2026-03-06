@@ -121,7 +121,7 @@
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
-    "name": "Gulf\u2013Africa Trade Corridor Platform",
+    "name": "Gulf–Africa Trade Corridor Platform",
     "status": "Pre-FID / Formation",
     "gate_stage": "Gate 1",
     "gate_updated_at": "2026-03-05T20:13:00Z",
@@ -136,7 +136,7 @@
       "PARTNER-UAE-LOGISTICS",
       "PARTNER-GLOBAL-TRADING-HOUSES"
     ],
-    "macro_gravity_summary": "The stabilization of Dangote refinery and other African supply nodes creates a window to architect a Gulf\u2013Africa trade corridor. A UAE-based platform can aggregate Gulf demand, coordinate logistics, and route refined products and other commodities from African supply anchors to global markets.",
+    "macro_gravity_summary": "The stabilization of Dangote refinery and other African supply nodes creates a window to architect a Gulf–Africa trade corridor. A UAE-based platform can aggregate Gulf demand, coordinate logistics, and route refined products and other commodities from African supply anchors to global markets.",
     "structural_role": "USG designs phase-gated commitment architecture: domestic-priority compatibility now, export-valve activation criteria next, and global distribution scale once allocation thresholds are met.",
     "fid_event_definition": "Formal corridor SPV/JV execution triggered by sustained export allocation, anchored sponsor commitments, approved trade-finance lines, and contracted multi-year offtake under UAE operating structure.",
     "phase_label": "Phase-2 export corridor once African supply nodes reach stable export allocation.",
@@ -145,5 +145,25 @@
       "Bestaf Infrastructure",
       "African Commodity Producers"
     ]
+  },
+  {
+    "initiative_id": "INIT-GRAVITY-001",
+    "name": "Gravity (Coin + City)",
+    "status": "Concept Authorization",
+    "macro_gravity_summary": "Infrastructure-first economic coordination system using stablecoin settlement and credibility rails to sequence city buildout.",
+    "linked_buyers": [
+      "ADQ",
+      "AFC"
+    ],
+    "presentations": {
+      "utc_internal": "",
+      "buyer_alignment": {}
+    },
+    "gate_stage": "Gate 1",
+    "gate_updated_at": "2026-03-06T18:37:00Z",
+    "infrastructure_category": "Digital + Urban Infrastructure",
+    "buyer_path": "Mixed / Multi-actor (Sovereign + DFI)",
+    "usg_relevance": "Track",
+    "next_intelligence_action": "Identify sovereign anchor buyer and DFI de-risking path"
   }
 ]
