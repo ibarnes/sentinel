@@ -107,16 +107,21 @@
 - 2026-03-01 review: no scoring model or weighting changes approved.
 - 2026-03-02 maintenance: no new scoring changes approved.
 
-# Project Status Snapshot (2026-03-05)
+# Project Status Snapshot (2026-03-06)
 - Workflow C queue discipline reconfirmed on schedule:
   - 00:00 UTC intake trigger logged internal-only.
-  - 04:00 UTC queue event recorded; `execute_immediately=false`.
+  - 04:00 UTC queue event recorded for `mission-control/workflow-c/queue/2026-03-06.json`; `execute_immediately=false`.
   - Execution remains deferred to local 23:00 ET window pending explicit queued tasks.
 - Presentation Studio active build progress (Board Build Window):
-  - Deck APIs (GET/POST/PATCH) implemented in `admin-server/src/server.js`.
-  - Review packet generated: `mission-control/review-packets/RP-0018-presentation-studio-deck-apis-get-post-patch.md`.
-  - Board movement: TASK-0020 and TASK-0021 advanced to Ready for Review (no Done transitions).
-- Scoring policy status: no scoring model or weighting changes approved on 2026-03-05 maintenance.
+  - Slide list/get API slice completed (`GET /api/presentation-studio/decks/:deckId/slides`, `GET /api/presentation-studio/decks/:deckId/slides/:slideId`).
+  - Review packet generated: `mission-control/review-packets/RP-0030-presentation-studio-slide-list-get-endpoints.md`.
+  - Board movement: TASK-0023 advanced to Ready for Review (no Done transitions).
+- Board Recovery Sweep executed at 07:30 UTC:
+  - In Progress >48h = 0; Ready for Review >24h = 27; Blocked = 0 (functional blocker evidence tracked on TASK-0097).
+  - Decomposition gate enforced via TASK-0098; unblock subtask TASK-0099 completed.
+  - Review packet generated: `mission-control/review-packets/RP-0031-board-recovery-sweep-2026-03-06.md`.
+- Workflow B daily queue refresh produced `RP-0034` with canonical ranking from `dashboard/data/buyers.json`; access-graph gaps remain the main conversion constraint.
+- Scoring policy status: no scoring model or weighting changes approved on 2026-03-06 maintenance.
 
 # Communication Operating Rule (2026-03-01)
 - Proactive update protocol is mandatory during active build windows:
