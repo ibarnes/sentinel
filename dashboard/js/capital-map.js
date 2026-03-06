@@ -40,7 +40,7 @@
   }
 
   let data = { nodes: [], edges: [] };
-  const dataEndpoints = ['/api/capital-map', '/dashboard/api/capital-map'];
+  const dataEndpoints = ['/dashboard/api/capital-map', '/api/capital-map'];
   for (const ep of dataEndpoints) {
     try {
       const response = await fetch(ep, { credentials: 'same-origin' });
@@ -144,7 +144,6 @@
     userPanningEnabled: true,
     minZoom: isMobile ? 0.25 : 0.35,
     maxZoom: isMobile ? 2.2 : 2.6,
-    wheelSensitivity: isMobile ? 0.12 : 0.2,
     style: [
       {
         selector: 'node',
