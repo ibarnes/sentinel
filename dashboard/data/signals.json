@@ -1101,5 +1101,37 @@
       "Domestic-First Sequencing",
       "Future Export Valve"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-06-IFC-FY26-BUDGET-001",
+    "title": "IFC FY26 budget confirms mobilization-first posture with IDA/FCS and infrastructure emphasis",
+    "signal_class": "Sponsor Altitude",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-06T03:40:00Z",
+    "buyer_ids": [
+      "IFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "IFC FY26 budget and resource plan confirms prioritization of private capital mobilization (PCM), upstream/advisory services, IDA/FCS focus, and sectors including energy/water, digital connectivity, climate resilience, and MSME value chains.",
+    "flow": "Budget priorities -> instrument emphasis (MCPP, credit insurance, securitization, advisory, equity vehicles) -> stronger platform financing pathways in target sectors/geographies",
+    "verification_note": "First-party IFC FY26 Budget paper approved by Board (May 28, 2025).",
+    "sources": [
+      {
+        "label": "IFC FY26 Budget Paper",
+        "url": "internal://file/ifc-fy26-budget-paper---4e45e0e0-baaa-4a89-b541-b3c81b21331c.pdf"
+      }
+    ],
+    "tags": [
+      "IFC FY26",
+      "PCM",
+      "IDA/FCS",
+      "Energy",
+      "Digital Connectivity",
+      "MSME",
+      "Advisory"
+    ]
   }
 ]

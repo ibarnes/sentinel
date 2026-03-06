@@ -623,7 +623,39 @@
       "recurrence_potential": "Medium"
     },
     "created_at": "2026-03-04T20:26:29Z",
-    "updated_at": "2026-03-04T20:26:29Z"
+    "updated_at": "2026-03-06T03:40:00Z",
+    "strategy_profile": {
+      "fy26_priority_geographies": [
+        "IDA countries",
+        "FCS countries"
+      ],
+      "fy26_priority_sectors": [
+        "Energy & Water Access",
+        "Digital Connectivity",
+        "Climate Resilience",
+        "Food Security",
+        "Infrastructure",
+        "MSME Value Chains"
+      ],
+      "preferred_instruments": [
+        "MCPP",
+        "Credit Insurance / De-risking",
+        "Securitization",
+        "Upstream & Advisory",
+        "Equity Vehicles"
+      ],
+      "constraint_flags": [
+        "BCR pressure below 91% threshold",
+        "2% flexibility mechanism",
+        "Higher supervision and E&S workload"
+      ],
+      "decision_cues": [
+        "Mobilization potential",
+        "IDA/FCS relevance",
+        "Bankability pathway",
+        "Implementation readiness"
+      ]
+    }
   },
   {
     "buyer_id": "MUBADALA",
