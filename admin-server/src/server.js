@@ -33,6 +33,7 @@ const BEACON_QUEUE_SCHEMA_FILE = path.join(ROOT, 'mission-control', 'beacon', 'b
 const DASHBOARD_DECKSPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'deckspecs.v2.json');
 const DASHBOARD_DECKSPEC_SCHEMA_FILE = path.join(ROOT, 'dashboard', 'deckspec.schema.v2.json');
 const DASHBOARD_PIPELINE_RUNS_FILE = path.join(ROOT, 'dashboard', 'data', 'pipeline_runs.v1.json');
+const DASHBOARD_SLIDE_SPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'slidespecs.v2.json');
 const DASHBOARD_CAPITAL_MAP_FILE = path.join(ROOT, 'dashboard', 'data', 'capital-map.json');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
@@ -2468,6 +2469,10 @@ function defaultPipelineRunStore() {
   return { version: 1, runs: [] };
 }
 
+function defaultSlideSpecStore() {
+  return { version: 2, slidesByDeck: {} };
+}
+
 function defaultDeckSpecV2({ initiativeId = '', buyerId = null, deckType = 'utc-internal', globalTemplateTheme = 'sovereign-memo', styleMode = 'professional', copyProvider = 'local', imageProvider = 'placeholder' } = {}) {
   const safeInitiative = String(initiativeId || 'INIT-000');
   const safeBuyer = buyerId ? String(buyerId) : null;
@@ -2562,6 +2567,9 @@ async function ensureTeamAndBoardFiles() {
   if (!fssync.existsSync(DASHBOARD_PIPELINE_RUNS_FILE)) {
     await fs.writeFile(DASHBOARD_PIPELINE_RUNS_FILE, JSON.stringify(defaultPipelineRunStore(), null, 2));
   }
+  if (!fssync.existsSync(DASHBOARD_SLIDE_SPECS_FILE)) {
+    await fs.writeFile(DASHBOARD_SLIDE_SPECS_FILE, JSON.stringify(defaultSlideSpecStore(), null, 2));
+  }
   if (!fssync.existsSync(BEACON_QUEUE_SCHEMA_FILE)) {
     await fs.copyFile(path.join(ROOT, 'mission-control', 'beacon', 'beacons.schema.json'), BEACON_QUEUE_SCHEMA_FILE).catch(async () => {
       await fs.writeFile(BEACON_QUEUE_SCHEMA_FILE, JSON.stringify({ version: 1 }, null, 2));
@@ -2613,6 +2621,20 @@ async function readPipelineRunStore() {
 
 async function writePipelineRunStore(store) {
   await writeJson(DASHBOARD_PIPELINE_RUNS_FILE, store);
+}
+
+async function readSlideSpecStore() {
+  const store = await readJson(DASHBOARD_SLIDE_SPECS_FILE, defaultSlideSpecStore());
+  if (!store || typeof store !== 'object') return defaultSlideSpecStore();
+  if (!store.version) store.version = 2;
+  if (!store.slidesByDeck || typeof store.slidesByDeck !== 'object' || Array.isArray(store.slidesByDeck)) {
+    store.slidesByDeck = {};
+  }
+  return store;
+}
+
+async function writeSlideSpecStore(store) {
+  await writeJson(DASHBOARD_SLIDE_SPECS_FILE, store);
 }
 
 const PIPELINE_ALLOWED_SCOPES = new Set(['deck', 'slide']);
@@ -4043,6 +4065,46 @@ app.get('/api/presentation-studio/slides/slots-preview', requireRole('architect'
     slotsSchemaVersion: s.slots_schema_version || null,
     template_id: s.template_id || null
   });
+});
+
+app.get('/api/presentation-studio/decks/:deckId/slides', requireRole('architect','editor','observer'), async (req, res) => {
+  const deckId = String(req.params.deckId || '').trim();
+  if (!deckId) return res.status(400).json({ error: 'deckId required' });
+
+  const deckStore = await readDeckSpecStore();
+  const deck = deckStore.decks.find((d) => String(d.deckId) === deckId);
+  if (!deck) return res.status(404).json({ error: 'deck not found' });
+
+  const slideStore = await readSlideSpecStore();
+  const deckSlides = Array.isArray(slideStore.slidesByDeck?.[deckId]) ? slideStore.slidesByDeck[deckId] : [];
+  const order = Array.isArray(deck.slideOrder) ? deck.slideOrder : [];
+  const orderIndex = new Map(order.map((id, idx) => [String(id), idx]));
+
+  const slides = [...deckSlides].sort((a, b) => {
+    const ai = orderIndex.has(String(a.slideId)) ? orderIndex.get(String(a.slideId)) : Number.MAX_SAFE_INTEGER;
+    const bi = orderIndex.has(String(b.slideId)) ? orderIndex.get(String(b.slideId)) : Number.MAX_SAFE_INTEGER;
+    if (ai !== bi) return ai - bi;
+    return String(a.createdAt || '').localeCompare(String(b.createdAt || ''));
+  });
+
+  return res.json({ ok: true, deckId, count: slides.length, slides });
+});
+
+app.get('/api/presentation-studio/decks/:deckId/slides/:slideId', requireRole('architect','editor','observer'), async (req, res) => {
+  const deckId = String(req.params.deckId || '').trim();
+  const slideId = String(req.params.slideId || '').trim();
+  if (!deckId || !slideId) return res.status(400).json({ error: 'deckId and slideId required' });
+
+  const deckStore = await readDeckSpecStore();
+  const deck = deckStore.decks.find((d) => String(d.deckId) === deckId);
+  if (!deck) return res.status(404).json({ error: 'deck not found' });
+
+  const slideStore = await readSlideSpecStore();
+  const deckSlides = Array.isArray(slideStore.slidesByDeck?.[deckId]) ? slideStore.slidesByDeck[deckId] : [];
+  const slide = deckSlides.find((s) => String(s.slideId) === slideId);
+  if (!slide) return res.status(404).json({ error: 'slide not found' });
+
+  return res.json({ ok: true, deckId, slide });
 });
 
 app.post('/api/presentation-studio/decks/:deckId/pipeline/run', requireRole('architect','editor'), async (req, res) => {
