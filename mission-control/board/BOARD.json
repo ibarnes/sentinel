@@ -2659,11 +2659,17 @@
           "at": "2026-03-06T07:30:00Z",
           "by": "sentinel",
           "text": "Recovery sweep decomposition: split stale-review backlog recovery into TASK-0099/0100/0101 for atomic execution and approvals."
+        },
+        {
+          "id": "progress-0098-20260306-1140",
+          "author": "sentinel",
+          "text": "Executed TASK-0100 and TASK-0101; generated RP-0032 and RP-0033; parent now waiting on Isaac approval decisions for triage bundles.",
+          "created_at": "2026-03-06T11:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T07:30:00Z",
-      "updated_at": "2026-03-06T07:30:00Z",
+      "updated_at": "2026-03-06T11:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2701,7 +2707,7 @@
     {
       "id": "TASK-0100",
       "title": "BRS-2026-03-06b Prepare Approval Bundle A (oldest Ready for Review set)",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2715,17 +2721,32 @@
         "TASK-0098"
       ],
       "description": "Create an approval bundle for the oldest Ready for Review tasks (target 8\u201312 items) with one-line approve/defer rationale per item.\nAcceptance Criteria:\n- Bundle groups items by theme.\n- Each item has approve/defer recommendation with risk note.\n- Output packaged as review packet.",
-      "comments": [],
-      "request_approval": null,
+      "comments": [
+        {
+          "id": "done-task-0100-20260306-1140",
+          "author": "sentinel",
+          "text": "Prepared Approval Bundle A for oldest Ready for Review tasks with per-item approve/defer rationale and risk notes.",
+          "created_at": "2026-03-06T11:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-06T11:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0032-approval-bundle-a-oldest-rfr.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
       "created_at": "2026-03-06T07:30:00Z",
-      "updated_at": "2026-03-06T07:30:00Z",
+      "updated_at": "2026-03-06T11:40:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0032"
     },
     {
       "id": "TASK-0101",
       "title": "BRS-2026-03-06c Prepare Approval Bundle B (recent Ready for Review + dependency chain)",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2741,12 +2762,27 @@
         "TASK-0097"
       ],
       "description": "Create second approval bundle for newer Ready for Review work and dependency-linked items that unlock active In Progress work.\nAcceptance Criteria:\n- Includes dependency map from RFR items to active tasks.\n- Identifies quick approvals with highest unblock leverage.\n- Output packaged as review packet.",
-      "comments": [],
-      "request_approval": null,
+      "comments": [
+        {
+          "id": "done-task-0101-20260306-1140",
+          "author": "sentinel",
+          "text": "Prepared Approval Bundle B for recent/dependency-leverage Ready for Review tasks with unblock dependency map to TASK-0095/TASK-0097.",
+          "created_at": "2026-03-06T11:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-06T11:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0033-approval-bundle-b-dependency-chain.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
       "created_at": "2026-03-06T07:30:00Z",
-      "updated_at": "2026-03-06T07:30:00Z",
+      "updated_at": "2026-03-06T11:40:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0033"
     }
   ]
 }
