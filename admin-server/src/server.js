@@ -3614,34 +3614,39 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
     <div id="board" class="row g-3"></div>
   </div>
 
-  <div class="modal fade" id="taskModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg"><div class="modal-content">
-      <div class="modal-header"><h5 class="modal-title" id="taskModalTitle">Task</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-      <div class="modal-body">
-        <form id="taskForm" class="row g-3">
-          <input type="hidden" id="taskId" />
-          <div class="col-12"><label class="form-label">Title</label><input class="form-control" id="f_title" required /></div>
-          <div class="col-12 col-md-6"><label class="form-label">Owner</label><input class="form-control" id="f_owner" /></div>
-          <div class="col-12 col-md-6"><label class="form-label">Due date</label><input type="date" class="form-control" id="f_due_date" /></div>
-          <div class="col-12 col-md-6"><label class="form-label">Priority</label><select class="form-select" id="f_priority"><option>P0</option><option>P1</option><option selected>P2</option><option>P3</option></select></div>
-          <div class="col-12 col-md-6"><label class="form-label">Tags (comma separated)</label><input class="form-control" id="f_tags" /></div>
-          <div class="col-12"><label class="form-label">Linked refs (comma separated)</label><input class="form-control" id="f_refs" /></div>
-          <div class="col-12"><label class="form-label">Description</label><textarea class="form-control" id="f_desc" rows="4"></textarea></div>
-        </form>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="taskDetailPanel" style="width:min(680px,98vw)">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="taskPanelTitle">Task Detail</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <input type="hidden" id="d_taskId" />
+      <div class="row g-2">
+        <div class="col-12"><label class="form-label small">Title</label><input class="form-control form-control-sm" id="d_title" /></div>
+        <div class="col-6"><label class="form-label small">Owner</label><input class="form-control form-control-sm" id="d_owner" /></div>
+        <div class="col-6"><label class="form-label small">Due date</label><input type="date" class="form-control form-control-sm" id="d_due_date" /></div>
+        <div class="col-6"><label class="form-label small">Priority</label><select class="form-select form-select-sm" id="d_priority"><option>P0</option><option>P1</option><option>P2</option><option>P3</option></select></div>
+        <div class="col-6"><label class="form-label small">Status</label><select class="form-select form-select-sm" id="d_status"></select></div>
+        <div class="col-12"><label class="form-label small">Tags (comma separated)</label><input class="form-control form-control-sm" id="d_tags" /></div>
+        <div class="col-12"><label class="form-label small">Linked refs (comma separated)</label><input class="form-control form-control-sm" id="d_refs" /></div>
+        <div class="col-12"><label class="form-label small">Description</label><textarea class="form-control form-control-sm" id="d_desc" rows="4"></textarea></div>
       </div>
-      <div class="modal-footer"><button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button id="saveTaskBtn" class="btn btn-primary">Save</button></div>
-    </div></div>
-  </div>
-
-  <div class="modal fade" id="commentModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog"><div class="modal-content">
-      <div class="modal-header"><h5 class="modal-title">Comment</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-      <div class="modal-body">
-        <input type="hidden" id="commentTaskId" />
-        <textarea class="form-control" id="commentText" rows="4" placeholder="Write a comment..."></textarea>
+      <div class="d-flex flex-wrap gap-2 mt-3">
+        <button id="panelSaveBtn" class="btn btn-sm btn-primary">Save</button>
+        <button id="panelRequestBtn" class="btn btn-sm btn-outline-warning">Request Approval</button>
+        <button id="panelApproveBtn" class="btn btn-sm btn-success" style="display:none">Approve</button>
+        <button id="panelMoveBtn" class="btn btn-sm btn-outline-secondary">Move to Selected Status</button>
       </div>
-      <div class="modal-footer"><button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button><button id="saveCommentBtn" class="btn btn-primary">Add Comment</button></div>
-    </div></div>
+      <div class="mt-3">
+        <label class="form-label small">Add comment</label>
+        <textarea class="form-control form-control-sm" id="panelCommentText" rows="3" placeholder="Write a comment..."></textarea>
+        <button id="panelCommentBtn" class="btn btn-sm btn-outline-secondary mt-2">Add Comment</button>
+      </div>
+      <div class="mt-3">
+        <div class="small text-muted mb-1">Comments</div>
+        <div id="panelComments" class="small"></div>
+      </div>
+    </div>
   </div>
 
 <script>
@@ -3650,11 +3655,9 @@ const canWrite = ${JSON.stringify(canWrite)};
 const columns = ${JSON.stringify(BOARD_COLUMNS)};
 let boardData = { tasks: [] };
 
-const taskModalEl = document.getElementById('taskModal');
-const commentModalEl = document.getElementById('commentModal');
-const hasBootstrapModal = !!(window.bootstrap && window.bootstrap.Modal);
-const taskModal = hasBootstrapModal ? new bootstrap.Modal(taskModalEl) : null;
-const commentModal = hasBootstrapModal ? new bootstrap.Modal(commentModalEl) : null;
+const panelEl = document.getElementById('taskDetailPanel');
+const panel = (window.bootstrap && window.bootstrap.Offcanvas) ? new bootstrap.Offcanvas(panelEl) : null;
+let activeTaskId = null;
 
 function toArray(v){ return String(v || '').split(',').map(x => x.trim()).filter(Boolean); }
 
@@ -3663,30 +3666,12 @@ function esc(s){ return String(s ?? '').replace(/[&<>]/g, (c)=>({"&":"&amp;","<"
 function cardHTML(t){
   const due = t.due_date ? 'Due: ' + t.due_date : '';
   const comments = (t.comments || []).length;
-  let actionButtons = '';
-  if (canWrite) {
-    const moveOptions = columns.map((c) => '<option value="' + c + '"' + (c === t.status ? ' selected' : '') + '>' + c + '</option>').join('');
-    actionButtons = '<div class="mt-2 d-flex gap-1 flex-wrap">' +
-      '<button class="btn btn-sm btn-outline-secondary js-edit" data-id="' + t.id + '" title="Edit task" aria-label="Edit task"><i data-lucide="pencil" style="width:14px;height:14px"></i></button>' +
-      '<button class="btn btn-sm btn-outline-secondary js-comment" data-id="' + t.id + '" title="Add comment" aria-label="Add comment"><i data-lucide="message-square" style="width:14px;height:14px"></i></button>' +
-      '<button class="btn btn-sm btn-outline-warning js-request" data-id="' + t.id + '" title="Request approval" aria-label="Request approval"><i data-lucide="send" style="width:14px;height:14px"></i></button>' +
-      ((me.role === 'architect' && t.request_approval && !t.request_approval.approved)
-        ? '<button class="btn btn-sm btn-success js-approve" data-id="' + t.id + '" title="Approve" aria-label="Approve"><i data-lucide="check" style="width:14px;height:14px"></i></button>'
-        : '') +
-      '</div>' +
-      '<div class="mt-2 d-flex gap-1 align-items-center">' +
-      '<select class="form-select form-select-sm js-move-select" data-id="' + t.id + '" style="max-width: 170px;">' + moveOptions + '</select>' +
-      '<button class="btn btn-sm btn-primary js-move-btn" data-id="' + t.id + '">Move</button>' +
-      '</div>';
-  }
-
   return [
-    '<div class="card mb-2" draggable="' + (canWrite ? 'true' : 'false') + '" data-task-id="' + t.id + '"><div class="card-body p-2">',
+    '<div class="card mb-2 js-task-card" draggable="' + (canWrite ? 'true' : 'false') + '" data-task-id="' + t.id + '" style="cursor:pointer"><div class="card-body p-2">',
     '<div><strong>' + esc(t.title) + '</strong></div>',
     '<div class="small text-muted d-flex align-items-center gap-2">Owner: ' + esc(t.owner || '—') + ' ' + esc(due) + '<span class="badge text-bg-secondary">' + esc(t.priority) + '</span></div>',
     '<div class="small">' + esc((t.tags||[]).join(', ')) + '</div>',
     '<div class="small text-muted">Comments: ' + comments + '</div>',
-    actionButtons,
     '</div></div>'
   ].join('');
 }
@@ -3708,17 +3693,11 @@ function render(){
     document.querySelectorAll('[draggable="true"]').forEach(node => {
       node.addEventListener('dragstart', (e) => e.dataTransfer.setData('text/plain', node.dataset.taskId));
     });
-    document.querySelectorAll('.js-edit').forEach(btn => btn.addEventListener('click', () => openEditTask(btn.dataset.id)));
-    document.querySelectorAll('.js-comment').forEach(btn => btn.addEventListener('click', () => openCommentModal(btn.dataset.id)));
-    document.querySelectorAll('.js-request').forEach(btn => btn.addEventListener('click', () => requestApproval(btn.dataset.id)));
-    document.querySelectorAll('.js-approve').forEach(btn => btn.addEventListener('click', () => approveTask(btn.dataset.id)));
-    document.querySelectorAll('.js-move-btn').forEach(btn => btn.addEventListener('click', async () => {
-      const id = btn.dataset.id;
-      const sel = document.querySelector('.js-move-select[data-id="' + id + '"]');
-      if (!sel) return;
-      await moveTaskTo(id, sel.value);
-    }));
   }
+
+  document.querySelectorAll('.js-task-card').forEach(node => {
+    node.addEventListener('click', () => openTaskPanel(node.dataset.taskId));
+  });
 
   if (window.lucide && typeof window.lucide.createIcons === 'function') {
     window.lucide.createIcons();
@@ -3744,85 +3723,83 @@ async function dropTask(e, status){
   await moveTaskTo(id, status);
 }
 
-async function quickTaskFlow(existing){
-  const title = prompt('Task title', existing?.title || ''); if(!title) return;
-  const owner = prompt('Owner', existing?.owner || '') || null;
-  const due_date = prompt('Due date YYYY-MM-DD', existing?.due_date || '') || null;
-  const priority = prompt('Priority P0/P1/P2/P3', existing?.priority || 'P2') || 'P2';
-  const tags = toArray(prompt('Tags comma-separated', (existing?.tags || []).join(',')));
-  const linked_refs = toArray(prompt('Linked refs comma-separated', (existing?.linked_refs || []).join(',')));
-  const description = prompt('Description', existing?.description || '') || '';
-  const id = existing?.id || '';
-  const payload = { title, owner, due_date, priority, tags, linked_refs, description };
-  const url = id ? '/api/tasks/' + encodeURIComponent(id) : '/api/tasks';
-  const method = id ? 'PATCH' : 'POST';
-  const r = await fetch(url, { method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
-  if(!r.ok){ alert('Save failed'); return; }
-  await loadBoard();
+function renderPanelComments(task){
+  const list = (task?.comments || []);
+  document.getElementById('panelComments').innerHTML = list.length
+    ? list.slice().reverse().map(c => '<div class="border rounded p-2 mb-1"><div class="small text-muted">' + esc(c.by || 'user') + ' · ' + esc(String(c.at || '').slice(0,16).replace('T',' ')) + '</div><div>' + esc(c.text || '') + '</div></div>').join('')
+    : '<div class="text-muted">No comments yet.</div>';
+}
+
+function openTaskPanel(id){
+  const t = (boardData.tasks || []).find(x => x.id === id); if (!t) return;
+  activeTaskId = id;
+  document.getElementById('taskPanelTitle').textContent = 'Task Detail';
+  document.getElementById('d_taskId').value = id;
+  document.getElementById('d_title').value = t.title || '';
+  document.getElementById('d_owner').value = t.owner || '';
+  document.getElementById('d_due_date').value = t.due_date || '';
+  document.getElementById('d_priority').value = t.priority || 'P2';
+  document.getElementById('d_tags').value = (t.tags || []).join(',');
+  document.getElementById('d_refs').value = (t.linked_refs || []).join(',');
+  document.getElementById('d_desc').value = t.description || '';
+  const statusSel = document.getElementById('d_status');
+  statusSel.innerHTML = columns.map(c => '<option value="' + c + '"' + (c === t.status ? ' selected' : '') + '>' + c + '</option>').join('');
+  document.getElementById('panelApproveBtn').style.display = (me.role === 'architect' && t.request_approval && !t.request_approval.approved) ? '' : 'none';
+  renderPanelComments(t);
+  if (panel) panel.show();
 }
 
 function openNewTask(){
-  if (!hasBootstrapModal) return quickTaskFlow(null);
-  document.getElementById('taskModalTitle').textContent = 'Create Task';
-  document.getElementById('taskId').value = '';
-  document.getElementById('taskForm').reset();
-  document.getElementById('f_priority').value = 'P2';
-  taskModal.show();
-}
-
-function openEditTask(id){
-  const t = (boardData.tasks||[]).find(x=>x.id===id); if(!t) return;
-  if (!hasBootstrapModal) return quickTaskFlow(t);
-  document.getElementById('taskModalTitle').textContent = 'Edit Task';
-  document.getElementById('taskId').value = id;
-  document.getElementById('f_title').value = t.title || '';
-  document.getElementById('f_owner').value = t.owner || '';
-  document.getElementById('f_due_date').value = t.due_date || '';
-  document.getElementById('f_priority').value = t.priority || 'P2';
-  document.getElementById('f_tags').value = (t.tags||[]).join(',');
-  document.getElementById('f_refs').value = (t.linked_refs||[]).join(',');
-  document.getElementById('f_desc').value = t.description || '';
-  taskModal.show();
+  if (!canWrite) return;
+  activeTaskId = '';
+  document.getElementById('taskPanelTitle').textContent = 'Create Task';
+  document.getElementById('d_taskId').value = '';
+  document.getElementById('d_title').value = '';
+  document.getElementById('d_owner').value = '';
+  document.getElementById('d_due_date').value = '';
+  document.getElementById('d_priority').value = 'P2';
+  document.getElementById('d_tags').value = '';
+  document.getElementById('d_refs').value = '';
+  document.getElementById('d_desc').value = '';
+  document.getElementById('d_status').innerHTML = columns.map(c => '<option value="' + c + '">' + c + '</option>').join('');
+  document.getElementById('panelApproveBtn').style.display = 'none';
+  document.getElementById('panelComments').innerHTML = '<div class="text-muted">Save task first to enable comments.</div>';
+  if (panel) panel.show();
 }
 
 async function saveTask(){
-  const id = document.getElementById('taskId').value;
+  const id = document.getElementById('d_taskId').value;
   const payload = {
-    title: document.getElementById('f_title').value.trim(),
-    owner: document.getElementById('f_owner').value.trim() || null,
-    due_date: document.getElementById('f_due_date').value || null,
-    priority: document.getElementById('f_priority').value,
-    tags: toArray(document.getElementById('f_tags').value),
-    linked_refs: toArray(document.getElementById('f_refs').value),
-    description: document.getElementById('f_desc').value || ''
+    title: document.getElementById('d_title').value.trim(),
+    owner: document.getElementById('d_owner').value.trim() || null,
+    due_date: document.getElementById('d_due_date').value || null,
+    priority: document.getElementById('d_priority').value,
+    status: document.getElementById('d_status').value,
+    tags: toArray(document.getElementById('d_tags').value),
+    linked_refs: toArray(document.getElementById('d_refs').value),
+    description: document.getElementById('d_desc').value || ''
   };
+  if (!payload.title) return alert('Title is required');
   const url = id ? '/api/tasks/' + encodeURIComponent(id) : '/api/tasks';
   const method = id ? 'PATCH' : 'POST';
   const r = await fetch(url, { method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
   if(!r.ok){ alert('Save failed'); return; }
-  if (taskModal) taskModal.hide();
+  const j = await r.json().catch(()=>null);
   await loadBoard();
-}
-
-function openCommentModal(id){
-  if (!hasBootstrapModal) {
-    const text = prompt('Comment');
-    if (text) fetch('/api/tasks/' + encodeURIComponent(id) + '/comment', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ text }) }).then(()=>loadBoard());
-    return;
-  }
-  document.getElementById('commentTaskId').value = id;
-  document.getElementById('commentText').value = '';
-  commentModal.show();
+  const reopenId = id || j?.task?.id || '';
+  if (reopenId) openTaskPanel(reopenId);
 }
 
 async function saveComment(){
-  const id = document.getElementById('commentTaskId').value;
-  const text = document.getElementById('commentText').value.trim();
+  const id = document.getElementById('d_taskId').value;
+  const text = document.getElementById('panelCommentText').value.trim();
+  if(!id) return alert('Save task first');
   if(!text) return;
   const r = await fetch('/api/tasks/' + encodeURIComponent(id) + '/comment', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ text }) });
   if(!r.ok){ alert('Comment failed'); return; }
-  if (commentModal) commentModal.hide();
+  document.getElementById('panelCommentText').value = '';
   await loadBoard();
+  openTaskPanel(id);
 }
 
 async function requestApproval(id){
@@ -3847,8 +3824,20 @@ async function createInvite(){
 }
 
 if(document.getElementById('newTaskBtn')) document.getElementById('newTaskBtn').addEventListener('click', openNewTask);
-if(document.getElementById('saveTaskBtn')) document.getElementById('saveTaskBtn').addEventListener('click', saveTask);
-if(document.getElementById('saveCommentBtn')) document.getElementById('saveCommentBtn').addEventListener('click', saveComment);
+if(document.getElementById('panelSaveBtn')) document.getElementById('panelSaveBtn').addEventListener('click', saveTask);
+if(document.getElementById('panelCommentBtn')) document.getElementById('panelCommentBtn').addEventListener('click', saveComment);
+if(document.getElementById('panelRequestBtn')) document.getElementById('panelRequestBtn').addEventListener('click', () => {
+  const id = document.getElementById('d_taskId').value; if (id) requestApproval(id);
+});
+if(document.getElementById('panelApproveBtn')) document.getElementById('panelApproveBtn').addEventListener('click', () => {
+  const id = document.getElementById('d_taskId').value; if (id) approveTask(id);
+});
+if(document.getElementById('panelMoveBtn')) document.getElementById('panelMoveBtn').addEventListener('click', async () => {
+  const id = document.getElementById('d_taskId').value;
+  const status = document.getElementById('d_status').value;
+  if (id && status) await moveTaskTo(id, status);
+  if (id) openTaskPanel(id);
+});
 if(document.getElementById('inviteBtn')) document.getElementById('inviteBtn').addEventListener('click', createInvite);
 loadBoard();
 </script>
