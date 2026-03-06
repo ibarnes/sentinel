@@ -57,6 +57,14 @@
 
   const nodeSize = isMobile ? 66 : 52;
   const labelSize = isMobile ? 16 : 14;
+  const pressureY = {
+    monetary_pressure: 100,
+    balance_sheet_pressure: 300,
+    trust_access_pressure: 500,
+    mandate_pressure: 700,
+    bankability_pressure: 900
+  };
+
   const pressureFixedLabels = {
     monetary_pressure: 'Monetary Pressure\n(Central Banks)',
     balance_sheet_pressure: 'Balance Sheet Pressure\n(Global Banks)',
@@ -65,30 +73,62 @@
     bankability_pressure: 'Bankability Pressure\n(Assets / Projects)'
   };
 
-  const typeRank = {
-    buyer: 0,
-    signal: 1,
-    initiative: 2,
-    pressure_layer: 3
+  const buyerY = pressureY.mandate_pressure;
+  const signalY = buyerY - 200;
+  const initiativeY = buyerY + 200;
+
+  const typedNodes = {
+    signal: rawNodes.filter((n) => n.type === 'signal'),
+    buyer: rawNodes.filter((n) => n.type === 'buyer'),
+    initiative: rawNodes.filter((n) => n.type === 'initiative')
   };
+
+  function spreadX(arr, start = 360, targetSpan = 1400) {
+    const out = new Map();
+    const n = arr.length;
+    if (!n) return out;
+    if (n === 1) {
+      out.set(arr[0].id, start + 320);
+      return out;
+    }
+    const step = Math.max(70, Math.min(130, Math.floor(targetSpan / (n - 1))));
+    arr.forEach((node, i) => out.set(node.id, start + i * step));
+    return out;
+  }
+
+  const signalX = spreadX(typedNodes.signal, 360, 1300);
+  const buyerX = spreadX(typedNodes.buyer, 360, 1400);
+  const initiativeX = spreadX(typedNodes.initiative, 360, 1500);
+
+  function nodePosition(node) {
+    const id = node.id;
+    const type = node.type;
+
+    if (pressureY[id] != null) {
+      return { x: 180, y: pressureY[id] };
+    }
+    if (type === 'signal') {
+      return { x: signalX.get(id) || 300, y: signalY };
+    }
+    if (type === 'buyer') {
+      return { x: buyerX.get(id) || 300, y: buyerY };
+    }
+    if (type === 'initiative') {
+      return { x: initiativeX.get(id) || 300, y: initiativeY };
+    }
+    return { x: 520, y: 520 };
+  }
 
   const elements = [
     ...rawNodes.map((n) => ({
       data: {
         ...n,
         display_label: pressureFixedLabels[n.id] || n.label || n.id
-      }
+      },
+      position: nodePosition(n),
+      locked: n.type === 'pressure_layer'
     })),
-    ...rawEdges.map((e) => {
-      const srcType = rawNodes.find((n) => n.id === e.source)?.type;
-      const tgtType = rawNodes.find((n) => n.id === e.target)?.type;
-      const srcRank = typeRank[srcType] ?? 99;
-      const tgtRank = typeRank[tgtType] ?? 99;
-      if (srcRank > tgtRank) {
-        return { data: { ...e, source: e.target, target: e.source } };
-      }
-      return { data: e };
-    })
+    ...rawEdges.map((e) => ({ data: e }))
   ];
 
   if (detailsEl) {
@@ -262,72 +302,6 @@
     return;
   }
 
-  function applyStrictLayeredLayout({ anchorId = null, fit = true } = {}) {
-    const visibleNodes = cy.nodes(':visible');
-    if (!visibleNodes.length) return;
-
-    const colX = [0, 1, 2, 3].map((i) => 180 + i * (isMobile ? 220 : 320));
-    const byType = {
-      buyer: visibleNodes.filter('[type = "buyer"]').toArray(),
-      signal: visibleNodes.filter('[type = "signal"]').toArray(),
-      initiative: visibleNodes.filter('[type = "initiative"]').toArray(),
-      pressure_layer: visibleNodes.filter('[type = "pressure_layer"]').toArray()
-    };
-
-    const centerY = Math.max(240, cy.height() / 2);
-    const compact = byType.buyer.length <= 1;
-    const spacing = compact ? (isMobile ? 88 : 74) : (isMobile ? 108 : 92);
-
-    const yById = new Map();
-
-    function assignColumn(type, orderByPrev = null) {
-      const arr = byType[type] || [];
-      if (!arr.length) return;
-
-      const sorted = [...arr].sort((a, b) => String(a.data('label') || a.id()).localeCompare(String(b.data('label') || b.id())));
-      if (orderByPrev) {
-        sorted.sort((a, b) => {
-          const ay = a.incomers('node').toArray().map((n) => yById.get(n.id())).filter((v) => Number.isFinite(v));
-          const by = b.incomers('node').toArray().map((n) => yById.get(n.id())).filter((v) => Number.isFinite(v));
-          const am = ay.length ? ay.reduce((s, v) => s + v, 0) / ay.length : centerY;
-          const bm = by.length ? by.reduce((s, v) => s + v, 0) / by.length : centerY;
-          return am - bm;
-        });
-      }
-
-      if (type === 'buyer' && anchorId) {
-        const idx = sorted.findIndex((n) => n.id() === anchorId);
-        if (idx > 0) {
-          const [anchor] = sorted.splice(idx, 1);
-          const mid = Math.floor(sorted.length / 2);
-          sorted.splice(mid, 0, anchor);
-        }
-      }
-
-      const totalH = (sorted.length - 1) * spacing;
-      const top = centerY - totalH / 2;
-      sorted.forEach((n, i) => yById.set(n.id(), top + i * spacing));
-    }
-
-    assignColumn('buyer');
-    assignColumn('signal', true);
-    assignColumn('initiative', true);
-    assignColumn('pressure_layer', true);
-
-    visibleNodes.forEach((n) => {
-      const t = n.data('type');
-      const rank = typeRank[t];
-      const x = Number.isFinite(rank) ? colX[rank] : colX[1];
-      const y = yById.get(n.id()) ?? centerY;
-      n.position({ x, y });
-      n.lock();
-    });
-
-    if (fit) {
-      cy.animate({ fit: { eles: cy.elements(':visible'), padding: isMobile ? 32 : 48 }, duration: 220, easing: 'ease-in-out' });
-    }
-  }
-
   function clampPan() {
     const eles = cy.elements(':visible');
     if (!eles.length) return;
@@ -348,7 +322,6 @@
     if (nx !== pan.x || ny !== pan.y) cy.pan({ x: nx, y: ny });
   }
 
-  applyStrictLayeredLayout({ fit: true });
   cy.on('pan zoom', clampPan);
   window.addEventListener('resize', () => {
     sizeContainer();
@@ -520,7 +493,6 @@
     node.addClass('focus-node');
     traced.filter('edge').addClass('focus-edge');
 
-    applyStrictLayeredLayout({ anchorId: node.id(), fit: false });
     cy.animate({
       fit: { eles: traced, padding: center ? 80 : 60 },
       duration: center ? 320 : 220,
@@ -683,12 +655,12 @@
       applyFilters();
       clearFocus();
       renderDetails(null);
-      applyStrictLayeredLayout({ fit: true });
+      cy.animate({ fit: { eles: cy.elements(':visible'), padding: 40 }, duration: 260 });
     });
   }
 
   centerBtn?.addEventListener('click', () => {
-    applyStrictLayeredLayout({ fit: true });
+    cy.animate({ fit: { eles: cy.elements(':visible'), padding: 50 }, duration: 260, easing: 'ease-in-out' });
   });
 
   function animateCapitalPath(node) {
@@ -745,7 +717,7 @@
       applyFilters();
       clearFocus();
       renderDetails(null);
-      applyStrictLayeredLayout({ fit: true });
+      cy.animate({ fit: { eles: cy.elements(':visible'), padding: 40 }, duration: 220 });
     });
   });
 
