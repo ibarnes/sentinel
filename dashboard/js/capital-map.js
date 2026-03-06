@@ -216,7 +216,8 @@
         selector: 'edge[type = "pressure_flow"]',
         style: {
           'line-color': '#ff8c42',
-          'target-arrow-color': '#ff8c42'
+          'target-arrow-color': '#ff8c42',
+          'width': 'mapData(weight, 1, 5, 4, 14)'
         }
       },
       {
@@ -230,7 +231,23 @@
         selector: 'edge[type = "influences"]',
         style: {
           'line-color': '#facc15',
-          'target-arrow-color': '#facc15'
+          'target-arrow-color': '#facc15',
+          'line-style': 'dashed'
+        }
+      },
+      {
+        selector: 'edge[type = "depends_on"]',
+        style: {
+          'line-color': '#3b82f6',
+          'target-arrow-color': '#3b82f6',
+          'line-style': 'dashed'
+        }
+      },
+      {
+        selector: 'edge[type = "blocks"]',
+        style: {
+          'line-color': '#ef4444',
+          'target-arrow-color': '#ef4444'
         }
       },
       {
