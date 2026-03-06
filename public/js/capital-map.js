@@ -106,6 +106,12 @@
         }
       },
       {
+        selector: '.filtered-out',
+        style: {
+          'display': 'none'
+        }
+      },
+      {
         selector: '.focus-node',
         style: {
           'border-width': 3,
@@ -121,6 +127,27 @@
       }
     ]
   });
+
+  const filterBuyerEl = document.getElementById('filter-buyer');
+  const filterSignalEl = document.getElementById('filter-signal');
+  const filterInitiativeEl = document.getElementById('filter-initiative');
+  const filterPressureEl = document.getElementById('filter-pressure');
+
+  function addOptions(selectEl, nodes) {
+    if (!selectEl) return;
+    const sorted = [...nodes].sort((a, b) => String(a.data('label') || a.id()).localeCompare(String(b.data('label') || b.id())));
+    for (const n of sorted) {
+      const opt = document.createElement('option');
+      opt.value = n.id();
+      opt.textContent = n.data('label') || n.id();
+      selectEl.appendChild(opt);
+    }
+  }
+
+  addOptions(filterBuyerEl, cy.nodes('[type = "buyer"]'));
+  addOptions(filterSignalEl, cy.nodes('[type = "signal"]'));
+  addOptions(filterInitiativeEl, cy.nodes('[type = "initiative"]'));
+  addOptions(filterPressureEl, cy.nodes('[type = "pressure_layer"]'));
 
   function uniqLabels(collection, type) {
     const set = new Set(
@@ -164,6 +191,29 @@
 
   function clearFocus() {
     cy.elements().removeClass('dimmed focus-node focus-edge');
+  }
+
+  function applyFilters() {
+    const selectedIds = [
+      filterBuyerEl?.value,
+      filterSignalEl?.value,
+      filterInitiativeEl?.value,
+      filterPressureEl?.value
+    ].filter(Boolean);
+
+    cy.elements().removeClass('filtered-out');
+
+    if (!selectedIds.length) return;
+
+    let keep = cy.collection();
+    for (const id of selectedIds) {
+      const n = cy.getElementById(id);
+      if (n && n.length) {
+        keep = keep.union(traceCapitalPath(n));
+      }
+    }
+
+    cy.elements().difference(keep).addClass('filtered-out');
   }
 
   function traceCapitalPath(node) {
@@ -270,11 +320,25 @@
   const resetBtn = document.getElementById('reset-map');
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
+      if (filterBuyerEl) filterBuyerEl.value = '';
+      if (filterSignalEl) filterSignalEl.value = '';
+      if (filterInitiativeEl) filterInitiativeEl.value = '';
+      if (filterPressureEl) filterPressureEl.value = '';
+      applyFilters();
       clearFocus();
       renderDetails(null);
-      cy.animate({ fit: { eles: cy.elements(), padding: 40 }, duration: 260 });
+      cy.animate({ fit: { eles: cy.elements(':visible'), padding: 40 }, duration: 260 });
     });
   }
+
+  [filterBuyerEl, filterSignalEl, filterInitiativeEl, filterPressureEl].forEach((el) => {
+    el?.addEventListener('change', () => {
+      applyFilters();
+      clearFocus();
+      renderDetails(null);
+      cy.animate({ fit: { eles: cy.elements(':visible'), padding: 40 }, duration: 220 });
+    });
+  });
 
   const seedNode = nodeFromQuery();
   if (seedNode) {
