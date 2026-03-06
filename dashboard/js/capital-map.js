@@ -143,7 +143,9 @@
           'border-width': 2,
           'border-color': '#cbd5e1',
           'width': 52,
-          'height': 52
+          'height': 52,
+          'transition-property': 'opacity, border-width, border-color, width',
+          'transition-duration': '240ms'
         }
       },
       {
@@ -190,7 +192,9 @@
           'target-arrow-shape': 'triangle',
           'line-color': '#74829a',
           'target-arrow-color': '#74829a',
-          'width': 'mapData(weight, 1, 5, 2, 10)'
+          'width': 'mapData(weight, 1, 5, 2, 10)',
+          'transition-property': 'opacity, width',
+          'transition-duration': '240ms'
         }
       },
       {
@@ -217,7 +221,7 @@
       {
         selector: '.dimmed',
         style: {
-          'opacity': 0.15
+          'opacity': 0.2
         }
       },
       {
@@ -350,59 +354,48 @@
   }
 
   function traceCapitalPath(node) {
-    const t = node.data('type');
-    const path = cy.collection().union(node);
+    const allowedNodeTypes = new Set(['pressure_layer', 'signal', 'buyer', 'initiative']);
+    const allowedEdgeTypes = new Set(['pressure_flow', 'influences', 'funds', 'depends_on']);
 
+    const walk = (start, dir) => {
+      const visitedNodes = new Set([start.id()]);
+      const visitedEdges = new Set();
+      const queue = [start];
+
+      while (queue.length) {
+        const cur = queue.shift();
+        const edgeSet = dir === 'up' ? cur.incomers('edge') : cur.outgoers('edge');
+
+        edgeSet.forEach((e) => {
+          if (!allowedEdgeTypes.has(e.data('type'))) return;
+          const next = dir === 'up' ? e.source() : e.target();
+          if (!allowedNodeTypes.has(next.data('type'))) return;
+          visitedEdges.add(e.id());
+          if (!visitedNodes.has(next.id())) {
+            visitedNodes.add(next.id());
+            queue.push(next);
+          }
+        });
+      }
+
+      return {
+        nodes: cy.collection(Array.from(visitedNodes).map((id) => cy.getElementById(id))),
+        edges: cy.collection(Array.from(visitedEdges).map((id) => cy.getElementById(id)))
+      };
+    };
+
+    const up = walk(node, 'up');
+    const down = walk(node, 'down');
+
+    // Focus modes bias what side gets emphasized but still keep full path visibility
     if (focusMode === 'buyer') {
-      // Buyer Mode: highlight capital release paths (pressure/signal -> buyer -> initiative)
-      let buyer = t === 'buyer' ? node : null;
-      if (!buyer) {
-        const upBuyer = node.incomers('edge').sources().filter((n) => n.data('type') === 'buyer');
-        const downBuyer = node.outgoers('edge').targets().filter((n) => n.data('type') === 'buyer');
-        buyer = upBuyer[0] || downBuyer[0] || null;
-      }
-      if (!buyer) return path.union(node.closedNeighborhood());
-
-      const inbound = buyer.incomers('edge').filter((e) => ['signal', 'pressure_layer'].includes(e.source().data('type')));
-      const inboundNodes = inbound.sources();
-      const out = buyer.outgoers('edge').filter((e) => e.data('type') === 'funds');
-      const initiatives = out.targets().filter((n) => n.data('type') === 'initiative');
-
-      return path.union(buyer).union(inbound).union(inboundNodes).union(out).union(initiatives);
+      return up.nodes.union(up.edges).union(down.nodes).union(down.edges);
     }
-
     if (focusMode === 'initiative') {
-      // Initiative Mode: highlight pressure dependencies (pressure/signal -> buyer -> initiative)
-      let initiative = t === 'initiative' ? node : null;
-      if (!initiative) {
-        const downInit = node.outgoers('edge').targets().filter((n) => n.data('type') === 'initiative');
-        const upInit = node.incomers('edge').sources().filter((n) => n.data('type') === 'initiative');
-        initiative = downInit[0] || upInit[0] || null;
-      }
-      if (!initiative) return path.union(node.closedNeighborhood());
-
-      const buyerEdges = initiative.incomers('edge').filter((e) => e.source().data('type') === 'buyer' && e.data('type') === 'funds');
-      const buyers = buyerEdges.sources();
-      const upstreamEdges = buyers.incomers('edge').filter((e) => ['signal', 'pressure_layer'].includes(e.source().data('type')));
-      const upstreamNodes = upstreamEdges.sources();
-
-      return path.union(initiative).union(buyerEdges).union(buyers).union(upstreamEdges).union(upstreamNodes);
+      return up.nodes.union(up.edges).union(node).union(down.edges).union(down.nodes);
     }
-
-    // Signal Mode: highlight downstream effects (signal/pressure -> buyer -> initiative)
-    let source = (t === 'signal' || t === 'pressure_layer') ? node : null;
-    if (!source) {
-      const upstream = node.incomers('edge').sources().filter((n) => ['signal', 'pressure_layer'].includes(n.data('type')));
-      source = upstream[0] || null;
-    }
-    if (!source) return path.union(node.closedNeighborhood());
-
-    const buyerEdges = source.outgoers('edge').filter((e) => e.target().data('type') === 'buyer');
-    const buyers = buyerEdges.targets();
-    const fundEdges = buyers.outgoers('edge').filter((e) => e.data('type') === 'funds' && e.target().data('type') === 'initiative');
-    const initiatives = fundEdges.targets();
-
-    return path.union(source).union(buyerEdges).union(buyers).union(fundEdges).union(initiatives);
+    // Signal mode
+    return up.nodes.union(up.edges).union(down.nodes).union(down.edges);
   }
 
   function focusNode(node, center = false) {
@@ -416,9 +409,11 @@
     node.addClass('focus-node');
     traced.filter('edge').addClass('focus-edge');
 
-    if (center) {
-      cy.animate({ fit: { eles: traced, padding: 80 }, duration: 320 });
-    }
+    cy.animate({
+      fit: { eles: traced, padding: center ? 80 : 60 },
+      duration: center ? 320 : 220,
+      easing: 'ease-in-out'
+    });
 
     renderDetails(node);
   }
