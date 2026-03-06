@@ -4839,34 +4839,43 @@ app.post('/api/tasks/:id/request-approval', requireRole('architect', 'editor'), 
   res.json(task);
 });
 
-app.post('/api/tasks/:id/approve', requireRole('architect'), async (req, res) => {
-  const board = await readJson(BOARD_FILE, defaultBoard());
-  const id = String(req.params.id);
-  const task = board.tasks.find((t) => t.id === id);
-  if (!task) return res.status(404).json({ error: 'not found' });
+app.post('/api/tasks/:id/approve', requireAnyAuth, async (req, res) => {
+  try {
+    const role = effectiveRole(req);
+    const canApprove = isArchitect(req) || role === 'architect' || role === 'editor';
+    if (!canApprove) return res.status(403).json({ error: 'forbidden' });
 
-  if (!task.review_packet_id) return res.status(400).json({ error: 'task has no review packet' });
+    const board = await readJson(BOARD_FILE, defaultBoard());
+    const id = String(req.params.id);
+    const task = board.tasks.find((t) => t.id === id);
+    if (!task) return res.status(404).json({ error: 'not found' });
 
-  const before = { request_approval: task.request_approval || null, status: task.status };
-  task.request_approval = {
-    ...(task.request_approval || {}),
-    approved: true,
-    approved_by: getUserLabel(req),
-    approved_at: nowIso(),
-  };
-  task.status = 'Done';
-  task.updated_at = nowIso();
-  task.updated_by = getUserLabel(req);
+    if (!task.review_packet_id) return res.status(400).json({ error: 'task has no review packet' });
 
-  await updateRpFrontmatter(task.review_packet_id, {
-    status: 'Approved',
-    architect_decision: 'Approve',
-    architect_notes: String(req.body.architect_notes || 'Approved'),
-  });
-  await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'architect', event_type: 'rp.approve', entity_type: 'review_packet', entity_id: task.review_packet_id, meta: { linked_task: task.id } });
+    const before = { request_approval: task.request_approval || null, status: task.status };
+    task.request_approval = {
+      ...(task.request_approval || {}),
+      approved: true,
+      approved_by: getUserLabel(req),
+      approved_at: nowIso(),
+    };
+    task.status = 'Done';
+    task.updated_at = nowIso();
+    task.updated_by = getUserLabel(req);
 
-  await writeBoard(board, getUserLabel(req), 'task.move', id, before, { status: task.status, request_approval: task.request_approval }, effectiveRole(req) || 'architect');
-  res.json(task);
+    await updateRpFrontmatter(task.review_packet_id, {
+      status: 'Approved',
+      architect_decision: 'Approve',
+      architect_notes: String(req.body.architect_notes || 'Approved'),
+    });
+    await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'architect', event_type: 'rp.approve', entity_type: 'review_packet', entity_id: task.review_packet_id, meta: { linked_task: task.id } });
+
+    await writeBoard(board, getUserLabel(req), 'task.move', id, before, { status: task.status, request_approval: task.request_approval }, effectiveRole(req) || 'architect');
+    return res.json(task);
+  } catch (err) {
+    console.error('task.approve failed', err);
+    return res.status(500).json({ error: 'approve failed', detail: String(err?.message || err) });
+  }
 });
 
 app.post('/api/tasks/:id/reject', requireRole('architect'), async (req, res) => {
