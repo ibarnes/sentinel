@@ -426,6 +426,36 @@
     cy.elements().removeClass('dimmed focus-node focus-edge');
   }
 
+  function compactVisibleLayout() {
+    const visible = cy.nodes(':visible');
+    if (!visible.length) return;
+
+    const cols = {
+      pressure_layer: visible.filter('[type = "pressure_layer"]').toArray(),
+      buyer: visible.filter('[type = "buyer"]').toArray(),
+      signal: visible.filter('[type = "signal"]').toArray(),
+      initiative: visible.filter('[type = "initiative"]').toArray()
+    };
+
+    const centerY = Math.max(220, cy.height() / 2);
+    const yStep = isMobile ? 86 : 70;
+
+    const placeColumn = (arr, x) => {
+      if (!arr.length) return;
+      const sorted = [...arr].sort((a, b) => String(a.data('label') || a.id()).localeCompare(String(b.data('label') || b.id())));
+      const top = centerY - ((sorted.length - 1) * yStep) / 2;
+      sorted.forEach((n, i) => n.position({ x, y: top + i * yStep }));
+    };
+
+    // Compact local neighborhood columns instead of global spread.
+    placeColumn(cols.pressure_layer, 180);
+    placeColumn(cols.buyer, 330);
+    placeColumn(cols.signal, 500);
+    placeColumn(cols.initiative, 680);
+
+    cy.animate({ fit: { eles: cy.elements(':visible'), padding: isMobile ? 28 : 40 }, duration: 180, easing: 'ease-in-out' });
+  }
+
   function applyFilters() {
     const selectedIds = [
       filterBuyerEl?.value,
@@ -447,6 +477,7 @@
     }
 
     cy.elements().difference(keep).addClass('filtered-out');
+    compactVisibleLayout();
   }
 
   function traceCapitalPath(node) {
@@ -500,13 +531,14 @@
     cy.elements().addClass('dimmed');
 
     const traced = traceCapitalPath(node);
-    traced.removeClass('dimmed');
+    const tracedVisible = traced.filter(':visible');
+    tracedVisible.removeClass('dimmed');
 
     node.addClass('focus-node');
-    traced.filter('edge').addClass('focus-edge');
+    tracedVisible.filter('edge').addClass('focus-edge');
 
     cy.animate({
-      fit: { eles: traced, padding: center ? 80 : 60 },
+      fit: { eles: tracedVisible.length ? tracedVisible : cy.elements(':visible'), padding: center ? 80 : 60 },
       duration: center ? 320 : 220,
       easing: 'ease-in-out'
     });
@@ -586,6 +618,7 @@
     });
 
     cy.elements().difference(keep).addClass('filtered-out');
+    compactVisibleLayout();
 
     if (filterBuyerEl) filterBuyerEl.value = node.id();
     if (filterSignalEl) filterSignalEl.value = '';
