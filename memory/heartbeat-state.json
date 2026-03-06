@@ -13,5 +13,31 @@
   "buyerAccessLastRunUtc": "2026-03-06T19:18:00Z",
   "lastChecks": {
     "buyer_access_graph": 1772831924
-  }
+  },
+  "buyerAccessGraphIssueSignature": "f07b7302f9094d8e052ad2266ef8ea38762d3622b5bc0b71185acdb40df21dcd",
+  "buyerAccessGraphIssues": [
+    {
+      "type": "missing_decision_arch_coverage",
+      "buyers": [
+        "PIF",
+        "TEMASEK",
+        "ADQ",
+        "AFC",
+        "MUBADALA",
+        "WORLDBANK",
+        "QIA",
+        "AfDB"
+      ]
+    },
+    {
+      "type": "high_influence_without_access_path",
+      "items": [
+        {
+          "buyer_id": "DFC",
+          "high_influence_count": 2
+        }
+      ]
+    }
+  ],
+  "buyerAccessGraphLastCheckedUtc": "2026-03-06T23:18:36Z"
 }
