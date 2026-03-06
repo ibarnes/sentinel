@@ -3682,8 +3682,8 @@ function cardHTML(t){
 
   return [
     '<div class="card mb-2" draggable="' + (canWrite ? 'true' : 'false') + '" data-task-id="' + t.id + '"><div class="card-body p-2">',
-    '<div class="d-flex justify-content-between"><strong>' + esc(t.title) + '</strong><span class="badge text-bg-secondary">' + esc(t.priority) + '</span></div>',
-    '<div class="small text-muted">Owner: ' + esc(t.owner || '—') + ' ' + esc(due) + '</div>',
+    '<div><strong>' + esc(t.title) + '</strong></div>',
+    '<div class="small text-muted d-flex align-items-center gap-2">Owner: ' + esc(t.owner || '—') + ' ' + esc(due) + '<span class="badge text-bg-secondary">' + esc(t.priority) + '</span></div>',
     '<div class="small">' + esc((t.tags||[]).join(', ')) + '</div>',
     '<div class="small text-muted">Comments: ' + comments + '</div>',
     actionButtons,
