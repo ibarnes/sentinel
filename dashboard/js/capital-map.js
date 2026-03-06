@@ -73,7 +73,7 @@
     bankability_pressure: 'Bankability Pressure\n(Assets / Projects)'
   };
 
-  const buyerY = 700;
+  const buyerY = pressureY.mandate_pressure;
   const signalY = buyerY - 200;
   const initiativeY = buyerY + 200;
 
