@@ -1,0 +1,2985 @@
+{
+  "version": "signal-physics-v1",
+  "generatedAt": "2026-03-07T20:34:25.066Z",
+  "modelNotes": {
+    "fallbackRuleSystem": "unchanged",
+    "explainability": "All fields are deterministic from signal metadata + config coefficients."
+  },
+  "systems": [
+    "financial",
+    "energy",
+    "compute",
+    "communications",
+    "logistics",
+    "industrialProduction"
+  ],
+  "enrichedSignals": [
+    {
+      "signal_id": "SIG-2026-02-26-AFC-001",
+      "title": "AFC Project Preparation Capital Path to USG",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-02-26T23:25:00Z",
+      "buyer_ids": [
+        "AFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "AFC project-preparation capital (AIFF/development budget) appears aligned to pre-FID structuring pathways that could support USG mandate-based development fees.",
+      "flow": "AFC prep budget -> project/SPV development account -> USG retainer/milestone/success fees",
+      "verification_note": "Sizing assumptions are unverified and should remain Monitor until first-party AFC docs or Tier-1 corroboration.",
+      "sources": [
+        {
+          "label": "User-provided AFC transfer hypothesis",
+          "url": "internal://chat/2026-02-26"
+        }
+      ],
+      "signal_class": "Capital Reality",
+      "systems": [
+        "financial",
+        "compute",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.007,
+        "snrNormalized": 0.168,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.95,
+        "clarity": 0.64,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 41.74,
+        "recencyWeight": 0.82
+      },
+      "pressureContributionBySystem": {
+        "financial": 10.027,
+        "energy": 7.573,
+        "compute": 9.957,
+        "communications": 5.189,
+        "logistics": 10.588,
+        "industrialProduction": 5.329
+      }
+    },
+    {
+      "signal_id": "SIG-2026-02-27-NG-001",
+      "title": "Nigeria Infrastructure Financing Gap Escalation",
+      "status": "Monitor",
+      "confidence": "High",
+      "observed_at": "2026-02-27T00:00:00Z",
+      "buyer_ids": [
+        "NSIA",
+        "FMF-NG",
+        "AfDB"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Nigeria’s infrastructure financing gap remains materially above available annual public allocation capacity. The widening gap increases pressure on sovereign capital allocation authorities to approve structured, governance-aligned platforms that compress risk before FID. This strengthens the probability of mandate-based pre-FID structuring engagements.",
+      "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+      "sources": [
+        {
+          "label": "User-provided strategic signal intake",
+          "url": "internal://chat/2026-02-27"
+        }
+      ],
+      "signal_class": "Structural Ambiguity",
+      "systems": [
+        "financial",
+        "compute"
+      ],
+      "physics": {
+        "snr": 1.149,
+        "snrNormalized": 0.192,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.66,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 60,
+          "max": 365
+        },
+        "phase": "mid",
+        "amplitude": 40.1,
+        "recencyWeight": 0.82
+      },
+      "pressureContributionBySystem": {
+        "financial": 9.085,
+        "energy": 5.543,
+        "compute": 9.855,
+        "communications": 4.003,
+        "logistics": 3.926,
+        "industrialProduction": 3.465
+      }
+    },
+    {
+      "signal_id": "SIG-2026-02-27-NG-002",
+      "title": "National Grid Instability / Capacity Shortfall",
+      "status": "Monitor",
+      "confidence": "High",
+      "observed_at": "2026-02-27T00:00:00Z",
+      "buyer_ids": [
+        "NSIA",
+        "FMF-NG",
+        "AfDB",
+        "AFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Ongoing grid instability and generation-to-distribution inefficiencies continue to constrain economic output. Persistent energy pressure increases urgency for structured energy infrastructure pathways with clear capital stack definition and decision sequencing before execution.",
+      "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+      "sources": [
+        {
+          "label": "User-provided strategic signal intake",
+          "url": "internal://chat/2026-02-27"
+        }
+      ],
+      "signal_class": "Platform Pressure",
+      "systems": [
+        "financial",
+        "energy",
+        "compute"
+      ],
+      "physics": {
+        "snr": 1.225,
+        "snrNormalized": 0.204,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 42.77,
+        "recencyWeight": 0.82
+      },
+      "pressureContributionBySystem": {
+        "financial": 12.04,
+        "energy": 15.007,
+        "compute": 14.658,
+        "communications": 6.107,
+        "logistics": 7.242,
+        "industrialProduction": 7.242
+      }
+    },
+    {
+      "signal_id": "SIG-2026-02-27-GULF-001",
+      "title": "Gulf Sovereign Capital Reallocation Toward Africa Infrastructure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-02-27T00:00:00Z",
+      "buyer_ids": [
+        "PIF",
+        "GIC",
+        "SFD",
+        "ADFD"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Recent directional capital flows indicate sustained Gulf sovereign interest in cross-border infrastructure deployment across Africa. This increases probability of sovereign-aligned platform mandates where governance clarity precedes capital commitment.",
+      "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+      "sources": [
+        {
+          "label": "User-provided strategic signal intake",
+          "url": "internal://chat/2026-02-27"
+        }
+      ],
+      "signal_class": "Capital Reality",
+      "systems": [
+        "financial",
+        "compute"
+      ],
+      "physics": {
+        "snr": 1.266,
+        "snrNormalized": 0.211,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.95,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 44.17,
+        "recencyWeight": 0.82
+      },
+      "pressureContributionBySystem": {
+        "financial": 10.998,
+        "energy": 6.71,
+        "compute": 11.93,
+        "communications": 4.846,
+        "logistics": 4.753,
+        "industrialProduction": 4.194
+      }
+    },
+    {
+      "signal_id": "SIG-2026-02-27-AFDB-001",
+      "title": "AfDB Project Preparation Facility Activation Expansion",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-02-27T00:00:00Z",
+      "buyer_ids": [
+        "AfDB"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "African Development Bank project preparation programs continue to support pre-FID structuring and feasibility pipelines. Expansion or prioritization of preparation facilities increases likelihood of institutional capital engaging at the governance-architecture stage.",
+      "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+      "sources": [
+        {
+          "label": "User-provided strategic signal intake",
+          "url": "internal://chat/2026-02-27"
+        }
+      ],
+      "signal_class": "FID Definability",
+      "systems": [
+        "financial",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.221,
+        "snrNormalized": 0.204,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.84,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 45,
+          "max": 240
+        },
+        "phase": "mid",
+        "amplitude": 42.63,
+        "recencyWeight": 0.82
+      },
+      "pressureContributionBySystem": {
+        "financial": 10.871,
+        "energy": 5.74,
+        "compute": 3.653,
+        "communications": 3.827,
+        "logistics": 11.741,
+        "industrialProduction": 4.87
+      }
+    },
+    {
+      "signal_id": "SIG-2026-02-27-USNG-001",
+      "title": "U.S.–Nigeria Strategic Infrastructure Alignment",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-02-27T00:00:00Z",
+      "buyer_ids": [
+        "NSIA",
+        "FMF-NG"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Ongoing U.S.–Nigeria cooperation in infrastructure and energy sectors improves perceived political risk alignment and strengthens downstream bankability pathways. While catalytic capital participates below governance, this alignment increases sovereign confidence in structured platforms.",
+      "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+      "sources": [
+        {
+          "label": "User-provided strategic signal intake",
+          "url": "internal://chat/2026-02-27"
+        }
+      ],
+      "signal_class": "Ecosystem / Theater",
+      "systems": [
+        "financial",
+        "energy"
+      ],
+      "physics": {
+        "snr": 1.173,
+        "snrNormalized": 0.196,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.72,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 30,
+          "max": 365
+        },
+        "phase": "mid",
+        "amplitude": 40.94,
+        "recencyWeight": 0.82
+      },
+      "pressureContributionBySystem": {
+        "financial": 9.629,
+        "energy": 10.431,
+        "compute": 5.456,
+        "communications": 3.21,
+        "logistics": 5.376,
+        "industrialProduction": 5.055
+      }
+    },
+    {
+      "signal_id": "SIG-2026-02-27-FISCAL-001",
+      "title": "Sovereign Fiscal Constraint Tightening",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-02-27T00:00:00Z",
+      "buyer_ids": [
+        "FMF-NG",
+        "NSIA"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Fiscal constraint pressures increase emphasis on disciplined capital allocation and risk compression before project approval. This heightens demand for governance clarity, defined capital stacks, and structured pre-FID sequencing.",
+      "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
+      "sources": [
+        {
+          "label": "User-provided strategic signal intake",
+          "url": "internal://chat/2026-02-27"
+        }
+      ],
+      "signal_class": "Structural Ambiguity",
+      "systems": [
+        "financial",
+        "compute"
+      ],
+      "physics": {
+        "snr": 1.149,
+        "snrNormalized": 0.192,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.66,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 60,
+          "max": 365
+        },
+        "phase": "mid",
+        "amplitude": 40.1,
+        "recencyWeight": 0.82
+      },
+      "pressureContributionBySystem": {
+        "financial": 9.085,
+        "energy": 5.543,
+        "compute": 9.855,
+        "communications": 4.003,
+        "logistics": 3.926,
+        "industrialProduction": 3.465
+      }
+    },
+    {
+      "signal_id": "SIG-2026-02-27-PIF-STRAT-001",
+      "title": "PIF Strategy Leadership Shift Toward Domestic Alignment",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-02-27T21:49:00Z",
+      "buyer_ids": [
+        "PIF"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Reported appointment of acting strategy lead at PIF with explicit alignment toward domestic development priorities suggests stronger Vision-2030 bias in capital deployment posture.",
+      "flow": "Leadership change -> strategy realignment -> domestic deployment bias -> tighter criteria for external allocations",
+      "verification_note": "High relevance signal. Keep Monitor until first-party PIF statement or threshold corroboration is met.",
+      "sources": [
+        {
+          "label": "Bloomberg report (user-provided summary)",
+          "url": "internal://chat/2026-02-27-pif-strategy"
+        }
+      ],
+      "signal_class": "Ecosystem / Theater",
+      "systems": [
+        "financial",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.173,
+        "snrNormalized": 0.196,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.72,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 30,
+          "max": 365
+        },
+        "phase": "early",
+        "amplitude": 33.62,
+        "recencyWeight": 0.82
+      },
+      "pressureContributionBySystem": {
+        "financial": 8.238,
+        "energy": 4.349,
+        "compute": 2.768,
+        "communications": 2.9,
+        "logistics": 8.896,
+        "industrialProduction": 3.69
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-01-PIF-ALUMINUM-001",
+      "title": "PIF signs initial terms for advanced integrated aluminum complex in Saudi Arabia",
+      "status": "Verified",
+      "confidence": "High",
+      "observed_at": "2026-03-01T04:21:00Z",
+      "buyer_ids": [
+        "PIF"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Official PIF press release indicates active strategic-sector domestic deployment via initial terms for an integrated aluminum complex, reinforcing domestic industrial capital activation posture.",
+      "flow": "PIF strategic mandate -> domestic industrial complex terms -> capex deployment bias -> tighter external allocation selectivity",
+      "verification_note": "First-party source (PIF official press release URL).",
+      "sources": [
+        {
+          "label": "PIF official press release",
+          "url": "https://www.pif.gov.sa/en/news-and-insights/press-releases/2026/pif-and-red-sea-aluminium-holdings-sign-initial-terms-to-develop-an-advanced-integrated-aluminum-complex-in-saudi-arabia/"
+        }
+      ],
+      "signal_class": "Capital Reality",
+      "systems": [
+        "financial",
+        "industrialProduction"
+      ],
+      "physics": {
+        "snr": 6,
+        "snrNormalized": 1,
+        "sourceReliability": 0.75,
+        "verificationLevel": 1,
+        "corroborationLevel": 0.5,
+        "materiality": 0.95,
+        "clarity": 1,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 71.97,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 87.803,
+        "energy": 46.061,
+        "compute": 33.826,
+        "communications": 24.47,
+        "logistics": 45.341,
+        "industrialProduction": 89.963
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-01-PIF-VENDOR-GATE-001",
+      "title": "PIF Vendor Gate as official supplier/partner pre-qualification channel",
+      "status": "Verified",
+      "confidence": "High",
+      "observed_at": "2026-03-01T04:37:00Z",
+      "buyer_ids": [
+        "PIF"
+      ],
+      "initiative_ids": [
+        "USG",
+        "INIT-653305"
+      ],
+      "summary": "PIF Vendor Gate is the official entry channel for supplier registration, pre-qualification, and procurement visibility prior to project RFP flows.",
+      "flow": "Vendor registration -> pre-qualification visibility -> shortlist eligibility -> RFQ/RFP access",
+      "verification_note": "First-party source (official PIF Vendor Gate page).",
+      "sources": [
+        {
+          "label": "PIF Vendor Gate",
+          "url": "https://www.pif.gov.sa/en/vendor-gate/"
+        }
+      ],
+      "signal_class": "Sponsor Altitude",
+      "systems": [
+        "financial"
+      ],
+      "physics": {
+        "snr": 6,
+        "snrNormalized": 1,
+        "sourceReliability": 0.75,
+        "verificationLevel": 1,
+        "corroborationLevel": 0.5,
+        "materiality": 0.8,
+        "clarity": 1,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "late",
+        "amplitude": 79.14,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 79.14,
+        "energy": 23.742,
+        "compute": 22.159,
+        "communications": 17.411,
+        "logistics": 27.699,
+        "industrialProduction": 19.785
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-01-DANGOTE-SINOMA-001",
+      "title": "Dangote Cement and Sinoma sign strategic framework for 12 construction/expansion projects",
+      "signal_class": "Capital Reality",
+      "status": "Monitor",
+      "confidence": "Medium-High",
+      "observed_at": "2026-03-01T22:17:00Z",
+      "buyer_ids": [
+        "FMF-NG",
+        "NSIA",
+        "AfDB",
+        "AFC"
+      ],
+      "initiative_ids": [
+        "USG",
+        "INIT-653305"
+      ],
+      "summary": "Reported MOU signing in Lagos between Dangote Cement and Sinoma for execution of twelve new construction and expansion projects, indicating active infrastructure/industrial execution momentum.",
+      "flow": "Strategic framework signing -> project execution pipeline visibility -> stronger near-term infrastructure deployment signal",
+      "verification_note": "Monitor until corroborated by first-party release page or Tier-1 independent reporting with full attribution.",
+      "sources": [
+        {
+          "label": "User-provided X post text (Dangote Group account context)",
+          "url": "https://x.com/dangotegroup/status/2027419467332931602?s=46"
+        }
+      ],
+      "systems": [
+        "logistics",
+        "industrialProduction"
+      ],
+      "physics": {
+        "snr": 1.502,
+        "snrNormalized": 0.25,
+        "sourceReliability": 0.333,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.95,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "late",
+        "amplitude": 59.91,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 7.039,
+        "energy": 10.484,
+        "compute": 4.942,
+        "communications": 5.092,
+        "logistics": 19.171,
+        "industrialProduction": 19.62
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-DFC-NDAA-001",
+      "title": "DFC FY26 NDAA mandate expansion materially increases strategic capital deployment headroom",
+      "signal_class": "Capital Reality",
+      "status": "Monitor",
+      "confidence": "High",
+      "observed_at": "2026-03-02T03:41:00Z",
+      "buyer_ids": [
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG",
+        "INIT-653305"
+      ],
+      "summary": "Reported FY26 NDAA changes significantly expand DFC balance-sheet capacity, equity flexibility, and strategic sector/geographic investment authorities, improving pre-FID platform structuring feasibility across critical sectors.",
+      "flow": "Expanded mandate/capacity -> stronger early-stage de-risking tools -> improved pre-FID structuring viability -> higher probability of capital deployment at FID",
+      "verification_note": "High relevance. Keep Monitor until first-party statutory/official confirmation links are attached in-source bundle.",
+      "sources": [
+        {
+          "label": "User-provided strategic summary (FY26 NDAA/DFC)",
+          "url": "internal://chat/2026-03-02-dfc-ndaa"
+        }
+      ],
+      "systems": [
+        "financial",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.266,
+        "snrNormalized": 0.211,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.95,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 49.56,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 13.071,
+        "energy": 6.902,
+        "compute": 4.392,
+        "communications": 4.601,
+        "logistics": 14.117,
+        "industrialProduction": 5.856
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-DFC-SONGWE-001",
+      "title": "Songwe Hill Rare Earths (Malawi) pre-FID structuring window",
+      "signal_class": "FID Definability",
+      "status": "Monitor",
+      "confidence": "High",
+      "observed_at": "2026-03-02T03:55:00Z",
+      "buyer_ids": [
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "DFC project development funding tied to FEED/value engineering creates a defined pre-FID structuring window before financing commitment.",
+      "verification_note": "User-provided strategic candidate set; maintain Monitor pending first-party/Tier-1 source bundle.",
+      "sources": [
+        {
+          "label": "User-provided DFC live platform candidate analysis",
+          "url": "internal://chat/2026-03-02-dfc-candidates"
+        }
+      ],
+      "systems": [
+        "financial"
+      ],
+      "physics": {
+        "snr": 1.085,
+        "snrNormalized": 0.181,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.84,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 45,
+          "max": 240
+        },
+        "phase": "late",
+        "amplitude": 52.82,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 9.56,
+        "energy": 2.868,
+        "compute": 2.677,
+        "communications": 2.103,
+        "logistics": 3.346,
+        "industrialProduction": 2.39
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-DFC-KATPAR-001",
+      "title": "Severniy Katpar Tungsten (Kazakhstan) LOI-stage commitment gap",
+      "signal_class": "Structural Ambiguity",
+      "status": "Monitor",
+      "confidence": "Medium-High",
+      "observed_at": "2026-03-02T03:55:00Z",
+      "buyer_ids": [
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "LOI exploration for large debt/project development funding indicates active interest but unresolved commitment architecture.",
+      "verification_note": "User-provided strategic candidate set; maintain Monitor pending first-party/Tier-1 source bundle.",
+      "sources": [
+        {
+          "label": "User-provided DFC live platform candidate analysis",
+          "url": "internal://chat/2026-03-02-dfc-candidates"
+        }
+      ],
+      "systems": [
+        "financial"
+      ],
+      "physics": {
+        "snr": 1.019,
+        "snrNormalized": 0.17,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.66,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 60,
+          "max": 365
+        },
+        "phase": "mid",
+        "amplitude": 43.63,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 7.417,
+        "energy": 2.225,
+        "compute": 2.077,
+        "communications": 1.632,
+        "logistics": 2.596,
+        "industrialProduction": 1.854
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-DFC-BANIO-001",
+      "title": "Banio Potash (Gabon) feasibility-to-license structuring gap",
+      "signal_class": "Platform Pressure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-02T03:55:00Z",
+      "buyer_ids": [
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Feasibility/ESIA and licensing/logistics dependencies create a multi-agency pre-FID bottleneck suitable for governance/capital sequencing structuring.",
+      "verification_note": "User-provided strategic candidate set; maintain Monitor pending first-party/Tier-1 source bundle.",
+      "sources": [
+        {
+          "label": "User-provided DFC live platform candidate analysis",
+          "url": "internal://chat/2026-03-02-dfc-candidates"
+        }
+      ],
+      "systems": [
+        "financial"
+      ],
+      "physics": {
+        "snr": 1.089,
+        "snrNormalized": 0.181,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 46.62,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 8.438,
+        "energy": 2.531,
+        "compute": 2.363,
+        "communications": 1.856,
+        "logistics": 2.953,
+        "industrialProduction": 2.11
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-DFC-ORION-001",
+      "title": "Orion critical minerals consortium as platform deployment channel",
+      "signal_class": "Capital Reality",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-02T03:55:00Z",
+      "buyer_ids": [
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Active consortium capital platform indicates deal-by-deal deployment pathway with structuring relevance at platform interface.",
+      "verification_note": "User-provided strategic candidate set; maintain Monitor pending first-party/Tier-1 source bundle.",
+      "sources": [
+        {
+          "label": "User-provided DFC live platform candidate analysis",
+          "url": "internal://chat/2026-03-02-dfc-candidates"
+        }
+      ],
+      "systems": [
+        "financial"
+      ],
+      "physics": {
+        "snr": 1.125,
+        "snrNormalized": 0.188,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.95,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 48.19,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 9.06,
+        "energy": 2.718,
+        "compute": 2.537,
+        "communications": 1.993,
+        "logistics": 3.171,
+        "industrialProduction": 2.265
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-AI-FRICTION-001",
+      "title": "Africa AI spillover friction: data sovereignty and cross-border governance vacuum",
+      "signal_class": "Ecosystem / Theater",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-02T15:20:00Z",
+      "buyer_ids": [
+        "FMF-NG",
+        "NSIA",
+        "AfDB"
+      ],
+      "initiative_ids": [],
+      "summary": "Gulf AI compute proximity increases cross-border data flow pressure while many African jurisdictions lack mature AI data governance and negotiation frameworks.",
+      "verification_note": "Strategy insight logged for monitoring; escalate to Verified with first-party or Tier-1 corroboration.",
+      "sources": [
+        {
+          "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
+          "url": "internal://chat/2026-03-02-ai-spillover"
+        }
+      ],
+      "systems": [
+        "compute"
+      ],
+      "physics": {
+        "snr": 1.173,
+        "snrNormalized": 0.196,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.72,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 30,
+          "max": 365
+        },
+        "phase": "early",
+        "amplitude": 37.72,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 1.331,
+        "energy": 3.105,
+        "compute": 7.393,
+        "communications": 2.218,
+        "logistics": 1.183,
+        "industrialProduction": 1.479
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-AI-FRICTION-002",
+      "title": "Africa AI spillover friction: energy and edge infrastructure readiness gap",
+      "signal_class": "FID Definability",
+      "status": "Monitor",
+      "confidence": "High",
+      "observed_at": "2026-03-02T15:20:00Z",
+      "buyer_ids": [
+        "AFC",
+        "AfDB",
+        "DFC"
+      ],
+      "initiative_ids": [],
+      "summary": "AI utility is constrained without stable power, fiber backbone, edge nodes, and AI-ready facilities; physical/digital dependencies create pre-FID bottlenecks.",
+      "verification_note": "Strategy insight logged for monitoring; escalate to Verified with first-party or Tier-1 corroboration.",
+      "sources": [
+        {
+          "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
+          "url": "internal://chat/2026-03-02-ai-spillover"
+        }
+      ],
+      "systems": [
+        "energy",
+        "compute",
+        "communications"
+      ],
+      "physics": {
+        "snr": 1.221,
+        "snrNormalized": 0.204,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.84,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 45,
+          "max": 240
+        },
+        "phase": "late",
+        "amplitude": 54.37,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 6.433,
+        "energy": 17.413,
+        "compute": 19.187,
+        "communications": 16.415,
+        "logistics": 8.207,
+        "industrialProduction": 7.986
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-AI-FRICTION-003",
+      "title": "Africa AI spillover friction: public-sector AI adoption readiness deficit",
+      "signal_class": "Structural Ambiguity",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-02T15:20:00Z",
+      "buyer_ids": [
+        "FMF-NG",
+        "NSIA",
+        "DFC"
+      ],
+      "initiative_ids": [],
+      "summary": "Government adoption pathways remain under-structured across ministries, creating uncertainty in demand formation and implementation sequencing.",
+      "verification_note": "Strategy insight logged for monitoring; escalate to Verified with first-party or Tier-1 corroboration.",
+      "sources": [
+        {
+          "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
+          "url": "internal://chat/2026-03-02-ai-spillover"
+        }
+      ],
+      "systems": [
+        "compute"
+      ],
+      "physics": {
+        "snr": 1.149,
+        "snrNormalized": 0.192,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.66,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 60,
+          "max": 365
+        },
+        "phase": "early",
+        "amplitude": 36.94,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 1.277,
+        "energy": 2.979,
+        "compute": 7.092,
+        "communications": 2.128,
+        "logistics": 1.135,
+        "industrialProduction": 1.418
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-AI-FRICTION-004",
+      "title": "Africa AI spillover friction: capital structuring gap for AI-enabled infrastructure",
+      "signal_class": "FID Definability",
+      "status": "Monitor",
+      "confidence": "High",
+      "observed_at": "2026-03-02T15:20:00Z",
+      "buyer_ids": [
+        "AFC",
+        "PIF",
+        "DFC",
+        "AfDB"
+      ],
+      "initiative_ids": [],
+      "summary": "Capital interest exists, but pre-FID platform structuring, blended stack design, and risk containment models are not standardized across markets.",
+      "verification_note": "Strategy insight logged for monitoring; escalate to Verified with first-party or Tier-1 corroboration.",
+      "sources": [
+        {
+          "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
+          "url": "internal://chat/2026-03-02-ai-spillover"
+        }
+      ],
+      "systems": [
+        "financial",
+        "compute"
+      ],
+      "physics": {
+        "snr": 1.221,
+        "snrNormalized": 0.204,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.84,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 45,
+          "max": 240
+        },
+        "phase": "mid",
+        "amplitude": 47.83,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 11.513,
+        "energy": 7.025,
+        "compute": 12.489,
+        "communications": 5.074,
+        "logistics": 4.976,
+        "industrialProduction": 4.391
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-NG-GRID-PLAN-001",
+      "title": "Nigeria outlines ~$25B plan aimed at resolving electricity system constraints",
+      "signal_class": "Platform Pressure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-02T21:08:00Z",
+      "buyer_ids": [
+        "FMF-NG",
+        "NSIA",
+        "AfDB",
+        "AFC",
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG",
+        "INIT-AI-OPT-D",
+        "INIT-653305"
+      ],
+      "summary": "Reported national-scale electricity investment plan indicates elevated urgency around power reliability, transmission/distribution upgrades, and financing architecture requirements.",
+      "flow": "Grid constraint pressure -> large capital plan signal -> increased need for governance + capital sequencing before bankable execution",
+      "verification_note": "Monitor pending first-party government release or Tier-1 corroboration with detailed attribution.",
+      "sources": [
+        {
+          "label": "Business Insider Africa report",
+          "url": "https://africa.businessinsider.com/local/markets/nigeria-touts-a-dollar25-billion-plan-to-end-its-electricity-problems/n1z4237"
+        }
+      ],
+      "systems": [
+        "financial",
+        "energy",
+        "compute",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.089,
+        "snrNormalized": 0.181,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 46.62,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 13.754,
+        "energy": 17.551,
+        "compute": 15.357,
+        "communications": 7.763,
+        "logistics": 15.442,
+        "industrialProduction": 9.619
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-NG-LIVE-FINENERGY-001",
+      "title": "Live Regulated Financial-Energy Operating System — Nigeria",
+      "signal_class": "Capital Reality",
+      "status": "Verified",
+      "confidence": "High",
+      "observed_at": "2026-03-02T21:25:00Z",
+      "buyer_ids": [
+        "FMF-NG",
+        "NSIA",
+        "AFC",
+        "AfDB",
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG",
+        "INIT-653305",
+        "INIT-AI-OPT-D"
+      ],
+      "summary": "Live licensed and revenue-generating financial-energy operating system in Nigeria with 2000+ physical fuel nodes, corporate client traction, and multi-layer money/energy/commerce/governance integration.",
+      "flow": "Licensed banking + active revenue + physical node density -> execution credibility and definability lift for infrastructure and capital mandate pathways",
+      "verification_note": "Tier 1 internal signal weighting due to regulated status, active revenues, and physical infrastructure footprint. Add App Store URL and partner attribution for external-source completeness. App Store URL attached.",
+      "sources": [
+        {
+          "label": "User-provided operational proof summary",
+          "url": "internal://chat/2026-03-02-live-financial-energy-os"
+        },
+        {
+          "label": "Apple App Store listing — Quick Microfinance Bank",
+          "url": "https://apps.apple.com/us/app/quick-microfinance-bank/id1614636080"
+        }
+      ],
+      "internal_weight_tier": "Tier 1",
+      "execution_capability_proof": "Very Strong",
+      "systems": [
+        "energy"
+      ],
+      "physics": {
+        "snr": 4.016,
+        "snrNormalized": 0.669,
+        "sourceReliability": 0.433,
+        "verificationLevel": 1,
+        "corroborationLevel": 0.792,
+        "materiality": 0.95,
+        "clarity": 1,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 69.61,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 9.314,
+        "energy": 46.569,
+        "compute": 18.628,
+        "communications": 8.382,
+        "logistics": 14.902,
+        "industrialProduction": 17.696
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-02-DFC-NYC-OFFICE-001",
+      "title": "DFC opens New York office at 100 Pearl St. to tighten private-capital execution loop",
+      "signal_class": "Platform Pressure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-02T22:45:00Z",
+      "buyer_ids": [
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Reported February 2026 launch of DFC NYC office (about 50 staff incl. underwriting/legal) to improve private-sector connectivity, talent acquisition, and deal execution.",
+      "flow": "NYC footprint + underwriting/legal proximity -> faster structuring and sponsor interface -> higher near-term transaction velocity potential",
+      "verification_note": "Monitor until first-party DFC release or Tier-1 source URLs are attached per sovereign verification threshold.",
+      "sources": [
+        {
+          "label": "User-provided summary citing Bloomberg",
+          "url": "internal://chat/2026-03-02-dfc-ny-office"
+        }
+      ],
+      "location": "100 Pearl St, New York, NY",
+      "focus_areas": [
+        "private capital access",
+        "deal execution",
+        "talent recruitment",
+        "bank/institutional relationship depth"
+      ],
+      "systems": [
+        "financial",
+        "communications",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.225,
+        "snrNormalized": 0.204,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 47.98,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 14.193,
+        "energy": 7.928,
+        "compute": 7.341,
+        "communications": 14.095,
+        "logistics": 15.759,
+        "industrialProduction": 6.852
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-RW-INIR-SMR-001",
+      "title": "Rwanda launches INIR-readiness pathway for nuclear program with SMR orientation",
+      "signal_class": "Platform Pressure",
+      "status": "Verified",
+      "confidence": "High",
+      "observed_at": "2026-03-03T00:07:00Z",
+      "buyer_ids": [
+        "AFC",
+        "AfDB",
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Rwanda has moved into formal nuclear-readiness sequencing with pre-INIR/INIR engagement and explicit SMR planning context, signaling institutional commitment to long-horizon baseload capacity buildout.",
+      "flow": "Formal IAEA-readiness process + national regulator positioning -> sovereign energy program credibility -> higher probability of structured capital and execution mandates.",
+      "verification_note": "First-party Rwanda regulator source attached (RAEB/RISA). Keep additional IAEA mission outputs for continued verification hardening.",
+      "sources": [
+        {
+          "label": "RAEB/RISA official update: Rwanda Hosts Pre-INIR Mission",
+          "url": "https://raeb.prod.risa.rw/updates/news-detail/rwanda-hosts-pre-inir-mission-to-strengthen-nuclear-energy-readiness"
+        }
+      ],
+      "systems": [
+        "energy",
+        "financial"
+      ],
+      "physics": {
+        "snr": 6,
+        "snrNormalized": 1,
+        "sourceReliability": 0.667,
+        "verificationLevel": 1,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 1,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 68.43,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 82.116,
+        "energy": 88.959,
+        "compute": 46.532,
+        "communications": 27.372,
+        "logistics": 45.848,
+        "industrialProduction": 43.111
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-NG-FX-RESERVES-001",
+      "title": "Nigeria net FX reserves rise 772% to $34.8B; gross reserves reach $50.45B in Feb 2026",
+      "signal_class": "Capital Reality",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T15:06:00Z",
+      "buyer_ids": [
+        "FMF-NG",
+        "NSIA",
+        "DFC",
+        "AfDB",
+        "AFC"
+      ],
+      "initiative_ids": [
+        "INIT-NG-FIN-ENERGY-SPINE"
+      ],
+      "summary": "Reported reserve expansion materially improves macro buffer optics and may reduce perceived FX fragility in Nigeria, supporting higher confidence for structured capital commitments.",
+      "flow": "Reserve rebuild + transparency narrative -> lower macro-risk perception -> improved pre-FID convertibility conditions for sovereign/DFI capital",
+      "verification_note": "Monitor pending first-party CBN release or two Tier-1 full-source confirmations per sovereign verification threshold. Business Insider Africa source attached.",
+      "sources": [
+        {
+          "label": "User-provided macro summary (CBN Governor attribution)",
+          "url": "internal://chat/2026-03-03-ng-reserves-772"
+        },
+        {
+          "label": "Business Insider Africa report",
+          "url": "https://africa.businessinsider.com/local/markets/nigerias-net-reserves-surge-772-to-dollar348bn-as-fx-reforms-boost-buffers/w2gxc0c"
+        }
+      ],
+      "systems": [
+        "financial",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.117,
+        "snrNormalized": 0.186,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.792,
+        "materiality": 0.95,
+        "clarity": 0.64,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "early",
+        "amplitude": 42.65,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 9.916,
+        "energy": 5.236,
+        "compute": 3.332,
+        "communications": 3.491,
+        "logistics": 10.71,
+        "industrialProduction": 4.442
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-US-CLARITY-ACT-001",
+      "title": "U.S. CLARITY Act advances digital-asset market structure (SEC/CFTC line + illicit-finance controls)",
+      "signal_class": "Platform Pressure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T15:24:00Z",
+      "buyer_ids": [
+        "DFC",
+        "IFC",
+        "TPO",
+        "HCC",
+        "KOCH",
+        "COX"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Senate Banking Committee fact-sheet package positions CLARITY Act as a rules-of-the-road framework for digital assets, with investor protections, SEC/CFTC jurisdiction clarity, DeFi control-point logic, and expanded illicit-finance enforcement tools.",
+      "flow": "Regulatory clarity + enforcement certainty -> reduced legal ambiguity for compliant digital-asset infrastructure -> improved onshore capital formation conditions",
+      "verification_note": "Monitor pending first-party Senate Banking Committee release pages and bill text links attached directly in source set.",
+      "sources": [
+        {
+          "label": "User-provided CLARITY Act summary text",
+          "url": "internal://chat/2026-03-03-clarity-act-summary"
+        }
+      ],
+      "systems": [
+        "industrialProduction"
+      ],
+      "physics": {
+        "snr": 1.089,
+        "snrNormalized": 0.181,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 46.62,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 1.856,
+        "energy": 2.869,
+        "compute": 1.603,
+        "communications": 1.013,
+        "logistics": 2.363,
+        "industrialProduction": 8.438
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-IN-LT-NVIDIA-AI-FACTORY-001",
+      "title": "L&T and NVIDIA announce India gigawatt-scale AI factory initiative",
+      "signal_class": "Platform Pressure",
+      "status": "Verified",
+      "confidence": "High",
+      "observed_at": "2026-03-03T15:25:00Z",
+      "buyer_ids": [
+        "PIF",
+        "MUBADALA",
+        "AFC",
+        "DFC",
+        "IFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "L&T announced a strategic partnership with NVIDIA to build sovereign gigawatt-scale AI factory infrastructure in India, with phased capacity references including Chennai cluster expansion.",
+      "flow": "Sovereign AI infrastructure scaling + hyperscale compute partnership -> accelerated regional competitive pressure -> stronger capital allocation urgency for AI-enabled infrastructure platforms",
+      "verification_note": "Verified via first-party L&T press release.",
+      "sources": [
+        {
+          "label": "L&T official press release",
+          "url": "https://www.larsentoubro.com/pressreleases/2026/2026-02-18-lt-teaming-with-nvidia-to-build-india-s-largest-gigawatt-scale-ai-factory"
+        }
+      ],
+      "systems": [
+        "compute",
+        "industrialProduction"
+      ],
+      "physics": {
+        "snr": 6,
+        "snrNormalized": 1,
+        "sourceReliability": 0.667,
+        "verificationLevel": 1,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 1,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 68.43,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 27.372,
+        "energy": 52.007,
+        "compute": 81.432,
+        "communications": 28.741,
+        "logistics": 30.109,
+        "industrialProduction": 82.116
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-PIF-PROCUREMENT-CYCLE-001",
+      "title": "PIF-linked Diriyah procurement cycle expands across hospitality/smart infrastructure",
+      "signal_class": "Platform Pressure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T16:13:00Z",
+      "buyer_ids": [
+        "PIF"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Q1 2026 award activity indicates active procurement windows across construction, mobility, digital systems, and asset-tech scope.",
+      "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+      "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+      "sources": [
+        {
+          "label": "Daily Buyer Intelligence Brief (user-provided)",
+          "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+        }
+      ],
+      "systems": [
+        "energy",
+        "financial"
+      ],
+      "physics": {
+        "snr": 1.089,
+        "snrNormalized": 0.181,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 46.62,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 10.126,
+        "energy": 10.969,
+        "compute": 5.738,
+        "communications": 3.375,
+        "logistics": 5.653,
+        "industrialProduction": 5.316
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-IFC-AFDB-GRID-CLIMATE-001",
+      "title": "IFC/AfDB maintain climate-grid financing momentum in MENA and Sub-Saharan corridors",
+      "signal_class": "Capital Reality",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T16:13:00Z",
+      "buyer_ids": [
+        "IFC",
+        "AfDB"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Climate-aligned transmission, grid stabilization, and blended-finance channels remain active with procurement and co-finance implications.",
+      "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+      "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+      "sources": [
+        {
+          "label": "Daily Buyer Intelligence Brief (user-provided)",
+          "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+        }
+      ],
+      "systems": [
+        "financial",
+        "energy",
+        "compute",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.125,
+        "snrNormalized": 0.188,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.95,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 48.19,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 14.768,
+        "energy": 18.845,
+        "compute": 16.489,
+        "communications": 8.335,
+        "logistics": 16.58,
+        "industrialProduction": 10.328
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-NSIA-HEALTH-IMPACT-001",
+      "title": "NSIA accelerates healthcare infrastructure and impact-fund deployment",
+      "signal_class": "Capital Reality",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T16:13:00Z",
+      "buyer_ids": [
+        "NSIA"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Healthcare infrastructure plus blended capital deployment suggests scalable co-investment surfaces and operating-platform opportunities.",
+      "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+      "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+      "sources": [
+        {
+          "label": "Daily Buyer Intelligence Brief (user-provided)",
+          "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+        }
+      ],
+      "systems": [
+        "financial",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.125,
+        "snrNormalized": 0.188,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.95,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 48.19,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 11.325,
+        "energy": 5.98,
+        "compute": 3.805,
+        "communications": 3.986,
+        "logistics": 12.231,
+        "industrialProduction": 5.074
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-ADFD-AGRI-AI-001",
+      "title": "ADFD cooperation themes expand across agriculture and AI-linked capability programs",
+      "signal_class": "Platform Pressure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T16:13:00Z",
+      "buyer_ids": [
+        "ADFD"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Food-security and digital-productivity themes are converging into combined infrastructure and data-modernization opportunity channels.",
+      "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+      "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+      "sources": [
+        {
+          "label": "Daily Buyer Intelligence Brief (user-provided)",
+          "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+        }
+      ],
+      "systems": [
+        "compute",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.089,
+        "snrNormalized": 0.181,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 46.62,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 3.628,
+        "energy": 6.582,
+        "compute": 9.619,
+        "communications": 4.388,
+        "logistics": 9.788,
+        "industrialProduction": 4.303
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-SFD-HEALTH-FOOD-001",
+      "title": "SFD financing posture remains concentrated on global health and food-security lanes",
+      "signal_class": "Capital Reality",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T16:13:00Z",
+      "buyer_ids": [
+        "SFD"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Health and food-security aligned projects continue to present higher-probability funding pathways with co-financing structures.",
+      "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+      "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+      "sources": [
+        {
+          "label": "Daily Buyer Intelligence Brief (user-provided)",
+          "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+        }
+      ],
+      "systems": [
+        "financial",
+        "compute"
+      ],
+      "physics": {
+        "snr": 1.125,
+        "snrNormalized": 0.188,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.95,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 48.19,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 10.691,
+        "energy": 6.523,
+        "compute": 11.597,
+        "communications": 4.711,
+        "logistics": 4.621,
+        "industrialProduction": 4.077
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-DFC-CRITICAL-MINERALS-001",
+      "title": "DFC deepens critical-minerals and energy-security corridor investment posture",
+      "signal_class": "Platform Pressure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T16:13:00Z",
+      "buyer_ids": [
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Strategic supply-chain alignment remains a dominant filter; transactions with geopolitical relevance and development impact have stronger fit.",
+      "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+      "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+      "sources": [
+        {
+          "label": "Daily Buyer Intelligence Brief (user-provided)",
+          "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+        }
+      ],
+      "systems": [
+        "energy",
+        "compute",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.089,
+        "snrNormalized": 0.181,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 46.62,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 5.316,
+        "energy": 15.02,
+        "compute": 12.995,
+        "communications": 5.907,
+        "logistics": 12.488,
+        "industrialProduction": 7.51
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-COX-CHARTER-INTEGRATION-001",
+      "title": "Charter-Cox integration planning indicates modernization and systems-spend window",
+      "signal_class": "Platform Pressure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T16:13:00Z",
+      "buyer_ids": [
+        "COX"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Post-approval integration likely drives network modernization, cybersecurity, migration, and reliability-focused execution demand.",
+      "flow": "Daily buyer-intelligence brief ingestion -> priority channel mapping -> mandate-path preparation",
+      "verification_note": "Monitor pending first-party or Tier-1 source attachments for each item.",
+      "sources": [
+        {
+          "label": "Daily Buyer Intelligence Brief (user-provided)",
+          "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
+        }
+      ],
+      "systems": [
+        "communications"
+      ],
+      "physics": {
+        "snr": 1.089,
+        "snrNormalized": 0.181,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 46.62,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 1.688,
+        "energy": 1.266,
+        "compute": 2.785,
+        "communications": 8.438,
+        "logistics": 2.194,
+        "industrialProduction": 1.181
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-ET-AI-UNIPOD-001",
+      "title": "Ethiopia launches AI UniPod to build national AI capacity and regional leadership posture",
+      "signal_class": "Platform Pressure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T20:43:00Z",
+      "buyer_ids": [
+        "AFC",
+        "AfDB",
+        "DFC",
+        "IFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Ethiopia launched an AI University Innovation Pod in Addis Ababa via Ethiopian AI Institute, Addis Ababa University, and UNDP Timbuktoo collaboration, signaling sovereign AI capability formation.",
+      "flow": "National AI institution-building + university partnership + UNDP backing -> stronger regional AI ecosystem capacity -> rising infrastructure and talent-platform investment pressure",
+      "verification_note": "Monitor; multi-source media corroboration attached. Upgrade when first-party Ethiopian institute/government or UNDP release is attached.",
+      "sources": [
+        {
+          "label": "AllAfrica report",
+          "url": "https://allafrica.com/stories/202602170117.html"
+        },
+        {
+          "label": "DIG Watch update",
+          "url": "https://dig.watch/updates/new-ai-innovation-hub-aims-to-position-ethiopia-as-regional-leader"
+        }
+      ],
+      "systems": [
+        "compute"
+      ],
+      "physics": {
+        "snr": 1.603,
+        "snrNormalized": 0.267,
+        "sourceReliability": 0.333,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.792,
+        "materiality": 0.85,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "early",
+        "amplitude": 46.18,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 2.219,
+        "energy": 5.179,
+        "compute": 12.33,
+        "communications": 3.699,
+        "logistics": 1.973,
+        "industrialProduction": 2.466
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-NG-US-CRUDE-CONCENTRATION-001",
+      "title": "Nigeria accounts for majority share of Africa-to-U.S. crude flows amid U.S. import decline",
+      "signal_class": "Platform Pressure",
+      "status": "Monitor",
+      "confidence": "Medium",
+      "observed_at": "2026-03-03T21:07:00Z",
+      "buyer_ids": [
+        "FMF-NG",
+        "NSIA",
+        "DFC",
+        "AFC",
+        "AfDB"
+      ],
+      "initiative_ids": [
+        "INIT-NG-FIN-ENERGY-SPINE"
+      ],
+      "summary": "Reported U.S. trade data suggests Nigeria contributed ~52% of Africa-origin crude exports to the U.S. in 2025 while total U.S. African crude imports declined year-on-year.",
+      "flow": "Concentrated export dependency + U.S. sourcing shift -> strategic pressure on Nigeria energy/FX resilience planning -> higher urgency for diversified capital and infrastructure sequencing",
+      "verification_note": "Monitor pending direct first-party U.S. Census data table attachment and/or additional Tier-1 corroboration.",
+      "sources": [
+        {
+          "label": "Business Insider Africa report",
+          "url": "https://africa.businessinsider.com/local/markets/half-of-africas-oil-to-the-us-comes-from-one-country-as-the-us-cuts-african-oil/tx5zxk0"
+        }
+      ],
+      "systems": [
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.089,
+        "snrNormalized": 0.181,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.76,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 46.62,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 2.11,
+        "energy": 3.038,
+        "compute": 1.181,
+        "communications": 1.856,
+        "logistics": 8.438,
+        "industrialProduction": 2.616
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-03-DANGOTE-INDUSTRIAL-STACK-001",
+      "title": "Dangote outlines post-refinery industrial expansion into steel, power, and ports with NGX listing pathway",
+      "signal_class": "Capital Reality",
+      "status": "Verified",
+      "confidence": "High",
+      "observed_at": "2026-03-03T22:06:00Z",
+      "buyer_ids": [
+        "FMF-NG",
+        "NSIA",
+        "AFC",
+        "AfDB",
+        "DFC"
+      ],
+      "initiative_ids": [
+        "INIT-NG-FIN-ENERGY-SPINE",
+        "USG"
+      ],
+      "summary": "Narrative indicates refinery scale as phase one, expansion toward steel/power/port infrastructure, major employment ramp, and potential domestic equity participation via NGX listing.",
+      "flow": "Industrial stack integration + domestic market participation pathway -> stronger sovereign-scale manufacturing and logistics thesis -> rising urgency for infrastructure-linked capital sequencing",
+      "verification_note": "Verified via first-party Dangote statement (official site) confirming fuel supply capacity claims.",
+      "sources": [
+        {
+          "label": "User-provided summary of Dangote expansion narrative",
+          "url": "internal://chat/2026-03-03-dangote-industrial-stack"
+        },
+        {
+          "label": "Argus market report excerpt (2026-03-04) — RFCC ~90% capacity",
+          "url": "internal://chat/2026-03-04-argus-dangote-rfcc-90"
+        },
+        {
+          "label": "Dangote official statement on domestic supply capacity",
+          "url": "https://www.dangote.com/dangote-refinery-affirms-capacity-to-supply-75m-litres-of-pms-25m-litres-of-diesel-20m-litres-of-jet-fuel-daily/"
+        }
+      ],
+      "systems": [
+        "energy",
+        "logistics",
+        "industrialProduction"
+      ],
+      "physics": {
+        "snr": 3.622,
+        "snrNormalized": 0.604,
+        "sourceReliability": 0.356,
+        "verificationLevel": 1,
+        "corroborationLevel": 1,
+        "materiality": 0.95,
+        "clarity": 1,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "early",
+        "amplitude": 58.63,
+        "recencyWeight": 0.92
+      },
+      "pressureContributionBySystem": {
+        "financial": 23.727,
+        "energy": 60.202,
+        "compute": 25.851,
+        "communications": 18.415,
+        "logistics": 56.661,
+        "industrialProduction": 59.848
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-05-MACRO-OIL85-001",
+      "title": "Oil near $85 reshapes African fiscal winners/losers in near-term financing windows",
+      "signal_class": "Capital Reality",
+      "status": "Monitor",
+      "confidence": "Medium-High",
+      "observed_at": "2026-03-05T13:56:00Z",
+      "buyer_ids": [
+        "Nigeria Mortgage Fund",
+        "AFC",
+        "AfDB",
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Bloomberg-cited framing indicates Nigeria and Angola as relative macro beneficiaries with oil near $85, while South Africa faces relative pressure; implications include widened fiscal room for oil-linked sovereigns but stronger domestic price sensitivity and import-stress divergence.",
+      "flow": "Oil spike vs budget benchmarks -> fiscal/capital-room divergence across sovereigns -> faster mandate timing in beneficiary markets + stress-adjusted sequencing elsewhere",
+      "verification_note": "Tier-1 Bloomberg link provided by user. Treat extreme conflict/shipping sub-claims as separately verification-gated before posture changes.",
+      "sources": [
+        {
+          "label": "Bloomberg: Nigeria/Angola winners, South Africa loser at oil near $85",
+          "url": "https://www.bloomberg.com/news/articles/2026-03-05/nigeria-angola-are-winners-with-oil-at-85-south-africa-a-loser"
+        },
+        {
+          "label": "User-provided secondary narrative excerpt",
+          "url": "internal://chat/2026-03-05-oil-spike-nigeria"
+        }
+      ],
+      "systems": [
+        "financial",
+        "energy",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.722,
+        "snrNormalized": 0.287,
+        "sourceReliability": 0.267,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.792,
+        "materiality": 0.95,
+        "clarity": 1,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 62.61,
+        "recencyWeight": 1
+      },
+      "pressureContributionBySystem": {
+        "financial": 26.055,
+        "energy": 29.829,
+        "compute": 14.735,
+        "communications": 11.141,
+        "logistics": 30.008,
+        "industrialProduction": 16.891
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-05-NG-IFC-PPP-001",
+      "title": "Nigeria and IFC sign cooperation agreement to build PPP project pipeline",
+      "signal_class": "Sponsor Altitude",
+      "status": "Verified",
+      "confidence": "High",
+      "observed_at": "2026-03-05T14:00:00Z",
+      "buyer_ids": [
+        "IFC",
+        "Nigeria Mortgage Fund",
+        "AFC",
+        "AfDB",
+        "DFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Nigeria's Federal Ministry of Budget and Economic Planning signed a cooperation agreement with IFC Transaction Advisory Services to develop a pipeline of PPP projects across transport, energy, IT, and sanitation, targeting private-capital mobilization against estimated annual infrastructure needs.",
+      "flow": "Federal-IFC agreement -> transaction-advisory pipeline build -> better-prepared investment-ready PPPs -> increased probability of near-term private capital deployment",
+      "verification_note": "First-party source: IFC official press release dated 3 Feb 2026.",
+      "sources": [
+        {
+          "label": "IFC official press release",
+          "url": "https://www.ifc.org/en/pressroom/2026/nigeria-and-ifc-sign-agreement-to-boost-infrastructure-development-through-public-"
+        }
+      ],
+      "systems": [
+        "financial",
+        "energy",
+        "compute",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 6,
+        "snrNormalized": 1,
+        "sourceReliability": 0.667,
+        "verificationLevel": 1,
+        "corroborationLevel": 0.5,
+        "materiality": 0.8,
+        "clarity": 1,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 73.53,
+        "recencyWeight": 1
+      },
+      "pressureContributionBySystem": {
+        "financial": 119.854,
+        "energy": 152.942,
+        "compute": 133.825,
+        "communications": 67.648,
+        "logistics": 134.56,
+        "industrialProduction": 83.824
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-05-AMZN-RATEPAYER-PLEDGE-001",
+      "title": "Amazon signs White House Ratepayer Protection Pledge tied to data-center power-cost commitments",
+      "signal_class": "Platform Pressure",
+      "status": "Verified",
+      "confidence": "Medium-High",
+      "observed_at": "2026-03-05T15:18:00Z",
+      "buyer_ids": [
+        "GIC",
+        "PIF",
+        "Brookfield Renewable",
+        "GIP"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "Amazon states it signed the White House Ratepayer Protection Pledge and commits to covering full data-center electricity and grid-upgrade costs under long-term utility agreements, framing policy momentum around AI-infrastructure growth with ratepayer safeguards.",
+      "flow": "Federal pledge adoption + hyperscaler cost-coverage commitments -> lower political/regulatory friction for grid interconnection and expansion -> accelerated AI-infrastructure deployment pathways",
+      "verification_note": "First-party source confirms Amazon's announced pledge participation and stated commitments; independent validation of all quantitative impact claims remains pending.",
+      "sources": [
+        {
+          "label": "Amazon policy/news post",
+          "url": "https://www.aboutamazon.com/news/policy-news-views/amazon-data-centers-power-costs-white-house-pledge"
+        }
+      ],
+      "systems": [
+        "energy",
+        "compute"
+      ],
+      "physics": {
+        "snr": 4.837,
+        "snrNormalized": 0.806,
+        "sourceReliability": 0.667,
+        "verificationLevel": 1,
+        "corroborationLevel": 0.5,
+        "materiality": 0.85,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "early",
+        "amplitude": 59.86,
+        "recencyWeight": 1
+      },
+      "pressureContributionBySystem": {
+        "financial": 18.334,
+        "energy": 68.511,
+        "compute": 67.546,
+        "communications": 23.159,
+        "logistics": 23.159,
+        "industrialProduction": 27.983
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-05-DFC-MARITIME-BACKSTOP-001",
+      "title": "U.S. DFC announces ~$20B rolling maritime reinsurance backstop for Gulf war-risk trade lanes",
+      "signal_class": "Capital Reality",
+      "status": "Verified",
+      "confidence": "High",
+      "observed_at": "2026-03-07T13:40:00Z",
+      "buyer_ids": [
+        "DFC",
+        "AFC",
+        "AfDB",
+        "GIC",
+        "PIF"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "First-party DFC leadership statement outlines an implementation plan for a rolling maritime reinsurance facility covering losses up to approximately $20B, initially focused on Hull & Machinery and Cargo, coordinated with Treasury and CENTCOM to stabilize maritime trade confidence during Gulf conflict risk.",
+      "flow": "private war-risk withdrawal -> sovereign reinsurance backstop (~$20B rolling) -> reduced actuarial blockade risk -> partial normalization of shipping and energy flow confidence",
+      "verification_note": "First-party on-record executive statement (DFC CEO) with dated implementation details; partner eligibility/pricing/claims mechanics remain execution variables.",
+      "sources": [
+        {
+          "label": "DFC CEO official statement (X)",
+          "url": "https://twitter.com/DFC_CEO"
+        },
+        {
+          "label": "DFC official media release",
+          "url": "https://www.dfc.gov/media/press-releases/dfcs-political-risk-insurance-and-guaranty-products-will-support-private"
+        },
+        {
+          "label": "Reuters coverage",
+          "url": "https://www.reuters.com/business/energy/us-considering-oil-tanker-insurance-support-ease-middle-east-crude-shipments-2026-03-03/"
+        }
+      ],
+      "tags": [
+        "$20B Facility",
+        "Maritime Reinsurance",
+        "War-Risk Backstop"
+      ],
+      "systems": [
+        "financial",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 6,
+        "snrNormalized": 1,
+        "sourceReliability": 0.667,
+        "verificationLevel": 1,
+        "corroborationLevel": 1,
+        "materiality": 0.95,
+        "clarity": 1,
+        "lagDays": {
+          "min": 21,
+          "max": 180
+        },
+        "phase": "mid",
+        "amplitude": 85.59,
+        "recencyWeight": 1
+      },
+      "pressureContributionBySystem": {
+        "financial": 106.988,
+        "energy": 56.489,
+        "compute": 35.948,
+        "communications": 37.66,
+        "logistics": 115.547,
+        "industrialProduction": 47.93
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-05-IN-AP-AI-FACTORY-001",
+      "title": "Andhra Pradesh AI gigawatt campus shows pre-FID platform pressure with capital-formation gap",
+      "signal_class": "Pre-FID Origin Window",
+      "status": "Active / Forming",
+      "confidence": "High",
+      "observed_at": "2026-03-05T16:06:00Z",
+      "buyer_ids": [
+        "GIC",
+        "PIF",
+        "AFC",
+        "DFC"
+      ],
+      "initiative_ids": [
+        "INIT-AP-AI-FACTORY-001",
+        "USG"
+      ],
+      "summary": "Government land/power alignment, L&T EPC execution backbone, and Nvidia anchor with reported 15% equity indicate strong deployment pressure; capital sponsor structure, governance map, risk allocation, and bankability sequencing remain undefined.",
+      "flow": "sovereign enablement + EPC credibility + hyperscaler anchor -> demand pressure rises -> absent commitment architecture delays capital close -> origin window for platform design",
+      "verification_note": "Direct operator-context note indicates capital stack is not yet structured; treat as high-conviction forming signal pending linked public docs for all specifics.",
+      "sources": [
+        {
+          "label": "Internal operator brief (Isaac)",
+          "url": "internal://chat/2026-03-05-ap-ai-factory-platform-pressure"
+        }
+      ],
+      "tags": [
+        "Capital Formation Gap",
+        "Hyperscaler Anchor",
+        "Sovereign + EPC Alignment",
+        "Platform Origination"
+      ],
+      "systems": [
+        "financial",
+        "energy",
+        "compute",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.624,
+        "snrNormalized": 0.271,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.82,
+        "corroborationLevel": 0.5,
+        "materiality": 0.9,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 30,
+          "max": 270
+        },
+        "phase": "mid",
+        "amplitude": 58.03,
+        "recencyWeight": 1
+      },
+      "pressureContributionBySystem": {
+        "financial": 25.633,
+        "energy": 32.71,
+        "compute": 28.621,
+        "communications": 14.468,
+        "logistics": 28.779,
+        "industrialProduction": 17.928
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-05-DANGOTE-EXPORT-001",
+      "title": "Dangote refinery begins international export tenders",
+      "signal_class": "Pre-FID Origin Window",
+      "status": "Active / Sequenced",
+      "confidence": "High",
+      "observed_at": "2026-03-05T20:13:00Z",
+      "buyer_ids": [
+        "TAFF"
+      ],
+      "initiative_ids": [
+        "INIT-2026-03-05-COMMODITY-CORRIDOR",
+        "USG"
+      ],
+      "summary": "Dangote refinery export tender activity confirms global-market connectivity, but management's domestic-priority stance implies corridor economics are Phase-2 (future export architecture) rather than immediate-scale export trading.",
+      "flow": "domestic-first stabilization -> opportunistic exports + global trading integration -> sustained excess allocation across African supply nodes -> Phase-2 UAE export corridor activation -> global scale distribution",
+      "verification_note": "Public statements support domestic-priority sequencing and global crude/trade linkage. Track activation triggers before treating as immediate export-volume platform.",
+      "sources": [
+        {
+          "label": "Business Insider Africa",
+          "url": "https://africa.businessinsider.com"
+        }
+      ],
+      "tags": [
+        "Dangote Refinery",
+        "Refined Products Export",
+        "Global Distribution",
+        "Trade Corridor Formation",
+        "Phase-Gated Activation",
+        "Domestic-First Sequencing",
+        "Future Export Valve"
+      ],
+      "systems": [
+        "communications",
+        "logistics"
+      ],
+      "physics": {
+        "snr": 1.413,
+        "snrNormalized": 0.235,
+        "sourceReliability": 0.2,
+        "verificationLevel": 0.58,
+        "corroborationLevel": 0.5,
+        "materiality": 0.9,
+        "clarity": 1,
+        "lagDays": {
+          "min": 30,
+          "max": 270
+        },
+        "phase": "mid",
+        "amplitude": 54.49,
+        "recencyWeight": 1
+      },
+      "pressureContributionBySystem": {
+        "financial": 5.762,
+        "energy": 6.531,
+        "compute": 6.018,
+        "communications": 15.622,
+        "logistics": 16.134,
+        "industrialProduction": 5.762
+      }
+    },
+    {
+      "signal_id": "SIG-2026-03-06-IFC-FY26-BUDGET-001",
+      "title": "IFC FY26 budget confirms mobilization-first posture with IDA/FCS and infrastructure emphasis",
+      "signal_class": "Sponsor Altitude",
+      "status": "Verified",
+      "confidence": "High",
+      "observed_at": "2026-03-06T03:40:00Z",
+      "buyer_ids": [
+        "IFC"
+      ],
+      "initiative_ids": [
+        "USG"
+      ],
+      "summary": "IFC FY26 budget and resource plan confirms prioritization of private capital mobilization (PCM), upstream/advisory services, IDA/FCS focus, and sectors including energy/water, digital connectivity, climate resilience, and MSME value chains.",
+      "flow": "Budget priorities -> instrument emphasis (MCPP, credit insurance, securitization, advisory, equity vehicles) -> stronger platform financing pathways in target sectors/geographies",
+      "verification_note": "First-party IFC FY26 Budget paper approved by Board (May 28, 2025).",
+      "sources": [
+        {
+          "label": "IFC FY26 Budget Paper",
+          "url": "internal://file/ifc-fy26-budget-paper---4e45e0e0-baaa-4a89-b541-b3c81b21331c.pdf"
+        }
+      ],
+      "tags": [
+        "IFC FY26",
+        "PCM",
+        "IDA/FCS",
+        "Energy",
+        "Digital Connectivity",
+        "MSME",
+        "Advisory"
+      ],
+      "systems": [
+        "financial",
+        "energy",
+        "compute",
+        "communications"
+      ],
+      "physics": {
+        "snr": 4.78,
+        "snrNormalized": 0.797,
+        "sourceReliability": 0.667,
+        "verificationLevel": 1,
+        "corroborationLevel": 0.5,
+        "materiality": 0.8,
+        "clarity": 0.88,
+        "lagDays": {
+          "min": 14,
+          "max": 120
+        },
+        "phase": "mid",
+        "amplitude": 72.05,
+        "recencyWeight": 1
+      },
+      "pressureContributionBySystem": {
+        "financial": 90.73,
+        "energy": 107.383,
+        "compute": 115.422,
+        "communications": 97.621,
+        "logistics": 62.592,
+        "industrialProduction": 55.701
+      }
+    }
+  ],
+  "initiatives": [
+    {
+      "initiative_id": "GLOBAL",
+      "pressure": 44.607,
+      "pressureBySystem": {
+        "financial": 1267.707,
+        "energy": 1334.545,
+        "compute": 1162.341,
+        "communications": 724.963,
+        "logistics": 1156.401,
+        "industrialProduction": 963.343
+      },
+      "momentum": -12145.8,
+      "acceleration": 8140270,
+      "resonance": {
+        "byLayer": {
+          "demand": 9,
+          "policy": 7,
+          "capital": 23,
+          "architecture": 19,
+          "execution": 8
+        },
+        "activeLayers": 5,
+        "clusterStrength": 1
+      },
+      "phaseMix": {
+        "early": 0.159,
+        "mid": 0.75,
+        "late": 0.091
+      },
+      "trajectory": "Slow emergence / stable",
+      "state": "Capital Alignment",
+      "probability": {
+        "platformFormation": 0.197,
+        "fid": 0.542
+      },
+      "signalCount": 44,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "INIT-001",
+      "pressure": 0,
+      "pressureBySystem": {
+        "financial": 0,
+        "energy": 0,
+        "compute": 0,
+        "communications": 0,
+        "logistics": 0,
+        "industrialProduction": 0
+      },
+      "momentum": 0,
+      "acceleration": 0,
+      "resonance": {
+        "byLayer": {
+          "demand": 0,
+          "policy": 0,
+          "capital": 0,
+          "architecture": 0,
+          "execution": 0
+        },
+        "activeLayers": 0,
+        "clusterStrength": 0
+      },
+      "phaseMix": {
+        "early": 0,
+        "mid": 0,
+        "late": 0
+      },
+      "trajectory": "Slow emergence / stable",
+      "state": "Monitor",
+      "probability": {
+        "platformFormation": 0.142,
+        "fid": 0.161
+      },
+      "signalCount": 0,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "INIT-653305",
+      "pressure": 24.134,
+      "pressureBySystem": {
+        "financial": 151.691,
+        "energy": 131.901,
+        "compute": 83.006,
+        "communications": 54.537,
+        "logistics": 115.966,
+        "industrialProduction": 91.438
+      },
+      "momentum": -2271.5,
+      "acceleration": 351920,
+      "resonance": {
+        "byLayer": {
+          "demand": 1,
+          "policy": 1,
+          "capital": 1,
+          "architecture": 3,
+          "execution": 1
+        },
+        "activeLayers": 5,
+        "clusterStrength": 1
+      },
+      "phaseMix": {
+        "early": 0,
+        "mid": 0.6,
+        "late": 0.4
+      },
+      "trajectory": "Slow emergence / stable",
+      "state": "Shaping",
+      "probability": {
+        "platformFormation": 0.193,
+        "fid": 0.395
+      },
+      "signalCount": 5,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "INIT-AI-OPT-A",
+      "pressure": 0,
+      "pressureBySystem": {
+        "financial": 0,
+        "energy": 0,
+        "compute": 0,
+        "communications": 0,
+        "logistics": 0,
+        "industrialProduction": 0
+      },
+      "momentum": 0,
+      "acceleration": 0,
+      "resonance": {
+        "byLayer": {
+          "demand": 0,
+          "policy": 0,
+          "capital": 0,
+          "architecture": 0,
+          "execution": 0
+        },
+        "activeLayers": 0,
+        "clusterStrength": 0
+      },
+      "phaseMix": {
+        "early": 0,
+        "mid": 0,
+        "late": 0
+      },
+      "trajectory": "Slow emergence / stable",
+      "state": "Monitor",
+      "probability": {
+        "platformFormation": 0.142,
+        "fid": 0.161
+      },
+      "signalCount": 0,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "INIT-AI-OPT-B",
+      "pressure": 0,
+      "pressureBySystem": {
+        "financial": 0,
+        "energy": 0,
+        "compute": 0,
+        "communications": 0,
+        "logistics": 0,
+        "industrialProduction": 0
+      },
+      "momentum": 0,
+      "acceleration": 0,
+      "resonance": {
+        "byLayer": {
+          "demand": 0,
+          "policy": 0,
+          "capital": 0,
+          "architecture": 0,
+          "execution": 0
+        },
+        "activeLayers": 0,
+        "clusterStrength": 0
+      },
+      "phaseMix": {
+        "early": 0,
+        "mid": 0,
+        "late": 0
+      },
+      "trajectory": "Slow emergence / stable",
+      "state": "Monitor",
+      "probability": {
+        "platformFormation": 0.142,
+        "fid": 0.161
+      },
+      "signalCount": 0,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "INIT-AI-OPT-C",
+      "pressure": 0,
+      "pressureBySystem": {
+        "financial": 0,
+        "energy": 0,
+        "compute": 0,
+        "communications": 0,
+        "logistics": 0,
+        "industrialProduction": 0
+      },
+      "momentum": 0,
+      "acceleration": 0,
+      "resonance": {
+        "byLayer": {
+          "demand": 0,
+          "policy": 0,
+          "capital": 0,
+          "architecture": 0,
+          "execution": 0
+        },
+        "activeLayers": 0,
+        "clusterStrength": 0
+      },
+      "phaseMix": {
+        "early": 0,
+        "mid": 0,
+        "late": 0
+      },
+      "trajectory": "Slow emergence / stable",
+      "state": "Monitor",
+      "probability": {
+        "platformFormation": 0.142,
+        "fid": 0.161
+      },
+      "signalCount": 0,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "INIT-AI-OPT-D",
+      "pressure": 16.319,
+      "pressureBySystem": {
+        "financial": 26.369,
+        "energy": 68.332,
+        "compute": 37.671,
+        "communications": 18.008,
+        "logistics": 34.05,
+        "industrialProduction": 29.624
+      },
+      "momentum": -890.8,
+      "acceleration": 15410,
+      "resonance": {
+        "byLayer": {
+          "demand": 0,
+          "policy": 0,
+          "capital": 0,
+          "architecture": 2,
+          "execution": 0
+        },
+        "activeLayers": 1,
+        "clusterStrength": 0
+      },
+      "phaseMix": {
+        "early": 0,
+        "mid": 1,
+        "late": 0
+      },
+      "trajectory": "Slow emergence / stable",
+      "state": "Monitor",
+      "probability": {
+        "platformFormation": 0.143,
+        "fid": 0.196
+      },
+      "signalCount": 2,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
+      "pressure": 19.5,
+      "pressureBySystem": {
+        "financial": 40.343,
+        "energy": 78.527,
+        "compute": 34.767,
+        "communications": 26.988,
+        "logistics": 85.732,
+        "industrialProduction": 76.837
+      },
+      "momentum": -1352.4,
+      "acceleration": 106510,
+      "resonance": {
+        "byLayer": {
+          "demand": 0,
+          "policy": 0,
+          "capital": 1,
+          "architecture": 0,
+          "execution": 0
+        },
+        "activeLayers": 1,
+        "clusterStrength": 0
+      },
+      "phaseMix": {
+        "early": 0.667,
+        "mid": 0.333,
+        "late": 0
+      },
+      "trajectory": "Slow emergence / stable",
+      "state": "Shaping",
+      "probability": {
+        "platformFormation": 0.165,
+        "fid": 0.235
+      },
+      "signalCount": 3,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "INIT-AP-AI-FACTORY-001",
+      "pressure": 19.983,
+      "pressureBySystem": {
+        "financial": 35.63,
+        "energy": 45.467,
+        "compute": 39.783,
+        "communications": 20.111,
+        "logistics": 40.003,
+        "industrialProduction": 24.92
+      },
+      "momentum": -1433.6,
+      "acceleration": -143360,
+      "resonance": {
+        "byLayer": {
+          "demand": 0,
+          "policy": 1,
+          "capital": 1,
+          "architecture": 1,
+          "execution": 1
+        },
+        "activeLayers": 4,
+        "clusterStrength": 0.75
+      },
+      "phaseMix": {
+        "early": 0,
+        "mid": 1,
+        "late": 0
+      },
+      "trajectory": "Losing momentum",
+      "state": "Shaping",
+      "probability": {
+        "platformFormation": 0.344,
+        "fid": 0.219
+      },
+      "signalCount": 1,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "pressure": 8.142,
+      "pressureBySystem": {
+        "financial": 6.223,
+        "energy": 7.053,
+        "compute": 6.499,
+        "communications": 16.872,
+        "logistics": 17.425,
+        "industrialProduction": 6.223
+      },
+      "momentum": -190.7,
+      "acceleration": -19070,
+      "resonance": {
+        "byLayer": {
+          "demand": 0,
+          "policy": 0,
+          "capital": 0,
+          "architecture": 1,
+          "execution": 0
+        },
+        "activeLayers": 1,
+        "clusterStrength": 0
+      },
+      "phaseMix": {
+        "early": 0,
+        "mid": 1,
+        "late": 0
+      },
+      "trajectory": "Losing momentum",
+      "state": "Monitor",
+      "probability": {
+        "platformFormation": 0.193,
+        "fid": 0.173
+      },
+      "signalCount": 1,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "INIT-GRAVITY-001",
+      "pressure": 0,
+      "pressureBySystem": {
+        "financial": 0,
+        "energy": 0,
+        "compute": 0,
+        "communications": 0,
+        "logistics": 0,
+        "industrialProduction": 0
+      },
+      "momentum": 0,
+      "acceleration": 0,
+      "resonance": {
+        "byLayer": {
+          "demand": 0,
+          "policy": 0,
+          "capital": 0,
+          "architecture": 0,
+          "execution": 0
+        },
+        "activeLayers": 0,
+        "clusterStrength": 0
+      },
+      "phaseMix": {
+        "early": 0,
+        "mid": 0,
+        "late": 0
+      },
+      "trajectory": "Slow emergence / stable",
+      "state": "Monitor",
+      "probability": {
+        "platformFormation": 0.142,
+        "fid": 0.161
+      },
+      "signalCount": 0,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    },
+    {
+      "initiative_id": "USG",
+      "pressure": 45.169,
+      "pressureBySystem": {
+        "financial": 1225.868,
+        "energy": 1284.223,
+        "compute": 1097.197,
+        "communications": 684.233,
+        "logistics": 1112.255,
+        "industrialProduction": 934.56
+      },
+      "momentum": -12620,
+      "acceleration": 7588200,
+      "resonance": {
+        "byLayer": {
+          "demand": 8,
+          "policy": 5,
+          "capital": 21,
+          "architecture": 16,
+          "execution": 8
+        },
+        "activeLayers": 5,
+        "clusterStrength": 1
+      },
+      "phaseMix": {
+        "early": 0.105,
+        "mid": 0.816,
+        "late": 0.079
+      },
+      "trajectory": "Slow emergence / stable",
+      "state": "Capital Alignment",
+      "probability": {
+        "platformFormation": 0.193,
+        "fid": 0.547
+      },
+      "signalCount": 38,
+      "generatedAt": "2026-03-07T20:34:25.066Z"
+    }
+  ],
+  "topInitiatives": [
+    {
+      "initiative_id": "USG",
+      "state": "Capital Alignment",
+      "pressure": 45.169,
+      "momentum": -12620,
+      "trajectory": "Slow emergence / stable",
+      "clusterStrength": 1,
+      "pPlatformFormation": 0.193,
+      "pFID": 0.547
+    },
+    {
+      "initiative_id": "INIT-653305",
+      "state": "Shaping",
+      "pressure": 24.134,
+      "momentum": -2271.5,
+      "trajectory": "Slow emergence / stable",
+      "clusterStrength": 1,
+      "pPlatformFormation": 0.193,
+      "pFID": 0.395
+    },
+    {
+      "initiative_id": "INIT-AP-AI-FACTORY-001",
+      "state": "Shaping",
+      "pressure": 19.983,
+      "momentum": -1433.6,
+      "trajectory": "Losing momentum",
+      "clusterStrength": 0.75,
+      "pPlatformFormation": 0.344,
+      "pFID": 0.219
+    },
+    {
+      "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
+      "state": "Shaping",
+      "pressure": 19.5,
+      "momentum": -1352.4,
+      "trajectory": "Slow emergence / stable",
+      "clusterStrength": 0,
+      "pPlatformFormation": 0.165,
+      "pFID": 0.235
+    },
+    {
+      "initiative_id": "INIT-AI-OPT-D",
+      "state": "Monitor",
+      "pressure": 16.319,
+      "momentum": -890.8,
+      "trajectory": "Slow emergence / stable",
+      "clusterStrength": 0,
+      "pPlatformFormation": 0.143,
+      "pFID": 0.196
+    },
+    {
+      "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "state": "Monitor",
+      "pressure": 8.142,
+      "momentum": -190.7,
+      "trajectory": "Losing momentum",
+      "clusterStrength": 0,
+      "pPlatformFormation": 0.193,
+      "pFID": 0.173
+    },
+    {
+      "initiative_id": "INIT-001",
+      "state": "Monitor",
+      "pressure": 0,
+      "momentum": 0,
+      "trajectory": "Slow emergence / stable",
+      "clusterStrength": 0,
+      "pPlatformFormation": 0.142,
+      "pFID": 0.161
+    },
+    {
+      "initiative_id": "INIT-AI-OPT-A",
+      "state": "Monitor",
+      "pressure": 0,
+      "momentum": 0,
+      "trajectory": "Slow emergence / stable",
+      "clusterStrength": 0,
+      "pPlatformFormation": 0.142,
+      "pFID": 0.161
+    }
+  ],
+  "morningBriefEnhancements": {
+    "pressureLevels": [
+      "USG: 45.17 (Capital Alignment)",
+      "INIT-653305: 24.13 (Shaping)",
+      "INIT-AP-AI-FACTORY-001: 19.98 (Shaping)",
+      "INIT-NG-FIN-ENERGY-SPINE: 19.50 (Shaping)",
+      "INIT-AI-OPT-D: 16.32 (Monitor)",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR: 8.14 (Monitor)",
+      "INIT-001: 0.00 (Monitor)",
+      "INIT-AI-OPT-A: 0.00 (Monitor)"
+    ],
+    "momentumChanges": [
+      "USG: -12620.000 / day",
+      "INIT-653305: -2271.500 / day",
+      "INIT-AP-AI-FACTORY-001: -1433.600 / day",
+      "INIT-NG-FIN-ENERGY-SPINE: -1352.400 / day",
+      "INIT-AI-OPT-D: -890.800 / day",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR: -190.700 / day",
+      "INIT-001: +0.000 / day",
+      "INIT-AI-OPT-A: +0.000 / day"
+    ],
+    "emergingClusters": [
+      "USG cluster=1.00",
+      "INIT-653305 cluster=1.00",
+      "INIT-AP-AI-FACTORY-001 cluster=0.75"
+    ],
+    "predictedTrajectories": [
+      "USG: Slow emergence / stable",
+      "INIT-653305: Slow emergence / stable",
+      "INIT-AP-AI-FACTORY-001: Losing momentum",
+      "INIT-NG-FIN-ENERGY-SPINE: Slow emergence / stable",
+      "INIT-AI-OPT-D: Slow emergence / stable",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR: Losing momentum",
+      "INIT-001: Slow emergence / stable",
+      "INIT-AI-OPT-A: Slow emergence / stable"
+    ],
+    "highConfidenceInitiatives": [],
+    "weakeningInitiatives": [
+      "USG",
+      "INIT-653305",
+      "INIT-AP-AI-FACTORY-001",
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-AI-OPT-D",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ]
+  }
+}

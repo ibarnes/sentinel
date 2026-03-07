@@ -20,7 +20,12 @@ Wake up to "who moved + why it matters" across shortlist buyers.
 2. Normalize by buyer and date.
 3. Score signal strength: High / Medium / Low.
 4. Draft implications for pipeline pressure/opportunity.
-5. Package in Morning Brief format.
+5. Run signal-physics overlay (`node mission-control/workflow-a/run-signal-physics.mjs`) to compute:
+   - SNR + lag windows
+   - system pressure by initiative
+   - momentum/acceleration
+   - resonance clusters + state probabilities
+6. Package in Morning Brief format.
 
 ## Output Contract
 - Observations

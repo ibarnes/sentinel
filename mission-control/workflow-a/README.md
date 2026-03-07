@@ -13,8 +13,25 @@ This workflow pulls buyer press pages and extracts structured deltas:
 
 ## Run
 ```bash
-node mission-control/workflow-a/run-workflow-a.mjs
+# Existing rule-based extractor
+node mission-control/workflow-a/run-workflow-a-v3_1.mjs
+
+# New signal-physics layer (non-breaking extension)
+node mission-control/workflow-a/run-signal-physics.mjs
 ```
+
+## Signal Physics Layer (v1)
+Adds a lightweight system-dynamics overlay without changing ingest architecture.
+
+Outputs:
+- `dashboard/data/signal_physics_snapshot.json` (latest state snapshot)
+- `mission-control/workflow-a/out/signal-physics-<timestamp>.json` (run archive)
+
+Computed fields include:
+- Signal-level: `snr`, `lagDays`, `phase`, `amplitude`, inferred `systems`
+- Initiative-level: `pressure`, `momentum`, `acceleration`, `resonance`, `state`
+- Probabilities: `platformFormation`, `fid` (Bayesian-style incremental updates)
+- Morning brief helper block: `morningBriefEnhancements`
 
 ## Notes
 - Uses direct-source scraping first.

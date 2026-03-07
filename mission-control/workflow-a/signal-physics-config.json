@@ -1,0 +1,27 @@
+{
+  "systems": [
+    "financial",
+    "energy",
+    "compute",
+    "communications",
+    "logistics",
+    "industrialProduction"
+  ],
+  "coupling": {
+    "financial": { "energy": 0.30, "compute": 0.28, "communications": 0.22, "logistics": 0.35, "industrialProduction": 0.25 },
+    "energy": { "financial": 0.20, "compute": 0.40, "communications": 0.18, "logistics": 0.32, "industrialProduction": 0.38 },
+    "compute": { "financial": 0.18, "energy": 0.42, "communications": 0.30, "logistics": 0.16, "industrialProduction": 0.20 },
+    "communications": { "financial": 0.20, "energy": 0.15, "compute": 0.33, "logistics": 0.26, "industrialProduction": 0.14 },
+    "logistics": { "financial": 0.25, "energy": 0.36, "compute": 0.14, "communications": 0.22, "industrialProduction": 0.31 },
+    "industrialProduction": { "financial": 0.22, "energy": 0.34, "compute": 0.19, "communications": 0.12, "logistics": 0.28 }
+  },
+  "lagDaysByClass": {
+    "Capital Reality": { "min": 21, "max": 180 },
+    "Platform Pressure": { "min": 14, "max": 120 },
+    "Pre-FID Origin Window": { "min": 30, "max": 270 },
+    "FID Definability": { "min": 45, "max": 240 },
+    "Ecosystem / Theater": { "min": 30, "max": 365 },
+    "Structural Ambiguity": { "min": 60, "max": 365 },
+    "Sponsor Altitude": { "min": 14, "max": 120 }
+  }
+}
