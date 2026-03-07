@@ -1142,5 +1142,44 @@
       "MSME",
       "Advisory"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-07-USG-INFRA-CYCLE-001",
+    "title": "24h meta-signal: defensive sovereign deployment + infrastructure rotation + coordination gap expansion",
+    "signal_class": "Platform Pressure",
+    "status": "Active / Forming",
+    "confidence": "Medium-High",
+    "observed_at": "2026-03-07T23:42:00Z",
+    "buyer_ids": [
+      "PIF",
+      "MUBADALA",
+      "QIA",
+      "IFC",
+      "AFC",
+      "AFDB"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-653305",
+      "INIT-001",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "summary": "Across the last 24 hours, capital-system signals indicate a defensive shift by sovereign allocators toward strategic hard infrastructure while DFI attention and energy-route fragility elevate demand for pre-FID governance and coordination architecture.",
+    "flow": "geopolitical volatility -> sovereign defensive deployment -> hard-infrastructure capital rotation + DFI PPP acceleration -> coordination/governance bottlenecks pre-FID -> architecture premium for platform formation",
+    "verification_note": "Strategic synthesis packet provided by Isaac; treat as operator-prioritized context signal pending additional first-party corroboration per sub-signal.",
+    "sources": [
+      {
+        "label": "Isaac 24h signal intelligence packet",
+        "url": "internal://isaac/telegram/1502"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Capital Rotation",
+      "Coordination Gap",
+      "Pre-FID Architecture",
+      "Signal Bundle"
+    ],
+    "provenance": "provided_by_isaac"
   }
 ]

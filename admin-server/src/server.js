@@ -1137,6 +1137,14 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     <div class="card mb-3"><div class="card-body">
       <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="mb-0">USG Opportunity Window</h6>
+        <span class="pp-legend">Decision-and-motion view</span>
+      </div>
+      <div id="pp-usg-window" class="small"></div>
+    </div></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2">
         <h6 class="mb-0">Layer Emissions Map (Signal Physics)</h6>
         <span class="pp-legend" id="lem-generated-at">No snapshot loaded</span>
       </div>
@@ -1233,7 +1241,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     const physicsByInitiative = new Map((signalPhysics.initiatives || []).map((x) => [String(x.initiative_id || ''), x]));
     const ontologyOrder = (signalPhysics.ontologyLayers || []).sort((a,b)=>Number(a.order||0)-Number(b.order||0));
     const els = {
-      table: document.getElementById('pp-table'), summary: document.getElementById('pp-summary'), heatmap: document.getElementById('pp-heatmap'), topByBuyer: document.getElementById('pp-top-by-buyer'),
+      table: document.getElementById('pp-table'), summary: document.getElementById('pp-summary'), usgWindow: document.getElementById('pp-usg-window'), heatmap: document.getElementById('pp-heatmap'), topByBuyer: document.getElementById('pp-top-by-buyer'),
       watchlist: document.getElementById('pp-watchlist'), filterLabel: document.getElementById('pp-active-filter'), lemPanel: document.getElementById('lem-panel'), lemGeneratedAt: document.getElementById('lem-generated-at'),
       fSector: document.getElementById('f-sector'), fRegion: document.getElementById('f-region'), fStatus: document.getElementById('f-status'), fBuyer: document.getElementById('f-buyer'),
       fFid: document.getElementById('f-fid'), fMinPpi: document.getElementById('f-min-ppi'), fSearch: document.getElementById('f-search')
@@ -1331,6 +1339,39 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         ['Buyer classes active', buyers, 'Current spread']
       ];
       els.summary.innerHTML = cards.map(c => '<div class="col-12 col-md-6 col-xl"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">'+esc(c[0])+'</div><div class="metric-value" style="font-size:1.05rem">'+esc(c[1])+'</div><div class="small text-muted mono">'+esc(c[2])+'</div></div></div></div>').join('');
+    }
+
+    function renderUSGWindow(list){
+      if (!els.usgWindow) return;
+      const rowsWithPhysics = list.map((r) => {
+        const pid = linkedInitiativeIds(r).find((id) => physicsByInitiative.has(id));
+        const p = pid ? physicsByInitiative.get(pid) : null;
+        return { r, p };
+      }).filter((x) => x.p);
+
+      if (!rowsWithPhysics.length) {
+        els.usgWindow.innerHTML = '<div class="pp-empty">No initiative-physics mapping available for current filter set.</div>';
+        return;
+      }
+
+      const accelerating = rowsWithPhysics.filter((x) => Number(x.p.momentum || 0) > 0.2).length;
+      const highPressure = rowsWithPhysics.filter((x) => Number(x.p.pressure || 0) >= 15).length;
+      const topMotions = rowsWithPhysics
+        .map((x) => x.p.recommendedUSGMotion || 'Monitor only')
+        .reduce((a,m)=>{a[m]=(a[m]||0)+1;return a;},{});
+      const motionLead = Object.entries(topMotions).sort((a,b)=>b[1]-a[1])[0];
+      const topGaps = rowsWithPhysics.flatMap((x) => (((x.p||{}).recommendedUSGDrivers||{}).missing || []).slice(0,2))
+        .reduce((a,m)=>{a[m]=(a[m]||0)+1;return a;},{});
+      const gapLead = Object.entries(topGaps).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>k.replaceAll('_',' '));
+
+      els.usgWindow.innerHTML =
+        '<div class="row g-2">' +
+          '<div class="col-12 col-md-3"><div class="border rounded p-2"><div class="pp-kicker">Initiatives in scope</div><div class="mono">'+rowsWithPhysics.length+'</div></div></div>' +
+          '<div class="col-12 col-md-3"><div class="border rounded p-2"><div class="pp-kicker">Accelerating</div><div class="mono">'+accelerating+'</div></div></div>' +
+          '<div class="col-12 col-md-3"><div class="border rounded p-2"><div class="pp-kicker">High pressure</div><div class="mono">'+highPressure+'</div></div></div>' +
+          '<div class="col-12 col-md-3"><div class="border rounded p-2"><div class="pp-kicker">Leading motion</div><div class="mono">'+esc((motionLead && motionLead[0]) || 'Monitor only')+'</div></div></div>' +
+        '</div>' +
+        '<div class="mt-2 text-muted">Dominant missing layers: '+esc(gapLead.join(' · ') || 'none')+'</div>';
     }
 
     function renderTable(list){
@@ -1604,7 +1645,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     function renderAll(){
       const filtered = sortRows(getFiltered());
-      renderSummary(filtered); renderTable(filtered); renderTopByBuyer(filtered); renderHeatmap(filtered); renderWatchlist(filtered); renderLayerEmissionsMap(filtered);
+      renderSummary(filtered); renderUSGWindow(filtered); renderTable(filtered); renderTopByBuyer(filtered); renderHeatmap(filtered); renderWatchlist(filtered); renderLayerEmissionsMap(filtered);
       const tags = [els.fSector.value, els.fRegion.value, els.fStatus.value, els.fBuyer.value, els.fFid.value].filter(Boolean);
       if (state.ontologyLayer) tags.push('Emitting layer: ' + state.ontologyLayer);
       if (state.missingLayer) tags.push('Missing layer: ' + state.missingLayer);
