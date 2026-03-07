@@ -1390,7 +1390,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     function linkedInitiativeIds(r){
       const ids = ((r.linkRefs || {}).initiativeIds || []).map(x => String(x || '').trim()).filter(Boolean);
-      return ids.length ? ids : ['USG'];
+      // Fallbacks ensure emissions map still renders when sector pseudo-ids are not present in physics snapshot.
+      return [...ids, 'USG', 'GLOBAL'];
     }
 
     function layerGapDiagnostics(p){
