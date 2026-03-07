@@ -1007,11 +1007,11 @@
   },
   {
     "signal_id": "SIG-2026-03-05-DFC-MARITIME-BACKSTOP-001",
-    "title": "U.S. DFC mobilizes political risk insurance/guarantees for Gulf maritime trade",
+    "title": "U.S. DFC announces ~$20B rolling maritime reinsurance backstop for Gulf war-risk trade lanes",
     "signal_class": "Capital Reality",
     "status": "Verified",
     "confidence": "High",
-    "observed_at": "2026-03-05T15:42:00Z",
+    "observed_at": "2026-03-07T13:40:00Z",
     "buyer_ids": [
       "DFC",
       "AFC",
@@ -1022,10 +1022,14 @@
     "initiative_ids": [
       "USG"
     ],
-    "summary": "First-party DFC release confirms readiness to deploy political risk insurance and guaranty products for maritime trade and energy flows in the Gulf, introducing a sovereign risk-transfer backstop during conflict-driven insurance stress.",
-    "flow": "private war-risk withdrawal -> sovereign insurance/guaranty backstop -> reduced actuarial blockade risk -> partial normalization of shipping and energy flow confidence",
-    "verification_note": "First-party DFC media release (2026-03-03) corroborates Trump-posted policy direction; implementation terms (eligibility/pricing/claims mechanics) remain execution variables.",
+    "summary": "First-party DFC leadership statement outlines an implementation plan for a rolling maritime reinsurance facility covering losses up to approximately $20B, initially focused on Hull & Machinery and Cargo, coordinated with Treasury and CENTCOM to stabilize maritime trade confidence during Gulf conflict risk.",
+    "flow": "private war-risk withdrawal -> sovereign reinsurance backstop (~$20B rolling) -> reduced actuarial blockade risk -> partial normalization of shipping and energy flow confidence",
+    "verification_note": "First-party on-record executive statement (DFC CEO) with dated implementation details; partner eligibility/pricing/claims mechanics remain execution variables.",
     "sources": [
+      {
+        "label": "DFC CEO official statement (X)",
+        "url": "https://twitter.com/DFC_CEO"
+      },
       {
         "label": "DFC official media release",
         "url": "https://www.dfc.gov/media/press-releases/dfcs-political-risk-insurance-and-guaranty-products-will-support-private"
@@ -1034,6 +1038,11 @@
         "label": "Reuters coverage",
         "url": "https://www.reuters.com/business/energy/us-considering-oil-tanker-insurance-support-ease-middle-east-crude-shipments-2026-03-03/"
       }
+    ],
+    "tags": [
+      "$20B Facility",
+      "Maritime Reinsurance",
+      "War-Risk Backstop"
     ]
   },
   {
