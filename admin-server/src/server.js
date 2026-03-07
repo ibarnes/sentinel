@@ -1196,7 +1196,15 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     };
     const drawer = window.bootstrap ? new bootstrap.Offcanvas(document.getElementById('pp-drawer')) : null;
     const drawerBody = document.getElementById('pp-drawer-body');
-    const state = { sortBy: 'ppi', sortDir: 'desc' };
+    const state = {
+      sortBy: 'ppi',
+      sortDir: 'desc',
+      ontologyLayer: '',
+      missingLayer: '',
+      buyerFocus: '',
+      phaseFocus: '',
+      stuckReason: ''
+    };
     const focusClasses = ['Sovereign Wealth Fund','DFI / MDB','Hyperscaler / Tech Platform','Strategic Industrial Sponsor'];
     const relevanceOrder = ['Observe','Track','Engage Soon','Mandate Window'];
 
@@ -1223,6 +1231,20 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         if (els.fBuyer.value && r.likelyBuyerClass !== els.fBuyer.value) return false;
         if (els.fFid.value && r.fidBoundaryType !== els.fFid.value) return false;
         if (r.ppi < minPpi) return false;
+
+        const pId = linkedInitiativeIds(r).find((id) => physicsByInitiative.has(id));
+        const p = pId ? physicsByInitiative.get(pId) : null;
+        const activeLayers = new Set((((p || {}).ontology || {}).activeLayers || []));
+        const buyerIds = ((p || {}).buyerAlignment || []).map((b) => String(b.buyer_id || ''));
+
+        if (state.ontologyLayer && !activeLayers.has(state.ontologyLayer)) return false;
+        if (state.missingLayer && activeLayers.has(state.missingLayer)) return false;
+        if (state.buyerFocus && !buyerIds.includes(state.buyerFocus)) return false;
+        if (state.phaseFocus && Number(((p || {}).phaseMix || {})[state.phaseFocus] || 0) <= 0) return false;
+
+        const reasons = p ? stuckReasonRanked(p).map((x) => x.reason) : [];
+        if (state.stuckReason && !reasons.includes(state.stuckReason)) return false;
+
         if (!q) return true;
         const blob = [r.sector,r.thesisSummary,r.analystNotes,r.mainStructuralBottleneck,r.whyItMatters,r.nextIntelligenceAction,r.buyerPath,r.usgRelevance,(r.actors||[]).map(a=>a.name).join(' ')].join(' ').toLowerCase();
         return blob.includes(q);
@@ -1328,7 +1350,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     }
 
     function layerGapDiagnostics(p){
-      const active = new Set((((p||{}).ontology||{}).activeLayers || []);
+      const active = new Set((((p||{}).ontology||{}).activeLayers || []));
       const has = (x) => active.has(x);
       const msgs = [];
       if ((has('demand') || has('compute_digital')) && has('narrative_legitimacy') && !has('governance')) msgs.push('High demand/narrative/compute signals; weak governance layer.');
@@ -1336,6 +1358,28 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       if ((has('operator') || has('construction')) && !has('platform_architecture')) msgs.push('Late-stage operator/construction signals appearing before architecture coherence.');
       if (has('platform_architecture') && !has('financial_structuring')) msgs.push('Architecture is forming; financial structuring layer remains underdeveloped.');
       return msgs;
+    }
+
+    function stuckReasonRanked(p){
+      const active = new Set((((p||{}).ontology||{}).activeLayers || []));
+      const has = (x) => active.has(x);
+      const candidates = [];
+      const add = (reason, score) => candidates.push({ reason, score });
+
+      if ((has('demand') || has('compute_digital')) && !has('operator')) add('Demand Without Operator Path', 0.92);
+      if (!has('governance') && (has('narrative_legitimacy') || has('capital_allocation'))) add('Governance Gap', 0.95);
+      if (!has('financial_structuring') && (has('capital_allocation') || has('platform_architecture'))) add('Structuring Gap', 0.9);
+      if (!has('energy') && (has('compute_digital') || has('industrial_production'))) add('Energy Constraint', 0.85);
+      if (!has('connectivity') && (has('platform_architecture') || has('market_access'))) add('Connectivity Gap', 0.78);
+      if (has('capital_allocation') && !has('platform_architecture')) add('Capital Without Architecture', 0.88);
+      if ((has('operator') || has('construction')) && !(has('demand') && has('narrative_legitimacy') && has('platform_architecture'))) add('Late Signal / No Early Coherence', 0.8);
+      if (has('narrative_legitimacy') && !has('capital_allocation')) add('Narrative Without Mandate', 0.76);
+
+      return candidates.sort((a,b)=>b.score-a.score).slice(0,2);
+    }
+
+    function stuckBadge(reason){
+      return '<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-stuck-reason" data-stuck-reason="'+esc(reason)+'">'+esc(reason)+'</button>';
     }
 
     function renderLayerEmissionsMap(list){
@@ -1359,15 +1403,23 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         .slice(0, 8);
 
       els.lemPanel.innerHTML = top.map(({row:r, initiativeId, p}) => {
-        const active = new Set((((p||{}).ontology||{}).activeLayers || []);
+        const active = new Set((((p||{}).ontology||{}).activeLayers || []));
         const missing = ontologyOrder.filter((l) => !active.has(l.id)).map((l) => l.id).slice(0, 4);
         const phaseMix = (p.phaseMix || { early:0, mid:0, late:0 });
         const phaseProgress = Math.round(Number(((p.ontology || {}).progression || 0) * 100));
         const buyers = (p.buyerAlignment || []).slice(0,4).map((b) => b.buyer_id).join(' · ') || 'No buyer alignment yet';
         const gaps = layerGapDiagnostics(p);
 
-        const heat = ontologyOrder.map((l) => '<div class="lem-cell ' + (active.has(l.id) ? 'on' : 'off') + '" title="' + esc(l.id) + '"></div>').join('');
+        const heat = ontologyOrder.map((l) => {
+          const on = active.has(l.id);
+          const cls = on ? 'on' : 'off';
+          const kind = on ? 'emit' : 'missing';
+          return '<button class="lem-cell '+cls+' js-layer-cell" data-layer-kind="'+kind+'" data-layer-id="'+esc(l.id)+'" title="'+esc(l.id)+'"></button>';
+        }).join('');
         const phaseLabel = 'early ' + Math.round((phaseMix.early||0)*100) + '% · mid ' + Math.round((phaseMix.mid||0)*100) + '% · late ' + Math.round((phaseMix.late||0)*100) + '%';
+        const ranked = stuckReasonRanked(p);
+        const primary = ranked[0]?.reason || 'None';
+        const secondary = ranked[1]?.reason || 'None';
 
         return '<div class="lem-row">' +
           '<div class="d-flex justify-content-between align-items-start gap-2">' +
@@ -1375,18 +1427,56 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
             '<div class="small text-end"><span class="pp-ppi">P ' + Number(p.pressure || 0).toFixed(1) + '</span></div>' +
           '</div>' +
           '<div class="lem-heat mt-2">' + heat + '</div>' +
-          '<div class="d-flex flex-wrap gap-1 mt-1">' + (ontologyOrder.slice(0,15).map(l => '<span class="lem-layer-tag">' + esc(l.id.replaceAll('_',' ')) + '</span>').join('')) + '</div>' +
-          '<div class="mt-2"><div class="d-flex justify-content-between pp-legend"><span>Phase progression</span><span>' + phaseProgress + '%</span></div><div class="lem-phase-bar"><div class="lem-phase-fill" style="width:' + phaseProgress + '%"></div></div><div class="pp-legend">' + esc(phaseLabel) + '</div></div>' +
+          '<div class="mt-1"><span class="pp-kicker">Clickable layers:</span> <span class="pp-legend">click blue=emitting, gray=missing</span></div>' +
+          '<div class="mt-2"><div class="d-flex justify-content-between pp-legend"><span>Phase progression</span><span>' + phaseProgress + '%</span></div><div class="lem-phase-bar"><div class="lem-phase-fill" style="width:' + phaseProgress + '%"></div></div><div class="pp-legend">' + esc(phaseLabel) + '</div><div class="d-flex gap-1 mt-1"><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="early">early</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="mid">mid</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="late">late</button></div></div>' +
           '<div class="lem-strip mt-2">' +
             '<div class="tile"><div class="pp-kicker">Pressure</div><div class="mono">' + Number(p.pressure||0).toFixed(2) + '</div></div>' +
             '<div class="tile"><div class="pp-kicker">Momentum</div><div class="mono">' + (Number(p.momentum||0)>=0?'+':'') + Number(p.momentum||0).toFixed(3) + '</div></div>' +
             '<div class="tile"><div class="pp-kicker">Acceleration</div><div class="mono">' + (Number(p.acceleration||0)>=0?'+':'') + Number(p.acceleration||0).toFixed(3) + '</div></div>' +
           '</div>' +
-          '<div class="mt-2"><span class="pp-kicker">Top buyer alignment</span><div class="small">' + esc(buyers) + '</div></div>' +
-          '<div class="mt-2"><span class="pp-kicker">Dominant missing layers</span><div class="small">' + (missing.length ? missing.map(x=>esc(x.replaceAll('_',' '))).join(' · ') : 'None') + '</div></div>' +
+          '<div class="mt-2"><span class="pp-kicker">Top buyer alignment</span><div class="small">' + ((p.buyerAlignment || []).slice(0,4).map((b)=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-buyer-focus" data-buyer="'+esc(b.buyer_id)+'">'+esc(b.buyer_id)+'</button>').join('') || 'No buyer alignment yet') + '</div></div>' +
+          '<div class="mt-2"><span class="pp-kicker">Dominant missing layers</span><div class="small">' + (missing.length ? missing.map(x=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-missing-layer" data-layer-id="'+esc(x)+'">'+esc(x.replaceAll('_',' '))+'</button>').join('') : 'None') + '</div></div>' +
+          '<div class="mt-2"><span class="pp-kicker">Stuck reason badges</span><div class="small">Primary: ' + stuckBadge(primary) + ' Secondary: ' + stuckBadge(secondary) + '</div></div>' +
           '<div class="mt-2"><span class="pp-kicker">Layer-gap diagnostics</span><div class="small text-muted">' + (gaps.length ? gaps.map(esc).join(' ') : 'No critical ontology gaps detected.') + '</div></div>' +
         '</div>';
       }).join('');
+
+      els.lemPanel.querySelectorAll('.js-layer-cell').forEach((btn) => btn.addEventListener('click', () => {
+        const id = String(btn.dataset.layerId || '');
+        if (btn.dataset.layerKind === 'emit') {
+          state.ontologyLayer = state.ontologyLayer === id ? '' : id;
+          state.missingLayer = '';
+        } else {
+          state.missingLayer = state.missingLayer === id ? '' : id;
+          state.ontologyLayer = '';
+        }
+        renderAll();
+      }));
+
+      els.lemPanel.querySelectorAll('.js-missing-layer').forEach((btn) => btn.addEventListener('click', () => {
+        const id = String(btn.dataset.layerId || '');
+        state.missingLayer = state.missingLayer === id ? '' : id;
+        state.ontologyLayer = '';
+        renderAll();
+      }));
+
+      els.lemPanel.querySelectorAll('.js-buyer-focus').forEach((btn) => btn.addEventListener('click', () => {
+        const b = String(btn.dataset.buyer || '');
+        state.buyerFocus = state.buyerFocus === b ? '' : b;
+        renderAll();
+      }));
+
+      els.lemPanel.querySelectorAll('.js-phase').forEach((btn) => btn.addEventListener('click', () => {
+        const p = String(btn.dataset.phase || '');
+        state.phaseFocus = state.phaseFocus === p ? '' : p;
+        renderAll();
+      }));
+
+      els.lemPanel.querySelectorAll('.js-stuck-reason').forEach((btn) => btn.addEventListener('click', () => {
+        const reason = String(btn.dataset.stuckReason || '');
+        state.stuckReason = state.stuckReason === reason ? '' : reason;
+        renderAll();
+      }));
     }
 
     function scoreInterpretation(r){
@@ -1454,6 +1544,11 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       const filtered = sortRows(getFiltered());
       renderSummary(filtered); renderTable(filtered); renderTopByBuyer(filtered); renderHeatmap(filtered); renderWatchlist(filtered); renderLayerEmissionsMap(filtered);
       const tags = [els.fSector.value, els.fRegion.value, els.fStatus.value, els.fBuyer.value, els.fFid.value].filter(Boolean);
+      if (state.ontologyLayer) tags.push('Emitting layer: ' + state.ontologyLayer);
+      if (state.missingLayer) tags.push('Missing layer: ' + state.missingLayer);
+      if (state.buyerFocus) tags.push('Buyer: ' + state.buyerFocus);
+      if (state.phaseFocus) tags.push('Phase: ' + state.phaseFocus);
+      if (state.stuckReason) tags.push('Stuck reason: ' + state.stuckReason);
       const minLabel = Number(els.fMinPpi.value || 0) > 0 ? ('Min PPI ' + Number(els.fMinPpi.value || 0)) : '';
       if (minLabel) tags.push(minLabel);
       if (els.fSearch.value.trim()) tags.push('Search active');
@@ -1462,7 +1557,11 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     populateFilters(); renderAll();
     ['change','keyup'].forEach(evt => [els.fSector,els.fRegion,els.fStatus,els.fBuyer,els.fFid,els.fMinPpi,els.fSearch].forEach(el => el.addEventListener(evt, renderAll)));
-    document.getElementById('f-reset')?.addEventListener('click', () => { els.fSector.value=''; els.fRegion.value=''; els.fStatus.value=''; els.fBuyer.value=''; els.fFid.value=''; els.fMinPpi.value='0'; els.fSearch.value=''; renderAll(); });
+    document.getElementById('f-reset')?.addEventListener('click', () => {
+      els.fSector.value=''; els.fRegion.value=''; els.fStatus.value=''; els.fBuyer.value=''; els.fFid.value=''; els.fMinPpi.value='0'; els.fSearch.value='';
+      state.ontologyLayer=''; state.missingLayer=''; state.buyerFocus=''; state.phaseFocus=''; state.stuckReason='';
+      renderAll();
+    });
     document.querySelectorAll('button[data-sort]').forEach(btn => btn.addEventListener('click', () => { const k = btn.getAttribute('data-sort'); if(state.sortBy===k) state.sortDir = state.sortDir==='asc'?'desc':'asc'; else {state.sortBy=k; state.sortDir='desc';} renderAll(); }));
   </script>
   </body></html>`);
