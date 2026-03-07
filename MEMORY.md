@@ -107,21 +107,16 @@
 - 2026-03-01 review: no scoring model or weighting changes approved.
 - 2026-03-02 maintenance: no new scoring changes approved.
 
-# Project Status Snapshot (2026-03-06)
-- Workflow C queue discipline reconfirmed on schedule:
-  - 00:00 UTC intake trigger logged internal-only.
-  - 04:00 UTC queue event recorded for `mission-control/workflow-c/queue/2026-03-06.json`; `execute_immediately=false`.
-  - Execution remains deferred to local 23:00 ET window pending explicit queued tasks.
-- Presentation Studio active build progress (Board Build Window):
-  - Slide list/get API slice completed (`GET /api/presentation-studio/decks/:deckId/slides`, `GET /api/presentation-studio/decks/:deckId/slides/:slideId`).
-  - Review packet generated: `mission-control/review-packets/RP-0030-presentation-studio-slide-list-get-endpoints.md`.
-  - Board movement: TASK-0023 advanced to Ready for Review (no Done transitions).
-- Board Recovery Sweep executed at 07:30 UTC:
-  - In Progress >48h = 0; Ready for Review >24h = 27; Blocked = 0 (functional blocker evidence tracked on TASK-0097).
-  - Decomposition gate enforced via TASK-0098; unblock subtask TASK-0099 completed.
-  - Review packet generated: `mission-control/review-packets/RP-0031-board-recovery-sweep-2026-03-06.md`.
-- Workflow B daily queue refresh produced `RP-0034` with canonical ranking from `dashboard/data/buyers.json`; access-graph gaps remain the main conversion constraint.
-- Scoring policy status: no scoring model or weighting changes approved on 2026-03-06 maintenance.
+# Project Status Snapshot (2026-03-07)
+- Workflow C queue discipline maintained on schedule:
+  - 00:00 UTC intake reminder handled internal-only.
+  - 04:00 UTC queue event recorded for `mission-control/workflow-c/queue/2026-03-07.json`; `execute_immediately=false`.
+  - Execution remains deferred to local 23:00 ET pending explicit queued tasks.
+- Presentation Studio build advanced during 04:10 UTC Board Build Window:
+  - Slide mutation API slice implemented (POST/PATCH/DELETE).
+  - Review packet generated: `mission-control/review-packets/RP-0037`.
+  - Decomposition gate applied (TASK-0104/0105/0106); no Done-state bypass.
+- Scoring policy status: no scoring model or weighting changes approved as of 2026-03-07 maintenance.
 
 # Communication Operating Rule (2026-03-01)
 - Proactive update protocol is mandatory during active build windows:
