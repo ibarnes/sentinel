@@ -232,16 +232,40 @@ function summarizeTrajectory(momentum, acceleration) {
 function recommendUSGMotion({ state, pressure, momentum, phaseMix, activeLayers, pPlatform, pFid }) {
   const has = (x) => activeLayers.has(x);
 
-  if (pressure < 10 && state === 'Monitor') return 'Monitor only';
-  if (has('narrative_legitimacy') && !has('capital_allocation')) return 'Refine narrative';
-  if ((has('capital_allocation') || pPlatform >= 0.45) && !has('financial_structuring')) return 'Shape mandate';
-  if (pPlatform >= 0.55 && !has('platform_architecture')) return 'Develop platform architecture';
-  if (has('platform_architecture') && !has('governance')) return 'Build governance path';
-  if ((has('platform_architecture') || has('capital_allocation')) && !has('financial_structuring')) return 'Structure capital pathway';
-  if (has('financial_structuring') && momentum >= 0.2) return 'Advance buyer outreach';
-  if ((has('energy') || has('connectivity')) === false && has('capital_allocation')) return 'Pause until missing layer appears';
-  if (phaseMix.late > 0.45 && pFid >= 0.52) return 'Advance buyer outreach';
-  return 'Monitor only';
+  const decide = (motion, confidence, rationale) => ({
+    motion,
+    confidence: Number(clamp(confidence, 0.2, 0.98).toFixed(3)),
+    rationale
+  });
+
+  if (pressure < 10 && state === 'Monitor') {
+    return decide('Monitor only', 0.86, 'Low pressure with monitor state; wait for stronger multi-layer evidence.');
+  }
+  if (has('narrative_legitimacy') && !has('capital_allocation')) {
+    return decide('Refine narrative', 0.78, 'Narrative layer is active but capital allocation signals are missing.');
+  }
+  if ((has('capital_allocation') || pPlatform >= 0.45) && !has('financial_structuring')) {
+    return decide('Shape mandate', 0.82, 'Capital pressure is visible but mandate/structuring layer is not yet formed.');
+  }
+  if (pPlatform >= 0.55 && !has('platform_architecture')) {
+    return decide('Develop platform architecture', 0.8, 'Platform probability is rising while architecture layer remains weak.');
+  }
+  if (has('platform_architecture') && !has('governance')) {
+    return decide('Build governance path', 0.84, 'Architecture exists but governance clearance layer is missing.');
+  }
+  if ((has('platform_architecture') || has('capital_allocation')) && !has('financial_structuring')) {
+    return decide('Structure capital pathway', 0.81, 'Architecture/capital is present without financial structuring coherence.');
+  }
+  if (has('financial_structuring') && momentum >= 0.2) {
+    return decide('Advance buyer outreach', 0.8, 'Structuring layer is active and momentum is positive.');
+  }
+  if ((has('energy') || has('connectivity')) === false && has('capital_allocation')) {
+    return decide('Pause until missing layer appears', 0.76, 'Capital is active but core enabling layers (energy/connectivity) are missing.');
+  }
+  if (phaseMix.late > 0.45 && pFid >= 0.52) {
+    return decide('Advance buyer outreach', 0.83, 'Late-phase signals and FID probability indicate outreach timing is favorable.');
+  }
+  return decide('Monitor only', 0.68, 'No dominant motion trigger exceeded current decision thresholds.');
 }
 
 function bayesianUpdate(prior, evidence, confidenceGain) {
@@ -339,7 +363,7 @@ async function main() {
     const pFid = bayesianUpdate(priorFid, fidEvidence, confidenceGain);
 
     const topBuyers = Object.entries(buyerCounts).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([buyer_id, signalCount]) => ({ buyer_id, signalCount }));
-    const recommendedUSGMotion = recommendUSGMotion({
+    const recommendedUSG = recommendUSGMotion({
       state,
       pressure,
       momentum,
@@ -369,7 +393,9 @@ async function main() {
         platformFormation: Number(pPlatform.toFixed(3)),
         fid: Number(pFid.toFixed(3))
       },
-      recommendedUSGMotion,
+      recommendedUSGMotion: recommendedUSG.motion,
+      recommendedUSGMotionConfidence: recommendedUSG.confidence,
+      recommendedUSGMotionRationale: recommendedUSG.rationale,
       signalCount: group.length,
       generatedAt: now.toISOString()
     });
@@ -388,7 +414,9 @@ async function main() {
     pPlatformFormation: x.probability.platformFormation,
     pFID: x.probability.fid,
     buyerAlignment: x.buyerAlignment,
-    recommendedUSGMotion: x.recommendedUSGMotion
+    recommendedUSGMotion: x.recommendedUSGMotion,
+    recommendedUSGMotionConfidence: x.recommendedUSGMotionConfidence,
+    recommendedUSGMotionRationale: x.recommendedUSGMotionRationale
   }));
 
   const brief = {
@@ -399,7 +427,12 @@ async function main() {
     highConfidenceInitiatives: top.filter((x) => x.pPlatformFormation >= 0.65 || x.pFID >= 0.55).map((x) => x.initiative_id),
     weakeningInitiatives: top.filter((x) => x.momentum < -0.5).map((x) => x.initiative_id),
     buyerAlignment: top.map((x) => ({ initiative_id: x.initiative_id, buyers: x.buyerAlignment.slice(0, 3) })),
-    recommendedMotions: top.map((x) => ({ initiative_id: x.initiative_id, motion: x.recommendedUSGMotion }))
+    recommendedMotions: top.map((x) => ({
+      initiative_id: x.initiative_id,
+      motion: x.recommendedUSGMotion,
+      confidence: x.recommendedUSGMotionConfidence,
+      rationale: x.recommendedUSGMotionRationale
+    }))
   };
 
   const snapshot = {

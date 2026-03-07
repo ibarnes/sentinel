@@ -1,6 +1,6 @@
 {
   "version": "signal-physics-v1.1-ontology",
-  "generatedAt": "2026-03-07T21:05:12.571Z",
+  "generatedAt": "2026-03-07T21:09:32.226Z",
   "modelNotes": {
     "fallbackRuleSystem": "unchanged",
     "explainability": "Deterministic from signal metadata, ontology mapping, and config coefficients."
@@ -4856,12 +4856,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Pre-FID",
       "probability": {
-        "platformFormation": 0.745,
-        "fid": 0.598
+        "platformFormation": 0.815,
+        "fid": 0.572
       },
       "recommendedUSGMotion": "Monitor only",
+      "recommendedUSGMotionConfidence": 0.68,
+      "recommendedUSGMotionRationale": "No dominant motion trigger exceeded current decision thresholds.",
       "signalCount": 44,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "INIT-001",
@@ -4895,12 +4897,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.135,
-        "fid": 0.108
+        "platformFormation": 0.134,
+        "fid": 0.099
       },
       "recommendedUSGMotion": "Monitor only",
+      "recommendedUSGMotionConfidence": 0.86,
+      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence.",
       "signalCount": 0,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "INIT-653305",
@@ -4977,12 +4981,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Platform Formation",
       "probability": {
-        "platformFormation": 0.734,
-        "fid": 0.519
+        "platformFormation": 0.782,
+        "fid": 0.492
       },
       "recommendedUSGMotion": "Shape mandate",
+      "recommendedUSGMotionConfidence": 0.82,
+      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed.",
       "signalCount": 5,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-A",
@@ -5016,12 +5022,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.135,
-        "fid": 0.108
+        "platformFormation": 0.134,
+        "fid": 0.099
       },
       "recommendedUSGMotion": "Monitor only",
+      "recommendedUSGMotionConfidence": 0.86,
+      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence.",
       "signalCount": 0,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-B",
@@ -5055,12 +5063,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.135,
-        "fid": 0.108
+        "platformFormation": 0.134,
+        "fid": 0.099
       },
       "recommendedUSGMotion": "Monitor only",
+      "recommendedUSGMotionConfidence": 0.86,
+      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence.",
       "signalCount": 0,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-C",
@@ -5094,12 +5104,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.135,
-        "fid": 0.108
+        "platformFormation": 0.134,
+        "fid": 0.099
       },
       "recommendedUSGMotion": "Monitor only",
+      "recommendedUSGMotionConfidence": 0.86,
+      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence.",
       "signalCount": 0,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-D",
@@ -5168,12 +5180,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Shaping",
       "probability": {
-        "platformFormation": 0.58,
-        "fid": 0.317
+        "platformFormation": 0.605,
+        "fid": 0.273
       },
       "recommendedUSGMotion": "Shape mandate",
+      "recommendedUSGMotionConfidence": 0.82,
+      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed.",
       "signalCount": 2,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -5242,12 +5256,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Platform Formation",
       "probability": {
-        "platformFormation": 0.598,
-        "fid": 0.358
+        "platformFormation": 0.641,
+        "fid": 0.323
       },
       "recommendedUSGMotion": "Shape mandate",
+      "recommendedUSGMotionConfidence": 0.82,
+      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed.",
       "signalCount": 3,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -5320,12 +5336,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Platform Formation",
       "probability": {
-        "platformFormation": 0.676,
-        "fid": 0.345
+        "platformFormation": 0.715,
+        "fid": 0.314
       },
       "recommendedUSGMotion": "Build governance path",
+      "recommendedUSGMotionConfidence": 0.84,
+      "recommendedUSGMotionRationale": "Architecture exists but governance clearance layer is missing.",
       "signalCount": 1,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -5376,12 +5394,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Shaping",
       "probability": {
-        "platformFormation": 0.496,
-        "fid": 0.299
+        "platformFormation": 0.519,
+        "fid": 0.268
       },
       "recommendedUSGMotion": "Shape mandate",
+      "recommendedUSGMotionConfidence": 0.82,
+      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed.",
       "signalCount": 1,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "INIT-GRAVITY-001",
@@ -5415,12 +5435,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.135,
-        "fid": 0.108
+        "platformFormation": 0.134,
+        "fid": 0.099
       },
       "recommendedUSGMotion": "Monitor only",
+      "recommendedUSGMotionConfidence": 0.86,
+      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence.",
       "signalCount": 0,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     },
     {
       "initiative_id": "USG",
@@ -5505,12 +5527,14 @@
       "trajectory": "Slow emergence / stable",
       "state": "Pre-FID",
       "probability": {
-        "platformFormation": 0.758,
-        "fid": 0.607
+        "platformFormation": 0.826,
+        "fid": 0.581
       },
       "recommendedUSGMotion": "Monitor only",
+      "recommendedUSGMotionConfidence": 0.68,
+      "recommendedUSGMotionRationale": "No dominant motion trigger exceeded current decision thresholds.",
       "signalCount": 38,
-      "generatedAt": "2026-03-07T21:05:12.571Z"
+      "generatedAt": "2026-03-07T21:09:32.226Z"
     }
   ],
   "topInitiatives": [
@@ -5523,8 +5547,8 @@
       "clusterStrength": 1,
       "ontologyLayerCount": 14,
       "ontologyProgression": 0.512,
-      "pPlatformFormation": 0.758,
-      "pFID": 0.607,
+      "pPlatformFormation": 0.826,
+      "pFID": 0.581,
       "buyerAlignment": [
         {
           "buyer_id": "DFC",
@@ -5547,7 +5571,9 @@
           "signalCount": 9
         }
       ],
-      "recommendedUSGMotion": "Monitor only"
+      "recommendedUSGMotion": "Monitor only",
+      "recommendedUSGMotionConfidence": 0.68,
+      "recommendedUSGMotionRationale": "No dominant motion trigger exceeded current decision thresholds."
     },
     {
       "initiative_id": "INIT-653305",
@@ -5558,8 +5584,8 @@
       "clusterStrength": 1,
       "ontologyLayerCount": 10,
       "ontologyProgression": 0.543,
-      "pPlatformFormation": 0.734,
-      "pFID": 0.519,
+      "pPlatformFormation": 0.782,
+      "pFID": 0.492,
       "buyerAlignment": [
         {
           "buyer_id": "FMF-NG",
@@ -5582,7 +5608,9 @@
           "signalCount": 3
         }
       ],
-      "recommendedUSGMotion": "Shape mandate"
+      "recommendedUSGMotion": "Shape mandate",
+      "recommendedUSGMotionConfidence": 0.82,
+      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
     },
     {
       "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -5593,8 +5621,8 @@
       "clusterStrength": 0.625,
       "ontologyLayerCount": 6,
       "ontologyProgression": 0.45,
-      "pPlatformFormation": 0.598,
-      "pFID": 0.358,
+      "pPlatformFormation": 0.641,
+      "pFID": 0.323,
       "buyerAlignment": [
         {
           "buyer_id": "FMF-NG",
@@ -5617,7 +5645,9 @@
           "signalCount": 3
         }
       ],
-      "recommendedUSGMotion": "Shape mandate"
+      "recommendedUSGMotion": "Shape mandate",
+      "recommendedUSGMotionConfidence": 0.82,
+      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
     },
     {
       "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -5628,8 +5658,8 @@
       "clusterStrength": 1,
       "ontologyLayerCount": 10,
       "ontologyProgression": 0.487,
-      "pPlatformFormation": 0.676,
-      "pFID": 0.345,
+      "pPlatformFormation": 0.715,
+      "pFID": 0.314,
       "buyerAlignment": [
         {
           "buyer_id": "GIC",
@@ -5648,7 +5678,9 @@
           "signalCount": 1
         }
       ],
-      "recommendedUSGMotion": "Build governance path"
+      "recommendedUSGMotion": "Build governance path",
+      "recommendedUSGMotionConfidence": 0.84,
+      "recommendedUSGMotionRationale": "Architecture exists but governance clearance layer is missing."
     },
     {
       "initiative_id": "INIT-AI-OPT-D",
@@ -5659,8 +5691,8 @@
       "clusterStrength": 0.625,
       "ontologyLayerCount": 6,
       "ontologyProgression": 0.416,
-      "pPlatformFormation": 0.58,
-      "pFID": 0.317,
+      "pPlatformFormation": 0.605,
+      "pFID": 0.273,
       "buyerAlignment": [
         {
           "buyer_id": "FMF-NG",
@@ -5683,7 +5715,9 @@
           "signalCount": 2
         }
       ],
-      "recommendedUSGMotion": "Shape mandate"
+      "recommendedUSGMotion": "Shape mandate",
+      "recommendedUSGMotionConfidence": 0.82,
+      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
     },
     {
       "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -5694,15 +5728,17 @@
       "clusterStrength": 0.5,
       "ontologyLayerCount": 5,
       "ontologyProgression": 0.613,
-      "pPlatformFormation": 0.496,
-      "pFID": 0.299,
+      "pPlatformFormation": 0.519,
+      "pFID": 0.268,
       "buyerAlignment": [
         {
           "buyer_id": "TAFF",
           "signalCount": 1
         }
       ],
-      "recommendedUSGMotion": "Shape mandate"
+      "recommendedUSGMotion": "Shape mandate",
+      "recommendedUSGMotionConfidence": 0.82,
+      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
     },
     {
       "initiative_id": "INIT-001",
@@ -5713,10 +5749,12 @@
       "clusterStrength": 0,
       "ontologyLayerCount": 0,
       "ontologyProgression": 0.1,
-      "pPlatformFormation": 0.135,
-      "pFID": 0.108,
+      "pPlatformFormation": 0.134,
+      "pFID": 0.099,
       "buyerAlignment": [],
-      "recommendedUSGMotion": "Monitor only"
+      "recommendedUSGMotion": "Monitor only",
+      "recommendedUSGMotionConfidence": 0.86,
+      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence."
     },
     {
       "initiative_id": "INIT-AI-OPT-A",
@@ -5727,10 +5765,12 @@
       "clusterStrength": 0,
       "ontologyLayerCount": 0,
       "ontologyProgression": 0.1,
-      "pPlatformFormation": 0.135,
-      "pFID": 0.108,
+      "pPlatformFormation": 0.134,
+      "pFID": 0.099,
       "buyerAlignment": [],
-      "recommendedUSGMotion": "Monitor only"
+      "recommendedUSGMotion": "Monitor only",
+      "recommendedUSGMotionConfidence": 0.86,
+      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence."
     }
   ],
   "morningBriefEnhancements": {
@@ -5885,35 +5925,51 @@
     "recommendedMotions": [
       {
         "initiative_id": "USG",
-        "motion": "Monitor only"
+        "motion": "Monitor only",
+        "confidence": 0.68,
+        "rationale": "No dominant motion trigger exceeded current decision thresholds."
       },
       {
         "initiative_id": "INIT-653305",
-        "motion": "Shape mandate"
+        "motion": "Shape mandate",
+        "confidence": 0.82,
+        "rationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
       },
       {
         "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
-        "motion": "Shape mandate"
+        "motion": "Shape mandate",
+        "confidence": 0.82,
+        "rationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
       },
       {
         "initiative_id": "INIT-AP-AI-FACTORY-001",
-        "motion": "Build governance path"
+        "motion": "Build governance path",
+        "confidence": 0.84,
+        "rationale": "Architecture exists but governance clearance layer is missing."
       },
       {
         "initiative_id": "INIT-AI-OPT-D",
-        "motion": "Shape mandate"
+        "motion": "Shape mandate",
+        "confidence": 0.82,
+        "rationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
       },
       {
         "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
-        "motion": "Shape mandate"
+        "motion": "Shape mandate",
+        "confidence": 0.82,
+        "rationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
       },
       {
         "initiative_id": "INIT-001",
-        "motion": "Monitor only"
+        "motion": "Monitor only",
+        "confidence": 0.86,
+        "rationale": "Low pressure with monitor state; wait for stronger multi-layer evidence."
       },
       {
         "initiative_id": "INIT-AI-OPT-A",
-        "motion": "Monitor only"
+        "motion": "Monitor only",
+        "confidence": 0.86,
+        "rationale": "Low pressure with monitor state; wait for stronger multi-layer evidence."
       }
     ]
   }
