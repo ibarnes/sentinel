@@ -1251,6 +1251,18 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     };
     const focusClasses = ['Sovereign Wealth Fund','DFI / MDB','Hyperscaler / Tech Platform','Strategic Industrial Sponsor'];
     const relevanceOrder = ['Observe','Track','Engage Soon','Mandate Window'];
+    const sectorInitiativeAlias = {
+      'INIT_SECTOR::PPS-AI-INFRASTRUCTURE': 'INIT-AI-OPT-B',
+      'INIT_SECTOR::PPS-MANGANESE': 'INIT-2026-03-05-COMMODITY-CORRIDOR',
+      'INIT_SECTOR::PPS-COPPER': 'INIT-653305',
+      'INIT_SECTOR::PPS-BATTERY-MATERIALS': 'INIT-653305',
+      'INIT_SECTOR::PPS-INDUSTRIAL-POWER-CORRIDORS': 'INIT-001',
+      'INIT_SECTOR::PPS-LOGISTICS-CORRIDORS': 'INIT-2026-03-05-COMMODITY-CORRIDOR',
+      'INIT_SECTOR::PPS-DIGITAL-FINANCIAL-RAILS': 'INIT-NG-FIN-ENERGY-SPINE',
+      'INIT_SECTOR::PPS-WATER-INFRASTRUCTURE': 'INIT-653305',
+      'INIT_SECTOR::PPS-FOOD-SECURITY-INFRASTRUCTURE': 'INIT-653305',
+      'INIT_SECTOR::PPS-INDUSTRIAL-ZONES': 'INIT-AI-OPT-D'
+    };
 
     const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c)=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const delta = (n) => { const v = Number(n||0); if(v>0) return '<span class="badge text-bg-success">+'+v+'</span>'; if(v<0) return '<span class="badge text-bg-secondary">'+v+'</span>'; return '<span class="badge text-bg-dark">0</span>'; };
@@ -1389,9 +1401,13 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     }
 
     function linkedInitiativeIds(r){
-      const ids = ((r.linkRefs || {}).initiativeIds || []).map(x => String(x || '').trim()).filter(Boolean);
-      // Fallbacks ensure emissions map still renders when sector pseudo-ids are not present in physics snapshot.
-      return [...ids, 'USG', 'GLOBAL'];
+      const rawIds = ((r.linkRefs || {}).initiativeIds || []).map(x => String(x || '').trim()).filter(Boolean);
+      const ids = rawIds.map((id) => {
+        const key = id.toUpperCase();
+        return sectorInitiativeAlias[key] || id;
+      });
+      // Keep explicit mapping first; only then fallback.
+      return [...new Set([...ids, 'USG', 'GLOBAL'])];
     }
 
     function layerGapDiagnostics(p){
