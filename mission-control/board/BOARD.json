@@ -3023,7 +3023,8 @@
       "linked_refs": [
         "TASK-0108",
         "TASK-0109",
-        "mission-control/review-packets/RP-0038-board-recovery-sweep-2026-03-07.md"
+        "mission-control/review-packets/RP-0038-board-recovery-sweep-2026-03-07.md",
+        "TASK-0114"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3032,11 +3033,17 @@
           "author": "sentinel",
           "text": "Decomposition gate applied: created TASK-0108 (execute tranche-C packet now) and TASK-0109 (approval routing + board transitions).",
           "created_at": "2026-03-07T07:30:00Z"
+        },
+        {
+          "id": "progress-0107-20260307-1730",
+          "author": "sentinel",
+          "created_at": "2026-03-07T17:30:00Z",
+          "text": "Midday sweep continuation: executed TASK-0114 (decision-ready transition plan) to reduce latency once Isaac provides tranche-C decisions. Parent remains In Progress pending Isaac approvals before TASK-0113 execution."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-07T07:30:00Z",
+      "updated_at": "2026-03-07T17:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3090,7 +3097,8 @@
         "TASK-0107",
         "TASK-0108",
         "TASK-0112",
-        "TASK-0113"
+        "TASK-0113",
+        "TASK-0114"
       ],
       "description": "Once Isaac decisions are provided for tranche-C items, apply approved transitions and queue follow-on work for deferred items.\nAcceptance Criteria:\n- Decision capture list completed for each tranche-C task.\n- Approved items transitioned per governance.\n- Deferred items annotated with blocking reason and next check date.",
       "comments": [
@@ -3099,11 +3107,17 @@
           "author": "sentinel",
           "text": "Decomposition gate applied: split TASK-0109 into TASK-0112 (decision capture ledger) and TASK-0113 (apply post-approval transitions).",
           "created_at": "2026-03-07T11:40:00Z"
+        },
+        {
+          "id": "progress-0109-20260307-1730",
+          "author": "sentinel",
+          "created_at": "2026-03-07T17:30:00Z",
+          "text": "Executed TASK-0114 to precompute transition actions for tranche-C items; waiting only on Isaac decision entries to run TASK-0113."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-07T11:40:00Z",
+      "updated_at": "2026-03-07T17:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3221,6 +3235,39 @@
       "request_approval": null,
       "created_at": "2026-03-07T11:40:00Z",
       "updated_at": "2026-03-07T11:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0114",
+      "title": "BRS-2026-03-07b.iii Precompute tranche-C board transition plan",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0109",
+        "TASK-0112",
+        "mission-control/board/tranche-c-transition-plan-2026-03-07.md"
+      ],
+      "description": "Create a decision-independent transition plan mapping each tranche-C item to exact BOARD.json update actions (approve/defer/hold paths) so TASK-0113 can execute in <30 minutes after Isaac decisions.\nAcceptance Criteria:\n- Transition plan includes per-task action matrix for approve/defer/hold.\n- Each row includes target status, required comment template, and follow-up date rule.\n- Plan references current board status snapshot timestamp.",
+      "comments": [
+        {
+          "id": "done-0114-20260307-1730",
+          "author": "sentinel",
+          "text": "Created tranche-c transition plan with approve/defer/hold action matrix and comment templates.",
+          "created_at": "2026-03-07T17:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-07T17:30:00Z",
+      "updated_at": "2026-03-07T17:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
