@@ -229,6 +229,21 @@ function summarizeTrajectory(momentum, acceleration) {
   return 'Slow emergence / stable';
 }
 
+function recommendUSGMotion({ state, pressure, momentum, phaseMix, activeLayers, pPlatform, pFid }) {
+  const has = (x) => activeLayers.has(x);
+
+  if (pressure < 10 && state === 'Monitor') return 'Monitor only';
+  if (has('narrative_legitimacy') && !has('capital_allocation')) return 'Refine narrative';
+  if ((has('capital_allocation') || pPlatform >= 0.45) && !has('financial_structuring')) return 'Shape mandate';
+  if (pPlatform >= 0.55 && !has('platform_architecture')) return 'Develop platform architecture';
+  if (has('platform_architecture') && !has('governance')) return 'Build governance path';
+  if ((has('platform_architecture') || has('capital_allocation')) && !has('financial_structuring')) return 'Structure capital pathway';
+  if (has('financial_structuring') && momentum >= 0.2) return 'Advance buyer outreach';
+  if ((has('energy') || has('connectivity')) === false && has('capital_allocation')) return 'Pause until missing layer appears';
+  if (phaseMix.late > 0.45 && pFid >= 0.52) return 'Advance buyer outreach';
+  return 'Monitor only';
+}
+
 function bayesianUpdate(prior, evidence, confidenceGain) {
   const k = clamp(0.15 + confidenceGain * 0.55, 0.15, 0.7);
   return clamp(prior + k * (evidence - prior), 0.01, 0.99);
@@ -324,6 +339,15 @@ async function main() {
     const pFid = bayesianUpdate(priorFid, fidEvidence, confidenceGain);
 
     const topBuyers = Object.entries(buyerCounts).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([buyer_id, signalCount]) => ({ buyer_id, signalCount }));
+    const recommendedUSGMotion = recommendUSGMotion({
+      state,
+      pressure,
+      momentum,
+      phaseMix,
+      activeLayers: layerSet,
+      pPlatform,
+      pFid
+    });
 
     initiativeStates.push({
       initiative_id,
@@ -345,6 +369,7 @@ async function main() {
         platformFormation: Number(pPlatform.toFixed(3)),
         fid: Number(pFid.toFixed(3))
       },
+      recommendedUSGMotion,
       signalCount: group.length,
       generatedAt: now.toISOString()
     });
@@ -362,7 +387,8 @@ async function main() {
     ontologyProgression: x.ontology.progression,
     pPlatformFormation: x.probability.platformFormation,
     pFID: x.probability.fid,
-    buyerAlignment: x.buyerAlignment
+    buyerAlignment: x.buyerAlignment,
+    recommendedUSGMotion: x.recommendedUSGMotion
   }));
 
   const brief = {
@@ -372,7 +398,8 @@ async function main() {
     predictedTrajectories: top.map((x) => `${x.initiative_id}: ${x.trajectory}`),
     highConfidenceInitiatives: top.filter((x) => x.pPlatformFormation >= 0.65 || x.pFID >= 0.55).map((x) => x.initiative_id),
     weakeningInitiatives: top.filter((x) => x.momentum < -0.5).map((x) => x.initiative_id),
-    buyerAlignment: top.map((x) => ({ initiative_id: x.initiative_id, buyers: x.buyerAlignment.slice(0, 3) }))
+    buyerAlignment: top.map((x) => ({ initiative_id: x.initiative_id, buyers: x.buyerAlignment.slice(0, 3) })),
+    recommendedMotions: top.map((x) => ({ initiative_id: x.initiative_id, motion: x.recommendedUSGMotion }))
   };
 
   const snapshot = {

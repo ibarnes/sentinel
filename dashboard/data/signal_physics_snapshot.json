@@ -1,6 +1,6 @@
 {
   "version": "signal-physics-v1.1-ontology",
-  "generatedAt": "2026-03-07T20:38:13.739Z",
+  "generatedAt": "2026-03-07T21:05:12.571Z",
   "modelNotes": {
     "fallbackRuleSystem": "unchanged",
     "explainability": "Deterministic from signal metadata, ontology mapping, and config coefficients."
@@ -4785,7 +4785,7 @@
         "industrialProduction": 1045.052
       },
       "momentum": 0,
-      "acceleration": -123.7,
+      "acceleration": 0,
       "resonance": {
         "layerCounts": {
           "capital_allocation": 37,
@@ -4856,11 +4856,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Pre-FID",
       "probability": {
-        "platformFormation": 0.638,
-        "fid": 0.639
+        "platformFormation": 0.745,
+        "fid": 0.598
       },
+      "recommendedUSGMotion": "Monitor only",
       "signalCount": 44,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "INIT-001",
@@ -4894,11 +4895,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.137,
-        "fid": 0.121
+        "platformFormation": 0.135,
+        "fid": 0.108
       },
+      "recommendedUSGMotion": "Monitor only",
       "signalCount": 0,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "INIT-653305",
@@ -4912,7 +4914,7 @@
         "industrialProduction": 95.067
       },
       "momentum": 0,
-      "acceleration": -55,
+      "acceleration": 0,
       "resonance": {
         "layerCounts": {
           "operator": 1,
@@ -4975,11 +4977,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Platform Formation",
       "probability": {
-        "platformFormation": 0.654,
-        "fid": 0.564
+        "platformFormation": 0.734,
+        "fid": 0.519
       },
+      "recommendedUSGMotion": "Shape mandate",
       "signalCount": 5,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-A",
@@ -5013,11 +5016,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.137,
-        "fid": 0.121
+        "platformFormation": 0.135,
+        "fid": 0.108
       },
+      "recommendedUSGMotion": "Monitor only",
       "signalCount": 0,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-B",
@@ -5051,11 +5055,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.137,
-        "fid": 0.121
+        "platformFormation": 0.135,
+        "fid": 0.108
       },
+      "recommendedUSGMotion": "Monitor only",
       "signalCount": 0,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-C",
@@ -5089,11 +5094,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.137,
-        "fid": 0.121
+        "platformFormation": 0.135,
+        "fid": 0.108
       },
+      "recommendedUSGMotion": "Monitor only",
       "signalCount": 0,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-D",
@@ -5107,7 +5113,7 @@
         "industrialProduction": 33.892
       },
       "momentum": 0,
-      "acceleration": -152.8,
+      "acceleration": 0,
       "resonance": {
         "layerCounts": {
           "data_intelligence": 1,
@@ -5162,11 +5168,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Shaping",
       "probability": {
-        "platformFormation": 0.539,
-        "fid": 0.389
+        "platformFormation": 0.58,
+        "fid": 0.317
       },
+      "recommendedUSGMotion": "Shape mandate",
       "signalCount": 2,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -5180,7 +5187,7 @@
         "industrialProduction": 105.658
       },
       "momentum": 0,
-      "acceleration": -415.5,
+      "acceleration": 0,
       "resonance": {
         "layerCounts": {
           "data_intelligence": 2,
@@ -5235,11 +5242,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Platform Formation",
       "probability": {
-        "platformFormation": 0.534,
-        "fid": 0.409
+        "platformFormation": 0.598,
+        "fid": 0.358
       },
+      "recommendedUSGMotion": "Shape mandate",
       "signalCount": 3,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -5253,7 +5261,7 @@
         "industrialProduction": 26.713
       },
       "momentum": 0,
-      "acceleration": -88.9,
+      "acceleration": 0,
       "resonance": {
         "layerCounts": {
           "demand": 1,
@@ -5312,11 +5320,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Platform Formation",
       "probability": {
-        "platformFormation": 0.62,
-        "fid": 0.39
+        "platformFormation": 0.676,
+        "fid": 0.345
       },
+      "recommendedUSGMotion": "Build governance path",
       "signalCount": 1,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -5330,7 +5339,7 @@
         "industrialProduction": 6.943
       },
       "momentum": 0,
-      "acceleration": -76,
+      "acceleration": 0,
       "resonance": {
         "layerCounts": {
           "capital_allocation": 1,
@@ -5367,11 +5376,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Shaping",
       "probability": {
-        "platformFormation": 0.463,
-        "fid": 0.343
+        "platformFormation": 0.496,
+        "fid": 0.299
       },
+      "recommendedUSGMotion": "Shape mandate",
       "signalCount": 1,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "INIT-GRAVITY-001",
@@ -5405,11 +5415,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.137,
-        "fid": 0.121
+        "platformFormation": 0.135,
+        "fid": 0.108
       },
+      "recommendedUSGMotion": "Monitor only",
       "signalCount": 0,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     },
     {
       "initiative_id": "USG",
@@ -5423,7 +5434,7 @@
         "industrialProduction": 1014.431
       },
       "momentum": 0,
-      "acceleration": -124.7,
+      "acceleration": 0,
       "resonance": {
         "layerCounts": {
           "capital_allocation": 34,
@@ -5494,11 +5505,12 @@
       "trajectory": "Slow emergence / stable",
       "state": "Pre-FID",
       "probability": {
-        "platformFormation": 0.651,
-        "fid": 0.647
+        "platformFormation": 0.758,
+        "fid": 0.607
       },
+      "recommendedUSGMotion": "Monitor only",
       "signalCount": 38,
-      "generatedAt": "2026-03-07T20:38:13.739Z"
+      "generatedAt": "2026-03-07T21:05:12.571Z"
     }
   ],
   "topInitiatives": [
@@ -5511,8 +5523,8 @@
       "clusterStrength": 1,
       "ontologyLayerCount": 14,
       "ontologyProgression": 0.512,
-      "pPlatformFormation": 0.651,
-      "pFID": 0.647,
+      "pPlatformFormation": 0.758,
+      "pFID": 0.607,
       "buyerAlignment": [
         {
           "buyer_id": "DFC",
@@ -5534,7 +5546,8 @@
           "buyer_id": "PIF",
           "signalCount": 9
         }
-      ]
+      ],
+      "recommendedUSGMotion": "Monitor only"
     },
     {
       "initiative_id": "INIT-653305",
@@ -5545,8 +5558,8 @@
       "clusterStrength": 1,
       "ontologyLayerCount": 10,
       "ontologyProgression": 0.543,
-      "pPlatformFormation": 0.654,
-      "pFID": 0.564,
+      "pPlatformFormation": 0.734,
+      "pFID": 0.519,
       "buyerAlignment": [
         {
           "buyer_id": "FMF-NG",
@@ -5568,7 +5581,8 @@
           "buyer_id": "DFC",
           "signalCount": 3
         }
-      ]
+      ],
+      "recommendedUSGMotion": "Shape mandate"
     },
     {
       "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -5579,8 +5593,8 @@
       "clusterStrength": 0.625,
       "ontologyLayerCount": 6,
       "ontologyProgression": 0.45,
-      "pPlatformFormation": 0.534,
-      "pFID": 0.409,
+      "pPlatformFormation": 0.598,
+      "pFID": 0.358,
       "buyerAlignment": [
         {
           "buyer_id": "FMF-NG",
@@ -5602,7 +5616,8 @@
           "buyer_id": "AFC",
           "signalCount": 3
         }
-      ]
+      ],
+      "recommendedUSGMotion": "Shape mandate"
     },
     {
       "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -5613,8 +5628,8 @@
       "clusterStrength": 1,
       "ontologyLayerCount": 10,
       "ontologyProgression": 0.487,
-      "pPlatformFormation": 0.62,
-      "pFID": 0.39,
+      "pPlatformFormation": 0.676,
+      "pFID": 0.345,
       "buyerAlignment": [
         {
           "buyer_id": "GIC",
@@ -5632,7 +5647,8 @@
           "buyer_id": "DFC",
           "signalCount": 1
         }
-      ]
+      ],
+      "recommendedUSGMotion": "Build governance path"
     },
     {
       "initiative_id": "INIT-AI-OPT-D",
@@ -5643,8 +5659,8 @@
       "clusterStrength": 0.625,
       "ontologyLayerCount": 6,
       "ontologyProgression": 0.416,
-      "pPlatformFormation": 0.539,
-      "pFID": 0.389,
+      "pPlatformFormation": 0.58,
+      "pFID": 0.317,
       "buyerAlignment": [
         {
           "buyer_id": "FMF-NG",
@@ -5666,7 +5682,8 @@
           "buyer_id": "DFC",
           "signalCount": 2
         }
-      ]
+      ],
+      "recommendedUSGMotion": "Shape mandate"
     },
     {
       "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -5677,14 +5694,15 @@
       "clusterStrength": 0.5,
       "ontologyLayerCount": 5,
       "ontologyProgression": 0.613,
-      "pPlatformFormation": 0.463,
-      "pFID": 0.343,
+      "pPlatformFormation": 0.496,
+      "pFID": 0.299,
       "buyerAlignment": [
         {
           "buyer_id": "TAFF",
           "signalCount": 1
         }
-      ]
+      ],
+      "recommendedUSGMotion": "Shape mandate"
     },
     {
       "initiative_id": "INIT-001",
@@ -5695,9 +5713,10 @@
       "clusterStrength": 0,
       "ontologyLayerCount": 0,
       "ontologyProgression": 0.1,
-      "pPlatformFormation": 0.137,
-      "pFID": 0.121,
-      "buyerAlignment": []
+      "pPlatformFormation": 0.135,
+      "pFID": 0.108,
+      "buyerAlignment": [],
+      "recommendedUSGMotion": "Monitor only"
     },
     {
       "initiative_id": "INIT-AI-OPT-A",
@@ -5708,9 +5727,10 @@
       "clusterStrength": 0,
       "ontologyLayerCount": 0,
       "ontologyProgression": 0.1,
-      "pPlatformFormation": 0.137,
-      "pFID": 0.121,
-      "buyerAlignment": []
+      "pPlatformFormation": 0.135,
+      "pFID": 0.108,
+      "buyerAlignment": [],
+      "recommendedUSGMotion": "Monitor only"
     }
   ],
   "morningBriefEnhancements": {
@@ -5754,7 +5774,8 @@
     ],
     "highConfidenceInitiatives": [
       "USG",
-      "INIT-653305"
+      "INIT-653305",
+      "INIT-AP-AI-FACTORY-001"
     ],
     "weakeningInitiatives": [],
     "buyerAlignment": [
@@ -5859,6 +5880,40 @@
       {
         "initiative_id": "INIT-AI-OPT-A",
         "buyers": []
+      }
+    ],
+    "recommendedMotions": [
+      {
+        "initiative_id": "USG",
+        "motion": "Monitor only"
+      },
+      {
+        "initiative_id": "INIT-653305",
+        "motion": "Shape mandate"
+      },
+      {
+        "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
+        "motion": "Shape mandate"
+      },
+      {
+        "initiative_id": "INIT-AP-AI-FACTORY-001",
+        "motion": "Build governance path"
+      },
+      {
+        "initiative_id": "INIT-AI-OPT-D",
+        "motion": "Shape mandate"
+      },
+      {
+        "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
+        "motion": "Shape mandate"
+      },
+      {
+        "initiative_id": "INIT-001",
+        "motion": "Monitor only"
+      },
+      {
+        "initiative_id": "INIT-AI-OPT-A",
+        "motion": "Monitor only"
       }
     ]
   }
