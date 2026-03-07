@@ -1120,6 +1120,19 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     ${dashboardNav('platform-pressure')}
     ${pageHeader('Platform Pressure', '', 'Internal operating radar for pre-obvious infrastructure platform formation')}
 
+    <div id="pp-js-errors" class="card mb-3" style="display:none;border-color:#8b2d2d">
+      <div class="card-body py-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <strong style="color:#ffb4b4">Temporary JS Error Logger</strong>
+          <div>
+            <button class="btn btn-sm btn-outline-secondary" onclick="window.__ppShowErrors && window.__ppShowErrors()">Show Errors</button>
+            <button class="btn btn-sm btn-outline-secondary" onclick="localStorage.removeItem('pp_error_log_v1'); window.__ppShowErrors && window.__ppShowErrors()">Clear</button>
+          </div>
+        </div>
+        <pre id="pp-js-errors-pre" class="small mb-0 mt-2" style="white-space:pre-wrap;max-height:180px;overflow:auto"></pre>
+      </div>
+    </div>
+
     <div id="pp-summary" class="row g-2 mb-3"></div>
 
     <div class="card mb-3"><div class="card-body">
@@ -1183,6 +1196,37 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   </div>
 
   <script>
+    (function installTempErrorLogger(){
+      try {
+        const key = 'pp_error_log_v1';
+        const push = (entry) => {
+          try {
+            const logs = JSON.parse(localStorage.getItem(key) || '[]');
+            logs.push({ t: new Date().toISOString(), ...entry });
+            localStorage.setItem(key, JSON.stringify(logs.slice(-30)));
+          } catch {}
+        };
+        window.addEventListener('error', (e) => {
+          push({ type:'error', message: e.message, source: e.filename, line: e.lineno, col: e.colno });
+          const box = document.getElementById('pp-js-errors');
+          if (box) box.style.display = 'block';
+        });
+        window.addEventListener('unhandledrejection', (e) => {
+          push({ type:'unhandledrejection', message: String((e.reason && (e.reason.stack || e.reason.message)) || e.reason || 'unknown') });
+          const box = document.getElementById('pp-js-errors');
+          if (box) box.style.display = 'block';
+        });
+        window.__ppShowErrors = function(){
+          const logs = JSON.parse(localStorage.getItem(key) || '[]');
+          const pre = document.getElementById('pp-js-errors-pre');
+          const box = document.getElementById('pp-js-errors');
+          if (pre) pre.textContent = logs.map(x => '[' + x.t + '] ' + x.type + ': ' + (x.message || '') + (x.source ? (' @ ' + x.source + ':' + (x.line||0) + ':' + (x.col||0)) : '')).join('\\n') || '(no browser errors captured)';
+          if (box) box.style.display = 'block';
+          return logs;
+        };
+      } catch {}
+    })();
+
     const platformData = ${payload};
     let rows = [...platformData.rows];
     const signalPhysics = platformData.signalPhysics || { initiatives: [], ontologyLayers: [] };
