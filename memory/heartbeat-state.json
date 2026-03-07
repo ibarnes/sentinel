@@ -1,23 +1,9 @@
 {
-  "buyerAccessGraph": {
-    "lastCheckedUtc": "2026-03-06T16:48:00Z",
-    "lastIssueSignature": "39566ecf65ee2e18f9f8bc57362237d7c3f20e4c6eeeb0e10cfa5d779abd2938",
-    "lastAlertedSignature": "39566ecf65ee2e18f9f8bc57362237d7c3f20e4c6eeeb0e10cfa5d779abd2938",
-    "notes": "Seeded to suppress duplicate Buyer Access Graph alerts when issue set is unchanged.",
-    "last_checked_utc": "2026-03-06T18:48:00Z",
-    "last_signature": "e0ea95fd4652906d0bb9f9c54ae3d423d42253ae5aadd6ec1fb4c8d1f2f1a2c6",
-    "lastAlertSig": "e445f9d8ccbc812c45b056c538585aeaa59f2c85eeb4e50d1a7fab8813e85941",
-    "lastAlertAtUtc": "2026-03-06T21:18:00Z"
-  },
-  "buyerAccessAlertFingerprint": "d6e79caa1d09606f6386f58cb168852e13d13255e0e07254ca40649e2bffacf3",
-  "buyerAccessLastRunUtc": "2026-03-06T19:18:00Z",
-  "lastChecks": {
-    "buyer_access_graph": 1772831924
-  },
-  "buyerAccessGraphIssueSignature": "f07b7302f9094d8e052ad2266ef8ea38762d3622b5bc0b71185acdb40df21dcd",
-  "buyerAccessGraphIssues": [
+  "buyerAccessGraphSignature": "45c9ad337eaa2b42126c530492bfc6f93f2f0959264d306dbf957c2ad88522c2",
+  "updatedAtUtc": "2026-03-07T05:18:00Z",
+  "issues": [
     {
-      "type": "missing_decision_arch_coverage",
+      "type": "missing_decision_arch",
       "buyers": [
         "PIF",
         "TEMASEK",
@@ -30,14 +16,108 @@
       ]
     },
     {
-      "type": "high_influence_without_access_path",
+      "type": "high_influence_no_path",
       "items": [
         {
           "buyer_id": "DFC",
-          "high_influence_count": 2
+          "high_roles": 2
+        }
+      ]
+    },
+    {
+      "type": "metadata_drift",
+      "items": [
+        {
+          "buyer_id": "TAFF",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "PIF",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "TEMASEK",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "ADQ",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "AFC",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "MUBADALA",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "DFC",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "WORLDBANK",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "QIA",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "AfDB",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
         }
       ]
     }
-  ],
-  "buyerAccessGraphLastCheckedUtc": "2026-03-06T23:18:36Z"
+  ]
 }
