@@ -4601,6 +4601,200 @@ app.get('/api/presentation-studio/decks/:deckId/slides/:slideId', requireRole('a
   return res.json({ ok: true, deckId, slide });
 });
 
+app.post('/api/presentation-studio/decks/:deckId/slides', requireRole('architect','editor'), async (req, res) => {
+  const deckId = String(req.params.deckId || '').trim();
+  if (!deckId) return res.status(400).json({ error: 'deckId required' });
+
+  const deckStore = await readDeckSpecStore();
+  const deck = deckStore.decks.find((d) => String(d.deckId) === deckId);
+  if (!deck) return res.status(404).json({ error: 'deck not found' });
+
+  const slideStore = await readSlideSpecStore();
+  const deckSlides = Array.isArray(slideStore.slidesByDeck?.[deckId]) ? slideStore.slidesByDeck[deckId] : [];
+  const existingIds = new Set(deckSlides.map((s) => String(s.slideId)));
+
+  const providedSlideId = String(req.body.slideId || '').trim();
+  let slideId = providedSlideId;
+  if (slideId) {
+    if (existingIds.has(slideId)) return res.status(409).json({ error: 'slide already exists' });
+  } else {
+    let n = deckSlides.length + 1;
+    while (existingIds.has(`slide-${String(n).padStart(3, '0')}`)) n += 1;
+    slideId = `slide-${String(n).padStart(3, '0')}`;
+  }
+
+  const layout = String(req.body.layout || 'section').trim();
+  const templateResolution = resolveTemplateIdFromLegacyLayout(layout);
+  const title = String(req.body.title || '').trim();
+  const bullets = Array.isArray(req.body.bullets) ? req.body.bullets.map((x) => String(x || '').trim()).filter(Boolean) : [];
+  const imagePrompt = String(req.body.imagePrompt || req.body.image_prompt || '').trim();
+  const now = nowIso();
+
+  const slide = {
+    slideId,
+    templateId: String(req.body.templateId || req.body.template_id || templateResolution.templateId),
+    slots: req.body.slots && typeof req.body.slots === 'object' && !Array.isArray(req.body.slots)
+      ? req.body.slots
+      : legacyFieldsToSlotsContract({ title, bullets, imagePrompt }),
+    constraints: req.body.constraints && typeof req.body.constraints === 'object' && !Array.isArray(req.body.constraints)
+      ? req.body.constraints
+      : {},
+    imagePlans: Array.isArray(req.body.imagePlans) ? req.body.imagePlans : [],
+    qa: req.body.qa && typeof req.body.qa === 'object' && !Array.isArray(req.body.qa)
+      ? req.body.qa
+      : { status: 'pending', score: null, flags: [] },
+    pipeline: req.body.pipeline && typeof req.body.pipeline === 'object' && !Array.isArray(req.body.pipeline)
+      ? req.body.pipeline
+      : { status: 'idle', stage: null },
+    legacy: {
+      layout,
+      title,
+      bullets,
+      imagePrompt,
+    },
+    createdAt: now,
+    updatedAt: now,
+  };
+
+  const insertAfterSlideId = String(req.body.insertAfterSlideId || '').trim();
+  const position = Number.isFinite(Number(req.body.position)) ? Number(req.body.position) : null;
+  const nextSlides = [...deckSlides];
+
+  if (insertAfterSlideId) {
+    const idx = nextSlides.findIndex((s) => String(s.slideId) === insertAfterSlideId);
+    if (idx < 0) return res.status(400).json({ error: 'insertAfterSlideId not found' });
+    nextSlides.splice(idx + 1, 0, slide);
+  } else if (position != null) {
+    const clamped = Math.max(0, Math.min(nextSlides.length, Math.trunc(position)));
+    nextSlides.splice(clamped, 0, slide);
+  } else {
+    nextSlides.push(slide);
+  }
+
+  slideStore.slidesByDeck = slideStore.slidesByDeck || {};
+  slideStore.slidesByDeck[deckId] = nextSlides;
+
+  deck.slideOrder = nextSlides.map((s) => String(s.slideId));
+  deck.updatedAt = now;
+
+  await writeSlideSpecStore(slideStore);
+  await writeDeckSpecStore(deckStore);
+
+  await appendAuditEvent({
+    ts: now,
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'presentation.slide.create',
+    entity_type: 'presentation_slide',
+    entity_id: `${deckId}:${slideId}`,
+    meta: { deckId, slideId }
+  });
+
+  return res.status(201).json({ ok: true, deckId, slide, count: nextSlides.length });
+});
+
+app.patch('/api/presentation-studio/decks/:deckId/slides/:slideId', requireRole('architect','editor'), async (req, res) => {
+  const deckId = String(req.params.deckId || '').trim();
+  const slideId = String(req.params.slideId || '').trim();
+  if (!deckId || !slideId) return res.status(400).json({ error: 'deckId and slideId required' });
+
+  const deckStore = await readDeckSpecStore();
+  const deck = deckStore.decks.find((d) => String(d.deckId) === deckId);
+  if (!deck) return res.status(404).json({ error: 'deck not found' });
+
+  const slideStore = await readSlideSpecStore();
+  const deckSlides = Array.isArray(slideStore.slidesByDeck?.[deckId]) ? slideStore.slidesByDeck[deckId] : [];
+  const idx = deckSlides.findIndex((s) => String(s.slideId) === slideId);
+  if (idx < 0) return res.status(404).json({ error: 'slide not found' });
+
+  const current = deckSlides[idx];
+  const next = { ...current };
+
+  if (req.body.templateId != null || req.body.template_id != null) next.templateId = String(req.body.templateId || req.body.template_id || '').trim();
+  if (req.body.slots && typeof req.body.slots === 'object' && !Array.isArray(req.body.slots)) next.slots = req.body.slots;
+  if (req.body.constraints && typeof req.body.constraints === 'object' && !Array.isArray(req.body.constraints)) next.constraints = req.body.constraints;
+  if (Array.isArray(req.body.imagePlans)) next.imagePlans = req.body.imagePlans;
+  if (req.body.qa && typeof req.body.qa === 'object' && !Array.isArray(req.body.qa)) next.qa = req.body.qa;
+  if (req.body.pipeline && typeof req.body.pipeline === 'object' && !Array.isArray(req.body.pipeline)) next.pipeline = req.body.pipeline;
+
+  const hasLegacyPatch = req.body.layout != null || req.body.title != null || req.body.bullets != null || req.body.imagePrompt != null || req.body.image_prompt != null;
+  if (hasLegacyPatch) {
+    const prevLegacy = current.legacy && typeof current.legacy === 'object' ? current.legacy : {};
+    const layout = req.body.layout != null ? String(req.body.layout || '').trim() : String(prevLegacy.layout || 'section');
+    const title = req.body.title != null ? String(req.body.title || '').trim() : String(prevLegacy.title || '');
+    const bullets = req.body.bullets != null
+      ? (Array.isArray(req.body.bullets) ? req.body.bullets.map((x) => String(x || '').trim()).filter(Boolean) : [])
+      : (Array.isArray(prevLegacy.bullets) ? prevLegacy.bullets : []);
+    const imagePrompt = req.body.imagePrompt != null || req.body.image_prompt != null
+      ? String(req.body.imagePrompt || req.body.image_prompt || '').trim()
+      : String(prevLegacy.imagePrompt || '');
+
+    next.legacy = { layout, title, bullets, imagePrompt };
+
+    if (req.body.slots == null) {
+      next.slots = legacyFieldsToSlotsContract({ title, bullets, imagePrompt });
+    }
+
+    if (req.body.templateId == null && req.body.template_id == null) {
+      next.templateId = resolveTemplateIdFromLegacyLayout(layout).templateId;
+    }
+  }
+
+  next.updatedAt = nowIso();
+  deckSlides[idx] = next;
+  slideStore.slidesByDeck[deckId] = deckSlides;
+  deck.updatedAt = next.updatedAt;
+
+  await writeSlideSpecStore(slideStore);
+  await writeDeckSpecStore(deckStore);
+
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'presentation.slide.update',
+    entity_type: 'presentation_slide',
+    entity_id: `${deckId}:${slideId}`,
+    meta: { deckId, slideId }
+  });
+
+  return res.json({ ok: true, deckId, slide: next });
+});
+
+app.delete('/api/presentation-studio/decks/:deckId/slides/:slideId', requireRole('architect','editor'), async (req, res) => {
+  const deckId = String(req.params.deckId || '').trim();
+  const slideId = String(req.params.slideId || '').trim();
+  if (!deckId || !slideId) return res.status(400).json({ error: 'deckId and slideId required' });
+
+  const deckStore = await readDeckSpecStore();
+  const deck = deckStore.decks.find((d) => String(d.deckId) === deckId);
+  if (!deck) return res.status(404).json({ error: 'deck not found' });
+
+  const slideStore = await readSlideSpecStore();
+  const deckSlides = Array.isArray(slideStore.slidesByDeck?.[deckId]) ? slideStore.slidesByDeck[deckId] : [];
+  const nextSlides = deckSlides.filter((s) => String(s.slideId) !== slideId);
+  if (nextSlides.length === deckSlides.length) return res.status(404).json({ error: 'slide not found' });
+
+  slideStore.slidesByDeck[deckId] = nextSlides;
+  deck.slideOrder = nextSlides.map((s) => String(s.slideId));
+  deck.updatedAt = nowIso();
+
+  await writeSlideSpecStore(slideStore);
+  await writeDeckSpecStore(deckStore);
+
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'presentation.slide.delete',
+    entity_type: 'presentation_slide',
+    entity_id: `${deckId}:${slideId}`,
+    meta: { deckId, slideId, remaining: nextSlides.length }
+  });
+
+  return res.json({ ok: true, deckId, deleted: slideId, count: nextSlides.length });
+});
+
 app.post('/api/presentation-studio/decks/:deckId/pipeline/run', requireRole('architect','editor'), async (req, res) => {
   const deckId = String(req.params.deckId || '').trim();
   if (!deckId) return res.status(400).json({ error: 'invalid_payload' });

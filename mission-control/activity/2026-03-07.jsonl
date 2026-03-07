@@ -1,3 +1,4 @@
 {"ts":"2026-03-07T02:51:19.431Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
 {"ts":"2026-03-07T02:51:19.862Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
 {"ts":"2026-03-07T04:00:00.000Z","actor":"sentinel","role":"operator","event_type":"workflow_c.queued","entity_type":"workflow","entity_id":"C","meta":{"queue_file":"mission-control/workflow-c/queue/2026-03-07.json","execute_immediately":false,"execute_after_local":"2026-03-07T23:00:00-05:00","source":"cron-event"}}
+{"ts":"2026-03-07T04:10:00.000Z","actor":"sentinel","role":"operator","event_type":"board.build_window.execute","entity_type":"task","entity_id":"TASK-0024","meta":{"decomposition":["TASK-0104","TASK-0105","TASK-0106"],"review_packet":"RP-0037","status":"ready_for_review"}}

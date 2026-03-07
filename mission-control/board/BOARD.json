@@ -20,7 +20,7 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-02-26T22:40:42Z",
-      "updated_at": "2026-02-27T19:37:21.367Z",
+      "updated_at": "2026-03-06T18:30:10.330Z",
       "created_by": "sentinel",
       "updated_by": "isaac"
     },
@@ -608,7 +608,7 @@
     {
       "id": "TASK-0024",
       "title": "TS-B2.2 Implement slide create/update/delete endpoints",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -618,16 +618,34 @@
         "story:US-B2"
       ],
       "linked_refs": [
+        "TASK-0104",
+        "TASK-0105",
+        "TASK-0106",
         "mutations",
         "slide-order"
       ],
       "description": "POST/PATCH/DELETE slide endpoints with order maintenance.",
-      "comments": [],
-      "request_approval": null,
+      "comments": [
+        {
+          "id": "progress-0024-20260307-0410",
+          "author": "sentinel",
+          "text": "Applied decomposition gate (TASK-0104/0105/0106) and delivered first mutation slice: POST/PATCH/DELETE slide endpoints with slideOrder persistence + audit events.",
+          "created_at": "2026-03-07T04:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-07T04:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0037-presentation-studio-slide-mutations-post-patch-delete.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-03-07T04:10:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0037"
     },
     {
       "id": "TASK-0025",
@@ -2881,6 +2899,104 @@
       "updated_at": "2026-03-06T17:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0104",
+      "title": "TS-B2.2a Decompose slide mutation API contract + payload shapes",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B2",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0024",
+        "TASK-0105",
+        "TASK-0106"
+      ],
+      "description": "Define atomic create/update/delete contract for SlideSpec v2 mutation endpoints with deterministic validation and audit expectations.\nAcceptance Criteria:\n- Request/response payload schema documented for POST/PATCH/DELETE.\n- Ordering behavior defined (append, position, insertAfter).\n- Error model defined (400/404/409).",
+      "comments": [
+        {
+          "id": "done-0104-20260307-0410",
+          "author": "sentinel",
+          "text": "Decomposition gate executed for TASK-0024; mutation contract and dependency sequence finalized before coding.",
+          "created_at": "2026-03-07T04:10:00Z"
+        }
+      ],
+      "created_at": "2026-03-07T04:10:00Z",
+      "updated_at": "2026-03-07T04:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "request_approval": null
+    },
+    {
+      "id": "TASK-0105",
+      "title": "TS-B2.2b Implement POST/PATCH /presentation-studio/decks/:deckId/slides",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B2",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0024"
+      ],
+      "description": "Implement create and update mutation endpoints for slide specs with legacy field compatibility, slot normalization fallback, and deck slideOrder maintenance.\nAcceptance Criteria:\n- POST returns 201 with created slide payload and updated count.\n- PATCH updates mutable fields and returns updated slide.\n- Both endpoints emit audit events and persist store updates.",
+      "comments": [
+        {
+          "id": "done-0105-20260307-0410",
+          "author": "sentinel",
+          "text": "Implemented POST/PATCH slide mutation endpoints in admin-server/src/server.js with persistence + audit events.",
+          "created_at": "2026-03-07T04:10:00Z"
+        }
+      ],
+      "created_at": "2026-03-07T04:10:00Z",
+      "updated_at": "2026-03-07T04:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "request_approval": null
+    },
+    {
+      "id": "TASK-0106",
+      "title": "TS-B2.2c Implement DELETE /presentation-studio/decks/:deckId/slides/:slideId + smoke checks",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B2",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0024"
+      ],
+      "description": "Implement delete mutation endpoint and verify syntax/smoke for mutation slice.\nAcceptance Criteria:\n- DELETE removes slide and compacts deck slideOrder.\n- Returns deleted slideId + remaining count.\n- Basic implementation smoke check recorded (node --check).",
+      "comments": [
+        {
+          "id": "done-0106-20260307-0410",
+          "author": "sentinel",
+          "text": "Implemented DELETE endpoint and completed syntax smoke check via `node --check admin-server/src/server.js`.",
+          "created_at": "2026-03-07T04:10:00Z"
+        }
+      ],
+      "created_at": "2026-03-07T04:10:00Z",
+      "updated_at": "2026-03-07T04:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "request_approval": null
     }
   ]
 }
