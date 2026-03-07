@@ -20,16 +20,17 @@ node mission-control/workflow-a/run-workflow-a-v3_1.mjs
 node mission-control/workflow-a/run-signal-physics.mjs
 ```
 
-## Signal Physics Layer (v1)
+## Signal Physics + Ontology Layer (v1.1)
 Adds a lightweight system-dynamics overlay without changing ingest architecture.
+Backed by `mission-control/workflow-a/infrastructure-ontology.json` for lifecycle-layer classification.
 
 Outputs:
 - `dashboard/data/signal_physics_snapshot.json` (latest state snapshot)
 - `mission-control/workflow-a/out/signal-physics-<timestamp>.json` (run archive)
 
 Computed fields include:
-- Signal-level: `snr`, `lagDays`, `phase`, `amplitude`, inferred `systems`
-- Initiative-level: `pressure`, `momentum`, `acceleration`, `resonance`, `state`
+- Signal-level: `snr`, `lagDays`, `phase`, `amplitude`, inferred `systems`, `ontologyLayers`
+- Initiative-level: `pressure`, `momentum`, `acceleration`, `resonance`, `state`, ontology progression
 - Probabilities: `platformFormation`, `fid` (Bayesian-style incremental updates)
 - Morning brief helper block: `morningBriefEnhancements`
 

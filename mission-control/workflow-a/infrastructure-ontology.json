@@ -1,0 +1,20 @@
+{
+  "version": "infrastructure-ontology-v1",
+  "layers": [
+    { "id": "demand", "name": "Demand Layer", "phase": "early", "order": 1, "keywords": ["demand", "load growth", "population", "urbanization", "forecast", "consumption", "capacity need"] },
+    { "id": "narrative_legitimacy", "name": "Narrative / Legitimacy Layer", "phase": "early", "order": 2, "keywords": ["national strategy", "policy narrative", "development program", "geopolitical", "vision", "strategic narrative"] },
+    { "id": "data_intelligence", "name": "Data / Intelligence Layer", "phase": "early", "order": 3, "keywords": ["report", "whitepaper", "forecast", "study", "advisory", "research"] },
+    { "id": "governance", "name": "Governance Layer", "phase": "early", "order": 4, "keywords": ["regulatory", "framework", "legislation", "ministry", "task force", "agreement", "mou"] },
+    { "id": "capital_allocation", "name": "Capital Allocation Layer", "phase": "mid", "order": 5, "keywords": ["capital", "allocation", "mandate", "fund", "investment strategy", "facility", "reinsurance", "guarantee"] },
+    { "id": "resource", "name": "Resource Layer", "phase": "mid", "order": 6, "keywords": ["land", "concession", "water rights", "resource agreement", "mineral", "feedstock"] },
+    { "id": "platform_architecture", "name": "Platform Architecture Layer", "phase": "mid", "order": 7, "keywords": ["platform", "corridor", "architecture", "cluster", "initiative", "design", "sequencing"] },
+    { "id": "financial_structuring", "name": "Financial Structuring Layer", "phase": "mid", "order": 8, "keywords": ["spv", "project finance", "blended finance", "ppp model", "capital stack", "bankability"] },
+    { "id": "connectivity", "name": "Connectivity Layer", "phase": "mid", "order": 9, "keywords": ["fiber", "subsea", "rail", "port", "corridor", "logistics", "shipping", "network"] },
+    { "id": "energy", "name": "Energy Layer", "phase": "mid", "order": 10, "keywords": ["power", "grid", "generation", "renewable", "ppa", "lng", "gas", "electricity"] },
+    { "id": "compute_digital", "name": "Compute / Digital Layer", "phase": "mid", "order": 11, "keywords": ["ai", "compute", "data center", "cloud", "telecom", "hyperscale", "digital"] },
+    { "id": "industrial_production", "name": "Industrial Production Layer", "phase": "late", "order": 12, "keywords": ["factory", "processing", "manufacturing", "fab", "battery", "plant", "industrial"] },
+    { "id": "construction", "name": "Construction Layer", "phase": "late", "order": 13, "keywords": ["epc", "groundbreaking", "construction", "engineering", "mobilization", "buildout"] },
+    { "id": "operator", "name": "Operator Layer", "phase": "late", "order": 14, "keywords": ["operator", "leasing", "utility", "operations", "operate", "management"] },
+    { "id": "market_access", "name": "Market Access Layer", "phase": "late", "order": 15, "keywords": ["offtake", "export agreement", "customer commitment", "long-term service", "market access"] }
+  ]
+}
