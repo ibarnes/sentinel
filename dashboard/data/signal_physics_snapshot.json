@@ -1,6 +1,6 @@
 {
   "version": "signal-physics-v1.1-ontology",
-  "generatedAt": "2026-03-07T21:09:32.226Z",
+  "generatedAt": "2026-03-07T21:14:40.482Z",
   "modelNotes": {
     "fallbackRuleSystem": "unchanged",
     "explainability": "Deterministic from signal metadata, ontology mapping, and config coefficients."
@@ -4856,14 +4856,49 @@
       "trajectory": "Slow emergence / stable",
       "state": "Pre-FID",
       "probability": {
-        "platformFormation": 0.815,
-        "fid": 0.572
+        "platformFormation": 0.86,
+        "fid": 0.555
       },
       "recommendedUSGMotion": "Monitor only",
       "recommendedUSGMotionConfidence": 0.68,
-      "recommendedUSGMotionRationale": "No dominant motion trigger exceeded current decision thresholds.",
+      "recommendedUSGMotionRationale": "Pressure concentration is above shaping threshold Buyer alignment is relatively strong.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Pressure concentration is above shaping threshold",
+            "score": 1
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.86
+          },
+          {
+            "driver": "Financial structuring layer is active",
+            "score": 0.84
+          },
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          }
+        ],
+        "missing": [],
+        "stuck": {
+          "primary": null,
+          "secondary": null
+        },
+        "buyerAlignmentStrength": 1,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 0.909,
+          "late": 0.091
+        },
+        "counterevidence": [
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 44,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "INIT-001",
@@ -4897,14 +4932,39 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.134,
-        "fid": 0.099
+        "platformFormation": 0.133,
+        "fid": 0.092
       },
       "recommendedUSGMotion": "Monitor only",
       "recommendedUSGMotionConfidence": 0.86,
-      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence.",
+      "recommendedUSGMotionRationale": "Missing layers: governance, financial_structuring, platform_architecture. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "platform_architecture",
+          "energy",
+          "connectivity",
+          "operator"
+        ],
+        "stuck": {
+          "primary": null,
+          "secondary": null
+        },
+        "buyerAlignmentStrength": 0,
+        "phaseContext": {
+          "dominant": "late",
+          "early": 0,
+          "mid": 0,
+          "late": 0
+        },
+        "counterevidence": [
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 0,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "INIT-653305",
@@ -4981,14 +5041,52 @@
       "trajectory": "Slow emergence / stable",
       "state": "Platform Formation",
       "probability": {
-        "platformFormation": 0.782,
-        "fid": 0.492
+        "platformFormation": 0.811,
+        "fid": 0.476
       },
       "recommendedUSGMotion": "Shape mandate",
       "recommendedUSGMotionConfidence": 0.82,
-      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed.",
+      "recommendedUSGMotionRationale": "Pressure concentration is above shaping threshold Primary constraint: Structuring Gap. Secondary constraint: Late Signal / No Early Coherence. Missing layers: financial_structuring. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.811
+          },
+          {
+            "driver": "Capital allocation layer is active",
+            "score": 0.8
+          },
+          {
+            "driver": "Pressure concentration is above shaping threshold",
+            "score": 0.549
+          }
+        ],
+        "missing": [
+          "financial_structuring"
+        ],
+        "stuck": {
+          "primary": "Structuring Gap",
+          "secondary": "Late Signal / No Early Coherence"
+        },
+        "buyerAlignmentStrength": 0.375,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 0.6,
+          "late": 0.4
+        },
+        "counterevidence": [
+          "Late-stage operator noise without early-stage reinforcement.",
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 5,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-A",
@@ -5022,14 +5120,39 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.134,
-        "fid": 0.099
+        "platformFormation": 0.133,
+        "fid": 0.092
       },
       "recommendedUSGMotion": "Monitor only",
       "recommendedUSGMotionConfidence": 0.86,
-      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence.",
+      "recommendedUSGMotionRationale": "Missing layers: governance, financial_structuring, platform_architecture. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "platform_architecture",
+          "energy",
+          "connectivity",
+          "operator"
+        ],
+        "stuck": {
+          "primary": null,
+          "secondary": null
+        },
+        "buyerAlignmentStrength": 0,
+        "phaseContext": {
+          "dominant": "late",
+          "early": 0,
+          "mid": 0,
+          "late": 0
+        },
+        "counterevidence": [
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 0,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-B",
@@ -5063,14 +5186,39 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.134,
-        "fid": 0.099
+        "platformFormation": 0.133,
+        "fid": 0.092
       },
       "recommendedUSGMotion": "Monitor only",
       "recommendedUSGMotionConfidence": 0.86,
-      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence.",
+      "recommendedUSGMotionRationale": "Missing layers: governance, financial_structuring, platform_architecture. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "platform_architecture",
+          "energy",
+          "connectivity",
+          "operator"
+        ],
+        "stuck": {
+          "primary": null,
+          "secondary": null
+        },
+        "buyerAlignmentStrength": 0,
+        "phaseContext": {
+          "dominant": "late",
+          "early": 0,
+          "mid": 0,
+          "late": 0
+        },
+        "counterevidence": [
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 0,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-C",
@@ -5104,14 +5252,39 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.134,
-        "fid": 0.099
+        "platformFormation": 0.133,
+        "fid": 0.092
       },
       "recommendedUSGMotion": "Monitor only",
       "recommendedUSGMotionConfidence": 0.86,
-      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence.",
+      "recommendedUSGMotionRationale": "Missing layers: governance, financial_structuring, platform_architecture. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "platform_architecture",
+          "energy",
+          "connectivity",
+          "operator"
+        ],
+        "stuck": {
+          "primary": null,
+          "secondary": null
+        },
+        "buyerAlignmentStrength": 0,
+        "phaseContext": {
+          "dominant": "late",
+          "early": 0,
+          "mid": 0,
+          "late": 0
+        },
+        "counterevidence": [
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 0,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "INIT-AI-OPT-D",
@@ -5180,14 +5353,50 @@
       "trajectory": "Slow emergence / stable",
       "state": "Shaping",
       "probability": {
-        "platformFormation": 0.605,
-        "fid": 0.273
+        "platformFormation": 0.62,
+        "fid": 0.246
       },
       "recommendedUSGMotion": "Shape mandate",
       "recommendedUSGMotionConfidence": 0.82,
-      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed.",
+      "recommendedUSGMotionRationale": "Platform formation probability is elevated Primary constraint: Governance Gap. Secondary constraint: Demand Without Operator Path. Missing layers: governance, financial_structuring, operator. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          },
+          {
+            "driver": "Capital allocation layer is active",
+            "score": 0.8
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.62
+          }
+        ],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "operator"
+        ],
+        "stuck": {
+          "primary": "Governance Gap",
+          "secondary": "Demand Without Operator Path"
+        },
+        "buyerAlignmentStrength": 0.25,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 1,
+          "late": 0
+        },
+        "counterevidence": [
+          "Weak governance despite strong capital.",
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 2,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -5256,14 +5465,54 @@
       "trajectory": "Slow emergence / stable",
       "state": "Platform Formation",
       "probability": {
-        "platformFormation": 0.641,
-        "fid": 0.323
+        "platformFormation": 0.67,
+        "fid": 0.3
       },
       "recommendedUSGMotion": "Shape mandate",
       "recommendedUSGMotionConfidence": 0.82,
-      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed.",
+      "recommendedUSGMotionRationale": "Pressure concentration is above shaping threshold Primary constraint: Governance Gap. Secondary constraint: Structuring Gap. Missing layers: governance, financial_structuring, operator. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          },
+          {
+            "driver": "Capital allocation layer is active",
+            "score": 0.8
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.67
+          },
+          {
+            "driver": "Pressure concentration is above shaping threshold",
+            "score": 0.526
+          }
+        ],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "operator"
+        ],
+        "stuck": {
+          "primary": "Governance Gap",
+          "secondary": "Structuring Gap"
+        },
+        "buyerAlignmentStrength": 0.375,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 1,
+          "late": 0
+        },
+        "counterevidence": [
+          "Weak governance despite strong capital.",
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 3,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -5336,14 +5585,54 @@
       "trajectory": "Slow emergence / stable",
       "state": "Platform Formation",
       "probability": {
-        "platformFormation": 0.715,
-        "fid": 0.314
+        "platformFormation": 0.743,
+        "fid": 0.292
       },
       "recommendedUSGMotion": "Build governance path",
       "recommendedUSGMotionConfidence": 0.84,
-      "recommendedUSGMotionRationale": "Architecture exists but governance clearance layer is missing.",
+      "recommendedUSGMotionRationale": "Pressure concentration is above shaping threshold Primary constraint: Governance Gap. Secondary constraint: Demand Without Operator Path. Missing layers: governance, operator. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Financial structuring layer is active",
+            "score": 0.84
+          },
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          },
+          {
+            "driver": "Capital allocation layer is active",
+            "score": 0.8
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.743
+          }
+        ],
+        "missing": [
+          "governance",
+          "operator"
+        ],
+        "stuck": {
+          "primary": "Governance Gap",
+          "secondary": "Demand Without Operator Path"
+        },
+        "buyerAlignmentStrength": 0.125,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 1,
+          "late": 0
+        },
+        "counterevidence": [
+          "Weak governance despite strong capital.",
+          "Late-stage operator noise without early-stage reinforcement.",
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 1,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -5394,14 +5683,51 @@
       "trajectory": "Slow emergence / stable",
       "state": "Shaping",
       "probability": {
-        "platformFormation": 0.519,
-        "fid": 0.268
+        "platformFormation": 0.536,
+        "fid": 0.245
       },
       "recommendedUSGMotion": "Shape mandate",
       "recommendedUSGMotionConfidence": 0.82,
-      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed.",
+      "recommendedUSGMotionRationale": "Platform formation probability is elevated Primary constraint: Governance Gap. Secondary constraint: Structuring Gap. Missing layers: governance, financial_structuring, energy. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          },
+          {
+            "driver": "Capital allocation layer is active",
+            "score": 0.8
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.536
+          }
+        ],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "energy"
+        ],
+        "stuck": {
+          "primary": "Governance Gap",
+          "secondary": "Structuring Gap"
+        },
+        "buyerAlignmentStrength": 0.083,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 1,
+          "late": 0
+        },
+        "counterevidence": [
+          "Weak governance despite strong capital.",
+          "Late-stage operator noise without early-stage reinforcement.",
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 1,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "INIT-GRAVITY-001",
@@ -5435,14 +5761,39 @@
       "trajectory": "Slow emergence / stable",
       "state": "Monitor",
       "probability": {
-        "platformFormation": 0.134,
-        "fid": 0.099
+        "platformFormation": 0.133,
+        "fid": 0.092
       },
       "recommendedUSGMotion": "Monitor only",
       "recommendedUSGMotionConfidence": 0.86,
-      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence.",
+      "recommendedUSGMotionRationale": "Missing layers: governance, financial_structuring, platform_architecture. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "platform_architecture",
+          "energy",
+          "connectivity",
+          "operator"
+        ],
+        "stuck": {
+          "primary": null,
+          "secondary": null
+        },
+        "buyerAlignmentStrength": 0,
+        "phaseContext": {
+          "dominant": "late",
+          "early": 0,
+          "mid": 0,
+          "late": 0
+        },
+        "counterevidence": [
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 0,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     },
     {
       "initiative_id": "USG",
@@ -5527,14 +5878,49 @@
       "trajectory": "Slow emergence / stable",
       "state": "Pre-FID",
       "probability": {
-        "platformFormation": 0.826,
-        "fid": 0.581
+        "platformFormation": 0.87,
+        "fid": 0.564
       },
       "recommendedUSGMotion": "Monitor only",
       "recommendedUSGMotionConfidence": 0.68,
-      "recommendedUSGMotionRationale": "No dominant motion trigger exceeded current decision thresholds.",
+      "recommendedUSGMotionRationale": "Pressure concentration is above shaping threshold Buyer alignment is relatively strong.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Pressure concentration is above shaping threshold",
+            "score": 1
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.87
+          },
+          {
+            "driver": "Financial structuring layer is active",
+            "score": 0.84
+          },
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          }
+        ],
+        "missing": [],
+        "stuck": {
+          "primary": null,
+          "secondary": null
+        },
+        "buyerAlignmentStrength": 1,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 0.895,
+          "late": 0.105
+        },
+        "counterevidence": [
+          "Momentum is flat or negative."
+        ]
+      },
       "signalCount": 38,
-      "generatedAt": "2026-03-07T21:09:32.226Z"
+      "generatedAt": "2026-03-07T21:14:40.482Z"
     }
   ],
   "topInitiatives": [
@@ -5547,8 +5933,8 @@
       "clusterStrength": 1,
       "ontologyLayerCount": 14,
       "ontologyProgression": 0.512,
-      "pPlatformFormation": 0.826,
-      "pFID": 0.581,
+      "pPlatformFormation": 0.87,
+      "pFID": 0.564,
       "buyerAlignment": [
         {
           "buyer_id": "DFC",
@@ -5573,7 +5959,42 @@
       ],
       "recommendedUSGMotion": "Monitor only",
       "recommendedUSGMotionConfidence": 0.68,
-      "recommendedUSGMotionRationale": "No dominant motion trigger exceeded current decision thresholds."
+      "recommendedUSGMotionRationale": "Pressure concentration is above shaping threshold Buyer alignment is relatively strong.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Pressure concentration is above shaping threshold",
+            "score": 1
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.87
+          },
+          {
+            "driver": "Financial structuring layer is active",
+            "score": 0.84
+          },
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          }
+        ],
+        "missing": [],
+        "stuck": {
+          "primary": null,
+          "secondary": null
+        },
+        "buyerAlignmentStrength": 1,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 0.895,
+          "late": 0.105
+        },
+        "counterevidence": [
+          "Momentum is flat or negative."
+        ]
+      }
     },
     {
       "initiative_id": "INIT-653305",
@@ -5584,8 +6005,8 @@
       "clusterStrength": 1,
       "ontologyLayerCount": 10,
       "ontologyProgression": 0.543,
-      "pPlatformFormation": 0.782,
-      "pFID": 0.492,
+      "pPlatformFormation": 0.811,
+      "pFID": 0.476,
       "buyerAlignment": [
         {
           "buyer_id": "FMF-NG",
@@ -5610,7 +6031,45 @@
       ],
       "recommendedUSGMotion": "Shape mandate",
       "recommendedUSGMotionConfidence": 0.82,
-      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
+      "recommendedUSGMotionRationale": "Pressure concentration is above shaping threshold Primary constraint: Structuring Gap. Secondary constraint: Late Signal / No Early Coherence. Missing layers: financial_structuring. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.811
+          },
+          {
+            "driver": "Capital allocation layer is active",
+            "score": 0.8
+          },
+          {
+            "driver": "Pressure concentration is above shaping threshold",
+            "score": 0.549
+          }
+        ],
+        "missing": [
+          "financial_structuring"
+        ],
+        "stuck": {
+          "primary": "Structuring Gap",
+          "secondary": "Late Signal / No Early Coherence"
+        },
+        "buyerAlignmentStrength": 0.375,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 0.6,
+          "late": 0.4
+        },
+        "counterevidence": [
+          "Late-stage operator noise without early-stage reinforcement.",
+          "Momentum is flat or negative."
+        ]
+      }
     },
     {
       "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -5621,8 +6080,8 @@
       "clusterStrength": 0.625,
       "ontologyLayerCount": 6,
       "ontologyProgression": 0.45,
-      "pPlatformFormation": 0.641,
-      "pFID": 0.323,
+      "pPlatformFormation": 0.67,
+      "pFID": 0.3,
       "buyerAlignment": [
         {
           "buyer_id": "FMF-NG",
@@ -5647,7 +6106,47 @@
       ],
       "recommendedUSGMotion": "Shape mandate",
       "recommendedUSGMotionConfidence": 0.82,
-      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
+      "recommendedUSGMotionRationale": "Pressure concentration is above shaping threshold Primary constraint: Governance Gap. Secondary constraint: Structuring Gap. Missing layers: governance, financial_structuring, operator. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          },
+          {
+            "driver": "Capital allocation layer is active",
+            "score": 0.8
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.67
+          },
+          {
+            "driver": "Pressure concentration is above shaping threshold",
+            "score": 0.526
+          }
+        ],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "operator"
+        ],
+        "stuck": {
+          "primary": "Governance Gap",
+          "secondary": "Structuring Gap"
+        },
+        "buyerAlignmentStrength": 0.375,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 1,
+          "late": 0
+        },
+        "counterevidence": [
+          "Weak governance despite strong capital.",
+          "Momentum is flat or negative."
+        ]
+      }
     },
     {
       "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -5658,8 +6157,8 @@
       "clusterStrength": 1,
       "ontologyLayerCount": 10,
       "ontologyProgression": 0.487,
-      "pPlatformFormation": 0.715,
-      "pFID": 0.314,
+      "pPlatformFormation": 0.743,
+      "pFID": 0.292,
       "buyerAlignment": [
         {
           "buyer_id": "GIC",
@@ -5680,7 +6179,47 @@
       ],
       "recommendedUSGMotion": "Build governance path",
       "recommendedUSGMotionConfidence": 0.84,
-      "recommendedUSGMotionRationale": "Architecture exists but governance clearance layer is missing."
+      "recommendedUSGMotionRationale": "Pressure concentration is above shaping threshold Primary constraint: Governance Gap. Secondary constraint: Demand Without Operator Path. Missing layers: governance, operator. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Financial structuring layer is active",
+            "score": 0.84
+          },
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          },
+          {
+            "driver": "Capital allocation layer is active",
+            "score": 0.8
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.743
+          }
+        ],
+        "missing": [
+          "governance",
+          "operator"
+        ],
+        "stuck": {
+          "primary": "Governance Gap",
+          "secondary": "Demand Without Operator Path"
+        },
+        "buyerAlignmentStrength": 0.125,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 1,
+          "late": 0
+        },
+        "counterevidence": [
+          "Weak governance despite strong capital.",
+          "Late-stage operator noise without early-stage reinforcement.",
+          "Momentum is flat or negative."
+        ]
+      }
     },
     {
       "initiative_id": "INIT-AI-OPT-D",
@@ -5691,8 +6230,8 @@
       "clusterStrength": 0.625,
       "ontologyLayerCount": 6,
       "ontologyProgression": 0.416,
-      "pPlatformFormation": 0.605,
-      "pFID": 0.273,
+      "pPlatformFormation": 0.62,
+      "pFID": 0.246,
       "buyerAlignment": [
         {
           "buyer_id": "FMF-NG",
@@ -5717,7 +6256,43 @@
       ],
       "recommendedUSGMotion": "Shape mandate",
       "recommendedUSGMotionConfidence": 0.82,
-      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
+      "recommendedUSGMotionRationale": "Platform formation probability is elevated Primary constraint: Governance Gap. Secondary constraint: Demand Without Operator Path. Missing layers: governance, financial_structuring, operator. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          },
+          {
+            "driver": "Capital allocation layer is active",
+            "score": 0.8
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.62
+          }
+        ],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "operator"
+        ],
+        "stuck": {
+          "primary": "Governance Gap",
+          "secondary": "Demand Without Operator Path"
+        },
+        "buyerAlignmentStrength": 0.25,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 1,
+          "late": 0
+        },
+        "counterevidence": [
+          "Weak governance despite strong capital.",
+          "Momentum is flat or negative."
+        ]
+      }
     },
     {
       "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -5728,8 +6303,8 @@
       "clusterStrength": 0.5,
       "ontologyLayerCount": 5,
       "ontologyProgression": 0.613,
-      "pPlatformFormation": 0.519,
-      "pFID": 0.268,
+      "pPlatformFormation": 0.536,
+      "pFID": 0.245,
       "buyerAlignment": [
         {
           "buyer_id": "TAFF",
@@ -5738,7 +6313,44 @@
       ],
       "recommendedUSGMotion": "Shape mandate",
       "recommendedUSGMotionConfidence": 0.82,
-      "recommendedUSGMotionRationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
+      "recommendedUSGMotionRationale": "Platform formation probability is elevated Primary constraint: Governance Gap. Secondary constraint: Structuring Gap. Missing layers: governance, financial_structuring, energy. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [
+          {
+            "driver": "Platform architecture layer is active",
+            "score": 0.82
+          },
+          {
+            "driver": "Capital allocation layer is active",
+            "score": 0.8
+          },
+          {
+            "driver": "Platform formation probability is elevated",
+            "score": 0.536
+          }
+        ],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "energy"
+        ],
+        "stuck": {
+          "primary": "Governance Gap",
+          "secondary": "Structuring Gap"
+        },
+        "buyerAlignmentStrength": 0.083,
+        "phaseContext": {
+          "dominant": "mid",
+          "early": 0,
+          "mid": 1,
+          "late": 0
+        },
+        "counterevidence": [
+          "Weak governance despite strong capital.",
+          "Late-stage operator noise without early-stage reinforcement.",
+          "Momentum is flat or negative."
+        ]
+      }
     },
     {
       "initiative_id": "INIT-001",
@@ -5749,12 +6361,37 @@
       "clusterStrength": 0,
       "ontologyLayerCount": 0,
       "ontologyProgression": 0.1,
-      "pPlatformFormation": 0.134,
-      "pFID": 0.099,
+      "pPlatformFormation": 0.133,
+      "pFID": 0.092,
       "buyerAlignment": [],
       "recommendedUSGMotion": "Monitor only",
       "recommendedUSGMotionConfidence": 0.86,
-      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence."
+      "recommendedUSGMotionRationale": "Missing layers: governance, financial_structuring, platform_architecture. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "platform_architecture",
+          "energy",
+          "connectivity",
+          "operator"
+        ],
+        "stuck": {
+          "primary": null,
+          "secondary": null
+        },
+        "buyerAlignmentStrength": 0,
+        "phaseContext": {
+          "dominant": "late",
+          "early": 0,
+          "mid": 0,
+          "late": 0
+        },
+        "counterevidence": [
+          "Momentum is flat or negative."
+        ]
+      }
     },
     {
       "initiative_id": "INIT-AI-OPT-A",
@@ -5765,12 +6402,37 @@
       "clusterStrength": 0,
       "ontologyLayerCount": 0,
       "ontologyProgression": 0.1,
-      "pPlatformFormation": 0.134,
-      "pFID": 0.099,
+      "pPlatformFormation": 0.133,
+      "pFID": 0.092,
       "buyerAlignment": [],
       "recommendedUSGMotion": "Monitor only",
       "recommendedUSGMotionConfidence": 0.86,
-      "recommendedUSGMotionRationale": "Low pressure with monitor state; wait for stronger multi-layer evidence."
+      "recommendedUSGMotionRationale": "Missing layers: governance, financial_structuring, platform_architecture. Buyer alignment is still maturing.",
+      "recommendedUSGDrivers": {
+        "positive": [],
+        "missing": [
+          "governance",
+          "financial_structuring",
+          "platform_architecture",
+          "energy",
+          "connectivity",
+          "operator"
+        ],
+        "stuck": {
+          "primary": null,
+          "secondary": null
+        },
+        "buyerAlignmentStrength": 0,
+        "phaseContext": {
+          "dominant": "late",
+          "early": 0,
+          "mid": 0,
+          "late": 0
+        },
+        "counterevidence": [
+          "Momentum is flat or negative."
+        ]
+      }
     }
   ],
   "morningBriefEnhancements": {
@@ -5815,6 +6477,7 @@
     "highConfidenceInitiatives": [
       "USG",
       "INIT-653305",
+      "INIT-NG-FIN-ENERGY-SPINE",
       "INIT-AP-AI-FACTORY-001"
     ],
     "weakeningInitiatives": [],
@@ -5927,49 +6590,325 @@
         "initiative_id": "USG",
         "motion": "Monitor only",
         "confidence": 0.68,
-        "rationale": "No dominant motion trigger exceeded current decision thresholds."
+        "rationale": "Pressure concentration is above shaping threshold Buyer alignment is relatively strong.",
+        "drivers": {
+          "positive": [
+            {
+              "driver": "Pressure concentration is above shaping threshold",
+              "score": 1
+            },
+            {
+              "driver": "Platform formation probability is elevated",
+              "score": 0.87
+            },
+            {
+              "driver": "Financial structuring layer is active",
+              "score": 0.84
+            },
+            {
+              "driver": "Platform architecture layer is active",
+              "score": 0.82
+            }
+          ],
+          "missing": [],
+          "stuck": {
+            "primary": null,
+            "secondary": null
+          },
+          "buyerAlignmentStrength": 1,
+          "phaseContext": {
+            "dominant": "mid",
+            "early": 0,
+            "mid": 0.895,
+            "late": 0.105
+          },
+          "counterevidence": [
+            "Momentum is flat or negative."
+          ]
+        }
       },
       {
         "initiative_id": "INIT-653305",
         "motion": "Shape mandate",
         "confidence": 0.82,
-        "rationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
+        "rationale": "Pressure concentration is above shaping threshold Primary constraint: Structuring Gap. Secondary constraint: Late Signal / No Early Coherence. Missing layers: financial_structuring. Buyer alignment is still maturing.",
+        "drivers": {
+          "positive": [
+            {
+              "driver": "Platform architecture layer is active",
+              "score": 0.82
+            },
+            {
+              "driver": "Platform formation probability is elevated",
+              "score": 0.811
+            },
+            {
+              "driver": "Capital allocation layer is active",
+              "score": 0.8
+            },
+            {
+              "driver": "Pressure concentration is above shaping threshold",
+              "score": 0.549
+            }
+          ],
+          "missing": [
+            "financial_structuring"
+          ],
+          "stuck": {
+            "primary": "Structuring Gap",
+            "secondary": "Late Signal / No Early Coherence"
+          },
+          "buyerAlignmentStrength": 0.375,
+          "phaseContext": {
+            "dominant": "mid",
+            "early": 0,
+            "mid": 0.6,
+            "late": 0.4
+          },
+          "counterevidence": [
+            "Late-stage operator noise without early-stage reinforcement.",
+            "Momentum is flat or negative."
+          ]
+        }
       },
       {
         "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
         "motion": "Shape mandate",
         "confidence": 0.82,
-        "rationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
+        "rationale": "Pressure concentration is above shaping threshold Primary constraint: Governance Gap. Secondary constraint: Structuring Gap. Missing layers: governance, financial_structuring, operator. Buyer alignment is still maturing.",
+        "drivers": {
+          "positive": [
+            {
+              "driver": "Platform architecture layer is active",
+              "score": 0.82
+            },
+            {
+              "driver": "Capital allocation layer is active",
+              "score": 0.8
+            },
+            {
+              "driver": "Platform formation probability is elevated",
+              "score": 0.67
+            },
+            {
+              "driver": "Pressure concentration is above shaping threshold",
+              "score": 0.526
+            }
+          ],
+          "missing": [
+            "governance",
+            "financial_structuring",
+            "operator"
+          ],
+          "stuck": {
+            "primary": "Governance Gap",
+            "secondary": "Structuring Gap"
+          },
+          "buyerAlignmentStrength": 0.375,
+          "phaseContext": {
+            "dominant": "mid",
+            "early": 0,
+            "mid": 1,
+            "late": 0
+          },
+          "counterevidence": [
+            "Weak governance despite strong capital.",
+            "Momentum is flat or negative."
+          ]
+        }
       },
       {
         "initiative_id": "INIT-AP-AI-FACTORY-001",
         "motion": "Build governance path",
         "confidence": 0.84,
-        "rationale": "Architecture exists but governance clearance layer is missing."
+        "rationale": "Pressure concentration is above shaping threshold Primary constraint: Governance Gap. Secondary constraint: Demand Without Operator Path. Missing layers: governance, operator. Buyer alignment is still maturing.",
+        "drivers": {
+          "positive": [
+            {
+              "driver": "Financial structuring layer is active",
+              "score": 0.84
+            },
+            {
+              "driver": "Platform architecture layer is active",
+              "score": 0.82
+            },
+            {
+              "driver": "Capital allocation layer is active",
+              "score": 0.8
+            },
+            {
+              "driver": "Platform formation probability is elevated",
+              "score": 0.743
+            }
+          ],
+          "missing": [
+            "governance",
+            "operator"
+          ],
+          "stuck": {
+            "primary": "Governance Gap",
+            "secondary": "Demand Without Operator Path"
+          },
+          "buyerAlignmentStrength": 0.125,
+          "phaseContext": {
+            "dominant": "mid",
+            "early": 0,
+            "mid": 1,
+            "late": 0
+          },
+          "counterevidence": [
+            "Weak governance despite strong capital.",
+            "Late-stage operator noise without early-stage reinforcement.",
+            "Momentum is flat or negative."
+          ]
+        }
       },
       {
         "initiative_id": "INIT-AI-OPT-D",
         "motion": "Shape mandate",
         "confidence": 0.82,
-        "rationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
+        "rationale": "Platform formation probability is elevated Primary constraint: Governance Gap. Secondary constraint: Demand Without Operator Path. Missing layers: governance, financial_structuring, operator. Buyer alignment is still maturing.",
+        "drivers": {
+          "positive": [
+            {
+              "driver": "Platform architecture layer is active",
+              "score": 0.82
+            },
+            {
+              "driver": "Capital allocation layer is active",
+              "score": 0.8
+            },
+            {
+              "driver": "Platform formation probability is elevated",
+              "score": 0.62
+            }
+          ],
+          "missing": [
+            "governance",
+            "financial_structuring",
+            "operator"
+          ],
+          "stuck": {
+            "primary": "Governance Gap",
+            "secondary": "Demand Without Operator Path"
+          },
+          "buyerAlignmentStrength": 0.25,
+          "phaseContext": {
+            "dominant": "mid",
+            "early": 0,
+            "mid": 1,
+            "late": 0
+          },
+          "counterevidence": [
+            "Weak governance despite strong capital.",
+            "Momentum is flat or negative."
+          ]
+        }
       },
       {
         "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
         "motion": "Shape mandate",
         "confidence": 0.82,
-        "rationale": "Capital pressure is visible but mandate/structuring layer is not yet formed."
+        "rationale": "Platform formation probability is elevated Primary constraint: Governance Gap. Secondary constraint: Structuring Gap. Missing layers: governance, financial_structuring, energy. Buyer alignment is still maturing.",
+        "drivers": {
+          "positive": [
+            {
+              "driver": "Platform architecture layer is active",
+              "score": 0.82
+            },
+            {
+              "driver": "Capital allocation layer is active",
+              "score": 0.8
+            },
+            {
+              "driver": "Platform formation probability is elevated",
+              "score": 0.536
+            }
+          ],
+          "missing": [
+            "governance",
+            "financial_structuring",
+            "energy"
+          ],
+          "stuck": {
+            "primary": "Governance Gap",
+            "secondary": "Structuring Gap"
+          },
+          "buyerAlignmentStrength": 0.083,
+          "phaseContext": {
+            "dominant": "mid",
+            "early": 0,
+            "mid": 1,
+            "late": 0
+          },
+          "counterevidence": [
+            "Weak governance despite strong capital.",
+            "Late-stage operator noise without early-stage reinforcement.",
+            "Momentum is flat or negative."
+          ]
+        }
       },
       {
         "initiative_id": "INIT-001",
         "motion": "Monitor only",
         "confidence": 0.86,
-        "rationale": "Low pressure with monitor state; wait for stronger multi-layer evidence."
+        "rationale": "Missing layers: governance, financial_structuring, platform_architecture. Buyer alignment is still maturing.",
+        "drivers": {
+          "positive": [],
+          "missing": [
+            "governance",
+            "financial_structuring",
+            "platform_architecture",
+            "energy",
+            "connectivity",
+            "operator"
+          ],
+          "stuck": {
+            "primary": null,
+            "secondary": null
+          },
+          "buyerAlignmentStrength": 0,
+          "phaseContext": {
+            "dominant": "late",
+            "early": 0,
+            "mid": 0,
+            "late": 0
+          },
+          "counterevidence": [
+            "Momentum is flat or negative."
+          ]
+        }
       },
       {
         "initiative_id": "INIT-AI-OPT-A",
         "motion": "Monitor only",
         "confidence": 0.86,
-        "rationale": "Low pressure with monitor state; wait for stronger multi-layer evidence."
+        "rationale": "Missing layers: governance, financial_structuring, platform_architecture. Buyer alignment is still maturing.",
+        "drivers": {
+          "positive": [],
+          "missing": [
+            "governance",
+            "financial_structuring",
+            "platform_architecture",
+            "energy",
+            "connectivity",
+            "operator"
+          ],
+          "stuck": {
+            "primary": null,
+            "secondary": null
+          },
+          "buyerAlignmentStrength": 0,
+          "phaseContext": {
+            "dominant": "late",
+            "early": 0,
+            "mid": 0,
+            "late": 0
+          },
+          "counterevidence": [
+            "Momentum is flat or negative."
+          ]
+        }
       }
     ]
   }
