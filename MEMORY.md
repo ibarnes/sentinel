@@ -14,6 +14,7 @@
   - Two Tier-1 financial outlets (FT, Bloomberg, Reuters full article) independently reporting with attribution, OR
   - On-record executive statement tied to a dated event
   - Anything below threshold => Monitor — no posture change
+- Signal provenance rule (2026-03-07): every signal must be flagged as either `provided_by_isaac` or `discovered_by_system` (and never presented as self-discovered if Isaac provided it).
 
 # Current Projects
 - USG (Unified State Group)
