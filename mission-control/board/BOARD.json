@@ -2879,11 +2879,14 @@
         "epic:EP-H",
         "story:US-H1",
         "decomposed",
-        "recovery-sweep"
+        "recovery-sweep",
+        "decomposition-parent"
       ],
       "linked_refs": [
         "TASK-0097",
-        "TASK-0102"
+        "TASK-0102",
+        "TASK-0110",
+        "TASK-0111"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -2892,11 +2895,17 @@
           "author": "sentinel",
           "text": "Blocked pending authenticated session cookie / explicit credentialed execution window. Ready to run immediately once credential is available.",
           "created_at": "2026-03-06T17:30:00Z"
+        },
+        {
+          "id": "decomp-0103-20260307-1140",
+          "author": "sentinel",
+          "text": "Decomposition gate applied: split TASK-0103 into TASK-0110 (preflight evidence scaffold) and TASK-0111 (credentialed execution + attach evidence).",
+          "created_at": "2026-03-07T11:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-06T17:30:00Z",
+      "updated_at": "2026-03-07T11:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3074,17 +3083,144 @@
         "task",
         "board-recovery",
         "decomposed",
-        "recovery-sweep"
+        "recovery-sweep",
+        "decomposition-parent"
       ],
       "linked_refs": [
         "TASK-0107",
-        "TASK-0108"
+        "TASK-0108",
+        "TASK-0112",
+        "TASK-0113"
       ],
       "description": "Once Isaac decisions are provided for tranche-C items, apply approved transitions and queue follow-on work for deferred items.\nAcceptance Criteria:\n- Decision capture list completed for each tranche-C task.\n- Approved items transitioned per governance.\n- Deferred items annotated with blocking reason and next check date.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "decomp-0109-20260307-1140",
+          "author": "sentinel",
+          "text": "Decomposition gate applied: split TASK-0109 into TASK-0112 (decision capture ledger) and TASK-0113 (apply post-approval transitions).",
+          "created_at": "2026-03-07T11:40:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-07T07:30:00Z",
+      "updated_at": "2026-03-07T11:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0110",
+      "title": "TS-H1.1c.2b.i Prepare pipeline-run evidence scaffold + capture template",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/README.md",
+        "mission-control/evidence/pipeline-run/2026-03-07-smoke-evidence-template.md"
+      ],
+      "description": "Create evidence directory structure and a deterministic capture template so credentialed run output can be attached with minimal operator time.\nAcceptance Criteria:\n- mission-control/evidence/pipeline-run/ exists with usage notes.\n- Evidence template includes 201 and 400 result slots, command, timestamp, and operator signature fields.\n- Paths align with TASK-0103 acceptance criteria.",
+      "comments": [
+        {
+          "id": "done-0110-20260307-1140",
+          "author": "sentinel",
+          "text": "Created evidence scaffold and capture template for authenticated smoke outputs.",
+          "created_at": "2026-03-07T11:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-07T11:40:00Z",
+      "updated_at": "2026-03-07T11:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0111",
+      "title": "TS-H1.1c.2b.ii Execute credentialed smoke and populate evidence template",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0110"
+      ],
+      "description": "Run authenticated smoke with valid session cookie and record results in prepared template under mission-control/evidence/pipeline-run/.\nAcceptance Criteria:\n- 201 valid response recorded with runId and started status.\n- 400 invalid response recorded with deterministic error payload.\n- Completed evidence artifact path referenced in TASK-0097/TASK-0103 comments.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-07T11:40:00Z",
+      "updated_at": "2026-03-07T11:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0112",
+      "title": "BRS-2026-03-07b.i Build tranche-C decision capture ledger",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0109",
+        "mission-control/board/tranche-c-decision-ledger-2026-03-07.md"
+      ],
+      "description": "Prepare a structured decision ledger for tranche-C items so Isaac approvals/defers can be captured rapidly and replayed into board transitions.\nAcceptance Criteria:\n- Ledger lists tranche-C tasks with decision/status fields.\n- Includes approve/defer/hold options + rationale slot.\n- Includes transition action column for immediate board updates.",
+      "comments": [
+        {
+          "id": "done-0112-20260307-1140",
+          "author": "sentinel",
+          "text": "Created tranche-C decision ledger template with decision and transition fields.",
+          "created_at": "2026-03-07T11:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-07T11:40:00Z",
+      "updated_at": "2026-03-07T11:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0113",
+      "title": "BRS-2026-03-07b.ii Apply tranche-C decisions to board transitions",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0109",
+        "TASK-0112"
+      ],
+      "description": "After Isaac decisions are entered in the ledger, apply status transitions/comments in BOARD.json and note deferred follow-up dates.\nAcceptance Criteria:\n- All decided items updated in board with audit comments.\n- No items moved to Done without approved RP.\n- Deferred items include blocker reason and next-check date.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-07T11:40:00Z",
+      "updated_at": "2026-03-07T11:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
