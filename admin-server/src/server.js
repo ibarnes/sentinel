@@ -1082,8 +1082,9 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const signalPhysics = await readJson(path.join(ROOT, 'dashboard/data/signal_physics_snapshot.json'), { initiatives: [], ontologyLayers: [] });
   const rows = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRows), { buyers, initiatives, signals });
-  const payload = JSON.stringify({ rows, weights: PLATFORM_PRESSURE_WEIGHTS }).replace(/</g, '\\u003c');
+  const payload = JSON.stringify({ rows, weights: PLATFORM_PRESSURE_WEIGHTS, signalPhysics }).replace(/</g, '\\u003c');
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}
   <style>
@@ -1101,6 +1102,16 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     .pp-heat-row { border-bottom:1px solid rgba(255,255,255,.06); padding:.45rem 0; }
     .pp-heat-row:last-child { border-bottom:0; }
     .pp-legend { font-size:.74rem; color:var(--text-muted); }
+    .lem-heat { display:grid; grid-template-columns: repeat(15, minmax(16px, 1fr)); gap:4px; }
+    .lem-cell { height: 14px; border-radius: 4px; border: 1px solid rgba(255,255,255,.08); }
+    .lem-cell.off { background: rgba(255,255,255,.05); }
+    .lem-cell.on { background: linear-gradient(180deg, #5f97ff 0%, #376fe0 100%); }
+    .lem-strip { display:grid; grid-template-columns: repeat(3, 1fr); gap:6px; }
+    .lem-strip .tile { border:1px solid var(--border); border-radius:10px; padding:8px; background:rgba(255,255,255,.02); }
+    .lem-row { border:1px solid var(--border); border-radius:12px; padding:10px; background:rgba(255,255,255,.015); }
+    .lem-layer-tag { font-size:.68rem; border:1px solid var(--border); padding:.12rem .35rem; border-radius:999px; color:#dbe2ee; background:rgba(255,255,255,.03); }
+    .lem-phase-bar { height:8px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden; }
+    .lem-phase-fill { height:100%; background:linear-gradient(90deg,#3d7cff,#63a0ff); }
     @media (max-width: 1360px){ .pp-wide-col{ display:none; } }
     @media (max-width: 1050px){ .pp-hide-md{ display:none; } }
     @media (max-width: 980px){ .pp-table td,.pp-table th{ padding:.48rem .4rem; } }
@@ -1110,6 +1121,14 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     ${pageHeader('Platform Pressure', '', 'Internal operating radar for pre-obvious infrastructure platform formation')}
 
     <div id="pp-summary" class="row g-2 mb-3"></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="mb-0">Layer Emissions Map (Signal Physics)</h6>
+        <span class="pp-legend" id="lem-generated-at">No snapshot loaded</span>
+      </div>
+      <div id="lem-panel" class="vstack gap-2 small"></div>
+    </div></div>
 
     <div class="card mb-3"><div class="card-body py-2">
       <div class="row g-2 align-items-center">
@@ -1166,9 +1185,12 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   <script>
     const platformData = ${payload};
     let rows = [...platformData.rows];
+    const signalPhysics = platformData.signalPhysics || { initiatives: [], ontologyLayers: [] };
+    const physicsByInitiative = new Map((signalPhysics.initiatives || []).map((x) => [String(x.initiative_id || ''), x]));
+    const ontologyOrder = (signalPhysics.ontologyLayers || []).sort((a,b)=>Number(a.order||0)-Number(b.order||0));
     const els = {
       table: document.getElementById('pp-table'), summary: document.getElementById('pp-summary'), heatmap: document.getElementById('pp-heatmap'), topByBuyer: document.getElementById('pp-top-by-buyer'),
-      watchlist: document.getElementById('pp-watchlist'), filterLabel: document.getElementById('pp-active-filter'),
+      watchlist: document.getElementById('pp-watchlist'), filterLabel: document.getElementById('pp-active-filter'), lemPanel: document.getElementById('lem-panel'), lemGeneratedAt: document.getElementById('lem-generated-at'),
       fSector: document.getElementById('f-sector'), fRegion: document.getElementById('f-region'), fStatus: document.getElementById('f-status'), fBuyer: document.getElementById('f-buyer'),
       fFid: document.getElementById('f-fid'), fMinPpi: document.getElementById('f-min-ppi'), fSearch: document.getElementById('f-search')
     };
@@ -1300,6 +1322,73 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       return '<div class="mb-2"><div class="d-flex justify-content-between"><span class="small">'+esc(label)+'</span><span class="small mono">'+v+'/5</span></div><div class="progress" style="height:7px;background:rgba(255,255,255,.05)"><div class="progress-bar" style="width:'+width+'%;background:#4f8cff"></div></div></div>';
     }
 
+    function linkedInitiativeIds(r){
+      const ids = ((r.linkRefs || {}).initiativeIds || []).map(x => String(x || '').trim()).filter(Boolean);
+      return ids.length ? ids : ['USG'];
+    }
+
+    function layerGapDiagnostics(p){
+      const active = new Set((((p||{}).ontology||{}).activeLayers || []);
+      const has = (x) => active.has(x);
+      const msgs = [];
+      if ((has('demand') || has('compute_digital')) && has('narrative_legitimacy') && !has('governance')) msgs.push('High demand/narrative/compute signals; weak governance layer.');
+      if (has('capital_allocation') && (!has('energy') || !has('connectivity'))) msgs.push('Capital signals present; energy/connectivity layers weak.');
+      if ((has('operator') || has('construction')) && !has('platform_architecture')) msgs.push('Late-stage operator/construction signals appearing before architecture coherence.');
+      if (has('platform_architecture') && !has('financial_structuring')) msgs.push('Architecture is forming; financial structuring layer remains underdeveloped.');
+      return msgs;
+    }
+
+    function renderLayerEmissionsMap(list){
+      if (!els.lemPanel) return;
+      const rowsWithPhysics = list.map((r) => {
+        const pid = linkedInitiativeIds(r).find((id) => physicsByInitiative.has(id));
+        const p = pid ? physicsByInitiative.get(pid) : null;
+        return { row: r, initiativeId: pid || linkedInitiativeIds(r)[0], p };
+      }).filter((x) => x.p);
+
+      if (!rowsWithPhysics.length) {
+        els.lemPanel.innerHTML = '<div class="pp-empty">Signal physics snapshot is missing or initiative links are not mapped yet.</div>';
+        if (els.lemGeneratedAt) els.lemGeneratedAt.textContent = 'No snapshot loaded';
+        return;
+      }
+
+      if (els.lemGeneratedAt) els.lemGeneratedAt.textContent = 'Snapshot: ' + esc(String(signalPhysics.generatedAt || '').replace('T',' ').slice(0,19));
+
+      const top = rowsWithPhysics
+        .sort((a,b) => Number((b.p || {}).pressure || 0) - Number((a.p || {}).pressure || 0))
+        .slice(0, 8);
+
+      els.lemPanel.innerHTML = top.map(({row:r, initiativeId, p}) => {
+        const active = new Set((((p||{}).ontology||{}).activeLayers || []);
+        const missing = ontologyOrder.filter((l) => !active.has(l.id)).map((l) => l.id).slice(0, 4);
+        const phaseMix = (p.phaseMix || { early:0, mid:0, late:0 });
+        const phaseProgress = Math.round(Number(((p.ontology || {}).progression || 0) * 100));
+        const buyers = (p.buyerAlignment || []).slice(0,4).map((b) => b.buyer_id).join(' · ') || 'No buyer alignment yet';
+        const gaps = layerGapDiagnostics(p);
+
+        const heat = ontologyOrder.map((l) => '<div class="lem-cell ' + (active.has(l.id) ? 'on' : 'off') + '" title="' + esc(l.id) + '"></div>').join('');
+        const phaseLabel = 'early ' + Math.round((phaseMix.early||0)*100) + '% · mid ' + Math.round((phaseMix.mid||0)*100) + '% · late ' + Math.round((phaseMix.late||0)*100) + '%';
+
+        return '<div class="lem-row">' +
+          '<div class="d-flex justify-content-between align-items-start gap-2">' +
+            '<div><strong>' + esc(r.sector) + '</strong><div class="pp-sub">Initiative ' + esc(initiativeId) + ' · state ' + esc(p.state || 'Monitor') + '</div></div>' +
+            '<div class="small text-end"><span class="pp-ppi">P ' + Number(p.pressure || 0).toFixed(1) + '</span></div>' +
+          '</div>' +
+          '<div class="lem-heat mt-2">' + heat + '</div>' +
+          '<div class="d-flex flex-wrap gap-1 mt-1">' + (ontologyOrder.slice(0,15).map(l => '<span class="lem-layer-tag">' + esc(l.id.replaceAll('_',' ')) + '</span>').join('')) + '</div>' +
+          '<div class="mt-2"><div class="d-flex justify-content-between pp-legend"><span>Phase progression</span><span>' + phaseProgress + '%</span></div><div class="lem-phase-bar"><div class="lem-phase-fill" style="width:' + phaseProgress + '%"></div></div><div class="pp-legend">' + esc(phaseLabel) + '</div></div>' +
+          '<div class="lem-strip mt-2">' +
+            '<div class="tile"><div class="pp-kicker">Pressure</div><div class="mono">' + Number(p.pressure||0).toFixed(2) + '</div></div>' +
+            '<div class="tile"><div class="pp-kicker">Momentum</div><div class="mono">' + (Number(p.momentum||0)>=0?'+':'') + Number(p.momentum||0).toFixed(3) + '</div></div>' +
+            '<div class="tile"><div class="pp-kicker">Acceleration</div><div class="mono">' + (Number(p.acceleration||0)>=0?'+':'') + Number(p.acceleration||0).toFixed(3) + '</div></div>' +
+          '</div>' +
+          '<div class="mt-2"><span class="pp-kicker">Top buyer alignment</span><div class="small">' + esc(buyers) + '</div></div>' +
+          '<div class="mt-2"><span class="pp-kicker">Dominant missing layers</span><div class="small">' + (missing.length ? missing.map(x=>esc(x.replaceAll('_',' '))).join(' · ') : 'None') + '</div></div>' +
+          '<div class="mt-2"><span class="pp-kicker">Layer-gap diagnostics</span><div class="small text-muted">' + (gaps.length ? gaps.map(esc).join(' ') : 'No critical ontology gaps detected.') + '</div></div>' +
+        '</div>';
+      }).join('');
+    }
+
     function scoreInterpretation(r){
       const hi=[], lo=[];
       const map = {
@@ -1363,7 +1452,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     function renderAll(){
       const filtered = sortRows(getFiltered());
-      renderSummary(filtered); renderTable(filtered); renderTopByBuyer(filtered); renderHeatmap(filtered); renderWatchlist(filtered);
+      renderSummary(filtered); renderTable(filtered); renderTopByBuyer(filtered); renderHeatmap(filtered); renderWatchlist(filtered); renderLayerEmissionsMap(filtered);
       const tags = [els.fSector.value, els.fRegion.value, els.fStatus.value, els.fBuyer.value, els.fFid.value].filter(Boolean);
       const minLabel = Number(els.fMinPpi.value || 0) > 0 ? ('Min PPI ' + Number(els.fMinPpi.value || 0)) : '';
       if (minLabel) tags.push(minLabel);
