@@ -56,6 +56,8 @@ import { buildSubtitleBundle, buildVoiceTrackAuditReport } from '../production/s
 import { createRenderAdapterContract, getRenderAdapterContract, exportRenderAdapterContract } from '../production/renderAdapterContractService.js';
 import { validateAdapterContract } from '../production/adapterValidationService.js';
 import { createProviderAdapter, getProviderAdapter, exportProviderAdapter, validateProviderAdapter, listProviderCapabilityProfiles, inspectProviderCapabilityProfile } from '../production/providerAdapterService.js';
+import { createProviderSubmissionContract, getProviderSubmissionContract, exportProviderSubmissionContract, listProviderSubmissionContracts, validateProviderSubmission } from '../production/providerSubmissionService.js';
+import { createExecutionReceipt, getExecutionReceipt, patchExecutionReceipt, listExecutionReceipts, exportExecutionReceipt } from '../production/executionReceiptService.js';
 import { publishVoiceTrust, listVoiceTrustPublications, getLatestVoiceTrustPublication, getVoiceTrustPublication } from '../production/voiceTrustPublicationService.js';
 import { verifyLatestVoice } from '../production/voiceVerificationService.js';
 import { buildSignedSubtitleBundle, verifySubtitleBundle } from '../production/subtitleProofService.js';
@@ -1141,6 +1143,103 @@ router.get('/api/production/provider-profiles/:providerType/:providerProfileId',
   res.json(out);
 });
 
+router.post('/api/production/provider-submissions', async (req, res) => {
+  const out = await createProviderSubmissionContract({
+    providerAdapterId: req.body?.providerAdapterId || null,
+    submissionMode: req.body?.submissionMode || 'dry_run',
+    policyProfile: req.body?.policyProfile || null,
+    requestSummary: req.body?.requestSummary || null
+  });
+  if (['missing_provider_adapter_id','unsupported_submission_mode'].includes(out.error)) return res.status(400).json(out);
+  if (['provider_adapter_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/provider-submissions', async (req, res) => {
+  const out = await listProviderSubmissionContracts({
+    providerType: req.query.providerType ? String(req.query.providerType) : null,
+    providerProfileId: req.query.providerProfileId ? String(req.query.providerProfileId) : null,
+    readinessState: req.query.readinessState ? String(req.query.readinessState) : null,
+    createdAfter: req.query.createdAfter ? String(req.query.createdAfter) : null
+  });
+  res.json(out);
+});
+
+router.get('/api/production/provider-submissions/:providerSubmissionContractId', async (req, res) => {
+  const out = await getProviderSubmissionContract(String(req.params.providerSubmissionContractId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/provider-submissions/:providerSubmissionContractId/export', async (req, res) => {
+  const out = await getProviderSubmissionContract(String(req.params.providerSubmissionContractId || ''));
+  if (out.error) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const exp = exportProviderSubmissionContract(out.providerSubmissionContract, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
+router.post('/api/production/provider-submissions/validate', async (req, res) => {
+  const out = await validateProviderSubmission({
+    providerSubmissionContractId: req.body?.providerSubmissionContractId || null,
+    submissionPayload: req.body?.submissionPayload || req.body?.payload || null,
+    policyProfile: req.body?.policyProfile || null
+  });
+  if (out.error === 'provider_submission_contract_not_found') return res.status(404).json(out);
+  res.json(out);
+});
+
+router.post('/api/production/execution-receipts', async (req, res) => {
+  const out = await createExecutionReceipt({
+    providerSubmissionContractId: req.body?.providerSubmissionContractId || null,
+    requestSummary: req.body?.requestSummary || null
+  });
+  if (out.error === 'missing_provider_submission_contract_id') return res.status(400).json(out);
+  if (out.error === 'provider_submission_contract_not_found') return res.status(404).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/execution-receipts', async (req, res) => {
+  const out = await listExecutionReceipts({
+    providerType: req.query.providerType ? String(req.query.providerType) : null,
+    submissionStatus: req.query.submissionStatus ? String(req.query.submissionStatus) : null,
+    schedulerStatus: req.query.schedulerStatus ? String(req.query.schedulerStatus) : null,
+    providerProfileId: req.query.providerProfileId ? String(req.query.providerProfileId) : null,
+    createdAfter: req.query.createdAfter ? String(req.query.createdAfter) : null
+  });
+  res.json(out);
+});
+
+router.get('/api/production/execution-receipts/:executionReceiptId', async (req, res) => {
+  const out = await getExecutionReceipt(String(req.params.executionReceiptId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.patch('/api/production/execution-receipts/:executionReceiptId', async (req, res) => {
+  const out = await patchExecutionReceipt(String(req.params.executionReceiptId || ''), req.body || {});
+  if (out.error === 'execution_receipt_not_found') return res.status(404).json(out);
+  if (['malformed_lifecycle_patch','illegal_status_transition'].includes(out.error)) return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/execution-receipts/:executionReceiptId/export', async (req, res) => {
+  const out = await getExecutionReceipt(String(req.params.executionReceiptId || ''));
+  if (out.error) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const exp = exportExecutionReceipt(out.executionReceipt, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
 router.get('/api/production/shot-lists/:shotListId/snapshots/:shotListSnapshotId/export', async (req, res) => {
   const shotListId = String(req.params.shotListId || '');
   const shotListSnapshotId = String(req.params.shotListSnapshotId || '');
@@ -1735,6 +1834,12 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="provider-profile-list">List Provider Profiles</button>
           <button data-action="provider-adapter-export-manifest">Export Provider Manifest</button>
           <button data-action="provider-adapter-validate">Validate Provider Adapter/Manifest</button>
+          <button data-action="provider-submission-generate">Generate Provider Submission</button>
+          <button data-action="provider-submission-export-payload">Export Submission Payload</button>
+          <button data-action="provider-submission-validate">Validate Submission Payload</button>
+          <button data-action="execution-receipt-create">Create Execution Receipt</button>
+          <button data-action="execution-receipt-update">Update Execution Receipt</button>
+          <button data-action="execution-receipt-export">Export Execution Receipt</button>
           <button data-action="admission-create">Create Admission Certificate</button>
           <button data-action="admission-latest">View Scheduler Admission Latest</button>
           <button data-action="admission-export-signed">Export Signed Certificate</button>

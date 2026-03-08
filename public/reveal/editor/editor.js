@@ -16,6 +16,8 @@ let state = {
   latestExternal: null,
   latestAdapter: null,
   latestProviderAdapter: null,
+  latestProviderSubmission: null,
+  latestExecutionReceipt: null,
   latestAdmission: null,
   latestProof: null
 };
@@ -726,6 +728,64 @@ async function validateProviderAdapterUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 
+async function generateProviderSubmissionUi() {
+  if (!state.latestProviderAdapter?.providerAdapterId) return alert('Generate provider adapter first');
+  const submissionMode = prompt('submissionMode: dry_run|handoff_only|scheduler_dispatch_ready', 'handoff_only') || 'handoff_only';
+  const out = await api('/reveal/api/production/provider-submissions', 'POST', {
+    providerAdapterId: state.latestProviderAdapter.providerAdapterId,
+    submissionMode
+  });
+  state.latestProviderSubmission = out.providerSubmissionContract;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.providerSubmissionContract, null, 2);
+}
+
+function exportSubmissionPayloadUi() {
+  if (!state.latestProviderSubmission?.providerSubmissionContractId) return alert('Generate provider submission first');
+  download(`/reveal/api/production/provider-submissions/${encodeURIComponent(state.latestProviderSubmission.providerSubmissionContractId)}/export?format=submission_payload`);
+}
+
+async function validateSubmissionPayloadUi() {
+  const raw = prompt('Optional submission payload JSON (leave empty to validate current submission contract)');
+  let payload = {};
+  if (raw && raw.trim()) {
+    try { payload.submissionPayload = JSON.parse(raw); } catch { return alert('Invalid JSON'); }
+  } else if (state.latestProviderSubmission?.providerSubmissionContractId) {
+    payload.providerSubmissionContractId = state.latestProviderSubmission.providerSubmissionContractId;
+  } else {
+    return alert('Generate provider submission first or paste payload');
+  }
+  const out = await api('/reveal/api/production/provider-submissions/validate', 'POST', payload);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function createExecutionReceiptUi() {
+  if (!state.latestProviderSubmission?.providerSubmissionContractId) return alert('Generate provider submission first');
+  const out = await api('/reveal/api/production/execution-receipts', 'POST', {
+    providerSubmissionContractId: state.latestProviderSubmission.providerSubmissionContractId
+  });
+  state.latestExecutionReceipt = out.executionReceipt;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.executionReceipt, null, 2);
+}
+
+async function updateExecutionReceiptUi() {
+  if (!state.latestExecutionReceipt?.executionReceiptId) return alert('Create execution receipt first');
+  const action = prompt('action: markDispatchReady|recordHandoff|recordAcknowledgement|recordRejection|cancel|expire|addNote', 'markDispatchReady') || 'markDispatchReady';
+  const body = { action };
+  if (action === 'recordHandoff' || action === 'recordAcknowledgement' || action === 'recordRejection') {
+    body.externalExecutionRef = prompt('externalExecutionRef (optional)', '') || null;
+    body.providerMessage = prompt('providerMessage (optional)', '') || null;
+  }
+  if (action === 'addNote') body.summary = prompt('note', 'operator note') || 'operator note';
+  const out = await api(`/reveal/api/production/execution-receipts/${encodeURIComponent(state.latestExecutionReceipt.executionReceiptId)}`, 'PATCH', body);
+  state.latestExecutionReceipt = out.executionReceipt;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.executionReceipt, null, 2);
+}
+
+function exportExecutionReceiptUi() {
+  if (!state.latestExecutionReceipt?.executionReceiptId) return alert('Create execution receipt first');
+  download(`/reveal/api/production/execution-receipts/${encodeURIComponent(state.latestExecutionReceipt.executionReceiptId)}/export?format=json`);
+}
+
 async function createAdmissionCertUi() {
   const out = await api('/reveal/api/verification/admission-certificates', 'POST', {
     renderAdapterContractId: state.latestAdapter?.renderAdapterContractId || null,
@@ -1116,6 +1176,12 @@ function wireActions() {
   document.querySelector('[data-action="provider-profile-list"]')?.addEventListener('click', () => listProviderProfilesUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="provider-adapter-export-manifest"]')?.addEventListener('click', () => exportProviderManifestUi());
   document.querySelector('[data-action="provider-adapter-validate"]')?.addEventListener('click', () => validateProviderAdapterUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="provider-submission-generate"]')?.addEventListener('click', () => generateProviderSubmissionUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="provider-submission-export-payload"]')?.addEventListener('click', () => exportSubmissionPayloadUi());
+  document.querySelector('[data-action="provider-submission-validate"]')?.addEventListener('click', () => validateSubmissionPayloadUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-receipt-create"]')?.addEventListener('click', () => createExecutionReceiptUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-receipt-update"]')?.addEventListener('click', () => updateExecutionReceiptUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-receipt-export"]')?.addEventListener('click', () => exportExecutionReceiptUi());
   document.querySelector('[data-action="admission-create"]')?.addEventListener('click', () => createAdmissionCertUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="admission-latest"]')?.addEventListener('click', () => viewAdmissionLatestUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="admission-export-signed"]')?.addEventListener('click', () => exportSignedAdmissionUi());
