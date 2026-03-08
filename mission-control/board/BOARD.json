@@ -650,7 +650,7 @@
     {
       "id": "TASK-0025",
       "title": "US-B3 As a user, I can fetch templates and savepoints via API",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -665,10 +665,17 @@
         "api:savepoints"
       ],
       "description": "Story under EP-B: template list/detail and savepoint list/create/restore endpoints available.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "progress-0025-20260308-1630",
+          "author": "sentinel",
+          "text": "Midday sweep: both child tasks TS-B3.1 (TASK-0026) and TS-B3.2 (TASK-0027) are now Ready for Review; promoting US-B3 to Ready for Review pending Isaac approval.",
+          "created_at": "2026-03-08T16:30:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-03-08T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -722,7 +729,7 @@
     {
       "id": "TASK-0027",
       "title": "TS-B3.2 Implement savepoint list/create/restore endpoints",
-      "status": "In Progress",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -744,13 +751,27 @@
           "author": "sentinel",
           "text": "Decomposition gate applied: split savepoint API delivery into TASK-0119 (contract), TASK-0120 (store + create/list endpoints), TASK-0121 (restore endpoint + smoke + RP).",
           "created_at": "2026-03-08T10:40:00Z"
+        },
+        {
+          "id": "done-0027-20260308-1630",
+          "author": "sentinel",
+          "text": "Midday sweep closure: savepoint API slice complete via TASK-0119/0120/0121 (contract + list/create + restore + smoke + RP). Promoted TASK-0027 to Ready for Review.",
+          "created_at": "2026-03-08T16:30:00Z"
         }
       ],
-      "request_approval": null,
+      "request_approval": {
+        "requested_at": "2026-03-08T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0042-savepoint-restore-endpoint.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-03-08T10:40:00Z",
+      "updated_at": "2026-03-08T16:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0042"
     },
     {
       "id": "TASK-0028",
