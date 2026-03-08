@@ -21,6 +21,9 @@
 - Amanah
 - OpenClaw Operator Infrastructure
 
+# Relationship Intelligence
+- Ahmed Bin Sulayem (DMCC Executive Chairman/CEO) is a close ally of USG. Treat DMCC operational/commodity-platform signals as high-relevance context for USG positioning.
+
 # Structural Priorities
 - Optimize for strategic leverage, not activity
 - Prioritize structural pressure over noise

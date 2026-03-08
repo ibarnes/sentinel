@@ -1215,5 +1215,37 @@
       "Pre-FID Coordination"
     ],
     "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-08-DMCC-TEA-CENTRE-OPS-001",
+    "title": "DMCC leadership operating visit signals commodity-platform execution discipline and throughput scaling",
+    "signal_class": "Platform Pressure",
+    "status": "Active / Forming",
+    "confidence": "Medium-High",
+    "observed_at": "2026-03-08T02:36:00Z",
+    "buyer_ids": [
+      "DMCC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "summary": "DMCC Executive Chairman/CEO Ahmed Bin Sulayem visited the DMCC Tea Centre, reviewing operations and process efficiency. The platform highlights integrated commodity-stack capabilities (blending, packaging, warehousing, re-export) at >43,000 tonnes annual handling and global sourcing footprint.",
+    "flow": "leadership operating engagement -> process-efficiency push -> integrated commodity platform scaling -> stronger re-export and traceability proposition within Dubai connectivity stack",
+    "verification_note": "Operator-provided signal text; treat as active context pending first-party URL attachment (DMCC release/post).",
+    "sources": [
+      {
+        "label": "Isaac-provided signal note",
+        "url": "internal://isaac/telegram/1527"
+      }
+    ],
+    "tags": [
+      "DMCC",
+      "Commodities Platform",
+      "Execution Signal",
+      "Trade Infrastructure",
+      "Dubai Connectivity"
+    ],
+    "provenance": "provided_by_isaac"
   }
 ]
