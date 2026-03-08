@@ -6,7 +6,8 @@ Product-intelligence capture system at `/reveal`.
 - Chrome extension capture scaffold
 - API ingestion scaffold
 - Deterministic normalization pipeline scaffold
-- Flow editor shell
+- Reviewed-flow mutation API + persistence
+- Flow editor shell with live reviewed mutations
 - Storage conventions for sessions/events/flows/assets
 
 ## Storage layout

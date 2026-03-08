@@ -3,6 +3,8 @@ body { margin: 0; font-family: Inter, Arial, sans-serif; background: #0f1115; co
 .timeline { border-right: 1px solid #2a3142; padding: 16px; background: #151b24; }
 .timeline ul { list-style: none; padding: 0; margin: 0; }
 .timeline li { padding: 10px; margin-bottom: 8px; border: 1px solid #2a3142; border-radius: 8px; cursor: pointer; }
+.timeline li.active { border-color: #4f8cff; background: #1a2433; }
+.timeline-actions { margin-top: 12px; display: grid; gap: 8px; }
 .detail { padding: 16px; }
 .actions { display: flex; gap: 8px; flex-wrap: wrap; }
 button { background: #1e2633; border: 1px solid #314056; color: #e7edf7; border-radius: 8px; padding: 6px 10px; }
