@@ -1181,5 +1181,39 @@
       "Signal Bundle"
     ],
     "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-08-NG-NSW-TRADE-STACK-001",
+    "title": "Nigeria National Single Window Phase-1 launch frame signals trade-stack coordination window",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-08T01:26:00Z",
+    "buyer_ids": [
+      "IFC",
+      "AFDB",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "USG"
+    ],
+    "summary": "Nairametrics analysis ahead of a March 27 launch frames Nigeria's National Single Window as a high-leverage trade-facilitation platform with major upside (faster clearance, logistics investment) but governance risk around institutional domiciliation and private-sector operating control.",
+    "flow": "trade-friction bottlenecks -> single-window digital integration push -> potential clearance-time compression + logistics investment pull -> governance/control design contest -> mandate-shaping window pre-scale execution",
+    "verification_note": "External commentary signal; key implementation claims require first-party Nigerian government documentation and execution evidence. Track as monitor-stage context for governance/architecture risk.",
+    "sources": [
+      {
+        "label": "Nairametrics article (user-provided)",
+        "url": "https://nairametrics.com/2026/03/06/nigerias-national-single-window-a-historic-opportunity-at-the-crossroads/"
+      }
+    ],
+    "tags": [
+      "Nigeria",
+      "Single Window",
+      "Trade Infrastructure",
+      "Governance Design",
+      "Pre-FID Coordination"
+    ],
+    "provenance": "provided_by_isaac"
   }
 ]
