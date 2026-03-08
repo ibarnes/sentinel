@@ -535,6 +535,39 @@ async function viewVoiceAuditReportUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out.report, null, 2);
 }
 
+async function publishVoiceTrustUi() {
+  if (!state.latestVoiceTrack?.voiceTrackPlanId) return alert('Generate voice plan first');
+  const out = await api(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/trust-publications`, 'POST', {});
+  alert(`Voice trust publication: ${out.voiceTrustPublication.voiceTrustPublicationId}`);
+}
+
+async function viewLatestVoiceTrustUi() {
+  if (!state.latestVoiceTrack?.voiceTrackPlanId) return alert('Generate voice plan first');
+  const out = await api(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/trust-publications/latest`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out.voiceTrustPublication, null, 2);
+}
+
+async function verifyLatestVoiceUi() {
+  if (!state.latestVoiceTrack?.voiceTrackPlanId) return alert('Generate voice plan first');
+  const out = await api(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/verify-latest`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+function exportSignedSubtitleBundleUi() {
+  if (!state.latestVoiceTrack?.voiceTrackPlanId) return alert('Generate voice plan first');
+  const profile = prompt('orchestration profile: dev|internal_verified|production_verified', 'internal_verified') || 'internal_verified';
+  download(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/export?format=signed_subtitle_bundle&orchestrationPolicyProfile=${encodeURIComponent(profile)}`);
+}
+
+async function verifyBundleJsonUi() {
+  const raw = prompt('Paste signed subtitle bundle JSON');
+  if (!raw) return;
+  let bundle;
+  try { bundle = JSON.parse(raw); } catch { return alert('Invalid JSON'); }
+  const out = await api('/reveal/api/production/voice-tracks/verify-bundle', 'POST', { bundle });
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -834,6 +867,11 @@ function wireActions() {
   document.querySelector('[data-action="voiceplan-snapshot-list"]')?.addEventListener('click', () => listVoicePlanSnapshotsUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="voiceplan-integrity-recompute"]')?.addEventListener('click', () => recomputeVoiceIntegrityUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="voiceplan-export-bundle"]')?.addEventListener('click', () => exportSubtitleBundleUi());
+  document.querySelector('[data-action="voiceplan-trust-publish"]')?.addEventListener('click', () => publishVoiceTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="voiceplan-trust-latest"]')?.addEventListener('click', () => viewLatestVoiceTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="voiceplan-verify-latest"]')?.addEventListener('click', () => verifyLatestVoiceUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="voiceplan-export-signed-bundle"]')?.addEventListener('click', () => exportSignedSubtitleBundleUi());
+  document.querySelector('[data-action="voiceplan-verify-bundle"]')?.addEventListener('click', () => verifyBundleJsonUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="voiceplan-audit-report"]')?.addEventListener('click', () => viewVoiceAuditReportUi().catch((e) => alert(e.message)));
 }
 

@@ -7,6 +7,8 @@ import { getVoiceTrackPlan, exportVoiceTrackPlan } from './voiceTrackPlanService
 import { getVoicePlanSnapshot } from './voicePlanSnapshotService.js';
 import { verifyVoicePlanSnapshotIntegrity, recomputeVoicePlanSnapshotIntegrity } from './voicePlanIntegrityService.js';
 import { getLatestTrustPublication } from '../script/reviewedSnapshotTrustPublicationService.js';
+import { getLatestVoiceTrustPublication } from './voiceTrustPublicationService.js';
+import { evaluateOrchestrationPolicy } from './subtitleProofService.js';
 
 const pexec = promisify(execFile);
 function id(){ return `sb_${Date.now()}_${crypto.randomBytes(4).toString('hex')}`; }
@@ -103,8 +105,12 @@ export async function buildVoiceTrackAuditReport(voiceTrackPlanId) {
   const chain = hasSnapshots ? await recomputeVoicePlanSnapshotIntegrity(voiceTrackPlanId) : { totalSnapshots: 0, matched: 0, mismatched: 0, brokenChainLinks: 0, missingHash: 0, firstBrokenSnapshotId: null, rows: [] };
   const latest = chain.rows.length ? chain.rows[chain.rows.length - 1] : null;
   const trust = await getLatestTrustPublication(plan.sourceRef?.scriptId || '');
+  const latestVoiceTrust = await getLatestVoiceTrustPublication(voiceTrackPlanId);
 
   const readiness = gateResult({ plan, trust, latestSnapshotIntegrity: latest, requireLatestVoicePlanSnapshotIntegrity: true, requireLatestTrustPublication: false });
+  const policyDev = evaluateOrchestrationPolicy('dev', { voiceSnapshotIntegrity: latest, voiceTrustPublication: latestVoiceTrust.error ? null : latestVoiceTrust.voiceTrustPublication, voiceTrackPlan: plan });
+  const policyInternal = evaluateOrchestrationPolicy('internal_verified', { voiceSnapshotIntegrity: latest, voiceTrustPublication: latestVoiceTrust.error ? null : latestVoiceTrust.voiceTrustPublication, voiceTrackPlan: plan });
+  const policyProd = evaluateOrchestrationPolicy('production_verified', { voiceSnapshotIntegrity: latest, voiceTrustPublication: latestVoiceTrust.error ? null : latestVoiceTrust.voiceTrustPublication, voiceTrackPlan: plan });
 
   return {
     report: {
@@ -115,6 +121,17 @@ export async function buildVoiceTrackAuditReport(voiceTrackPlanId) {
       latestVoicePlanSnapshotSummary: latest,
       voicePlanIntegritySummary: chain,
       upstreamSourceTrustRefs: plan.metadata?.sourceApprovalTrust || null,
+      latestVoiceTrustPublicationSummary: latestVoiceTrust.error ? null : {
+        voiceTrustPublicationId: latestVoiceTrust.voiceTrustPublication.voiceTrustPublicationId,
+        voiceChainHeadDigest: latestVoiceTrust.voiceTrustPublication.voiceChainHeadDigest,
+        voiceTrustPublicationSignatureStatus: latestVoiceTrust.voiceTrustPublication.voiceTrustPublicationSignatureStatus,
+        publicationVersion: latestVoiceTrust.voiceTrustPublication.publicationVersion,
+        publishedAt: latestVoiceTrust.voiceTrustPublication.publishedAt
+      },
+      voiceChainHeadDigest: latestVoiceTrust.error ? null : latestVoiceTrust.voiceTrustPublication.voiceChainHeadDigest,
+      signedSubtitleBundleReadiness: policyProd,
+      policyProfileEvaluation: { dev: policyDev, internal_verified: policyInternal, production_verified: policyProd },
+      proofVerificationSummary: null,
       subtitleBundleReadiness: readiness
     }
   };

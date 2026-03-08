@@ -173,8 +173,14 @@ Product-intelligence capture system at `/reveal`.
     - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/snapshots/:voicePlanSnapshotId/integrity`
     - `POST /reveal/api/production/voice-tracks/:voiceTrackPlanId/snapshots/integrity/recompute`
     - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/audit-report`
-    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/export?format=json|markdown|srt|vtt|subtitle_bundle`
-    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/snapshots/:voicePlanSnapshotId/export?format=json|markdown|srt|vtt|subtitle_bundle`
+    - `POST /reveal/api/production/voice-tracks/:voiceTrackPlanId/trust-publications`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/trust-publications`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/trust-publications/latest`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/trust-publications/:voiceTrustPublicationId`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/verify-latest`
+    - `POST /reveal/api/production/voice-tracks/verify-bundle`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/export?format=json|markdown|srt|vtt|subtitle_bundle|signed_subtitle_bundle`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/snapshots/:voicePlanSnapshotId/export?format=json|markdown|srt|vtt|subtitle_bundle|signed_subtitle_bundle`
     - storage: `reveal/storage/voice-track-plans/{voiceTrackPlanId}.json`, `reveal/storage/voice-track-plan-snapshots/{voiceTrackPlanId}/{voicePlanSnapshotId}.json`
   - style profiles: `neutral_walkthrough`, `concise_training`, `executive_overview`
 - Session lifecycle:

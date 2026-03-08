@@ -9,6 +9,9 @@ import { createVoiceTrackPlan, exportVoiceTrackPlan } from '../../production/voi
 import { createVoicePlanSnapshot, getVoicePlanSnapshot, listVoicePlanSnapshots } from '../../production/voicePlanSnapshotService.js';
 import { verifyVoicePlanSnapshotIntegrity, recomputeVoicePlanSnapshotIntegrity } from '../../production/voicePlanIntegrityService.js';
 import { buildSubtitleBundle, buildVoiceTrackAuditReport } from '../../production/subtitleBundleService.js';
+import { publishVoiceTrust, getLatestVoiceTrustPublication } from '../../production/voiceTrustPublicationService.js';
+import { verifyLatestVoice } from '../../production/voiceVerificationService.js';
+import { buildSignedSubtitleBundle, verifySubtitleBundle } from '../../production/subtitleProofService.js';
 
 const flowId = 'fixture_voice_flow';
 await writeJson(fileForReviewedFlow(flowId), {
@@ -100,6 +103,41 @@ if (blockedBundle.error !== 'subtitle_bundle_policy_blocked') throw new Error('e
 
 const report = await buildVoiceTrackAuditReport(vpId);
 if (report.error || !report.report.voicePlanIntegritySummary) throw new Error('audit report invalid');
+
+// voice trust publication + verifier
+const vpub1 = await publishVoiceTrust(vpId);
+if (vpub1.error) throw new Error(`voice trust publication failed: ${vpub1.error}`);
+const vpub2 = await publishVoiceTrust(vpId);
+if (vpub2.error) throw new Error(`voice trust publication 2 failed: ${vpub2.error}`);
+if (vpub1.voiceTrustPublication.voiceChainHeadDigest !== vpub2.voiceTrustPublication.voiceChainHeadDigest && vpub2.voiceTrustPublication.previousPublishedVoiceHeadDigest == null) {
+  throw new Error('voice chain head digest continuity missing');
+}
+
+const latestTrust = await getLatestVoiceTrustPublication(vpId);
+if (latestTrust.error || !latestTrust.voiceTrustPublication.voiceChainHeadDigest) throw new Error('latest voice trust publication invalid');
+
+const verifierPayload = await verifyLatestVoice(vpId);
+if (verifierPayload.error || !verifierPayload.voiceChainHeadDigest) throw new Error('verify-latest payload invalid');
+
+// signed subtitle bundle + verification
+const signedJson = await buildSignedSubtitleBundle({ voiceTrackPlanId: vpId, voicePlanSnapshotId: snap1.snapshot.voicePlanSnapshotId, format: 'json', orchestrationPolicyProfile: 'dev' });
+if (signedJson.error) throw new Error(`signed subtitle json failed: ${signedJson.error}`);
+const signedObj = JSON.parse(signedJson.content);
+if (!signedObj['voice-trust-publication.json'] || !signedObj['proof-signature.json']) throw new Error('signed subtitle bundle structure invalid');
+
+const verifyOk = await verifySubtitleBundle(signedObj);
+if (!['verified','unsigned'].includes(verifyOk.status)) throw new Error(`unexpected signed bundle verify status: ${verifyOk.status}`);
+
+const tamperedBundle = JSON.parse(JSON.stringify(signedObj));
+tamperedBundle['subtitle-bundle-manifest.json'].voiceChainHeadDigest = 'bad';
+const verifyBad = await verifySubtitleBundle(tamperedBundle);
+if (!['chain_head_mismatch','content_hash_mismatch','invalid_signature'].includes(verifyBad.status)) throw new Error('tampered bundle should fail verification');
+
+const prodPolicyBlocked = await buildSignedSubtitleBundle({ voiceTrackPlanId: vpId, voicePlanSnapshotId: snap1.snapshot.voicePlanSnapshotId, format: 'signed_subtitle_bundle', orchestrationPolicyProfile: 'production_verified' });
+if (prodPolicyBlocked.error && prodPolicyBlocked.error !== 'subtitle_bundle_policy_blocked') throw new Error('unexpected production policy outcome');
+
+const internalPolicy = await buildSignedSubtitleBundle({ voiceTrackPlanId: vpId, voicePlanSnapshotId: snap1.snapshot.voicePlanSnapshotId, format: 'json', orchestrationPolicyProfile: 'internal_verified' });
+if (internalPolicy.error) throw new Error(`internal policy should pass in json mode: ${internalPolicy.error}`);
 
 const scriptUnapproved = await createNarrationScript({ flowId, styleProfile: 'neutral_walkthrough' });
 await initReviewedScript(scriptUnapproved.script.scriptId, { actor: 'fixture' });

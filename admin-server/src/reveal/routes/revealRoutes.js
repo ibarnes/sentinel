@@ -53,6 +53,9 @@ import { createVoiceTrackPlan, getVoiceTrackPlan, exportVoiceTrackPlan } from '.
 import { createVoicePlanSnapshot, listVoicePlanSnapshots, getVoicePlanSnapshot } from '../production/voicePlanSnapshotService.js';
 import { verifyVoicePlanSnapshotIntegrity, recomputeVoicePlanSnapshotIntegrity } from '../production/voicePlanIntegrityService.js';
 import { buildSubtitleBundle, buildVoiceTrackAuditReport } from '../production/subtitleBundleService.js';
+import { publishVoiceTrust, listVoiceTrustPublications, getLatestVoiceTrustPublication, getVoiceTrustPublication } from '../production/voiceTrustPublicationService.js';
+import { verifyLatestVoice } from '../production/voiceVerificationService.js';
+import { buildSignedSubtitleBundle, verifySubtitleBundle } from '../production/subtitleProofService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -527,6 +530,50 @@ router.get('/api/production/voice-tracks/:voiceTrackPlanId/audit-report', async 
   res.json(out);
 });
 
+router.post('/api/production/voice-tracks/:voiceTrackPlanId/trust-publications', async (req, res) => {
+  const out = await publishVoiceTrust(String(req.params.voiceTrackPlanId || ''));
+  if (out.error === 'no_voice_snapshot_for_publication') return res.status(400).json(out);
+  if (out.error === 'voice_trust_publication_id_collision') return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/voice-tracks/:voiceTrackPlanId/trust-publications', async (req, res) => {
+  const out = await listVoiceTrustPublications(String(req.params.voiceTrackPlanId || ''));
+  res.json(out);
+});
+
+router.get('/api/production/voice-tracks/:voiceTrackPlanId/trust-publications/latest', async (req, res) => {
+  const out = await getLatestVoiceTrustPublication(String(req.params.voiceTrackPlanId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/voice-tracks/:voiceTrackPlanId/trust-publications/:voiceTrustPublicationId', async (req, res) => {
+  const out = await getVoiceTrustPublication(String(req.params.voiceTrackPlanId || ''), String(req.params.voiceTrustPublicationId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/voice-tracks/:voiceTrackPlanId/verify-latest', async (req, res) => {
+  const out = await verifyLatestVoice(String(req.params.voiceTrackPlanId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.post('/api/production/voice-tracks/verify-bundle', uploadPkg.single('bundle'), async (req, res) => {
+  let bundleObj = req.body?.bundle || null;
+  if (req.file?.buffer?.length) {
+    try { bundleObj = JSON.parse(req.file.buffer.toString('utf8')); }
+    catch { return res.status(400).json({ status: 'malformed_bundle', reasonCodes: ['invalid_json_bundle'] }); }
+  } else if (typeof bundleObj === 'string') {
+    try { bundleObj = JSON.parse(bundleObj); }
+    catch { return res.status(400).json({ status: 'malformed_bundle', reasonCodes: ['invalid_json_bundle'] }); }
+  }
+  const out = await verifySubtitleBundle(bundleObj);
+  res.json(out);
+});
+
 router.get('/api/production/voice-tracks/:voiceTrackPlanId/export', async (req, res) => {
   const voiceTrackPlanId = String(req.params.voiceTrackPlanId || '');
   const format = String(req.query.format || 'json').toLowerCase();
@@ -541,6 +588,20 @@ router.get('/api/production/voice-tracks/:voiceTrackPlanId/export', async (req, 
     });
     if (['voice_track_plan_not_found','voice_plan_snapshot_not_found'].includes(out.error)) return res.status(404).json(out);
     if (['subtitle_bundle_policy_blocked','invalid_subtitle_bundle_format'].includes(out.error)) return res.status(409).json(out);
+    res.setHeader('Content-Type', out.contentType);
+    res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
+    return res.send(out.buffer);
+  }
+
+  if (format === 'signed_subtitle_bundle') {
+    const out = await buildSignedSubtitleBundle({
+      voiceTrackPlanId,
+      voicePlanSnapshotId: req.query.voicePlanSnapshotId ? String(req.query.voicePlanSnapshotId) : null,
+      format,
+      orchestrationPolicyProfile: String(req.query.orchestrationPolicyProfile || 'dev')
+    });
+    if (['voice_track_plan_not_found','voice_plan_snapshot_not_found'].includes(out.error)) return res.status(404).json(out);
+    if (['subtitle_bundle_policy_blocked','invalid_signed_subtitle_bundle_format'].includes(out.error)) return res.status(409).json(out);
     res.setHeader('Content-Type', out.contentType);
     res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
     return res.send(out.buffer);
@@ -570,6 +631,20 @@ router.get('/api/production/voice-tracks/:voiceTrackPlanId/snapshots/:voicePlanS
     });
     if (['voice_track_plan_not_found','voice_plan_snapshot_not_found'].includes(out.error)) return res.status(404).json(out);
     if (['subtitle_bundle_policy_blocked','invalid_subtitle_bundle_format'].includes(out.error)) return res.status(409).json(out);
+    res.setHeader('Content-Type', out.contentType);
+    res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
+    return res.send(out.buffer);
+  }
+
+  if (format === 'signed_subtitle_bundle') {
+    const out = await buildSignedSubtitleBundle({
+      voiceTrackPlanId,
+      voicePlanSnapshotId,
+      format,
+      orchestrationPolicyProfile: String(req.query.orchestrationPolicyProfile || 'dev')
+    });
+    if (['voice_track_plan_not_found','voice_plan_snapshot_not_found'].includes(out.error)) return res.status(404).json(out);
+    if (['subtitle_bundle_policy_blocked','invalid_signed_subtitle_bundle_format'].includes(out.error)) return res.status(409).json(out);
     res.setHeader('Content-Type', out.contentType);
     res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
     return res.send(out.buffer);
@@ -1154,6 +1229,11 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="voiceplan-snapshot-list">List Voice Plan Snapshots</button>
           <button data-action="voiceplan-integrity-recompute">Recompute Voice Snapshot Integrity</button>
           <button data-action="voiceplan-export-bundle">Export Subtitle Bundle</button>
+          <button data-action="voiceplan-trust-publish">Publish Voice Trust</button>
+          <button data-action="voiceplan-trust-latest">View Latest Voice Trust</button>
+          <button data-action="voiceplan-verify-latest">Verify Latest Voice</button>
+          <button data-action="voiceplan-export-signed-bundle">Export Signed Subtitle Bundle</button>
+          <button data-action="voiceplan-verify-bundle">Verify Signed Bundle JSON</button>
           <button data-action="voiceplan-audit-report">Voice Audit Report</button>
         </div>
         <pre id="script-preview" class="dbg-pre">No script generated.</pre>
