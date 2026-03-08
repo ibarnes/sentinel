@@ -1102,10 +1102,11 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     .pp-heat-row { border-bottom:1px solid rgba(255,255,255,.06); padding:.45rem 0; }
     .pp-heat-row:last-child { border-bottom:0; }
     .pp-legend { font-size:.74rem; color:var(--text-muted); }
-    .lem-heat { display:grid; grid-template-columns: repeat(15, minmax(22px, 1fr)); gap:6px; }
-    .lem-cell { height: 22px; min-width: 22px; border-radius: 6px; border: 1px solid rgba(255,255,255,.08); padding:0; touch-action: manipulation; -webkit-tap-highlight-color: rgba(79,140,255,.25); }
+    .lem-heat { display:grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap:6px; width:100%; }
+    .lem-cell { width:100%; aspect-ratio:1/1; border-radius: 6px; border: 1px solid rgba(255,255,255,.08); padding:0; touch-action: manipulation; -webkit-tap-highlight-color: rgba(79,140,255,.25); }
     .lem-cell.off { background: rgba(255,255,255,.05); }
     .lem-cell.on { background: linear-gradient(180deg, #5f97ff 0%, #376fe0 100%); }
+    @media (max-width: 1100px){ .lem-heat { grid-template-columns: repeat(8, minmax(0,1fr)); } }
     .lem-strip { display:grid; grid-template-columns: repeat(3, 1fr); gap:6px; }
     .lem-strip .tile { border:1px solid var(--border); border-radius:10px; padding:8px; background:rgba(255,255,255,.02); }
     .lem-row { border:1px solid var(--border); border-radius:12px; padding:10px; background:rgba(255,255,255,.015); }
