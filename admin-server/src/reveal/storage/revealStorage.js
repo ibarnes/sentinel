@@ -58,6 +58,17 @@ export async function appendJsonl(filePath, rows) {
   await fs.appendFile(filePath, payload, 'utf8');
 }
 
+export async function writeDataUrlAsset(filePath, dataUrl) {
+  if (!dataUrl || typeof dataUrl !== 'string' || !dataUrl.startsWith('data:image/')) return false;
+  const match = dataUrl.match(/^data:image\/(png|jpeg|jpg);base64,(.+)$/i);
+  if (!match) return false;
+  const b64 = match[2];
+  const buf = Buffer.from(b64, 'base64');
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  await fs.writeFile(filePath, buf);
+  return true;
+}
+
 export async function readJsonl(filePath) {
   try {
     const txt = await fs.readFile(filePath, 'utf8');

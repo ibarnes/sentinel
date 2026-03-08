@@ -1,0 +1,5 @@
+[
+  {"id":"u1","ts":"2026-03-08T05:01:00Z","type":"click","url":"https://app.test/data","selector":"#uploadBtn","domPath":"html/body/main/button","text":"Upload File","metadata":{"raw":{"target":{"tagName":"button","attributes":{},"text":"Upload File"},"pageTitle":"Data"}}},
+  {"id":"u2","ts":"2026-03-08T05:01:02Z","type":"change","url":"https://app.test/data","selector":"input[type=file]","domPath":"html/body/main/input","text":"","fileMeta":[{"name":"customers.csv","size":1234,"type":"text/csv"}],"metadata":{"raw":{"target":{"tagName":"input","attributes":{"type":"file"},"text":""},"pageTitle":"Data"}}},
+  {"id":"u3","ts":"2026-03-08T05:01:04Z","type":"click","url":"https://app.test/data","selector":"#confirmUpload","domPath":"html/body/main/button[2]","text":"Confirm","metadata":{"raw":{"target":{"tagName":"button","attributes":{},"text":"Confirm"},"pageTitle":"Data"}}}
+]

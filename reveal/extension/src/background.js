@@ -62,7 +62,8 @@ async function captureScreenshot(tabId) {
 
 async function enqueueRawEvent(rawEvent, tabId) {
   if (!state.recording || !state.sessionId) return;
-  const shot = await captureScreenshot(tabId);
+  const shouldCapture = Boolean(rawEvent?.significant);
+  const shot = shouldCapture ? await captureScreenshot(tabId) : null;
   state.queue.push({ ...rawEvent, screenshot: shot, sessionId: state.sessionId });
   if (state.queue.length >= state.maxBatch) {
     await flushQueue();

@@ -41,7 +41,9 @@ function renderTimeline(flow) {
   (flow.steps || []).forEach((step, idx) => {
     const li = document.createElement('li');
     li.dataset.stepId = step.id;
-    li.innerHTML = `<label><input type="checkbox" data-merge="${step.id}" /> ${idx + 1}. ${escapeHtml(step.title)}</label>`;
+    const shotCount = [step.screenshots?.beforeUrl, step.screenshots?.afterUrl, step.screenshots?.highlightedUrl].filter(Boolean).length;
+    li.innerHTML = `<label><input type="checkbox" data-merge="${step.id}" /> ${idx + 1}. ${escapeHtml(step.title)}</label>
+      <div class="step-trust">conf ${(step.confidence ?? 0).toFixed(2)} · ${escapeHtml(step.target?.elementType || 'unknown')} · shots ${shotCount}/3 · events ${(step.events || []).length}</div>`;
     li.addEventListener('click', (e) => {
       if (e.target?.matches('input[type=checkbox]')) return;
       state.selectedStepId = step.id;
@@ -74,7 +76,8 @@ function highlightSelected() {
 function showStep(step) {
   state.selectedStepId = step.id;
   document.getElementById('step-title').textContent = step.title || 'Step';
-  document.getElementById('step-meta').textContent = `${step.action} • ${step.page?.url || ''}`;
+  const shotCount = [step.screenshots?.beforeUrl, step.screenshots?.afterUrl, step.screenshots?.highlightedUrl].filter(Boolean).length;
+  document.getElementById('step-meta').textContent = `${step.action} • ${step.page?.url || ''} • confidence ${Number(step.confidence ?? 0).toFixed(2)} • type ${step.target?.elementType || 'unknown'} • screenshots ${shotCount}/3 • raw events ${(step.events || []).length}`;
   document.getElementById('shot-before').src = step.screenshots?.beforeUrl || '';
   document.getElementById('shot-after').src = step.screenshots?.afterUrl || '';
   document.getElementById('shot-highlight').src = step.screenshots?.highlightedUrl || '';

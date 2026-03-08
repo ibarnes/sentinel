@@ -8,5 +8,6 @@ body { margin: 0; font-family: Inter, Arial, sans-serif; background: #0f1115; co
 .detail { padding: 16px; }
 .actions { display: flex; gap: 8px; flex-wrap: wrap; }
 button { background: #1e2633; border: 1px solid #314056; color: #e7edf7; border-radius: 8px; padding: 6px 10px; }
+.step-trust { margin-top: 4px; font-size: 12px; color: #9fb1cc; }
 .screenshots { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .screenshots img { width: 100%; min-height: 160px; object-fit: contain; background: #0b0f16; border: 1px solid #2a3142; border-radius: 6px; }

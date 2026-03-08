@@ -1,0 +1,5 @@
+[
+  {"id":"m1","ts":"2026-03-08T05:04:00Z","type":"click","url":"https://app.test/settings","selector":"#delete","domPath":"html/body/main/button","text":"Delete Workspace","metadata":{"raw":{"target":{"tagName":"button","attributes":{"role":"button"},"text":"Delete Workspace"},"pageTitle":"Settings"}}},
+  {"id":"m2","ts":"2026-03-08T05:04:01Z","type":"click","url":"https://app.test/settings","selector":".modal .confirm","domPath":"html/body/div/button","text":"Confirm Delete","metadata":{"raw":{"target":{"tagName":"button","attributes":{"role":"dialog"},"text":"Confirm Delete"},"pageTitle":"Settings"}}},
+  {"id":"m3","ts":"2026-03-08T05:04:03Z","type":"click","url":"https://app.test/settings","selector":".toast-success","domPath":"html/body/div[2]","text":"Deleted successfully","metadata":{"raw":{"target":{"tagName":"div","attributes":{"role":"status"},"text":"Deleted successfully"},"pageTitle":"Settings"}}}
+]

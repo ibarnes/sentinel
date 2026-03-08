@@ -1,0 +1,7 @@
+[
+  {"id":"e1","ts":"2026-03-08T05:00:00Z","type":"input","url":"https://app.test/login","selector":"#email","domPath":"html/body/form/input[1]","text":"Email","valueMasked":"***","metadata":{"raw":{"target":{"tagName":"input","attributes":{"type":"email","name":"email","placeholder":"Email"},"text":"Email"},"pageTitle":"Login"}}},
+  {"id":"e2","ts":"2026-03-08T05:00:01Z","type":"input","url":"https://app.test/login","selector":"#email","domPath":"html/body/form/input[1]","text":"Email","valueMasked":"***","metadata":{"raw":{"target":{"tagName":"input","attributes":{"type":"email","name":"email","placeholder":"Email"},"text":"Email"},"pageTitle":"Login"}}},
+  {"id":"e3","ts":"2026-03-08T05:00:03Z","type":"input","url":"https://app.test/login","selector":"#password","domPath":"html/body/form/input[2]","text":"Password","valueMasked":"***","metadata":{"raw":{"target":{"tagName":"input","attributes":{"type":"password","name":"password","placeholder":"Password"},"text":"Password"},"pageTitle":"Login"}}},
+  {"id":"e4","ts":"2026-03-08T05:00:05Z","type":"click","url":"https://app.test/login","selector":"button[type=submit]","domPath":"html/body/form/button","text":"Sign In","metadata":{"raw":{"target":{"tagName":"button","attributes":{"type":"submit"},"text":"Sign In"},"pageTitle":"Login"}}},
+  {"id":"e5","ts":"2026-03-08T05:00:06Z","type":"navigation","url":"https://app.test/dashboard","selector":"body","domPath":"html/body","text":"Dashboard","metadata":{"raw":{"target":{"tagName":"body","attributes":{},"text":"Dashboard"},"pageTitle":"Dashboard"}}}
+]

@@ -52,9 +52,11 @@ function send(type, payload) {
 }
 
 function rawEvent(type, el, extra = {}) {
+  const significant = ['click', 'change', 'submit', 'navigation'].includes(type);
   return {
     timestamp: new Date().toISOString(),
     actionType: type,
+    significant,
     pageUrl: location.href,
     pageTitle: document.title,
     target: targetDescriptor(el),

@@ -2880,6 +2880,15 @@ app.use('/reveal/editor', express.static(path.join(ROOT, 'public', 'reveal', 'ed
   }
 }));
 
+app.use('/reveal/storage/assets', express.static(path.join(ROOT, 'reveal', 'storage', 'assets'), {
+  index: false,
+  fallthrough: true,
+  redirect: false,
+  setHeaders(res) {
+    res.setHeader('Cache-Control', 'no-store');
+  }
+}));
+
 app.use('/dashboard', express.static(path.join(ROOT, 'dashboard'), {
   index: false,
   fallthrough: true,

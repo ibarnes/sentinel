@@ -1,0 +1,5 @@
+[
+  {"id":"f1","ts":"2026-03-08T05:02:00Z","type":"click","url":"https://app.test/reports","selector":"#openFilter","domPath":"html/body/main/button","text":"Filter","metadata":{"raw":{"target":{"tagName":"button","attributes":{},"text":"Filter"},"pageTitle":"Reports"}}},
+  {"id":"f2","ts":"2026-03-08T05:02:02Z","type":"change","url":"https://app.test/reports","selector":"select#region","domPath":"html/body/main/select","text":"Region","metadata":{"raw":{"target":{"tagName":"select","attributes":{},"text":"Region"},"pageTitle":"Reports"}}},
+  {"id":"f3","ts":"2026-03-08T05:02:04Z","type":"click","url":"https://app.test/reports","selector":"#applyFilter","domPath":"html/body/main/button[2]","text":"Apply","metadata":{"raw":{"target":{"tagName":"button","attributes":{},"text":"Apply"},"pageTitle":"Reports"}}}
+]
