@@ -1150,12 +1150,13 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     <div class="card mb-3"><div class="card-body">
       <div class="d-flex justify-content-between align-items-center mb-2">
-        <h6 class="mb-0">Layer Emissions Map (Signal Physics)</h6>
+        <h6 class="mb-0">Platform Signal Map</h6>
         <span class="pp-legend" id="lem-generated-at">No snapshot loaded</span>
       </div>
+      <div class="pp-legend mb-2">Signals across the infrastructure lifecycle</div>
       <div class="d-flex justify-content-between align-items-center mb-2">
-        <span class="pp-legend">Ontology Layers (click to filter) · Blue = emitting signals · Gray = missing constraint</span>
-        <button id="lem-legend-toggle" type="button" class="btn btn-sm btn-outline-secondary py-0 px-2">Show Layer Legend</button>
+        <span class="pp-legend">Lifecycle stages (click to filter) · Blue = active signals · Gray = missing stage</span>
+        <button id="lem-legend-toggle" type="button" class="btn btn-sm btn-outline-secondary py-0 px-2">Show Stage Legend</button>
       </div>
       <div id="lem-legend" class="small d-none mb-2"></div>
       <div id="lem-panel" class="vstack gap-2 small"></div>
@@ -1303,6 +1304,16 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       market_access: { name:'Market Access', desc:'Offtake, export agreements, and customer commitments.', phase:'Late' }
     };
     const layerLabel = (id) => (layerMeta[id]?.name || String(id||'').replaceAll('_',' '));
+    const phasePlain = (p) => p === 'early' ? 'early-stage signals' : (p === 'mid' ? 'forming-stage signals' : 'execution-stage signals');
+    const blockerLabel = (s) => ({
+      'Capital Without Architecture': 'Capital present, but no clear structure',
+      'Late Signal / No Early Coherence': 'Late activity without early support',
+      'Narrative Without Mandate': 'Story exists, but no mandate yet',
+      'Demand Without Operator Path': 'Demand exists, but no operator path'
+    }[String(s||'')] || String(s||'none'));
+    const stageLabel = (s) => ({
+      'Monitor':'Watch', 'Shaping':'Taking shape', 'Platform Formation':'Platform forming', 'Capital Alignment':'Capital aligning', 'Pre-FID':'Near execution', 'Execution':'In execution'
+    }[String(s||'')] || String(s||''));
 
     function populateFilters(){
       const uniq = (arr) => [...new Set(arr.filter(Boolean))].sort();
@@ -1399,7 +1410,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
           '<div class="col-12 col-md-3"><div class="border rounded p-2"><div class="pp-kicker">High pressure</div><div class="mono">'+highPressure+'</div></div></div>' +
           '<div class="col-12 col-md-3"><div class="border rounded p-2"><div class="pp-kicker">Leading motion</div><div class="mono">'+esc((motionLead && motionLead[0]) || 'Monitor only')+'</div></div></div>' +
         '</div>' +
-        '<div class="mt-2 text-muted">Dominant missing layers: '+esc(gapLead.join(' · ') || 'none')+'</div>';
+        '<div class="mt-2 text-muted">Missing key stages: '+esc(gapLead.join(' · ') || 'none')+'</div>';
     }
 
     function renderTable(list){
@@ -1509,7 +1520,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     }
 
     function stuckBadge(reason){
-      return '<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-stuck-reason" data-stuck-reason="'+esc(reason)+'">'+esc(reason)+'</button>';
+      const raw = String(reason || 'none');
+      return '<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-stuck-reason" data-stuck-reason="'+esc(raw)+'">'+esc(blockerLabel(raw))+'</button>';
     }
 
     function bindTap(el, fn){
@@ -1521,7 +1533,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     function renderLayerLegend(){
       if (!els.lemLegend) return;
-      els.lemLegend.innerHTML = '<div class="lem-legend-grid">' + ontologyOrder.map((l) => {
+      els.lemLegend.innerHTML = '<div class="pp-legend mb-1">Infrastructure Lifecycle stages</div><div class="lem-legend-grid">' + ontologyOrder.map((l) => {
         const meta = layerMeta[l.id] || {};
         return '<div class="border rounded p-2"><strong>' + Number(l.order || 0) + '. ' + esc(meta.name || l.id) + '</strong><div class="text-muted small">' + esc(meta.desc || '') + '</div></div>';
       }).join('') + '</div>';
@@ -1560,7 +1572,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
           const cls = on ? 'on' : 'off';
           const kind = on ? 'emit' : 'missing';
           const meta = layerMeta[l.id] || {};
-          const tip = (meta.name || l.id) + ' — ' + (meta.desc || '') + ' Phase: ' + (meta.phase || l.phase || 'n/a');
+          const tip = (meta.name || l.id) + ' — ' + (meta.desc || '') + ' Timing: ' + (meta.phase || phasePlain(l.phase) || 'n/a');
           return '<button class="lem-cell '+cls+' js-layer-cell" data-layer-kind="'+kind+'" data-layer-id="'+esc(l.id)+'" title="'+esc(tip)+'" aria-label="'+esc(tip)+'">'+Number(l.order || 0)+'</button>';
         }).join('');
         const phaseLabel = 'early ' + Math.round((phaseMix.early||0)*100) + '% · mid ' + Math.round((phaseMix.mid||0)*100) + '% · late ' + Math.round((phaseMix.late||0)*100) + '%';
@@ -1570,24 +1582,24 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
         return '<div class="lem-row">' +
           '<div class="lem-row-head js-lem-toggle" role="button" tabindex="0" aria-expanded="false">' +
-            '<div><strong>' + esc(r.sector) + '</strong><div class="pp-sub">Initiative ' + esc(initiativeId) + ' · state ' + esc(p.state || 'Monitor') + '</div></div>' +
+            '<div><strong>' + esc(r.sector) + '</strong><div class="pp-sub">Initiative ' + esc(initiativeId) + ' · current stage ' + esc(stageLabel(p.state || 'Monitor')) + '</div></div>' +
             '<div class="small text-end"><span class="pp-ppi">P ' + Number(p.pressure || 0).toFixed(1) + '</span><div class="pp-legend">Tap to expand</div></div>' +
           '</div>' +
           '<div class="lem-row-body d-none">' +
             '<div class="lem-heat mt-2">' + heat + '</div>' +
-            '<div class="mt-1"><span class="pp-kicker">Ontology Layers (click to filter)</span> <span class="pp-legend">Blue = emitting signals · Gray = missing constraint</span></div>' +
-            '<div class="lem-tooltip mt-1 js-layer-tooltip">Tap or hover a square to view layer meaning.</div>' +
-            '<div class="mt-2"><div class="d-flex justify-content-between pp-legend"><span>Phase progression</span><span>' + phaseProgress + '%</span></div><div class="lem-phase-bar"><div class="lem-phase-fill" style="width:' + phaseProgress + '%"></div></div><div class="pp-legend">' + esc(phaseLabel) + '</div><div class="d-flex gap-1 mt-1"><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="early">early</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="mid">mid</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="late">late</button></div></div>' +
+            '<div class="mt-1"><span class="pp-kicker">Click stages to filter</span> <span class="pp-legend">Blue = active signals · Gray = missing stage</span></div>' +
+            '<div class="lem-tooltip mt-1 js-layer-tooltip">Tap or hover a square to view stage meaning.</div>' +
+            '<div class="mt-2"><div class="d-flex justify-content-between pp-legend"><span>Stage progress</span><span>' + phaseProgress + '%</span></div><div class="lem-phase-bar"><div class="lem-phase-fill" style="width:' + phaseProgress + '%"></div></div><div class="pp-legend">Signal timing mix: ' + esc(phaseLabel) + '</div><div class="pp-legend">Early = early-stage signals · Mid = forming-stage signals · Late = execution-stage signals</div><div class="d-flex gap-1 mt-1"><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="early">early</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="mid">mid</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="late">late</button></div></div>' +
             '<div class="lem-strip mt-2">' +
-              '<div class="tile"><div class="pp-kicker">Pressure</div><div class="mono">' + Number(p.pressure||0).toFixed(2) + '</div></div>' +
-              '<div class="tile"><div class="pp-kicker">Momentum</div><div class="mono">' + (Number(p.momentum||0)>=0?'+':'') + Number(p.momentum||0).toFixed(3) + '</div></div>' +
-              '<div class="tile"><div class="pp-kicker">Acceleration</div><div class="mono">' + (Number(p.acceleration||0)>=0?'+':'') + Number(p.acceleration||0).toFixed(3) + '</div></div>' +
+              '<div class="tile"><div class="pp-kicker">Opportunity Strength</div><div class="mono">' + Number(p.pressure||0).toFixed(2) + '</div><div class="pp-legend">How strong the opportunity looks right now</div></div>' +
+              '<div class="tile"><div class="pp-kicker">Change Speed</div><div class="mono">' + (Number(p.momentum||0)>=0?'+':'') + Number(p.momentum||0).toFixed(3) + '</div><div class="pp-legend">How fast it is improving or weakening</div></div>' +
+              '<div class="tile"><div class="pp-kicker">Change Trend</div><div class="mono">' + (Number(p.acceleration||0)>=0?'+':'') + Number(p.acceleration||0).toFixed(3) + '</div><div class="pp-legend">Whether that change is speeding up or slowing down</div></div>' +
             '</div>' +
-            '<div class="mt-2"><span class="pp-kicker">Top buyer alignment</span><div class="small">' + ((p.buyerAlignment || []).slice(0,4).map((b)=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-buyer-focus" data-buyer="'+esc(b.buyer_id)+'">'+esc(b.buyer_id)+'</button>').join('') || 'No buyer alignment yet') + '</div></div>' +
-            '<div class="mt-2"><span class="pp-kicker">Recommended USG motion</span><div class="small"><span class="badge text-bg-primary">' + esc(p.recommendedUSGMotion || 'Monitor only') + '</span> <span class="pp-legend">confidence ' + Math.round(Number(p.recommendedUSGMotionConfidence || 0.5) * 100) + '%</span><div class="text-muted small mt-1">' + esc(p.recommendedUSGMotionRationale || 'No rationale generated.') + '</div><div class="pp-legend mt-1">Primary: ' + esc((((p.recommendedUSGDrivers||{}).stuck||{}).primary || 'none')) + ' · Secondary: ' + esc((((p.recommendedUSGDrivers||{}).stuck||{}).secondary || 'none')) + '</div><div class="pp-legend">Counterevidence: ' + esc((((p.recommendedUSGDrivers||{}).counterevidence||[]).slice(0,2).join(' | ') || 'none')) + '</div></div></div>' +
-            '<div class="mt-2"><span class="pp-kicker">Dominant missing layers</span><div class="small">' + (missing.length ? missing.map(x=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-missing-layer" data-layer-id="'+esc(x)+'">'+esc(x.replaceAll('_',' '))+'</button>').join('') : 'None') + '</div></div>' +
-            '<div class="mt-2"><span class="pp-kicker">Stuck reason badges</span><div class="small">Primary: ' + stuckBadge(primary) + ' Secondary: ' + stuckBadge(secondary) + '</div></div>' +
-            '<div class="mt-2"><span class="pp-kicker">Layer-gap diagnostics</span><div class="small text-muted">' + (gaps.length ? gaps.map(esc).join(' ') : 'No critical ontology gaps detected.') + '</div></div>' +
+            '<div class="mt-2"><span class="pp-kicker">Best buyer matches</span><div class="small">' + ((p.buyerAlignment || []).slice(0,4).map((b)=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-buyer-focus" data-buyer="'+esc(b.buyer_id)+'">'+esc(b.buyer_id)+'</button>').join('') || 'No buyer matches yet') + '</div></div>' +
+            '<div class="mt-2"><span class="pp-kicker">Recommended USG Move</span><div class="small"><span class="badge text-bg-primary">' + esc(p.recommendedUSGMotion || 'Monitor only') + '</span> <span class="pp-legend">Confidence level ' + Math.round(Number(p.recommendedUSGMotionConfidence || 0.5) * 100) + '%</span><div class="text-muted small mt-1"><strong>Why this move:</strong> ' + esc(p.recommendedUSGMotionRationale || 'No rationale generated.') + '</div><div class="pp-legend mt-1">Main blocker: ' + esc(blockerLabel((((p.recommendedUSGDrivers||{}).stuck||{}).primary || 'none')) ) + ' · Second blocker: ' + esc(blockerLabel((((p.recommendedUSGDrivers||{}).stuck||{}).secondary || 'none'))) + '</div><div class="pp-legend">What may slow this down: ' + esc((((p.recommendedUSGDrivers||{}).counterevidence||[]).slice(0,2).join(' | ') || 'none')) + '</div></div></div>' +
+            '<div class="mt-2"><span class="pp-kicker">Missing key stages</span><div class="small">' + (missing.length ? missing.map(x=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-missing-layer" data-layer-id="'+esc(x)+'">'+esc(layerLabel(x))+'</button>').join('') : 'None') + '</div></div>' +
+            '<div class="mt-2"><span class="pp-kicker">Blocker tags</span><div class="small">Main blocker: ' + stuckBadge(primary) + ' Second blocker: ' + stuckBadge(secondary) + '</div></div>' +
+            '<div class="mt-2"><span class="pp-kicker">What\'s Missing</span><div class="small text-muted">' + (gaps.length ? gaps.map(esc).join(' ') : 'No major missing stages right now.') + '</div></div>' +
           '</div>' +
         '</div>';
       }).join('');
@@ -1612,7 +1624,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
           const meta = layerMeta[id] || {};
           const row = btn.closest('.lem-row');
           const tip = row ? row.querySelector('.js-layer-tooltip') : null;
-          if (tip) tip.textContent = (meta.name || id) + ' — ' + (meta.desc || '') + ' Phase: ' + (meta.phase || 'n/a');
+          if (tip) tip.textContent = (meta.name || id) + ' — ' + (meta.desc || '') + ' Timing: ' + (meta.phase || 'n/a');
         };
         btn.addEventListener('mouseenter', updateTooltip);
         btn.addEventListener('focus', updateTooltip);
@@ -1721,11 +1733,11 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       const filtered = sortRows(getFiltered());
       renderSummary(filtered); renderUSGWindow(filtered); renderTable(filtered); renderTopByBuyer(filtered); renderHeatmap(filtered); renderWatchlist(filtered); renderLayerEmissionsMap(filtered);
       const tags = [els.fSector.value, els.fRegion.value, els.fStatus.value, els.fBuyer.value, els.fFid.value].filter(Boolean);
-      if (state.ontologyLayer) tags.push('Emitting layer: ' + state.ontologyLayer);
-      if (state.missingLayer) tags.push('Missing layer: ' + state.missingLayer);
-      if (state.buyerFocus) tags.push('Buyer: ' + state.buyerFocus);
-      if (state.phaseFocus) tags.push('Phase: ' + state.phaseFocus);
-      if (state.stuckReason) tags.push('Stuck reason: ' + state.stuckReason);
+      if (state.ontologyLayer) tags.push('Active stage: ' + layerLabel(state.ontologyLayer));
+      if (state.missingLayer) tags.push('Missing stage: ' + layerLabel(state.missingLayer));
+      if (state.buyerFocus) tags.push('Buyer match: ' + state.buyerFocus);
+      if (state.phaseFocus) tags.push('Stage timing: ' + state.phaseFocus + ' (' + phasePlain(state.phaseFocus) + ')');
+      if (state.stuckReason) tags.push('Blocker tag: ' + blockerLabel(state.stuckReason));
       const minLabel = Number(els.fMinPpi.value || 0) > 0 ? ('Min PPI ' + Number(els.fMinPpi.value || 0)) : '';
       if (minLabel) tags.push(minLabel);
       if (els.fSearch.value.trim()) tags.push('Search active');
@@ -1736,7 +1748,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     els.lemLegendToggle?.addEventListener('click', () => {
       if (!els.lemLegend) return;
       const open = els.lemLegend.classList.toggle('d-none');
-      els.lemLegendToggle.textContent = open ? 'Show Layer Legend' : 'Hide Layer Legend';
+      els.lemLegendToggle.textContent = open ? 'Show Stage Legend' : 'Hide Stage Legend';
     });
 
     populateFilters(); renderAll();
