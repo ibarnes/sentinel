@@ -1,5 +1,6 @@
 import express from 'express';
 import fs from 'fs/promises';
+import multer from 'multer';
 import { createSession, appendEvents, closeSession } from '../services/ingestionService.js';
 import { finalizeSessionToFlow } from '../services/normalizationService.js';
 import { getFlow } from '../services/retrievalService.js';
@@ -15,6 +16,9 @@ import {
 } from '../services/reviewedFlowService.js';
 import { getFlowCompare } from '../services/compareService.js';
 import { buildStepCoordinateReplay } from '../services/coordinateReplayService.js';
+import { loadFromFlow, loadFromSnapshot, loadFromPackage } from '../player/flowPlayerService.js';
+import { applyPlaybackControl } from '../player/playbackController.js';
+import { safeAssetPath } from '../player/assetResolverService.js';
 import { integrityForStep, integrityRecomputeFlow } from '../services/replayIntegrityService.js';
 import { createSnapshot, listSnapshots, getSnapshot, verifySnapshotIntegrity, recomputeFlowSnapshotIntegrity } from '../services/snapshotService.js';
 import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
@@ -22,6 +26,7 @@ import { buildReviewedPackage, buildSnapshotPackage, getReviewedPackageVerificat
 import { getSigningContext, verifyVerificationMetadata, getVerificationKeyset, verifyKeysetIntegrity, TRUST_PROFILES } from '../services/packageSigningService.js';
 
 const router = express.Router();
+const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
 
 router.get('/api/verification/keyset', async (_req, res) => {
   const out = await getVerificationKeyset();
@@ -36,6 +41,60 @@ router.get('/api/verification/keyset/integrity', async (_req, res) => {
 
 router.get('/api/verification/trust-profiles', async (_req, res) => {
   res.json({ trustProfiles: Object.values(TRUST_PROFILES) });
+});
+
+router.get('/api/player/flows/:flowId', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const current = Number(req.query.step || 0);
+  const control = String(req.query.control || 'none');
+  const jumpTo = req.query.jumpTo != null ? Number(req.query.jumpTo) : null;
+  const loaded = await loadFromFlow(flowId);
+  if (loaded.error) return res.status(404).json(loaded);
+  const playback = applyPlaybackControl(loaded.model.steps.length, current, control, jumpTo);
+  res.json({ model: loaded.model, playback });
+});
+
+router.get('/api/player/snapshots/:snapshotId', async (req, res) => {
+  const snapshotId = String(req.params.snapshotId || '');
+  const flowId = String(req.query.flowId || '');
+  const current = Number(req.query.step || 0);
+  const control = String(req.query.control || 'none');
+  const jumpTo = req.query.jumpTo != null ? Number(req.query.jumpTo) : null;
+  const loaded = await loadFromSnapshot(flowId || null, snapshotId);
+  if (loaded.error) return res.status(404).json(loaded);
+  const playback = applyPlaybackControl(loaded.model.steps.length, current, control, jumpTo);
+  res.json({ model: loaded.model, playback });
+});
+
+router.post('/api/player/packages', uploadPkg.single('package'), async (req, res) => {
+  if (!req.file?.buffer?.length) return res.status(400).json({ error: 'missing_package_file' });
+  const tmp = `/tmp/revealpkg-upload-${Date.now()}-${Math.random().toString(16).slice(2)}.zip`;
+  await fs.writeFile(tmp, req.file.buffer);
+  const loaded = await loadFromPackage(tmp);
+  await fs.rm(tmp, { force: true });
+  if (loaded.error) return res.status(400).json(loaded);
+  const playback = applyPlaybackControl(loaded.model.steps.length, 0, 'none', null);
+  res.json({ model: loaded.model, playback });
+});
+
+router.get('/api/player/packages/:token/assets/:kind/:file', async (req, res) => {
+  const token = String(req.params.token || '');
+  const kind = String(req.params.kind || 'screenshots');
+  const file = String(req.params.file || '');
+  const stem = file.replace(/\.(jpg|jpeg|png)$/i, '');
+  const m = stem.match(/^(.*)-(before|after|highlight)$/);
+  if (!m) return res.status(400).json({ error: 'invalid_asset_name' });
+  const stepId = m[1];
+  const k = m[2];
+  if (kind === 'highlights' && k !== 'highlight') return res.status(400).json({ error: 'asset_kind_mismatch' });
+  if (kind === 'screenshots' && !['before','after'].includes(k)) return res.status(400).json({ error: 'asset_kind_mismatch' });
+  const p = safeAssetPath(token, k, stepId);
+  try {
+    await fs.access(p);
+    res.sendFile(p);
+  } catch {
+    res.status(404).json({ error: 'asset_not_found' });
+  }
 });
 
 router.post('/api/sessions', async (req, res) => {
@@ -346,6 +405,40 @@ router.get('/editor/:flowId', async (req, res) => {
     </main>
   </div>
   <script src="/reveal/editor/editor.js"></script>
+</body>
+</html>`);
+});
+
+router.get('/player/:flowId', async (req, res) => {
+  res.type('html').send(`<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reveal Flow Player</title>
+  <link rel="stylesheet" href="/reveal/player/player.css" />
+</head>
+<body>
+  <div class="wrap">
+    <section class="viewer">
+      <h2 id="flow">Reveal Player</h2>
+      <div class="stage"><img id="shot" alt="step" /></div>
+      <div class="ctrls">
+        <button id="restart">Restart</button>
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+        <button id="auto">Auto Play</button>
+      </div>
+    </section>
+    <aside class="panel">
+      <h3 id="title">Step</h3>
+      <div id="meta" class="small"></div>
+      <p id="intent"></p>
+      <h4>Annotations</h4>
+      <ul id="annotations"></ul>
+    </aside>
+  </div>
+  <script src="/reveal/player/player.js"></script>
 </body>
 </html>`);
 });

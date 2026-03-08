@@ -182,6 +182,20 @@ export async function getSnapshot(flowId, snapshotId) {
   return s ? { snapshot: s } : { error: 'snapshot_not_found' };
 }
 
+export async function findSnapshotById(snapshotId) {
+  const root = '/home/ec2-user/.openclaw/workspace/reveal/storage/review-snapshots';
+  try {
+    const flowDirs = await fs.readdir(root);
+    for (const flowId of flowDirs) {
+      const got = await getSnapshot(flowId, snapshotId);
+      if (!got.error) return got;
+    }
+    return { error: 'snapshot_not_found' };
+  } catch {
+    return { error: 'snapshot_not_found' };
+  }
+}
+
 export async function verifySnapshotIntegrity(flowId, snapshotId) {
   const got = await getSnapshot(flowId, snapshotId);
   if (got.error) return got;

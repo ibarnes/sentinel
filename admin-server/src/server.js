@@ -2881,6 +2881,15 @@ app.use('/reveal/editor', express.static(path.join(ROOT, 'public', 'reveal', 'ed
   }
 }));
 
+app.use('/reveal/player', express.static(path.join(ROOT, 'public', 'reveal', 'player'), {
+  index: false,
+  fallthrough: true,
+  redirect: false,
+  setHeaders(res) {
+    res.setHeader('Cache-Control', 'no-store');
+  }
+}));
+
 app.use('/reveal/storage/assets', express.static(path.join(ROOT, 'reveal', 'storage', 'assets'), {
   index: false,
   fallthrough: true,

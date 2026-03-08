@@ -1,0 +1,9 @@
+body{margin:0;font-family:Inter,Arial,sans-serif;background:#0f1115;color:#e7edf7}
+.wrap{display:grid;grid-template-columns:1fr 360px;min-height:100vh}
+.viewer{padding:16px}
+.panel{border-left:1px solid #263042;padding:16px;background:#151b24}
+.stage{width:100%;min-height:420px;background:#0b0f16;border:1px solid #2a3142;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.stage img{max-width:100%;max-height:70vh;object-fit:contain}
+.ctrls{display:flex;gap:8px;margin-top:12px}
+button{background:#1f2a3a;border:1px solid #33465f;color:#fff;border-radius:6px;padding:8px 10px}
+.small{font-size:12px;color:#9fb1cc}

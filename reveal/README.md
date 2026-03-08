@@ -90,6 +90,17 @@ Product-intelligence capture system at `/reveal`.
 - Key lifecycle fields per key:
   - `keyStatus`, `activatedAt`, `retiresAt`, `revokedAt`, `previousKeyId`, `nextKeyId`, `rotationGroupId`, `verificationUse`
 
+## Reveal Flow Player (Phase 2 foundation)
+- Modules: `admin-server/src/reveal/player/*`
+- UI: `/reveal/player/:flowId` (optionally `?snapshotId=<id>`)
+- API:
+  - `GET /reveal/api/player/flows/:flowId`
+  - `GET /reveal/api/player/snapshots/:snapshotId`
+  - `POST /reveal/api/player/packages` (multipart field `package`)
+- Deterministic playback controls via query:
+  - `?step=<n>&control=next|prev|jump|restart&jumpTo=<n>`
+- Fixture runner: `node admin-server/src/reveal/normalization/fixtures/run-player-fixtures.mjs`
+
 ## Reveal CLI
 - Entrypoint: `admin-server/src/reveal/cli/reveal-cli.js`
 - Test runner: `node admin-server/src/reveal/cli/run-cli-tests.mjs`
