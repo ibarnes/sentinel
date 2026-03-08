@@ -394,6 +394,7 @@ function wireActions() {
 
   document.querySelector('[data-action="export-reviewed-json"]')?.addEventListener('click', () => download(`/reveal/api/flows/${state.flowId}/export?format=json`));
   document.querySelector('[data-action="export-reviewed-md"]')?.addEventListener('click', () => download(`/reveal/api/flows/${state.flowId}/export?format=markdown`));
+  document.querySelector('[data-action="export-reviewed-package"]')?.addEventListener('click', () => download(`/reveal/api/flows/${state.flowId}/export?format=package`));
   document.querySelector('[data-action="export-snapshot-json"]')?.addEventListener('click', () => {
     const sid = selectedSnapshotId();
     if (!sid) return alert('Select snapshot first');
@@ -403,6 +404,11 @@ function wireActions() {
     const sid = selectedSnapshotId();
     if (!sid) return alert('Select snapshot first');
     download(`/reveal/api/flows/${state.flowId}/snapshots/${encodeURIComponent(sid)}/export?format=markdown`);
+  });
+  document.querySelector('[data-action="export-snapshot-package"]')?.addEventListener('click', () => {
+    const sid = selectedSnapshotId();
+    if (!sid) return alert('Select snapshot first');
+    download(`/reveal/api/flows/${state.flowId}/snapshots/${encodeURIComponent(sid)}/export?format=package`);
   });
 }
 

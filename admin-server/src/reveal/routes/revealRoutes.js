@@ -1,4 +1,5 @@
 import express from 'express';
+import fs from 'fs/promises';
 import { createSession, appendEvents, closeSession } from '../services/ingestionService.js';
 import { finalizeSessionToFlow } from '../services/normalizationService.js';
 import { getFlow } from '../services/retrievalService.js';
@@ -17,6 +18,7 @@ import { buildStepCoordinateReplay } from '../services/coordinateReplayService.j
 import { integrityForStep, integrityRecomputeFlow } from '../services/replayIntegrityService.js';
 import { createSnapshot, listSnapshots, getSnapshot, verifySnapshotIntegrity, recomputeFlowSnapshotIntegrity } from '../services/snapshotService.js';
 import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
+import { buildReviewedPackage, buildSnapshotPackage } from '../services/packageService.js';
 
 const router = express.Router();
 
@@ -106,6 +108,19 @@ router.get('/api/flows/:flowId/snapshots/:snapshotId', async (req, res) => {
 router.get('/api/flows/:flowId/export', async (req, res) => {
   const flowId = String(req.params.flowId || '');
   const format = String(req.query.format || 'json').toLowerCase();
+
+  if (format === 'package') {
+    const pkg = await buildReviewedPackage(flowId);
+    if (pkg.error === 'flow_not_found') return res.status(404).json(pkg);
+    if (pkg.error) return res.status(500).json(pkg);
+    res.setHeader('Content-Type', pkg.contentType);
+    res.setHeader('Content-Disposition', `attachment; filename="${pkg.filename}"`);
+    return res.sendFile(pkg.archivePath, (err) => {
+      setTimeout(() => { fs.rm(pkg.cleanupDir, { recursive: true, force: true }).catch(() => {}); }, 500);
+      if (err) console.error(err);
+    });
+  }
+
   const out = await exportReviewedFlow(flowId, format);
   if (out.error === 'flow_not_found') return res.status(404).json(out);
   if (out.error === 'invalid_export_format') return res.status(400).json(out);
@@ -118,6 +133,19 @@ router.get('/api/flows/:flowId/snapshots/:snapshotId/export', async (req, res) =
   const flowId = String(req.params.flowId || '');
   const snapshotId = String(req.params.snapshotId || '');
   const format = String(req.query.format || 'json').toLowerCase();
+
+  if (format === 'package') {
+    const pkg = await buildSnapshotPackage(flowId, snapshotId);
+    if (pkg.error === 'snapshot_not_found') return res.status(404).json(pkg);
+    if (pkg.error) return res.status(500).json(pkg);
+    res.setHeader('Content-Type', pkg.contentType);
+    res.setHeader('Content-Disposition', `attachment; filename="${pkg.filename}"`);
+    return res.sendFile(pkg.archivePath, (err) => {
+      setTimeout(() => { fs.rm(pkg.cleanupDir, { recursive: true, force: true }).catch(() => {}); }, 500);
+      if (err) console.error(err);
+    });
+  }
+
   const out = await exportSnapshot(flowId, snapshotId, format);
   if (out.error === 'snapshot_not_found') return res.status(404).json(out);
   if (out.error === 'invalid_export_format') return res.status(400).json(out);
@@ -244,6 +272,7 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="snapshot-create">Create Snapshot</button>
           <button data-action="export-reviewed-json">Export Reviewed JSON</button>
           <button data-action="export-reviewed-md">Export Reviewed MD</button>
+          <button data-action="export-reviewed-package">Export Reviewed Package</button>
         </div>
       </header>
       <section class="meta" id="step-meta"></section>
@@ -266,6 +295,7 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="snapshot-integrity-recompute">Recompute Snapshot Integrity</button>
           <button data-action="export-snapshot-json">Export Snapshot JSON</button>
           <button data-action="export-snapshot-md">Export Snapshot MD</button>
+          <button data-action="export-snapshot-package">Export Snapshot Package</button>
         </div>
         <pre id="snapshot-summary" class="dbg-pre"></pre>
       </section>

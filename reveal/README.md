@@ -14,6 +14,7 @@ Product-intelligence capture system at `/reveal`.
 - Semantic reason refinement for mismatches (rule-based path/stage mapping)
 - Semantic sub-reason drilldown (deterministic subtype classification)
 - Immutable review snapshots + exportable reviewed/snapshot artifacts (JSON/Markdown)
+- Portable package export (`.revealpkg.zip`) for reviewed flows and snapshots
 
 ## Semantic mismatch mapping notes
 - Rule priority is top-down and deterministic; first matching rule wins.
@@ -50,8 +51,17 @@ Product-intelligence capture system at `/reveal`.
   - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId/integrity`
   - `POST /reveal/api/flows/:flowId/snapshots/integrity/recompute`
 - Export routes:
-  - `GET /reveal/api/flows/:flowId/export?format=json|markdown`
-  - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId/export?format=json|markdown`
+  - `GET /reveal/api/flows/:flowId/export?format=json|markdown|package`
+  - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId/export?format=json|markdown|package`
+- Package format:
+  - archive extension: `.revealpkg.zip`
+  - deterministic layout:
+    - `manifest.json`
+    - `reviewed-flow.json` or `snapshot.json`
+    - `reviewed-flow.md` or `snapshot.md`
+    - `integrity.json`
+    - `assets/screenshots/*`
+    - `assets/highlights/*`
 - Snapshot fixture runner: `node admin-server/src/reveal/normalization/fixtures/run-snapshot-fixtures.mjs`
 
 ### Snapshot hash canonicalization
