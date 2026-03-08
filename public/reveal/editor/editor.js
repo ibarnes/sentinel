@@ -5,6 +5,7 @@ let state = {
   reviewed: null,
   compare: null,
   snapshots: [],
+  packageTrust: null,
   compareMode: true,
   selectedStepId: null,
   selectedForMerge: new Set()
@@ -171,6 +172,11 @@ async function loadIntegrity(stepId) {
 async function refreshSnapshots() {
   const out = await api(`/reveal/api/flows/${state.flowId}/snapshots`);
   state.snapshots = out.snapshots || [];
+  try {
+    state.packageTrust = await api(`/reveal/api/flows/${state.flowId}/export/verification-metadata`);
+  } catch {
+    state.packageTrust = { verificationResult: { status: 'unsigned' }, verificationMetadata: { unsignedReason: 'missing_key' } };
+  }
   const sel = document.getElementById('snapshot-select');
   if (!sel) return;
   sel.innerHTML = '';
@@ -201,12 +207,23 @@ async function renderSnapshotSummary() {
     return;
   }
   let integrity = null;
+  let pkgVerify = null;
   try {
     integrity = await api(`/reveal/api/flows/${state.flowId}/snapshots/${encodeURIComponent(id)}/integrity`);
   } catch {
     integrity = { status: 'unavailable' };
   }
+  try {
+    pkgVerify = await api(`/reveal/api/flows/${state.flowId}/snapshots/${encodeURIComponent(id)}/export/verification-metadata`);
+  } catch {
+    pkgVerify = { verificationResult: { status: 'unavailable' } };
+  }
   pre.textContent = JSON.stringify({
+    reviewedPackageSigning: {
+      status: state.packageTrust?.verificationResult?.status || 'unknown',
+      keyId: state.packageTrust?.verificationMetadata?.signingKeyId || null,
+      packageContentHash: state.packageTrust?.verificationMetadata?.packageContentHash || null
+    },
     snapshotId: s.snapshotId,
     chainIndex: s.snapshotChainIndex,
     chainRoot: s.chainRoot,
@@ -214,7 +231,12 @@ async function renderSnapshotSummary() {
     parentSnapshotId: s.parentSnapshotId,
     parentSnapshotContentHash: s.parentSnapshotContentHash,
     manifest: s.manifest,
-    integrity
+    integrity,
+    snapshotPackageSigning: {
+      status: pkgVerify?.verificationResult?.status || 'unknown',
+      keyId: pkgVerify?.verificationMetadata?.signingKeyId || null,
+      packageContentHash: pkgVerify?.verificationMetadata?.packageContentHash || null
+    }
   }, null, 2);
 }
 

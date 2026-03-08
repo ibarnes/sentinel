@@ -7,6 +7,13 @@ import { promisify } from 'util';
 import { getFlow } from './retrievalService.js';
 import { getSnapshot, verifySnapshotIntegrity } from './snapshotService.js';
 import { exportReviewedFlow, exportSnapshot } from './exportService.js';
+import {
+  getSigningContext,
+  signPayload,
+  verifyVerificationMetadata,
+  buildSigningPayload,
+  PACKAGE_SIGNATURE_VERSION
+} from './packageSigningService.js';
 
 const pexecFile = promisify(execFile);
 const WORKSPACE = '/home/ec2-user/.openclaw/workspace';
@@ -48,7 +55,7 @@ async function writeJson(p, v) {
   await fs.writeFile(p, JSON.stringify(v, null, 2));
 }
 
-async function buildPackage({ packageType, flowId, snapshotId = null }) {
+async function buildPackageCore({ packageType, flowId, snapshotId = null }) {
   let sourceType = 'live_reviewed';
   let flow;
   let snapshot = null;
@@ -77,6 +84,38 @@ async function buildPackage({ packageType, flowId, snapshotId = null }) {
     return { error: 'invalid_package_type' };
   }
 
+  return { flow, snapshot, sourceType, integrity };
+}
+
+async function applySignatureMetadata(manifest) {
+  const ctx = await getSigningContext();
+  manifest.packageSignatureVersion = PACKAGE_SIGNATURE_VERSION;
+  manifest.packageVerificationScope = ['packageFormat','packageVersion','packageType','flowId','snapshotId','reviewVersion','snapshotChainIndex','contentHash','packageContentHash'];
+  manifest.signingAlgorithm = ctx.signingAlgorithm || 'RSA-SHA256';
+  manifest.signingKeyId = ctx.signingKeyId || null;
+
+  if (!ctx.enabled) {
+    manifest.signatureStatus = 'unsigned';
+    manifest.unsignedReason = ctx.unsignedReason || 'missing_key';
+    manifest.packageSignature = null;
+    return { manifest, verification: { status: 'unsigned', reasonCodes: [manifest.unsignedReason] } };
+  }
+
+  const signature = signPayload(manifest, ctx);
+  manifest.packageSignature = signature;
+  manifest.signatureStatus = 'signed';
+
+  const verification = verifyVerificationMetadata(manifest, ctx);
+  if (verification.status !== 'verified') manifest.signatureStatus = 'verification_failed';
+
+  return { manifest, verification };
+}
+
+async function buildPackage({ packageType, flowId, snapshotId = null }) {
+  const core = await buildPackageCore({ packageType, flowId, snapshotId });
+  if (core.error) return core;
+  const { flow, snapshot, sourceType, integrity } = core;
+
   const tmpRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'revealpkg-'));
   const pkgDir = path.join(tmpRoot, 'package');
   await fs.mkdir(pkgDir, { recursive: true });
@@ -93,7 +132,6 @@ async function buildPackage({ packageType, flowId, snapshotId = null }) {
 
   await fs.writeFile(path.join(pkgDir, jsonName), jsonExport.content, 'utf8');
   await fs.writeFile(path.join(pkgDir, mdName), mdExport.content, 'utf8');
-  await writeJson(path.join(pkgDir, 'integrity.json'), integrity || {});
 
   const assets = collectAssetsFromSteps(flow.steps || []);
   const includedAssets = [];
@@ -145,15 +183,37 @@ async function buildPackage({ packageType, flowId, snapshotId = null }) {
     omittedAssets
   };
 
-  const inventory = manifest.artifacts.slice().sort();
-  const packageContentHash = sha256(JSON.stringify({ inventory, packageType, flowId, snapshotId: snapshot?.snapshotId || null, contentHash: manifest.contentHash || null }));
-  manifest.packageContentHash = packageContentHash;
+  manifest.packageContentHash = sha256(JSON.stringify({
+    inventory: manifest.artifacts.slice().sort(),
+    packageType,
+    flowId,
+    snapshotId: snapshot?.snapshotId || null,
+    contentHash: manifest.contentHash || null
+  }));
 
-  await writeJson(path.join(pkgDir, 'manifest.json'), manifest);
+  const signed = await applySignatureMetadata(manifest);
+  const finalManifest = signed.manifest;
+
+  const integrityPayload = {
+    ...integrity,
+    verificationMetadata: {
+      signatureStatus: finalManifest.signatureStatus,
+      signingKeyId: finalManifest.signingKeyId,
+      signingAlgorithm: finalManifest.signingAlgorithm,
+      packageSignatureVersion: finalManifest.packageSignatureVersion,
+      packageSignature: finalManifest.packageSignature,
+      packageVerificationScope: finalManifest.packageVerificationScope,
+      packageContentHash: finalManifest.packageContentHash,
+      integrityPackageContentHash: finalManifest.packageContentHash
+    },
+    verificationResult: signed.verification
+  };
+
+  await writeJson(path.join(pkgDir, 'integrity.json'), integrityPayload);
+  await writeJson(path.join(pkgDir, 'manifest.json'), finalManifest);
 
   const fileBase = packageType === 'snapshot' ? `${flowId}-${snapshot?.snapshotId}` : `${flowId}-reviewed`;
   const outZip = path.join(tmpRoot, `${fileBase}.revealpkg.zip`);
-
   await pexecFile('zip', ['-X', '-r', outZip, '.'], { cwd: pkgDir });
 
   return {
@@ -161,7 +221,9 @@ async function buildPackage({ packageType, flowId, snapshotId = null }) {
     filename: `${fileBase}.revealpkg.zip`,
     archivePath: outZip,
     cleanupDir: tmpRoot,
-    manifest
+    manifest: finalManifest,
+    verificationMetadata: integrityPayload.verificationMetadata,
+    verificationResult: integrityPayload.verificationResult
   };
 }
 
@@ -171,4 +233,33 @@ export async function buildReviewedPackage(flowId) {
 
 export async function buildSnapshotPackage(flowId, snapshotId) {
   return buildPackage({ packageType: 'snapshot', flowId, snapshotId });
+}
+
+export async function getReviewedPackageVerificationMetadata(flowId) {
+  const pkg = await buildReviewedPackage(flowId);
+  if (pkg.error) return pkg;
+  const out = {
+    flowId,
+    packageType: 'reviewed_flow',
+    manifestCore: buildSigningPayload(pkg.manifest),
+    verificationMetadata: pkg.verificationMetadata,
+    verificationResult: pkg.verificationResult
+  };
+  await fs.rm(pkg.cleanupDir, { recursive: true, force: true });
+  return out;
+}
+
+export async function getSnapshotPackageVerificationMetadata(flowId, snapshotId) {
+  const pkg = await buildSnapshotPackage(flowId, snapshotId);
+  if (pkg.error) return pkg;
+  const out = {
+    flowId,
+    snapshotId,
+    packageType: 'snapshot',
+    manifestCore: buildSigningPayload(pkg.manifest),
+    verificationMetadata: pkg.verificationMetadata,
+    verificationResult: pkg.verificationResult
+  };
+  await fs.rm(pkg.cleanupDir, { recursive: true, force: true });
+  return out;
 }

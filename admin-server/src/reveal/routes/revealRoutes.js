@@ -18,7 +18,8 @@ import { buildStepCoordinateReplay } from '../services/coordinateReplayService.j
 import { integrityForStep, integrityRecomputeFlow } from '../services/replayIntegrityService.js';
 import { createSnapshot, listSnapshots, getSnapshot, verifySnapshotIntegrity, recomputeFlowSnapshotIntegrity } from '../services/snapshotService.js';
 import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
-import { buildReviewedPackage, buildSnapshotPackage } from '../services/packageService.js';
+import { buildReviewedPackage, buildSnapshotPackage, getReviewedPackageVerificationMetadata, getSnapshotPackageVerificationMetadata } from '../services/packageService.js';
+import { getSigningContext, verifyVerificationMetadata } from '../services/packageSigningService.js';
 
 const router = express.Router();
 
@@ -105,6 +106,14 @@ router.get('/api/flows/:flowId/snapshots/:snapshotId', async (req, res) => {
   res.json(out);
 });
 
+router.get('/api/flows/:flowId/export/verification-metadata', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const out = await getReviewedPackageVerificationMetadata(flowId);
+  if (out.error === 'flow_not_found') return res.status(404).json(out);
+  if (out.error) return res.status(500).json(out);
+  res.json(out);
+});
+
 router.get('/api/flows/:flowId/export', async (req, res) => {
   const flowId = String(req.params.flowId || '');
   const format = String(req.query.format || 'json').toLowerCase();
@@ -127,6 +136,15 @@ router.get('/api/flows/:flowId/export', async (req, res) => {
   res.setHeader('Content-Type', out.contentType);
   res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
   res.send(out.content);
+});
+
+router.get('/api/flows/:flowId/snapshots/:snapshotId/export/verification-metadata', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const snapshotId = String(req.params.snapshotId || '');
+  const out = await getSnapshotPackageVerificationMetadata(flowId, snapshotId);
+  if (out.error === 'snapshot_not_found') return res.status(404).json(out);
+  if (out.error) return res.status(500).json(out);
+  res.json(out);
 });
 
 router.get('/api/flows/:flowId/snapshots/:snapshotId/export', async (req, res) => {
@@ -165,6 +183,13 @@ router.get('/api/flows/:flowId/snapshots/:snapshotId/integrity', async (req, res
 router.post('/api/flows/:flowId/snapshots/integrity/recompute', async (req, res) => {
   const flowId = String(req.params.flowId || '');
   const out = await recomputeFlowSnapshotIntegrity(flowId);
+  res.json(out);
+});
+
+router.post('/api/revealpkg/verify', async (req, res) => {
+  const meta = req.body || {};
+  const ctx = await getSigningContext();
+  const out = verifyVerificationMetadata(meta, ctx);
   res.json(out);
 });
 

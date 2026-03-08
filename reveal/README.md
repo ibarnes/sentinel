@@ -62,6 +62,17 @@ Product-intelligence capture system at `/reveal`.
     - `integrity.json`
     - `assets/screenshots/*`
     - `assets/highlights/*`
+- Package signature metadata:
+  - `signatureStatus` = `signed|unsigned|verification_failed`
+  - `packageSignature`, `packageSignatureVersion`, `signingKeyId`, `signingAlgorithm`
+  - `packageVerificationScope` (exact signed fields)
+- Verification metadata routes:
+  - `GET /reveal/api/flows/:flowId/export/verification-metadata`
+  - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId/export/verification-metadata`
+  - `POST /reveal/api/revealpkg/verify`
+- Local signing config (optional):
+  - env: `REVEAL_SIGNING_PRIVATE_KEY`, `REVEAL_SIGNING_PUBLIC_KEY`, `REVEAL_SIGNING_KEY_ID`
+  - file fallback: `reveal/keys/package-signing-private.pem` and `reveal/keys/package-signing-public.pem`
 - Snapshot fixture runner: `node admin-server/src/reveal/normalization/fixtures/run-snapshot-fixtures.mjs`
 
 ### Snapshot hash canonicalization
