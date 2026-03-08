@@ -66,6 +66,10 @@ import { publishAttestationTrust, listAttestationTrustPublications, getLatestAtt
 import { verifyZipBundle } from '../verification/bundleVerificationService.js';
 import { createExternalVerifierProfile, getExternalVerifierProfile, latestExternalVerifierProfile } from '../verification/externalVerifierProfileService.js';
 import { exportExternalVerifierProfile } from '../verification/admissionControlExportService.js';
+import { signAdapterManifest, signComplianceVerdict } from '../verification/handoffCertificationService.js';
+import { createAdmissionCertificate, getAdmissionCertificate, exportAdmissionCertificate, latestAdmissionCertificate } from '../verification/admissionCertificateService.js';
+import { publishAdapterTrust, listAdapterTrustPublications, getLatestAdapterTrustPublication, getAdapterTrustPublication } from '../verification/adapterTrustPublicationService.js';
+import { verifyHandoff } from '../verification/handoffVerificationService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -732,6 +736,53 @@ router.get('/api/verification/external/latest', async (req, res) => {
   res.json(out);
 });
 
+router.post('/api/verification/admission-certificates', async (req, res) => {
+  const out = await createAdmissionCertificate({
+    renderAdapterContractId: req.body?.renderAdapterContractId || null,
+    externalVerifierProfileId: req.body?.externalVerifierProfileId || null,
+    policyProfileId: req.body?.policyProfileId || 'dev',
+    mode: req.body?.mode || 'latest'
+  });
+  if (['render_adapter_contract_not_found','external_verifier_profile_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['unsupported_policy_profile','invalid_mode','missing_required_source_refs'].includes(out.error)) return res.status(400).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/verification/admission-certificates/:admissionCertificateId', async (req, res) => {
+  const out = await getAdmissionCertificate(String(req.params.admissionCertificateId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/verification/admission-certificates/:admissionCertificateId/export', async (req, res) => {
+  const out = await getAdmissionCertificate(String(req.params.admissionCertificateId || ''));
+  if (out.error) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const exp = exportAdmissionCertificate(out.admissionCertificate, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
+router.get('/api/verification/admission/latest', async (req, res) => {
+  const out = await latestAdmissionCertificate({
+    renderAdapterContractId: req.query.renderAdapterContractId ? String(req.query.renderAdapterContractId) : null,
+    policyProfileId: req.query.policyProfileId ? String(req.query.policyProfileId) : 'dev',
+    adapterType: req.query.adapterType ? String(req.query.adapterType) : null
+  });
+  if (['render_adapter_contract_not_found','external_verifier_profile_not_found','verifier_package_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['unsupported_policy_profile','invalid_mode'].includes(out.error)) return res.status(400).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.post('/api/verification/verify-handoff', async (req, res) => {
+  const out = await verifyHandoff({ artifactType: req.body?.artifactType || null, artifact: req.body?.artifact || null });
+  res.json(out);
+});
+
 router.get('/api/verification/external/:externalVerifierProfileId', async (req, res) => {
   const out = await getExternalVerifierProfile(String(req.params.externalVerifierProfileId || ''));
   if (out.error) return res.status(404).json(out);
@@ -742,6 +793,16 @@ router.get('/api/verification/external/:externalVerifierProfileId/export', async
   const out = await getExternalVerifierProfile(String(req.params.externalVerifierProfileId || ''));
   if (out.error) return res.status(404).json(out);
   const format = String(req.query.format || 'json').toLowerCase();
+
+  if (format === 'compliance_verdict') {
+    const exp = exportExternalVerifierProfile(out.externalVerifierProfile, format);
+    if (exp.error) return res.status(400).json(exp);
+    const signed = await signComplianceVerdict(JSON.parse(exp.content));
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Disposition', `attachment; filename="${out.externalVerifierProfile.externalVerifierProfileId}-compliance-verdict.json"`);
+    return res.send(JSON.stringify(signed, null, 2));
+  }
+
   const exp = exportExternalVerifierProfile(out.externalVerifierProfile, format);
   if (exp.error) return res.status(400).json(exp);
   res.setHeader('Content-Type', exp.contentType);
@@ -862,6 +923,14 @@ router.get('/api/production/render-adapters/:renderAdapterContractId/export', as
   const out = await getRenderAdapterContract(String(req.params.renderAdapterContractId || ''));
   if (out.error) return res.status(404).json(out);
   const format = String(req.query.format || 'json').toLowerCase();
+
+  if (format === 'adapter_manifest') {
+    const signed = await signAdapterManifest(out.renderAdapterContract);
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Disposition', `attachment; filename="${signed.renderAdapterContractId}.manifest.json"`);
+    return res.send(JSON.stringify(signed, null, 2));
+  }
+
   const exp = exportRenderAdapterContract(out.renderAdapterContract, format);
   if (exp.error) return res.status(400).json(exp);
   res.setHeader('Content-Type', exp.contentType);
@@ -877,6 +946,31 @@ router.post('/api/production/render-adapters/validate', async (req, res) => {
     contract = got.renderAdapterContract;
   }
   const out = validateAdapterContract(contract);
+  res.json(out);
+});
+
+router.post('/api/production/render-adapters/:renderAdapterContractId/trust-publications', async (req, res) => {
+  const out = await publishAdapterTrust(String(req.params.renderAdapterContractId || ''));
+  if (out.error === 'render_adapter_contract_not_found') return res.status(404).json(out);
+  if (out.error === 'adapter_trust_publication_id_collision') return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/render-adapters/:renderAdapterContractId/trust-publications', async (req, res) => {
+  const out = await listAdapterTrustPublications(String(req.params.renderAdapterContractId || ''));
+  res.json(out);
+});
+
+router.get('/api/production/render-adapters/:renderAdapterContractId/trust-publications/latest', async (req, res) => {
+  const out = await getLatestAdapterTrustPublication(String(req.params.renderAdapterContractId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/render-adapters/:renderAdapterContractId/trust-publications/:adapterTrustPublicationId', async (req, res) => {
+  const out = await getAdapterTrustPublication(String(req.params.renderAdapterContractId || ''), String(req.params.adapterTrustPublicationId || ''));
+  if (out.error) return res.status(404).json(out);
   res.json(out);
 });
 
@@ -1468,6 +1562,12 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="adapter-generate">Generate Render Adapter Contract</button>
           <button data-action="adapter-export-manifest">Export Adapter Manifest</button>
           <button data-action="adapter-validate">Validate Adapter Contract</button>
+          <button data-action="adapter-trust-publish">Publish Adapter Trust</button>
+          <button data-action="adapter-trust-latest">View Latest Adapter Trust</button>
+          <button data-action="admission-create">Create Admission Certificate</button>
+          <button data-action="admission-latest">View Scheduler Admission Latest</button>
+          <button data-action="admission-export-signed">Export Signed Certificate</button>
+          <button data-action="handoff-verify">Verify Handoff Artifact</button>
           <button data-action="unified-verify-zip">Verify ZIP Bundle</button>
           <button data-action="policy-list">List Policy Manifests</button>
         </div>

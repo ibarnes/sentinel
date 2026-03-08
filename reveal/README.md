@@ -177,6 +177,13 @@ Product-intelligence capture system at `/reveal`.
       - `GET /reveal/api/verification/external/latest`
       - `GET /reveal/api/verification/external/:externalVerifierProfileId`
       - `GET /reveal/api/verification/external/:externalVerifierProfileId/export?format=json|markdown|compliance_verdict`
+    - admission certificates:
+      - `POST /reveal/api/verification/admission-certificates`
+      - `GET /reveal/api/verification/admission-certificates/:admissionCertificateId`
+      - `GET /reveal/api/verification/admission-certificates/:admissionCertificateId/export?format=json|markdown|signed_certificate`
+      - `GET /reveal/api/verification/admission/latest`
+    - handoff verification:
+      - `POST /reveal/api/verification/verify-handoff`
     - `GET /reveal/api/verification/policies`
     - `GET /reveal/api/verification/policies/:policyProfileId`
     - `GET /reveal/api/verification/policies/:policyProfileId/export`
@@ -185,6 +192,11 @@ Product-intelligence capture system at `/reveal`.
     - `GET /reveal/api/production/render-adapters/:renderAdapterContractId`
     - `GET /reveal/api/production/render-adapters/:renderAdapterContractId/export?format=json|markdown|adapter_manifest`
     - `POST /reveal/api/production/render-adapters/validate`
+    - adapter trust publications:
+      - `POST /reveal/api/production/render-adapters/:renderAdapterContractId/trust-publications`
+      - `GET /reveal/api/production/render-adapters/:renderAdapterContractId/trust-publications`
+      - `GET /reveal/api/production/render-adapters/:renderAdapterContractId/trust-publications/latest`
+      - `GET /reveal/api/production/render-adapters/:renderAdapterContractId/trust-publications/:adapterTrustPublicationId`
     - storage: `reveal/storage/render-adapter-contracts/{renderAdapterContractId}.json`
   - production shot lists:
     - `POST /reveal/api/production/shot-lists`

@@ -14,7 +14,8 @@ let state = {
   latestVoiceTrack: null,
   latestUnified: null,
   latestExternal: null,
-  latestAdapter: null
+  latestAdapter: null,
+  latestAdmission: null
 };
 
 async function api(path, method = 'GET', body) {
@@ -674,6 +675,51 @@ async function validateAdapterUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 
+async function publishAdapterTrustUi() {
+  if (!state.latestAdapter?.renderAdapterContractId) return alert('Generate adapter first');
+  const out = await api(`/reveal/api/production/render-adapters/${encodeURIComponent(state.latestAdapter.renderAdapterContractId)}/trust-publications`, 'POST', {});
+  alert(`Adapter trust publication: ${out.adapterTrustPublication.adapterTrustPublicationId}`);
+}
+
+async function viewLatestAdapterTrustUi() {
+  if (!state.latestAdapter?.renderAdapterContractId) return alert('Generate adapter first');
+  const out = await api(`/reveal/api/production/render-adapters/${encodeURIComponent(state.latestAdapter.renderAdapterContractId)}/trust-publications/latest`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function createAdmissionCertUi() {
+  const out = await api('/reveal/api/verification/admission-certificates', 'POST', {
+    renderAdapterContractId: state.latestAdapter?.renderAdapterContractId || null,
+    externalVerifierProfileId: state.latestExternal?.externalVerifierProfileId || null,
+    policyProfileId: prompt('Policy profile: dev|internal_verified|production_verified', 'production_verified') || 'production_verified',
+    mode: 'latest'
+  });
+  state.latestAdmission = out.admissionCertificate;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.admissionCertificate, null, 2);
+}
+
+async function viewAdmissionLatestUi() {
+  const profile = prompt('Policy profile', 'production_verified') || 'production_verified';
+  const out = await api(`/reveal/api/verification/admission/latest?policyProfileId=${encodeURIComponent(profile)}${state.latestAdapter?.renderAdapterContractId ? `&renderAdapterContractId=${encodeURIComponent(state.latestAdapter.renderAdapterContractId)}` : ''}`);
+  state.latestAdmission = out.admissionCertificate;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.admissionCertificate, null, 2);
+}
+
+function exportSignedAdmissionUi() {
+  if (!state.latestAdmission?.admissionCertificateId) return alert('Create/view admission certificate first');
+  download(`/reveal/api/verification/admission-certificates/${encodeURIComponent(state.latestAdmission.admissionCertificateId)}/export?format=signed_certificate`);
+}
+
+async function verifyHandoffUi() {
+  const type = prompt('artifactType: adapter_manifest|compliance_verdict|signed_certificate', 'signed_certificate') || 'signed_certificate';
+  const raw = prompt('Paste artifact JSON');
+  if (!raw) return;
+  let artifact;
+  try { artifact = JSON.parse(raw); } catch { return alert('Invalid JSON'); }
+  const out = await api('/reveal/api/verification/verify-handoff', 'POST', { artifactType: type, artifact });
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -991,6 +1037,12 @@ function wireActions() {
   document.querySelector('[data-action="adapter-generate"]')?.addEventListener('click', () => generateAdapterUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="adapter-export-manifest"]')?.addEventListener('click', () => exportAdapterManifestUi());
   document.querySelector('[data-action="adapter-validate"]')?.addEventListener('click', () => validateAdapterUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="adapter-trust-publish"]')?.addEventListener('click', () => publishAdapterTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="adapter-trust-latest"]')?.addEventListener('click', () => viewLatestAdapterTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="admission-create"]')?.addEventListener('click', () => createAdmissionCertUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="admission-latest"]')?.addEventListener('click', () => viewAdmissionLatestUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="admission-export-signed"]')?.addEventListener('click', () => exportSignedAdmissionUi());
+  document.querySelector('[data-action="handoff-verify"]')?.addEventListener('click', () => verifyHandoffUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="unified-verify-zip"]')?.addEventListener('click', () => verifyZipBundleUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="policy-list"]')?.addEventListener('click', () => listPoliciesUi().catch((e) => alert(e.message)));
 }

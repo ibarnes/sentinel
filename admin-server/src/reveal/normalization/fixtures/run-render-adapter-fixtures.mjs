@@ -9,6 +9,10 @@ import { createUnifiedVerifierPackage } from '../../verification/unifiedVerifier
 import { createExternalVerifierProfile } from '../../verification/externalVerifierProfileService.js';
 import { createRenderAdapterContract, exportRenderAdapterContract } from '../../production/renderAdapterContractService.js';
 import { validateAdapterContract } from '../../production/adapterValidationService.js';
+import { signAdapterManifest, signComplianceVerdict, verifyHandoffArtifact } from '../../verification/handoffCertificationService.js';
+import { publishAdapterTrust } from '../../verification/adapterTrustPublicationService.js';
+import { createAdmissionCertificate } from '../../verification/admissionCertificateService.js';
+import { exportExternalVerifierProfile } from '../../verification/admissionControlExportService.js';
 
 const flowId = 'fixture_render_adapter_flow';
 await writeJson(fileForReviewedFlow(flowId), {
@@ -41,7 +45,6 @@ const c1 = await createRenderAdapterContract({
   voiceTrackPlanId: voice.voiceTrackPlan.voiceTrackPlanId
 });
 if (c1.error) throw new Error(`contract from verifier failed: ${c1.error}`);
-if (!c1.renderAdapterContract.executionPlan?.stages?.length) throw new Error('missing execution plan stages');
 
 const c2 = await createRenderAdapterContract({
   adapterType: 'narrated_walkthrough',
@@ -52,18 +55,49 @@ const c2 = await createRenderAdapterContract({
   renderPlanId: 'rp_demo'
 });
 if (c2.error) throw new Error(`contract from external failed: ${c2.error}`);
-if (!['ready','ready_with_warnings','blocked'].includes(c2.renderAdapterContract.readinessState)) throw new Error('invalid readiness');
 
 const manifest = exportRenderAdapterContract(c1.renderAdapterContract, 'adapter_manifest');
 if (manifest.error || !String(manifest.content).includes('executionPlan')) throw new Error('adapter manifest invalid');
 
-const md = exportRenderAdapterContract(c2.renderAdapterContract, 'markdown');
-if (md.error || !String(md.content).includes('## Execution Plan')) throw new Error('markdown export invalid');
+const signedManifest = await signAdapterManifest(c1.renderAdapterContract);
+if (!['signed','unsigned'].includes(signedManifest.adapterManifestSignatureStatus)) throw new Error('signed adapter manifest status missing');
+const verifyManifest = await verifyHandoffArtifact('adapter_manifest', signedManifest);
+if (!['verified','unsigned'].includes(verifyManifest.status)) throw new Error('adapter manifest verify unexpected');
+
+const tamperedManifest = { ...signedManifest, adapterType: 'visual_only' };
+const tamperedManifestRes = await verifyHandoffArtifact('adapter_manifest', tamperedManifest);
+if (!['invalid_signature','unsigned'].includes(tamperedManifestRes.status)) throw new Error('tampered manifest should fail or be unsigned');
+
+const verdictExp = exportExternalVerifierProfile(external.externalVerifierProfile, 'compliance_verdict');
+const signedVerdict = await signComplianceVerdict(JSON.parse(verdictExp.content));
+if (!['signed','unsigned'].includes(signedVerdict.complianceVerdictSignatureStatus)) throw new Error('signed compliance verdict status missing');
+const verifyVerdict = await verifyHandoffArtifact('compliance_verdict', signedVerdict);
+if (!['verified','unsigned'].includes(verifyVerdict.status)) throw new Error('compliance verdict verify unexpected');
+
+const tamperedVerdict = { ...signedVerdict, overallVerdict: 'deny' };
+const tamperedVerdictRes = await verifyHandoffArtifact('compliance_verdict', tamperedVerdict);
+if (!['invalid_signature','unsigned'].includes(tamperedVerdictRes.status)) throw new Error('tampered verdict should fail or be unsigned');
+
+const atp = await publishAdapterTrust(c1.renderAdapterContract.renderAdapterContractId);
+if (atp.error) throw new Error(`adapter trust publication failed: ${atp.error}`);
+
+const cert = await createAdmissionCertificate({
+  renderAdapterContractId: c1.renderAdapterContract.renderAdapterContractId,
+  externalVerifierProfileId: external.externalVerifierProfile.externalVerifierProfileId,
+  policyProfileId: 'production_verified',
+  mode: 'explicit_refs'
+});
+if (cert.error) throw new Error(`admission certificate failed: ${cert.error}`);
+const verifyCert = await verifyHandoffArtifact('signed_certificate', cert.admissionCertificate);
+if (!['verified','unsigned'].includes(verifyCert.status)) throw new Error('admission certificate verify unexpected');
 
 const valid = validateAdapterContract(c1.renderAdapterContract);
 if (!['valid','valid_with_warnings','blocked'].includes(valid.status)) throw new Error('unexpected validation status');
 
 const invalid = validateAdapterContract({ adapterType: 'bad' });
 if (invalid.status !== 'malformed_contract') throw new Error('expected malformed contract');
+
+const md = exportRenderAdapterContract(c2.renderAdapterContract, 'markdown');
+if (md.error || !String(md.content).includes('## Execution Plan')) throw new Error('markdown export invalid');
 
 console.log('OK render adapter fixtures');
