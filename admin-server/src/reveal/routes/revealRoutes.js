@@ -70,6 +70,7 @@ import { signAdapterManifest, signComplianceVerdict } from '../verification/hand
 import { createAdmissionCertificate, getAdmissionCertificate, exportAdmissionCertificate, latestAdmissionCertificate } from '../verification/admissionCertificateService.js';
 import { publishAdapterTrust, listAdapterTrustPublications, getLatestAdapterTrustPublication, getAdapterTrustPublication } from '../verification/adapterTrustPublicationService.js';
 import { verifyHandoff } from '../verification/handoffVerificationService.js';
+import { createOrchestrationProofCertificate, getOrchestrationProofCertificate, exportOrchestrationProofCertificate, latestOrchestrationProofCertificate, verifyProofCertificate } from '../verification/orchestrationProofCertificateService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -780,6 +781,58 @@ router.get('/api/verification/admission/latest', async (req, res) => {
 
 router.post('/api/verification/verify-handoff', async (req, res) => {
   const out = await verifyHandoff({ artifactType: req.body?.artifactType || null, artifact: req.body?.artifact || null });
+  res.json(out);
+});
+
+router.post('/api/verification/orchestration-proofs', async (req, res) => {
+  const out = await createOrchestrationProofCertificate({
+    renderAdapterContractId: req.body?.renderAdapterContractId || null,
+    externalVerifierProfileId: req.body?.externalVerifierProfileId || null,
+    admissionCertificateId: req.body?.admissionCertificateId || null,
+    adapterTrustPublicationId: req.body?.adapterTrustPublicationId || null,
+    attestationTrustPublicationId: req.body?.attestationTrustPublicationId || null,
+    policyProfileId: req.body?.policyProfileId || 'dev',
+    mode: req.body?.mode || 'latest'
+  });
+  if (['missing_required_refs_for_explicit_mode','unsupported_policy_profile','invalid_mode'].includes(out.error)) return res.status(400).json(out);
+  if (['render_adapter_contract_not_found','external_verifier_profile_not_found','admission_certificate_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/verification/orchestration-proofs/latest', async (req, res) => {
+  const out = await latestOrchestrationProofCertificate({
+    renderAdapterContractId: req.query.renderAdapterContractId ? String(req.query.renderAdapterContractId) : null,
+    policyProfileId: req.query.policyProfileId ? String(req.query.policyProfileId) : 'dev',
+    adapterType: req.query.adapterType ? String(req.query.adapterType) : null,
+    mode: req.query.mode ? String(req.query.mode) : 'latest'
+  });
+  if (['render_adapter_contract_not_found','external_verifier_profile_not_found','admission_certificate_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['unsupported_policy_profile','invalid_mode','missing_required_refs_for_explicit_mode'].includes(out.error)) return res.status(400).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.get('/api/verification/orchestration-proofs/:orchestrationProofCertificateId', async (req, res) => {
+  const out = await getOrchestrationProofCertificate(String(req.params.orchestrationProofCertificateId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/verification/orchestration-proofs/:orchestrationProofCertificateId/export', async (req, res) => {
+  const out = await getOrchestrationProofCertificate(String(req.params.orchestrationProofCertificateId || ''));
+  if (out.error) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const exp = exportOrchestrationProofCertificate(out.orchestrationProofCertificate, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
+router.post('/api/verification/verify-proof', async (req, res) => {
+  const out = await verifyProofCertificate(req.body?.orchestrationProofCertificateId ? { orchestrationProofCertificateId: req.body.orchestrationProofCertificateId } : (req.body?.proof || req.body));
+  if (['orchestration_proof_certificate_not_found'].includes(out.error)) return res.status(404).json(out);
   res.json(out);
 });
 
@@ -1567,6 +1620,10 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="admission-create">Create Admission Certificate</button>
           <button data-action="admission-latest">View Scheduler Admission Latest</button>
           <button data-action="admission-export-signed">Export Signed Certificate</button>
+          <button data-action="proof-create">Create Orchestration Proof</button>
+          <button data-action="proof-latest">View Latest Orchestration Proof</button>
+          <button data-action="proof-export-signed">Export Signed Proof</button>
+          <button data-action="proof-verify">Verify Proof</button>
           <button data-action="handoff-verify">Verify Handoff Artifact</button>
           <button data-action="unified-verify-zip">Verify ZIP Bundle</button>
           <button data-action="policy-list">List Policy Manifests</button>

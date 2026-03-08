@@ -15,7 +15,8 @@ let state = {
   latestUnified: null,
   latestExternal: null,
   latestAdapter: null,
-  latestAdmission: null
+  latestAdmission: null,
+  latestProof: null
 };
 
 async function api(path, method = 'GET', body) {
@@ -720,6 +721,40 @@ async function verifyHandoffUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 
+async function createOrchestrationProofUi() {
+  const out = await api('/reveal/api/verification/orchestration-proofs', 'POST', {
+    renderAdapterContractId: state.latestAdapter?.renderAdapterContractId || null,
+    externalVerifierProfileId: state.latestExternal?.externalVerifierProfileId || null,
+    admissionCertificateId: state.latestAdmission?.admissionCertificateId || null,
+    policyProfileId: prompt('Policy profile: dev|internal_verified|production_verified', 'production_verified') || 'production_verified',
+    mode: 'latest'
+  });
+  state.latestProof = out.orchestrationProofCertificate;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.orchestrationProofCertificate, null, 2);
+}
+
+async function viewLatestProofUi() {
+  const p = prompt('Policy profile', 'production_verified') || 'production_verified';
+  const q = state.latestAdapter?.renderAdapterContractId ? `&renderAdapterContractId=${encodeURIComponent(state.latestAdapter.renderAdapterContractId)}` : '';
+  const out = await api(`/reveal/api/verification/orchestration-proofs/latest?policyProfileId=${encodeURIComponent(p)}&mode=latest${q}`);
+  state.latestProof = out.orchestrationProofCertificate;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.orchestrationProofCertificate, null, 2);
+}
+
+function exportSignedProofUi() {
+  if (!state.latestProof?.orchestrationProofCertificateId) return alert('Create/view proof first');
+  download(`/reveal/api/verification/orchestration-proofs/${encodeURIComponent(state.latestProof.orchestrationProofCertificateId)}/export?format=signed_proof`);
+}
+
+async function verifyProofUi() {
+  const raw = prompt('Paste orchestration proof JSON');
+  if (!raw) return;
+  let proof;
+  try { proof = JSON.parse(raw); } catch { return alert('Invalid JSON'); }
+  const out = await api('/reveal/api/verification/verify-proof', 'POST', { proof });
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -1042,6 +1077,10 @@ function wireActions() {
   document.querySelector('[data-action="admission-create"]')?.addEventListener('click', () => createAdmissionCertUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="admission-latest"]')?.addEventListener('click', () => viewAdmissionLatestUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="admission-export-signed"]')?.addEventListener('click', () => exportSignedAdmissionUi());
+  document.querySelector('[data-action="proof-create"]')?.addEventListener('click', () => createOrchestrationProofUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="proof-latest"]')?.addEventListener('click', () => viewLatestProofUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="proof-export-signed"]')?.addEventListener('click', () => exportSignedProofUi());
+  document.querySelector('[data-action="proof-verify"]')?.addEventListener('click', () => verifyProofUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="handoff-verify"]')?.addEventListener('click', () => verifyHandoffUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="unified-verify-zip"]')?.addEventListener('click', () => verifyZipBundleUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="policy-list"]')?.addEventListener('click', () => listPoliciesUi().catch((e) => alert(e.message)));

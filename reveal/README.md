@@ -182,6 +182,12 @@ Product-intelligence capture system at `/reveal`.
       - `GET /reveal/api/verification/admission-certificates/:admissionCertificateId`
       - `GET /reveal/api/verification/admission-certificates/:admissionCertificateId/export?format=json|markdown|signed_certificate`
       - `GET /reveal/api/verification/admission/latest`
+    - orchestration proofs:
+      - `POST /reveal/api/verification/orchestration-proofs`
+      - `GET /reveal/api/verification/orchestration-proofs/latest`
+      - `GET /reveal/api/verification/orchestration-proofs/:orchestrationProofCertificateId`
+      - `GET /reveal/api/verification/orchestration-proofs/:orchestrationProofCertificateId/export?format=json|markdown|signed_proof`
+      - `POST /reveal/api/verification/verify-proof`
     - handoff verification:
       - `POST /reveal/api/verification/verify-handoff`
     - `GET /reveal/api/verification/policies`
