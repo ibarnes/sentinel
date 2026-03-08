@@ -99,11 +99,18 @@ Product-intelligence capture system at `/reveal`.
   - `POST /reveal/api/player/packages` (multipart field `package`)
 - Stateful Session API:
   - `POST /reveal/api/player/sessions`
+  - `GET /reveal/api/player/sessions`
   - `GET /reveal/api/player/sessions/:sessionId`
   - `PATCH /reveal/api/player/sessions/:sessionId`
+  - `POST /reveal/api/player/sessions/:sessionId/resume`
   - `DELETE /reveal/api/player/sessions/:sessionId`
+  - `POST /reveal/api/player/sessions/sweep`
   - `GET /reveal/api/player/sessions/:sessionId/assets/:kind/:file`
 - Session actions: `next`, `prev`, `jump`, `restart`, `play`, `pause`, `setAutoPlay` via `autoPlayEnabled`.
+- Session lifecycle:
+  - TTL + optional idle policy for `playing` sessions
+  - in-process sweeper interval (`REVEAL_PLAYER_SWEEP_INTERVAL_MS`)
+  - package session cleanup status: `none|pending|cleaned|failed`
 - Fixture runners:
   - `node admin-server/src/reveal/normalization/fixtures/run-player-fixtures.mjs`
   - `node admin-server/src/reveal/normalization/fixtures/run-player-session-fixtures.mjs`

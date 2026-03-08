@@ -27,3 +27,9 @@ export async function readSession(sessionId) {
 export async function deleteSessionFile(sessionId) {
   try { await fs.rm(file(sessionId), { force: true }); } catch {}
 }
+
+export async function listSessionFiles() {
+  await ensureSessionStorage();
+  const files = (await fs.readdir(ROOT)).filter((f) => f.endsWith('.json'));
+  return files.map((f) => f.replace(/\.json$/, ''));
+}

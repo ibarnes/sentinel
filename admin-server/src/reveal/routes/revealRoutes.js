@@ -19,7 +19,8 @@ import { buildStepCoordinateReplay } from '../services/coordinateReplayService.j
 import { loadFromFlow, loadFromSnapshot, loadFromPackage } from '../player/flowPlayerService.js';
 import { applyPlaybackControl } from '../player/playbackController.js';
 import { safeAssetPath } from '../player/assetResolverService.js';
-import { createPlayerSession, getPlayerSession, patchPlayerSession, deletePlayerSession, resolveSessionAssetPath } from '../player/playerSessionService.js';
+import { createPlayerSession, getPlayerSession, listPlayerSessions, patchPlayerSession, deletePlayerSession, resumePlayerSession, resolveSessionAssetPath } from '../player/playerSessionService.js';
+import { sweepPlayerSessions, startPlayerSessionSweeper } from '../player/playerSessionSweeper.js';
 import { integrityForStep, integrityRecomputeFlow } from '../services/replayIntegrityService.js';
 import { createSnapshot, listSnapshots, getSnapshot, verifySnapshotIntegrity, recomputeFlowSnapshotIntegrity } from '../services/snapshotService.js';
 import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
@@ -28,6 +29,7 @@ import { getSigningContext, verifyVerificationMetadata, getVerificationKeyset, v
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
+startPlayerSessionSweeper();
 
 router.get('/api/verification/keyset', async (_req, res) => {
   const out = await getVerificationKeyset();
@@ -98,6 +100,23 @@ router.get('/api/player/packages/:token/assets/:kind/:file', async (req, res) =>
   }
 });
 
+router.get('/api/player/sessions', async (req, res) => {
+  const out = await listPlayerSessions({
+    status: req.query.status ? String(req.query.status) : null,
+    sourceType: req.query.sourceType ? String(req.query.sourceType) : null,
+    flowId: req.query.flowId ? String(req.query.flowId) : null,
+    snapshotId: req.query.snapshotId ? String(req.query.snapshotId) : null,
+    includeExpired: req.query.includeExpired ? String(req.query.includeExpired) : '0'
+  });
+  if (out.error) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.post('/api/player/sessions/sweep', async (_req, res) => {
+  const out = await sweepPlayerSessions();
+  res.json(out);
+});
+
 router.post('/api/player/sessions', uploadPkg.single('package'), async (req, res) => {
   const flowId = req.body?.flowId || null;
   const snapshotId = req.body?.snapshotId || null;
@@ -125,6 +144,13 @@ router.patch('/api/player/sessions/:sessionId', async (req, res) => {
     autoPlayEnabled: req.body?.autoPlayEnabled ?? null
   });
   if (['session_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.post('/api/player/sessions/:sessionId/resume', async (req, res) => {
+  const out = await resumePlayerSession(String(req.params.sessionId || ''));
+  if (out.error === 'session_not_found') return res.status(404).json(out);
   if (out.error) return res.status(400).json(out);
   res.json(out);
 });

@@ -13,7 +13,7 @@ function render(){
   if(!s) return;
   document.getElementById('flow').textContent = `${model.title} (${model.sourceType})`;
   document.getElementById('title').textContent = s.title;
-  document.getElementById('meta').textContent = `session ${session.sessionId} • ${session.playbackStatus} • step ${session.currentStepIndex+1}/${session.stepCount} • autoplay ${session.autoPlayEnabled?'on':'off'}`;
+  document.getElementById('meta').textContent = `session ${session.sessionId} • ${session.playbackStatus} • step ${session.currentStepIndex+1}/${session.stepCount} • autoplay ${session.autoPlayEnabled?'on':'off'} • expires ${session.expiresAt || 'n/a'}`;
   document.getElementById('intent').textContent = s.intent || 'No intent';
   document.getElementById('shot').src = s.highlight || s.screenshotAfter || s.screenshotBefore || '';
   const ann=document.getElementById('annotations'); ann.innerHTML='';
@@ -30,11 +30,25 @@ async function patch(action, extra={}){
 async function boot(){
   const flowId = location.pathname.split('/').pop();
   const snapshotId = q('snapshotId');
+  const sessionId = q('sessionId');
 
-  const body = snapshotId ? { snapshotId } : { flowId };
-  const created = await api('/reveal/api/player/sessions', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
-  session = created.session;
-  model = created.model;
+  if (sessionId) {
+    try {
+      const resumed = await api(`/reveal/api/player/sessions/${encodeURIComponent(sessionId)}/resume`, { method:'POST', headers:{'Content-Type':'application/json'}, body: '{}' });
+      session = resumed.session;
+      model = resumed.model;
+    } catch (e) {
+      document.getElementById('meta').textContent = `resume failed: ${e.message}`;
+    }
+  }
+
+  if (!session || !model) {
+    const body = snapshotId ? { snapshotId } : { flowId };
+    const created = await api('/reveal/api/player/sessions', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    session = created.session;
+    model = created.model;
+  }
+
   render();
 
   document.getElementById('next').onclick=()=>patch('next');
