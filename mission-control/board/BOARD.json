@@ -722,7 +722,7 @@
     {
       "id": "TASK-0027",
       "title": "TS-B3.2 Implement savepoint list/create/restore endpoints",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -732,13 +732,23 @@
         "story:US-B3"
       ],
       "linked_refs": [
-        "savepoints-api"
+        "savepoints-api",
+        "TASK-0121",
+        "TASK-0119",
+        "TASK-0120"
       ],
       "description": "GET/POST savepoints and POST restore by savePointId.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "decomp-0027-20260308-1040",
+          "author": "sentinel",
+          "text": "Decomposition gate applied: split savepoint API delivery into TASK-0119 (contract), TASK-0120 (store + create/list endpoints), TASK-0121 (restore endpoint + smoke + RP).",
+          "created_at": "2026-03-08T10:40:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-03-08T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3438,6 +3448,116 @@
       "updated_at": "2026-03-08T07:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "request_approval": null,
+      "created_at": "2026-03-08T10:40:00Z",
+      "updated_at": "2026-03-08T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "id": "TASK-0119",
+      "title": "TS-B3.2a Define savepoint API contract + snapshot shape",
+      "status": "Ready for Review",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B3",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0027",
+        "mission-control/review-packets/RP-0041-savepoint-api-contract.md"
+      ],
+      "description": "Define deterministic request/response contract for savepoint list/create/restore plus snapshot schema and error model.",
+      "comments": [
+        {
+          "id": "done-0119-20260308-1040",
+          "author": "sentinel",
+          "text": "Contract completed and documented in RP-0041.",
+          "created_at": "2026-03-08T10:40:00Z"
+        }
+      ],
+      "review_packet_id": "RP-0041"
+    },
+    {
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "request_approval": null,
+      "created_at": "2026-03-08T10:40:00Z",
+      "updated_at": "2026-03-08T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "id": "TASK-0120",
+      "title": "TS-B3.2b Implement savepoint store + list/create endpoints",
+      "status": "Ready for Review",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B3",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0027",
+        "admin-server/src/server.js",
+        "dashboard/data/savepoints.v1.json"
+      ],
+      "description": "Implement persistent savepoint store and GET/POST endpoints for deck savepoints with audit events.",
+      "comments": [
+        {
+          "id": "done-0120-20260308-1040",
+          "author": "sentinel",
+          "text": "Implemented savepoint store helpers + GET/POST /api/presentation-studio/decks/:deckId/savepoints endpoints.",
+          "created_at": "2026-03-08T10:40:00Z"
+        }
+      ]
+    },
+    {
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "request_approval": {
+        "requested_at": "2026-03-08T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0042-savepoint-restore-endpoint.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-08T10:40:00Z",
+      "updated_at": "2026-03-08T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "id": "TASK-0121",
+      "title": "TS-B3.2c Implement restore endpoint + smoke + review packet",
+      "status": "Ready for Review",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B3",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0027",
+        "TASK-0120",
+        "mission-control/review-packets/RP-0042-savepoint-restore-endpoint.md"
+      ],
+      "description": "Implement POST restore endpoint, run syntax smoke, and publish review packet for savepoint API slice.",
+      "comments": [
+        {
+          "id": "done-0121-20260308-1040",
+          "author": "sentinel",
+          "text": "Implemented restore endpoint and completed syntax smoke check; RP-0042 created.",
+          "created_at": "2026-03-08T10:40:00Z"
+        }
+      ],
+      "review_packet_id": "RP-0042"
     }
   ]
 }

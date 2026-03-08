@@ -36,6 +36,7 @@ const DASHBOARD_DECKSPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'deckspecs
 const DASHBOARD_DECKSPEC_SCHEMA_FILE = path.join(ROOT, 'dashboard', 'deckspec.schema.v2.json');
 const DASHBOARD_PIPELINE_RUNS_FILE = path.join(ROOT, 'dashboard', 'data', 'pipeline_runs.v1.json');
 const DASHBOARD_SLIDE_SPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'slidespecs.v2.json');
+const DASHBOARD_SAVEPOINTS_FILE = path.join(ROOT, 'dashboard', 'data', 'savepoints.v1.json');
 const DASHBOARD_CAPITAL_MAP_FILE = path.join(ROOT, 'dashboard', 'data', 'capital-map.json');
 const DASHBOARD_PLATFORM_PRESSURE_FILE = path.join(ROOT, 'dashboard', 'data', 'platform_pressure.json');
 const DASHBOARD_TEMPLATE_LIBRARY_ROOT = path.join(ROOT, 'dashboard', 'templates', 'presentation-templates');
@@ -3338,6 +3339,10 @@ function defaultSlideSpecStore() {
   return { version: 2, slidesByDeck: {} };
 }
 
+function defaultSavepointStore() {
+  return { version: 1, savepointsByDeck: {} };
+}
+
 function defaultDeckSpecV2({ initiativeId = '', buyerId = null, deckType = 'utc-internal', globalTemplateTheme = 'sovereign-memo', styleMode = 'professional', copyProvider = 'local', imageProvider = 'placeholder' } = {}) {
   const safeInitiative = String(initiativeId || 'INIT-000');
   const safeBuyer = buyerId ? String(buyerId) : null;
@@ -3476,6 +3481,9 @@ async function ensureTeamAndBoardFiles() {
   if (!fssync.existsSync(DASHBOARD_SLIDE_SPECS_FILE)) {
     await fs.writeFile(DASHBOARD_SLIDE_SPECS_FILE, JSON.stringify(defaultSlideSpecStore(), null, 2));
   }
+  if (!fssync.existsSync(DASHBOARD_SAVEPOINTS_FILE)) {
+    await fs.writeFile(DASHBOARD_SAVEPOINTS_FILE, JSON.stringify(defaultSavepointStore(), null, 2));
+  }
   if (!fssync.existsSync(BEACON_QUEUE_SCHEMA_FILE)) {
     await fs.copyFile(path.join(ROOT, 'mission-control', 'beacon', 'beacons.schema.json'), BEACON_QUEUE_SCHEMA_FILE).catch(async () => {
       await fs.writeFile(BEACON_QUEUE_SCHEMA_FILE, JSON.stringify({ version: 1 }, null, 2));
@@ -3541,6 +3549,20 @@ async function readSlideSpecStore() {
 
 async function writeSlideSpecStore(store) {
   await writeJson(DASHBOARD_SLIDE_SPECS_FILE, store);
+}
+
+async function readSavepointStore() {
+  const store = await readJson(DASHBOARD_SAVEPOINTS_FILE, defaultSavepointStore());
+  if (!store || typeof store !== 'object') return defaultSavepointStore();
+  if (!store.version) store.version = 1;
+  if (!store.savepointsByDeck || typeof store.savepointsByDeck !== 'object' || Array.isArray(store.savepointsByDeck)) {
+    store.savepointsByDeck = {};
+  }
+  return store;
+}
+
+async function writeSavepointStore(store) {
+  await writeJson(DASHBOARD_SAVEPOINTS_FILE, store);
 }
 
 const PIPELINE_ALLOWED_SCOPES = new Set(['deck', 'slide']);
@@ -4904,6 +4926,118 @@ app.patch('/api/presentation-studio/decks/:deckId', requireRole('architect','edi
   });
 
   return res.json({ ok: true, deck });
+});
+
+app.get('/api/presentation-studio/decks/:deckId/savepoints', requireRole('architect','editor','observer'), async (req, res) => {
+  const deckId = String(req.params.deckId || '').trim();
+  if (!deckId) return res.status(400).json({ error: 'deckId required' });
+
+  const deckStore = await readDeckSpecStore();
+  const deck = deckStore.decks.find((d) => String(d.deckId) === deckId);
+  if (!deck) return res.status(404).json({ error: 'deck not found' });
+
+  const savepointStore = await readSavepointStore();
+  const savepoints = Array.isArray(savepointStore.savepointsByDeck?.[deckId]) ? savepointStore.savepointsByDeck[deckId] : [];
+  const ordered = [...savepoints].sort((a, b) => String(b.createdAt || '').localeCompare(String(a.createdAt || '')));
+
+  return res.json({ ok: true, deckId, count: ordered.length, savepoints: ordered });
+});
+
+app.post('/api/presentation-studio/decks/:deckId/savepoints', requireRole('architect','editor'), async (req, res) => {
+  const deckId = String(req.params.deckId || '').trim();
+  if (!deckId) return res.status(400).json({ error: 'deckId required' });
+
+  const deckStore = await readDeckSpecStore();
+  const deck = deckStore.decks.find((d) => String(d.deckId) === deckId);
+  if (!deck) return res.status(404).json({ error: 'deck not found' });
+
+  const slideStore = await readSlideSpecStore();
+  const slides = Array.isArray(slideStore.slidesByDeck?.[deckId]) ? slideStore.slidesByDeck[deckId] : [];
+
+  const savepointStore = await readSavepointStore();
+  savepointStore.savepointsByDeck = savepointStore.savepointsByDeck || {};
+  const existing = Array.isArray(savepointStore.savepointsByDeck[deckId]) ? savepointStore.savepointsByDeck[deckId] : [];
+
+  const createdAt = nowIso();
+  const savePointId = `sp-${Date.now()}`;
+  const savepoint = {
+    savePointId,
+    deckId,
+    label: String(req.body.label || '').trim() || null,
+    note: String(req.body.note || '').trim() || null,
+    snapshot: {
+      deck: JSON.parse(JSON.stringify(deck)),
+      slides: JSON.parse(JSON.stringify(slides)),
+    },
+    createdAt,
+    createdBy: getUserLabel(req),
+  };
+
+  existing.push(savepoint);
+  savepointStore.savepointsByDeck[deckId] = existing;
+  deck.currentSavePointId = savePointId;
+  deck.updatedAt = createdAt;
+
+  await writeSavepointStore(savepointStore);
+  await writeDeckSpecStore(deckStore);
+
+  await appendAuditEvent({
+    ts: createdAt,
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'presentation.savepoint.create',
+    entity_type: 'presentation_savepoint',
+    entity_id: `${deckId}:${savePointId}`,
+    meta: { deckId, savePointId, slideCount: slides.length }
+  });
+
+  return res.status(201).json({ ok: true, deckId, savepoint });
+});
+
+app.post('/api/presentation-studio/decks/:deckId/savepoints/:savePointId/restore', requireRole('architect','editor'), async (req, res) => {
+  const deckId = String(req.params.deckId || '').trim();
+  const savePointId = String(req.params.savePointId || '').trim();
+  if (!deckId || !savePointId) return res.status(400).json({ error: 'deckId and savePointId required' });
+
+  const savepointStore = await readSavepointStore();
+  const savepoints = Array.isArray(savepointStore.savepointsByDeck?.[deckId]) ? savepointStore.savepointsByDeck[deckId] : [];
+  const savepoint = savepoints.find((s) => String(s.savePointId) === savePointId);
+  if (!savepoint) return res.status(404).json({ error: 'savepoint not found' });
+
+  const deckStore = await readDeckSpecStore();
+  const deckIdx = deckStore.decks.findIndex((d) => String(d.deckId) === deckId);
+  if (deckIdx < 0) return res.status(404).json({ error: 'deck not found' });
+
+  const snapshotDeck = savepoint.snapshot?.deck;
+  const snapshotSlides = Array.isArray(savepoint.snapshot?.slides) ? savepoint.snapshot.slides : [];
+  if (!snapshotDeck || typeof snapshotDeck !== 'object') return res.status(409).json({ error: 'savepoint snapshot invalid' });
+
+  const restoredDeck = {
+    ...JSON.parse(JSON.stringify(snapshotDeck)),
+    deckId,
+    currentSavePointId: savePointId,
+    updatedAt: nowIso(),
+  };
+
+  const slideStore = await readSlideSpecStore();
+  slideStore.slidesByDeck = slideStore.slidesByDeck || {};
+  slideStore.slidesByDeck[deckId] = JSON.parse(JSON.stringify(snapshotSlides));
+  deckStore.decks[deckIdx] = restoredDeck;
+
+  await writeSlideSpecStore(slideStore);
+  await writeDeckSpecStore(deckStore);
+
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'presentation.savepoint.restore',
+    entity_type: 'presentation_savepoint',
+    entity_id: `${deckId}:${savePointId}`,
+    meta: { deckId, savePointId, slideCount: snapshotSlides.length }
+  });
+
+  return res.json({ ok: true, deckId, savePointId, deck: restoredDeck, restoredSlides: snapshotSlides.length });
 });
 
 app.get('/api/presentation-studio/decks/resolve', requireRole('architect','editor','observer'), async (req, res) => {
