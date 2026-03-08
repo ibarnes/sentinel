@@ -164,6 +164,11 @@ Product-intelligence capture system at `/reveal`.
     - `GET /reveal/api/production/shot-lists/:shotListId/export?format=json|markdown|assembly_package`
     - `GET /reveal/api/production/shot-lists/:shotListId/snapshots/:shotListSnapshotId/export?format=json|markdown|assembly_package`
     - storage: `reveal/storage/shot-lists/{shotListId}.json`, `reveal/storage/shot-list-snapshots/{shotListId}/{shotListSnapshotId}.json`, `reveal/storage/shot-list-edit-intents/{shotListId}.json`
+  - voice track + caption plans:
+    - `POST /reveal/api/production/voice-tracks`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/export?format=json|markdown|srt|vtt`
+    - storage: `reveal/storage/voice-track-plans/{voiceTrackPlanId}.json`
   - style profiles: `neutral_walkthrough`, `concise_training`, `executive_overview`
 - Session lifecycle:
   - TTL + optional idle policy for `playing` sessions

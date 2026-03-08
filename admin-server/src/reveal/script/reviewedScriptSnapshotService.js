@@ -195,6 +195,23 @@ export async function getReviewedSnapshot(scriptId, reviewedSnapshotId) {
   }
 }
 
+export async function findReviewedSnapshotById(reviewedSnapshotId) {
+  try {
+    const root = ROOT;
+    const scripts = await fs.readdir(root);
+    for (const scriptId of scripts) {
+      const p = fileFor(scriptId, reviewedSnapshotId);
+      try {
+        const snapshot = JSON.parse(await fs.readFile(p, 'utf8'));
+        return { snapshot };
+      } catch {}
+    }
+    return { error: 'snapshot_not_found' };
+  } catch {
+    return { error: 'snapshot_not_found' };
+  }
+}
+
 export async function verifyReviewedSnapshotIntegrity(scriptId, reviewedSnapshotId) {
   const got = await getReviewedSnapshot(scriptId, reviewedSnapshotId);
   if (got.error) return got;

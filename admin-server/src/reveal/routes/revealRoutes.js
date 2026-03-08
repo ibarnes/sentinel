@@ -49,6 +49,7 @@ import { createShotList, getShotList, exportShotList } from '../production/shotL
 import { createEditIntent, listEditIntents, patchEditIntent, deleteEditIntent, applyEditIntentsToShotList, diffShotLists } from '../production/editIntentService.js';
 import { createShotListSnapshot, listShotListSnapshots, getShotListSnapshot } from '../production/shotListSnapshotService.js';
 import { buildAssemblyPackage } from '../production/assemblyPackageService.js';
+import { createVoiceTrackPlan, getVoiceTrackPlan, exportVoiceTrackPlan } from '../production/voiceTrackPlanService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -457,6 +458,46 @@ router.get('/api/production/shot-lists/:shotListId/snapshots/:shotListSnapshotId
   const out = await getShotListSnapshot(String(req.params.shotListId || ''), String(req.params.shotListSnapshotId || ''));
   if (out.error) return res.status(404).json(out);
   res.json(out);
+});
+
+router.post('/api/production/voice-tracks', uploadPkg.single('assemblyPackage'), async (req, res) => {
+  const scriptId = req.body?.scriptId || null;
+  const reviewedSnapshotId = req.body?.reviewedSnapshotId || null;
+  const shotListId = req.body?.shotListId || null;
+  const shotListSnapshotId = req.body?.shotListSnapshotId || null;
+  const styleProfile = req.body?.styleProfile || null;
+  const locale = req.body?.locale || 'en';
+  const publishReady = String(req.body?.publishReady || '0') === '1';
+
+  let assemblyPackageJson = null;
+  if (req.file?.buffer?.length) {
+    try { assemblyPackageJson = JSON.parse(req.file.buffer.toString('utf8')); }
+    catch { return res.status(400).json({ error: 'malformed_assembly_input' }); }
+  }
+
+  const out = await createVoiceTrackPlan({ scriptId, reviewedSnapshotId, shotListId, shotListSnapshotId, assemblyPackageJson, styleProfile, locale, publishReady });
+  if (['missing_source_input','conflicting_source_inputs','empty_narration_text'].includes(out.error)) return res.status(400).json(out);
+  if (['script_not_found','review_not_found','snapshot_not_found','shot_list_not_found','shot_list_snapshot_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error === 'script_not_approved') return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/voice-tracks/:voiceTrackPlanId', async (req, res) => {
+  const out = await getVoiceTrackPlan(String(req.params.voiceTrackPlanId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/voice-tracks/:voiceTrackPlanId/export', async (req, res) => {
+  const out = await getVoiceTrackPlan(String(req.params.voiceTrackPlanId || ''));
+  if (out.error) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const exp = exportVoiceTrackPlan(out.voiceTrackPlan, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
 });
 
 router.get('/api/production/shot-lists/:shotListId/snapshots/:shotListSnapshotId/export', async (req, res) => {
@@ -1019,6 +1060,12 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="shotlist-snapshot-create">Create Shot List Snapshot</button>
           <button data-action="shotlist-snapshot-list">List Shot List Snapshots</button>
           <button data-action="shotlist-export-assembly">Export Assembly Package</button>
+          <button data-action="voiceplan-generate-script">Generate Voice Plan (Script)</button>
+          <button data-action="voiceplan-generate-shotlist">Generate Voice Plan (Shot List)</button>
+          <button data-action="voiceplan-export-json">Export Voice Plan JSON</button>
+          <button data-action="voiceplan-export-md">Export Voice Plan MD</button>
+          <button data-action="voiceplan-export-srt">Export Voice Plan SRT</button>
+          <button data-action="voiceplan-export-vtt">Export Voice Plan VTT</button>
         </div>
         <pre id="script-preview" class="dbg-pre">No script generated.</pre>
       </section>

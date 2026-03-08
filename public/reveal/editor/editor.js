@@ -10,7 +10,8 @@ let state = {
   selectedStepId: null,
   selectedForMerge: new Set(),
   latestScript: null,
-  latestShotList: null
+  latestShotList: null,
+  latestVoiceTrack: null
 };
 
 async function api(path, method = 'GET', body) {
@@ -477,6 +478,33 @@ function exportAssemblyPackageUi() {
   download(`/reveal/api/production/shot-lists/${encodeURIComponent(state.latestShotList.shotListId)}/export?format=assembly_package`);
 }
 
+async function createVoicePlan(payload) {
+  const out = await api('/reveal/api/production/voice-tracks', 'POST', payload);
+  state.latestVoiceTrack = out.voiceTrackPlan;
+  document.getElementById('script-preview').textContent = JSON.stringify({
+    voiceTrackPlanId: out.voiceTrackPlan.voiceTrackPlanId,
+    sourceType: out.voiceTrackPlan.sourceType,
+    totalEstimatedDurationMs: out.voiceTrackPlan.totalEstimatedDurationMs,
+    segments: out.voiceTrackPlan.segments.map((s) => ({ segmentId: s.segmentId, startOffsetMs: s.startOffsetMs, endOffsetMs: s.endOffsetMs, narrationText: s.narrationText })),
+    captions: out.voiceTrackPlan.captions.slice(0, 8)
+  }, null, 2);
+}
+
+async function createVoicePlanFromScript() {
+  if (!state.latestScript?.scriptId) return alert('Generate script first');
+  await createVoicePlan({ scriptId: state.latestScript.scriptId, publishReady: '1' });
+}
+
+async function createVoicePlanFromShotList() {
+  if (!state.latestShotList?.shotListId) return alert('Generate shot list first');
+  await createVoicePlan({ shotListId: state.latestShotList.shotListId });
+}
+
+function exportVoicePlan(format) {
+  if (!state.latestVoiceTrack?.voiceTrackPlanId) return alert('Generate voice plan first');
+  download(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/export?format=${encodeURIComponent(format)}`);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -765,6 +793,13 @@ function wireActions() {
   document.querySelector('[data-action="shotlist-snapshot-create"]')?.addEventListener('click', () => createShotListSnapshotUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="shotlist-snapshot-list"]')?.addEventListener('click', () => listShotListSnapshotsUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="shotlist-export-assembly"]')?.addEventListener('click', () => exportAssemblyPackageUi());
+
+  document.querySelector('[data-action="voiceplan-generate-script"]')?.addEventListener('click', () => createVoicePlanFromScript().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="voiceplan-generate-shotlist"]')?.addEventListener('click', () => createVoicePlanFromShotList().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="voiceplan-export-json"]')?.addEventListener('click', () => exportVoicePlan('json'));
+  document.querySelector('[data-action="voiceplan-export-md"]')?.addEventListener('click', () => exportVoicePlan('markdown'));
+  document.querySelector('[data-action="voiceplan-export-srt"]')?.addEventListener('click', () => exportVoicePlan('srt'));
+  document.querySelector('[data-action="voiceplan-export-vtt"]')?.addEventListener('click', () => exportVoicePlan('vtt'));
 }
 
 async function boot() {
