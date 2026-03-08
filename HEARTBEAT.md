@@ -28,3 +28,21 @@ Run this check on each heartbeat, but only send a user-visible alert when someth
 ### Noise control
 - Do not repeat the same alert unless data changed.
 - Max 1 buyer-access alert per heartbeat run.
+
+## Signal Pressure Monitor (Secondary)
+
+After Buyer Access Graph check, inspect:
+- `mission-control/signal-pressure/out/pressure-delta.json`
+
+Send a user-visible alert only if:
+1. `new_high_impact_count > 0`, or
+2. A new signal is `verification_status = verified` and maps to a top-ranked buyer.
+
+Alert format: **Signal Pressure Update**
+- Signal
+- Channel
+- Anchor(s)
+- Why it matters
+- Suggested next action
+
+If no qualifying delta, do not alert for this section.

@@ -1,0 +1,130 @@
+{
+  "generated_at": "2026-03-08T04:22:29.614Z",
+  "total_signals": 49,
+  "high_impact_count": 47,
+  "new_signal_count": 49,
+  "new_high_impact_count": 47,
+  "new_high_impact": [
+    {
+      "id": "SIG-2026-02-26-AFC-001",
+      "headline": "AFC Project Preparation Capital Path to USG",
+      "channel": "technology",
+      "verification_status": "verified",
+      "confidence_score": 0.62
+    },
+    {
+      "id": "SIG-2026-02-27-NG-001",
+      "headline": "Nigeria Infrastructure Financing Gap Escalation",
+      "channel": "technology",
+      "verification_status": "verified",
+      "confidence_score": 0.85
+    },
+    {
+      "id": "SIG-2026-02-27-NG-002",
+      "headline": "National Grid Instability / Capacity Shortfall",
+      "channel": "technology",
+      "verification_status": "verified",
+      "confidence_score": 0.85
+    },
+    {
+      "id": "SIG-2026-02-27-GULF-001",
+      "headline": "Gulf Sovereign Capital Reallocation Toward Africa Infrastructure",
+      "channel": "technology",
+      "verification_status": "verified",
+      "confidence_score": 0.62
+    },
+    {
+      "id": "SIG-2026-02-27-AFDB-001",
+      "headline": "AfDB Project Preparation Facility Activation Expansion",
+      "channel": "capital",
+      "verification_status": "verified",
+      "confidence_score": 0.62
+    },
+    {
+      "id": "SIG-2026-02-27-USNG-001",
+      "headline": "U.S.–Nigeria Strategic Infrastructure Alignment",
+      "channel": "technology",
+      "verification_status": "verified",
+      "confidence_score": 0.62
+    },
+    {
+      "id": "SIG-2026-02-27-FISCAL-001",
+      "headline": "Sovereign Fiscal Constraint Tightening",
+      "channel": "technology",
+      "verification_status": "verified",
+      "confidence_score": 0.62
+    },
+    {
+      "id": "SIG-2026-02-27-PIF-STRAT-001",
+      "headline": "PIF Strategy Leadership Shift Toward Domestic Alignment",
+      "channel": "capital",
+      "verification_status": "verified",
+      "confidence_score": 0.62
+    },
+    {
+      "id": "SIG-2026-03-01-PIF-ALUMINUM-001",
+      "headline": "PIF signs initial terms for advanced integrated aluminum complex in Saudi Arabia",
+      "channel": "capital",
+      "verification_status": "verified",
+      "confidence_score": 0.85
+    },
+    {
+      "id": "SIG-2026-03-01-PIF-VENDOR-GATE-001",
+      "headline": "PIF Vendor Gate as official supplier/partner pre-qualification channel",
+      "channel": "news",
+      "verification_status": "verified",
+      "confidence_score": 0.85
+    }
+  ],
+  "last_keys": [
+    "afc project preparation capital path to usg|AFC|",
+    "nigeria infrastructure financing gap escalation|AfDB,FMF-NG,NSIA|",
+    "national grid instability / capacity shortfall|AFC,AfDB,FMF-NG,NSIA|",
+    "gulf sovereign capital reallocation toward africa infrastructure|ADFD,GIC,PIF,SFD|",
+    "afdb project preparation facility activation expansion|AfDB|",
+    "u.s.–nigeria strategic infrastructure alignment|FMF-NG,NSIA|",
+    "sovereign fiscal constraint tightening|FMF-NG,NSIA|",
+    "pif strategy leadership shift toward domestic alignment|PIF|",
+    "pif signs initial terms for advanced integrated aluminum complex in saudi arabia|PIF|",
+    "pif vendor gate as official supplier/partner pre-qualification channel|PIF|INIT-653305",
+    "dangote cement and sinoma sign strategic framework for 12 construction/expansion projects|AFC,AfDB,FMF-NG,NSIA|INIT-653305",
+    "dfc fy26 ndaa mandate expansion materially increases strategic capital deployment headroom|DFC|INIT-653305",
+    "songwe hill rare earths (malawi) pre-fid structuring window|DFC|",
+    "severniy katpar tungsten (kazakhstan) loi-stage commitment gap|DFC|",
+    "banio potash (gabon) feasibility-to-license structuring gap|DFC|",
+    "orion critical minerals consortium as platform deployment channel|DFC|",
+    "africa ai spillover friction: data sovereignty and cross-border governance vacuum|AfDB,FMF-NG,NSIA|",
+    "africa ai spillover friction: energy and edge infrastructure readiness gap|AFC,AfDB,DFC|",
+    "africa ai spillover friction: public-sector ai adoption readiness deficit|DFC,FMF-NG,NSIA|",
+    "africa ai spillover friction: capital structuring gap for ai-enabled infrastructure|AFC,AfDB,DFC,PIF|",
+    "nigeria outlines ~$25b plan aimed at resolving electricity system constraints|AFC,AfDB,DFC,FMF-NG,NSIA|INIT-653305,INIT-AI-OPT-D",
+    "live regulated financial-energy operating system — nigeria|AFC,AfDB,DFC,FMF-NG,NSIA|INIT-653305,INIT-AI-OPT-D",
+    "dfc opens new york office at 100 pearl st. to tighten private-capital execution loop|DFC|",
+    "rwanda launches inir-readiness pathway for nuclear program with smr orientation|AFC,AfDB,DFC|",
+    "nigeria net fx reserves rise 772% to $34.8b; gross reserves reach $50.45b in feb 2026|AFC,AfDB,DFC,FMF-NG,NSIA|INIT-NG-FIN-ENERGY-SPINE",
+    "u.s. clarity act advances digital-asset market structure (sec/cftc line + illicit-finance controls)|COX,DFC,HCC,IFC,KOCH,TPO|",
+    "l&t and nvidia announce india gigawatt-scale ai factory initiative|AFC,DFC,IFC,MUBADALA,PIF|",
+    "pif-linked diriyah procurement cycle expands across hospitality/smart infrastructure|PIF|",
+    "ifc/afdb maintain climate-grid financing momentum in mena and sub-saharan corridors|AfDB,IFC|",
+    "nsia accelerates healthcare infrastructure and impact-fund deployment|NSIA|",
+    "adfd cooperation themes expand across agriculture and ai-linked capability programs|ADFD|",
+    "sfd financing posture remains concentrated on global health and food-security lanes|SFD|",
+    "dfc deepens critical-minerals and energy-security corridor investment posture|DFC|",
+    "charter-cox integration planning indicates modernization and systems-spend window|COX|",
+    "ethiopia launches ai unipod to build national ai capacity and regional leadership posture|AFC,AfDB,DFC,IFC|",
+    "nigeria accounts for majority share of africa-to-u.s. crude flows amid u.s. import decline|AFC,AfDB,DFC,FMF-NG,NSIA|INIT-NG-FIN-ENERGY-SPINE",
+    "dangote outlines post-refinery industrial expansion into steel, power, and ports with ngx listing pathway|AFC,AfDB,DFC,FMF-NG,NSIA|INIT-NG-FIN-ENERGY-SPINE",
+    "oil near $85 reshapes african fiscal winners/losers in near-term financing windows|AFC,AfDB,DFC|",
+    "nigeria and ifc sign cooperation agreement to build ppp project pipeline|AFC,AfDB,DFC,IFC|",
+    "amazon signs white house ratepayer protection pledge tied to data-center power-cost commitments|GIC,PIF|",
+    "u.s. dfc announces ~$20b rolling maritime reinsurance backstop for gulf war-risk trade lanes|AFC,AfDB,DFC,GIC,PIF|",
+    "andhra pradesh ai gigawatt campus shows pre-fid platform pressure with capital-formation gap|AFC,DFC,GIC,PIF|INIT-AP-AI-FACTORY-001",
+    "dangote refinery begins international export tenders|TAFF|INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "ifc fy26 budget confirms mobilization-first posture with ida/fcs and infrastructure emphasis|IFC|",
+    "24h meta-signal: defensive sovereign deployment + infrastructure rotation + coordination gap expansion|AFC,IFC,MUBADALA,PIF,QIA|INIT-001,INIT-653305,INIT-NG-FIN-ENERGY-SPINE",
+    "nigeria national single window phase-1 launch frame signals trade-stack coordination window|AFC,IFC|INIT-NG-FIN-ENERGY-SPINE",
+    "dmcc leadership operating visit signals commodity-platform execution discipline and throughput scaling||INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "white house ratepayer pledge expands to multi-company data-center power-cost containment signal||INIT-AI-OPT-B,INIT-AI-OPT-D",
+    "u.s. tech force program signals federal ai implementation capacity build||INIT-AI-OPT-B"
+  ]
+}

@@ -1,0 +1,11 @@
+# Signal Pressure Monitor (UTC cron examples)
+# Keep in analysis/proposal mode: local artifact generation only.
+
+# 05:45 UTC — pre-brief collection + normalization
+45 5 * * * cd /home/ec2-user/.openclaw/workspace && node mission-control/signal-pressure/run-signal-pressure-monitor.mjs >> mission-control/signal-pressure/logs/cron.log 2>&1
+
+# 12:30 UTC — midday refresh
+30 12 * * * cd /home/ec2-user/.openclaw/workspace && node mission-control/signal-pressure/run-signal-pressure-monitor.mjs >> mission-control/signal-pressure/logs/cron.log 2>&1
+
+# 21:30 UTC — end-of-day drift/late-break scan
+30 21 * * * cd /home/ec2-user/.openclaw/workspace && node mission-control/signal-pressure/run-signal-pressure-monitor.mjs >> mission-control/signal-pressure/logs/cron.log 2>&1
