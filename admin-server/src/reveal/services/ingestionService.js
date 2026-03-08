@@ -46,6 +46,7 @@ export async function appendEvents(sessionId, events = []) {
     frameOrigin: e.frameOrigin || null,
     frameOffsetX: Number(e.frameOffsetX || 0),
     frameOffsetY: Number(e.frameOffsetY || 0),
+    frameChain: Array.isArray(e.frameChain) ? e.frameChain : null,
     zoom: Number(e.zoom || 1),
     cssTransformScale: Number(e.cssTransformScale || 1),
     metadata: { raw: e }

@@ -71,6 +71,7 @@ function rawEvent(type, el, extra = {}) {
     frameOrigin: frameMeta.frameOrigin,
     frameOffsetX: frameMeta.frameOffsetX,
     frameOffsetY: frameMeta.frameOffsetY,
+    frameChain: frameMeta.frameChain,
     ...extra
   };
 }
@@ -133,19 +134,44 @@ function detectCssScale(el) {
 
 function frameContextMeta() {
   try {
+    const chain = [];
     if (window.top === window) {
-      return { framePath: 'top', frameOrigin: location.origin, frameOffsetX: 0, frameOffsetY: 0 };
+      chain.push({ framePath: 'top', frameOrigin: location.origin, frameOffsetX: 0, frameOffsetY: 0, viewportWidth: window.innerWidth || 0, viewportHeight: window.innerHeight || 0, unresolved: false });
+      return { framePath: 'top', frameOrigin: location.origin, frameOffsetX: 0, frameOffsetY: 0, frameChain: chain };
     }
-    const fe = window.frameElement;
-    const r = fe?.getBoundingClientRect?.();
+
+    let w = window;
+    while (w && w !== w.top) {
+      try {
+        const fe = w.frameElement;
+        const r = fe?.getBoundingClientRect?.();
+        chain.unshift({
+          framePath: 'iframe',
+          frameOrigin: w.location?.origin || null,
+          frameOffsetX: r?.x || 0,
+          frameOffsetY: r?.y || 0,
+          viewportWidth: w.innerWidth || 0,
+          viewportHeight: w.innerHeight || 0,
+          unresolved: false
+        });
+        w = w.parent;
+      } catch {
+        chain.unshift({ framePath: 'iframe', frameOrigin: null, frameOffsetX: 0, frameOffsetY: 0, viewportWidth: 0, viewportHeight: 0, unresolved: true });
+        break;
+      }
+    }
+    chain.unshift({ framePath: 'top', frameOrigin: document.referrer || null, frameOffsetX: 0, frameOffsetY: 0, viewportWidth: window.top?.innerWidth || 0, viewportHeight: window.top?.innerHeight || 0, unresolved: false });
+
+    const last = chain[chain.length - 1] || { frameOffsetX: 0, frameOffsetY: 0 };
     return {
       framePath: 'iframe',
       frameOrigin: document.referrer || null,
-      frameOffsetX: r?.x || 0,
-      frameOffsetY: r?.y || 0
+      frameOffsetX: last.frameOffsetX || 0,
+      frameOffsetY: last.frameOffsetY || 0,
+      frameChain: chain
     };
   } catch {
-    return { framePath: 'unknown', frameOrigin: null, frameOffsetX: 0, frameOffsetY: 0 };
+    return { framePath: 'unknown', frameOrigin: null, frameOffsetX: 0, frameOffsetY: 0, frameChain: [{ framePath: 'unknown', unresolved: true }] };
   }
 }
 

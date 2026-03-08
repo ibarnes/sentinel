@@ -114,6 +114,41 @@ function baselineFor(step) {
   return single ? [single] : [];
 }
 
+function renderDiagnostics(step, baselineSteps = []) {
+  const panel = document.getElementById('compare-panel');
+  if (!panel) return;
+  const p = step.screenshots?.provenance || {};
+  const d = step.screenshots?.diagnostics || {};
+  const fc = p.frameContext || {};
+
+  let diagHtml = `<div class="cmp-col"><h4>Diagnostics (Reviewed)</h4>
+    <div>coordinateConfidence: ${Number(step.coordinateConfidence ?? 0).toFixed(2)}</div>
+    <div>reasonCodes: ${(step.coordinateConfidenceReasonCodes || []).join(', ') || 'none'}</div>
+    <div>frameChain: ${escapeHtml(fc.frameChainSummary || fc.framePath || 'n/a')}</div>
+    <div>viewport: src ${d.sourceViewport?.width || '-'}x${d.sourceViewport?.height || '-'} → norm ${d.normalizedViewport?.width || '-'}x${d.normalizedViewport?.height || '-'}</div>
+    <div>renderedImage: ${d.renderedImageDimensions?.width || '-'}x${d.renderedImageDimensions?.height || '-'}</div>
+    <div>driftWarning: ${step.metadata?.highlightDriftWarning ? 'yes' : 'no'} (${step.metadata?.highlightDriftRatio ?? 'n/a'})</div>
+    <div>highlightMode: ${step.metadata?.highlightMode || 'fallback'} (${step.metadata?.highlightFallbackReason || 'ok'})</div>
+  </div>`;
+
+  if (baselineSteps.length) {
+    const b = baselineSteps[0];
+    const bp = b.screenshots?.provenance || {};
+    const bd = b.screenshots?.diagnostics || {};
+    const bfc = bp.frameContext || {};
+    diagHtml += `<div class="cmp-col"><h4>Diagnostics (Baseline)</h4>
+      <div>coordinateConfidence: ${Number(b.coordinateConfidence ?? 0).toFixed(2)}</div>
+      <div>reasonCodes: ${(b.coordinateConfidenceReasonCodes || []).join(', ') || 'none'}</div>
+      <div>frameChain: ${escapeHtml(bfc.frameChainSummary || bfc.framePath || 'n/a')}</div>
+      <div>viewport: src ${bd.sourceViewport?.width || '-'}x${bd.sourceViewport?.height || '-'} → norm ${bd.normalizedViewport?.width || '-'}x${bd.normalizedViewport?.height || '-'}</div>
+      <div>renderedImage: ${bd.renderedImageDimensions?.width || '-'}x${bd.renderedImageDimensions?.height || '-'}</div>
+      <div>highlightMode: ${b.metadata?.highlightMode || 'fallback'} (${b.metadata?.highlightFallbackReason || 'ok'})</div>
+    </div>`;
+  }
+
+  return diagHtml;
+}
+
 function showStep(step) {
   state.selectedStepId = step.id;
   const shotCount = [step.screenshots?.beforeUrl, step.screenshots?.afterUrl, step.screenshots?.highlightedUrl].filter(Boolean).length;
@@ -149,13 +184,13 @@ function renderComparePanel(step) {
   const base = baselineFor(step);
 
   if (!base || base.length === 0) {
-    panel.innerHTML = `<div class="cmp"><strong>Compare:</strong> no baseline step match (${escapeHtml(d.state)})</div>`;
+    panel.innerHTML = `<div class="cmp"><div class="cmp-col"><strong>Compare:</strong> no baseline step match (${escapeHtml(d.state)})</div>${renderDiagnostics(step, []) || ''}</div>`;
     return;
   }
 
   const changed = (d.changedFields || []).join(', ') || 'none';
   const baselineBlock = base.map((b) => `<div class="cmp-col"><h4>Baseline</h4><div>title: ${escapeHtml(b.title || '')}</div><div>action: ${escapeHtml(b.action || '')}</div><div>intent: ${escapeHtml(b.intent || '')}</div><div>index: ${b.index}</div></div>`).join('');
-  panel.innerHTML = `<div class="cmp"><div class="cmp-col"><h4>Reviewed</h4><div>title: ${escapeHtml(step.title || '')}</div><div>action: ${escapeHtml(step.action || '')}</div><div>intent: ${escapeHtml(step.intent || '')}</div><div>index: ${step.index}</div><div>diff: ${escapeHtml(d.state)} (${escapeHtml(changed)})</div></div>${baselineBlock}</div>`;
+  panel.innerHTML = `<div class="cmp"><div class="cmp-col"><h4>Reviewed</h4><div>title: ${escapeHtml(step.title || '')}</div><div>action: ${escapeHtml(step.action || '')}</div><div>intent: ${escapeHtml(step.intent || '')}</div><div>index: ${step.index}</div><div>diff: ${escapeHtml(d.state)} (${escapeHtml(changed)})</div></div>${baselineBlock}${renderDiagnostics(step, base) || ''}</div>`;
 }
 
 function escapeHtml(s) {

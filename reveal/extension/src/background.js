@@ -77,6 +77,7 @@ async function enqueueRawEvent(rawEvent, tabId) {
     frameOrigin: rawEvent?.frameOrigin || null,
     frameOffsetX: rawEvent?.frameOffsetX || 0,
     frameOffsetY: rawEvent?.frameOffsetY || 0,
+    frameChain: rawEvent?.frameChain || null,
     zoom: rawEvent?.zoom || 1,
     cssTransformScale: rawEvent?.cssTransformScale || 1
   } : null;

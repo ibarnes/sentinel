@@ -1,3 +1,5 @@
+import { normalizeFrameChain, accumulateFrameOffsets } from './frameAncestryService.js';
+
 function num(v, d = 0) {
   const n = Number(v);
   return Number.isFinite(n) ? n : d;
@@ -30,8 +32,17 @@ export function normalizeElementBox({ elementBox, screenshotMeta = {}, eventMeta
   const scrollX = num(eventMeta.scrollX, 0);
   const scrollY = num(eventMeta.scrollY, 0);
 
-  const frameOffsetX = num(eventMeta.frameOffsetX, 0);
-  const frameOffsetY = num(eventMeta.frameOffsetY, 0);
+  const chain = normalizeFrameChain(eventMeta.frameChain, {
+    framePath: eventMeta.framePath,
+    frameOrigin: eventMeta.frameOrigin,
+    frameOffsetX: eventMeta.frameOffsetX,
+    frameOffsetY: eventMeta.frameOffsetY,
+    viewportWidth,
+    viewportHeight
+  });
+  const chainOffset = accumulateFrameOffsets(chain);
+  const frameOffsetX = num(chainOffset.x, 0);
+  const frameOffsetY = num(chainOffset.y, 0);
 
   // canonical screenshot pixel-space coordinates
   const scale = dpr * zoom * cssScale;
@@ -54,7 +65,11 @@ export function normalizeElementBox({ elementBox, screenshotMeta = {}, eventMeta
     zoom,
     cssTransformScale: cssScale,
     scrollOffset: { x: scrollX, y: scrollY },
-    frameOffset: { x: frameOffsetX, y: frameOffsetY }
+    frameOffset: { x: frameOffsetX, y: frameOffsetY },
+    frameChain: chain,
+    frameChainComplete: chainOffset.complete,
+    frameChainUnresolvedSegments: chainOffset.unresolvedSegments,
+    frameChainImpossible: chainOffset.impossible
   };
 
   const projected = {

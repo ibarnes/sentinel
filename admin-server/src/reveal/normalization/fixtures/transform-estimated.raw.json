@@ -1,0 +1,3 @@
+[
+  {"id":"te1","ts":"2026-03-08T05:34:00Z","type":"click","url":"https://app.test/transform","selector":"#scaled","domPath":"html/body/div/button","text":"Scaled","metadata":{"raw":{"devicePixelRatio":1,"zoom":1,"cssTransformScale":0.8,"viewport":{"width":1200,"height":800},"target":{"tagName":"button","attributes":{},"text":"Scaled","boundingBox":{"x":400,"y":260,"width":160,"height":42}},"pageTitle":"Transform"}}}
+]

@@ -279,7 +279,8 @@ export async function normalizeSessionToFlow({ session, events }) {
 
     const screenshots = {
       ...persistedShots.screenshots,
-      provenance: persistedShots.provenance
+      provenance: persistedShots.provenance,
+      diagnostics: persistedShots.diagnostics
     };
     const step = {
       id: stepId,
@@ -296,6 +297,8 @@ export async function normalizeSessionToFlow({ session, events }) {
       screenshots,
       events: group.flatMap((e) => String(e.id || '').split(',').filter(Boolean)),
       confidence: scoreStep({ target, group, title, action }),
+      coordinateConfidence: persistedShots.confidence.coordinateConfidence,
+      coordinateConfidenceReasonCodes: persistedShots.confidence.coordinateConfidenceReasonCodes,
       metadata: {
         groupedEventCount: group.length,
         significantActions: group.filter((e) => isSignificant(e)).length,
