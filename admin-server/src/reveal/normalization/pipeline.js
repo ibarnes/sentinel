@@ -1,4 +1,5 @@
-import { newId, fileForNormalizedFlow, writeJson, assetPath, writeDataUrlAsset } from '../storage/revealStorage.js';
+import { newId, fileForNormalizedFlow, writeJson } from '../storage/revealStorage.js';
+import { persistStepScreenshotSet } from '../services/highlightAssetService.js';
 
 const GROUP_WINDOW_MS = 7000;
 const TYPE_DEBOUNCE_MS = 1200;
@@ -240,30 +241,6 @@ function scoreStep({ target, group, title, action }) {
   return Number(Math.max(0.2, Math.min(0.99, s)).toFixed(2));
 }
 
-async function persistStepScreenshots(sessionId, stepId, group, target) {
-  const firstWithShot = group.find((e) => e.metadata?.raw?.screenshot?.dataUrl);
-  const lastWithShot = [...group].reverse().find((e) => e.metadata?.raw?.screenshot?.dataUrl);
-
-  const before = assetPath(sessionId, stepId, 'before');
-  const after = assetPath(sessionId, stepId, 'after');
-  const highlight = assetPath(sessionId, stepId, 'highlight');
-
-  const beforeOk = await writeDataUrlAsset(before, firstWithShot?.metadata?.raw?.screenshot?.dataUrl);
-  const afterOk = await writeDataUrlAsset(after, lastWithShot?.metadata?.raw?.screenshot?.dataUrl);
-
-  let highlightOk = false;
-  // Fallback behavior: persist highlight as the after frame when explicit rendering is unavailable.
-  if (afterOk && target?.elementBox) {
-    highlightOk = await writeDataUrlAsset(highlight, lastWithShot?.metadata?.raw?.screenshot?.dataUrl);
-  }
-
-  const rel = (ok, kind) => (ok ? `/reveal/storage/assets/${sessionId}/${stepId}/${kind}.jpg` : null);
-  return {
-    beforeUrl: rel(beforeOk, 'before'),
-    afterUrl: rel(afterOk, 'after'),
-    highlightedUrl: rel(highlightOk, 'highlight')
-  };
-}
 
 export async function normalizeSessionToFlow({ session, events }) {
   const cleaned = cleanEvents(events);
@@ -276,8 +253,17 @@ export async function normalizeSessionToFlow({ session, events }) {
     const target = bestTarget(group);
     const title = titleFor(action, target, group);
     const stepId = newId('step');
-    const screenshots = await persistStepScreenshots(session.sessionId, stepId, group, target);
+    const firstRaw = group.find((e) => e.metadata?.raw?.screenshot?.dataUrl)?.metadata?.raw || null;
+    const lastRaw = [...group].reverse().find((e) => e.metadata?.raw?.screenshot?.dataUrl)?.metadata?.raw || null;
+    const persistedShots = await persistStepScreenshotSet({
+      sessionId: session.sessionId,
+      stepId,
+      firstRaw,
+      lastRaw,
+      targetBox: target?.elementBox || null
+    });
 
+    const screenshots = persistedShots.screenshots;
     const first = group[0];
     const step = {
       id: stepId,
@@ -298,7 +284,9 @@ export async function normalizeSessionToFlow({ session, events }) {
         groupedEventCount: group.length,
         significantActions: group.filter((e) => isSignificant(e)).length,
         rulesApplied: ['typing_debounce_v1', 'state_boundary_split_v1', 'compound_grouping_v1', 'title_generator_v1', 'confidence_v1'],
-        screenshotFallback: screenshots.highlightedUrl ? null : 'highlight_optional'
+        highlightMode: persistedShots.highlight.mode,
+        highlightFallbackReason: persistedShots.highlight.reason,
+        screenshotSourceValidation: persistedShots.sourceValidation
       },
       annotations: []
     };

@@ -1,6 +1,10 @@
 let state = {
   flowId: null,
   flow: null,
+  baseline: null,
+  reviewed: null,
+  compare: null,
+  compareMode: true,
   selectedStepId: null,
   selectedForMerge: new Set()
 };
@@ -17,33 +21,45 @@ async function api(path, method = 'GET', body) {
 }
 
 async function initReview(flowId) {
-  try {
-    await api(`/reveal/api/flows/${encodeURIComponent(flowId)}/review/init`, 'POST', {});
-  } catch (e) {
-    if (!String(e.message).includes('already')) throw e;
-  }
+  await api(`/reveal/api/flows/${encodeURIComponent(flowId)}/review/init`, 'POST', {});
 }
 
-async function loadPreferred(flowId) {
-  const j = await api(`/reveal/api/flows/${encodeURIComponent(flowId)}`);
-  return j.flow;
+async function loadCompare(flowId) {
+  return api(`/reveal/api/flows/${encodeURIComponent(flowId)}/compare`);
 }
 
-async function loadReview(flowId) {
-  const j = await api(`/reveal/api/flows/${encodeURIComponent(flowId)}/review`);
-  return j.flow;
+function diffInfo(stepId) {
+  return state.compare?.diff?.byReviewedStepId?.[stepId] || { state: 'unknown', changedFields: [] };
 }
 
-function renderTimeline(flow) {
+function badge(text, cls = 'neutral') {
+  return `<span class="b b-${cls}">${escapeHtml(text)}</span>`;
+}
+
+function renderTimeline() {
+  const flow = state.reviewed || state.flow;
   const ul = document.getElementById('timeline-list');
   ul.innerHTML = '';
 
   (flow.steps || []).forEach((step, idx) => {
     const li = document.createElement('li');
     li.dataset.stepId = step.id;
+
     const shotCount = [step.screenshots?.beforeUrl, step.screenshots?.afterUrl, step.screenshots?.highlightedUrl].filter(Boolean).length;
+    const d = diffInfo(step.id);
+    const diffBadge = badge(d.state || 'unknown', d.state === 'edited' ? 'warn' : d.state === 'merged' ? 'info' : d.state === 'unchanged' ? 'ok' : 'neutral');
+    const hiMode = step.metadata?.highlightMode || 'fallback';
+
     li.innerHTML = `<label><input type="checkbox" data-merge="${step.id}" /> ${idx + 1}. ${escapeHtml(step.title)}</label>
-      <div class="step-trust">conf ${(step.confidence ?? 0).toFixed(2)} · ${escapeHtml(step.target?.elementType || 'unknown')} · shots ${shotCount}/3 · events ${(step.events || []).length}</div>`;
+      <div class="step-trust">
+        ${diffBadge}
+        ${badge(`conf ${(step.confidence ?? 0).toFixed(2)}`, 'info')}
+        ${badge(step.target?.elementType || 'unknown', 'neutral')}
+        ${badge(`shots ${shotCount}/3`, shotCount >= 2 ? 'ok' : 'warn')}
+        ${badge(`hl ${hiMode}`, hiMode === 'rendered' ? 'ok' : 'warn')}
+        ${badge(`events ${(step.events || []).length}`, 'neutral')}
+      </div>`;
+
     li.addEventListener('click', (e) => {
       if (e.target?.matches('input[type=checkbox]')) return;
       state.selectedStepId = step.id;
@@ -61,6 +77,13 @@ function renderTimeline(flow) {
     });
   });
 
+  const deleted = state.compare?.diff?.deletedBaselineStepIds || [];
+  if (deleted.length) {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>Deleted from baseline:</strong> ${deleted.length} step(s)`;
+    ul.appendChild(li);
+  }
+
   if (!state.selectedStepId && flow.steps?.length) state.selectedStepId = flow.steps[0].id;
   const step = flow.steps?.find((s) => s.id === state.selectedStepId) || flow.steps?.[0];
   if (step) showStep(step);
@@ -73,11 +96,22 @@ function highlightSelected() {
   });
 }
 
+function baselineFor(step) {
+  if (!state.baseline) return null;
+  const mergedFrom = step.metadata?.mergedFrom;
+  if (Array.isArray(mergedFrom) && mergedFrom.length) {
+    return (state.baseline.steps || []).filter((s) => mergedFrom.includes(s.id));
+  }
+  const single = (state.baseline.steps || []).find((s) => s.id === step.id);
+  return single ? [single] : [];
+}
+
 function showStep(step) {
   state.selectedStepId = step.id;
-  document.getElementById('step-title').textContent = step.title || 'Step';
   const shotCount = [step.screenshots?.beforeUrl, step.screenshots?.afterUrl, step.screenshots?.highlightedUrl].filter(Boolean).length;
-  document.getElementById('step-meta').textContent = `${step.action} • ${step.page?.url || ''} • confidence ${Number(step.confidence ?? 0).toFixed(2)} • type ${step.target?.elementType || 'unknown'} • screenshots ${shotCount}/3 • raw events ${(step.events || []).length}`;
+  document.getElementById('step-title').textContent = step.title || 'Step';
+  document.getElementById('step-meta').textContent = `${step.action} • ${step.page?.url || ''} • confidence ${Number(step.confidence ?? 0).toFixed(2)} • type ${step.target?.elementType || 'unknown'} • screenshots ${shotCount}/3 • raw events ${(step.events || []).length} • highlight ${step.metadata?.highlightMode || 'fallback'}`;
+
   document.getElementById('shot-before').src = step.screenshots?.beforeUrl || '';
   document.getElementById('shot-after').src = step.screenshots?.afterUrl || '';
   document.getElementById('shot-highlight').src = step.screenshots?.highlightedUrl || '';
@@ -89,6 +123,29 @@ function showStep(step) {
     li.textContent = `${a.author}: ${a.text}`;
     ann.appendChild(li);
   });
+
+  renderComparePanel(step);
+}
+
+function renderComparePanel(step) {
+  const panel = document.getElementById('compare-panel');
+  if (!panel) return;
+  if (!state.compareMode) {
+    panel.innerHTML = '';
+    return;
+  }
+
+  const d = diffInfo(step.id);
+  const base = baselineFor(step);
+
+  if (!base || base.length === 0) {
+    panel.innerHTML = `<div class="cmp"><strong>Compare:</strong> no baseline step match (${escapeHtml(d.state)})</div>`;
+    return;
+  }
+
+  const changed = (d.changedFields || []).join(', ') || 'none';
+  const baselineBlock = base.map((b) => `<div class="cmp-col"><h4>Baseline</h4><div>title: ${escapeHtml(b.title || '')}</div><div>action: ${escapeHtml(b.action || '')}</div><div>intent: ${escapeHtml(b.intent || '')}</div><div>index: ${b.index}</div></div>`).join('');
+  panel.innerHTML = `<div class="cmp"><div class="cmp-col"><h4>Reviewed</h4><div>title: ${escapeHtml(step.title || '')}</div><div>action: ${escapeHtml(step.action || '')}</div><div>intent: ${escapeHtml(step.intent || '')}</div><div>index: ${step.index}</div><div>diff: ${escapeHtml(d.state)} (${escapeHtml(changed)})</div></div>${baselineBlock}</div>`;
 }
 
 function escapeHtml(s) {
@@ -96,9 +153,12 @@ function escapeHtml(s) {
 }
 
 async function refresh() {
-  const flow = await loadReview(state.flowId);
-  state.flow = flow;
-  renderTimeline(flow);
+  const data = await loadCompare(state.flowId);
+  state.compare = data;
+  state.baseline = data.baseline;
+  state.reviewed = data.reviewed || data.baseline;
+  state.flow = state.reviewed;
+  renderTimeline();
 }
 
 function selectedStep() {
@@ -165,6 +225,12 @@ function wireActions() {
   document.querySelector('[data-action="move-up"]')?.addEventListener('click', () => reorder('up'));
   document.querySelector('[data-action="move-down"]')?.addEventListener('click', () => reorder('down'));
   document.querySelector('[data-action="merge"]')?.addEventListener('click', mergeSelected);
+  document.querySelector('[data-action="compare-toggle"]')?.addEventListener('click', (e) => {
+    state.compareMode = !state.compareMode;
+    e.target.textContent = `Compare: ${state.compareMode ? 'On' : 'Off'}`;
+    const step = selectedStep();
+    if (step) renderComparePanel(step);
+  });
 }
 
 async function boot() {
@@ -173,8 +239,7 @@ async function boot() {
   if (!state.flowId) return;
   try {
     await initReview(state.flowId);
-    state.flow = await loadPreferred(state.flowId);
-    renderTimeline(state.flow);
+    await refresh();
     wireActions();
   } catch (e) {
     document.getElementById('step-title').textContent = 'Unable to load flow';

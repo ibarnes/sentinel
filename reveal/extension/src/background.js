@@ -1,3 +1,5 @@
+import { renderHighlightDataUrl } from './highlightRenderer.js';
+
 const API_BASE = 'http://localhost:4180/reveal/api';
 
 const state = {
@@ -64,7 +66,24 @@ async function enqueueRawEvent(rawEvent, tabId) {
   if (!state.recording || !state.sessionId) return;
   const shouldCapture = Boolean(rawEvent?.significant);
   const shot = shouldCapture ? await captureScreenshot(tabId) : null;
-  state.queue.push({ ...rawEvent, screenshot: shot, sessionId: state.sessionId });
+
+  let highlight = null;
+  if (shot?.dataUrl && rawEvent?.target?.boundingBox) {
+    const rendered = await renderHighlightDataUrl({
+      screenshotDataUrl: shot.dataUrl,
+      elementBox: rawEvent.target.boundingBox,
+      label: rawEvent.target.text || rawEvent.target.attributes?.['aria-label'] || 'Target'
+    });
+    if (rendered.ok) {
+      highlight = { dataUrl: rendered.dataUrl, metadata: rendered.metadata };
+    } else {
+      highlight = { dataUrl: null, metadata: { mode: 'fallback', reason: rendered.reason || 'render_failed' } };
+    }
+  } else {
+    highlight = { dataUrl: null, metadata: { mode: 'fallback', reason: 'missing_box_or_screenshot' } };
+  }
+
+  state.queue.push({ ...rawEvent, screenshot: shot, highlight, sessionId: state.sessionId });
   if (state.queue.length >= state.maxBatch) {
     await flushQueue();
   }

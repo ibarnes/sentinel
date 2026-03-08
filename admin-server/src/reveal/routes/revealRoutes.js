@@ -12,6 +12,7 @@ import {
   getReview,
   replaceReview
 } from '../services/reviewedFlowService.js';
+import { getFlowCompare } from '../services/compareService.js';
 
 const router = express.Router();
 
@@ -41,6 +42,13 @@ router.get('/api/flows/:id', async (req, res) => {
   const found = await getFlow(flowId, version);
   if (!found) return res.status(404).json({ error: 'flow_not_found' });
   res.json(found);
+});
+
+router.get('/api/flows/:id/compare', async (req, res) => {
+  const flowId = String(req.params.id || '');
+  const compare = await getFlowCompare(flowId);
+  if (compare.error === 'baseline_not_found') return res.status(404).json({ error: 'baseline_not_found' });
+  res.json(compare);
 });
 
 router.post('/api/flows/:flowId/review/init', async (req, res) => {
@@ -142,9 +150,11 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="delete">Delete</button>
           <button data-action="annotate">Annotate</button>
           <button data-action="reload">Reload</button>
+          <button data-action="compare-toggle">Compare: On</button>
         </div>
       </header>
       <section class="meta" id="step-meta"></section>
+      <section class="compare" id="compare-panel"></section>
       <section class="screenshots">
         <div><h4>Before</h4><img id="shot-before" alt="before" /></div>
         <div><h4>After</h4><img id="shot-after" alt="after" /></div>
