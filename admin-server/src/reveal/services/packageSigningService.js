@@ -4,6 +4,34 @@ import crypto from 'crypto';
 const DEFAULT_PRIVATE = '/home/ec2-user/.openclaw/workspace/reveal/keys/package-signing-private.pem';
 const DEFAULT_PUBLIC = '/home/ec2-user/.openclaw/workspace/reveal/keys/package-signing-public.pem';
 export const PACKAGE_SIGNATURE_VERSION = 'sig-v1';
+export const VERIFICATION_POLICY_VERSION = 'policy-v1';
+
+export const TRUST_PROFILES = {
+  local_dev: {
+    trustProfileId: 'local_dev',
+    trustProfileName: 'Local Development',
+    trustProfileVersion: 1,
+    trustProfileType: 'local_dev',
+    signerIdentity: 'Reveal Local Signer',
+    verificationPolicyVersion: VERIFICATION_POLICY_VERSION
+  },
+  internal_verified: {
+    trustProfileId: 'internal_verified',
+    trustProfileName: 'Internal Verified',
+    trustProfileVersion: 1,
+    trustProfileType: 'internal_verified',
+    signerIdentity: 'Reveal Internal Signer',
+    verificationPolicyVersion: VERIFICATION_POLICY_VERSION
+  },
+  unsigned_export: {
+    trustProfileId: 'unsigned_export',
+    trustProfileName: 'Unsigned Export',
+    trustProfileVersion: 1,
+    trustProfileType: 'unsigned_export',
+    signerIdentity: 'None',
+    verificationPolicyVersion: VERIFICATION_POLICY_VERSION
+  }
+};
 
 function canonicalize(v) {
   if (v === undefined) return undefined;
@@ -26,14 +54,74 @@ async function readIfExists(p) {
   try { return await fs.readFile(p, 'utf8'); } catch { return null; }
 }
 
+function fingerprintForPublicKey(publicKey) {
+  if (!publicKey) return null;
+  return crypto.createHash('sha256').update(publicKey).digest('hex');
+}
+
+function selectedProfile(enabled) {
+  if (!enabled) return TRUST_PROFILES.unsigned_export;
+  const wanted = String(process.env.REVEAL_TRUST_PROFILE_ID || 'local_dev');
+  return TRUST_PROFILES[wanted] || TRUST_PROFILES.local_dev;
+}
+
 export async function getSigningContext() {
   const privateKey = process.env.REVEAL_SIGNING_PRIVATE_KEY || await readIfExists(DEFAULT_PRIVATE);
   const publicKey = process.env.REVEAL_SIGNING_PUBLIC_KEY || await readIfExists(DEFAULT_PUBLIC);
-  if (!privateKey || !publicKey) return { enabled: false, unsignedReason: 'missing_key' };
+  const enabled = Boolean(privateKey && publicKey);
+  const profile = selectedProfile(enabled);
+
+  if (!enabled) {
+    return {
+      enabled: false,
+      unsignedReason: 'missing_key',
+      trustProfile: profile,
+      keysetVersion: 'keyset-v1'
+    };
+  }
 
   const signingAlgorithm = 'RSA-SHA256';
-  const keyId = process.env.REVEAL_SIGNING_KEY_ID || crypto.createHash('sha256').update(publicKey).digest('hex').slice(0, 16);
-  return { enabled: true, privateKey, publicKey, signingAlgorithm, signingKeyId: keyId };
+  const publicKeyAlgorithm = 'RSA';
+  const signingKeyId = process.env.REVEAL_SIGNING_KEY_ID || fingerprintForPublicKey(publicKey).slice(0, 16);
+  const signerKeyFingerprint = fingerprintForPublicKey(publicKey);
+
+  return {
+    enabled: true,
+    privateKey,
+    publicKey,
+    signingAlgorithm,
+    publicKeyAlgorithm,
+    signingKeyId,
+    signerKeyFingerprint,
+    publicKeyHint: signerKeyFingerprint?.slice(0, 12) || null,
+    trustProfile: profile,
+    keysetVersion: 'keyset-v1'
+  };
+}
+
+export async function getVerificationKeyset() {
+  const ctx = await getSigningContext();
+  const keys = [];
+  if (ctx.enabled) {
+    keys.push({
+      signingKeyId: ctx.signingKeyId,
+      signerKeyFingerprint: ctx.signerKeyFingerprint,
+      algorithm: ctx.signingAlgorithm,
+      publicKeyAlgorithm: ctx.publicKeyAlgorithm,
+      publicKeyPem: ctx.publicKey,
+      trustProfileId: ctx.trustProfile.trustProfileId,
+      trustProfileName: ctx.trustProfile.trustProfileName,
+      status: 'active',
+      keyHint: ctx.publicKeyHint
+    });
+  }
+
+  return {
+    keysetVersion: ctx.keysetVersion || 'keyset-v1',
+    publishedAt: new Date().toISOString(),
+    trustProfiles: Object.values(TRUST_PROFILES),
+    keys
+  };
 }
 
 export function buildSigningPayload(manifestCore) {
@@ -56,8 +144,7 @@ export function signPayload(payload, ctx) {
   const signer = crypto.createSign('RSA-SHA256');
   signer.update(input);
   signer.end();
-  const sig = signer.sign(ctx.privateKey, 'base64');
-  return sig;
+  return signer.sign(ctx.privateKey, 'base64');
 }
 
 export function verifyPayloadSignature(payload, signature, ctx) {
@@ -68,17 +155,42 @@ export function verifyPayloadSignature(payload, signature, ctx) {
   return verifier.verify(ctx.publicKey, signature, 'base64');
 }
 
-export function verifyVerificationMetadata(meta, ctx) {
-  if (!meta) return { status: 'malformed_verification_payload', reasonCodes: ['missing_metadata'] };
+export async function verifyVerificationMetadata(meta, explicitCtx = null) {
+  const ctx = explicitCtx || await getSigningContext();
+  const keyset = explicitCtx?.keyset || await getVerificationKeyset();
+
+  if (!meta || typeof meta !== 'object') return { status: 'malformed_verification_payload', reasonCodes: ['missing_metadata'] };
   if (!meta.packageContentHash) return { status: 'content_hash_mismatch', reasonCodes: ['missing_package_content_hash'] };
   if (meta.integrityPackageContentHash && meta.integrityPackageContentHash !== meta.packageContentHash) {
     return { status: 'content_hash_mismatch', reasonCodes: ['manifest_integrity_package_content_hash_mismatch'] };
   }
-  if (!meta.packageSignature) return { status: meta.signatureStatus === 'unsigned' ? 'unsigned' : 'missing_signature', reasonCodes: ['missing_signature'] };
+
+  if (!meta.trustProfileId || !TRUST_PROFILES[meta.trustProfileId]) {
+    return { status: 'unknown_trust_profile', reasonCodes: ['unknown_trust_profile'] };
+  }
+
+  if (!meta.packageSignature) {
+    return {
+      status: meta.signatureStatus === 'unsigned' ? 'unsigned' : 'missing_signature',
+      reasonCodes: [meta.signatureStatus === 'unsigned' ? 'unsigned_package' : 'missing_signature']
+    };
+  }
+
   if (!ctx?.enabled) return { status: 'missing_key', reasonCodes: ['missing_verifier_key'] };
   if (meta.packageSignatureVersion !== PACKAGE_SIGNATURE_VERSION) return { status: 'invalid_signature', reasonCodes: ['incompatible_signature_version'] };
-  if (meta.signingKeyId && ctx.signingKeyId && meta.signingKeyId !== ctx.signingKeyId) return { status: 'invalid_signature', reasonCodes: ['signing_key_id_mismatch'] };
+
+  if (meta.signingKeyId && ctx.signingKeyId && meta.signingKeyId !== ctx.signingKeyId) {
+    return { status: 'signer_key_mismatch', reasonCodes: ['signing_key_id_mismatch'] };
+  }
+  if (meta.signerKeyFingerprint && ctx.signerKeyFingerprint && meta.signerKeyFingerprint !== ctx.signerKeyFingerprint) {
+    return { status: 'signer_key_mismatch', reasonCodes: ['signer_fingerprint_mismatch'] };
+  }
 
   const ok = verifyPayloadSignature(meta, meta.packageSignature, ctx);
-  return ok ? { status: 'verified', reasonCodes: ['signature_verified'] } : { status: 'invalid_signature', reasonCodes: ['signature_verification_failed'] };
+  if (!ok) return { status: 'invalid_signature', reasonCodes: ['signature_verification_failed'] };
+
+  const published = keyset.keys.find((k) => k.signingKeyId === meta.signingKeyId && k.signerKeyFingerprint === meta.signerKeyFingerprint);
+  if (!published) return { status: 'verified_with_unpublished_key', reasonCodes: ['signature_verified_key_not_in_published_keyset'], keysetVersion: keyset.keysetVersion };
+
+  return { status: 'verified', reasonCodes: ['signature_verified'], keysetVersion: keyset.keysetVersion };
 }

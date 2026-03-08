@@ -65,8 +65,12 @@ Product-intelligence capture system at `/reveal`.
 - Package signature metadata:
   - `signatureStatus` = `signed|unsigned|verification_failed`
   - `packageSignature`, `packageSignatureVersion`, `signingKeyId`, `signingAlgorithm`
+  - `signerKeyFingerprint`, `publicKeyAlgorithm`, `publicKeyHint`
+  - `trustProfileId`, `trustProfileName`, `trustProfileVersion`, `trustProfileType`, `verificationPolicyVersion`
   - `packageVerificationScope` (exact signed fields)
 - Verification metadata routes:
+  - `GET /reveal/api/verification/keyset`
+  - `GET /reveal/api/verification/trust-profiles`
   - `GET /reveal/api/flows/:flowId/export/verification-metadata`
   - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId/export/verification-metadata`
   - `POST /reveal/api/revealpkg/verify`

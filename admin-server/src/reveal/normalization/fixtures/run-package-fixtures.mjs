@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import { buildReviewedPackage, buildSnapshotPackage, getReviewedPackageVerificationMetadata } from '../../services/packageService.js';
+import { getVerificationKeyset } from '../../services/packageSigningService.js';
 import { createSnapshot } from '../../services/snapshotService.js';
 import { fileForReviewedFlow, writeJson } from '../../storage/revealStorage.js';
 import { verifyVerificationMetadata } from '../../services/packageSigningService.js';
@@ -28,6 +29,7 @@ if (snap.error) throw new Error(snap.error);
 const oldPriv = process.env.REVEAL_SIGNING_PRIVATE_KEY;
 const oldPub = process.env.REVEAL_SIGNING_PUBLIC_KEY;
 const oldKid = process.env.REVEAL_SIGNING_KEY_ID;
+const oldTrust = process.env.REVEAL_TRUST_PROFILE_ID;
 delete process.env.REVEAL_SIGNING_PRIVATE_KEY;
 delete process.env.REVEAL_SIGNING_PUBLIC_KEY;
 delete process.env.REVEAL_SIGNING_KEY_ID;
@@ -41,6 +43,11 @@ const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', { modulusLen
 process.env.REVEAL_SIGNING_PRIVATE_KEY = privateKey;
 process.env.REVEAL_SIGNING_PUBLIC_KEY = publicKey;
 process.env.REVEAL_SIGNING_KEY_ID = 'fixture-key';
+process.env.REVEAL_TRUST_PROFILE_ID = 'local_dev';
+
+const ks = await getVerificationKeyset();
+if (!ks.keysetVersion || !Array.isArray(ks.keys)) throw new Error('keyset payload malformed');
+if (ks.keys.length < 1) throw new Error('expected active key in keyset');
 
 const rp = await buildReviewedPackage(flowId);
 if (rp.error) throw new Error(rp.error);
@@ -70,17 +77,35 @@ if (!Array.isArray(man.omittedAssets)) throw new Error('manifest omittedAssets m
 if (!man.packageSignature) throw new Error('manifest missing packageSignature');
 
 // verify success
-const verifyOk = verifyVerificationMetadata(man, { enabled: true, publicKey, signingKeyId: 'fixture-key' });
+const verifyOk = await verifyVerificationMetadata(man, { enabled: true, publicKey, signingKeyId: 'fixture-key', signerKeyFingerprint: man.signerKeyFingerprint });
 if (verifyOk.status !== 'verified') throw new Error(`verify expected verified got ${verifyOk.status}`);
+
+// signed package with unpublished key context override
+const verifyUnpublished = await verifyVerificationMetadata(man, {
+  enabled: true,
+  publicKey,
+  signingKeyId: 'fixture-key',
+  signerKeyFingerprint: man.signerKeyFingerprint,
+  keyset: { keysetVersion: 'test-v1', keys: [] }
+});
+if (verifyUnpublished.status !== 'verified_with_unpublished_key') throw new Error('expected verified_with_unpublished_key');
 
 // tampered signature payload
 const tampered = { ...man, packageContentHash: 'tampered-hash' };
-const verifyBad = verifyVerificationMetadata(tampered, { enabled: true, publicKey, signingKeyId: 'fixture-key' });
+const verifyBad = await verifyVerificationMetadata(tampered, { enabled: true, publicKey, signingKeyId: 'fixture-key', signerKeyFingerprint: man.signerKeyFingerprint });
 if (verifyBad.status !== 'invalid_signature') throw new Error('expected invalid_signature for tampered payload');
 
+// signer key mismatch
+const verifyMismatch = await verifyVerificationMetadata(man, { enabled: true, publicKey, signingKeyId: 'other-key', signerKeyFingerprint: 'deadbeef' });
+if (verifyMismatch.status !== 'signer_key_mismatch') throw new Error('expected signer_key_mismatch');
+
+// unknown trust profile
+const unknownTrust = await verifyVerificationMetadata({ ...man, trustProfileId: 'unknown_profile' }, { enabled: true, publicKey, signingKeyId: 'fixture-key', signerKeyFingerprint: man.signerKeyFingerprint });
+if (unknownTrust.status !== 'unknown_trust_profile') throw new Error('expected unknown_trust_profile');
+
 // malformed metadata
-const malformed = verifyVerificationMetadata({}, { enabled: true, publicKey, signingKeyId: 'fixture-key' });
-if (!['content_hash_mismatch','missing_signature'].includes(malformed.status)) throw new Error('expected malformed verification failure');
+const malformed = await verifyVerificationMetadata({}, { enabled: true, publicKey, signingKeyId: 'fixture-key', signerKeyFingerprint: man.signerKeyFingerprint });
+if (!['content_hash_mismatch','missing_signature','malformed_verification_payload'].includes(malformed.status)) throw new Error('expected malformed verification failure');
 
 // verification metadata endpoint helper
 const vm = await getReviewedPackageVerificationMetadata(flowId);
@@ -93,5 +118,6 @@ await fs.rm(rpUnsigned.cleanupDir, { recursive: true, force: true });
 if (oldPriv) process.env.REVEAL_SIGNING_PRIVATE_KEY = oldPriv; else delete process.env.REVEAL_SIGNING_PRIVATE_KEY;
 if (oldPub) process.env.REVEAL_SIGNING_PUBLIC_KEY = oldPub; else delete process.env.REVEAL_SIGNING_PUBLIC_KEY;
 if (oldKid) process.env.REVEAL_SIGNING_KEY_ID = oldKid; else delete process.env.REVEAL_SIGNING_KEY_ID;
+if (oldTrust) process.env.REVEAL_TRUST_PROFILE_ID = oldTrust; else delete process.env.REVEAL_TRUST_PROFILE_ID;
 
 console.log(`OK package fixtures reviewed=${rList.length} snapshot=${sList.length} signed=${rp.manifest.signatureStatus}`);

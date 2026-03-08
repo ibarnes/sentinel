@@ -19,9 +19,18 @@ import { integrityForStep, integrityRecomputeFlow } from '../services/replayInte
 import { createSnapshot, listSnapshots, getSnapshot, verifySnapshotIntegrity, recomputeFlowSnapshotIntegrity } from '../services/snapshotService.js';
 import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
 import { buildReviewedPackage, buildSnapshotPackage, getReviewedPackageVerificationMetadata, getSnapshotPackageVerificationMetadata } from '../services/packageService.js';
-import { getSigningContext, verifyVerificationMetadata } from '../services/packageSigningService.js';
+import { getSigningContext, verifyVerificationMetadata, getVerificationKeyset, TRUST_PROFILES } from '../services/packageSigningService.js';
 
 const router = express.Router();
+
+router.get('/api/verification/keyset', async (_req, res) => {
+  const out = await getVerificationKeyset();
+  res.json(out);
+});
+
+router.get('/api/verification/trust-profiles', async (_req, res) => {
+  res.json({ trustProfiles: Object.values(TRUST_PROFILES) });
+});
 
 router.post('/api/sessions', async (req, res) => {
   const session = await createSession({ source: req.body?.source, meta: req.body?.meta || {} });
@@ -189,7 +198,7 @@ router.post('/api/flows/:flowId/snapshots/integrity/recompute', async (req, res)
 router.post('/api/revealpkg/verify', async (req, res) => {
   const meta = req.body || {};
   const ctx = await getSigningContext();
-  const out = verifyVerificationMetadata(meta, ctx);
+  const out = await verifyVerificationMetadata(meta, ctx);
   res.json(out);
 });
 

@@ -93,20 +93,30 @@ async function applySignatureMetadata(manifest) {
   manifest.packageVerificationScope = ['packageFormat','packageVersion','packageType','flowId','snapshotId','reviewVersion','snapshotChainIndex','contentHash','packageContentHash'];
   manifest.signingAlgorithm = ctx.signingAlgorithm || 'RSA-SHA256';
   manifest.signingKeyId = ctx.signingKeyId || null;
+  manifest.publicKeyAlgorithm = ctx.publicKeyAlgorithm || 'RSA';
+  manifest.publicKeyHint = ctx.publicKeyHint || null;
+  manifest.signerKeyFingerprint = ctx.signerKeyFingerprint || null;
+  manifest.trustProfileId = ctx.trustProfile?.trustProfileId || 'unsigned_export';
+  manifest.trustProfileName = ctx.trustProfile?.trustProfileName || 'Unsigned Export';
+  manifest.trustProfileVersion = ctx.trustProfile?.trustProfileVersion || 1;
+  manifest.trustProfileType = ctx.trustProfile?.trustProfileType || 'unsigned_export';
+  manifest.signerIdentity = ctx.trustProfile?.signerIdentity || 'None';
+  manifest.verificationPolicyVersion = ctx.trustProfile?.verificationPolicyVersion || 'policy-v1';
+  manifest.verifierKeysetVersion = ctx.keysetVersion || 'keyset-v1';
 
   if (!ctx.enabled) {
     manifest.signatureStatus = 'unsigned';
     manifest.unsignedReason = ctx.unsignedReason || 'missing_key';
     manifest.packageSignature = null;
-    return { manifest, verification: { status: 'unsigned', reasonCodes: [manifest.unsignedReason] } };
+    return { manifest, verification: { status: 'unsigned', reasonCodes: [manifest.unsignedReason], keysetVersion: manifest.verifierKeysetVersion } };
   }
 
   const signature = signPayload(manifest, ctx);
   manifest.packageSignature = signature;
   manifest.signatureStatus = 'signed';
 
-  const verification = verifyVerificationMetadata(manifest, ctx);
-  if (verification.status !== 'verified') manifest.signatureStatus = 'verification_failed';
+  const verification = await verifyVerificationMetadata(manifest, ctx);
+  if (!['verified','verified_with_unpublished_key'].includes(verification.status)) manifest.signatureStatus = 'verification_failed';
 
   return { manifest, verification };
 }
@@ -199,7 +209,16 @@ async function buildPackage({ packageType, flowId, snapshotId = null }) {
     verificationMetadata: {
       signatureStatus: finalManifest.signatureStatus,
       signingKeyId: finalManifest.signingKeyId,
+      signerKeyFingerprint: finalManifest.signerKeyFingerprint,
       signingAlgorithm: finalManifest.signingAlgorithm,
+      publicKeyAlgorithm: finalManifest.publicKeyAlgorithm,
+      publicKeyHint: finalManifest.publicKeyHint,
+      trustProfileId: finalManifest.trustProfileId,
+      trustProfileName: finalManifest.trustProfileName,
+      trustProfileVersion: finalManifest.trustProfileVersion,
+      trustProfileType: finalManifest.trustProfileType,
+      verificationPolicyVersion: finalManifest.verificationPolicyVersion,
+      verifierKeysetVersion: finalManifest.verifierKeysetVersion,
       packageSignatureVersion: finalManifest.packageSignatureVersion,
       packageSignature: finalManifest.packageSignature,
       packageVerificationScope: finalManifest.packageVerificationScope,
