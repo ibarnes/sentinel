@@ -111,6 +111,14 @@ Product-intelligence capture system at `/reveal`.
   - TTL + optional idle policy for `playing` sessions
   - in-process sweeper interval (`REVEAL_PLAYER_SWEEP_INTERVAL_MS`)
   - package session cleanup status: `none|pending|cleaned|failed`
+  - resume endpoint: `POST /reveal/api/player/sessions/:sessionId/resume`
+  - listing filters: `status`, `sourceType`, `flowId`, `snapshotId`, `includeExpired=1`, `recoverable=1`, `sourceRetentionPolicy=...`
+- Package source retention policy:
+  - `ephemeral_only`
+  - `retained_local_source`
+  - `retained_package_copy`
+  - `non_recoverable`
+- Recovery registry fields include `recoverabilityStatus`, `lastRecoveryStatus`, `lastRecoveryAttemptAt`, `recoveryError`.
   - recovery registry: `reveal/storage/player-recovery-registry/*.json`
   - retention policy for package sessions:
     - `ephemeral_only`

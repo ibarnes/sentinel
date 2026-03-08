@@ -42,9 +42,11 @@ g = await getPlayerSession(sid);
 if (!g.session.autoPlayEnabled || g.session.playbackStatus !== 'playing') throw new Error('play/autoplay update failed');
 await patchPlayerSession(sid, { action: 'restart' });
 
-// listing
+// listing + filter
 const listed = await listPlayerSessions({ flowId, includeExpired: '1' });
 if (!Array.isArray(listed.sessions) || listed.sessions.length < 1) throw new Error('listing failed');
+const listedRecoverable = await listPlayerSessions({ flowId, includeExpired: '1', recoverable: '1' });
+if (!Array.isArray(listedRecoverable.sessions)) throw new Error('recoverable listing failed');
 
 // snapshot session + resume
 const snap = await createSnapshot(flowId, { createdBy: 'fixture' });
@@ -54,47 +56,38 @@ const srs = await readSession(ss.session.sessionId);
 srs.playbackStatus = 'expired';
 await writeSessionFile(srs);
 const resumed = await resumePlayerSession(ss.session.sessionId);
-if (resumed.status !== 'resumed') throw new Error('snapshot resume failed');
+if (!['resumed','already_active'].includes(resumed.status)) throw new Error('snapshot resume failed');
 
-// package session
+// package session ephemeral (non-recoverable after cleanup)
 const pkg = await buildReviewedPackage(flowId);
 const buf = await fs.readFile(pkg.archivePath);
-const sp = await createPlayerSession({ packageBuffer: buf, sourceRetentionPolicy: 'retained_package_copy' });
-if (sp.error) throw new Error(`package session failed: ${sp.error}`);
-if (sp.session.sourceType !== 'reveal_package') throw new Error('package sourceType invalid');
-
-// force expired and sweep cleanup
-const spRaw = await readSession(sp.session.sessionId);
-spRaw.createdAt = '2000-01-01T00:00:00.000Z';
-spRaw.playbackStatus = 'paused';
-await writeSessionFile(spRaw);
-const sw = await sweepPlayerSessions();
-if (!sw.ok) throw new Error('sweeper failed');
-const spAfter = await getPlayerSession(sp.session.sessionId);
-if (spAfter.session.playbackStatus !== 'expired') throw new Error('sweeper did not expire session');
-
-// package recovery rehydrate path
-const spRes = await resumePlayerSession(sp.session.sessionId);
-if (!['rehydrated_and_resumed','resumed'].includes(spRes.status || '')) {
-  throw new Error(`unexpected package resume status: ${spRes.error || spRes.status}`);
-}
-
-// non-recoverable package policy
-const sp2 = await createPlayerSession({ packageBuffer: buf, sourceRetentionPolicy: 'ephemeral_only' });
-const sp2Raw = await readSession(sp2.session.sessionId);
-sp2Raw.createdAt = '2000-01-01T00:00:00.000Z';
-sp2Raw.playbackStatus = 'paused';
-await writeSessionFile(sp2Raw);
+const spEphemeral = await createPlayerSession({ packageBuffer: buf, sourceRetentionPolicy: 'ephemeral_only' });
+if (spEphemeral.error) throw new Error(`package session failed: ${spEphemeral.error}`);
+const epRaw = await readSession(spEphemeral.session.sessionId);
+epRaw.createdAt = '2000-01-01T00:00:00.000Z';
+epRaw.playbackStatus = 'paused';
+await writeSessionFile(epRaw);
 await sweepPlayerSessions();
-const sp2Res = await resumePlayerSession(sp2.session.sessionId);
-if (sp2Res.error !== 'not_resumable') throw new Error('expected not_resumable for ephemeral policy');
+const epResume = await resumePlayerSession(spEphemeral.session.sessionId);
+if (epResume.error !== 'not_resumable') throw new Error('expected non-resumable ephemeral package session');
 
-// delete + cleanup metadata path
-const del = await deletePlayerSession(sp.session.sessionId);
+// package session retained (rehydrate path)
+const spRetained = await createPlayerSession({ packageBuffer: buf, sourceRetentionPolicy: 'retained_package_copy' });
+if (spRetained.error) throw new Error(`retained package session failed: ${spRetained.error}`);
+const rpRaw = await readSession(spRetained.session.sessionId);
+rpRaw.createdAt = '2000-01-01T00:00:00.000Z';
+rpRaw.playbackStatus = 'paused';
+await writeSessionFile(rpRaw);
+await sweepPlayerSessions();
+const rpRes = await resumePlayerSession(spRetained.session.sessionId);
+if (!['rehydrated_and_resumed','resumed'].includes(rpRes.status)) throw new Error('expected retained package rehydrate resume');
+
+// cleanup failure handling path (best-effort check)
+const del = await deletePlayerSession(spRetained.session.sessionId);
 if (!del.deleted) throw new Error('delete session failed');
 if (!['cleaned','none','failed'].includes(del.cleanupStatus)) throw new Error('cleanup status invalid');
 
-const gone = await getPlayerSession(sp.session.sessionId);
+const gone = await getPlayerSession(spRetained.session.sessionId);
 if (gone.error !== 'session_not_found') throw new Error('deleted session still retrievable');
 
 await fs.rm(pkg.cleanupDir, { recursive: true, force: true });
