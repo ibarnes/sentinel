@@ -59,6 +59,9 @@ import { buildSignedSubtitleBundle, verifySubtitleBundle } from '../production/s
 import { createUnifiedVerifierPackage, getUnifiedVerifierPackage, latestUnifiedVerifierPackage } from '../verification/unifiedVerifierService.js';
 import { listPolicyManifests, getPolicyManifest } from '../verification/policyManifestService.js';
 import { buildAttestationReport, exportAttestationBundle, exportVerifierPackage } from '../verification/attestationReportService.js';
+import { createAttestationSnapshot, listAttestationSnapshots, getAttestationSnapshot } from '../verification/attestationSnapshotService.js';
+import { publishAttestationTrust, listAttestationTrustPublications, getLatestAttestationTrustPublication, getAttestationTrustPublication } from '../verification/attestationTrustPublicationService.js';
+import { verifyZipBundle } from '../verification/bundleVerificationService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -616,6 +619,60 @@ router.get('/api/verification/unified/:verifierPackageId/export', async (req, re
   res.setHeader('Content-Type', exp.contentType);
   res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
   res.send(exp.content);
+});
+
+router.post('/api/verification/unified/:verifierPackageId/attestation-snapshots', async (req, res) => {
+  const out = await createAttestationSnapshot(String(req.params.verifierPackageId || ''), { createdBy: req.body?.createdBy || null });
+  if (out.error === 'verifier_package_not_found') return res.status(404).json(out);
+  if (out.error === 'attestation_snapshot_id_collision') return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/verification/unified/:verifierPackageId/attestation-snapshots', async (req, res) => {
+  const out = await listAttestationSnapshots(String(req.params.verifierPackageId || ''));
+  res.json(out);
+});
+
+router.get('/api/verification/unified/:verifierPackageId/attestation-snapshots/:attestationSnapshotId', async (req, res) => {
+  const out = await getAttestationSnapshot(String(req.params.verifierPackageId || ''), String(req.params.attestationSnapshotId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.post('/api/verification/unified/:verifierPackageId/attestation-trust-publications', async (req, res) => {
+  const out = await publishAttestationTrust(String(req.params.verifierPackageId || ''));
+  if (out.error === 'no_attestation_snapshot_for_publication') return res.status(400).json(out);
+  if (out.error === 'attestation_trust_publication_id_collision') return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/verification/unified/:verifierPackageId/attestation-trust-publications', async (req, res) => {
+  const out = await listAttestationTrustPublications(String(req.params.verifierPackageId || ''));
+  res.json(out);
+});
+
+router.get('/api/verification/unified/:verifierPackageId/attestation-trust-publications/latest', async (req, res) => {
+  const out = await getLatestAttestationTrustPublication(String(req.params.verifierPackageId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/verification/unified/:verifierPackageId/attestation-trust-publications/:attestationTrustPublicationId', async (req, res) => {
+  const out = await getAttestationTrustPublication(String(req.params.verifierPackageId || ''), String(req.params.attestationTrustPublicationId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.post('/api/verification/verify-zip-bundle', uploadPkg.single('bundle'), async (req, res) => {
+  let buf = req.file?.buffer || null;
+  if (!buf && typeof req.body?.bundle === 'string') {
+    try { buf = Buffer.from(req.body.bundle, 'base64'); } catch {}
+  }
+  if (!buf?.length) return res.status(400).json({ status: 'malformed_bundle', reasonCodes: ['missing_bundle'] });
+  const out = await verifyZipBundle(buf);
+  res.json(out);
 });
 
 router.get('/api/verification/policies', async (_req, res) => {
@@ -1306,6 +1363,11 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="voiceplan-audit-report">Voice Audit Report</button>
           <button data-action="unified-generate">Generate Unified Verifier</button>
           <button data-action="unified-export-attestation">Export Attestation Bundle</button>
+          <button data-action="unified-attestation-snapshot-create">Create Attestation Snapshot</button>
+          <button data-action="unified-attestation-snapshot-list">List Attestation Snapshots</button>
+          <button data-action="unified-attestation-trust-publish">Publish Attestation Trust</button>
+          <button data-action="unified-attestation-trust-latest">View Latest Attestation Trust</button>
+          <button data-action="unified-verify-zip">Verify ZIP Bundle</button>
           <button data-action="policy-list">List Policy Manifests</button>
         </div>
         <pre id="script-preview" class="dbg-pre">No script generated.</pre>

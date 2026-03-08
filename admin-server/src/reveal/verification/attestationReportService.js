@@ -5,6 +5,8 @@ import { promisify } from 'util';
 import { execFile } from 'child_process';
 import { getUnifiedVerifierPackage } from './unifiedVerifierService.js';
 import { getPolicyManifest } from './policyManifestService.js';
+import { signAttestationReport, signBundleManifest, verifyAttestationSignature, verifyBundleManifestSignature } from './attestationSigningService.js';
+import { getLatestAttestationTrustPublication } from './attestationTrustPublicationService.js';
 
 const pexec = promisify(execFile);
 
@@ -46,6 +48,11 @@ export async function buildAttestationReport(verifierPackageId) {
     metadata: { verifierVersion: v.verifierVersion }
   };
 
+  const signed = await signAttestationReport(report);
+  Object.assign(report, signed);
+  const verify = await verifyAttestationSignature(report);
+  report.attestationSignatureValid = verify.valid;
+
   const pm = await getPolicyManifest(report.policyProfile || 'dev');
   report.signatureSummaries.policyManifestSignatureStatus = pm.error ? 'unknown' : pm.policyManifest.policyManifestSignatureStatus;
 
@@ -55,6 +62,8 @@ export async function buildAttestationReport(verifierPackageId) {
 export async function exportAttestationBundle(verifierPackageId) {
   const built = await buildAttestationReport(verifierPackageId);
   if (built.error) return built;
+
+  const latestAttTrust = await getLatestAttestationTrustPublication(verifierPackageId);
 
   const bundleManifest = {
     bundleType: 'attestation_bundle',
@@ -70,9 +79,15 @@ export async function exportAttestationBundle(verifierPackageId) {
       'shot-trust-summary.json',
       'voice-trust-summary.json',
       'subtitle-proof-summary.json',
-      'integrity-summaries.json'
+      'integrity-summaries.json',
+      'attestation-trust-publication.json'
     ]
   };
+
+  const manSig = await signBundleManifest(bundleManifest);
+  Object.assign(bundleManifest, manSig);
+  const manVerify = await verifyBundleManifestSignature(bundleManifest);
+  bundleManifest.bundleManifestSignatureValid = manVerify.valid;
 
   const payload = {
     'manifest.json': bundleManifest,
@@ -86,7 +101,8 @@ export async function exportAttestationBundle(verifierPackageId) {
     'integrity-summaries.json': {
       script: built.verifierPackage.scriptTrustSummary?.integritySummary || null,
       voice: built.verifierPackage.voiceTrustSummary?.integritySummary || null
-    }
+    },
+    'attestation-trust-publication.json': latestAttTrust.error ? null : latestAttTrust.attestationTrustPublication
   };
 
   const tmp = `/tmp/reveal-attestation-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -113,6 +129,8 @@ export function exportVerifierPackage(v, format='json') {
   lines.push(`- Overall Status: ${v.overallVerificationStatus}`);
   lines.push(`- Blocking Reasons: ${(v.blockingReasons || []).join(', ') || 'none'}`);
   lines.push(`- Warnings: ${(v.warnings || []).join(', ') || 'none'}`);
+  lines.push(`- Attestation Signature Status: ${v.attestationSignatureStatus || 'n/a'}`);
+  lines.push(`- Bundle Manifest Signature Status: ${v.bundleManifestSignatureStatus || 'n/a'}`);
   lines.push('', '## Domain Summaries');
   lines.push('', '### Script');
   lines.push('```json'); lines.push(JSON.stringify(v.scriptTrustSummary, null, 2)); lines.push('```');

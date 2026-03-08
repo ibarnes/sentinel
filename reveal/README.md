@@ -155,6 +155,22 @@ Product-intelligence capture system at `/reveal`.
     - `POST /reveal/api/verification/unified`
     - `GET /reveal/api/verification/unified/:verifierPackageId`
     - `GET /reveal/api/verification/unified/:verifierPackageId/export?format=json|markdown|attestation_bundle`
+    - `POST /reveal/api/verification/unified/:verifierPackageId/attestation-snapshots`
+    - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-snapshots`
+    - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-snapshots/:attestationSnapshotId`
+    - `POST /reveal/api/verification/unified/:verifierPackageId/attestation-trust-publications`
+    - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-trust-publications`
+    - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-trust-publications/latest`
+    - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-trust-publications/:attestationTrustPublicationId`
+    - `POST /reveal/api/verification/verify-zip-bundle`
+    - attestation trust chain:
+      - `POST /reveal/api/verification/unified/:verifierPackageId/attestation-snapshots`
+      - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-snapshots`
+      - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-snapshots/:attestationSnapshotId`
+      - `POST /reveal/api/verification/unified/:verifierPackageId/attestation-trust-publications`
+      - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-trust-publications`
+      - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-trust-publications/latest`
+      - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-trust-publications/:attestationTrustPublicationId`
     - `GET /reveal/api/verification/latest`
     - `GET /reveal/api/verification/policies`
     - `GET /reveal/api/verification/policies/:policyProfileId`

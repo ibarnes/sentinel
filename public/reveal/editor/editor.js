@@ -591,6 +591,37 @@ async function listPoliciesUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 
+async function createAttestationSnapshotUi() {
+  if (!state.latestUnified?.verifierPackageId) return alert('Generate unified verifier first');
+  const out = await api(`/reveal/api/verification/unified/${encodeURIComponent(state.latestUnified.verifierPackageId)}/attestation-snapshots`, 'POST', { createdBy: 'editor-user' });
+  alert(`Attestation snapshot: ${out.snapshot.attestationSnapshotId}`);
+}
+
+async function listAttestationSnapshotsUi() {
+  if (!state.latestUnified?.verifierPackageId) return alert('Generate unified verifier first');
+  const out = await api(`/reveal/api/verification/unified/${encodeURIComponent(state.latestUnified.verifierPackageId)}/attestation-snapshots`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function publishAttestationTrustUi() {
+  if (!state.latestUnified?.verifierPackageId) return alert('Generate unified verifier first');
+  const out = await api(`/reveal/api/verification/unified/${encodeURIComponent(state.latestUnified.verifierPackageId)}/attestation-trust-publications`, 'POST', {});
+  alert(`Attestation trust publication: ${out.attestationTrustPublication.attestationTrustPublicationId}`);
+}
+
+async function viewLatestAttestationTrustUi() {
+  if (!state.latestUnified?.verifierPackageId) return alert('Generate unified verifier first');
+  const out = await api(`/reveal/api/verification/unified/${encodeURIComponent(state.latestUnified.verifierPackageId)}/attestation-trust-publications/latest`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function verifyZipBundleUi() {
+  const raw = prompt('Paste ZIP bundle as base64 string (for quick verify)');
+  if (!raw) return;
+  const out = await api('/reveal/api/verification/verify-zip-bundle', 'POST', { bundle: raw });
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -898,6 +929,11 @@ function wireActions() {
   document.querySelector('[data-action="voiceplan-audit-report"]')?.addEventListener('click', () => viewVoiceAuditReportUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="unified-generate"]')?.addEventListener('click', () => generateUnifiedVerifierUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="unified-export-attestation"]')?.addEventListener('click', () => exportUnifiedAttestationUi());
+  document.querySelector('[data-action="unified-attestation-snapshot-create"]')?.addEventListener('click', () => createAttestationSnapshotUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="unified-attestation-snapshot-list"]')?.addEventListener('click', () => listAttestationSnapshotsUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="unified-attestation-trust-publish"]')?.addEventListener('click', () => publishAttestationTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="unified-attestation-trust-latest"]')?.addEventListener('click', () => viewLatestAttestationTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="unified-verify-zip"]')?.addEventListener('click', () => verifyZipBundleUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="policy-list"]')?.addEventListener('click', () => listPoliciesUi().catch((e) => alert(e.message)));
 }
 

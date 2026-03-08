@@ -11,6 +11,8 @@ import { recomputeVoicePlanSnapshotIntegrity } from '../production/voicePlanInte
 import { getLatestVoiceTrustPublication } from '../production/voiceTrustPublicationService.js';
 import { buildVoiceTrackAuditReport } from '../production/subtitleBundleService.js';
 import { getPolicyManifest } from './policyManifestService.js';
+import { listAttestationSnapshots } from './attestationSnapshotService.js';
+import { getLatestAttestationTrustPublication } from './attestationTrustPublicationService.js';
 
 const ROOT = '/home/ec2-user/.openclaw/workspace/reveal/storage/unified-verifier-packages';
 function id(){return `uvp_${Date.now()}_${crypto.randomBytes(4).toString('hex')}`;}
@@ -40,6 +42,10 @@ function evaluatePolicy(profile, summaries){
   const scriptTrustSigned = summaries.scriptTrustSummary?.trustPublication?.signatureStatus === 'signed';
   const voiceTrustSigned = summaries.voiceTrustSummary?.trustPublication?.signatureStatus === 'signed';
   const subtitleSigned = summaries.subtitleProofSummary?.signedProofStatus === 'signed';
+  const attestationSigned = summaries.attestationSummary?.latestAttestationSignatureStatus === 'signed';
+  const bundleManifestSigned = summaries.attestationSummary?.latestBundleManifestSignatureStatus === 'signed';
+  const attestationTrustPresent = Boolean(summaries.attestationSummary?.latestAttestationTrustPublication);
+  const attestationChainHead = summaries.attestationSummary?.latestAttestationTrustPublication?.attestationChainHeadDigest || null;
 
   if (profile.policyProfileId === 'dev') {
     if (!summaries.scriptTrustSummary?.trustPublication) warnings.push('missing_trust_publication');
@@ -57,6 +63,10 @@ function evaluatePolicy(profile, summaries){
     if (!summaries.scriptTrustSummary?.trustPublication || !summaries.voiceTrustSummary?.trustPublication) blockingReasons.push('trust_publication_missing');
     if (!scriptTrustSigned || !voiceTrustSigned) blockingReasons.push('unsigned_trust_publication');
     if (!subtitleSigned) blockingReasons.push('unsigned_subtitle_proof');
+    if (!attestationSigned) blockingReasons.push('attestation_signature_missing');
+    if (!bundleManifestSigned) blockingReasons.push('bundle_manifest_signature_missing');
+    if (!attestationTrustPresent) blockingReasons.push('attestation_trust_publication_missing');
+    if (!attestationChainHead) blockingReasons.push('attestation_chain_head_digest_missing');
   }
 
   return {
@@ -123,7 +133,18 @@ export async function createUnifiedVerifierPackage({ scriptId = null, shotListId
     };
   }
 
-  const policyEval = evaluatePolicy(policyOut.policyManifest, { scriptTrustSummary, shotTrustSummary, voiceTrustSummary, subtitleProofSummary });
+  let attestationSummary = null;
+  const attSnaps = await listAttestationSnapshots(voiceTrackPlanId || '');
+  const latestAttSnap = (attSnaps.snapshots || []).length ? [...attSnaps.snapshots].sort((a,b)=>Number(b.attestationSnapshotChainIndex||0)-Number(a.attestationSnapshotChainIndex||0))[0] : null;
+  const latestAttTrust = await getLatestAttestationTrustPublication(voiceTrackPlanId || '');
+  attestationSummary = {
+    latestAttestationSnapshot: latestAttSnap,
+    latestAttestationSignatureStatus: latestAttSnap?.manifest?.attestationSignatureStatus || null,
+    latestBundleManifestSignatureStatus: latestAttSnap?.manifest?.bundleManifestSignatureStatus || null,
+    latestAttestationTrustPublication: latestAttTrust.error ? null : latestAttTrust.attestationTrustPublication
+  };
+
+  const policyEval = evaluatePolicy(policyOut.policyManifest, { scriptTrustSummary, shotTrustSummary, voiceTrustSummary, subtitleProofSummary, attestationSummary });
 
   const domainStatuses = [
     scriptTrustSummary ? ((scriptTrustSummary.integritySummary?.brokenChainLinks || 0) === 0 ? 'verified' : 'blocked') : 'missing',
@@ -141,6 +162,7 @@ export async function createUnifiedVerifierPackage({ scriptId = null, shotListId
     shotTrustSummary,
     voiceTrustSummary,
     subtitleProofSummary,
+    attestationSummary,
     orchestrationPolicySummary: policyEval,
     overallVerificationStatus: overallStatus({ blockingReasons: policyEval.blockingReasons, warnings: policyEval.warnings, domainStatuses }),
     blockingReasons: policyEval.blockingReasons,
