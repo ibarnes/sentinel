@@ -25,3 +25,5 @@
 {"ts":"2026-03-08T14:30:41.021Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
 {"ts":"2026-03-08T14:30:41.455Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
 {"ts":"2026-03-08T16:30:00.000Z","actor":"sentinel","role":"operator","event_type":"board.progress_sweep.midday","entity_type":"board","entity_id":"TASK-0027","meta":{"moved":["TASK-0027:In Progress->Ready for Review","TASK-0025:Backlog->Ready for Review"],"review_packet":"mission-control/review-packets/RP-0043-board-progress-sweep-midday-2026-03-08.md","blocked":["TASK-0097","TASK-0103","TASK-0111"]}}
+{"ts":"2026-03-08T20:10:55.334Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-08T23:00:00.000Z","actor":"sentinel","role":"operator","event_type":"intake_prompt.triggered","entity_type":"workflow","entity_id":"C","meta":{"delivery":"internal_only","reason":"cron-event policy: do not relay unless explicitly requested"}}
