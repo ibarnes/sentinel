@@ -505,6 +505,36 @@ function exportVoicePlan(format) {
   download(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/export?format=${encodeURIComponent(format)}`);
 }
 
+async function createVoicePlanSnapshotUi() {
+  if (!state.latestVoiceTrack?.voiceTrackPlanId) return alert('Generate voice plan first');
+  const out = await api(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/snapshots`, 'POST', { createdBy: 'editor-user' });
+  alert(`Voice plan snapshot created: ${out.snapshot.voicePlanSnapshotId}`);
+}
+
+async function listVoicePlanSnapshotsUi() {
+  if (!state.latestVoiceTrack?.voiceTrackPlanId) return alert('Generate voice plan first');
+  const out = await api(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/snapshots`);
+  const lines = (out.snapshots || []).map((s) => `${s.voicePlanSnapshotId} • idx ${s.voicePlanSnapshotChainIndex} • hash ${String(s.voicePlanSnapshotContentHash || '').slice(0,12)}…`);
+  alert(lines.length ? lines.join('\n') : 'No voice snapshots');
+}
+
+async function recomputeVoiceIntegrityUi() {
+  if (!state.latestVoiceTrack?.voiceTrackPlanId) return alert('Generate voice plan first');
+  const out = await api(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/snapshots/integrity/recompute`, 'POST', {});
+  alert(`Voice integrity: total=${out.totalSnapshots}, match=${out.matched}, mismatch=${out.mismatched}, broken=${out.brokenChainLinks}`);
+}
+
+function exportSubtitleBundleUi() {
+  if (!state.latestVoiceTrack?.voiceTrackPlanId) return alert('Generate voice plan first');
+  download(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/export?format=subtitle_bundle`);
+}
+
+async function viewVoiceAuditReportUi() {
+  if (!state.latestVoiceTrack?.voiceTrackPlanId) return alert('Generate voice plan first');
+  const out = await api(`/reveal/api/production/voice-tracks/${encodeURIComponent(state.latestVoiceTrack.voiceTrackPlanId)}/audit-report`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out.report, null, 2);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -800,6 +830,11 @@ function wireActions() {
   document.querySelector('[data-action="voiceplan-export-md"]')?.addEventListener('click', () => exportVoicePlan('markdown'));
   document.querySelector('[data-action="voiceplan-export-srt"]')?.addEventListener('click', () => exportVoicePlan('srt'));
   document.querySelector('[data-action="voiceplan-export-vtt"]')?.addEventListener('click', () => exportVoicePlan('vtt'));
+  document.querySelector('[data-action="voiceplan-snapshot-create"]')?.addEventListener('click', () => createVoicePlanSnapshotUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="voiceplan-snapshot-list"]')?.addEventListener('click', () => listVoicePlanSnapshotsUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="voiceplan-integrity-recompute"]')?.addEventListener('click', () => recomputeVoiceIntegrityUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="voiceplan-export-bundle"]')?.addEventListener('click', () => exportSubtitleBundleUi());
+  document.querySelector('[data-action="voiceplan-audit-report"]')?.addEventListener('click', () => viewVoiceAuditReportUi().catch((e) => alert(e.message)));
 }
 
 async function boot() {

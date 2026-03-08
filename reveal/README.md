@@ -167,8 +167,15 @@ Product-intelligence capture system at `/reveal`.
   - voice track + caption plans:
     - `POST /reveal/api/production/voice-tracks`
     - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId`
-    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/export?format=json|markdown|srt|vtt`
-    - storage: `reveal/storage/voice-track-plans/{voiceTrackPlanId}.json`
+    - `POST /reveal/api/production/voice-tracks/:voiceTrackPlanId/snapshots`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/snapshots`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/snapshots/:voicePlanSnapshotId`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/snapshots/:voicePlanSnapshotId/integrity`
+    - `POST /reveal/api/production/voice-tracks/:voiceTrackPlanId/snapshots/integrity/recompute`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/audit-report`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/export?format=json|markdown|srt|vtt|subtitle_bundle`
+    - `GET /reveal/api/production/voice-tracks/:voiceTrackPlanId/snapshots/:voicePlanSnapshotId/export?format=json|markdown|srt|vtt|subtitle_bundle`
+    - storage: `reveal/storage/voice-track-plans/{voiceTrackPlanId}.json`, `reveal/storage/voice-track-plan-snapshots/{voiceTrackPlanId}/{voicePlanSnapshotId}.json`
   - style profiles: `neutral_walkthrough`, `concise_training`, `executive_overview`
 - Session lifecycle:
   - TTL + optional idle policy for `playing` sessions
