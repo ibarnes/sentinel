@@ -1111,7 +1111,9 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     @media (max-width: 1100px){ .lem-heat { grid-template-columns: repeat(8, minmax(0,1fr)); } }
     .lem-strip { display:grid; grid-template-columns: repeat(3, 1fr); gap:6px; }
     .lem-strip .tile { border:1px solid var(--border); border-radius:10px; padding:8px; background:rgba(255,255,255,.02); }
-    .lem-row { border:1px solid var(--border); border-radius:12px; padding:10px; background:rgba(255,255,255,.015); }
+    .lem-row { border:1px solid var(--border); border-radius:12px; background:rgba(255,255,255,.015); overflow:hidden; }
+    .lem-row-head { padding:10px; display:flex; justify-content:space-between; align-items:flex-start; gap:8px; cursor:pointer; }
+    .lem-row-body { padding:0 10px 10px; }
     .lem-layer-tag { font-size:.68rem; border:1px solid var(--border); padding:.12rem .35rem; border-radius:999px; color:#dbe2ee; background:rgba(255,255,255,.03); }
     .lem-phase-bar { height:8px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden; }
     .lem-phase-fill { height:100%; background:linear-gradient(90deg,#3d7cff,#63a0ff); }
@@ -1567,26 +1569,42 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         const secondary = ranked[1]?.reason || 'None';
 
         return '<div class="lem-row">' +
-          '<div class="d-flex justify-content-between align-items-start gap-2">' +
+          '<div class="lem-row-head js-lem-toggle" role="button" tabindex="0" aria-expanded="false">' +
             '<div><strong>' + esc(r.sector) + '</strong><div class="pp-sub">Initiative ' + esc(initiativeId) + ' · state ' + esc(p.state || 'Monitor') + '</div></div>' +
-            '<div class="small text-end"><span class="pp-ppi">P ' + Number(p.pressure || 0).toFixed(1) + '</span></div>' +
+            '<div class="small text-end"><span class="pp-ppi">P ' + Number(p.pressure || 0).toFixed(1) + '</span><div class="pp-legend">Tap to expand</div></div>' +
           '</div>' +
-          '<div class="lem-heat mt-2">' + heat + '</div>' +
-          '<div class="mt-1"><span class="pp-kicker">Ontology Layers (click to filter)</span> <span class="pp-legend">Blue = emitting signals · Gray = missing constraint</span></div>' +
-          '<div class="lem-tooltip mt-1 js-layer-tooltip">Tap or hover a square to view layer meaning.</div>' +
-          '<div class="mt-2"><div class="d-flex justify-content-between pp-legend"><span>Phase progression</span><span>' + phaseProgress + '%</span></div><div class="lem-phase-bar"><div class="lem-phase-fill" style="width:' + phaseProgress + '%"></div></div><div class="pp-legend">' + esc(phaseLabel) + '</div><div class="d-flex gap-1 mt-1"><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="early">early</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="mid">mid</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="late">late</button></div></div>' +
-          '<div class="lem-strip mt-2">' +
-            '<div class="tile"><div class="pp-kicker">Pressure</div><div class="mono">' + Number(p.pressure||0).toFixed(2) + '</div></div>' +
-            '<div class="tile"><div class="pp-kicker">Momentum</div><div class="mono">' + (Number(p.momentum||0)>=0?'+':'') + Number(p.momentum||0).toFixed(3) + '</div></div>' +
-            '<div class="tile"><div class="pp-kicker">Acceleration</div><div class="mono">' + (Number(p.acceleration||0)>=0?'+':'') + Number(p.acceleration||0).toFixed(3) + '</div></div>' +
+          '<div class="lem-row-body d-none">' +
+            '<div class="lem-heat mt-2">' + heat + '</div>' +
+            '<div class="mt-1"><span class="pp-kicker">Ontology Layers (click to filter)</span> <span class="pp-legend">Blue = emitting signals · Gray = missing constraint</span></div>' +
+            '<div class="lem-tooltip mt-1 js-layer-tooltip">Tap or hover a square to view layer meaning.</div>' +
+            '<div class="mt-2"><div class="d-flex justify-content-between pp-legend"><span>Phase progression</span><span>' + phaseProgress + '%</span></div><div class="lem-phase-bar"><div class="lem-phase-fill" style="width:' + phaseProgress + '%"></div></div><div class="pp-legend">' + esc(phaseLabel) + '</div><div class="d-flex gap-1 mt-1"><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="early">early</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="mid">mid</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="late">late</button></div></div>' +
+            '<div class="lem-strip mt-2">' +
+              '<div class="tile"><div class="pp-kicker">Pressure</div><div class="mono">' + Number(p.pressure||0).toFixed(2) + '</div></div>' +
+              '<div class="tile"><div class="pp-kicker">Momentum</div><div class="mono">' + (Number(p.momentum||0)>=0?'+':'') + Number(p.momentum||0).toFixed(3) + '</div></div>' +
+              '<div class="tile"><div class="pp-kicker">Acceleration</div><div class="mono">' + (Number(p.acceleration||0)>=0?'+':'') + Number(p.acceleration||0).toFixed(3) + '</div></div>' +
+            '</div>' +
+            '<div class="mt-2"><span class="pp-kicker">Top buyer alignment</span><div class="small">' + ((p.buyerAlignment || []).slice(0,4).map((b)=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-buyer-focus" data-buyer="'+esc(b.buyer_id)+'">'+esc(b.buyer_id)+'</button>').join('') || 'No buyer alignment yet') + '</div></div>' +
+            '<div class="mt-2"><span class="pp-kicker">Recommended USG motion</span><div class="small"><span class="badge text-bg-primary">' + esc(p.recommendedUSGMotion || 'Monitor only') + '</span> <span class="pp-legend">confidence ' + Math.round(Number(p.recommendedUSGMotionConfidence || 0.5) * 100) + '%</span><div class="text-muted small mt-1">' + esc(p.recommendedUSGMotionRationale || 'No rationale generated.') + '</div><div class="pp-legend mt-1">Primary: ' + esc((((p.recommendedUSGDrivers||{}).stuck||{}).primary || 'none')) + ' · Secondary: ' + esc((((p.recommendedUSGDrivers||{}).stuck||{}).secondary || 'none')) + '</div><div class="pp-legend">Counterevidence: ' + esc((((p.recommendedUSGDrivers||{}).counterevidence||[]).slice(0,2).join(' | ') || 'none')) + '</div></div></div>' +
+            '<div class="mt-2"><span class="pp-kicker">Dominant missing layers</span><div class="small">' + (missing.length ? missing.map(x=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-missing-layer" data-layer-id="'+esc(x)+'">'+esc(x.replaceAll('_',' '))+'</button>').join('') : 'None') + '</div></div>' +
+            '<div class="mt-2"><span class="pp-kicker">Stuck reason badges</span><div class="small">Primary: ' + stuckBadge(primary) + ' Secondary: ' + stuckBadge(secondary) + '</div></div>' +
+            '<div class="mt-2"><span class="pp-kicker">Layer-gap diagnostics</span><div class="small text-muted">' + (gaps.length ? gaps.map(esc).join(' ') : 'No critical ontology gaps detected.') + '</div></div>' +
           '</div>' +
-          '<div class="mt-2"><span class="pp-kicker">Top buyer alignment</span><div class="small">' + ((p.buyerAlignment || []).slice(0,4).map((b)=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-buyer-focus" data-buyer="'+esc(b.buyer_id)+'">'+esc(b.buyer_id)+'</button>').join('') || 'No buyer alignment yet') + '</div></div>' +
-          '<div class="mt-2"><span class="pp-kicker">Recommended USG motion</span><div class="small"><span class="badge text-bg-primary">' + esc(p.recommendedUSGMotion || 'Monitor only') + '</span> <span class="pp-legend">confidence ' + Math.round(Number(p.recommendedUSGMotionConfidence || 0.5) * 100) + '%</span><div class="text-muted small mt-1">' + esc(p.recommendedUSGMotionRationale || 'No rationale generated.') + '</div><div class="pp-legend mt-1">Primary: ' + esc((((p.recommendedUSGDrivers||{}).stuck||{}).primary || 'none')) + ' · Secondary: ' + esc((((p.recommendedUSGDrivers||{}).stuck||{}).secondary || 'none')) + '</div><div class="pp-legend">Counterevidence: ' + esc((((p.recommendedUSGDrivers||{}).counterevidence||[]).slice(0,2).join(' | ') || 'none')) + '</div></div></div>' +
-          '<div class="mt-2"><span class="pp-kicker">Dominant missing layers</span><div class="small">' + (missing.length ? missing.map(x=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-missing-layer" data-layer-id="'+esc(x)+'">'+esc(x.replaceAll('_',' '))+'</button>').join('') : 'None') + '</div></div>' +
-          '<div class="mt-2"><span class="pp-kicker">Stuck reason badges</span><div class="small">Primary: ' + stuckBadge(primary) + ' Secondary: ' + stuckBadge(secondary) + '</div></div>' +
-          '<div class="mt-2"><span class="pp-kicker">Layer-gap diagnostics</span><div class="small text-muted">' + (gaps.length ? gaps.map(esc).join(' ') : 'No critical ontology gaps detected.') + '</div></div>' +
         '</div>';
       }).join('');
+
+      els.lemPanel.querySelectorAll('.js-lem-toggle').forEach((head) => {
+        const row = head.closest('.lem-row');
+        const body = row ? row.querySelector('.lem-row-body') : null;
+        const toggle = () => {
+          if (!body) return;
+          const hidden = body.classList.toggle('d-none');
+          head.setAttribute('aria-expanded', String(!hidden));
+          const note = head.querySelector('.pp-legend');
+          if (note) note.textContent = hidden ? 'Tap to expand' : 'Tap to collapse';
+        };
+        bindTap(head, toggle);
+        head.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+      });
 
       els.lemPanel.querySelectorAll('.js-layer-cell').forEach((btn) => {
         const updateTooltip = () => {
