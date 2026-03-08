@@ -13,7 +13,7 @@ function render(){
   if(!s) return;
   document.getElementById('flow').textContent = `${model.title} (${model.sourceType})`;
   document.getElementById('title').textContent = s.title;
-  document.getElementById('meta').textContent = `session ${session.sessionId} • ${session.playbackStatus} • step ${session.currentStepIndex+1}/${session.stepCount} • autoplay ${session.autoPlayEnabled?'on':'off'} • expires ${session.expiresAt || 'n/a'}`;
+  document.getElementById('meta').textContent = `session ${session.sessionId} • ${session.playbackStatus} • step ${session.currentStepIndex+1}/${session.stepCount} • autoplay ${session.autoPlayEnabled?'on':'off'} • expires ${session.expiresAt || 'n/a'} • resumable ${session.resumable ? 'yes' : 'no'}`;
   document.getElementById('intent').textContent = s.intent || 'No intent';
   document.getElementById('shot').src = s.highlight || s.screenshotAfter || s.screenshotBefore || '';
   const ann=document.getElementById('annotations'); ann.innerHTML='';

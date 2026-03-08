@@ -111,6 +111,12 @@ Product-intelligence capture system at `/reveal`.
   - TTL + optional idle policy for `playing` sessions
   - in-process sweeper interval (`REVEAL_PLAYER_SWEEP_INTERVAL_MS`)
   - package session cleanup status: `none|pending|cleaned|failed`
+  - recovery registry: `reveal/storage/player-recovery-registry/*.json`
+  - retention policy for package sessions:
+    - `ephemeral_only`
+    - `retained_local_source`
+    - `retained_package_copy`
+    - `non_recoverable`
 - Fixture runners:
   - `node admin-server/src/reveal/normalization/fixtures/run-player-fixtures.mjs`
   - `node admin-server/src/reveal/normalization/fixtures/run-player-session-fixtures.mjs`

@@ -106,7 +106,9 @@ router.get('/api/player/sessions', async (req, res) => {
     sourceType: req.query.sourceType ? String(req.query.sourceType) : null,
     flowId: req.query.flowId ? String(req.query.flowId) : null,
     snapshotId: req.query.snapshotId ? String(req.query.snapshotId) : null,
-    includeExpired: req.query.includeExpired ? String(req.query.includeExpired) : '0'
+    includeExpired: req.query.includeExpired ? String(req.query.includeExpired) : '0',
+    recoverable: req.query.recoverable ? String(req.query.recoverable) : '0',
+    sourceRetentionPolicy: req.query.sourceRetentionPolicy ? String(req.query.sourceRetentionPolicy) : null
   });
   if (out.error) return res.status(400).json(out);
   res.json(out);
@@ -122,8 +124,10 @@ router.post('/api/player/sessions', uploadPkg.single('package'), async (req, res
   const snapshotId = req.body?.snapshotId || null;
   const packageBuffer = req.file?.buffer || null;
   const viewerMetadata = req.body?.viewerMetadata ? (() => { try { return JSON.parse(req.body.viewerMetadata); } catch { return null; } })() : null;
+  const sourceRetentionPolicy = req.body?.sourceRetentionPolicy || 'ephemeral_only';
+  const packageOriginalFilename = req.file?.originalname || null;
 
-  const out = await createPlayerSession({ flowId, snapshotId, packageBuffer, viewerMetadata });
+  const out = await createPlayerSession({ flowId, snapshotId, packageBuffer, viewerMetadata, sourceRetentionPolicy, packageOriginalFilename });
   if (out.error) {
     const code = ['missing_source_input','conflicting_source_inputs'].includes(out.error) ? 400 : 404;
     return res.status(code).json(out);

@@ -5,10 +5,11 @@ import { createPackagePlaybackFromBuffer, cleanupPackageToken } from './packageS
 import { applyPlaybackControl } from './playbackController.js';
 import { writeSession, readSession, deleteSessionFile, listSessionFiles } from './sessionStorageService.js';
 import { shouldExpire, computeExpiry, summarizeSession, isResumable } from './sessionLifecycleService.js';
+import { normalizeRetentionPolicy, retainPackageSource, rehydratePackageModel, canRecoverFromSource } from './packageRecoveryService.js';
+import { upsertRecoveryRecord, getRecoveryRecord, setRecoveryAttempt } from './playerRecoveryService.js';
 
 function nowIso() { return new Date().toISOString(); }
 function mkSessionId() { return `ps_${Date.now()}_${crypto.randomBytes(4).toString('hex')}`; }
-
 function activeStatus(s) { return ['ready', 'playing', 'paused'].includes(s.playbackStatus); }
 
 function rewritePackageAssetUrls(model, sessionId) {
@@ -33,6 +34,10 @@ async function expireSessionInternal(session) {
     session.cleanupCompletedAt = nowIso();
     session.cleanupStatus = cleaned.status;
     if (!cleaned.ok) session.cleanupError = 'cleanup_failed';
+    session.cleanupDetail = cleaned.ok ? 'extracted_assets_cleaned' : 'cleanup_failed';
+
+    const can = await canRecoverFromSource(session.sourceRef || {});
+    if (can.recoverable) session.cleanupDetail = 'retained_source_preserved';
   }
   await writeSession(session);
   return session;
@@ -45,15 +50,26 @@ async function readAndMaybeExpire(sessionId) {
   return session;
 }
 
-function payload(session) {
+async function enrichSummary(summary) {
+  const rec = await getRecoveryRecord(summary.sessionId);
   return {
-    session,
-    model: session.model,
-    playback: applyPlaybackControl(session.stepCount, session.currentStepIndex)
+    ...summary,
+    sourceRetentionPolicy: rec?.sourceRetentionPolicy || null,
+    recoverabilityStatus: rec?.recoverabilityStatus || (summary.resumable ? 'recoverable' : 'non_recoverable'),
+    lastRecoveryStatus: rec?.lastRecoveryStatus || null
   };
 }
 
-export async function createPlayerSession({ flowId = null, snapshotId = null, packageBuffer = null, viewerMetadata = null } = {}) {
+function payload(session) {
+  const s = { ...session, resumable: isResumable(session) };
+  return {
+    session: s,
+    model: s.model,
+    playback: applyPlaybackControl(s.stepCount, s.currentStepIndex)
+  };
+}
+
+export async function createPlayerSession({ flowId = null, snapshotId = null, packageBuffer = null, viewerMetadata = null, sourceRetentionPolicy = 'ephemeral_only', packageOriginalFilename = null } = {}) {
   const provided = [!!flowId, !!snapshotId, !!packageBuffer].filter(Boolean).length;
   if (provided === 0) return { error: 'missing_source_input' };
   if (provided > 1) return { error: 'conflicting_source_inputs' };
@@ -77,10 +93,16 @@ export async function createPlayerSession({ flowId = null, snapshotId = null, pa
     sourceType = 'reveal_package';
     sourceRef.flowId = loaded?.model?.flowId || null;
     sourceRef.packageRef = { token: loaded?.model?.packageToken || null };
+    const retained = await retainPackageSource({
+      sessionId,
+      buffer: packageBuffer,
+      policy: sourceRetentionPolicy,
+      originalFilename: packageOriginalFilename
+    });
+    Object.assign(sourceRef, retained);
   }
 
   if (loaded?.error) return loaded;
-
   const model = loaded.model;
   if (!Array.isArray(model.steps) || model.steps.length === 0) return { error: 'malformed_playback_model' };
 
@@ -109,6 +131,26 @@ export async function createPlayerSession({ flowId = null, snapshotId = null, pa
 
   session.expiresAt = computeExpiry(session);
   await writeSession(session);
+
+  await upsertRecoveryRecord({
+    sessionId,
+    sourceType,
+    flowId: sourceRef.flowId,
+    snapshotId: sourceRef.snapshotId || null,
+    packageRef: sourceRef.packageRef || null,
+    packageContentHash: sourceRef.packageContentHash || null,
+    packageManifestSummary: { stepCount: session.stepCount, title: model.title || null },
+    sourceRetentionPolicy: normalizeRetentionPolicy(sourceRef.sourceRetentionPolicy || sourceRetentionPolicy),
+    recoverabilityStatus: sourceType === 'reveal_package'
+      ? (['retained_local_source','retained_package_copy'].includes(normalizeRetentionPolicy(sourceRef.sourceRetentionPolicy || sourceRetentionPolicy)) ? 'recoverable' : 'non_recoverable')
+      : 'recoverable',
+    createdAt: now,
+    updatedAt: now,
+    lastRecoveryAttemptAt: null,
+    lastRecoveryStatus: null,
+    recoveryError: null
+  });
+
   return payload(session);
 }
 
@@ -119,8 +161,8 @@ export async function getPlayerSession(sessionId) {
 }
 
 export async function listPlayerSessions(filters = {}) {
-  const validStatus = new Set(['ready','playing','paused','completed','expired']);
-  const validSource = new Set(['reviewed_flow','immutable_snapshot','reveal_package']);
+  const validStatus = new Set(['ready', 'playing', 'paused', 'completed', 'expired']);
+  const validSource = new Set(['reviewed_flow', 'immutable_snapshot', 'reveal_package']);
   if (filters.status && !validStatus.has(filters.status)) return { error: 'invalid_status_filter' };
   if (filters.sourceType && !validSource.has(filters.sourceType)) return { error: 'invalid_source_type_filter' };
 
@@ -138,7 +180,11 @@ export async function listPlayerSessions(filters = {}) {
     if (filters.flowId && s.sourceRef?.flowId !== filters.flowId) continue;
     if (filters.snapshotId && s.sourceRef?.snapshotId !== filters.snapshotId) continue;
 
-    out.push(summarizeSession(s));
+    let summary = summarizeSession(s);
+    summary = await enrichSummary(summary);
+    if (String(filters.recoverable || '0') === '1' && summary.recoverabilityStatus !== 'recoverable') continue;
+    if (filters.sourceRetentionPolicy && summary.sourceRetentionPolicy !== filters.sourceRetentionPolicy) continue;
+    out.push(summary);
   }
 
   return { sessions: out.sort((a, b) => String(b.updatedAt).localeCompare(String(a.updatedAt))) };
@@ -171,7 +217,7 @@ export async function patchPlayerSession(sessionId, { action = null, jumpTo = nu
         session.playbackStatus = 'completed';
       }
     } else if (action === 'setAutoPlay') {
-      // no-op, uses autoPlayEnabled patch above
+      // no-op
     } else {
       return { error: 'unsupported_action' };
     }
@@ -192,9 +238,7 @@ export async function resumePlayerSession(sessionId) {
     return { status: 'already_active', ...payload(session) };
   }
 
-  if (!isResumable(session)) {
-    return { error: 'not_resumable', reason: session.sourceType === 'reveal_package' ? 'expired_assets_cleaned' : 'missing_source' };
-  }
+  if (!isResumable(session)) return { error: 'not_resumable', reason: 'session_policy_non_resumable' };
 
   if (session.sourceType === 'reviewed_flow') {
     const loaded = await loadFromFlow(session.sourceRef?.flowId);
@@ -205,7 +249,29 @@ export async function resumePlayerSession(sessionId) {
     if (loaded.error) return { error: 'missing_source' };
     session.model = loaded.model;
   } else if (session.sourceType === 'reveal_package') {
-    if (session.cleanupStatus === 'cleaned') return { error: 'not_resumable', reason: 'expired_assets_cleaned' };
+    const token = session.sourceRef?.packageRef?.token;
+    const tokenDir = token ? `/home/ec2-user/.openclaw/workspace/reveal/storage/player-packages/${token}` : null;
+    const extractedPresent = tokenDir ? await fs.access(tokenDir).then(() => true).catch(() => false) : false;
+
+    if (!extractedPresent) {
+      const rec = await getRecoveryRecord(sessionId);
+      const rehydrated = await rehydratePackageModel(session.sourceRef || rec || {});
+      if (rehydrated.error) {
+        await setRecoveryAttempt(sessionId, 'failed', rehydrated.reason || rehydrated.error);
+        return { error: rehydrated.error === 'missing_source' ? 'missing_source' : 'recovery_failed', reason: rehydrated.reason || rehydrated.error };
+      }
+      session.model = rehydrated.model;
+      session.sourceRef.packageRef = { token: rehydrated.model.packageToken };
+      rewritePackageAssetUrls(session.model, sessionId);
+      session.cleanupStatus = 'none';
+      await setRecoveryAttempt(sessionId, 'recovered', null);
+      session.playbackStatus = 'paused';
+      session.updatedAt = nowIso();
+      session.lastActivityAt = session.updatedAt;
+      session.expiresAt = computeExpiry(session);
+      await writeSession(session);
+      return { status: 'rehydrated_and_resumed', ...payload(session) };
+    }
   }
 
   session.playbackStatus = 'paused';
@@ -228,7 +294,11 @@ export async function deletePlayerSession(sessionId) {
     const cleaned = await cleanupPackageToken(session.sourceRef.packageRef.token);
     session.cleanupCompletedAt = nowIso();
     session.cleanupStatus = cleaned.status;
+    session.cleanupDetail = cleaned.ok ? 'extracted_assets_cleaned' : 'cleanup_failed';
     if (!cleaned.ok) session.cleanupError = 'cleanup_failed';
+
+    const can = await canRecoverFromSource(session.sourceRef || {});
+    if (can.recoverable) session.cleanupDetail = 'retained_source_preserved';
   }
   await writeSession(session);
   await deleteSessionFile(sessionId);

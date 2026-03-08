@@ -59,7 +59,7 @@ if (resumed.status !== 'resumed') throw new Error('snapshot resume failed');
 // package session
 const pkg = await buildReviewedPackage(flowId);
 const buf = await fs.readFile(pkg.archivePath);
-const sp = await createPlayerSession({ packageBuffer: buf });
+const sp = await createPlayerSession({ packageBuffer: buf, sourceRetentionPolicy: 'retained_package_copy' });
 if (sp.error) throw new Error(`package session failed: ${sp.error}`);
 if (sp.session.sourceType !== 'reveal_package') throw new Error('package sourceType invalid');
 
@@ -73,11 +73,21 @@ if (!sw.ok) throw new Error('sweeper failed');
 const spAfter = await getPlayerSession(sp.session.sessionId);
 if (spAfter.session.playbackStatus !== 'expired') throw new Error('sweeper did not expire session');
 
-// non-resumable expired package session after cleaned
+// package recovery rehydrate path
 const spRes = await resumePlayerSession(sp.session.sessionId);
-if (!(spRes.error === 'not_resumable' || spRes.status === 'resumed')) {
-  throw new Error('unexpected package resume status');
+if (!['rehydrated_and_resumed','resumed'].includes(spRes.status || '')) {
+  throw new Error(`unexpected package resume status: ${spRes.error || spRes.status}`);
 }
+
+// non-recoverable package policy
+const sp2 = await createPlayerSession({ packageBuffer: buf, sourceRetentionPolicy: 'ephemeral_only' });
+const sp2Raw = await readSession(sp2.session.sessionId);
+sp2Raw.createdAt = '2000-01-01T00:00:00.000Z';
+sp2Raw.playbackStatus = 'paused';
+await writeSessionFile(sp2Raw);
+await sweepPlayerSessions();
+const sp2Res = await resumePlayerSession(sp2.session.sessionId);
+if (sp2Res.error !== 'not_resumable') throw new Error('expected not_resumable for ephemeral policy');
 
 // delete + cleanup metadata path
 const del = await deletePlayerSession(sp.session.sessionId);
