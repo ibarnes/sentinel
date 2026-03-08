@@ -8,6 +8,8 @@ Product-intelligence capture system at `/reveal`.
 - Deterministic normalization pipeline scaffold
 - Reviewed-flow mutation API + persistence
 - True highlight rendering pipeline (extension-rendered overlay + persisted assets)
+- Coordinate replay debugger endpoint + editor inspector
+- Replay integrity checksum + drift detection (step + flow)
 - Flow editor compare mode (baseline vs reviewed diffs)
 - Flow editor shell with live reviewed mutations
 - Storage conventions for sessions/events/flows/assets

@@ -14,6 +14,7 @@ import {
 } from '../services/reviewedFlowService.js';
 import { getFlowCompare } from '../services/compareService.js';
 import { buildStepCoordinateReplay } from '../services/coordinateReplayService.js';
+import { integrityForStep, integrityRecomputeFlow } from '../services/replayIntegrityService.js';
 
 const router = express.Router();
 
@@ -59,6 +60,21 @@ router.get('/api/flows/:flowId/steps/:stepId/coordinate-replay', async (req, res
   if (replay.error === 'flow_not_found') return res.status(404).json(replay);
   if (replay.error === 'step_not_found') return res.status(404).json(replay);
   res.json(replay);
+});
+
+router.get('/api/flows/:flowId/steps/:stepId/replay-integrity', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const stepId = String(req.params.stepId || '');
+  const out = await integrityForStep(flowId, stepId, { persist: false });
+  if (out.status === 'unreplayable_step') return res.status(200).json(out);
+  res.json(out);
+});
+
+router.post('/api/flows/:flowId/replay-integrity/recompute', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const out = await integrityRecomputeFlow(flowId, { persist: true });
+  if (out.error === 'flow_not_found') return res.status(404).json(out);
+  res.json(out);
 });
 
 router.post('/api/flows/:flowId/review/init', async (req, res) => {
@@ -161,6 +177,7 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="annotate">Annotate</button>
           <button data-action="reload">Reload</button>
           <button data-action="compare-toggle">Compare: On</button>
+          <button data-action="integrity-recompute">Recompute Integrity</button>
         </div>
       </header>
       <section class="meta" id="step-meta"></section>

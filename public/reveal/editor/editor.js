@@ -50,6 +50,7 @@ function renderTimeline() {
     const diffBadge = badge(d.state || 'unknown', d.state === 'edited' ? 'warn' : d.state === 'merged' ? 'info' : d.state === 'unchanged' ? 'ok' : 'neutral');
     const hiMode = step.metadata?.highlightMode || 'fallback';
     const driftWarn = Boolean(step.metadata?.highlightDriftWarning);
+    const integrityStatus = step.metadata?.replayIntegrityStatus || 'n/a';
 
     li.innerHTML = `<label><input type="checkbox" data-merge="${step.id}" /> ${idx + 1}. ${escapeHtml(step.title)}</label>
       <div class="step-trust">
@@ -59,6 +60,7 @@ function renderTimeline() {
         ${badge(`shots ${shotCount}/3`, shotCount >= 2 ? 'ok' : 'warn')}
         ${badge(`hl ${hiMode}`, hiMode === 'rendered' ? 'ok' : 'warn')}
         ${driftWarn ? badge('drift>20%', 'warn') : ''}
+        ${badge(`integrity ${integrityStatus}`, integrityStatus === 'match' ? 'ok' : (integrityStatus === 'mismatch' ? 'warn' : 'neutral'))}
         ${badge(`events ${(step.events || []).length}`, 'neutral')}
       </div>`;
 
@@ -157,6 +159,14 @@ async function loadReplay(stepId) {
   }
 }
 
+async function loadIntegrity(stepId) {
+  try {
+    return await api(`/reveal/api/flows/${state.flowId}/steps/${stepId}/replay-integrity`);
+  } catch (e) {
+    return { status: 'unavailable', reasonCodes: ['integrity_fetch_failed'], error: String(e.message || e) };
+  }
+}
+
 function renderInspector(step, replay) {
   const el = document.getElementById('coord-inspector');
   if (!el) return;
@@ -192,9 +202,12 @@ async function showStep(step) {
 
   renderComparePanel(step);
   const replay = await loadReplay(step.id);
+  const integrity = await loadIntegrity(step.id);
   renderInspector(step, replay);
   const dbg = document.getElementById('debugger-panel');
-  if (dbg) dbg.textContent = JSON.stringify(replay, null, 2);
+  if (dbg) {
+    dbg.textContent = JSON.stringify({ integrity, replay }, null, 2);
+  }
 }
 
 function renderComparePanel(step) {
@@ -300,6 +313,11 @@ function wireActions() {
     e.target.textContent = `Compare: ${state.compareMode ? 'On' : 'Off'}`;
     const step = selectedStep();
     if (step) renderComparePanel(step);
+  });
+  document.querySelector('[data-action="integrity-recompute"]')?.addEventListener('click', async () => {
+    const out = await api(`/reveal/api/flows/${state.flowId}/replay-integrity/recompute`, 'POST', {});
+    alert(`Integrity recompute: matched ${out.summary.matchedSteps}/${out.summary.totalReplayableSteps}, mismatched ${out.summary.mismatchedSteps}, unreplayable ${out.summary.unreplayableSteps}`);
+    await refresh();
   });
 }
 

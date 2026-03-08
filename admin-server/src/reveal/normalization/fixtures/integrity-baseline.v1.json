@@ -1,0 +1,10 @@
+{
+  "version": "v1",
+  "checksums": {
+    "nested-iframe-chain.raw.json": "713480c00d83ced395d2f00ea6a22450d583c717725359a8bfea13980bbc89f3",
+    "partial-frame-chain.raw.json": "66ee8e686610d26617b455011cce686746e4fd9ce28045c8fa321c3d9c0377a3",
+    "mismatched-dimensions.raw.json": "7b36ffd7f50b78d628548cc1e627dfb6eaef80381c7cc5ed60d5f8d72d4f39e4",
+    "out-of-bounds-highlight.raw.json": "ad0fcb6d55f6a6933705e8c7c78d92202b1aefd25e12d04dce662fea38f7f7fd",
+    "transform-estimated.raw.json": "4626d3c2d4da1924134ae480bf536823c493f04e133049f1465cb86e0ffe1818"
+  }
+}
