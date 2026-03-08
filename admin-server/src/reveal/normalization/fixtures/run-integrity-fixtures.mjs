@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { normalizeElementBox, validateNormalizedBox } from '../../services/coordinateNormalizationService.js';
 import { checksumForReplay, REPLAY_CHECKSUM_VERSION, explainChecksumDiff } from '../../services/replayIntegrityService.js';
+import { attachSemanticReasons } from '../../services/semanticDiffReasonService.js';
 
 const DIR = path.resolve('/home/ec2-user/.openclaw/workspace/admin-server/src/reveal/normalization/fixtures');
 const BASELINE = path.join(DIR, 'integrity-baseline.v1.json');
@@ -77,12 +78,13 @@ for (const f of targets) {
 
   if (expected !== replayChecksum) {
     failures += 1;
-    const diff = explainChecksumDiff(expectedSource, checksumSource, { maxDivergences: 10 });
+    const diff = attachSemanticReasons(explainChecksumDiff(expectedSource, checksumSource, { maxDivergences: 10 }));
     console.error(`MISMATCH ${f}\n  expected=${expected}\n  actual=${replayChecksum}`);
     if (diff.firstDivergence) {
-      console.error(`  firstDivergence path=${diff.firstDivergence.path} stage=${diff.firstDivergence.stage} reason=${diff.firstDivergence.reason}`);
+      console.error(`  firstDivergence semantic=${diff.firstDivergence.semanticReason || 'unclassified_change'} path=${diff.firstDivergence.path} stage=${diff.firstDivergence.stage} reason=${diff.firstDivergence.reason}`);
       console.error(`  stored=${JSON.stringify(diff.firstDivergence.storedValue)}`);
       console.error(`  current=${JSON.stringify(diff.firstDivergence.currentValue)}`);
+      console.error(`  semanticCounts=${JSON.stringify(diff.summary?.semanticReasons || {})}`);
     }
   } else {
     console.log(`OK ${f} ${replayChecksum}`);

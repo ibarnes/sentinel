@@ -11,6 +11,14 @@ Product-intelligence capture system at `/reveal`.
 - Coordinate replay debugger endpoint + editor inspector
 - Replay integrity checksum + drift detection (step + flow)
 - Stage-diff mismatch explainer (first divergence + structured diff)
+- Semantic reason refinement for mismatches (rule-based path/stage mapping)
+
+## Semantic mismatch mapping notes
+- Rule priority is top-down and deterministic; first matching rule wins.
+- Mapping uses diff path + stage + field + reason context only.
+- Raw reason/path are always preserved; semantic reason is additive.
+- If no rule matches, `semanticReason` becomes `unclassified_change`.
+- If multiple rules match, first rule is used and ambiguity note is attached.
 - Flow editor compare mode (baseline vs reviewed diffs)
 - Flow editor shell with live reviewed mutations
 - Storage conventions for sessions/events/flows/assets

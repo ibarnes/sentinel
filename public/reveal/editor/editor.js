@@ -175,11 +175,12 @@ function renderInspector(step, replay, integrity) {
   const rb = replay?.finalBoxes?.renderedBox || null;
   const fd = integrity?.firstDivergence;
   const mismatch = integrity?.status === 'mismatch';
+  const semSummary = integrity?.diffSummary?.semanticReasons || {};
   el.innerHTML = `<div class="cmp">
     <div class="cmp-col"><h4>Source Box</h4><div>${sb ? `x:${sb.x}, y:${sb.y}, w:${sb.width}, h:${sb.height}` : 'n/a'}</div></div>
     <div class="cmp-col"><h4>Normalized Box</h4><div>${nb ? `x:${nb.x}, y:${nb.y}, w:${nb.width}, h:${nb.height}` : 'n/a'}</div></div>
     <div class="cmp-col"><h4>Rendered Box</h4><div>${rb ? `x:${rb.x}, y:${rb.y}, w:${rb.width}, h:${rb.height}` : 'n/a'}</div></div>
-    <div class="cmp-col"><h4>Integrity</h4><div>status: ${integrity?.status || 'n/a'}</div><div>checksum: ${integrity?.replayChecksum || 'n/a'}</div><div>version: ${integrity?.replayChecksumVersion || 'n/a'}</div>${mismatch && fd ? `<div>first divergence: ${escapeHtml(fd.path || 'n/a')} (${escapeHtml(fd.reason || 'value_changed')})</div><div>stored: ${escapeHtml(JSON.stringify(fd.storedValue))}</div><div>current: ${escapeHtml(JSON.stringify(fd.currentValue))}</div>` : ''}</div>
+    <div class="cmp-col"><h4>Integrity</h4><div>status: ${integrity?.status || 'n/a'}</div><div>checksum: ${integrity?.replayChecksum || 'n/a'}</div><div>version: ${integrity?.replayChecksumVersion || 'n/a'}</div>${mismatch && fd ? `<div>semantic: <strong>${escapeHtml(fd.semanticReason || 'unclassified_change')}</strong></div><div>first divergence: ${escapeHtml(fd.path || 'n/a')} (${escapeHtml(fd.reason || 'value_changed')})</div><div>stored: ${escapeHtml(JSON.stringify(fd.storedValue))}</div><div>current: ${escapeHtml(JSON.stringify(fd.currentValue))}</div><div>semantic summary: ${escapeHtml(JSON.stringify(semSummary))}</div>` : ''}</div>
   </div>`;
 }
 
