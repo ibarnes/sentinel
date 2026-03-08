@@ -142,7 +142,15 @@ Product-intelligence capture system at `/reveal`.
     - `POST /reveal/api/scripts/:scriptId/review/snapshots/integrity/recompute`
     - snapshot fields: `reviewedSnapshotContentHash`, `reviewedSnapshotHashVersion=sha256-v1`, `parentReviewedSnapshotId`, `parentReviewedSnapshotContentHash`, `reviewedSnapshotChainIndex`
     - canonical hash rules: sorted keys, undefined removed, null preserved, arrays keep order, numeric values normalized to 6 decimals.
-  - publish gate blocks `mode=publish_ready` export when requirements fail; returns blocking reasons.
+  - trust publications + verifier:
+    - `POST /reveal/api/scripts/:scriptId/review/trust-publications`
+    - `GET /reveal/api/scripts/:scriptId/review/trust-publications`
+    - `GET /reveal/api/scripts/:scriptId/review/trust-publications/latest`
+    - `GET /reveal/api/scripts/:scriptId/review/trust-publications/:trustPublicationId`
+    - `GET /reveal/api/scripts/:scriptId/review/verify-latest`
+    - `GET /reveal/api/scripts/:scriptId/review/export-with-proof?format=json|zip`
+    - trust publication canonicalization mirrors deterministic object sort/normalization and signs canonical payload when keys are available.
+  - publish gate blocks `mode=publish_ready` export when requirements fail; supports optional `requireLatestReviewedSnapshotIntegrity=1` and `requireLatestTrustPublication=1`.
   - style profiles: `neutral_walkthrough`, `concise_training`, `executive_overview`
 - Session lifecycle:
   - TTL + optional idle policy for `playing` sessions

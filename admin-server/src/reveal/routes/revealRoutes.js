@@ -42,6 +42,9 @@ import {
 import { createReviewedSnapshot, listReviewedSnapshots, getReviewedSnapshot, verifyReviewedSnapshotIntegrity, recomputeReviewedSnapshotIntegrity } from '../script/reviewedScriptSnapshotService.js';
 import { evaluatePublishGate } from '../script/scriptPublishGateService.js';
 import { buildScriptAuditReport } from '../script/scriptAuditReportService.js';
+import { publishTrust, listTrustPublications, getLatestTrustPublication, getTrustPublication } from '../script/reviewedSnapshotTrustPublicationService.js';
+import { verifyLatestReviewedSnapshot } from '../script/reviewedSnapshotVerificationService.js';
+import { buildProofBundle } from '../script/reviewedSnapshotProofBundleService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -323,6 +326,52 @@ router.get('/api/scripts/:scriptId/review/audit-report', async (req, res) => {
   res.json(out);
 });
 
+router.post('/api/scripts/:scriptId/review/trust-publications', async (req, res) => {
+  const out = await publishTrust(String(req.params.scriptId || ''));
+  if (out.error === 'no_reviewed_snapshot_for_publication') return res.status(400).json(out);
+  if (out.error === 'trust_publication_id_collision') return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/scripts/:scriptId/review/trust-publications', async (req, res) => {
+  const out = await listTrustPublications(String(req.params.scriptId || ''));
+  res.json(out);
+});
+
+router.get('/api/scripts/:scriptId/review/trust-publications/latest', async (req, res) => {
+  const out = await getLatestTrustPublication(String(req.params.scriptId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/scripts/:scriptId/review/trust-publications/:trustPublicationId', async (req, res) => {
+  const out = await getTrustPublication(String(req.params.scriptId || ''), String(req.params.trustPublicationId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/scripts/:scriptId/review/verify-latest', async (req, res) => {
+  const out = await verifyLatestReviewedSnapshot(String(req.params.scriptId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/scripts/:scriptId/review/export-with-proof', async (req, res) => {
+  const format = String(req.query.format || 'json').toLowerCase();
+  const out = await buildProofBundle(String(req.params.scriptId || ''), { format });
+  if (['script_not_found', 'review_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['latest_trust_publication_missing','invalid_proof_bundle_format'].includes(out.error)) return res.status(400).json(out);
+  if (out.buffer) {
+    res.setHeader('Content-Type', out.contentType);
+    res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
+    return res.send(out.buffer);
+  }
+  res.setHeader('Content-Type', out.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
+  res.send(out.content);
+});
+
 router.get('/api/scripts/:scriptId/review/export', async (req, res) => {
   const out = await getReviewedScript(String(req.params.scriptId || ''));
   if (['script_not_found', 'review_not_found'].includes(out.error)) return res.status(404).json(out);
@@ -332,9 +381,16 @@ router.get('/api/scripts/:scriptId/review/export', async (req, res) => {
   if (!['standard', 'publish_ready'].includes(mode)) return res.status(400).json({ error: 'invalid_export_mode' });
 
   const requireIntegrity = String(req.query.requireLatestReviewedSnapshotIntegrity || process.env.REVEAL_REQUIRE_LATEST_REVIEWED_SNAPSHOT_INTEGRITY || '0') === '1';
+  const requireTrustPublication = String(req.query.requireLatestTrustPublication || process.env.REVEAL_REQUIRE_LATEST_TRUST_PUBLICATION || '0') === '1';
+
   const latestList = await listReviewedSnapshots(String(req.params.scriptId || ''));
   const latestSnapshot = (latestList.snapshots || []).length ? [...latestList.snapshots].sort((a, b) => Number(b.reviewedSnapshotChainIndex || 0) - Number(a.reviewedSnapshotChainIndex || 0))[0] : null;
   const latestIntegrity = latestSnapshot ? await verifyReviewedSnapshotIntegrity(String(req.params.scriptId || ''), latestSnapshot.reviewedSnapshotId) : null;
+
+  const latestTrust = await getLatestTrustPublication(String(req.params.scriptId || ''));
+  const trustMissing = !!latestTrust.error;
+  const trustUnsigned = !trustMissing && latestTrust.trustPublication.trustPublicationSignatureStatus !== 'signed';
+  const trustInvalid = false;
 
   const gate = evaluatePublishGate({
     baseline: out.baseline,
@@ -342,6 +398,15 @@ router.get('/api/scripts/:scriptId/review/export', async (req, res) => {
     requireLatestReviewedSnapshotIntegrity: requireIntegrity,
     latestReviewedSnapshotIntegrity: latestIntegrity && !latestIntegrity.error ? latestIntegrity : null
   });
+  if (requireTrustPublication) {
+    if (trustMissing) gate.blockingReasons.push('latest_trust_publication_missing');
+    else {
+      if (!latestTrust.trustPublication.chainHeadDigest) gate.blockingReasons.push('chain_head_digest_missing');
+      if (trustUnsigned) gate.blockingReasons.push('latest_trust_publication_unsigned');
+      if (trustInvalid) gate.blockingReasons.push('latest_trust_publication_invalid');
+    }
+    gate.canPublish = gate.blockingReasons.length === 0;
+  }
   if (mode === 'publish_ready' && !gate.canPublish) {
     return res.status(409).json({ error: 'publish_gate_blocked', publishGate: gate, latestReviewedSnapshotIntegrity: latestIntegrity || null });
   }
@@ -793,6 +858,11 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="script-review-snapshot-create">Create Reviewed Snapshot</button>
           <button data-action="script-review-snapshot-list">List Reviewed Snapshots</button>
           <button data-action="script-review-snapshot-integrity-recompute">Recompute Snapshot Integrity</button>
+          <button data-action="script-review-trust-publish">Publish Trust Head</button>
+          <button data-action="script-review-trust-latest">View Latest Trust Publication</button>
+          <button data-action="script-review-verify-latest">Verify Latest (External)</button>
+          <button data-action="script-review-proof-export-json">Export Proof Bundle JSON</button>
+          <button data-action="script-review-proof-export-zip">Export Proof Bundle ZIP</button>
           <button data-action="script-review-audit-report">View Audit Report</button>
           <button data-action="script-review-gate">Check Publish Gate</button>
           <button data-action="script-review-export-json">Export Reviewed JSON</button>

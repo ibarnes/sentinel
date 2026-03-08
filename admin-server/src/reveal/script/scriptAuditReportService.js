@@ -1,6 +1,7 @@
 import { getReviewedScript } from './reviewedScriptService.js';
 import { listReviewedSnapshots, verifyReviewedSnapshotIntegrity, recomputeReviewedSnapshotIntegrity } from './reviewedScriptSnapshotService.js';
 import { evaluatePublishGate } from './scriptPublishGateService.js';
+import { getLatestTrustPublication } from './reviewedSnapshotTrustPublicationService.js';
 
 export async function buildScriptAuditReport(scriptId, { requireLatestReviewedSnapshotIntegrity = false } = {}) {
   const env = await getReviewedScript(scriptId);
@@ -11,6 +12,7 @@ export async function buildScriptAuditReport(scriptId, { requireLatestReviewedSn
   const latestIntegrity = latestSnapshot ? await verifyReviewedSnapshotIntegrity(scriptId, latestSnapshot.reviewedSnapshotId) : null;
   const chainSummary = await recomputeReviewedSnapshotIntegrity(scriptId);
 
+  const latestTrust = await getLatestTrustPublication(scriptId);
   const gate = evaluatePublishGate({
     baseline: env.baseline,
     reviewed: env.reviewed,
@@ -57,6 +59,13 @@ export async function buildScriptAuditReport(scriptId, { requireLatestReviewedSn
     chainContinuitySummary: {
       ok: chainSummary.brokenChainLinks === 0,
       brokenChainLinks: chainSummary.brokenChainLinks
+    },
+    latestTrustPublicationSummary: latestTrust.error ? null : {
+      trustPublicationId: latestTrust.trustPublication.trustPublicationId,
+      chainHeadDigest: latestTrust.trustPublication.chainHeadDigest,
+      trustPublicationSignatureStatus: latestTrust.trustPublication.trustPublicationSignatureStatus,
+      publicationVersion: latestTrust.trustPublication.publicationVersion,
+      publishedAt: latestTrust.trustPublication.publishedAt
     },
     availableReviewedSnapshots: (snaps.snapshots || []).map((s) => ({
       reviewedSnapshotId: s.reviewedSnapshotId,

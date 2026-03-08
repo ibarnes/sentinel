@@ -420,6 +420,29 @@ async function recomputeSnapshotIntegrity() {
   alert(`Integrity recompute: total=${out.totalSnapshots}, match=${out.matched}, mismatch=${out.mismatched}, brokenChain=${out.brokenChainLinks}, missingHash=${out.missingHash}`);
 }
 
+async function publishTrustHead() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/trust-publications`, 'POST', {});
+  alert(`Trust publication created: ${out.trustPublication.trustPublicationId}\nheadDigest=${out.trustPublication.chainHeadDigest}`);
+}
+
+async function viewLatestTrustPublication() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/trust-publications/latest`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out.trustPublication, null, 2);
+}
+
+async function verifyLatestExternal() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/verify-latest`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+function exportProofBundle(format) {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export-with-proof?format=${encodeURIComponent(format)}`);
+}
+
 async function viewAuditReport() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/audit-report`);
@@ -638,6 +661,11 @@ function wireActions() {
   document.querySelector('[data-action="script-review-snapshot-create"]')?.addEventListener('click', () => createReviewedSnapshot().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-snapshot-list"]')?.addEventListener('click', () => listReviewedSnapshots().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-snapshot-integrity-recompute"]')?.addEventListener('click', () => recomputeSnapshotIntegrity().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-trust-publish"]')?.addEventListener('click', () => publishTrustHead().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-trust-latest"]')?.addEventListener('click', () => viewLatestTrustPublication().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-verify-latest"]')?.addEventListener('click', () => verifyLatestExternal().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-proof-export-json"]')?.addEventListener('click', () => exportProofBundle('json'));
+  document.querySelector('[data-action="script-review-proof-export-zip"]')?.addEventListener('click', () => exportProofBundle('zip'));
   document.querySelector('[data-action="script-review-audit-report"]')?.addEventListener('click', () => viewAuditReport().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-gate"]')?.addEventListener('click', () => checkPublishGate().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-export-json"]')?.addEventListener('click', () => exportReviewedScript('json'));
