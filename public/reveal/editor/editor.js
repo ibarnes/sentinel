@@ -252,6 +252,44 @@ function download(url) {
   window.open(url, '_blank', 'noopener');
 }
 
+async function createShareForFlow() {
+  const accessMode = prompt('accessMode: internal|public_token', 'public_token') || 'public_token';
+  const mode = prompt('embedMode: standard_embed|minimal_embed|kiosk_embed', 'minimal_embed') || 'minimal_embed';
+  const out = await api('/reveal/api/player/share-links', 'POST', {
+    targetType: 'flow',
+    targetRef: state.flowId,
+    accessMode,
+    embed: { embedMode: mode },
+    playbackDefaults: { autoSession: true }
+  });
+  const url = `${location.origin}/reveal/share/${out.share.shareId}`;
+  const embedUrl = `${location.origin}/reveal/share/${out.share.shareId}/embed`;
+  const iframe = `<iframe src="${embedUrl}" width="960" height="600" style="border:0" allowfullscreen loading="lazy"></iframe>`;
+  navigator.clipboard?.writeText(url).catch(() => {});
+  alert(`Share URL (copied): ${url}\nEmbed URL: ${embedUrl}\n\n${iframe}`);
+}
+
+async function createShareForSnapshot() {
+  const sid = selectedSnapshotId();
+  if (!sid) return alert('Select snapshot first');
+  const out = await api('/reveal/api/player/share-links', 'POST', {
+    targetType: 'snapshot',
+    targetRef: sid,
+    accessMode: 'public_token',
+    embed: { embedMode: 'minimal_embed' },
+    playbackDefaults: { autoSession: true }
+  });
+  const url = `${location.origin}/reveal/share/${out.share.shareId}`;
+  navigator.clipboard?.writeText(url).catch(() => {});
+  alert(`Snapshot share URL (copied): ${url}`);
+}
+
+async function listSharesForFlow() {
+  const out = await api(`/reveal/api/player/share-links?targetType=flow&targetRef=${encodeURIComponent(state.flowId)}`);
+  const lines = (out.shares || []).slice(0, 15).map((s) => `${s.shareId} • ${s.status} • ${s.embed?.embedMode || 'standard_embed'} • ${s.expiresAt || 'no-expiry'}`);
+  alert(lines.length ? lines.join('\n') : 'No shares');
+}
+
 function renderInspector(step, replay, integrity) {
   const el = document.getElementById('coord-inspector');
   if (!el) return;
@@ -425,6 +463,8 @@ function wireActions() {
   document.querySelector('[data-action="export-reviewed-json"]')?.addEventListener('click', () => download(`/reveal/api/flows/${state.flowId}/export?format=json`));
   document.querySelector('[data-action="export-reviewed-md"]')?.addEventListener('click', () => download(`/reveal/api/flows/${state.flowId}/export?format=markdown`));
   document.querySelector('[data-action="export-reviewed-package"]')?.addEventListener('click', () => download(`/reveal/api/flows/${state.flowId}/export?format=package`));
+  document.querySelector('[data-action="share-create-flow"]')?.addEventListener('click', createShareForFlow);
+  document.querySelector('[data-action="share-list-flow"]')?.addEventListener('click', listSharesForFlow);
   document.querySelector('[data-action="export-snapshot-json"]')?.addEventListener('click', () => {
     const sid = selectedSnapshotId();
     if (!sid) return alert('Select snapshot first');
@@ -440,6 +480,7 @@ function wireActions() {
     if (!sid) return alert('Select snapshot first');
     download(`/reveal/api/flows/${state.flowId}/snapshots/${encodeURIComponent(sid)}/export?format=package`);
   });
+  document.querySelector('[data-action="share-create-snapshot"]')?.addEventListener('click', createShareForSnapshot);
 }
 
 async function boot() {

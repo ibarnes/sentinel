@@ -21,6 +21,8 @@ import { applyPlaybackControl } from '../player/playbackController.js';
 import { safeAssetPath } from '../player/assetResolverService.js';
 import { createPlayerSession, getPlayerSession, listPlayerSessions, patchPlayerSession, deletePlayerSession, resumePlayerSession, resolveSessionAssetPath } from '../player/playerSessionService.js';
 import { sweepPlayerSessions, startPlayerSessionSweeper } from '../player/playerSessionSweeper.js';
+import { normalizeEmbedConfig } from '../player/embedConfigService.js';
+import { createShareLink, getShareLink, patchShareLink, deleteShareLink, resolveShareLink, listShareLinks } from '../player/shareLinkService.js';
 import { integrityForStep, integrityRecomputeFlow } from '../services/replayIntegrityService.js';
 import { createSnapshot, listSnapshots, getSnapshot, verifySnapshotIntegrity, recomputeFlowSnapshotIntegrity } from '../services/snapshotService.js';
 import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
@@ -174,6 +176,67 @@ router.get('/api/player/sessions/:sessionId/assets/:kind/:file', async (req, res
   } catch {
     res.status(404).json({ error: 'asset_not_found' });
   }
+});
+
+router.post('/api/player/share-links', async (req, res) => {
+  const out = await createShareLink({
+    targetType: req.body?.targetType,
+    targetRef: req.body?.targetRef,
+    createdBy: req.body?.createdBy || null,
+    expiresAt: req.body?.expiresAt || null,
+    accessMode: req.body?.accessMode || 'internal',
+    embed: req.body?.embed || {},
+    playbackDefaults: req.body?.playbackDefaults || {},
+    autoSession: req.body?.autoSession ?? true
+  });
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/player/share-links', async (req, res) => {
+  const out = await listShareLinks({
+    targetType: req.query.targetType ? String(req.query.targetType) : null,
+    targetRef: req.query.targetRef ? String(req.query.targetRef) : null,
+    status: req.query.status ? String(req.query.status) : null
+  });
+  res.json(out);
+});
+
+router.get('/api/player/share-links/:shareId', async (req, res) => {
+  const out = await getShareLink(String(req.params.shareId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/player/share-links/:shareId/resolve', async (req, res) => {
+  const out = await resolveShareLink(String(req.params.shareId || ''));
+  if (out.error === 'share_not_found') return res.status(404).json(out);
+  if (out.error === 'share_revoked' || out.error === 'share_expired') return res.status(410).json(out);
+  const share = out.share;
+  res.json({
+    share: {
+      shareId: share.shareId,
+      targetType: share.targetType,
+      targetRef: share.targetRef,
+      status: share.status,
+      accessMode: share.accessMode,
+      expiresAt: share.expiresAt
+    },
+    embed: normalizeEmbedConfig(share.embed || {}, share.embed?.embedMode || 'standard_embed'),
+    playbackDefaults: share.playbackDefaults || { step: 0, autoPlayEnabled: false, autoSession: true }
+  });
+});
+
+router.patch('/api/player/share-links/:shareId', async (req, res) => {
+  const out = await patchShareLink(String(req.params.shareId || ''), req.body || {});
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.delete('/api/player/share-links/:shareId', async (req, res) => {
+  const out = await deleteShareLink(String(req.params.shareId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
 });
 
 router.post('/api/sessions', async (req, res) => {
@@ -416,6 +479,45 @@ router.put('/api/flows/:flowId/review', async (req, res) => {
   res.json({ ok: true, source: 'reviewed', flow: result.flow });
 });
 
+function renderPlayerHtml(flowId, boot = {}) {
+  const bootJson = JSON.stringify(boot).replace(/</g, '\\u003c');
+  return `<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reveal Flow Player</title>
+  <link rel="stylesheet" href="/reveal/player/player.css" />
+</head>
+<body>
+  <script>window.REVEAL_PLAYER_BOOT = ${bootJson};</script>
+  <div class="wrap ${boot?.embed?.embedMode || ''}">
+    <section class="viewer">
+      <h2 id="flow">Reveal Player</h2>
+      <div id="resume-note" class="small"></div>
+      <div class="stage"><img id="shot" alt="step" /><div id="hotspots"></div></div>
+      <div class="overlay" id="overlay"></div>
+      <div class="ctrls" id="controls">
+        <button id="restart">Restart</button>
+        <button id="prev">Previous</button>
+        <button id="next">Next</button>
+        <button id="dismiss">Dismiss Overlay</button>
+        <button id="auto">Auto Play</button>
+      </div>
+    </section>
+    <aside class="panel" id="panel">
+      <h3 id="title">Step</h3>
+      <div id="meta" class="small"></div>
+      <p id="intent"></p>
+      <h4>Annotations</h4>
+      <ul id="annotations"></ul>
+    </aside>
+  </div>
+  <script src="/reveal/player/player.js"></script>
+</body>
+</html>`;
+}
+
 router.get('/editor/:flowId', async (req, res) => {
   const flowId = String(req.params.flowId || '');
   res.type('html').send(`<!doctype html>
@@ -451,6 +553,8 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="export-reviewed-json">Export Reviewed JSON</button>
           <button data-action="export-reviewed-md">Export Reviewed MD</button>
           <button data-action="export-reviewed-package">Export Reviewed Package</button>
+          <button data-action="share-create-flow">Create Share Link</button>
+          <button data-action="share-list-flow">List Shares</button>
         </div>
       </header>
       <section class="meta" id="step-meta"></section>
@@ -474,6 +578,7 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="export-snapshot-json">Export Snapshot JSON</button>
           <button data-action="export-snapshot-md">Export Snapshot MD</button>
           <button data-action="export-snapshot-package">Export Snapshot Package</button>
+          <button data-action="share-create-snapshot">Create Snapshot Share</button>
         </div>
         <pre id="snapshot-summary" class="dbg-pre"></pre>
       </section>
@@ -489,40 +594,69 @@ router.get('/editor/:flowId', async (req, res) => {
 });
 
 router.get('/player/:flowId', async (req, res) => {
-  res.type('html').send(`<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Reveal Flow Player</title>
-  <link rel="stylesheet" href="/reveal/player/player.css" />
-</head>
-<body>
-  <div class="wrap">
-    <section class="viewer">
-      <h2 id="flow">Reveal Player</h2>
-      <div id="resume-note" class="small"></div>
-      <div class="stage"><img id="shot" alt="step" /><div id="hotspots"></div></div>
-      <div class="overlay" id="overlay"></div>
-      <div class="ctrls">
-        <button id="restart">Restart</button>
-        <button id="prev">Previous</button>
-        <button id="next">Next</button>
-        <button id="dismiss">Dismiss Overlay</button>
-        <button id="auto">Auto Play</button>
-      </div>
-    </section>
-    <aside class="panel">
-      <h3 id="title">Step</h3>
-      <div id="meta" class="small"></div>
-      <p id="intent"></p>
-      <h4>Annotations</h4>
-      <ul id="annotations"></ul>
-    </aside>
-  </div>
-  <script src="/reveal/player/player.js"></script>
-</body>
-</html>`);
+  const embed = normalizeEmbedConfig({
+    embedMode: req.query.mode ? String(req.query.mode) : (String(req.query.embed || '0') === '1' ? 'minimal_embed' : 'standard_embed')
+  });
+  const boot = {
+    flowId: String(req.params.flowId || ''),
+    snapshotId: req.query.snapshotId ? String(req.query.snapshotId) : null,
+    sessionId: req.query.sessionId ? String(req.query.sessionId) : null,
+    share: null,
+    embed,
+    readOnly: false
+  };
+  res.type('html').send(renderPlayerHtml(String(req.params.flowId || ''), boot));
+});
+
+router.get('/share/:shareId', async (req, res) => {
+  const out = await resolveShareLink(String(req.params.shareId || ''));
+  if (out.error === 'share_not_found') return res.status(404).type('html').send('<h1>Share not found</h1>');
+  if (out.error === 'share_revoked') return res.status(410).type('html').send('<h1>Share revoked</h1>');
+  if (out.error === 'share_expired') return res.status(410).type('html').send('<h1>Share expired</h1>');
+
+  const share = out.share;
+  const boot = {
+    flowId: share.targetType === 'flow' ? share.targetRef : '',
+    snapshotId: share.targetType === 'snapshot' ? share.targetRef : null,
+    sessionId: share.targetType === 'session' ? share.targetRef : null,
+    share: {
+      shareId: share.shareId,
+      targetType: share.targetType,
+      status: share.status,
+      accessMode: share.accessMode,
+      expiresAt: share.expiresAt
+    },
+    embed: normalizeEmbedConfig(share.embed || {}, share.embed?.embedMode || 'standard_embed'),
+    readOnly: true,
+    playbackDefaults: share.playbackDefaults || { step: 0, autoPlayEnabled: false, autoSession: true }
+  };
+
+  res.type('html').send(renderPlayerHtml('', boot));
+});
+
+router.get('/share/:shareId/embed', async (req, res) => {
+  const out = await resolveShareLink(String(req.params.shareId || ''));
+  if (out.error === 'share_not_found') return res.status(404).type('html').send('<h1>Share not found</h1>');
+  if (out.error === 'share_revoked') return res.status(410).type('html').send('<h1>Share revoked</h1>');
+  if (out.error === 'share_expired') return res.status(410).type('html').send('<h1>Share expired</h1>');
+
+  const share = out.share;
+  const boot = {
+    flowId: share.targetType === 'flow' ? share.targetRef : '',
+    snapshotId: share.targetType === 'snapshot' ? share.targetRef : null,
+    sessionId: share.targetType === 'session' ? share.targetRef : null,
+    share: {
+      shareId: share.shareId,
+      targetType: share.targetType,
+      status: share.status,
+      accessMode: share.accessMode,
+      expiresAt: share.expiresAt
+    },
+    embed: normalizeEmbedConfig({ ...(share.embed || {}), embedMode: share.embed?.embedMode || 'minimal_embed' }, 'minimal_embed'),
+    readOnly: true,
+    playbackDefaults: share.playbackDefaults || { step: 0, autoPlayEnabled: false, autoSession: true }
+  };
+  res.type('html').send(renderPlayerHtml('', boot));
 });
 
 export default router;

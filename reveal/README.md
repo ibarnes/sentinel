@@ -107,6 +107,14 @@ Product-intelligence capture system at `/reveal`.
   - `POST /reveal/api/player/sessions/sweep`
   - `GET /reveal/api/player/sessions/:sessionId/assets/:kind/:file`
 - Session actions: `next`, `prev`, `jump`, `restart`, `play`, `pause`, `setAutoPlay` via `autoPlayEnabled`, `interactHotspot`, `dismissOverlay`.
+- Share links + embed:
+  - `POST /reveal/api/player/share-links`
+  - `GET /reveal/api/player/share-links/:shareId`
+  - `GET /reveal/api/player/share-links/:shareId/resolve`
+  - `PATCH /reveal/api/player/share-links/:shareId`
+  - `DELETE /reveal/api/player/share-links/:shareId`
+  - share playback pages: `/reveal/share/:shareId` and `/reveal/share/:shareId/embed`
+  - embed modes: `standard_embed | minimal_embed | kiosk_embed`
 - Interactive model per step:
   - `hotspots[]` (primary/info/navigation regions)
   - `overlay` (guided title/body/emphasis/progression)
