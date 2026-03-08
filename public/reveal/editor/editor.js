@@ -161,22 +161,25 @@ async function loadReplay(stepId) {
 
 async function loadIntegrity(stepId) {
   try {
-    return await api(`/reveal/api/flows/${state.flowId}/steps/${stepId}/replay-integrity`);
+    return await api(`/reveal/api/flows/${state.flowId}/steps/${stepId}/replay-integrity?includeDiff=1`);
   } catch (e) {
     return { status: 'unavailable', reasonCodes: ['integrity_fetch_failed'], error: String(e.message || e) };
   }
 }
 
-function renderInspector(step, replay) {
+function renderInspector(step, replay, integrity) {
   const el = document.getElementById('coord-inspector');
   if (!el) return;
   const sb = replay?.sourceBox || step?.target?.elementBox || null;
   const nb = replay?.finalBoxes?.normalizedBox || step?.metadata?.normalizedHighlightBox || null;
   const rb = replay?.finalBoxes?.renderedBox || null;
+  const fd = integrity?.firstDivergence;
+  const mismatch = integrity?.status === 'mismatch';
   el.innerHTML = `<div class="cmp">
     <div class="cmp-col"><h4>Source Box</h4><div>${sb ? `x:${sb.x}, y:${sb.y}, w:${sb.width}, h:${sb.height}` : 'n/a'}</div></div>
     <div class="cmp-col"><h4>Normalized Box</h4><div>${nb ? `x:${nb.x}, y:${nb.y}, w:${nb.width}, h:${nb.height}` : 'n/a'}</div></div>
     <div class="cmp-col"><h4>Rendered Box</h4><div>${rb ? `x:${rb.x}, y:${rb.y}, w:${rb.width}, h:${rb.height}` : 'n/a'}</div></div>
+    <div class="cmp-col"><h4>Integrity</h4><div>status: ${integrity?.status || 'n/a'}</div><div>checksum: ${integrity?.replayChecksum || 'n/a'}</div><div>version: ${integrity?.replayChecksumVersion || 'n/a'}</div>${mismatch && fd ? `<div>first divergence: ${escapeHtml(fd.path || 'n/a')} (${escapeHtml(fd.reason || 'value_changed')})</div><div>stored: ${escapeHtml(JSON.stringify(fd.storedValue))}</div><div>current: ${escapeHtml(JSON.stringify(fd.currentValue))}</div>` : ''}</div>
   </div>`;
 }
 
@@ -203,7 +206,7 @@ async function showStep(step) {
   renderComparePanel(step);
   const replay = await loadReplay(step.id);
   const integrity = await loadIntegrity(step.id);
-  renderInspector(step, replay);
+  renderInspector(step, replay, integrity);
   const dbg = document.getElementById('debugger-panel');
   if (dbg) {
     dbg.textContent = JSON.stringify({ integrity, replay }, null, 2);
@@ -315,7 +318,7 @@ function wireActions() {
     if (step) renderComparePanel(step);
   });
   document.querySelector('[data-action="integrity-recompute"]')?.addEventListener('click', async () => {
-    const out = await api(`/reveal/api/flows/${state.flowId}/replay-integrity/recompute`, 'POST', {});
+    const out = await api(`/reveal/api/flows/${state.flowId}/replay-integrity/recompute?includeDiff=1`, 'POST', {});
     alert(`Integrity recompute: matched ${out.summary.matchedSteps}/${out.summary.totalReplayableSteps}, mismatched ${out.summary.mismatchedSteps}, unreplayable ${out.summary.unreplayableSteps}`);
     await refresh();
   });

@@ -6,5 +6,1838 @@
     "mismatched-dimensions.raw.json": "7b36ffd7f50b78d628548cc1e627dfb6eaef80381c7cc5ed60d5f8d72d4f39e4",
     "out-of-bounds-highlight.raw.json": "ad0fcb6d55f6a6933705e8c7c78d92202b1aefd25e12d04dce662fea38f7f7fd",
     "transform-estimated.raw.json": "4626d3c2d4da1924134ae480bf536823c493f04e133049f1465cb86e0ffe1818"
+  },
+  "sources": {
+    "nested-iframe-chain.raw.json": {
+      "coordinateConfidence": 0.8,
+      "finalBoxes": {
+        "normalizedBox": {
+          "cssTransformScale": 1,
+          "devicePixelRatio": 1,
+          "frameChain": [
+            {
+              "frameOffsetX": 0,
+              "frameOffsetY": 0,
+              "frameOrigin": "https://app.test",
+              "framePath": "top",
+              "unresolved": false,
+              "viewportHeight": 800,
+              "viewportWidth": 1200
+            },
+            {
+              "frameOffsetX": 120,
+              "frameOffsetY": 80,
+              "frameOrigin": "https://app.test",
+              "framePath": "frameA",
+              "unresolved": false,
+              "viewportHeight": 700,
+              "viewportWidth": 900
+            },
+            {
+              "frameOffsetX": 40,
+              "frameOffsetY": 30,
+              "frameOrigin": "https://embed.test",
+              "framePath": "frameB",
+              "unresolved": false,
+              "viewportHeight": 480,
+              "viewportWidth": 640
+            }
+          ],
+          "frameChainComplete": true,
+          "frameChainImpossible": false,
+          "frameChainUnresolvedSegments": 0,
+          "frameOffset": {
+            "x": 160,
+            "y": 110
+          },
+          "height": 32,
+          "normalizedViewport": {
+            "height": 800,
+            "width": 1200
+          },
+          "scrollOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "sourceViewport": {
+            "height": 800,
+            "width": 1200
+          },
+          "width": 120,
+          "x": 210,
+          "y": 170,
+          "zoom": 1
+        },
+        "projectedBox": {
+          "height": 32,
+          "width": 120,
+          "x": 50,
+          "y": 60
+        },
+        "renderedBox": null
+      },
+      "finalHighlight": {
+        "driftRatio": 3.4375,
+        "driftWarning": true,
+        "fallbackReason": null,
+        "mode": "rendered"
+      },
+      "frameTrace": {
+        "frameChain": [
+          {
+            "frameOffsetX": 0,
+            "frameOffsetY": 0,
+            "frameOrigin": "https://app.test",
+            "framePath": "top",
+            "viewportHeight": 800,
+            "viewportWidth": 1200
+          },
+          {
+            "frameOffsetX": 120,
+            "frameOffsetY": 80,
+            "frameOrigin": "https://app.test",
+            "framePath": "frameA",
+            "viewportHeight": 700,
+            "viewportWidth": 900
+          },
+          {
+            "frameOffsetX": 40,
+            "frameOffsetY": 30,
+            "frameOrigin": "https://embed.test",
+            "framePath": "frameB",
+            "viewportHeight": 480,
+            "viewportWidth": 640
+          }
+        ],
+        "framePath": "top"
+      },
+      "normalizationTrace": [
+        {
+          "input": {
+            "height": 32,
+            "width": 120,
+            "x": 50,
+            "y": 60
+          },
+          "op": "coerce_numeric",
+          "output": {
+            "height": 32,
+            "width": 120,
+            "x": 50,
+            "y": 60
+          },
+          "stage": "source_box"
+        },
+        {
+          "input": {
+            "cssScale": 1,
+            "dpr": 1,
+            "zoom": 1
+          },
+          "op": "sanitize_scale",
+          "output": {
+            "cssScale": 1,
+            "dpr": 1,
+            "zoom": 1
+          },
+          "stage": "scale_inputs"
+        },
+        {
+          "input": {
+            "scrollX": 0,
+            "scrollY": 0,
+            "viewportHeight": 800,
+            "viewportWidth": 1200
+          },
+          "op": "capture_context",
+          "output": {
+            "scrollX": 0,
+            "scrollY": 0,
+            "viewportHeight": 800,
+            "viewportWidth": 1200
+          },
+          "stage": "viewport_scroll"
+        },
+        {
+          "input": {
+            "frameChain": [
+              {
+                "frameOffsetX": 0,
+                "frameOffsetY": 0,
+                "frameOrigin": "https://app.test",
+                "framePath": "top",
+                "unresolved": false,
+                "viewportHeight": 800,
+                "viewportWidth": 1200
+              },
+              {
+                "frameOffsetX": 120,
+                "frameOffsetY": 80,
+                "frameOrigin": "https://app.test",
+                "framePath": "frameA",
+                "unresolved": false,
+                "viewportHeight": 700,
+                "viewportWidth": 900
+              },
+              {
+                "frameOffsetX": 40,
+                "frameOffsetY": 30,
+                "frameOrigin": "https://embed.test",
+                "framePath": "frameB",
+                "unresolved": false,
+                "viewportHeight": 480,
+                "viewportWidth": 640
+              }
+            ]
+          },
+          "op": "sum_offsets",
+          "output": {
+            "complete": true,
+            "frameOffsetX": 160,
+            "frameOffsetY": 110,
+            "impossible": false,
+            "unresolvedSegments": 0
+          },
+          "stage": "frame_offset_accumulation"
+        },
+        {
+          "input": {
+            "frameOffsetX": 160,
+            "frameOffsetY": 110,
+            "height": 32,
+            "scale": 1,
+            "width": 120,
+            "x": 50,
+            "y": 60
+          },
+          "op": "(coord+frame)*dpr*zoom*cssScale",
+          "output": {
+            "nhRaw": 32,
+            "nwRaw": 120,
+            "nxRaw": 210,
+            "nyRaw": 170
+          },
+          "stage": "scale_transform"
+        },
+        {
+          "input": {
+            "nhRaw": 32,
+            "nwRaw": 120,
+            "nxRaw": 210,
+            "nyRaw": 170,
+            "screenshotHeight": 800,
+            "screenshotWidth": 1200
+          },
+          "op": "round+clamp",
+          "output": {
+            "height": 32,
+            "width": 120,
+            "x": 210,
+            "y": 170
+          },
+          "stage": "bounds_clipping"
+        },
+        {
+          "input": {
+            "normalized": {
+              "cssTransformScale": 1,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": "https://app.test",
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 800,
+                  "viewportWidth": 1200
+                },
+                {
+                  "frameOffsetX": 120,
+                  "frameOffsetY": 80,
+                  "frameOrigin": "https://app.test",
+                  "framePath": "frameA",
+                  "unresolved": false,
+                  "viewportHeight": 700,
+                  "viewportWidth": 900
+                },
+                {
+                  "frameOffsetX": 40,
+                  "frameOffsetY": 30,
+                  "frameOrigin": "https://embed.test",
+                  "framePath": "frameB",
+                  "unresolved": false,
+                  "viewportHeight": 480,
+                  "viewportWidth": 640
+                }
+              ],
+              "frameChainComplete": true,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 0,
+              "frameOffset": {
+                "x": 160,
+                "y": 110
+              },
+              "height": 32,
+              "normalizedViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "width": 120,
+              "x": 210,
+              "y": 170,
+              "zoom": 1
+            },
+            "projected": {
+              "height": 32,
+              "width": 120,
+              "x": 50,
+              "y": 60
+            }
+          },
+          "op": "max(relative_delta)",
+          "output": {
+            "driftRatio": 3.4375
+          },
+          "stage": "drift_comparison"
+        }
+      ],
+      "reasonCodes": [
+        "fixture_ok"
+      ],
+      "sourceBox": {
+        "height": 32,
+        "width": 120,
+        "x": 50,
+        "y": 60
+      },
+      "sourceScales": {
+        "cssTransformScale": 1,
+        "devicePixelRatio": 1,
+        "zoom": 1
+      },
+      "sourceViewport": {
+        "height": 800,
+        "scrollX": 0,
+        "scrollY": 0,
+        "width": 1200
+      },
+      "stepId": "nested-iframe-chain.raw.json",
+      "validationTrace": [
+        {
+          "input": {
+            "box": {
+              "cssTransformScale": 1,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": "https://app.test",
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 800,
+                  "viewportWidth": 1200
+                },
+                {
+                  "frameOffsetX": 120,
+                  "frameOffsetY": 80,
+                  "frameOrigin": "https://app.test",
+                  "framePath": "frameA",
+                  "unresolved": false,
+                  "viewportHeight": 700,
+                  "viewportWidth": 900
+                },
+                {
+                  "frameOffsetX": 40,
+                  "frameOffsetY": 30,
+                  "frameOrigin": "https://embed.test",
+                  "framePath": "frameB",
+                  "unresolved": false,
+                  "viewportHeight": 480,
+                  "viewportWidth": 640
+                }
+              ],
+              "frameChainComplete": true,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 0,
+              "frameOffset": {
+                "x": 160,
+                "y": 110
+              },
+              "height": 32,
+              "normalizedViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "width": 120,
+              "x": 210,
+              "y": 170,
+              "zoom": 1
+            },
+            "minSize": 4,
+            "viewport": {
+              "height": 800,
+              "width": 1200
+            }
+          },
+          "op": "extract_bounds",
+          "output": {
+            "maxH": 800,
+            "maxW": 1200
+          },
+          "stage": "validation_input"
+        },
+        {
+          "input": {
+            "box": {
+              "cssTransformScale": 1,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": "https://app.test",
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 800,
+                  "viewportWidth": 1200
+                },
+                {
+                  "frameOffsetX": 120,
+                  "frameOffsetY": 80,
+                  "frameOrigin": "https://app.test",
+                  "framePath": "frameA",
+                  "unresolved": false,
+                  "viewportHeight": 700,
+                  "viewportWidth": 900
+                },
+                {
+                  "frameOffsetX": 40,
+                  "frameOffsetY": 30,
+                  "frameOrigin": "https://embed.test",
+                  "framePath": "frameB",
+                  "unresolved": false,
+                  "viewportHeight": 480,
+                  "viewportWidth": 640
+                }
+              ],
+              "frameChainComplete": true,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 0,
+              "frameOffset": {
+                "x": 160,
+                "y": 110
+              },
+              "height": 32,
+              "normalizedViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "width": 120,
+              "x": 210,
+              "y": 170,
+              "zoom": 1
+            }
+          },
+          "op": "in_bounds",
+          "output": {
+            "ok": true
+          },
+          "stage": "validation_pass"
+        }
+      ],
+      "warnings": []
+    },
+    "partial-frame-chain.raw.json": {
+      "coordinateConfidence": 0.8,
+      "finalBoxes": {
+        "normalizedBox": {
+          "cssTransformScale": 1,
+          "devicePixelRatio": 1,
+          "frameChain": [
+            {
+              "frameOffsetX": 0,
+              "frameOffsetY": 0,
+              "frameOrigin": "https://app.test",
+              "framePath": "top",
+              "unresolved": false,
+              "viewportHeight": 700,
+              "viewportWidth": 1000
+            },
+            {
+              "frameOffsetX": 0,
+              "frameOffsetY": 0,
+              "frameOrigin": null,
+              "framePath": "frameX",
+              "unresolved": true,
+              "viewportHeight": 0,
+              "viewportWidth": 0
+            }
+          ],
+          "frameChainComplete": false,
+          "frameChainImpossible": false,
+          "frameChainUnresolvedSegments": 1,
+          "frameOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "height": 30,
+          "normalizedViewport": {
+            "height": 700,
+            "width": 1000
+          },
+          "scrollOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "sourceViewport": {
+            "height": 700,
+            "width": 1000
+          },
+          "width": 90,
+          "x": 30,
+          "y": 40,
+          "zoom": 1
+        },
+        "projectedBox": {
+          "height": 30,
+          "width": 90,
+          "x": 30,
+          "y": 40
+        },
+        "renderedBox": null
+      },
+      "finalHighlight": {
+        "driftRatio": null,
+        "driftWarning": false,
+        "fallbackReason": null,
+        "mode": "rendered"
+      },
+      "frameTrace": {
+        "frameChain": [
+          {
+            "frameOffsetX": 0,
+            "frameOffsetY": 0,
+            "frameOrigin": "https://app.test",
+            "framePath": "top",
+            "viewportHeight": 700,
+            "viewportWidth": 1000
+          },
+          {
+            "framePath": "frameX",
+            "unresolved": true
+          }
+        ],
+        "framePath": "top"
+      },
+      "normalizationTrace": [
+        {
+          "input": {
+            "height": 30,
+            "width": 90,
+            "x": 30,
+            "y": 40
+          },
+          "op": "coerce_numeric",
+          "output": {
+            "height": 30,
+            "width": 90,
+            "x": 30,
+            "y": 40
+          },
+          "stage": "source_box"
+        },
+        {
+          "input": {
+            "cssScale": 1,
+            "dpr": 1,
+            "zoom": 1
+          },
+          "op": "sanitize_scale",
+          "output": {
+            "cssScale": 1,
+            "dpr": 1,
+            "zoom": 1
+          },
+          "stage": "scale_inputs"
+        },
+        {
+          "input": {
+            "scrollX": 0,
+            "scrollY": 0,
+            "viewportHeight": 700,
+            "viewportWidth": 1000
+          },
+          "op": "capture_context",
+          "output": {
+            "scrollX": 0,
+            "scrollY": 0,
+            "viewportHeight": 700,
+            "viewportWidth": 1000
+          },
+          "stage": "viewport_scroll"
+        },
+        {
+          "input": {
+            "frameChain": [
+              {
+                "frameOffsetX": 0,
+                "frameOffsetY": 0,
+                "frameOrigin": "https://app.test",
+                "framePath": "top",
+                "unresolved": false,
+                "viewportHeight": 700,
+                "viewportWidth": 1000
+              },
+              {
+                "frameOffsetX": 0,
+                "frameOffsetY": 0,
+                "frameOrigin": null,
+                "framePath": "frameX",
+                "unresolved": true,
+                "viewportHeight": 0,
+                "viewportWidth": 0
+              }
+            ]
+          },
+          "op": "sum_offsets",
+          "output": {
+            "complete": false,
+            "frameOffsetX": 0,
+            "frameOffsetY": 0,
+            "impossible": false,
+            "unresolvedSegments": 1
+          },
+          "stage": "frame_offset_accumulation"
+        },
+        {
+          "input": {
+            "frameOffsetX": 0,
+            "frameOffsetY": 0,
+            "height": 30,
+            "scale": 1,
+            "width": 90,
+            "x": 30,
+            "y": 40
+          },
+          "op": "(coord+frame)*dpr*zoom*cssScale",
+          "output": {
+            "nhRaw": 30,
+            "nwRaw": 90,
+            "nxRaw": 30,
+            "nyRaw": 40
+          },
+          "stage": "scale_transform"
+        },
+        {
+          "input": {
+            "nhRaw": 30,
+            "nwRaw": 90,
+            "nxRaw": 30,
+            "nyRaw": 40,
+            "screenshotHeight": 700,
+            "screenshotWidth": 1000
+          },
+          "op": "round+clamp",
+          "output": {
+            "height": 30,
+            "width": 90,
+            "x": 30,
+            "y": 40
+          },
+          "stage": "bounds_clipping"
+        },
+        {
+          "input": {
+            "normalized": {
+              "cssTransformScale": 1,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": "https://app.test",
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 700,
+                  "viewportWidth": 1000
+                },
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": null,
+                  "framePath": "frameX",
+                  "unresolved": true,
+                  "viewportHeight": 0,
+                  "viewportWidth": 0
+                }
+              ],
+              "frameChainComplete": false,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 1,
+              "frameOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 30,
+              "normalizedViewport": {
+                "height": 700,
+                "width": 1000
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 700,
+                "width": 1000
+              },
+              "width": 90,
+              "x": 30,
+              "y": 40,
+              "zoom": 1
+            },
+            "projected": {
+              "height": 30,
+              "width": 90,
+              "x": 30,
+              "y": 40
+            }
+          },
+          "op": "max(relative_delta)",
+          "output": {
+            "driftRatio": 0
+          },
+          "stage": "drift_comparison"
+        }
+      ],
+      "reasonCodes": [
+        "fixture_ok"
+      ],
+      "sourceBox": {
+        "height": 30,
+        "width": 90,
+        "x": 30,
+        "y": 40
+      },
+      "sourceScales": {
+        "cssTransformScale": 1,
+        "devicePixelRatio": 1,
+        "zoom": 1
+      },
+      "sourceViewport": {
+        "height": 700,
+        "scrollX": 0,
+        "scrollY": 0,
+        "width": 1000
+      },
+      "stepId": "partial-frame-chain.raw.json",
+      "validationTrace": [
+        {
+          "input": {
+            "box": {
+              "cssTransformScale": 1,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": "https://app.test",
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 700,
+                  "viewportWidth": 1000
+                },
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": null,
+                  "framePath": "frameX",
+                  "unresolved": true,
+                  "viewportHeight": 0,
+                  "viewportWidth": 0
+                }
+              ],
+              "frameChainComplete": false,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 1,
+              "frameOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 30,
+              "normalizedViewport": {
+                "height": 700,
+                "width": 1000
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 700,
+                "width": 1000
+              },
+              "width": 90,
+              "x": 30,
+              "y": 40,
+              "zoom": 1
+            },
+            "minSize": 4,
+            "viewport": {
+              "height": 700,
+              "width": 1000
+            }
+          },
+          "op": "extract_bounds",
+          "output": {
+            "maxH": 700,
+            "maxW": 1000
+          },
+          "stage": "validation_input"
+        },
+        {
+          "input": {
+            "box": {
+              "cssTransformScale": 1,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": "https://app.test",
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 700,
+                  "viewportWidth": 1000
+                },
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": null,
+                  "framePath": "frameX",
+                  "unresolved": true,
+                  "viewportHeight": 0,
+                  "viewportWidth": 0
+                }
+              ],
+              "frameChainComplete": false,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 1,
+              "frameOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 30,
+              "normalizedViewport": {
+                "height": 700,
+                "width": 1000
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 700,
+                "width": 1000
+              },
+              "width": 90,
+              "x": 30,
+              "y": 40,
+              "zoom": 1
+            }
+          },
+          "op": "in_bounds",
+          "output": {
+            "ok": true
+          },
+          "stage": "validation_pass"
+        }
+      ],
+      "warnings": []
+    },
+    "mismatched-dimensions.raw.json": {
+      "coordinateConfidence": 0.45,
+      "finalBoxes": {
+        "normalizedBox": {
+          "cssTransformScale": 1,
+          "devicePixelRatio": 3,
+          "frameChain": [
+            {
+              "frameOffsetX": 0,
+              "frameOffsetY": 0,
+              "frameOrigin": null,
+              "framePath": "top",
+              "unresolved": false,
+              "viewportHeight": 600,
+              "viewportWidth": 800
+            }
+          ],
+          "frameChainComplete": true,
+          "frameChainImpossible": false,
+          "frameChainUnresolvedSegments": 0,
+          "frameOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "height": 180,
+          "normalizedViewport": {
+            "height": 700,
+            "width": 1000
+          },
+          "scrollOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "sourceViewport": {
+            "height": 600,
+            "width": 800
+          },
+          "width": 360,
+          "x": 999,
+          "y": 699,
+          "zoom": 1
+        },
+        "projectedBox": {
+          "height": 180,
+          "width": 360,
+          "x": 2100,
+          "y": 1650
+        },
+        "renderedBox": null
+      },
+      "finalHighlight": {
+        "driftRatio": 5.283333,
+        "driftWarning": true,
+        "fallbackReason": "box_out_of_bounds",
+        "mode": "fallback"
+      },
+      "frameTrace": {
+        "frameChain": [],
+        "framePath": "top"
+      },
+      "normalizationTrace": [
+        {
+          "input": {
+            "height": 60,
+            "width": 120,
+            "x": 700,
+            "y": 550
+          },
+          "op": "coerce_numeric",
+          "output": {
+            "height": 60,
+            "width": 120,
+            "x": 700,
+            "y": 550
+          },
+          "stage": "source_box"
+        },
+        {
+          "input": {
+            "cssScale": 1,
+            "dpr": 3,
+            "zoom": 1
+          },
+          "op": "sanitize_scale",
+          "output": {
+            "cssScale": 1,
+            "dpr": 3,
+            "zoom": 1
+          },
+          "stage": "scale_inputs"
+        },
+        {
+          "input": {
+            "scrollX": 0,
+            "scrollY": 0,
+            "viewportHeight": 600,
+            "viewportWidth": 800
+          },
+          "op": "capture_context",
+          "output": {
+            "scrollX": 0,
+            "scrollY": 0,
+            "viewportHeight": 600,
+            "viewportWidth": 800
+          },
+          "stage": "viewport_scroll"
+        },
+        {
+          "input": {
+            "frameChain": [
+              {
+                "frameOffsetX": 0,
+                "frameOffsetY": 0,
+                "frameOrigin": null,
+                "framePath": "top",
+                "unresolved": false,
+                "viewportHeight": 600,
+                "viewportWidth": 800
+              }
+            ]
+          },
+          "op": "sum_offsets",
+          "output": {
+            "complete": true,
+            "frameOffsetX": 0,
+            "frameOffsetY": 0,
+            "impossible": false,
+            "unresolvedSegments": 0
+          },
+          "stage": "frame_offset_accumulation"
+        },
+        {
+          "input": {
+            "frameOffsetX": 0,
+            "frameOffsetY": 0,
+            "height": 60,
+            "scale": 3,
+            "width": 120,
+            "x": 700,
+            "y": 550
+          },
+          "op": "(coord+frame)*dpr*zoom*cssScale",
+          "output": {
+            "nhRaw": 180,
+            "nwRaw": 360,
+            "nxRaw": 2100,
+            "nyRaw": 1650
+          },
+          "stage": "scale_transform"
+        },
+        {
+          "input": {
+            "nhRaw": 180,
+            "nwRaw": 360,
+            "nxRaw": 2100,
+            "nyRaw": 1650,
+            "screenshotHeight": 700,
+            "screenshotWidth": 1000
+          },
+          "op": "round+clamp",
+          "output": {
+            "height": 180,
+            "width": 360,
+            "x": 999,
+            "y": 699
+          },
+          "stage": "bounds_clipping"
+        },
+        {
+          "input": {
+            "normalized": {
+              "cssTransformScale": 1,
+              "devicePixelRatio": 3,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": null,
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 600,
+                  "viewportWidth": 800
+                }
+              ],
+              "frameChainComplete": true,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 0,
+              "frameOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 180,
+              "normalizedViewport": {
+                "height": 700,
+                "width": 1000
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 600,
+                "width": 800
+              },
+              "width": 360,
+              "x": 999,
+              "y": 699,
+              "zoom": 1
+            },
+            "projected": {
+              "height": 180,
+              "width": 360,
+              "x": 2100,
+              "y": 1650
+            }
+          },
+          "op": "max(relative_delta)",
+          "output": {
+            "driftRatio": 5.283333
+          },
+          "stage": "drift_comparison"
+        }
+      ],
+      "reasonCodes": [
+        "fixture_validation_failed"
+      ],
+      "sourceBox": {
+        "height": 60,
+        "width": 120,
+        "x": 700,
+        "y": 550
+      },
+      "sourceScales": {
+        "cssTransformScale": 1,
+        "devicePixelRatio": 3,
+        "zoom": 1
+      },
+      "sourceViewport": {
+        "height": 600,
+        "scrollX": 0,
+        "scrollY": 0,
+        "width": 800
+      },
+      "stepId": "mismatched-dimensions.raw.json",
+      "validationTrace": [
+        {
+          "input": {
+            "box": {
+              "cssTransformScale": 1,
+              "devicePixelRatio": 3,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": null,
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 600,
+                  "viewportWidth": 800
+                }
+              ],
+              "frameChainComplete": true,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 0,
+              "frameOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 180,
+              "normalizedViewport": {
+                "height": 700,
+                "width": 1000
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 600,
+                "width": 800
+              },
+              "width": 360,
+              "x": 999,
+              "y": 699,
+              "zoom": 1
+            },
+            "minSize": 4,
+            "viewport": {
+              "height": 700,
+              "width": 1000
+            }
+          },
+          "op": "extract_bounds",
+          "output": {
+            "maxH": 700,
+            "maxW": 1000
+          },
+          "stage": "validation_input"
+        }
+      ],
+      "warnings": [
+        "validation_failed:box_out_of_bounds"
+      ]
+    },
+    "out-of-bounds-highlight.raw.json": {
+      "coordinateConfidence": 0.45,
+      "finalBoxes": {
+        "normalizedBox": {
+          "cssTransformScale": 1,
+          "devicePixelRatio": 1,
+          "frameChain": [
+            {
+              "frameOffsetX": 0,
+              "frameOffsetY": 0,
+              "frameOrigin": null,
+              "framePath": "top",
+              "unresolved": false,
+              "viewportHeight": 500,
+              "viewportWidth": 900
+            }
+          ],
+          "frameChainComplete": true,
+          "frameChainImpossible": false,
+          "frameChainUnresolvedSegments": 0,
+          "frameOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "height": 200,
+          "normalizedViewport": {
+            "height": 500,
+            "width": 900
+          },
+          "scrollOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "sourceViewport": {
+            "height": 500,
+            "width": 900
+          },
+          "width": 500,
+          "x": 899,
+          "y": 499,
+          "zoom": 1
+        },
+        "projectedBox": {
+          "height": 200,
+          "width": 500,
+          "x": 1200,
+          "y": 900
+        },
+        "renderedBox": null
+      },
+      "finalHighlight": {
+        "driftRatio": 2.005,
+        "driftWarning": true,
+        "fallbackReason": "box_out_of_bounds",
+        "mode": "fallback"
+      },
+      "frameTrace": {
+        "frameChain": [],
+        "framePath": "top"
+      },
+      "normalizationTrace": [
+        {
+          "input": {
+            "height": 200,
+            "width": 500,
+            "x": 1200,
+            "y": 900
+          },
+          "op": "coerce_numeric",
+          "output": {
+            "height": 200,
+            "width": 500,
+            "x": 1200,
+            "y": 900
+          },
+          "stage": "source_box"
+        },
+        {
+          "input": {
+            "cssScale": 1,
+            "dpr": 1,
+            "zoom": 1
+          },
+          "op": "sanitize_scale",
+          "output": {
+            "cssScale": 1,
+            "dpr": 1,
+            "zoom": 1
+          },
+          "stage": "scale_inputs"
+        },
+        {
+          "input": {
+            "scrollX": 0,
+            "scrollY": 0,
+            "viewportHeight": 500,
+            "viewportWidth": 900
+          },
+          "op": "capture_context",
+          "output": {
+            "scrollX": 0,
+            "scrollY": 0,
+            "viewportHeight": 500,
+            "viewportWidth": 900
+          },
+          "stage": "viewport_scroll"
+        },
+        {
+          "input": {
+            "frameChain": [
+              {
+                "frameOffsetX": 0,
+                "frameOffsetY": 0,
+                "frameOrigin": null,
+                "framePath": "top",
+                "unresolved": false,
+                "viewportHeight": 500,
+                "viewportWidth": 900
+              }
+            ]
+          },
+          "op": "sum_offsets",
+          "output": {
+            "complete": true,
+            "frameOffsetX": 0,
+            "frameOffsetY": 0,
+            "impossible": false,
+            "unresolvedSegments": 0
+          },
+          "stage": "frame_offset_accumulation"
+        },
+        {
+          "input": {
+            "frameOffsetX": 0,
+            "frameOffsetY": 0,
+            "height": 200,
+            "scale": 1,
+            "width": 500,
+            "x": 1200,
+            "y": 900
+          },
+          "op": "(coord+frame)*dpr*zoom*cssScale",
+          "output": {
+            "nhRaw": 200,
+            "nwRaw": 500,
+            "nxRaw": 1200,
+            "nyRaw": 900
+          },
+          "stage": "scale_transform"
+        },
+        {
+          "input": {
+            "nhRaw": 200,
+            "nwRaw": 500,
+            "nxRaw": 1200,
+            "nyRaw": 900,
+            "screenshotHeight": 500,
+            "screenshotWidth": 900
+          },
+          "op": "round+clamp",
+          "output": {
+            "height": 200,
+            "width": 500,
+            "x": 899,
+            "y": 499
+          },
+          "stage": "bounds_clipping"
+        },
+        {
+          "input": {
+            "normalized": {
+              "cssTransformScale": 1,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": null,
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 500,
+                  "viewportWidth": 900
+                }
+              ],
+              "frameChainComplete": true,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 0,
+              "frameOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 200,
+              "normalizedViewport": {
+                "height": 500,
+                "width": 900
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 500,
+                "width": 900
+              },
+              "width": 500,
+              "x": 899,
+              "y": 499,
+              "zoom": 1
+            },
+            "projected": {
+              "height": 200,
+              "width": 500,
+              "x": 1200,
+              "y": 900
+            }
+          },
+          "op": "max(relative_delta)",
+          "output": {
+            "driftRatio": 2.005
+          },
+          "stage": "drift_comparison"
+        }
+      ],
+      "reasonCodes": [
+        "fixture_validation_failed"
+      ],
+      "sourceBox": {
+        "height": 200,
+        "width": 500,
+        "x": 1200,
+        "y": 900
+      },
+      "sourceScales": {
+        "cssTransformScale": 1,
+        "devicePixelRatio": 1,
+        "zoom": 1
+      },
+      "sourceViewport": {
+        "height": 500,
+        "scrollX": 0,
+        "scrollY": 0,
+        "width": 900
+      },
+      "stepId": "out-of-bounds-highlight.raw.json",
+      "validationTrace": [
+        {
+          "input": {
+            "box": {
+              "cssTransformScale": 1,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": null,
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 500,
+                  "viewportWidth": 900
+                }
+              ],
+              "frameChainComplete": true,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 0,
+              "frameOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 200,
+              "normalizedViewport": {
+                "height": 500,
+                "width": 900
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 500,
+                "width": 900
+              },
+              "width": 500,
+              "x": 899,
+              "y": 499,
+              "zoom": 1
+            },
+            "minSize": 4,
+            "viewport": {
+              "height": 500,
+              "width": 900
+            }
+          },
+          "op": "extract_bounds",
+          "output": {
+            "maxH": 500,
+            "maxW": 900
+          },
+          "stage": "validation_input"
+        }
+      ],
+      "warnings": [
+        "validation_failed:box_out_of_bounds"
+      ]
+    },
+    "transform-estimated.raw.json": {
+      "coordinateConfidence": 0.8,
+      "finalBoxes": {
+        "normalizedBox": {
+          "cssTransformScale": 0.8,
+          "devicePixelRatio": 1,
+          "frameChain": [
+            {
+              "frameOffsetX": 0,
+              "frameOffsetY": 0,
+              "frameOrigin": null,
+              "framePath": "top",
+              "unresolved": false,
+              "viewportHeight": 800,
+              "viewportWidth": 1200
+            }
+          ],
+          "frameChainComplete": true,
+          "frameChainImpossible": false,
+          "frameChainUnresolvedSegments": 0,
+          "frameOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "height": 34,
+          "normalizedViewport": {
+            "height": 800,
+            "width": 1200
+          },
+          "scrollOffset": {
+            "x": 0,
+            "y": 0
+          },
+          "sourceViewport": {
+            "height": 800,
+            "width": 1200
+          },
+          "width": 128,
+          "x": 320,
+          "y": 208,
+          "zoom": 1
+        },
+        "projectedBox": {
+          "height": 42,
+          "width": 160,
+          "x": 400,
+          "y": 260
+        },
+        "renderedBox": null
+      },
+      "finalHighlight": {
+        "driftRatio": 1.238095,
+        "driftWarning": true,
+        "fallbackReason": null,
+        "mode": "rendered"
+      },
+      "frameTrace": {
+        "frameChain": [],
+        "framePath": "top"
+      },
+      "normalizationTrace": [
+        {
+          "input": {
+            "height": 42,
+            "width": 160,
+            "x": 400,
+            "y": 260
+          },
+          "op": "coerce_numeric",
+          "output": {
+            "height": 42,
+            "width": 160,
+            "x": 400,
+            "y": 260
+          },
+          "stage": "source_box"
+        },
+        {
+          "input": {
+            "cssScale": 0.8,
+            "dpr": 1,
+            "zoom": 1
+          },
+          "op": "sanitize_scale",
+          "output": {
+            "cssScale": 0.8,
+            "dpr": 1,
+            "zoom": 1
+          },
+          "stage": "scale_inputs"
+        },
+        {
+          "input": {
+            "scrollX": 0,
+            "scrollY": 0,
+            "viewportHeight": 800,
+            "viewportWidth": 1200
+          },
+          "op": "capture_context",
+          "output": {
+            "scrollX": 0,
+            "scrollY": 0,
+            "viewportHeight": 800,
+            "viewportWidth": 1200
+          },
+          "stage": "viewport_scroll"
+        },
+        {
+          "input": {
+            "frameChain": [
+              {
+                "frameOffsetX": 0,
+                "frameOffsetY": 0,
+                "frameOrigin": null,
+                "framePath": "top",
+                "unresolved": false,
+                "viewportHeight": 800,
+                "viewportWidth": 1200
+              }
+            ]
+          },
+          "op": "sum_offsets",
+          "output": {
+            "complete": true,
+            "frameOffsetX": 0,
+            "frameOffsetY": 0,
+            "impossible": false,
+            "unresolvedSegments": 0
+          },
+          "stage": "frame_offset_accumulation"
+        },
+        {
+          "input": {
+            "frameOffsetX": 0,
+            "frameOffsetY": 0,
+            "height": 42,
+            "scale": 0.8,
+            "width": 160,
+            "x": 400,
+            "y": 260
+          },
+          "op": "(coord+frame)*dpr*zoom*cssScale",
+          "output": {
+            "nhRaw": 33.6,
+            "nwRaw": 128,
+            "nxRaw": 320,
+            "nyRaw": 208
+          },
+          "stage": "scale_transform"
+        },
+        {
+          "input": {
+            "nhRaw": 33.6,
+            "nwRaw": 128,
+            "nxRaw": 320,
+            "nyRaw": 208,
+            "screenshotHeight": 800,
+            "screenshotWidth": 1200
+          },
+          "op": "round+clamp",
+          "output": {
+            "height": 34,
+            "width": 128,
+            "x": 320,
+            "y": 208
+          },
+          "stage": "bounds_clipping"
+        },
+        {
+          "input": {
+            "normalized": {
+              "cssTransformScale": 0.8,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": null,
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 800,
+                  "viewportWidth": 1200
+                }
+              ],
+              "frameChainComplete": true,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 0,
+              "frameOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 34,
+              "normalizedViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "width": 128,
+              "x": 320,
+              "y": 208,
+              "zoom": 1
+            },
+            "projected": {
+              "height": 42,
+              "width": 160,
+              "x": 400,
+              "y": 260
+            }
+          },
+          "op": "max(relative_delta)",
+          "output": {
+            "driftRatio": 1.238095
+          },
+          "stage": "drift_comparison"
+        }
+      ],
+      "reasonCodes": [
+        "fixture_ok"
+      ],
+      "sourceBox": {
+        "height": 42,
+        "width": 160,
+        "x": 400,
+        "y": 260
+      },
+      "sourceScales": {
+        "cssTransformScale": 0.8,
+        "devicePixelRatio": 1,
+        "zoom": 1
+      },
+      "sourceViewport": {
+        "height": 800,
+        "scrollX": 0,
+        "scrollY": 0,
+        "width": 1200
+      },
+      "stepId": "transform-estimated.raw.json",
+      "validationTrace": [
+        {
+          "input": {
+            "box": {
+              "cssTransformScale": 0.8,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": null,
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 800,
+                  "viewportWidth": 1200
+                }
+              ],
+              "frameChainComplete": true,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 0,
+              "frameOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 34,
+              "normalizedViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "width": 128,
+              "x": 320,
+              "y": 208,
+              "zoom": 1
+            },
+            "minSize": 4,
+            "viewport": {
+              "height": 800,
+              "width": 1200
+            }
+          },
+          "op": "extract_bounds",
+          "output": {
+            "maxH": 800,
+            "maxW": 1200
+          },
+          "stage": "validation_input"
+        },
+        {
+          "input": {
+            "box": {
+              "cssTransformScale": 0.8,
+              "devicePixelRatio": 1,
+              "frameChain": [
+                {
+                  "frameOffsetX": 0,
+                  "frameOffsetY": 0,
+                  "frameOrigin": null,
+                  "framePath": "top",
+                  "unresolved": false,
+                  "viewportHeight": 800,
+                  "viewportWidth": 1200
+                }
+              ],
+              "frameChainComplete": true,
+              "frameChainImpossible": false,
+              "frameChainUnresolvedSegments": 0,
+              "frameOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "height": 34,
+              "normalizedViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "scrollOffset": {
+                "x": 0,
+                "y": 0
+              },
+              "sourceViewport": {
+                "height": 800,
+                "width": 1200
+              },
+              "width": 128,
+              "x": 320,
+              "y": 208,
+              "zoom": 1
+            }
+          },
+          "op": "in_bounds",
+          "output": {
+            "ok": true
+          },
+          "stage": "validation_pass"
+        }
+      ],
+      "warnings": []
+    }
   }
 }

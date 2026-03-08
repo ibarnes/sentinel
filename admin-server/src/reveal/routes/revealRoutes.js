@@ -65,14 +65,16 @@ router.get('/api/flows/:flowId/steps/:stepId/coordinate-replay', async (req, res
 router.get('/api/flows/:flowId/steps/:stepId/replay-integrity', async (req, res) => {
   const flowId = String(req.params.flowId || '');
   const stepId = String(req.params.stepId || '');
-  const out = await integrityForStep(flowId, stepId, { persist: false });
+  const includeDiff = String(req.query.includeDiff || '0') === '1';
+  const out = await integrityForStep(flowId, stepId, { persist: false, includeDiff });
   if (out.status === 'unreplayable_step') return res.status(200).json(out);
   res.json(out);
 });
 
 router.post('/api/flows/:flowId/replay-integrity/recompute', async (req, res) => {
   const flowId = String(req.params.flowId || '');
-  const out = await integrityRecomputeFlow(flowId, { persist: true });
+  const includeDiff = String(req.query.includeDiff || '0') === '1';
+  const out = await integrityRecomputeFlow(flowId, { persist: true, includeDiff });
   if (out.error === 'flow_not_found') return res.status(404).json(out);
   res.json(out);
 });
@@ -188,7 +190,7 @@ router.get('/editor/:flowId', async (req, res) => {
         <div><h4>Highlight</h4><img id="shot-highlight" alt="highlight" /></div>
       </section>
       <section id="coord-inspector" class="compare"></section>
-      <details class="compare" open>
+      <details class="compare">
         <summary>Coordinate Replay Debugger (read-only)</summary>
         <pre id="debugger-panel" class="dbg-pre"></pre>
       </details>

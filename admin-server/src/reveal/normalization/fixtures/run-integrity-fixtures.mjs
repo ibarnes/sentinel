@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { normalizeElementBox, validateNormalizedBox } from '../../services/coordinateNormalizationService.js';
-import { checksumForReplay, REPLAY_CHECKSUM_VERSION } from '../../services/replayIntegrityService.js';
+import { checksumForReplay, REPLAY_CHECKSUM_VERSION, explainChecksumDiff } from '../../services/replayIntegrityService.js';
 
 const DIR = path.resolve('/home/ec2-user/.openclaw/workspace/admin-server/src/reveal/normalization/fixtures');
 const BASELINE = path.join(DIR, 'integrity-baseline.v1.json');
@@ -17,6 +17,7 @@ const update = process.argv.includes('--update');
 const baseline = JSON.parse(await fs.readFile(BASELINE, 'utf8').catch(() => '{}'));
 baseline.version = REPLAY_CHECKSUM_VERSION;
 baseline.checksums = baseline.checksums || {};
+baseline.sources = baseline.sources || {};
 
 let failures = 0;
 for (const f of targets) {
@@ -63,23 +64,32 @@ for (const f of targets) {
     coordinateConfidenceReasonCodes: val.ok ? ['fixture_ok'] : ['fixture_validation_failed']
   };
 
-  const { replayChecksum } = checksumForReplay(replay);
+  const { replayChecksum, checksumSource } = checksumForReplay(replay);
   const expected = baseline.checksums[f];
+  const expectedSource = baseline.sources[f];
+
   if (update || !expected) {
     baseline.checksums[f] = replayChecksum;
+    baseline.sources[f] = checksumSource;
     console.log(`BASELINE_SET ${f} ${replayChecksum}`);
     continue;
   }
 
   if (expected !== replayChecksum) {
     failures += 1;
+    const diff = explainChecksumDiff(expectedSource, checksumSource, { maxDivergences: 10 });
     console.error(`MISMATCH ${f}\n  expected=${expected}\n  actual=${replayChecksum}`);
+    if (diff.firstDivergence) {
+      console.error(`  firstDivergence path=${diff.firstDivergence.path} stage=${diff.firstDivergence.stage} reason=${diff.firstDivergence.reason}`);
+      console.error(`  stored=${JSON.stringify(diff.firstDivergence.storedValue)}`);
+      console.error(`  current=${JSON.stringify(diff.firstDivergence.currentValue)}`);
+    }
   } else {
     console.log(`OK ${f} ${replayChecksum}`);
   }
 }
 
-if (update || Object.values(baseline.checksums).some((v) => !v)) {
+if (update || Object.values(baseline.checksums).some((v) => !v) || !Object.keys(baseline.sources).length) {
   await fs.writeFile(BASELINE, JSON.stringify(baseline, null, 2) + '\n');
 }
 
