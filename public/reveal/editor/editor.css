@@ -17,5 +17,6 @@ button { background: #1e2633; border: 1px solid #314056; color: #e7edf7; border-
 .compare { margin-top: 10px; }
 .cmp { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:10px; }
 .cmp-col { border:1px solid #2a3142; border-radius:8px; padding:8px; background:#121822; }
+.dbg-pre { white-space: pre-wrap; font-size: 12px; border:1px solid #2a3142; border-radius:8px; padding:10px; background:#0d131d; color:#c8d6ea; max-height:280px; overflow:auto; }
 .screenshots { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .screenshots img { width: 100%; min-height: 160px; object-fit: contain; background: #0b0f16; border: 1px solid #2a3142; border-radius: 6px; }

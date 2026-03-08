@@ -149,7 +149,28 @@ function renderDiagnostics(step, baselineSteps = []) {
   return diagHtml;
 }
 
-function showStep(step) {
+async function loadReplay(stepId) {
+  try {
+    return await api(`/reveal/api/flows/${state.flowId}/steps/${stepId}/coordinate-replay`);
+  } catch (e) {
+    return { error: String(e.message || e), warnings: ['replay_fetch_failed'] };
+  }
+}
+
+function renderInspector(step, replay) {
+  const el = document.getElementById('coord-inspector');
+  if (!el) return;
+  const sb = replay?.sourceBox || step?.target?.elementBox || null;
+  const nb = replay?.finalBoxes?.normalizedBox || step?.metadata?.normalizedHighlightBox || null;
+  const rb = replay?.finalBoxes?.renderedBox || null;
+  el.innerHTML = `<div class="cmp">
+    <div class="cmp-col"><h4>Source Box</h4><div>${sb ? `x:${sb.x}, y:${sb.y}, w:${sb.width}, h:${sb.height}` : 'n/a'}</div></div>
+    <div class="cmp-col"><h4>Normalized Box</h4><div>${nb ? `x:${nb.x}, y:${nb.y}, w:${nb.width}, h:${nb.height}` : 'n/a'}</div></div>
+    <div class="cmp-col"><h4>Rendered Box</h4><div>${rb ? `x:${rb.x}, y:${rb.y}, w:${rb.width}, h:${rb.height}` : 'n/a'}</div></div>
+  </div>`;
+}
+
+async function showStep(step) {
   state.selectedStepId = step.id;
   const shotCount = [step.screenshots?.beforeUrl, step.screenshots?.afterUrl, step.screenshots?.highlightedUrl].filter(Boolean).length;
   const p = step.screenshots?.provenance || {};
@@ -170,6 +191,10 @@ function showStep(step) {
   });
 
   renderComparePanel(step);
+  const replay = await loadReplay(step.id);
+  renderInspector(step, replay);
+  const dbg = document.getElementById('debugger-panel');
+  if (dbg) dbg.textContent = JSON.stringify(replay, null, 2);
 }
 
 function renderComparePanel(step) {

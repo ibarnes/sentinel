@@ -13,6 +13,7 @@ import {
   replaceReview
 } from '../services/reviewedFlowService.js';
 import { getFlowCompare } from '../services/compareService.js';
+import { buildStepCoordinateReplay } from '../services/coordinateReplayService.js';
 
 const router = express.Router();
 
@@ -49,6 +50,15 @@ router.get('/api/flows/:id/compare', async (req, res) => {
   const compare = await getFlowCompare(flowId);
   if (compare.error === 'baseline_not_found') return res.status(404).json({ error: 'baseline_not_found' });
   res.json(compare);
+});
+
+router.get('/api/flows/:flowId/steps/:stepId/coordinate-replay', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const stepId = String(req.params.stepId || '');
+  const replay = await buildStepCoordinateReplay(flowId, stepId);
+  if (replay.error === 'flow_not_found') return res.status(404).json(replay);
+  if (replay.error === 'step_not_found') return res.status(404).json(replay);
+  res.json(replay);
 });
 
 router.post('/api/flows/:flowId/review/init', async (req, res) => {
@@ -160,6 +170,11 @@ router.get('/editor/:flowId', async (req, res) => {
         <div><h4>After</h4><img id="shot-after" alt="after" /></div>
         <div><h4>Highlight</h4><img id="shot-highlight" alt="highlight" /></div>
       </section>
+      <section id="coord-inspector" class="compare"></section>
+      <details class="compare" open>
+        <summary>Coordinate Replay Debugger (read-only)</summary>
+        <pre id="debugger-panel" class="dbg-pre"></pre>
+      </details>
       <section>
         <h4>Annotations</h4>
         <ul id="annotations"></ul>
