@@ -19,6 +19,7 @@ import { buildStepCoordinateReplay } from '../services/coordinateReplayService.j
 import { loadFromFlow, loadFromSnapshot, loadFromPackage } from '../player/flowPlayerService.js';
 import { applyPlaybackControl } from '../player/playbackController.js';
 import { safeAssetPath } from '../player/assetResolverService.js';
+import { createPlayerSession, getPlayerSession, patchPlayerSession, deletePlayerSession, resolveSessionAssetPath } from '../player/playerSessionService.js';
 import { integrityForStep, integrityRecomputeFlow } from '../services/replayIntegrityService.js';
 import { createSnapshot, listSnapshots, getSnapshot, verifySnapshotIntegrity, recomputeFlowSnapshotIntegrity } from '../services/snapshotService.js';
 import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
@@ -92,6 +93,54 @@ router.get('/api/player/packages/:token/assets/:kind/:file', async (req, res) =>
   try {
     await fs.access(p);
     res.sendFile(p);
+  } catch {
+    res.status(404).json({ error: 'asset_not_found' });
+  }
+});
+
+router.post('/api/player/sessions', uploadPkg.single('package'), async (req, res) => {
+  const flowId = req.body?.flowId || null;
+  const snapshotId = req.body?.snapshotId || null;
+  const packageBuffer = req.file?.buffer || null;
+  const viewerMetadata = req.body?.viewerMetadata ? (() => { try { return JSON.parse(req.body.viewerMetadata); } catch { return null; } })() : null;
+
+  const out = await createPlayerSession({ flowId, snapshotId, packageBuffer, viewerMetadata });
+  if (out.error) {
+    const code = ['missing_source_input','conflicting_source_inputs'].includes(out.error) ? 400 : 404;
+    return res.status(code).json(out);
+  }
+  res.status(201).json(out);
+});
+
+router.get('/api/player/sessions/:sessionId', async (req, res) => {
+  const out = await getPlayerSession(String(req.params.sessionId || ''));
+  if (out.error === 'session_not_found') return res.status(404).json(out);
+  res.json(out);
+});
+
+router.patch('/api/player/sessions/:sessionId', async (req, res) => {
+  const out = await patchPlayerSession(String(req.params.sessionId || ''), {
+    action: req.body?.action || null,
+    jumpTo: req.body?.jumpTo,
+    autoPlayEnabled: req.body?.autoPlayEnabled ?? null
+  });
+  if (['session_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.delete('/api/player/sessions/:sessionId', async (req, res) => {
+  const out = await deletePlayerSession(String(req.params.sessionId || ''));
+  if (out.error === 'session_not_found') return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/player/sessions/:sessionId/assets/:kind/:file', async (req, res) => {
+  const out = await resolveSessionAssetPath(String(req.params.sessionId || ''), String(req.params.kind || ''), String(req.params.file || ''));
+  if (out.error) return res.status(400).json(out);
+  try {
+    await fs.access(out.path);
+    res.sendFile(out.path);
   } catch {
     res.status(404).json({ error: 'asset_not_found' });
   }

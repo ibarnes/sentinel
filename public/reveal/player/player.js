@@ -1,51 +1,63 @@
 let model = null;
-let state = { index: 0, auto: false, timer: null };
+let session = null;
+let state = { autoTimer: null };
 
 async function api(url, opts={}){ const r=await fetch(url,opts); const j=await r.json(); if(!r.ok) throw new Error(j.error||'request_failed'); return j; }
-
 function q(k){ return new URLSearchParams(location.search).get(k); }
 
-function current(){ return model?.steps?.[state.index] || null; }
+function currentStep(){ return model?.steps?.[session.currentStepIndex] || null; }
 
 function render(){
-  const s=current();
+  if(!model || !session) return;
+  const s=currentStep();
   if(!s) return;
+  document.getElementById('flow').textContent = `${model.title} (${model.sourceType})`;
   document.getElementById('title').textContent = s.title;
-  document.getElementById('meta').textContent = `${s.action} • step ${state.index+1}/${model.steps.length} • confidence ${s.confidence ?? 'n/a'}`;
+  document.getElementById('meta').textContent = `session ${session.sessionId} • ${session.playbackStatus} • step ${session.currentStepIndex+1}/${session.stepCount} • autoplay ${session.autoPlayEnabled?'on':'off'}`;
   document.getElementById('intent').textContent = s.intent || 'No intent';
-  const img = document.getElementById('shot');
-  img.src = s.highlight || s.screenshotAfter || s.screenshotBefore || '';
-  const ann = document.getElementById('annotations');
-  ann.innerHTML='';
+  document.getElementById('shot').src = s.highlight || s.screenshotAfter || s.screenshotBefore || '';
+  const ann=document.getElementById('annotations'); ann.innerHTML='';
   (s.annotations||[]).forEach(a=>{ const li=document.createElement('li'); li.textContent=`${a.author||'author'}: ${a.text}`; ann.appendChild(li); });
 }
 
-function gotoIndex(i){ state.index=Math.max(0,Math.min(model.steps.length-1,i)); render(); }
-function next(){ gotoIndex(state.index+1); }
-function prev(){ gotoIndex(state.index-1); }
-function restart(){ gotoIndex(0); }
-
-function toggleAuto(){
-  state.auto=!state.auto;
-  const btn=document.getElementById('auto');
-  btn.textContent = state.auto ? 'Stop Auto' : 'Auto Play';
-  if(state.timer){ clearInterval(state.timer); state.timer=null; }
-  if(state.auto){
-    state.timer=setInterval(()=>{ const s=current(); if(!s) return; if(state.index>=model.steps.length-1){ state.auto=false; toggleAuto(); return; } next(); }, current()?.stepDurationMs || 3000);
-  }
+async function patch(action, extra={}){
+  const out = await api(`/reveal/api/player/sessions/${session.sessionId}`, { method:'PATCH', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ action, ...extra }) });
+  session = out.session;
+  model = out.model;
+  render();
 }
 
 async function boot(){
   const flowId = location.pathname.split('/').pop();
   const snapshotId = q('snapshotId');
-  if(snapshotId) model=(await api(`/reveal/api/player/snapshots/${encodeURIComponent(flowId)}?flowId=${encodeURIComponent(flowId)}&snapshotId=${encodeURIComponent(snapshotId)}`)).model;
-  else model=(await api(`/reveal/api/player/flows/${encodeURIComponent(flowId)}`)).model;
-  document.getElementById('flow').textContent = `${model.title} (${model.sourceType})`;
+
+  const body = snapshotId ? { snapshotId } : { flowId };
+  const created = await api('/reveal/api/player/sessions', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+  session = created.session;
+  model = created.model;
   render();
-  document.getElementById('next').onclick=next;
-  document.getElementById('prev').onclick=prev;
-  document.getElementById('restart').onclick=restart;
-  document.getElementById('auto').onclick=toggleAuto;
+
+  document.getElementById('next').onclick=()=>patch('next');
+  document.getElementById('prev').onclick=()=>patch('prev');
+  document.getElementById('restart').onclick=()=>patch('restart');
+  document.getElementById('auto').onclick=async ()=>{
+    const enabled = !session.autoPlayEnabled;
+    await patch(enabled ? 'play' : 'pause', { autoPlayEnabled: enabled });
+    document.getElementById('auto').textContent = enabled ? 'Stop Auto' : 'Auto Play';
+    if(state.autoTimer){ clearInterval(state.autoTimer); state.autoTimer=null; }
+    if(enabled){
+      state.autoTimer=setInterval(async ()=>{
+        if(!session.autoPlayEnabled) return;
+        if(session.currentStepIndex >= session.stepCount - 1){
+          await patch('pause', { autoPlayEnabled:false });
+          clearInterval(state.autoTimer); state.autoTimer=null;
+          document.getElementById('auto').textContent='Auto Play';
+          return;
+        }
+        await patch('next');
+      }, currentStep()?.stepDurationMs || 3000);
+    }
+  };
 }
 
 boot().catch(e=>{ document.body.innerHTML=`<pre>${e.message}</pre>`; });

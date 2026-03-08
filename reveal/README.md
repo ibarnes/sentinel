@@ -93,13 +93,20 @@ Product-intelligence capture system at `/reveal`.
 ## Reveal Flow Player (Phase 2 foundation)
 - Modules: `admin-server/src/reveal/player/*`
 - UI: `/reveal/player/:flowId` (optionally `?snapshotId=<id>`)
-- API:
+- Stateless API (kept for direct model access):
   - `GET /reveal/api/player/flows/:flowId`
   - `GET /reveal/api/player/snapshots/:snapshotId`
   - `POST /reveal/api/player/packages` (multipart field `package`)
-- Deterministic playback controls via query:
-  - `?step=<n>&control=next|prev|jump|restart&jumpTo=<n>`
-- Fixture runner: `node admin-server/src/reveal/normalization/fixtures/run-player-fixtures.mjs`
+- Stateful Session API:
+  - `POST /reveal/api/player/sessions`
+  - `GET /reveal/api/player/sessions/:sessionId`
+  - `PATCH /reveal/api/player/sessions/:sessionId`
+  - `DELETE /reveal/api/player/sessions/:sessionId`
+  - `GET /reveal/api/player/sessions/:sessionId/assets/:kind/:file`
+- Session actions: `next`, `prev`, `jump`, `restart`, `play`, `pause`, `setAutoPlay` via `autoPlayEnabled`.
+- Fixture runners:
+  - `node admin-server/src/reveal/normalization/fixtures/run-player-fixtures.mjs`
+  - `node admin-server/src/reveal/normalization/fixtures/run-player-session-fixtures.mjs`
 
 ## Reveal CLI
 - Entrypoint: `admin-server/src/reveal/cli/reveal-cli.js`
