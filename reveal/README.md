@@ -119,6 +119,11 @@ Product-intelligence capture system at `/reveal`.
   - `hotspots[]` (primary/info/navigation regions)
   - `overlay` (guided title/body/emphasis/progression)
   - `progression` (manual/hotspot/auto rules)
+- Narration scripts:
+  - `POST /reveal/api/scripts` (flowId|snapshotId|sessionId|package + styleProfile)
+  - `GET /reveal/api/scripts/:scriptId`
+  - `GET /reveal/api/scripts/:scriptId/export?format=json|markdown`
+  - style profiles: `neutral_walkthrough`, `concise_training`, `executive_overview`
 - Session lifecycle:
   - TTL + optional idle policy for `playing` sessions
   - in-process sweeper interval (`REVEAL_PLAYER_SWEEP_INTERVAL_MS`)

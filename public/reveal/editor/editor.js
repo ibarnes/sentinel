@@ -8,7 +8,8 @@ let state = {
   packageTrust: null,
   compareMode: true,
   selectedStepId: null,
-  selectedForMerge: new Set()
+  selectedForMerge: new Set(),
+  latestScript: null
 };
 
 async function api(path, method = 'GET', body) {
@@ -290,6 +291,63 @@ async function listSharesForFlow() {
   alert(lines.length ? lines.join('\n') : 'No shares');
 }
 
+function selectedStyleProfile() {
+  return document.getElementById('script-style')?.value || 'neutral_walkthrough';
+}
+
+function renderScriptPreview(script) {
+  const pre = document.getElementById('script-preview');
+  if (!pre) return;
+  if (!script) {
+    pre.textContent = 'No script generated.';
+    return;
+  }
+  pre.textContent = JSON.stringify({
+    scriptId: script.scriptId,
+    sourceType: script.sourceType,
+    styleProfile: script.styleProfile,
+    totalEstimatedDurationMs: script.totalEstimatedDurationMs,
+    sections: script.sections.map((s) => ({
+      stepIndex: s.stepIndex,
+      title: s.title,
+      narrationText: s.narrationText,
+      onScreenText: s.onScreenText,
+      timing: s.timing
+    }))
+  }, null, 2);
+}
+
+async function createScript(payload) {
+  const out = await api('/reveal/api/scripts', 'POST', {
+    ...payload,
+    styleProfile: selectedStyleProfile(),
+    createdBy: 'editor-user'
+  });
+  state.latestScript = out.script;
+  renderScriptPreview(out.script);
+}
+
+async function createScriptFromFlow() {
+  await createScript({ flowId: state.flowId });
+}
+
+async function createScriptFromSnapshot() {
+  const sid = selectedSnapshotId();
+  if (!sid) return alert('Select snapshot first');
+  await createScript({ snapshotId: sid });
+}
+
+async function createScriptFromSession() {
+  const sessionId = prompt('Enter sessionId');
+  if (!sessionId) return;
+  await createScript({ sessionId });
+}
+
+function exportLatestScript(format) {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/export?format=${encodeURIComponent(format)}`);
+}
+
 function renderInspector(step, replay, integrity) {
   const el = document.getElementById('coord-inspector');
   if (!el) return;
@@ -481,6 +539,12 @@ function wireActions() {
     download(`/reveal/api/flows/${state.flowId}/snapshots/${encodeURIComponent(sid)}/export?format=package`);
   });
   document.querySelector('[data-action="share-create-snapshot"]')?.addEventListener('click', createShareForSnapshot);
+
+  document.querySelector('[data-action="script-generate-flow"]')?.addEventListener('click', () => createScriptFromFlow().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-generate-snapshot"]')?.addEventListener('click', () => createScriptFromSnapshot().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-generate-session"]')?.addEventListener('click', () => createScriptFromSession().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-export-json"]')?.addEventListener('click', () => exportLatestScript('json'));
+  document.querySelector('[data-action="script-export-md"]')?.addEventListener('click', () => exportLatestScript('markdown'));
 }
 
 async function boot() {

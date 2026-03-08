@@ -28,6 +28,7 @@ import { createSnapshot, listSnapshots, getSnapshot, verifySnapshotIntegrity, re
 import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
 import { buildReviewedPackage, buildSnapshotPackage, getReviewedPackageVerificationMetadata, getSnapshotPackageVerificationMetadata } from '../services/packageService.js';
 import { getSigningContext, verifyVerificationMetadata, getVerificationKeyset, verifyKeysetIntegrity, TRUST_PROFILES } from '../services/packageSigningService.js';
+import { createNarrationScript, getScript, getScriptExport, listStyleProfiles } from '../script/narrationScriptService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -159,6 +160,61 @@ router.post('/api/player/sessions/:sessionId/resume', async (req, res) => {
   if (out.error === 'session_not_found') return res.status(404).json(out);
   if (out.error) return res.status(400).json(out);
   res.json(out);
+});
+
+router.get('/api/scripts/style-profiles', async (_req, res) => {
+  res.json({ styleProfiles: listStyleProfiles() });
+});
+
+router.post('/api/scripts', uploadPkg.single('package'), async (req, res) => {
+  const flowId = req.body?.flowId || null;
+  const snapshotId = req.body?.snapshotId || null;
+  const sessionId = req.body?.sessionId || null;
+  const styleProfile = req.body?.styleProfile || 'neutral_walkthrough';
+  const createdBy = req.body?.createdBy || null;
+
+  let packagePath = null;
+  if (req.file?.buffer?.length) {
+    packagePath = `/tmp/reveal-script-upload-${Date.now()}-${Math.random().toString(16).slice(2)}.zip`;
+    await fs.writeFile(packagePath, req.file.buffer);
+  }
+
+  const out = await createNarrationScript({ flowId, snapshotId, sessionId, packagePath, styleProfile, createdBy });
+  if (packagePath) await fs.rm(packagePath, { force: true });
+
+  if (out.error === 'invalid_style_profile') return res.status(400).json(out);
+  if (['missing_source_input','conflicting_source_inputs','missing_steps'].includes(out.error)) return res.status(400).json(out);
+  if (['flow_not_found','snapshot_not_found','session_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['malformed_package','malformed_package_flow'].includes(out.error)) return res.status(400).json(out);
+  if (out.error) return res.status(400).json(out);
+
+  res.status(201).json({
+    script: out.script,
+    summary: {
+      scriptId: out.script.scriptId,
+      sourceType: out.script.sourceType,
+      styleProfile: out.script.styleProfile,
+      sectionCount: out.script.sections.length,
+      totalEstimatedDurationMs: out.script.totalEstimatedDurationMs
+    }
+  });
+});
+
+router.get('/api/scripts/:scriptId', async (req, res) => {
+  const out = await getScript(String(req.params.scriptId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/scripts/:scriptId/export', async (req, res) => {
+  const out = await getScript(String(req.params.scriptId || ''));
+  if (out.error) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const exp = getScriptExport(out.script, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
 });
 
 router.delete('/api/player/sessions/:sessionId', async (req, res) => {
@@ -581,6 +637,22 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="share-create-snapshot">Create Snapshot Share</button>
         </div>
         <pre id="snapshot-summary" class="dbg-pre"></pre>
+      </section>
+      <section class="compare">
+        <h4>Narration Script</h4>
+        <div class="actions">
+          <select id="script-style">
+            <option value="neutral_walkthrough">neutral_walkthrough</option>
+            <option value="concise_training">concise_training</option>
+            <option value="executive_overview">executive_overview</option>
+          </select>
+          <button data-action="script-generate-flow">Generate from Flow</button>
+          <button data-action="script-generate-snapshot">Generate from Snapshot</button>
+          <button data-action="script-generate-session">Generate from Session</button>
+          <button data-action="script-export-json">Export Script JSON</button>
+          <button data-action="script-export-md">Export Script MD</button>
+        </div>
+        <pre id="script-preview" class="dbg-pre">No script generated.</pre>
       </section>
       <section>
         <h4>Annotations</h4>
