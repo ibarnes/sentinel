@@ -1247,5 +1247,44 @@
       "Dubai Connectivity"
     ],
     "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-08-US-RATEPAYER-PLEDGE-MULTI-001",
+    "title": "White House ratepayer pledge expands to multi-company data-center power-cost containment signal",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-08T02:38:00Z",
+    "buyer_ids": [
+      "AMZN",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "ORCL",
+      "OPENAI",
+      "XAI"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-AI-OPT-B",
+      "INIT-AI-OPT-D"
+    ],
+    "summary": "Coverage indicates a White House voluntary pledge signed by major hyperscalers/AI firms to avoid passing data-center electricity and related infrastructure costs to consumers by funding energy supply/infrastructure pathways directly.",
+    "flow": "AI load growth -> political/ratepayer pressure -> voluntary private cost-containment pledge -> accelerated private energy procurement/buildout -> tighter coupling of compute expansion with energy infrastructure execution",
+    "verification_note": "Media synthesis signal from user-provided TechRadar link; elevate only after first-party White House text and/or company filings are attached for binding details and accountability mechanisms.",
+    "sources": [
+      {
+        "label": "TechRadar report (user-provided)",
+        "url": "https://www.techradar.com/pro/the-american-people-should-not-be-footing-the-bill-for-the-benefit-of-private-companies-tech-giants-sign-white-house-pledge-to-not-pass-on-data-center-electricity-costs-to-consumers-heres-everything-you-need-to-know?utm_source=chatgpt.com"
+      }
+    ],
+    "tags": [
+      "US Energy Policy",
+      "Data Center Power",
+      "Ratepayer Protection",
+      "Hyperscaler Commitments",
+      "Signal Bundle"
+    ],
+    "provenance": "provided_by_isaac"
   }
 ]
