@@ -49,6 +49,7 @@ function renderTimeline() {
     const d = diffInfo(step.id);
     const diffBadge = badge(d.state || 'unknown', d.state === 'edited' ? 'warn' : d.state === 'merged' ? 'info' : d.state === 'unchanged' ? 'ok' : 'neutral');
     const hiMode = step.metadata?.highlightMode || 'fallback';
+    const driftWarn = Boolean(step.metadata?.highlightDriftWarning);
 
     li.innerHTML = `<label><input type="checkbox" data-merge="${step.id}" /> ${idx + 1}. ${escapeHtml(step.title)}</label>
       <div class="step-trust">
@@ -57,6 +58,7 @@ function renderTimeline() {
         ${badge(step.target?.elementType || 'unknown', 'neutral')}
         ${badge(`shots ${shotCount}/3`, shotCount >= 2 ? 'ok' : 'warn')}
         ${badge(`hl ${hiMode}`, hiMode === 'rendered' ? 'ok' : 'warn')}
+        ${driftWarn ? badge('drift>20%', 'warn') : ''}
         ${badge(`events ${(step.events || []).length}`, 'neutral')}
       </div>`;
 
@@ -81,6 +83,12 @@ function renderTimeline() {
   if (deleted.length) {
     const li = document.createElement('li');
     li.innerHTML = `<strong>Deleted from baseline:</strong> ${deleted.length} step(s)`;
+    ul.appendChild(li);
+  }
+  const warnings = state.compare?.diff?.warnings || [];
+  if (warnings.length) {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>Compare warnings:</strong> ${warnings.length}`;
     ul.appendChild(li);
   }
 
@@ -109,8 +117,10 @@ function baselineFor(step) {
 function showStep(step) {
   state.selectedStepId = step.id;
   const shotCount = [step.screenshots?.beforeUrl, step.screenshots?.afterUrl, step.screenshots?.highlightedUrl].filter(Boolean).length;
+  const p = step.screenshots?.provenance || {};
+  const frameCtx = p.frameContext || {};
   document.getElementById('step-title').textContent = step.title || 'Step';
-  document.getElementById('step-meta').textContent = `${step.action} • ${step.page?.url || ''} • confidence ${Number(step.confidence ?? 0).toFixed(2)} • type ${step.target?.elementType || 'unknown'} • screenshots ${shotCount}/3 • raw events ${(step.events || []).length} • highlight ${step.metadata?.highlightMode || 'fallback'}`;
+  document.getElementById('step-meta').textContent = `${step.action} • ${step.page?.url || ''} • confidence ${Number(step.confidence ?? 0).toFixed(2)} • type ${step.target?.elementType || 'unknown'} • screenshots ${shotCount}/3 • raw events ${(step.events || []).length} • highlight ${step.metadata?.highlightMode || 'fallback'} • DPR ${p.devicePixelRatio ?? '-'} • viewport ${p.viewportWidth || '-'}x${p.viewportHeight || '-'} • scroll ${p.scrollX || 0},${p.scrollY || 0} • frame ${frameCtx.framePath || 'top'}@${frameCtx.frameOffsetX || 0},${frameCtx.frameOffsetY || 0} • normalized ${p.highlightNormalizationApplied ? 'yes' : 'no'}`;
 
   document.getElementById('shot-before').src = step.screenshots?.beforeUrl || '';
   document.getElementById('shot-after').src = step.screenshots?.afterUrl || '';

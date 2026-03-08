@@ -40,6 +40,14 @@ export async function appendEvents(sessionId, events = []) {
     screenshotUrl: null,
     elementBox: e.target?.boundingBox || null,
     framePath: e.framePath || null,
+    devicePixelRatio: Number(e.devicePixelRatio || 1),
+    scrollX: Number(e.scrollX || 0),
+    scrollY: Number(e.scrollY || 0),
+    frameOrigin: e.frameOrigin || null,
+    frameOffsetX: Number(e.frameOffsetX || 0),
+    frameOffsetY: Number(e.frameOffsetY || 0),
+    zoom: Number(e.zoom || 1),
+    cssTransformScale: Number(e.cssTransformScale || 1),
     metadata: { raw: e }
   }));
 

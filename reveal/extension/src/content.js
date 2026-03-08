@@ -53,6 +53,7 @@ function send(type, payload) {
 
 function rawEvent(type, el, extra = {}) {
   const significant = ['click', 'change', 'submit', 'navigation'].includes(type);
+  const frameMeta = frameContextMeta();
   return {
     timestamp: new Date().toISOString(),
     actionType: type,
@@ -60,7 +61,16 @@ function rawEvent(type, el, extra = {}) {
     pageUrl: location.href,
     pageTitle: document.title,
     target: targetDescriptor(el),
-    framePath: window.top === window ? 'top' : 'iframe',
+    devicePixelRatio: window.devicePixelRatio || 1,
+    zoom: detectZoom(),
+    cssTransformScale: detectCssScale(el),
+    viewport: { width: window.innerWidth || 0, height: window.innerHeight || 0 },
+    scrollX: window.scrollX || 0,
+    scrollY: window.scrollY || 0,
+    framePath: frameMeta.framePath,
+    frameOrigin: frameMeta.frameOrigin,
+    frameOffsetX: frameMeta.frameOffsetX,
+    frameOffsetY: frameMeta.frameOffsetY,
     ...extra
   };
 }
@@ -97,6 +107,47 @@ history.pushState = function (...args) {
   send('reveal:event', rawEvent('navigation', document.body, { toUrl: location.href, navigationType: 'pushState' }));
   return ret;
 };
+
+function detectZoom() {
+  try {
+    if (window.visualViewport?.scale) return Number(window.visualViewport.scale) || 1;
+  } catch {}
+  return 1;
+}
+
+function detectCssScale(el) {
+  try {
+    const node = el && el.nodeType === Node.ELEMENT_NODE ? el : document.body;
+    const t = getComputedStyle(node).transform;
+    if (!t || t === 'none') return 1;
+    const m = t.match(/matrix\(([^)]+)\)/);
+    if (!m) return 1;
+    const vals = m[1].split(',').map((x) => Number(x.trim()));
+    if (vals.length >= 4) {
+      const sx = Math.hypot(vals[0], vals[1]) || 1;
+      return sx;
+    }
+  } catch {}
+  return 1;
+}
+
+function frameContextMeta() {
+  try {
+    if (window.top === window) {
+      return { framePath: 'top', frameOrigin: location.origin, frameOffsetX: 0, frameOffsetY: 0 };
+    }
+    const fe = window.frameElement;
+    const r = fe?.getBoundingClientRect?.();
+    return {
+      framePath: 'iframe',
+      frameOrigin: document.referrer || null,
+      frameOffsetX: r?.x || 0,
+      frameOffsetY: r?.y || 0
+    };
+  } catch {
+    return { framePath: 'unknown', frameOrigin: null, frameOffsetX: 0, frameOffsetY: 0 };
+  }
+}
 
 function maskValue(value) {
   if (!value) return '';

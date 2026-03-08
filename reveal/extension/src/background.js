@@ -65,7 +65,21 @@ async function captureScreenshot(tabId) {
 async function enqueueRawEvent(rawEvent, tabId) {
   if (!state.recording || !state.sessionId) return;
   const shouldCapture = Boolean(rawEvent?.significant);
-  const shot = shouldCapture ? await captureScreenshot(tabId) : null;
+  const shotBase = shouldCapture ? await captureScreenshot(tabId) : null;
+  const shot = shotBase ? {
+    ...shotBase,
+    timestamp: rawEvent?.timestamp || new Date().toISOString(),
+    devicePixelRatio: rawEvent?.devicePixelRatio || 1,
+    viewport: rawEvent?.viewport || null,
+    scrollX: rawEvent?.scrollX || 0,
+    scrollY: rawEvent?.scrollY || 0,
+    framePath: rawEvent?.framePath || 'top',
+    frameOrigin: rawEvent?.frameOrigin || null,
+    frameOffsetX: rawEvent?.frameOffsetX || 0,
+    frameOffsetY: rawEvent?.frameOffsetY || 0,
+    zoom: rawEvent?.zoom || 1,
+    cssTransformScale: rawEvent?.cssTransformScale || 1
+  } : null;
 
   let highlight = null;
   if (shot?.dataUrl && rawEvent?.target?.boundingBox) {

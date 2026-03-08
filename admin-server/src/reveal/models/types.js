@@ -28,6 +28,7 @@
  * @property {string|null} beforeUrl
  * @property {string|null} afterUrl
  * @property {string|null} highlightedUrl
+ * @property {Object|undefined} provenance
  */
 
 /**

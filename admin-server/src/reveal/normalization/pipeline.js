@@ -253,6 +253,7 @@ export async function normalizeSessionToFlow({ session, events }) {
     const target = bestTarget(group);
     const title = titleFor(action, target, group);
     const stepId = newId('step');
+    const first = group[0];
     const firstRaw = group.find((e) => e.metadata?.raw?.screenshot?.dataUrl)?.metadata?.raw || null;
     const lastRaw = [...group].reverse().find((e) => e.metadata?.raw?.screenshot?.dataUrl)?.metadata?.raw || null;
     const persistedShots = await persistStepScreenshotSet({
@@ -260,11 +261,26 @@ export async function normalizeSessionToFlow({ session, events }) {
       stepId,
       firstRaw,
       lastRaw,
-      targetBox: target?.elementBox || null
+      targetBox: target?.elementBox || null,
+      eventMeta: {
+        devicePixelRatio: first?.metadata?.raw?.devicePixelRatio || 1,
+        viewportWidth: first?.metadata?.raw?.viewport?.width || 0,
+        viewportHeight: first?.metadata?.raw?.viewport?.height || 0,
+        scrollX: first?.metadata?.raw?.scrollX || 0,
+        scrollY: first?.metadata?.raw?.scrollY || 0,
+        framePath: first?.metadata?.raw?.framePath || 'top',
+        frameOrigin: first?.metadata?.raw?.frameOrigin || null,
+        frameOffsetX: first?.metadata?.raw?.frameOffsetX || 0,
+        frameOffsetY: first?.metadata?.raw?.frameOffsetY || 0,
+        zoom: first?.metadata?.raw?.zoom || 1,
+        cssTransformScale: first?.metadata?.raw?.cssTransformScale || 1
+      }
     });
 
-    const screenshots = persistedShots.screenshots;
-    const first = group[0];
+    const screenshots = {
+      ...persistedShots.screenshots,
+      provenance: persistedShots.provenance
+    };
     const step = {
       id: stepId,
       index: i + 1,
@@ -286,6 +302,10 @@ export async function normalizeSessionToFlow({ session, events }) {
         rulesApplied: ['typing_debounce_v1', 'state_boundary_split_v1', 'compound_grouping_v1', 'title_generator_v1', 'confidence_v1'],
         highlightMode: persistedShots.highlight.mode,
         highlightFallbackReason: persistedShots.highlight.reason,
+        highlightNormalizationApplied: Boolean(persistedShots.highlight.normalizedBox),
+        highlightDriftWarning: Boolean(persistedShots.highlight.driftWarning),
+        highlightDriftRatio: persistedShots.highlight.driftRatio,
+        normalizedHighlightBox: persistedShots.highlight.normalizedBox,
         screenshotSourceValidation: persistedShots.sourceValidation
       },
       annotations: []
