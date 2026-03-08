@@ -58,6 +58,9 @@ import { validateAdapterContract } from '../production/adapterValidationService.
 import { createProviderAdapter, getProviderAdapter, exportProviderAdapter, validateProviderAdapter, listProviderCapabilityProfiles, inspectProviderCapabilityProfile } from '../production/providerAdapterService.js';
 import { createProviderSubmissionContract, getProviderSubmissionContract, exportProviderSubmissionContract, listProviderSubmissionContracts, validateProviderSubmission } from '../production/providerSubmissionService.js';
 import { createExecutionReceipt, getExecutionReceipt, patchExecutionReceipt, listExecutionReceipts, exportExecutionReceipt } from '../production/executionReceiptService.js';
+import { publishSubmissionTrust, listSubmissionTrustPublications, getLatestSubmissionTrustPublication, getSubmissionTrustPublication } from '../production/submissionTrustPublicationService.js';
+import { publishReceiptTrust, listReceiptTrustPublications, getLatestReceiptTrustPublication, getReceiptTrustPublication } from '../production/receiptTrustPublicationService.js';
+import { createSchedulerBoard, getSchedulerBoard, latestSchedulerBoard, exportSchedulerBoard, verifySchedulerBoard } from '../production/schedulerBoardService.js';
 import { publishVoiceTrust, listVoiceTrustPublications, getLatestVoiceTrustPublication, getVoiceTrustPublication } from '../production/voiceTrustPublicationService.js';
 import { verifyLatestVoice } from '../production/voiceVerificationService.js';
 import { buildSignedSubtitleBundle, verifySubtitleBundle } from '../production/subtitleProofService.js';
@@ -1193,6 +1196,31 @@ router.post('/api/production/provider-submissions/validate', async (req, res) =>
   res.json(out);
 });
 
+router.post('/api/production/provider-submissions/:providerSubmissionContractId/trust-publications', async (req, res) => {
+  const out = await publishSubmissionTrust(String(req.params.providerSubmissionContractId || ''));
+  if (['provider_submission_contract_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['submission_trust_publication_id_collision'].includes(out.error)) return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/provider-submissions/:providerSubmissionContractId/trust-publications', async (req, res) => {
+  const out = await listSubmissionTrustPublications(String(req.params.providerSubmissionContractId || ''));
+  res.json(out);
+});
+
+router.get('/api/production/provider-submissions/:providerSubmissionContractId/trust-publications/latest', async (req, res) => {
+  const out = await getLatestSubmissionTrustPublication(String(req.params.providerSubmissionContractId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/provider-submissions/:providerSubmissionContractId/trust-publications/:submissionTrustPublicationId', async (req, res) => {
+  const out = await getSubmissionTrustPublication(String(req.params.providerSubmissionContractId || ''), String(req.params.submissionTrustPublicationId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
 router.post('/api/production/execution-receipts', async (req, res) => {
   const out = await createExecutionReceipt({
     providerSubmissionContractId: req.body?.providerSubmissionContractId || null,
@@ -1238,6 +1266,77 @@ router.get('/api/production/execution-receipts/:executionReceiptId/export', asyn
   res.setHeader('Content-Type', exp.contentType);
   res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
   res.send(exp.content);
+});
+
+router.post('/api/production/execution-receipts/:executionReceiptId/trust-publications', async (req, res) => {
+  const out = await publishReceiptTrust(String(req.params.executionReceiptId || ''));
+  if (['execution_receipt_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['receipt_trust_publication_id_collision'].includes(out.error)) return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/execution-receipts/:executionReceiptId/trust-publications', async (req, res) => {
+  const out = await listReceiptTrustPublications(String(req.params.executionReceiptId || ''));
+  res.json(out);
+});
+
+router.get('/api/production/execution-receipts/:executionReceiptId/trust-publications/latest', async (req, res) => {
+  const out = await getLatestReceiptTrustPublication(String(req.params.executionReceiptId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/execution-receipts/:executionReceiptId/trust-publications/:receiptTrustPublicationId', async (req, res) => {
+  const out = await getReceiptTrustPublication(String(req.params.executionReceiptId || ''), String(req.params.receiptTrustPublicationId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.post('/api/production/scheduler-board', async (req, res) => {
+  const out = await createSchedulerBoard({
+    renderAdapterContractId: req.body?.renderAdapterContractId || null,
+    providerSubmissionContractId: req.body?.providerSubmissionContractId || null,
+    executionReceiptId: req.body?.executionReceiptId || null,
+    orchestrationProofCertificateId: req.body?.orchestrationProofCertificateId || null,
+    policyProfileId: req.body?.policyProfileId || 'dev',
+    mode: req.body?.mode || 'latest'
+  });
+  if (['missing_required_refs_for_explicit_mode'].includes(out.error)) return res.status(400).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/scheduler-board/latest', async (req, res) => {
+  const out = await latestSchedulerBoard({
+    renderAdapterContractId: req.query.renderAdapterContractId ? String(req.query.renderAdapterContractId) : null,
+    policyProfileId: req.query.policyProfileId ? String(req.query.policyProfileId) : 'dev',
+    mode: req.query.mode ? String(req.query.mode) : 'latest'
+  });
+  if (out.error) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/scheduler-board/:schedulerBoardId', async (req, res) => {
+  const out = await getSchedulerBoard(String(req.params.schedulerBoardId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/scheduler-board/:schedulerBoardId/export', async (req, res) => {
+  const out = await getSchedulerBoard(String(req.params.schedulerBoardId || ''));
+  if (out.error) return res.status(404).json(out);
+  const exp = exportSchedulerBoard(out.schedulerBoard, String(req.query.format || 'json').toLowerCase());
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
+router.post('/api/production/verify-scheduler-board', async (req, res) => {
+  const out = await verifySchedulerBoard(req.body?.schedulerBoardId ? { schedulerBoardId: req.body.schedulerBoardId } : (req.body?.schedulerBoard || req.body));
+  if (out.error === 'scheduler_board_not_found') return res.status(404).json(out);
+  res.json(out);
 });
 
 router.get('/api/production/shot-lists/:shotListId/snapshots/:shotListSnapshotId/export', async (req, res) => {
@@ -1836,10 +1935,20 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="provider-adapter-validate">Validate Provider Adapter/Manifest</button>
           <button data-action="provider-submission-generate">Generate Provider Submission</button>
           <button data-action="provider-submission-export-payload">Export Submission Payload</button>
+          <button data-action="provider-submission-export-signed">Export Signed Submission</button>
           <button data-action="provider-submission-validate">Validate Submission Payload</button>
+          <button data-action="provider-submission-trust-publish">Publish Submission Trust</button>
+          <button data-action="provider-submission-trust-latest">View Latest Submission Trust</button>
           <button data-action="execution-receipt-create">Create Execution Receipt</button>
           <button data-action="execution-receipt-update">Update Execution Receipt</button>
           <button data-action="execution-receipt-export">Export Execution Receipt</button>
+          <button data-action="execution-receipt-export-signed">Export Signed Receipt</button>
+          <button data-action="execution-receipt-trust-publish">Publish Receipt Trust</button>
+          <button data-action="execution-receipt-trust-latest">View Latest Receipt Trust</button>
+          <button data-action="scheduler-board-generate">Generate Scheduler Board</button>
+          <button data-action="scheduler-board-latest">View Latest Scheduler Board</button>
+          <button data-action="scheduler-board-export">Export Scheduler Board</button>
+          <button data-action="scheduler-board-verify">Verify Scheduler Board</button>
           <button data-action="admission-create">Create Admission Certificate</button>
           <button data-action="admission-latest">View Scheduler Admission Latest</button>
           <button data-action="admission-export-signed">Export Signed Certificate</button>

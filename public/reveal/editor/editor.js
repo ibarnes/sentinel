@@ -18,6 +18,7 @@ let state = {
   latestProviderAdapter: null,
   latestProviderSubmission: null,
   latestExecutionReceipt: null,
+  latestSchedulerBoard: null,
   latestAdmission: null,
   latestProof: null
 };
@@ -744,6 +745,23 @@ function exportSubmissionPayloadUi() {
   download(`/reveal/api/production/provider-submissions/${encodeURIComponent(state.latestProviderSubmission.providerSubmissionContractId)}/export?format=submission_payload`);
 }
 
+function exportSignedSubmissionUi() {
+  if (!state.latestProviderSubmission?.providerSubmissionContractId) return alert('Generate provider submission first');
+  download(`/reveal/api/production/provider-submissions/${encodeURIComponent(state.latestProviderSubmission.providerSubmissionContractId)}/export?format=signed_submission_payload`);
+}
+
+async function publishSubmissionTrustUi() {
+  if (!state.latestProviderSubmission?.providerSubmissionContractId) return alert('Generate provider submission first');
+  const out = await api(`/reveal/api/production/provider-submissions/${encodeURIComponent(state.latestProviderSubmission.providerSubmissionContractId)}/trust-publications`, 'POST', {});
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function viewLatestSubmissionTrustUi() {
+  if (!state.latestProviderSubmission?.providerSubmissionContractId) return alert('Generate provider submission first');
+  const out = await api(`/reveal/api/production/provider-submissions/${encodeURIComponent(state.latestProviderSubmission.providerSubmissionContractId)}/trust-publications/latest`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
 async function validateSubmissionPayloadUi() {
   const raw = prompt('Optional submission payload JSON (leave empty to validate current submission contract)');
   let payload = {};
@@ -784,6 +802,58 @@ async function updateExecutionReceiptUi() {
 function exportExecutionReceiptUi() {
   if (!state.latestExecutionReceipt?.executionReceiptId) return alert('Create execution receipt first');
   download(`/reveal/api/production/execution-receipts/${encodeURIComponent(state.latestExecutionReceipt.executionReceiptId)}/export?format=json`);
+}
+
+function exportSignedExecutionReceiptUi() {
+  if (!state.latestExecutionReceipt?.executionReceiptId) return alert('Create execution receipt first');
+  download(`/reveal/api/production/execution-receipts/${encodeURIComponent(state.latestExecutionReceipt.executionReceiptId)}/export?format=signed_receipt`);
+}
+
+async function publishReceiptTrustUi() {
+  if (!state.latestExecutionReceipt?.executionReceiptId) return alert('Create execution receipt first');
+  const out = await api(`/reveal/api/production/execution-receipts/${encodeURIComponent(state.latestExecutionReceipt.executionReceiptId)}/trust-publications`, 'POST', {});
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function viewLatestReceiptTrustUi() {
+  if (!state.latestExecutionReceipt?.executionReceiptId) return alert('Create execution receipt first');
+  const out = await api(`/reveal/api/production/execution-receipts/${encodeURIComponent(state.latestExecutionReceipt.executionReceiptId)}/trust-publications/latest`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function generateSchedulerBoardUi() {
+  const out = await api('/reveal/api/production/scheduler-board', 'POST', {
+    renderAdapterContractId: state.latestAdapter?.renderAdapterContractId || null,
+    providerSubmissionContractId: state.latestProviderSubmission?.providerSubmissionContractId || null,
+    executionReceiptId: state.latestExecutionReceipt?.executionReceiptId || null,
+    orchestrationProofCertificateId: state.latestProof?.orchestrationProofCertificateId || null,
+    policyProfileId: prompt('Policy profile: dev|internal_verified|production_verified', 'production_verified') || 'production_verified',
+    mode: 'latest'
+  });
+  state.latestSchedulerBoard = out.schedulerBoard;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.schedulerBoard, null, 2);
+}
+
+async function viewLatestSchedulerBoardUi() {
+  const profile = prompt('Policy profile', 'production_verified') || 'production_verified';
+  const q = state.latestAdapter?.renderAdapterContractId ? `&renderAdapterContractId=${encodeURIComponent(state.latestAdapter.renderAdapterContractId)}` : '';
+  const out = await api(`/reveal/api/production/scheduler-board/latest?policyProfileId=${encodeURIComponent(profile)}&mode=latest${q}`);
+  state.latestSchedulerBoard = out.schedulerBoard;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.schedulerBoard, null, 2);
+}
+
+function exportSchedulerBoardUi() {
+  if (!state.latestSchedulerBoard?.schedulerBoardId) return alert('Generate/view scheduler board first');
+  download(`/reveal/api/production/scheduler-board/${encodeURIComponent(state.latestSchedulerBoard.schedulerBoardId)}/export?format=scheduler_board`);
+}
+
+async function verifySchedulerBoardUi() {
+  const raw = prompt('Paste scheduler board JSON');
+  if (!raw) return;
+  let schedulerBoard;
+  try { schedulerBoard = JSON.parse(raw); } catch { return alert('Invalid JSON'); }
+  const out = await api('/reveal/api/production/verify-scheduler-board', 'POST', { schedulerBoard });
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 
 async function createAdmissionCertUi() {
@@ -1178,10 +1248,20 @@ function wireActions() {
   document.querySelector('[data-action="provider-adapter-validate"]')?.addEventListener('click', () => validateProviderAdapterUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="provider-submission-generate"]')?.addEventListener('click', () => generateProviderSubmissionUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="provider-submission-export-payload"]')?.addEventListener('click', () => exportSubmissionPayloadUi());
+  document.querySelector('[data-action="provider-submission-export-signed"]')?.addEventListener('click', () => exportSignedSubmissionUi());
   document.querySelector('[data-action="provider-submission-validate"]')?.addEventListener('click', () => validateSubmissionPayloadUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="provider-submission-trust-publish"]')?.addEventListener('click', () => publishSubmissionTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="provider-submission-trust-latest"]')?.addEventListener('click', () => viewLatestSubmissionTrustUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="execution-receipt-create"]')?.addEventListener('click', () => createExecutionReceiptUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="execution-receipt-update"]')?.addEventListener('click', () => updateExecutionReceiptUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="execution-receipt-export"]')?.addEventListener('click', () => exportExecutionReceiptUi());
+  document.querySelector('[data-action="execution-receipt-export-signed"]')?.addEventListener('click', () => exportSignedExecutionReceiptUi());
+  document.querySelector('[data-action="execution-receipt-trust-publish"]')?.addEventListener('click', () => publishReceiptTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-receipt-trust-latest"]')?.addEventListener('click', () => viewLatestReceiptTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="scheduler-board-generate"]')?.addEventListener('click', () => generateSchedulerBoardUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="scheduler-board-latest"]')?.addEventListener('click', () => viewLatestSchedulerBoardUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="scheduler-board-export"]')?.addEventListener('click', () => exportSchedulerBoardUi());
+  document.querySelector('[data-action="scheduler-board-verify"]')?.addEventListener('click', () => verifySchedulerBoardUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="admission-create"]')?.addEventListener('click', () => createAdmissionCertUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="admission-latest"]')?.addEventListener('click', () => viewAdmissionLatestUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="admission-export-signed"]')?.addEventListener('click', () => exportSignedAdmissionUi());

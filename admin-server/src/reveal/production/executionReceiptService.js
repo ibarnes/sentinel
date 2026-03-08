@@ -1,12 +1,88 @@
 import fs from 'fs/promises';
 import path from 'path';
 import crypto from 'crypto';
+import { getSigningContext } from '../services/packageSigningService.js';
 import { getProviderSubmissionContract } from './providerSubmissionService.js';
 import { appendLifecycleEvent, canTransition, eventTypeForAction, mapSchedulerStatus, nextStatusForAction } from './executionLifecycleService.js';
 
 const ROOT = '/home/ec2-user/.openclaw/workspace/reveal/storage/execution-receipts';
 const id = () => `erc_${Date.now()}_${crypto.randomBytes(4).toString('hex')}`;
 const fileFor = (executionReceiptId) => path.join(ROOT, `${executionReceiptId}.json`);
+
+const canonicalize = (v) => {
+  if (v === undefined) return undefined;
+  if (v === null) return null;
+  if (Array.isArray(v)) return v.map(canonicalize);
+  if (typeof v === 'number') return Number.isFinite(v) ? Number(v.toFixed(6)) : null;
+  if (typeof v === 'object') {
+    const out = {};
+    for (const k of Object.keys(v).sort()) {
+      const cv = canonicalize(v[k]);
+      if (cv !== undefined) out[k] = cv;
+    }
+    return out;
+  }
+  return v;
+};
+
+function signingPayload(receipt) {
+  return canonicalize({
+    executionReceiptId: receipt.executionReceiptId,
+    receiptVersion: receipt.receiptVersion,
+    providerSubmissionContractId: receipt.providerSubmissionContractId,
+    providerAdapterId: receipt.providerAdapterId,
+    providerType: receipt.providerType,
+    providerProfileId: receipt.providerProfileId,
+    submissionDigest: receipt.submissionDigest,
+    submissionStatus: receipt.submissionStatus,
+    schedulerStatus: receipt.schedulerStatus,
+    externalExecutionRef: receipt.externalExecutionRef || null,
+    responseSummary: receipt.responseSummary || null,
+    policyEvaluation: receipt.policyEvaluation,
+    blockingReasons: receipt.blockingReasons || [],
+    warnings: receipt.warnings || [],
+    lifecycleEvents: receipt.lifecycleEvents || []
+  });
+}
+
+export function receiptDigest(receipt) {
+  return crypto.createHash('sha256').update(JSON.stringify(signingPayload(receipt))).digest('hex');
+}
+
+async function signReceipt(receipt) {
+  const ctx = await getSigningContext();
+  if (!ctx.enabled) {
+    return {
+      ...receipt,
+      receiptSignature: null,
+      receiptSignatureVersion: 'execution-receipt-sig-v1',
+      receiptSigningKeyId: null,
+      receiptSigningAlgorithm: 'RSA-SHA256',
+      receiptSignatureStatus: 'unsigned',
+      receiptSignatureValid: null,
+      receiptVerificationScope: 'execution-receipt-core',
+      unsignedReason: ctx.unsignedReason || 'missing_key'
+    };
+  }
+  const signer = crypto.createSign('RSA-SHA256');
+  signer.update(JSON.stringify(signingPayload(receipt)));
+  signer.end();
+  const sig = signer.sign(ctx.privateKey, 'base64');
+  const verifier = crypto.createVerify('RSA-SHA256');
+  verifier.update(JSON.stringify(signingPayload(receipt)));
+  verifier.end();
+  const valid = verifier.verify(ctx.publicKey, sig, 'base64');
+  return {
+    ...receipt,
+    receiptSignature: sig,
+    receiptSignatureVersion: 'execution-receipt-sig-v1',
+    receiptSigningKeyId: ctx.signingKeyId,
+    receiptSigningAlgorithm: ctx.signingAlgorithm,
+    receiptSignatureStatus: 'signed',
+    receiptSignatureValid: valid,
+    receiptVerificationScope: 'execution-receipt-core'
+  };
+}
 
 async function writeReceipt(row) {
   await fs.mkdir(ROOT, { recursive: true });
@@ -70,6 +146,7 @@ export async function createExecutionReceipt({ providerSubmissionContractId = nu
     metadata: { providerSubmissionContractId }
   });
 
+  receipt = await signReceipt(receipt);
   await writeReceipt(receipt);
   return { executionReceipt: receipt };
 }
@@ -77,7 +154,7 @@ export async function createExecutionReceipt({ providerSubmissionContractId = nu
 export async function patchExecutionReceipt(executionReceiptId, patch = {}) {
   const out = await getExecutionReceipt(executionReceiptId);
   if (out.error) return out;
-  const receipt = out.executionReceipt;
+  let receipt = out.executionReceipt;
 
   const action = patch.action || null;
   if (!action) return { error: 'malformed_lifecycle_patch' };
@@ -114,6 +191,7 @@ export async function patchExecutionReceipt(executionReceiptId, patch = {}) {
   });
 
   receipt.updatedAt = new Date().toISOString();
+  receipt = await signReceipt(receipt);
   await writeReceipt(receipt);
   return { executionReceipt: receipt };
 }
@@ -138,7 +216,7 @@ export async function listExecutionReceipts({ providerType = null, submissionSta
 }
 
 export function exportExecutionReceipt(receipt, format = 'json') {
-  if (format === 'json') return { contentType: 'application/json', filename: `${receipt.executionReceiptId}.json`, content: JSON.stringify(receipt, null, 2) };
+  if (format === 'json' || format === 'signed_receipt') return { contentType: 'application/json', filename: `${receipt.executionReceiptId}${format === 'signed_receipt' ? '-signed' : ''}.json`, content: JSON.stringify(receipt, null, 2) };
   if (format !== 'markdown') return { error: 'invalid_export_format' };
   const lines = [];
   lines.push(`# Execution Receipt ${receipt.executionReceiptId}`);
@@ -146,6 +224,7 @@ export function exportExecutionReceipt(receipt, format = 'json') {
   lines.push(`- Submission Status: ${receipt.submissionStatus}`);
   lines.push(`- Scheduler Status: ${receipt.schedulerStatus}`);
   lines.push(`- External Ref: ${receipt.externalExecutionRef || 'none'}`);
+  lines.push(`- Signature: ${receipt.receiptSignatureStatus || 'unsigned'}`);
   lines.push(`- Blocking: ${(receipt.blockingReasons || []).join(', ') || 'none'}`);
   lines.push(`- Warnings: ${(receipt.warnings || []).join(', ') || 'none'}`);
   lines.push('', '## Lifecycle Events');

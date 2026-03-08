@@ -205,14 +205,28 @@ Product-intelligence capture system at `/reveal`.
       - `POST /reveal/api/production/provider-submissions`
       - `GET /reveal/api/production/provider-submissions`
       - `GET /reveal/api/production/provider-submissions/:providerSubmissionContractId`
-      - `GET /reveal/api/production/provider-submissions/:providerSubmissionContractId/export?format=json|markdown|submission_payload`
+      - `GET /reveal/api/production/provider-submissions/:providerSubmissionContractId/export?format=json|markdown|submission_payload|signed_submission_payload`
       - `POST /reveal/api/production/provider-submissions/validate`
+      - `POST /reveal/api/production/provider-submissions/:providerSubmissionContractId/trust-publications`
+      - `GET /reveal/api/production/provider-submissions/:providerSubmissionContractId/trust-publications`
+      - `GET /reveal/api/production/provider-submissions/:providerSubmissionContractId/trust-publications/latest`
+      - `GET /reveal/api/production/provider-submissions/:providerSubmissionContractId/trust-publications/:submissionTrustPublicationId`
     - execution receipts:
       - `POST /reveal/api/production/execution-receipts`
       - `GET /reveal/api/production/execution-receipts`
       - `GET /reveal/api/production/execution-receipts/:executionReceiptId`
       - `PATCH /reveal/api/production/execution-receipts/:executionReceiptId`
-      - `GET /reveal/api/production/execution-receipts/:executionReceiptId/export?format=json|markdown`
+      - `GET /reveal/api/production/execution-receipts/:executionReceiptId/export?format=json|markdown|signed_receipt`
+      - `POST /reveal/api/production/execution-receipts/:executionReceiptId/trust-publications`
+      - `GET /reveal/api/production/execution-receipts/:executionReceiptId/trust-publications`
+      - `GET /reveal/api/production/execution-receipts/:executionReceiptId/trust-publications/latest`
+      - `GET /reveal/api/production/execution-receipts/:executionReceiptId/trust-publications/:receiptTrustPublicationId`
+    - scheduler board:
+      - `POST /reveal/api/production/scheduler-board`
+      - `GET /reveal/api/production/scheduler-board/latest`
+      - `GET /reveal/api/production/scheduler-board/:schedulerBoardId`
+      - `GET /reveal/api/production/scheduler-board/:schedulerBoardId/export?format=json|markdown|scheduler_board`
+      - `POST /reveal/api/production/verify-scheduler-board`
     - handoff verification:
       - `POST /reveal/api/verification/verify-handoff`
     - `GET /reveal/api/verification/policies`

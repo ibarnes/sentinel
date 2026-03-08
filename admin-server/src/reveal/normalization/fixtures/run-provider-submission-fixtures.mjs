@@ -9,6 +9,10 @@ import { createRenderAdapterContract } from '../../production/renderAdapterContr
 import { createProviderAdapter } from '../../production/providerAdapterService.js';
 import { createProviderSubmissionContract, validateProviderSubmission, listProviderSubmissionContracts, exportProviderSubmissionContract } from '../../production/providerSubmissionService.js';
 import { createExecutionReceipt, patchExecutionReceipt, listExecutionReceipts, exportExecutionReceipt } from '../../production/executionReceiptService.js';
+import { publishSubmissionTrust } from '../../production/submissionTrustPublicationService.js';
+import { publishReceiptTrust } from '../../production/receiptTrustPublicationService.js';
+import { createOrchestrationProofCertificate } from '../../verification/orchestrationProofCertificateService.js';
+import { createSchedulerBoard, verifySchedulerBoard } from '../../production/schedulerBoardService.js';
 
 const flowId = 'fixture_provider_submission_flow';
 await writeJson(fileForReviewedFlow(flowId), {
@@ -39,21 +43,21 @@ if (pa.error) throw new Error(pa.error);
 
 const sub = await createProviderSubmissionContract({ providerAdapterId: pa.providerAdapter.providerAdapterId, submissionMode: 'handoff_only' });
 if (sub.error) throw new Error(sub.error);
+if (!['signed','unsigned'].includes(sub.providerSubmissionContract.submissionSignatureStatus)) throw new Error('submission signature status missing');
+
 const sub2 = await createProviderSubmissionContract({ providerAdapterId: pa.providerAdapter.providerAdapterId, submissionMode: 'handoff_only' });
 if (sub.providerSubmissionContract.payloadDigest !== sub2.providerSubmissionContract.payloadDigest) throw new Error('submission digest should be stable');
 
 const subValid = await validateProviderSubmission({ providerSubmissionContractId: sub.providerSubmissionContract.providerSubmissionContractId });
 if (subValid.status !== 'valid') throw new Error('submission should validate');
 
-const subBlocked = await validateProviderSubmission({
-  submissionPayload: { ...sub.providerSubmissionContract.submissionPayload, trustRefs: {}, admissionRefs: {}, handoffRefs: {} },
-  policyProfile: 'production_verified'
-});
+const subBlocked = await validateProviderSubmission({ submissionPayload: { ...sub.providerSubmissionContract.submissionPayload, trustRefs: {}, admissionRefs: {}, handoffRefs: {} }, policyProfile: 'production_verified' });
 if (subBlocked.status !== 'blocked') throw new Error('strict missing refs should block');
 
 const rec = await createExecutionReceipt({ providerSubmissionContractId: sub.providerSubmissionContract.providerSubmissionContractId });
 if (rec.error) throw new Error(rec.error);
 let receipt = rec.executionReceipt;
+if (!['signed','unsigned'].includes(receipt.receiptSignatureStatus)) throw new Error('receipt signature status missing');
 
 receipt = (await patchExecutionReceipt(receipt.executionReceiptId, { action: 'markDispatchReady' })).executionReceipt;
 receipt = (await patchExecutionReceipt(receipt.executionReceiptId, { action: 'recordHandoff', externalExecutionRef: 'ext_1' })).executionReceipt;
@@ -63,10 +67,34 @@ if (receipt.submissionStatus !== 'acknowledged') throw new Error('expected ackno
 const illegal = await patchExecutionReceipt(receipt.executionReceiptId, { action: 'recordHandoff' });
 if (illegal.error !== 'illegal_status_transition') throw new Error('illegal transition should fail');
 
+const subTrust = await publishSubmissionTrust(sub.providerSubmissionContract.providerSubmissionContractId);
+if (subTrust.error) throw new Error(subTrust.error);
+const recTrust = await publishReceiptTrust(receipt.executionReceiptId);
+if (recTrust.error) throw new Error(recTrust.error);
+
+const proof = await createOrchestrationProofCertificate({ renderAdapterContractId: rac.renderAdapterContract.renderAdapterContractId, policyProfileId: 'internal_verified', mode: 'latest' });
+if (proof.error) throw new Error(proof.error);
+
+const board = await createSchedulerBoard({
+  orchestrationProofCertificateId: proof.orchestrationProofCertificate.orchestrationProofCertificateId,
+  providerSubmissionContractId: sub.providerSubmissionContract.providerSubmissionContractId,
+  executionReceiptId: receipt.executionReceiptId,
+  policyProfileId: 'internal_verified',
+  mode: 'explicit_refs'
+});
+if (board.error) throw new Error(board.error);
+
+const verify = await verifySchedulerBoard(board.schedulerBoard);
+if (verify.status !== 'verified') throw new Error('scheduler board verify should pass');
+
+const tampered = { ...board.schedulerBoard, schedulerBoardId: undefined, boardDigest: 'deadbeef' };
+const bad = await verifySchedulerBoard(tampered);
+if (bad.status === 'verified') throw new Error('tampered board should fail');
+
 const listSubs = await listProviderSubmissionContracts({ providerType: 'generic_renderer' });
 if (!(listSubs.providerSubmissionContracts || []).length) throw new Error('submission listing should return rows');
 
-const listReceipts = await listExecutionReceipts({ providerType: 'generic_renderer', schedulerStatus: 'provider_acknowledged' });
+const listReceipts = await listExecutionReceipts({ providerType: 'generic_renderer' });
 if (!(listReceipts.executionReceipts || []).length) throw new Error('receipt listing should return rows');
 
 const subMd = exportProviderSubmissionContract(sub.providerSubmissionContract, 'markdown');

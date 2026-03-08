@@ -1,12 +1,67 @@
 import fs from 'fs/promises';
 import path from 'path';
 import crypto from 'crypto';
+import { getSigningContext } from '../services/packageSigningService.js';
 import { getProviderAdapter } from './providerAdapterService.js';
-import { manifestDigest, submissionPayloadDigest } from './submissionDigestService.js';
+import { manifestDigest, submissionPayloadDigest, canonicalizeSubmission } from './submissionDigestService.js';
 
 const ROOT = '/home/ec2-user/.openclaw/workspace/reveal/storage/provider-submissions';
 const id = () => `psc_${Date.now()}_${crypto.randomBytes(4).toString('hex')}`;
 const fileFor = (providerSubmissionContractId) => path.join(ROOT, `${providerSubmissionContractId}.json`);
+
+const signingPayload = (row) => canonicalizeSubmission({
+  providerSubmissionContractId: row.providerSubmissionContractId,
+  contractVersion: row.contractVersion,
+  providerAdapterId: row.providerAdapterId,
+  providerType: row.providerType,
+  providerProfileId: row.providerProfileId,
+  submissionMode: row.submissionMode,
+  readinessState: row.readinessState,
+  submissionPayload: row.submissionPayload,
+  payloadDigest: row.payloadDigest,
+  payloadDigestVersion: row.payloadDigestVersion,
+  trustRefs: row.trustRefs,
+  policyEvaluation: row.policyEvaluation,
+  blockingReasons: row.blockingReasons || [],
+  warnings: row.warnings || []
+});
+
+async function signSubmission(row) {
+  const ctx = await getSigningContext();
+  if (!ctx.enabled) {
+    return {
+      ...row,
+      submissionSignature: null,
+      submissionSignatureVersion: 'submission-sig-v1',
+      submissionSigningKeyId: null,
+      submissionSigningAlgorithm: 'RSA-SHA256',
+      submissionSignatureStatus: 'unsigned',
+      submissionSignatureValid: null,
+      submissionVerificationScope: 'submission-contract-core',
+      unsignedReason: ctx.unsignedReason || 'missing_key'
+    };
+  }
+
+  const signer = crypto.createSign('RSA-SHA256');
+  signer.update(JSON.stringify(signingPayload(row)));
+  signer.end();
+  const sig = signer.sign(ctx.privateKey, 'base64');
+
+  const verifier = crypto.createVerify('RSA-SHA256');
+  verifier.update(JSON.stringify(signingPayload(row)));
+  verifier.end();
+
+  return {
+    ...row,
+    submissionSignature: sig,
+    submissionSignatureVersion: 'submission-sig-v1',
+    submissionSigningKeyId: ctx.signingKeyId,
+    submissionSigningAlgorithm: ctx.signingAlgorithm,
+    submissionSignatureStatus: 'signed',
+    submissionSignatureValid: verifier.verify(ctx.publicKey, sig, 'base64'),
+    submissionVerificationScope: 'submission-contract-core'
+  };
+}
 
 async function writeRow(row) {
   await fs.mkdir(ROOT, { recursive: true });
@@ -64,7 +119,7 @@ export async function createProviderSubmissionContract({ providerAdapterId = nul
   const blockingReasons = [...new Set(providerAdapter.blockingReasons || [])];
   const warnings = [...new Set(providerAdapter.warnings || [])];
 
-  const row = {
+  let row = {
     providerSubmissionContractId: id(),
     createdAt: new Date().toISOString(),
     contractVersion: 'v1',
@@ -85,6 +140,7 @@ export async function createProviderSubmissionContract({ providerAdapterId = nul
     metadata: { deterministic: true }
   };
 
+  row = await signSubmission(row);
   await writeRow(row);
   return { providerSubmissionContract: row };
 }
@@ -108,7 +164,7 @@ export async function listProviderSubmissionContracts({ providerType = null, pro
 }
 
 export function exportProviderSubmissionContract(row, format = 'json') {
-  if (format === 'json') return { contentType: 'application/json', filename: `${row.providerSubmissionContractId}.json`, content: JSON.stringify(row, null, 2) };
+  if (format === 'json' || format === 'signed_submission_payload') return { contentType: 'application/json', filename: `${row.providerSubmissionContractId}${format === 'signed_submission_payload' ? '-signed' : ''}.json`, content: JSON.stringify(row, null, 2) };
   if (format === 'submission_payload') return { contentType: 'application/json', filename: `${row.providerSubmissionContractId}-payload.json`, content: JSON.stringify(row.submissionPayload, null, 2) };
   if (format !== 'markdown') return { error: 'invalid_export_format' };
   const lines = [];
@@ -117,6 +173,7 @@ export function exportProviderSubmissionContract(row, format = 'json') {
   lines.push(`- Mode: ${row.submissionMode}`);
   lines.push(`- Readiness: ${row.readinessState}`);
   lines.push(`- Payload Digest: ${row.payloadDigest}`);
+  lines.push(`- Signature: ${row.submissionSignatureStatus || 'unsigned'}`);
   lines.push(`- Blocking: ${(row.blockingReasons || []).join(', ') || 'none'}`);
   lines.push(`- Warnings: ${(row.warnings || []).join(', ') || 'none'}`);
   return { contentType: 'text/markdown; charset=utf-8', filename: `${row.providerSubmissionContractId}.md`, content: `${lines.join('\n')}\n` };
@@ -136,7 +193,6 @@ export async function validateProviderSubmission({ providerSubmissionContractId 
   if (missing.length) return { status: 'malformed_submission_payload', reasonCodes: ['missing_required_fields'], missingFields: missing };
 
   const blocks = [];
-  const warnings = [];
   const strict = (policyProfile || payload.orchestrationProfile) === 'production_verified';
   if (strict) {
     if (!payload.trustRefs?.sourceRefs?.externalVerifierProfileId && !payload.admissionRefs?.externalVerifierProfileId) blocks.push('missing_required_reference');
@@ -148,6 +204,5 @@ export async function validateProviderSubmission({ providerSubmissionContractId 
   if (payload.readinessState === 'blocked') blocks.push('policy_mismatch');
 
   if (blocks.length) return { status: 'blocked', reasonCodes: [...new Set(blocks)] };
-  if (warnings.length) return { status: 'valid_with_warnings', reasonCodes: [...new Set(warnings)] };
   return { status: 'valid', reasonCodes: ['submission_payload_valid'] };
 }
