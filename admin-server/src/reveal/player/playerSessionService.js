@@ -60,12 +60,32 @@ async function enrichSummary(summary) {
   };
 }
 
+function ensureInteractionState(session) {
+  session.interactionState = session.interactionState || {};
+  for (const step of session.model?.steps || []) {
+    const key = String(step.index);
+    if (!session.interactionState[key]) {
+      session.interactionState[key] = { hotspotConfirmed: false, overlayDismissed: false, canProceed: !(step.progression?.requiresHotspotConfirmation) };
+    }
+  }
+}
+
+function currentStepCanProceed(session) {
+  const st = session.interactionState?.[String(session.currentStepIndex)] || {};
+  return Boolean(st.canProceed !== false);
+}
+
 function payload(session) {
+  ensureInteractionState(session);
   const s = { ...session, resumable: isResumable(session) };
   return {
     session: s,
     model: s.model,
-    playback: applyPlaybackControl(s.stepCount, s.currentStepIndex)
+    playback: {
+      ...applyPlaybackControl(s.stepCount, s.currentStepIndex),
+      canProceed: currentStepCanProceed(s),
+      interactionState: s.interactionState[String(s.currentStepIndex)] || null
+    }
   };
 }
 
@@ -129,6 +149,7 @@ export async function createPlayerSession({ flowId = null, snapshotId = null, pa
     session.cleanupStatus = 'none';
   }
 
+  ensureInteractionState(session);
   session.expiresAt = computeExpiry(session);
   await writeSession(session);
 
@@ -197,6 +218,7 @@ export async function patchPlayerSession(sessionId, { action = null, jumpTo = nu
 
   if (autoPlayEnabled !== null) session.autoPlayEnabled = Boolean(autoPlayEnabled);
 
+  ensureInteractionState(session);
   if (action) {
     if (action === 'play') {
       if (session.playbackStatus === 'completed') return { error: 'invalid_transition_completed_to_playing' };
@@ -205,8 +227,25 @@ export async function patchPlayerSession(sessionId, { action = null, jumpTo = nu
     } else if (action === 'pause') {
       if (session.playbackStatus !== 'playing') return { error: 'invalid_transition' };
       session.playbackStatus = 'paused';
+    } else if (action === 'interactHotspot') {
+      const hsId = String(jumpTo ?? '');
+      const step = session.model.steps[session.currentStepIndex];
+      const hs = (step.hotspots || []).find((h) => h.hotspotId === hsId);
+      if (!hs) return { error: 'hotspot_not_found' };
+      const st = session.interactionState[String(session.currentStepIndex)] || { hotspotConfirmed: false, overlayDismissed: false, canProceed: true };
+      st.hotspotConfirmed = true;
+      st.canProceed = true;
+      session.interactionState[String(session.currentStepIndex)] = st;
+      if (Number.isInteger(hs.targetStepIndex)) {
+        session.currentStepIndex = hs.targetStepIndex;
+      }
+    } else if (action === 'dismissOverlay') {
+      const st = session.interactionState[String(session.currentStepIndex)] || { hotspotConfirmed: false, overlayDismissed: false, canProceed: true };
+      st.overlayDismissed = true;
+      session.interactionState[String(session.currentStepIndex)] = st;
     } else if (['next', 'prev', 'restart', 'jump'].includes(action)) {
       if (!activeStatus(session)) return { error: 'invalid_transition' };
+      if (action === 'next' && !currentStepCanProceed(session)) return { error: 'progression_blocked' };
       if (action === 'jump') {
         const idx = Number(jumpTo);
         if (!Number.isFinite(idx) || idx < 0 || idx >= session.stepCount) return { error: 'jump_out_of_range' };

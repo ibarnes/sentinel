@@ -501,11 +501,14 @@ router.get('/player/:flowId', async (req, res) => {
   <div class="wrap">
     <section class="viewer">
       <h2 id="flow">Reveal Player</h2>
-      <div class="stage"><img id="shot" alt="step" /></div>
+      <div id="resume-note" class="small"></div>
+      <div class="stage"><img id="shot" alt="step" /><div id="hotspots"></div></div>
+      <div class="overlay" id="overlay"></div>
       <div class="ctrls">
         <button id="restart">Restart</button>
         <button id="prev">Previous</button>
         <button id="next">Next</button>
+        <button id="dismiss">Dismiss Overlay</button>
         <button id="auto">Auto Play</button>
       </div>
     </section>

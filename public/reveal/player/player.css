@@ -2,8 +2,11 @@ body{margin:0;font-family:Inter,Arial,sans-serif;background:#0f1115;color:#e7edf
 .wrap{display:grid;grid-template-columns:1fr 360px;min-height:100vh}
 .viewer{padding:16px}
 .panel{border-left:1px solid #263042;padding:16px;background:#151b24}
-.stage{width:100%;min-height:420px;background:#0b0f16;border:1px solid #2a3142;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.stage{position:relative;width:100%;min-height:420px;background:#0b0f16;border:1px solid #2a3142;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .stage img{max-width:100%;max-height:70vh;object-fit:contain}
+.hotspot{position:absolute;border:2px solid #4fb3ff;background:rgba(79,179,255,.15);cursor:pointer}
+.hotspot.primary{border-color:#7dffb3;background:rgba(125,255,179,.18)}
+.overlay{margin-top:10px;padding:10px;border:1px solid #314056;border-radius:8px;background:#111823}
 .ctrls{display:flex;gap:8px;margin-top:12px}
 button{background:#1f2a3a;border:1px solid #33465f;color:#fff;border-radius:6px;padding:8px 10px}
 .small{font-size:12px;color:#9fb1cc}

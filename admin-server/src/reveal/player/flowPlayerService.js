@@ -13,12 +13,13 @@ const PLAYER_PKG_ROOT = '/home/ec2-user/.openclaw/workspace/reveal/storage/playe
 
 function basePlaybackModel(flow, sourceType) {
   const assetResolver = resolverForServerStoredFlow();
+  const stepCount = (flow.steps || []).length;
   return {
     flowId: flow.id,
     sourceType,
     title: flow.name || 'Reveal Flow',
     description: flow.description || null,
-    steps: (flow.steps || []).map((s, i) => toPlaybackStep(s, i, assetResolver))
+    steps: (flow.steps || []).map((s, i) => toPlaybackStep(s, i, assetResolver, stepCount))
   };
 }
 
@@ -56,13 +57,14 @@ export async function loadFromPackage(packagePath) {
     if (!flow || !Array.isArray(flow.steps)) return { error: 'malformed_package_flow' };
 
     const assetResolver = resolverForExtractedPackage(extractDir);
+    const stepCount = flow.steps.length;
     const model = {
       flowId: flow.id || manifest.flowId,
       sourceType: 'reveal_package',
       title: flow.name || 'Reveal Package Flow',
       description: flow.description || null,
       packageToken: token,
-      steps: flow.steps.map((s, i) => toPlaybackStep(s, i, assetResolver))
+      steps: flow.steps.map((s, i) => toPlaybackStep(s, i, assetResolver, stepCount))
     };
 
     return { model };

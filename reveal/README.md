@@ -106,7 +106,11 @@ Product-intelligence capture system at `/reveal`.
   - `DELETE /reveal/api/player/sessions/:sessionId`
   - `POST /reveal/api/player/sessions/sweep`
   - `GET /reveal/api/player/sessions/:sessionId/assets/:kind/:file`
-- Session actions: `next`, `prev`, `jump`, `restart`, `play`, `pause`, `setAutoPlay` via `autoPlayEnabled`.
+- Session actions: `next`, `prev`, `jump`, `restart`, `play`, `pause`, `setAutoPlay` via `autoPlayEnabled`, `interactHotspot`, `dismissOverlay`.
+- Interactive model per step:
+  - `hotspots[]` (primary/info/navigation regions)
+  - `overlay` (guided title/body/emphasis/progression)
+  - `progression` (manual/hotspot/auto rules)
 - Session lifecycle:
   - TTL + optional idle policy for `playing` sessions
   - in-process sweeper interval (`REVEAL_PLAYER_SWEEP_INTERVAL_MS`)
