@@ -675,7 +675,7 @@
     {
       "id": "TASK-0026",
       "title": "TS-B3.1 Implement template list/detail endpoints",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -685,15 +685,39 @@
         "story:US-B3"
       ],
       "linked_refs": [
-        "templates-api"
+        "templates-api",
+        "TASK-0115",
+        "TASK-0116",
+        "TASK-0117"
       ],
       "description": "GET /templates and /templates/{templateId}.",
-      "comments": [],
-      "request_approval": null,
+      "comments": [
+        {
+          "id": "decomp-0026-20260308-0410",
+          "author": "sentinel",
+          "text": "Decomposition gate applied: split template API work into TASK-0115 (contract), TASK-0116 (list/detail implementation), TASK-0117 (smoke + RP).",
+          "created_at": "2026-03-08T04:10:00Z"
+        },
+        {
+          "id": "done-0026-20260308-0410",
+          "author": "sentinel",
+          "text": "Completed TS-B3.1 via decomposition tasks TASK-0115/0116/0117. Implemented template list/detail endpoints and packaged evidence in RP-0040.",
+          "created_at": "2026-03-08T04:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-08T04:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0040-presentation-studio-template-list-detail-endpoints.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-02-26T22:48:00Z",
+      "updated_at": "2026-03-08T04:10:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0040"
     },
     {
       "id": "TASK-0027",
@@ -3268,6 +3292,105 @@
       "request_approval": null,
       "created_at": "2026-03-07T17:30:00Z",
       "updated_at": "2026-03-07T17:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0115",
+      "title": "TS-B3.1a Define template API response contract + acceptance matrix",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B3",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0026"
+      ],
+      "description": "Define deterministic response shape for template list/detail endpoints and error model before coding.\nAcceptance Criteria:\n- /templates list response documented (count + templates[] fields).\n- /templates/:templateId detail response documented.\n- 400/404 error payload expectations documented.",
+      "comments": [
+        {
+          "id": "done-0115-20260308-0410",
+          "author": "sentinel",
+          "text": "Contract fixed before implementation: list/detail payload shape, manifest path exposure, and 400/404 error model defined.",
+          "created_at": "2026-03-08T04:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-08T04:10:00Z",
+      "updated_at": "2026-03-08T04:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0116",
+      "title": "TS-B3.1b Implement template list/detail endpoints from template manifests",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B3",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0026",
+        "/api/presentation-studio/templates"
+      ],
+      "description": "Implement GET /api/presentation-studio/templates and GET /api/presentation-studio/templates/:templateId backed by dashboard template manifest files.\nAcceptance Criteria:\n- List endpoint returns all valid template manifests sorted by id.\n- Detail endpoint returns one template manifest by id.\n- Unknown templateId returns deterministic 404 payload.",
+      "comments": [
+        {
+          "id": "done-0116-20260308-0410",
+          "author": "sentinel",
+          "text": "Implemented template manifest helpers plus GET /api/presentation-studio/templates and GET /api/presentation-studio/templates/:templateId endpoints in admin-server/src/server.js.",
+          "created_at": "2026-03-08T04:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-08T04:10:00Z",
+      "updated_at": "2026-03-08T04:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0117",
+      "title": "TS-B3.1c Run syntax smoke + publish review packet for template endpoints",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-B",
+        "story:US-B3",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0026",
+        "TASK-0116",
+        "mission-control/review-packets/RP-0040-presentation-studio-template-list-detail-endpoints.md"
+      ],
+      "description": "Validate implementation compiles and document outputs/risks in review packet.\nAcceptance Criteria:\n- node --check passes for touched server file.\n- Review packet created with change summary, test evidence, and rollback note.\n- Parent TASK-0026 transitioned to Ready for Review with RP reference.",
+      "comments": [
+        {
+          "id": "done-0117-20260308-0410",
+          "author": "sentinel",
+          "text": "Ran `node --check admin-server/src/server.js` (pass) and created RP-0040 documenting template list/detail endpoint delivery.",
+          "created_at": "2026-03-08T04:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-08T04:10:00Z",
+      "updated_at": "2026-03-08T04:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }

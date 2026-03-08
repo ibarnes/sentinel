@@ -36,6 +36,7 @@ const DASHBOARD_PIPELINE_RUNS_FILE = path.join(ROOT, 'dashboard', 'data', 'pipel
 const DASHBOARD_SLIDE_SPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'slidespecs.v2.json');
 const DASHBOARD_CAPITAL_MAP_FILE = path.join(ROOT, 'dashboard', 'data', 'capital-map.json');
 const DASHBOARD_PLATFORM_PRESSURE_FILE = path.join(ROOT, 'dashboard', 'data', 'platform_pressure.json');
+const DASHBOARD_TEMPLATE_LIBRARY_ROOT = path.join(ROOT, 'dashboard', 'templates', 'presentation-templates');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
 
@@ -3391,6 +3392,47 @@ function legacyFieldsToSlotsContract({ title = '', bullets = [], imagePrompt = '
   };
 }
 
+async function readTemplateManifestById(templateId) {
+  const safeId = String(templateId || '').trim();
+  if (!safeId) return null;
+  const manifestPath = path.join(DASHBOARD_TEMPLATE_LIBRARY_ROOT, safeId, 'template.json');
+  if (!fssync.existsSync(manifestPath)) return null;
+
+  const manifest = await readJson(manifestPath, null);
+  if (!manifest || typeof manifest !== 'object') return null;
+
+  const layouts = Array.isArray(manifest.layouts)
+    ? manifest.layouts.map((x) => String(x || '').trim()).filter(Boolean)
+    : [];
+
+  return {
+    id: String(manifest.id || safeId),
+    name: String(manifest.name || safeId),
+    description: String(manifest.description || '').trim(),
+    layouts,
+    tokens: manifest.tokens && typeof manifest.tokens === 'object' && !Array.isArray(manifest.tokens)
+      ? manifest.tokens
+      : null,
+    manifestPath: path.relative(ROOT, manifestPath),
+  };
+}
+
+async function readTemplateLibraryIndex() {
+  if (!fssync.existsSync(DASHBOARD_TEMPLATE_LIBRARY_ROOT)) return [];
+  const entries = await fs.readdir(DASHBOARD_TEMPLATE_LIBRARY_ROOT, { withFileTypes: true });
+  const templates = [];
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const template = await readTemplateManifestById(entry.name);
+    if (!template) continue;
+    templates.push(template);
+  }
+
+  templates.sort((a, b) => String(a.id).localeCompare(String(b.id)));
+  return templates;
+}
+
 async function ensureTeamAndBoardFiles() {
   if (!fssync.existsSync(TEAM_USERS_FILE)) {
     await fs.writeFile(TEAM_USERS_FILE, JSON.stringify(defaultUsers(), null, 2));
@@ -4849,6 +4891,21 @@ app.get('/api/presentation-studio/decks/resolve', requireRole('architect','edito
   if (resolved.error) return res.status(resolved.status || 400).json({ error: resolved.error });
   if (!resolved.deck) return res.status(404).json({ error: 'deck not found', selectors: resolved.selectors });
   return res.json({ ok: true, selectors: resolved.selectors, deck: resolved.deck });
+});
+
+app.get('/api/presentation-studio/templates', requireRole('architect','editor','observer'), async (_req, res) => {
+  const templates = await readTemplateLibraryIndex();
+  return res.json({ ok: true, count: templates.length, templates });
+});
+
+app.get('/api/presentation-studio/templates/:templateId', requireRole('architect','editor','observer'), async (req, res) => {
+  const templateId = String(req.params.templateId || '').trim();
+  if (!templateId) return res.status(400).json({ error: 'templateId required' });
+
+  const template = await readTemplateManifestById(templateId);
+  if (!template) return res.status(404).json({ error: 'template not found' });
+
+  return res.json({ ok: true, template });
 });
 
 app.get('/api/presentation-studio/layout-map', requireRole('architect','editor','observer'), async (req, res) => {
