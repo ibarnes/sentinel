@@ -186,8 +186,21 @@ Product-intelligence capture system at `/reveal`.
       - `POST /reveal/api/verification/orchestration-proofs`
       - `GET /reveal/api/verification/orchestration-proofs/latest`
       - `GET /reveal/api/verification/orchestration-proofs/:orchestrationProofCertificateId`
-      - `GET /reveal/api/verification/orchestration-proofs/:orchestrationProofCertificateId/export?format=json|markdown|signed_proof`
+      - `GET /reveal/api/verification/orchestration-proofs/:orchestrationProofCertificateId/export?format=json|markdown|signed_proof|detached_verifier_pack|detached_payload|detached_signature`
       - `POST /reveal/api/verification/verify-proof`
+      - `POST /reveal/api/verification/verify-detached-proof`
+    - orchestration proof trust publications:
+      - `POST /reveal/api/verification/orchestration-proofs/:orchestrationProofCertificateId/trust-publications`
+      - `GET /reveal/api/verification/orchestration-proofs/:orchestrationProofCertificateId/trust-publications`
+      - `GET /reveal/api/verification/orchestration-proofs/:orchestrationProofCertificateId/trust-publications/latest`
+      - `GET /reveal/api/verification/orchestration-proofs/:orchestrationProofCertificateId/trust-publications/:orchestrationProofTrustPublicationId`
+    - provider adapters:
+      - `POST /reveal/api/production/provider-adapters`
+      - `GET /reveal/api/production/provider-adapters/:providerAdapterId`
+      - `GET /reveal/api/production/provider-adapters/:providerAdapterId/export?format=json|markdown|provider_manifest`
+      - `POST /reveal/api/production/provider-adapters/validate`
+      - `GET /reveal/api/production/provider-profiles`
+      - `GET /reveal/api/production/provider-profiles/:providerType/:providerProfileId`
     - handoff verification:
       - `POST /reveal/api/verification/verify-handoff`
     - `GET /reveal/api/verification/policies`

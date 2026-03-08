@@ -55,6 +55,7 @@ import { verifyVoicePlanSnapshotIntegrity, recomputeVoicePlanSnapshotIntegrity }
 import { buildSubtitleBundle, buildVoiceTrackAuditReport } from '../production/subtitleBundleService.js';
 import { createRenderAdapterContract, getRenderAdapterContract, exportRenderAdapterContract } from '../production/renderAdapterContractService.js';
 import { validateAdapterContract } from '../production/adapterValidationService.js';
+import { createProviderAdapter, getProviderAdapter, exportProviderAdapter, validateProviderAdapter, listProviderCapabilityProfiles, inspectProviderCapabilityProfile } from '../production/providerAdapterService.js';
 import { publishVoiceTrust, listVoiceTrustPublications, getLatestVoiceTrustPublication, getVoiceTrustPublication } from '../production/voiceTrustPublicationService.js';
 import { verifyLatestVoice } from '../production/voiceVerificationService.js';
 import { buildSignedSubtitleBundle, verifySubtitleBundle } from '../production/subtitleProofService.js';
@@ -70,7 +71,9 @@ import { signAdapterManifest, signComplianceVerdict } from '../verification/hand
 import { createAdmissionCertificate, getAdmissionCertificate, exportAdmissionCertificate, latestAdmissionCertificate } from '../verification/admissionCertificateService.js';
 import { publishAdapterTrust, listAdapterTrustPublications, getLatestAdapterTrustPublication, getAdapterTrustPublication } from '../verification/adapterTrustPublicationService.js';
 import { verifyHandoff } from '../verification/handoffVerificationService.js';
-import { createOrchestrationProofCertificate, getOrchestrationProofCertificate, exportOrchestrationProofCertificate, latestOrchestrationProofCertificate, verifyProofCertificate } from '../verification/orchestrationProofCertificateService.js';
+import { createOrchestrationProofCertificate, getOrchestrationProofCertificate, exportOrchestrationProofCertificate, latestOrchestrationProofCertificate, verifyProofCertificate, buildSchedulerSafeProofVerdict } from '../verification/orchestrationProofCertificateService.js';
+import { publishOrchestrationProofTrust, listOrchestrationProofTrustPublications, getLatestOrchestrationProofTrustPublication, getOrchestrationProofTrustPublication } from '../verification/orchestrationProofTrustPublicationService.js';
+import { verifyDetachedProof } from '../verification/detachedProofVerificationService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -810,7 +813,26 @@ router.get('/api/verification/orchestration-proofs/latest', async (req, res) => 
   if (['render_adapter_contract_not_found','external_verifier_profile_not_found','admission_certificate_not_found'].includes(out.error)) return res.status(404).json(out);
   if (['unsupported_policy_profile','invalid_mode','missing_required_refs_for_explicit_mode'].includes(out.error)) return res.status(400).json(out);
   if (out.error) return res.status(400).json(out);
-  res.json(out);
+
+  const proof = out.orchestrationProofCertificate;
+  const trust = await getLatestOrchestrationProofTrustPublication(proof.orchestrationProofCertificateId);
+  const verdict = buildSchedulerSafeProofVerdict(proof, null, trust.error ? null : trust.orchestrationProofTrustPublication.proofHeadDigest);
+
+  res.json({
+    orchestrationProofCertificate: proof,
+    schedulerProof: {
+      ...verdict,
+      signatureStatus: proof.certificateSignatureStatus,
+      linkedRefs: {
+        orchestrationProofCertificateId: proof.orchestrationProofCertificateId,
+        renderAdapterContractId: proof.renderAdapterContractId,
+        adapterTrustPublicationId: proof.adapterTrustPublicationRef?.adapterTrustPublicationId || null,
+        attestationTrustPublicationId: proof.attestationTrustPublicationRef?.attestationTrustPublicationId || null,
+        admissionCertificateId: proof.admissionCertificateId,
+        orchestrationProofTrustPublicationId: trust.error ? null : trust.orchestrationProofTrustPublication.orchestrationProofTrustPublicationId
+      }
+    }
+  });
 });
 
 router.get('/api/verification/orchestration-proofs/:orchestrationProofCertificateId', async (req, res) => {
@@ -823,16 +845,59 @@ router.get('/api/verification/orchestration-proofs/:orchestrationProofCertificat
   const out = await getOrchestrationProofCertificate(String(req.params.orchestrationProofCertificateId || ''));
   if (out.error) return res.status(404).json(out);
   const format = String(req.query.format || 'json').toLowerCase();
-  const exp = exportOrchestrationProofCertificate(out.orchestrationProofCertificate, format);
+  const exp = await exportOrchestrationProofCertificate(out.orchestrationProofCertificate, format);
   if (exp.error) return res.status(400).json(exp);
   res.setHeader('Content-Type', exp.contentType);
   res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
   res.send(exp.content);
 });
 
+router.post('/api/verification/orchestration-proofs/:orchestrationProofCertificateId/trust-publications', async (req, res) => {
+  const proofId = String(req.params.orchestrationProofCertificateId || '');
+  const out = await publishOrchestrationProofTrust(proofId);
+  if (['orchestration_proof_certificate_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['orchestration_proof_trust_publication_id_collision'].includes(out.error)) return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/verification/orchestration-proofs/:orchestrationProofCertificateId/trust-publications', async (req, res) => {
+  const proofId = String(req.params.orchestrationProofCertificateId || '');
+  const proof = await getOrchestrationProofCertificate(proofId);
+  if (proof.error) return res.status(404).json(proof);
+  const out = await listOrchestrationProofTrustPublications(proofId);
+  res.json(out);
+});
+
+router.get('/api/verification/orchestration-proofs/:orchestrationProofCertificateId/trust-publications/latest', async (req, res) => {
+  const proofId = String(req.params.orchestrationProofCertificateId || '');
+  const proof = await getOrchestrationProofCertificate(proofId);
+  if (proof.error) return res.status(404).json(proof);
+  const out = await getLatestOrchestrationProofTrustPublication(proofId);
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/verification/orchestration-proofs/:orchestrationProofCertificateId/trust-publications/:orchestrationProofTrustPublicationId', async (req, res) => {
+  const proofId = String(req.params.orchestrationProofCertificateId || '');
+  const pubId = String(req.params.orchestrationProofTrustPublicationId || '');
+  const out = await getOrchestrationProofTrustPublication(proofId, pubId);
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
 router.post('/api/verification/verify-proof', async (req, res) => {
   const out = await verifyProofCertificate(req.body?.orchestrationProofCertificateId ? { orchestrationProofCertificateId: req.body.orchestrationProofCertificateId } : (req.body?.proof || req.body));
   if (['orchestration_proof_certificate_not_found'].includes(out.error)) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.post('/api/verification/verify-detached-proof', async (req, res) => {
+  const out = await verifyDetachedProof({
+    payload: req.body?.payload || null,
+    signature: req.body?.signature || null,
+    trust: req.body?.trust || null
+  });
   res.json(out);
 });
 
@@ -1023,6 +1088,55 @@ router.get('/api/production/render-adapters/:renderAdapterContractId/trust-publi
 
 router.get('/api/production/render-adapters/:renderAdapterContractId/trust-publications/:adapterTrustPublicationId', async (req, res) => {
   const out = await getAdapterTrustPublication(String(req.params.renderAdapterContractId || ''), String(req.params.adapterTrustPublicationId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.post('/api/production/provider-adapters', async (req, res) => {
+  const out = await createProviderAdapter({
+    renderAdapterContractId: req.body?.renderAdapterContractId || null,
+    providerType: req.body?.providerType || null,
+    providerProfileId: req.body?.providerProfileId || 'default',
+    orchestrationProfile: req.body?.orchestrationProfile || null
+  });
+  if (['missing_render_adapter_contract_id','missing_provider_type','unsupported_provider_profile'].includes(out.error)) return res.status(400).json(out);
+  if (['render_adapter_contract_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/provider-adapters/:providerAdapterId', async (req, res) => {
+  const out = await getProviderAdapter(String(req.params.providerAdapterId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/provider-adapters/:providerAdapterId/export', async (req, res) => {
+  const out = await getProviderAdapter(String(req.params.providerAdapterId || ''));
+  if (out.error) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const exp = exportProviderAdapter(out.providerAdapter, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
+router.post('/api/production/provider-adapters/validate', async (req, res) => {
+  const out = await validateProviderAdapter({
+    providerAdapterId: req.body?.providerAdapterId || null,
+    providerManifest: req.body?.providerManifest || req.body?.manifest || null
+  });
+  if (out.error === 'provider_adapter_not_found') return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/provider-profiles', async (_req, res) => {
+  res.json(listProviderCapabilityProfiles());
+});
+
+router.get('/api/production/provider-profiles/:providerType/:providerProfileId', async (req, res) => {
+  const out = inspectProviderCapabilityProfile(String(req.params.providerType || ''), String(req.params.providerProfileId || 'default'));
   if (out.error) return res.status(404).json(out);
   res.json(out);
 });
@@ -1617,6 +1731,10 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="adapter-validate">Validate Adapter Contract</button>
           <button data-action="adapter-trust-publish">Publish Adapter Trust</button>
           <button data-action="adapter-trust-latest">View Latest Adapter Trust</button>
+          <button data-action="provider-adapter-generate">Generate Provider Adapter</button>
+          <button data-action="provider-profile-list">List Provider Profiles</button>
+          <button data-action="provider-adapter-export-manifest">Export Provider Manifest</button>
+          <button data-action="provider-adapter-validate">Validate Provider Adapter/Manifest</button>
           <button data-action="admission-create">Create Admission Certificate</button>
           <button data-action="admission-latest">View Scheduler Admission Latest</button>
           <button data-action="admission-export-signed">Export Signed Certificate</button>

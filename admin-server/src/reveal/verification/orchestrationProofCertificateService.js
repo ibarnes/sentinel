@@ -4,12 +4,17 @@ import crypto from 'crypto';
 import { resolveProofLinks } from './proofLinkService.js';
 import { computeProofDigest } from './proofDigestService.js';
 import { signAdmissionCertificate, verifyHandoffArtifact } from './handoffCertificationService.js';
+import { buildDetachedVerifierPack, buildDetachedPayloadFromProof } from './detachedVerifierPackService.js';
 
 const ROOT = '/home/ec2-user/.openclaw/workspace/reveal/storage/orchestration-proof-certificates';
-function id(){return `opc_${Date.now()}_${crypto.randomBytes(4).toString('hex')}`;}
-function fileFor(orchestrationProofCertificateId){return path.join(ROOT, `${orchestrationProofCertificateId}.json`);} 
-async function writeCert(c){await fs.mkdir(ROOT,{recursive:true}); await fs.writeFile(fileFor(c.orchestrationProofCertificateId), JSON.stringify(c,null,2));}
-export async function getOrchestrationProofCertificate(orchestrationProofCertificateId){ try{return {orchestrationProofCertificate: JSON.parse(await fs.readFile(fileFor(orchestrationProofCertificateId),'utf8'))};}catch{return {error:'orchestration_proof_certificate_not_found'};} }
+const id = () => `opc_${Date.now()}_${crypto.randomBytes(4).toString('hex')}`;
+const fileFor = (orchestrationProofCertificateId) => path.join(ROOT, `${orchestrationProofCertificateId}.json`);
+const writeCert = async (c) => { await fs.mkdir(ROOT, { recursive: true }); await fs.writeFile(fileFor(c.orchestrationProofCertificateId), JSON.stringify(c, null, 2)); };
+
+export async function getOrchestrationProofCertificate(orchestrationProofCertificateId) {
+  try { return { orchestrationProofCertificate: JSON.parse(await fs.readFile(fileFor(orchestrationProofCertificateId), 'utf8')) }; }
+  catch { return { error: 'orchestration_proof_certificate_not_found' }; }
+}
 
 function evaluateStartDecision({ profile, external, adapterTrust, attTrust, admission }) {
   const blockingReasons = [...(external?.blockingReasons || []), ...(admission?.blockingReasons || [])];
@@ -20,35 +25,25 @@ function evaluateStartDecision({ profile, external, adapterTrust, attTrust, admi
   if (!admission) blockingReasons.push('admission_certificate_link_missing');
 
   if (profile === 'production_verified') {
+    if (!adapterTrust) blockingReasons.push('orchestration_proof_trust_publication_missing');
     if (adapterTrust?.adapterManifestSignatureStatus !== 'signed') blockingReasons.push('adapter_manifest_signature_missing');
-    if (admission?.certificateSignatureStatus !== 'signed') blockingReasons.push('admission_certificate_signature_invalid');
+    if (!attTrust) blockingReasons.push('orchestration_proof_trust_publication_missing');
     if (attTrust?.attestationTrustPublicationSignatureStatus !== 'signed') blockingReasons.push('attestation_trust_link_missing');
+    if (admission?.certificateSignatureStatus !== 'signed') blockingReasons.push('admission_certificate_signature_invalid');
   }
 
-  let overallVerdict = 'admit';
-  let startDecision = 'start';
-  if (blockingReasons.length) {
-    overallVerdict = 'deny';
-    startDecision = 'no_start';
-  } else if (warnings.length) {
-    overallVerdict = 'admit_with_warnings';
-    startDecision = 'start_with_warnings';
-  }
-
-  return { overallVerdict, startDecision, blockingReasons: [...new Set(blockingReasons)], warnings: [...new Set(warnings)] };
+  const uniqueBlocks = [...new Set(blockingReasons)];
+  const uniqueWarnings = [...new Set(warnings)];
+  if (uniqueBlocks.length) return { overallVerdict: 'deny', startDecision: 'no_start', blockingReasons: uniqueBlocks, warnings: uniqueWarnings };
+  if (uniqueWarnings.length) return { overallVerdict: 'admit_with_warnings', startDecision: 'start_with_warnings', blockingReasons: [], warnings: uniqueWarnings };
+  return { overallVerdict: 'admit', startDecision: 'start', blockingReasons: [], warnings: [] };
 }
 
 export async function createOrchestrationProofCertificate({ renderAdapterContractId = null, externalVerifierProfileId = null, admissionCertificateId = null, adapterTrustPublicationId = null, attestationTrustPublicationId = null, policyProfileId = 'dev', mode = 'latest' } = {}) {
   const links = await resolveProofLinks({ renderAdapterContractId, externalVerifierProfileId, admissionCertificateId, adapterTrustPublicationId, attestationTrustPublicationId, policyProfileId, mode });
   if (links.error) return links;
 
-  const start = evaluateStartDecision({
-    profile: policyProfileId,
-    external: links.external,
-    adapterTrust: links.adapterTrust,
-    attTrust: links.attestationTrust,
-    admission: links.admission
-  });
+  const start = evaluateStartDecision({ profile: policyProfileId, external: links.external, adapterTrust: links.adapterTrust, attTrust: links.attestationTrust, admission: links.admission });
 
   const cert = {
     orchestrationProofCertificateId: id(),
@@ -80,14 +75,16 @@ export async function createOrchestrationProofCertificate({ renderAdapterContrac
     startDecision: start.startDecision,
     blockingReasons: start.blockingReasons,
     warnings: start.warnings,
-    proofDigest: '',
+    proofDigest: null,
     proofDigestVersion: 'sha256-v1',
     metadata: {
       linkedRefs: {
         adapterTrustPublicationId: links.adapterTrust?.adapterTrustPublicationId || null,
         attestationTrustPublicationId: links.attestationTrust?.attestationTrustPublicationId || null,
         admissionCertificateId: links.admission?.admissionCertificateId || null
-      }
+      },
+      admissionReadinessDigest: links.admission?.readinessDigest || null,
+      admissionSignatureStatus: links.admission?.certificateSignatureStatus || null
     }
   };
 
@@ -132,15 +129,28 @@ export async function createOrchestrationProofCertificate({ renderAdapterContrac
   cert.certificateSigningAlgorithm = signed.certificateSigningAlgorithm;
   cert.certificateSignatureStatus = signed.certificateSignatureStatus;
   cert.certificateSignatureValid = signed.certificateSignatureValid;
+  if (signed.unsignedReason) cert.unsignedReason = signed.unsignedReason;
 
   await writeCert(cert);
   return { orchestrationProofCertificate: cert };
 }
 
-export function exportOrchestrationProofCertificate(cert, format = 'json') {
+export async function exportOrchestrationProofCertificate(cert, format = 'json') {
   if (format === 'json' || format === 'signed_proof') {
-    return { contentType: 'application/json', filename: `${cert.orchestrationProofCertificateId}${format==='signed_proof' ? '-signed' : ''}.json`, content: JSON.stringify(cert, null, 2) };
+    return { contentType: 'application/json', filename: `${cert.orchestrationProofCertificateId}${format === 'signed_proof' ? '-signed' : ''}.json`, content: JSON.stringify(cert, null, 2) };
   }
+
+  if (format === 'detached_verifier_pack' || format === 'detached_payload' || format === 'detached_signature') {
+    const detached = await buildDetachedVerifierPack(cert);
+    if (format === 'detached_verifier_pack') {
+      return { contentType: 'application/json', filename: `${cert.orchestrationProofCertificateId}-detached-pack.json`, content: JSON.stringify(detached.pack, null, 2) };
+    }
+    if (format === 'detached_payload') {
+      return { contentType: 'application/json', filename: `${cert.orchestrationProofCertificateId}-detached-payload.json`, content: JSON.stringify(detached.payload, null, 2) };
+    }
+    return { contentType: 'application/json', filename: `${cert.orchestrationProofCertificateId}-detached-signature.json`, content: JSON.stringify(detached.signature, null, 2) };
+  }
+
   if (format !== 'markdown') return { error: 'invalid_export_format' };
   const lines = [];
   lines.push(`# Orchestration Proof ${cert.orchestrationProofCertificateId}`);
@@ -150,7 +160,7 @@ export function exportOrchestrationProofCertificate(cert, format = 'json') {
   lines.push(`- Signature Status: ${cert.certificateSignatureStatus}`);
   lines.push(`- Blocking: ${(cert.blockingReasons || []).join(', ') || 'none'}`);
   lines.push(`- Warnings: ${(cert.warnings || []).join(', ') || 'none'}`);
-  return { contentType: 'text/markdown; charset=utf-8', filename: `${cert.orchestrationProofCertificateId}.md`, content: lines.join('\n') + '\n' };
+  return { contentType: 'text/markdown; charset=utf-8', filename: `${cert.orchestrationProofCertificateId}.md`, content: `${lines.join('\n')}\n` };
 }
 
 export async function latestOrchestrationProofCertificate({ renderAdapterContractId = null, policyProfileId = 'dev', adapterType = null, mode = 'latest' } = {}) {
@@ -159,11 +169,11 @@ export async function latestOrchestrationProofCertificate({ renderAdapterContrac
   let latest = null;
   for (const f of files) {
     try {
-      const c = JSON.parse(await fs.readFile(path.join(ROOT, f), 'utf8'));
-      if (renderAdapterContractId && c.renderAdapterContractId !== renderAdapterContractId) continue;
-      if (policyProfileId && c.orchestrationProfile !== policyProfileId) continue;
-      if (adapterType && c.adapterType !== adapterType) continue;
-      if (!latest || String(c.createdAt).localeCompare(String(latest.createdAt)) > 0) latest = c;
+      const row = JSON.parse(await fs.readFile(path.join(ROOT, f), 'utf8'));
+      if (renderAdapterContractId && row.renderAdapterContractId !== renderAdapterContractId) continue;
+      if (policyProfileId && row.orchestrationProfile !== policyProfileId) continue;
+      if (adapterType && row.adapterType !== adapterType) continue;
+      if (!latest || String(row.createdAt).localeCompare(String(latest.createdAt)) > 0) latest = row;
     } catch {}
   }
   if (latest && mode !== 'latest') return { orchestrationProofCertificate: latest };
@@ -179,6 +189,7 @@ export async function verifyProofCertificate(payloadOrRef = {}) {
   } else cert = payloadOrRef;
 
   if (!cert || typeof cert !== 'object') return { status: 'malformed_proof', reasonCodes: ['missing_proof'] };
+  if (!cert.policyManifestRef?.policyProfileId) return { status: 'policy_reference_invalid', reasonCodes: ['missing_policy_ref'] };
 
   const recomputed = computeProofDigest({
     renderAdapterContractId: cert.renderAdapterContractId,
@@ -188,8 +199,8 @@ export async function verifyProofCertificate(payloadOrRef = {}) {
     policyVersion: cert.policyManifestRef?.version,
     policySignatureStatus: cert.policyManifestRef?.signatureStatus,
     admissionCertificateId: cert.admissionCertificateId,
-    admissionReadinessDigest: cert.proofDigest,
-    admissionSignatureStatus: cert.certificateSignatureStatus,
+    admissionReadinessDigest: cert.metadata?.admissionReadinessDigest || null,
+    admissionSignatureStatus: cert.metadata?.admissionSignatureStatus || null,
     orchestrationProfile: cert.orchestrationProfile,
     overallVerdict: cert.overallVerdict,
     startDecision: cert.startDecision,
@@ -198,7 +209,9 @@ export async function verifyProofCertificate(payloadOrRef = {}) {
   });
 
   if (!cert.proofDigest) return { status: 'proof_digest_mismatch', reasonCodes: ['proof_digest_missing'] };
-  if (cert.proofDigest !== recomputed) return { status: 'proof_digest_mismatch', reasonCodes: ['proof_digest_mismatch'], storedProofDigest: cert.proofDigest, recomputedProofDigest: recomputed };
+  if (cert.proofDigest !== recomputed) {
+    return { status: 'proof_digest_mismatch', reasonCodes: ['proof_digest_mismatch'], storedProofDigest: cert.proofDigest, recomputedProofDigest: recomputed };
+  }
 
   const verifySig = await verifyHandoffArtifact('signed_certificate', {
     admissionCertificateId: cert.orchestrationProofCertificateId,
@@ -221,10 +234,25 @@ export async function verifyProofCertificate(payloadOrRef = {}) {
 
   if (verifySig.status === 'invalid_signature') return { status: 'invalid_signature', reasonCodes: ['signature_verification_failed'] };
   if (verifySig.status === 'unsigned') return { status: 'unsigned', reasonCodes: ['missing_signature'] };
-
   if (!cert.adapterTrustPublicationRef || !cert.attestationTrustPublicationRef || !cert.admissionCertificateId) {
     return { status: 'missing_required_link', reasonCodes: ['proof_link_mismatch'] };
   }
+  return { status: 'verified', reasonCodes: ['signature_verified', 'proof_digest_verified'] };
+}
 
-  return { status: 'verified', reasonCodes: ['signature_verified','proof_digest_verified'] };
+export function buildSchedulerSafeProofVerdict(proof, verification = null, linkedPublicationDigest = null) {
+  return {
+    status: verification?.status || (proof.certificateSignatureStatus === 'signed' ? 'verified' : 'unsigned'),
+    startDecision: proof.startDecision,
+    overallVerdict: proof.overallVerdict,
+    blockingReasons: proof.blockingReasons || [],
+    warnings: proof.warnings || [],
+    proofDigest: proof.proofDigest || null,
+    linkedPublicationDigest: linkedPublicationDigest || null,
+    verifiedAt: new Date().toISOString()
+  };
+}
+
+export function buildDetachedPayloadForProof(proof) {
+  return buildDetachedPayloadFromProof(proof);
 }

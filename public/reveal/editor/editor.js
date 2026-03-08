@@ -15,6 +15,7 @@ let state = {
   latestUnified: null,
   latestExternal: null,
   latestAdapter: null,
+  latestProviderAdapter: null,
   latestAdmission: null,
   latestProof: null
 };
@@ -688,6 +689,43 @@ async function viewLatestAdapterTrustUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 
+async function generateProviderAdapterUi() {
+  if (!state.latestAdapter?.renderAdapterContractId) return alert('Generate adapter first');
+  const providerType = prompt('providerType: generic_renderer|subtitle_compositor|narration_pipeline|scene_compositor|storyboard_exporter', 'generic_renderer') || 'generic_renderer';
+  const providerProfileId = prompt('providerProfileId', 'default') || 'default';
+  const out = await api('/reveal/api/production/provider-adapters', 'POST', {
+    renderAdapterContractId: state.latestAdapter.renderAdapterContractId,
+    providerType,
+    providerProfileId
+  });
+  state.latestProviderAdapter = out.providerAdapter;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.providerAdapter, null, 2);
+}
+
+async function listProviderProfilesUi() {
+  const out = await api('/reveal/api/production/provider-profiles');
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+function exportProviderManifestUi() {
+  if (!state.latestProviderAdapter?.providerAdapterId) return alert('Generate provider adapter first');
+  download(`/reveal/api/production/provider-adapters/${encodeURIComponent(state.latestProviderAdapter.providerAdapterId)}/export?format=provider_manifest`);
+}
+
+async function validateProviderAdapterUi() {
+  const raw = prompt('Optional provider manifest JSON (leave empty to validate current provider adapter)');
+  let payload = {};
+  if (raw && raw.trim()) {
+    try { payload.providerManifest = JSON.parse(raw); } catch { return alert('Invalid JSON'); }
+  } else if (state.latestProviderAdapter?.providerAdapterId) {
+    payload.providerAdapterId = state.latestProviderAdapter.providerAdapterId;
+  } else {
+    return alert('Generate provider adapter first or paste a manifest');
+  }
+  const out = await api('/reveal/api/production/provider-adapters/validate', 'POST', payload);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
 async function createAdmissionCertUi() {
   const out = await api('/reveal/api/verification/admission-certificates', 'POST', {
     renderAdapterContractId: state.latestAdapter?.renderAdapterContractId || null,
@@ -1074,6 +1112,10 @@ function wireActions() {
   document.querySelector('[data-action="adapter-validate"]')?.addEventListener('click', () => validateAdapterUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="adapter-trust-publish"]')?.addEventListener('click', () => publishAdapterTrustUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="adapter-trust-latest"]')?.addEventListener('click', () => viewLatestAdapterTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="provider-adapter-generate"]')?.addEventListener('click', () => generateProviderAdapterUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="provider-profile-list"]')?.addEventListener('click', () => listProviderProfilesUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="provider-adapter-export-manifest"]')?.addEventListener('click', () => exportProviderManifestUi());
+  document.querySelector('[data-action="provider-adapter-validate"]')?.addEventListener('click', () => validateProviderAdapterUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="admission-create"]')?.addEventListener('click', () => createAdmissionCertUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="admission-latest"]')?.addEventListener('click', () => viewAdmissionLatestUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="admission-export-signed"]')?.addEventListener('click', () => exportSignedAdmissionUi());
