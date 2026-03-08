@@ -23,6 +23,21 @@ Product-intelligence capture system at `/reveal`.
 - If no sub-rule matches: `semanticSubReason=null`.
 - If multiple rules match, first rule is used and ambiguity note is attached.
 - Use broad semanticReason for clustering; use semanticSubReason for triage/root-cause hints.
+
+## Mapping test matrix
+- Fixture file: `admin-server/src/reveal/normalization/fixtures/semantic-mapping-matrix.json`
+- Runner: `node admin-server/src/reveal/normalization/fixtures/run-semantic-mapping-tests.mjs`
+- Runner validates:
+  - duplicate ids
+  - expected semantic/subreason validity
+  - orphan sub-reasons
+  - full taxonomy coverage
+- To add a new semanticReason:
+  1) extend taxonomy in `semanticDiffReasonService.js`
+  2) add broad rule
+  3) add sub-rules
+  4) add explicit matrix cases
+- To intentionally update outputs after rule changes: update matrix expectations and rerun; keep precedence cases explicit.
 - Flow editor compare mode (baseline vs reviewed diffs)
 - Flow editor shell with live reviewed mutations
 - Storage conventions for sessions/events/flows/assets

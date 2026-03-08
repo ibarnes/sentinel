@@ -1,0 +1,49 @@
+[
+  {"id":"scale_dpr","path":"sourceScales.devicePixelRatio","stage":"scale_inputs","field":"devicePixelRatio","reason":"value_changed","storedValue":1,"currentValue":2,"expectedSemanticReason":"scaling_changed","expectedSemanticSubReason":"dpr_delta"},
+  {"id":"scale_zoom","path":"sourceScales.zoom","stage":"scale_inputs","field":"zoom","reason":"value_changed","storedValue":1,"currentValue":1.25,"expectedSemanticReason":"scaling_changed","expectedSemanticSubReason":"zoom_delta"},
+  {"id":"scale_css_transform","path":"sourceScales.cssTransformScale","stage":"scale_inputs","field":"cssTransformScale","reason":"value_changed","storedValue":1,"currentValue":0.8,"expectedSemanticReason":"scaling_changed","expectedSemanticSubReason":"css_transform_delta"},
+  {"id":"scale_multi","path":"normalizationTrace.scale_transform.output.scale","stage":"scale_transform","field":"output","reason":"value_changed","storedValue":2,"currentValue":2.1,"expectedSemanticReason":"scaling_changed","expectedSemanticSubReason":"multi_scale_delta"},
+
+  {"id":"frame_chain","path":"frameTrace.frameChain","stage":"frame_offset_accumulation","field":"frameChain","reason":"value_changed","storedValue":["a"],"currentValue":["a","b"],"expectedSemanticReason":"frame_offset_changed","expectedSemanticSubReason":"frame_chain_delta"},
+  {"id":"frame_accum","path":"normalizationTrace.frame_offset_accumulation.output.frameOffsetX","stage":"frame_offset_accumulation","field":"output","reason":"value_changed","storedValue":120,"currentValue":160,"expectedSemanticReason":"frame_offset_changed","expectedSemanticSubReason":"accumulated_offset_delta"},
+  {"id":"frame_partial","path":"frameTrace.frameChain[1].unresolved","stage":"frame_offset_accumulation","field":"frameChain","reason":"partial_unresolved","storedValue":false,"currentValue":true,"expectedSemanticReason":"frame_offset_changed","expectedSemanticSubReason":"partial_frame_chain_delta"},
+  {"id":"frame_origin","path":"frameTrace.frameOrigin","stage":"frame_offset_accumulation","field":"frameOrigin","reason":"value_changed","storedValue":"https://a","currentValue":"https://b","expectedSemanticReason":"frame_offset_changed","expectedSemanticSubReason":"frame_origin_context_delta"},
+
+  {"id":"vp_dim","path":"sourceViewport.width","stage":"viewport_scroll","field":"width","reason":"value_changed","storedValue":1200,"currentValue":1366,"expectedSemanticReason":"viewport_context_changed","expectedSemanticSubReason":"viewport_dimension_delta"},
+  {"id":"vp_scroll","path":"sourceViewport.scrollY","stage":"viewport_scroll","field":"scrollY","reason":"value_changed","storedValue":0,"currentValue":900,"expectedSemanticReason":"viewport_context_changed","expectedSemanticSubReason":"scroll_offset_delta"},
+  {"id":"vp_source","path":"viewport_context.origin","stage":"viewport_scroll","field":"origin","reason":"value_changed","storedValue":"event","currentValue":"screenshot","expectedSemanticReason":"viewport_context_changed","expectedSemanticSubReason":"viewport_source_delta"},
+
+  {"id":"clip_oob","path":"validationTrace.box_out_of_bounds","stage":"bounds_clipping","field":"validation","reason":"out_of_bounds","storedValue":false,"currentValue":true,"expectedSemanticReason":"clipping_changed","expectedSemanticSubReason":"out_of_bounds_delta"},
+  {"id":"clip_clamp","path":"normalizationTrace.bounds_clipping.output.x","stage":"bounds_clipping","field":"output","reason":"value_changed","storedValue":12,"currentValue":0,"expectedSemanticReason":"clipping_changed","expectedSemanticSubReason":"clamp_delta"},
+  {"id":"clip_trunc","path":"normalizationTrace.bounds_clipping.output.width","stage":"bounds_clipping","field":"output","reason":"value_changed","storedValue":180,"currentValue":120,"expectedSemanticReason":"clipping_changed","expectedSemanticSubReason":"truncation_delta"},
+
+  {"id":"val_path","path":"validationTrace.validation_input","stage":"validationTrace","field":"input","reason":"value_changed","storedValue":{"a":1},"currentValue":{"a":2},"expectedSemanticReason":"bounds_validation_changed","expectedSemanticSubReason":"validation_path_delta"},
+  {"id":"val_threshold","path":"validationTrace.min_threshold","stage":"validationTrace","field":"threshold","reason":"value_changed","storedValue":4,"currentValue":8,"expectedSemanticReason":"bounds_validation_changed","expectedSemanticSubReason":"validation_threshold_delta"},
+  {"id":"val_pass_fail","path":"validationTrace.validation_pass","stage":"validationTrace","field":"ok","reason":"value_changed","storedValue":true,"currentValue":false,"expectedSemanticReason":"bounds_validation_changed","expectedSemanticSubReason":"bounds_pass_to_fail"},
+  {"id":"val_fail_pass","path":"validationTrace.validation_pass","stage":"validationTrace","field":"ok","reason":"value_changed","storedValue":false,"currentValue":true,"expectedSemanticReason":"bounds_validation_changed","expectedSemanticSubReason":"bounds_fail_to_pass"},
+
+  {"id":"fallback_reason","path":"finalHighlight.fallbackReason","stage":"finalHighlight","field":"fallbackReason","reason":"fallback_mode_changed","storedValue":null,"currentValue":"box_out_of_bounds","expectedSemanticReason":"fallback_path_changed","expectedSemanticSubReason":"fallback_reason_delta"},
+  {"id":"fallback_r2f","path":"finalHighlight.fallbackReason","stage":"finalHighlight","field":"fallbackReason","reason":"fallback_mode_changed","storedValue":"rendered","currentValue":"fallback","expectedSemanticReason":"fallback_path_changed","expectedSemanticSubReason":"rendered_to_fallback"},
+  {"id":"fallback_f2r","path":"finalHighlight.fallbackReason","stage":"finalHighlight","field":"fallbackReason","reason":"fallback_mode_changed","storedValue":"fallback","currentValue":"rendered","expectedSemanticReason":"fallback_path_changed","expectedSemanticSubReason":"fallback_to_rendered"},
+
+  {"id":"highlight_mode","path":"finalHighlight.mode","stage":"finalHighlight","field":"mode","reason":"value_changed","storedValue":"rendered","currentValue":"fallback","expectedSemanticReason":"highlight_mode_changed","expectedSemanticSubReason":"highlight_render_mode_delta"},
+
+  {"id":"box_norm","path":"finalBoxes.normalizedBox.x","stage":"finalBoxes","field":"normalizedBox","reason":"value_changed","storedValue":120,"currentValue":140,"expectedSemanticReason":"final_box_changed","expectedSemanticSubReason":"normalized_box_delta"},
+  {"id":"box_rendered","path":"finalBoxes.renderedBox.x","stage":"finalBoxes","field":"renderedBox","reason":"value_changed","storedValue":120,"currentValue":140,"expectedSemanticReason":"final_box_changed","expectedSemanticSubReason":"rendered_box_delta"},
+  {"id":"box_projected","path":"finalBoxes.projectedBox.x","stage":"finalBoxes","field":"projectedBox","reason":"value_changed","storedValue":120,"currentValue":140,"expectedSemanticReason":"final_box_changed","expectedSemanticSubReason":"projected_box_delta"},
+
+  {"id":"conf_score","path":"coordinateConfidence","stage":"confidence","field":"coordinateConfidence","reason":"confidence_changed","storedValue":0.88,"currentValue":0.72,"expectedSemanticReason":"confidence_model_changed","expectedSemanticSubReason":"confidence_score_delta"},
+  {"id":"conf_reason_codes","path":"reasonCodes","stage":"confidence","field":"reasonCodes","reason":"value_changed","storedValue":["a"],"currentValue":["a","b"],"expectedSemanticReason":"confidence_model_changed","expectedSemanticSubReason":"confidence_reason_code_delta"},
+
+  {"id":"rc_added","path":"reasonCodes","stage":"final","field":"reasonCodes","reason":"value_changed","storedValue":["a"],"currentValue":["a","b"],"expectedSemanticReason":"reason_code_set_changed","expectedSemanticSubReason":"reason_code_added"},
+  {"id":"rc_removed","path":"reasonCodes","stage":"final","field":"reasonCodes","reason":"value_changed","storedValue":["a","b"],"currentValue":["a"],"expectedSemanticReason":"reason_code_set_changed","expectedSemanticSubReason":"reason_code_removed"},
+  {"id":"warn_delta","path":"warnings","stage":"final","field":"warnings","reason":"value_changed","storedValue":[],"currentValue":["w1"],"expectedSemanticReason":"reason_code_set_changed","expectedSemanticSubReason":"warning_set_delta"},
+
+  {"id":"trace_added","path":"normalizationTrace.scale_transform","stage":"normalizationTrace","field":"stage","reason":"stage_added","storedValue":null,"currentValue":"scale_transform","expectedSemanticReason":"trace_structure_changed","expectedSemanticSubReason":"stage_added_delta"},
+  {"id":"trace_removed","path":"normalizationTrace.scale_transform","stage":"normalizationTrace","field":"stage","reason":"stage_missing","storedValue":"scale_transform","currentValue":null,"expectedSemanticReason":"trace_structure_changed","expectedSemanticSubReason":"stage_removed_delta"},
+  {"id":"trace_order","path":"normalizationTrace.scale_transform","stage":"normalizationTrace","field":"order","reason":"order_changed","storedValue":2,"currentValue":3,"expectedSemanticReason":"trace_structure_changed","expectedSemanticSubReason":"stage_order_delta"},
+
+  {"id":"precedence_frame_over_scale","path":"normalizationTrace.frame_offset_accumulation.output.zoom","stage":"frame_offset_accumulation","field":"output","reason":"value_changed","storedValue":1,"currentValue":1.2,"expectedSemanticReason":"frame_offset_changed","expectedSemanticSubReason":"accumulated_offset_delta"},
+  {"id":"fallback_subreason_null","path":"finalHighlight.fallbackPathMetadata","stage":"finalHighlight","field":"fallbackPathMetadata","reason":"value_changed","storedValue":{"x":1},"currentValue":{"x":2},"expectedSemanticReason":"fallback_path_changed","expectedSemanticSubReason":null},
+  {"id":"unclassified","path":"some.unknown.path","stage":"other","field":"x","reason":"value_changed","storedValue":1,"currentValue":2,"expectedSemanticReason":"unclassified_change","expectedSemanticSubReason":null}
+]
