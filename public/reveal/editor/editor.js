@@ -396,6 +396,39 @@ function exportReviewedScript(format) {
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=${encodeURIComponent(format)}`);
 }
 
+function exportPublishReadyReviewedMarkdown() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
+}
+
+async function createReviewedSnapshot() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/snapshots`, 'POST', { actor: 'editor-user' });
+  alert(`Reviewed snapshot created: ${out.snapshot.reviewedSnapshotId}`);
+}
+
+async function listReviewedSnapshots() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/snapshots`);
+  const lines = (out.snapshots || []).map((s) => `${s.reviewedSnapshotId} • v${s.reviewVersion} • ${s.reviewStatusAtSnapshot} • ${s.createdAt}`);
+  alert(lines.length ? lines.join('\n') : 'No reviewed snapshots yet');
+}
+
+async function viewAuditReport() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/audit-report`);
+  const pre = document.getElementById('script-preview');
+  pre.textContent = JSON.stringify(out.report, null, 2);
+}
+
+async function checkPublishGate() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/audit-report`);
+  const gate = out.report?.publishGate;
+  if (!gate) return alert('No gate result');
+  alert(`canPublish=${gate.canPublish}\nblocking=${(gate.blockingReasons||[]).join(', ') || 'none'}\nwarnings=${(gate.warnings||[]).join(', ') || 'none'}`);
+}
+
 function renderInspector(step, replay, integrity) {
   const el = document.getElementById('coord-inspector');
   if (!el) return;
@@ -596,8 +629,13 @@ function wireActions() {
   document.querySelector('[data-action="script-review-add-note"]')?.addEventListener('click', () => addReviewedNote().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-diff"]')?.addEventListener('click', () => viewScriptDiff().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-status"]')?.addEventListener('click', () => updateScriptReviewStatus().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-snapshot-create"]')?.addEventListener('click', () => createReviewedSnapshot().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-snapshot-list"]')?.addEventListener('click', () => listReviewedSnapshots().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-audit-report"]')?.addEventListener('click', () => viewAuditReport().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-gate"]')?.addEventListener('click', () => checkPublishGate().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-export-json"]')?.addEventListener('click', () => exportReviewedScript('json'));
   document.querySelector('[data-action="script-review-export-md"]')?.addEventListener('click', () => exportReviewedScript('markdown'));
+  document.querySelector('[data-action="script-review-publish-export-md"]')?.addEventListener('click', () => exportPublishReadyReviewedMarkdown());
   document.querySelector('[data-action="script-export-json"]')?.addEventListener('click', () => exportLatestScript('json'));
   document.querySelector('[data-action="script-export-md"]')?.addEventListener('click', () => exportLatestScript('markdown'));
 }

@@ -132,7 +132,12 @@ Product-intelligence capture system at `/reveal`.
     - `PUT /reveal/api/scripts/:scriptId/review`
     - `POST /reveal/api/scripts/:scriptId/review/status`
     - `GET /reveal/api/scripts/:scriptId/review/diff`
-    - `GET /reveal/api/scripts/:scriptId/review/export?format=json|markdown`
+    - `POST /reveal/api/scripts/:scriptId/review/snapshots`
+    - `GET /reveal/api/scripts/:scriptId/review/snapshots`
+    - `GET /reveal/api/scripts/:scriptId/review/snapshots/:reviewedSnapshotId`
+    - `GET /reveal/api/scripts/:scriptId/review/audit-report`
+    - `GET /reveal/api/scripts/:scriptId/review/export?format=json|markdown&mode=standard|publish_ready`
+  - publish gate blocks `mode=publish_ready` export when requirements fail; returns blocking reasons.
   - style profiles: `neutral_walkthrough`, `concise_training`, `executive_overview`
 - Session lifecycle:
   - TTL + optional idle policy for `playing` sessions

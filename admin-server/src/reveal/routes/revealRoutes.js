@@ -39,6 +39,9 @@ import {
   updateReviewedStatus,
   reviewedExport
 } from '../script/reviewedScriptService.js';
+import { createReviewedSnapshot, listReviewedSnapshots, getReviewedSnapshot } from '../script/reviewedScriptSnapshotService.js';
+import { evaluatePublishGate } from '../script/scriptPublishGateService.js';
+import { buildScriptAuditReport } from '../script/scriptAuditReportService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -284,11 +287,43 @@ router.get('/api/scripts/:scriptId/review/diff', async (req, res) => {
   res.json({ diff: out.diff, reviewStatus: out.reviewed.reviewStatus, reviewVersion: out.reviewed.reviewVersion });
 });
 
+router.post('/api/scripts/:scriptId/review/snapshots', async (req, res) => {
+  const out = await createReviewedSnapshot(String(req.params.scriptId || ''), { actor: req.body?.actor || null });
+  if (['script_not_found', 'review_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error === 'snapshot_id_collision') return res.status(409).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/scripts/:scriptId/review/snapshots', async (req, res) => {
+  const out = await listReviewedSnapshots(String(req.params.scriptId || ''));
+  res.json(out);
+});
+
+router.get('/api/scripts/:scriptId/review/snapshots/:reviewedSnapshotId', async (req, res) => {
+  const out = await getReviewedSnapshot(String(req.params.scriptId || ''), String(req.params.reviewedSnapshotId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/scripts/:scriptId/review/audit-report', async (req, res) => {
+  const out = await buildScriptAuditReport(String(req.params.scriptId || ''));
+  if (['script_not_found', 'review_not_found'].includes(out.error)) return res.status(404).json(out);
+  res.json(out);
+});
+
 router.get('/api/scripts/:scriptId/review/export', async (req, res) => {
   const out = await getReviewedScript(String(req.params.scriptId || ''));
   if (['script_not_found', 'review_not_found'].includes(out.error)) return res.status(404).json(out);
   const format = String(req.query.format || 'json').toLowerCase();
   const includeNotes = String(req.query.includeNotes || '1') === '1';
+  const mode = String(req.query.mode || 'standard');
+  if (!['standard', 'publish_ready'].includes(mode)) return res.status(400).json({ error: 'invalid_export_mode' });
+
+  const gate = evaluatePublishGate({ baseline: out.baseline, reviewed: out.reviewed });
+  if (mode === 'publish_ready' && !gate.canPublish) {
+    return res.status(409).json({ error: 'publish_gate_blocked', publishGate: gate });
+  }
+
   const exp = reviewedExport(out, format, includeNotes);
   if (exp.error) return res.status(400).json(exp);
   res.setHeader('Content-Type', exp.contentType);
@@ -733,8 +768,13 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="script-review-add-note">Add Section Note</button>
           <button data-action="script-review-diff">View Script Diff</button>
           <button data-action="script-review-status">Update Review Status</button>
+          <button data-action="script-review-snapshot-create">Create Reviewed Snapshot</button>
+          <button data-action="script-review-snapshot-list">List Reviewed Snapshots</button>
+          <button data-action="script-review-audit-report">View Audit Report</button>
+          <button data-action="script-review-gate">Check Publish Gate</button>
           <button data-action="script-review-export-json">Export Reviewed JSON</button>
           <button data-action="script-review-export-md">Export Reviewed MD</button>
+          <button data-action="script-review-publish-export-md">Export Publish-Ready MD</button>
           <button data-action="script-export-json">Export Script JSON</button>
           <button data-action="script-export-md">Export Script MD</button>
         </div>
