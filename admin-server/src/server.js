@@ -1103,9 +1103,11 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     .pp-heat-row:last-child { border-bottom:0; }
     .pp-legend { font-size:.74rem; color:var(--text-muted); }
     .lem-heat { display:grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap:6px; width:100%; }
-    .lem-cell { width:100%; aspect-ratio:1/1; border-radius: 6px; border: 1px solid rgba(255,255,255,.08); padding:0; touch-action: manipulation; -webkit-tap-highlight-color: rgba(79,140,255,.25); }
-    .lem-cell.off { background: rgba(255,255,255,.05); }
+    .lem-cell { width:100%; aspect-ratio:1/1; border-radius: 6px; border: 1px solid rgba(255,255,255,.08); padding:0; touch-action: manipulation; -webkit-tap-highlight-color: rgba(79,140,255,.25); color:#dbe6ff; font-size:.62rem; line-height:1; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .lem-cell.off { background: rgba(255,255,255,.05); color:#9da8ba; }
     .lem-cell.on { background: linear-gradient(180deg, #5f97ff 0%, #376fe0 100%); }
+    .lem-legend-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:6px; }
+    .lem-tooltip { border:1px solid var(--border); border-radius:8px; padding:6px 8px; background:rgba(255,255,255,.02); min-height:40px; }
     @media (max-width: 1100px){ .lem-heat { grid-template-columns: repeat(8, minmax(0,1fr)); } }
     .lem-strip { display:grid; grid-template-columns: repeat(3, 1fr); gap:6px; }
     .lem-strip .tile { border:1px solid var(--border); border-radius:10px; padding:8px; background:rgba(255,255,255,.02); }
@@ -1149,6 +1151,11 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         <h6 class="mb-0">Layer Emissions Map (Signal Physics)</h6>
         <span class="pp-legend" id="lem-generated-at">No snapshot loaded</span>
       </div>
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="pp-legend">Ontology Layers (click to filter) · Blue = emitting signals · Gray = missing constraint</span>
+        <button id="lem-legend-toggle" type="button" class="btn btn-sm btn-outline-secondary py-0 px-2">Show Layer Legend</button>
+      </div>
+      <div id="lem-legend" class="small d-none mb-2"></div>
       <div id="lem-panel" class="vstack gap-2 small"></div>
     </div></div>
 
@@ -1243,7 +1250,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     const ontologyOrder = (signalPhysics.ontologyLayers || []).sort((a,b)=>Number(a.order||0)-Number(b.order||0));
     const els = {
       table: document.getElementById('pp-table'), summary: document.getElementById('pp-summary'), usgWindow: document.getElementById('pp-usg-window'), heatmap: document.getElementById('pp-heatmap'), topByBuyer: document.getElementById('pp-top-by-buyer'),
-      watchlist: document.getElementById('pp-watchlist'), filterLabel: document.getElementById('pp-active-filter'), lemPanel: document.getElementById('lem-panel'), lemGeneratedAt: document.getElementById('lem-generated-at'),
+      watchlist: document.getElementById('pp-watchlist'), filterLabel: document.getElementById('pp-active-filter'), lemPanel: document.getElementById('lem-panel'), lemGeneratedAt: document.getElementById('lem-generated-at'), lemLegend: document.getElementById('lem-legend'), lemLegendToggle: document.getElementById('lem-legend-toggle'),
       fSector: document.getElementById('f-sector'), fRegion: document.getElementById('f-region'), fStatus: document.getElementById('f-status'), fBuyer: document.getElementById('f-buyer'),
       fFid: document.getElementById('f-fid'), fMinPpi: document.getElementById('f-min-ppi'), fSearch: document.getElementById('f-search')
     };
@@ -1276,6 +1283,24 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c)=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const delta = (n) => { const v = Number(n||0); if(v>0) return '<span class="badge text-bg-success">+'+v+'</span>'; if(v<0) return '<span class="badge text-bg-secondary">'+v+'</span>'; return '<span class="badge text-bg-dark">0</span>'; };
     const nextRel = (r) => relevanceOrder[Math.min(relevanceOrder.length-1, relevanceOrder.indexOf(r.usgRelevance || 'Track') + 1)] || 'Track';
+    const layerMeta = {
+      demand: { name:'Demand', desc:'AI/energy/industrial demand growth and pressure signals.', phase:'Early' },
+      narrative_legitimacy: { name:'Narrative / Legitimacy', desc:'Policy narratives, strategic framing, and national programs.', phase:'Early' },
+      data_intelligence: { name:'Data / Intelligence', desc:'Studies, forecasts, research, and analytical justification.', phase:'Early' },
+      governance: { name:'Governance', desc:'Regulatory frameworks, PPP laws, ministries, cross-border agreements.', phase:'Early/Mid' },
+      capital_allocation: { name:'Capital Allocation', desc:'SWF/DFI mandates, facilities, and deployment posture.', phase:'Mid' },
+      resource: { name:'Resource', desc:'Land, concessions, feedstock, minerals, and input rights.', phase:'Mid' },
+      platform_architecture: { name:'Platform Architecture', desc:'Corridor/cluster/system design and sequencing.', phase:'Mid' },
+      financial_structuring: { name:'Financial Structuring', desc:'SPVs, blended finance, capital stack, project finance.', phase:'Mid' },
+      connectivity: { name:'Connectivity', desc:'Fiber, ports, rail, logistics corridors, integration links.', phase:'Mid' },
+      energy: { name:'Energy', desc:'Generation, grid, PPAs, fuel security, power reliability.', phase:'Mid' },
+      compute_digital: { name:'Compute / Digital', desc:'Data centers, AI compute, cloud, telecom digital layer.', phase:'Mid' },
+      industrial_production: { name:'Industrial Production', desc:'Factories, processing plants, industrial manufacturing.', phase:'Late' },
+      construction: { name:'Construction', desc:'EPC awards, groundbreaking, engineering mobilization.', phase:'Late' },
+      operator: { name:'Operator', desc:'Operators, lessees, utility/asset operations activation.', phase:'Late' },
+      market_access: { name:'Market Access', desc:'Offtake, export agreements, and customer commitments.', phase:'Late' }
+    };
+    const layerLabel = (id) => (layerMeta[id]?.name || String(id||'').replaceAll('_',' '));
 
     function populateFilters(){
       const uniq = (arr) => [...new Set(arr.filter(Boolean))].sort();
@@ -1492,6 +1517,14 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       el.addEventListener('click', (e) => { if (touched) { touched = false; return; } e.preventDefault(); fn(); });
     }
 
+    function renderLayerLegend(){
+      if (!els.lemLegend) return;
+      els.lemLegend.innerHTML = '<div class="lem-legend-grid">' + ontologyOrder.map((l) => {
+        const meta = layerMeta[l.id] || {};
+        return '<div class="border rounded p-2"><strong>' + Number(l.order || 0) + '. ' + esc(meta.name || l.id) + '</strong><div class="text-muted small">' + esc(meta.desc || '') + '</div></div>';
+      }).join('') + '</div>';
+    }
+
     function renderLayerEmissionsMap(list){
       if (!els.lemPanel) return;
       const rowsWithPhysics = list.map((r) => {
@@ -1524,7 +1557,9 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
           const on = active.has(l.id);
           const cls = on ? 'on' : 'off';
           const kind = on ? 'emit' : 'missing';
-          return '<button class="lem-cell '+cls+' js-layer-cell" data-layer-kind="'+kind+'" data-layer-id="'+esc(l.id)+'" title="'+esc(l.id)+'"></button>';
+          const meta = layerMeta[l.id] || {};
+          const tip = (meta.name || l.id) + ' — ' + (meta.desc || '') + ' Phase: ' + (meta.phase || l.phase || 'n/a');
+          return '<button class="lem-cell '+cls+' js-layer-cell" data-layer-kind="'+kind+'" data-layer-id="'+esc(l.id)+'" title="'+esc(tip)+'" aria-label="'+esc(tip)+'">'+Number(l.order || 0)+'</button>';
         }).join('');
         const phaseLabel = 'early ' + Math.round((phaseMix.early||0)*100) + '% · mid ' + Math.round((phaseMix.mid||0)*100) + '% · late ' + Math.round((phaseMix.late||0)*100) + '%';
         const ranked = stuckReasonRanked(p);
@@ -1537,7 +1572,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
             '<div class="small text-end"><span class="pp-ppi">P ' + Number(p.pressure || 0).toFixed(1) + '</span></div>' +
           '</div>' +
           '<div class="lem-heat mt-2">' + heat + '</div>' +
-          '<div class="mt-1"><span class="pp-kicker">Clickable layers:</span> <span class="pp-legend">click blue=emitting, gray=missing</span></div>' +
+          '<div class="mt-1"><span class="pp-kicker">Ontology Layers (click to filter)</span> <span class="pp-legend">Blue = emitting signals · Gray = missing constraint</span></div>' +
+          '<div class="lem-tooltip mt-1 js-layer-tooltip">Tap or hover a square to view layer meaning.</div>' +
           '<div class="mt-2"><div class="d-flex justify-content-between pp-legend"><span>Phase progression</span><span>' + phaseProgress + '%</span></div><div class="lem-phase-bar"><div class="lem-phase-fill" style="width:' + phaseProgress + '%"></div></div><div class="pp-legend">' + esc(phaseLabel) + '</div><div class="d-flex gap-1 mt-1"><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="early">early</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="mid">mid</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="late">late</button></div></div>' +
           '<div class="lem-strip mt-2">' +
             '<div class="tile"><div class="pp-kicker">Pressure</div><div class="mono">' + Number(p.pressure||0).toFixed(2) + '</div></div>' +
@@ -1552,17 +1588,29 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         '</div>';
       }).join('');
 
-      els.lemPanel.querySelectorAll('.js-layer-cell').forEach((btn) => bindTap(btn, () => {
-        const id = String(btn.dataset.layerId || '');
-        if (btn.dataset.layerKind === 'emit') {
-          state.ontologyLayer = state.ontologyLayer === id ? '' : id;
-          state.missingLayer = '';
-        } else {
-          state.missingLayer = state.missingLayer === id ? '' : id;
-          state.ontologyLayer = '';
-        }
-        renderAll();
-      }));
+      els.lemPanel.querySelectorAll('.js-layer-cell').forEach((btn) => {
+        const updateTooltip = () => {
+          const id = String(btn.dataset.layerId || '');
+          const meta = layerMeta[id] || {};
+          const row = btn.closest('.lem-row');
+          const tip = row ? row.querySelector('.js-layer-tooltip') : null;
+          if (tip) tip.textContent = (meta.name || id) + ' — ' + (meta.desc || '') + ' Phase: ' + (meta.phase || 'n/a');
+        };
+        btn.addEventListener('mouseenter', updateTooltip);
+        btn.addEventListener('focus', updateTooltip);
+        btn.addEventListener('touchstart', updateTooltip, { passive: true });
+        bindTap(btn, () => {
+          const id = String(btn.dataset.layerId || '');
+          if (btn.dataset.layerKind === 'emit') {
+            state.ontologyLayer = state.ontologyLayer === id ? '' : id;
+            state.missingLayer = '';
+          } else {
+            state.missingLayer = state.missingLayer === id ? '' : id;
+            state.ontologyLayer = '';
+          }
+          renderAll();
+        });
+      });
 
       els.lemPanel.querySelectorAll('.js-missing-layer').forEach((btn) => bindTap(btn, () => {
         const id = String(btn.dataset.layerId || '');
@@ -1665,6 +1713,13 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       if (els.fSearch.value.trim()) tags.push('Search active');
       els.filterLabel.textContent = tags.length ? ('Active filters: ' + tags.join(' · ')) : 'No active filters';
     }
+
+    renderLayerLegend();
+    els.lemLegendToggle?.addEventListener('click', () => {
+      if (!els.lemLegend) return;
+      const open = els.lemLegend.classList.toggle('d-none');
+      els.lemLegendToggle.textContent = open ? 'Show Layer Legend' : 'Hide Layer Legend';
+    });
 
     populateFilters(); renderAll();
     ['change','keyup'].forEach(evt => [els.fSector,els.fRegion,els.fStatus,els.fBuyer,els.fFid,els.fMinPpi,els.fSearch].forEach(el => el.addEventListener(evt, renderAll)));
