@@ -1102,8 +1102,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     .pp-heat-row { border-bottom:1px solid rgba(255,255,255,.06); padding:.45rem 0; }
     .pp-heat-row:last-child { border-bottom:0; }
     .pp-legend { font-size:.74rem; color:var(--text-muted); }
-    .lem-heat { display:grid; grid-template-columns: repeat(15, minmax(16px, 1fr)); gap:4px; }
-    .lem-cell { height: 14px; border-radius: 4px; border: 1px solid rgba(255,255,255,.08); }
+    .lem-heat { display:grid; grid-template-columns: repeat(15, minmax(22px, 1fr)); gap:6px; }
+    .lem-cell { height: 22px; min-width: 22px; border-radius: 6px; border: 1px solid rgba(255,255,255,.08); padding:0; touch-action: manipulation; -webkit-tap-highlight-color: rgba(79,140,255,.25); }
     .lem-cell.off { background: rgba(255,255,255,.05); }
     .lem-cell.on { background: linear-gradient(180deg, #5f97ff 0%, #376fe0 100%); }
     .lem-strip { display:grid; grid-template-columns: repeat(3, 1fr); gap:6px; }
@@ -1484,6 +1484,13 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       return '<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-stuck-reason" data-stuck-reason="'+esc(reason)+'">'+esc(reason)+'</button>';
     }
 
+    function bindTap(el, fn){
+      if (!el) return;
+      let touched = false;
+      el.addEventListener('touchend', (e) => { touched = true; e.preventDefault(); fn(); }, { passive:false });
+      el.addEventListener('click', (e) => { if (touched) { touched = false; return; } e.preventDefault(); fn(); });
+    }
+
     function renderLayerEmissionsMap(list){
       if (!els.lemPanel) return;
       const rowsWithPhysics = list.map((r) => {
@@ -1544,7 +1551,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         '</div>';
       }).join('');
 
-      els.lemPanel.querySelectorAll('.js-layer-cell').forEach((btn) => btn.addEventListener('click', () => {
+      els.lemPanel.querySelectorAll('.js-layer-cell').forEach((btn) => bindTap(btn, () => {
         const id = String(btn.dataset.layerId || '');
         if (btn.dataset.layerKind === 'emit') {
           state.ontologyLayer = state.ontologyLayer === id ? '' : id;
@@ -1556,26 +1563,26 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         renderAll();
       }));
 
-      els.lemPanel.querySelectorAll('.js-missing-layer').forEach((btn) => btn.addEventListener('click', () => {
+      els.lemPanel.querySelectorAll('.js-missing-layer').forEach((btn) => bindTap(btn, () => {
         const id = String(btn.dataset.layerId || '');
         state.missingLayer = state.missingLayer === id ? '' : id;
         state.ontologyLayer = '';
         renderAll();
       }));
 
-      els.lemPanel.querySelectorAll('.js-buyer-focus').forEach((btn) => btn.addEventListener('click', () => {
+      els.lemPanel.querySelectorAll('.js-buyer-focus').forEach((btn) => bindTap(btn, () => {
         const b = String(btn.dataset.buyer || '');
         state.buyerFocus = state.buyerFocus === b ? '' : b;
         renderAll();
       }));
 
-      els.lemPanel.querySelectorAll('.js-phase').forEach((btn) => btn.addEventListener('click', () => {
+      els.lemPanel.querySelectorAll('.js-phase').forEach((btn) => bindTap(btn, () => {
         const p = String(btn.dataset.phase || '');
         state.phaseFocus = state.phaseFocus === p ? '' : p;
         renderAll();
       }));
 
-      els.lemPanel.querySelectorAll('.js-stuck-reason').forEach((btn) => btn.addEventListener('click', () => {
+      els.lemPanel.querySelectorAll('.js-stuck-reason').forEach((btn) => bindTap(btn, () => {
         const reason = String(btn.dataset.stuckReason || '');
         state.stuckReason = state.stuckReason === reason ? '' : reason;
         renderAll();
