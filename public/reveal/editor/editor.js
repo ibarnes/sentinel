@@ -410,8 +410,14 @@ async function createReviewedSnapshot() {
 async function listReviewedSnapshots() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/snapshots`);
-  const lines = (out.snapshots || []).map((s) => `${s.reviewedSnapshotId} • v${s.reviewVersion} • ${s.reviewStatusAtSnapshot} • ${s.createdAt}`);
+  const lines = (out.snapshots || []).map((s) => `${s.reviewedSnapshotId} • idx ${s.reviewedSnapshotChainIndex} • hash ${String(s.reviewedSnapshotContentHash || '').slice(0,12)}… • parent ${s.parentReviewedSnapshotId || 'root'}`);
   alert(lines.length ? lines.join('\n') : 'No reviewed snapshots yet');
+}
+
+async function recomputeSnapshotIntegrity() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/snapshots/integrity/recompute`, 'POST', {});
+  alert(`Integrity recompute: total=${out.totalSnapshots}, match=${out.matched}, mismatch=${out.mismatched}, brokenChain=${out.brokenChainLinks}, missingHash=${out.missingHash}`);
 }
 
 async function viewAuditReport() {
@@ -423,10 +429,10 @@ async function viewAuditReport() {
 
 async function checkPublishGate() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
-  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/audit-report`);
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/audit-report?requireLatestReviewedSnapshotIntegrity=1`);
   const gate = out.report?.publishGate;
   if (!gate) return alert('No gate result');
-  alert(`canPublish=${gate.canPublish}\nblocking=${(gate.blockingReasons||[]).join(', ') || 'none'}\nwarnings=${(gate.warnings||[]).join(', ') || 'none'}`);
+  alert(`canPublish=${gate.canPublish}\nblocking=${(gate.blockingReasons||[]).join(', ') || 'none'}\nwarnings=${(gate.warnings||[]).join(', ') || 'none'}\nlatestSnapshotHash=${out.report?.latestReviewedSnapshotHash || 'n/a'}\nlatestSnapshotIntegrity=${out.report?.latestReviewedSnapshotIntegrityStatus || 'n/a'}`);
 }
 
 function renderInspector(step, replay, integrity) {
@@ -631,6 +637,7 @@ function wireActions() {
   document.querySelector('[data-action="script-review-status"]')?.addEventListener('click', () => updateScriptReviewStatus().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-snapshot-create"]')?.addEventListener('click', () => createReviewedSnapshot().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-snapshot-list"]')?.addEventListener('click', () => listReviewedSnapshots().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-snapshot-integrity-recompute"]')?.addEventListener('click', () => recomputeSnapshotIntegrity().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-audit-report"]')?.addEventListener('click', () => viewAuditReport().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-gate"]')?.addEventListener('click', () => checkPublishGate().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-review-export-json"]')?.addEventListener('click', () => exportReviewedScript('json'));

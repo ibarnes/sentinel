@@ -1,16 +1,24 @@
 import { getReviewedScript } from './reviewedScriptService.js';
-import { listReviewedSnapshots } from './reviewedScriptSnapshotService.js';
+import { listReviewedSnapshots, verifyReviewedSnapshotIntegrity, recomputeReviewedSnapshotIntegrity } from './reviewedScriptSnapshotService.js';
 import { evaluatePublishGate } from './scriptPublishGateService.js';
 
-export async function buildScriptAuditReport(scriptId) {
+export async function buildScriptAuditReport(scriptId, { requireLatestReviewedSnapshotIntegrity = false } = {}) {
   const env = await getReviewedScript(scriptId);
   if (env.error) return env;
 
   const snaps = await listReviewedSnapshots(scriptId);
-  const gate = evaluatePublishGate({ baseline: env.baseline, reviewed: env.reviewed });
+  const latestSnapshot = (snaps.snapshots || []).length ? [...snaps.snapshots].sort((a, b) => Number(b.reviewedSnapshotChainIndex || 0) - Number(a.reviewedSnapshotChainIndex || 0))[0] : null;
+  const latestIntegrity = latestSnapshot ? await verifyReviewedSnapshotIntegrity(scriptId, latestSnapshot.reviewedSnapshotId) : null;
+  const chainSummary = await recomputeReviewedSnapshotIntegrity(scriptId);
+
+  const gate = evaluatePublishGate({
+    baseline: env.baseline,
+    reviewed: env.reviewed,
+    requireLatestReviewedSnapshotIntegrity,
+    latestReviewedSnapshotIntegrity: latestIntegrity && !latestIntegrity.error ? latestIntegrity : null
+  });
 
   const notesCount = (env.reviewed.sections || []).reduce((n, s) => n + (s.annotations || []).length, 0);
-  const latestSnapshot = (snaps.snapshots || [])[0] || null;
 
   const report = {
     scriptId,
@@ -33,8 +41,32 @@ export async function buildScriptAuditReport(scriptId) {
     changedSectionCount: env.diff.changedSectionCount,
     firstDivergence: env.diff.firstDivergence,
     notesCount,
+    publishGateDependency: { requireLatestReviewedSnapshotIntegrity },
     publishGate: gate,
-    availableReviewedSnapshots: (snaps.snapshots || []).map((s) => ({ reviewedSnapshotId: s.reviewedSnapshotId, reviewVersion: s.reviewVersion, createdAt: s.createdAt, reviewStatusAtSnapshot: s.reviewStatusAtSnapshot })),
+    reviewedSnapshotIntegritySummary: {
+      totalSnapshots: chainSummary.totalSnapshots,
+      matched: chainSummary.matched,
+      mismatched: chainSummary.mismatched,
+      brokenChainLinks: chainSummary.brokenChainLinks,
+      missingHash: chainSummary.missingHash,
+      firstBrokenSnapshotId: chainSummary.firstBrokenSnapshotId
+    },
+    latestReviewedSnapshotHash: latestSnapshot?.reviewedSnapshotContentHash || null,
+    latestReviewedSnapshotChainIndex: latestSnapshot?.reviewedSnapshotChainIndex || null,
+    latestReviewedSnapshotIntegrityStatus: latestIntegrity?.integrityStatus || null,
+    chainContinuitySummary: {
+      ok: chainSummary.brokenChainLinks === 0,
+      brokenChainLinks: chainSummary.brokenChainLinks
+    },
+    availableReviewedSnapshots: (snaps.snapshots || []).map((s) => ({
+      reviewedSnapshotId: s.reviewedSnapshotId,
+      reviewVersion: s.reviewVersion,
+      createdAt: s.createdAt,
+      reviewStatusAtSnapshot: s.reviewStatusAtSnapshot,
+      reviewedSnapshotChainIndex: s.reviewedSnapshotChainIndex,
+      reviewedSnapshotContentHash: s.reviewedSnapshotContentHash,
+      parentReviewedSnapshotId: s.parentReviewedSnapshotId
+    })),
     latestSnapshotSummary: latestSnapshot ? latestSnapshot.manifest : null
   };
 

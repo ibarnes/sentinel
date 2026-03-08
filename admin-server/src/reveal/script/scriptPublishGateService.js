@@ -4,7 +4,7 @@ function validTiming(t) {
   return vals.every((n) => Number.isFinite(n) && n >= 0);
 }
 
-export function evaluatePublishGate({ baseline = null, reviewed = null, requireApprovalMetadata = true } = {}) {
+export function evaluatePublishGate({ baseline = null, reviewed = null, requireApprovalMetadata = true, requireLatestReviewedSnapshotIntegrity = false, latestReviewedSnapshotIntegrity = null } = {}) {
   const blockingReasons = [];
   const warnings = [];
 
@@ -39,6 +39,18 @@ export function evaluatePublishGate({ baseline = null, reviewed = null, requireA
         if (!reviewed.approvalMetadata?.approvedAt && reviewed.reviewStatus !== 'published_ready') {
           warnings.push('approved_without_approvedAt');
         }
+      }
+    }
+  }
+
+  if (requireLatestReviewedSnapshotIntegrity) {
+    if (!latestReviewedSnapshotIntegrity) {
+      blockingReasons.push('latest_reviewed_snapshot_missing');
+    } else if (latestReviewedSnapshotIntegrity.integrityStatus !== 'match') {
+      if (latestReviewedSnapshotIntegrity.integrityStatus === 'broken_parent_link') {
+        blockingReasons.push('reviewed_snapshot_chain_broken');
+      } else {
+        blockingReasons.push('latest_reviewed_snapshot_integrity_failed');
       }
     }
   }

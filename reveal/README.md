@@ -137,6 +137,11 @@ Product-intelligence capture system at `/reveal`.
     - `GET /reveal/api/scripts/:scriptId/review/snapshots/:reviewedSnapshotId`
     - `GET /reveal/api/scripts/:scriptId/review/audit-report`
     - `GET /reveal/api/scripts/:scriptId/review/export?format=json|markdown&mode=standard|publish_ready`
+  - reviewed snapshot integrity:
+    - `GET /reveal/api/scripts/:scriptId/review/snapshots/:reviewedSnapshotId/integrity`
+    - `POST /reveal/api/scripts/:scriptId/review/snapshots/integrity/recompute`
+    - snapshot fields: `reviewedSnapshotContentHash`, `reviewedSnapshotHashVersion=sha256-v1`, `parentReviewedSnapshotId`, `parentReviewedSnapshotContentHash`, `reviewedSnapshotChainIndex`
+    - canonical hash rules: sorted keys, undefined removed, null preserved, arrays keep order, numeric values normalized to 6 decimals.
   - publish gate blocks `mode=publish_ready` export when requirements fail; returns blocking reasons.
   - style profiles: `neutral_walkthrough`, `concise_training`, `executive_overview`
 - Session lifecycle:
