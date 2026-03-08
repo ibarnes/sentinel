@@ -222,19 +222,26 @@ export async function integrityRecomputeFlow(flowId, { persist = true, includeDi
   const mismatchByStage = {};
   const mismatchReasonCounts = {};
   const mismatchBySemanticReason = {};
+  const mismatchBySemanticSubReason = {};
   const firstDivergentStepIds = [];
   const firstDivergentStepIdsBySemanticReason = {};
+  const firstDivergentStepIdsBySemanticSubReason = {};
   for (const s of steps.filter((x) => x.status === 'mismatch')) {
     if (s.firstDivergence?.stage) mismatchByStage[s.firstDivergence.stage] = (mismatchByStage[s.firstDivergence.stage] || 0) + 1;
     if (s.firstDivergence?.reason) mismatchReasonCounts[s.firstDivergence.reason] = (mismatchReasonCounts[s.firstDivergence.reason] || 0) + 1;
     const sem = s.firstDivergence?.semanticReason || 'unclassified_change';
+    const sub = s.firstDivergence?.semanticSubReason || 'unclassified_subreason';
     mismatchBySemanticReason[sem] = (mismatchBySemanticReason[sem] || 0) + 1;
+    mismatchBySemanticSubReason[sub] = (mismatchBySemanticSubReason[sub] || 0) + 1;
     firstDivergentStepIdsBySemanticReason[sem] = firstDivergentStepIdsBySemanticReason[sem] || [];
     firstDivergentStepIdsBySemanticReason[sem].push(s.stepId);
+    firstDivergentStepIdsBySemanticSubReason[sub] = firstDivergentStepIdsBySemanticSubReason[sub] || [];
+    firstDivergentStepIdsBySemanticSubReason[sub].push(s.stepId);
     firstDivergentStepIds.push(s.stepId);
   }
 
   const mostCommonSemanticReason = Object.entries(mismatchBySemanticReason).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
+  const mostCommonSemanticSubReason = Object.entries(mismatchBySemanticSubReason).sort((a, b) => b[1] - a[1])[0]?.[0] || null;
 
   const summary = {
     totalReplayableSteps: steps.filter((r) => r.status !== 'unreplayable_step').length,
@@ -244,9 +251,12 @@ export async function integrityRecomputeFlow(flowId, { persist = true, includeDi
     missingChecksumSteps: steps.filter((r) => r.status === 'missing_baseline_checksum').length,
     mismatchByStage,
     mismatchBySemanticReason,
+    mismatchBySemanticSubReason,
     firstDivergentStepIds,
     firstDivergentStepIdsBySemanticReason,
+    firstDivergentStepIdsBySemanticSubReason,
     mostCommonSemanticReason,
+    mostCommonSemanticSubReason,
     mismatchReasonCounts
   };
 

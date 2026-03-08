@@ -12,13 +12,17 @@ Product-intelligence capture system at `/reveal`.
 - Replay integrity checksum + drift detection (step + flow)
 - Stage-diff mismatch explainer (first divergence + structured diff)
 - Semantic reason refinement for mismatches (rule-based path/stage mapping)
+- Semantic sub-reason drilldown (deterministic subtype classification)
 
 ## Semantic mismatch mapping notes
 - Rule priority is top-down and deterministic; first matching rule wins.
 - Mapping uses diff path + stage + field + reason context only.
 - Raw reason/path are always preserved; semantic reason is additive.
-- If no rule matches, `semanticReason` becomes `unclassified_change`.
+- semanticSubReason is applied after semanticReason selection using semantic-specific rules.
+- If no semantic rule matches: `semanticReason=unclassified_change`.
+- If no sub-rule matches: `semanticSubReason=null`.
 - If multiple rules match, first rule is used and ambiguity note is attached.
+- Use broad semanticReason for clustering; use semanticSubReason for triage/root-cause hints.
 - Flow editor compare mode (baseline vs reviewed diffs)
 - Flow editor shell with live reviewed mutations
 - Storage conventions for sessions/events/flows/assets

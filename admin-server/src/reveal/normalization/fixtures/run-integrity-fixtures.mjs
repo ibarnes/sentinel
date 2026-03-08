@@ -81,7 +81,7 @@ for (const f of targets) {
     const diff = attachSemanticReasons(explainChecksumDiff(expectedSource, checksumSource, { maxDivergences: 10 }));
     console.error(`MISMATCH ${f}\n  expected=${expected}\n  actual=${replayChecksum}`);
     if (diff.firstDivergence) {
-      console.error(`  firstDivergence semantic=${diff.firstDivergence.semanticReason || 'unclassified_change'} path=${diff.firstDivergence.path} stage=${diff.firstDivergence.stage} reason=${diff.firstDivergence.reason}`);
+      console.error(`  firstDivergence semantic=${diff.firstDivergence.semanticReason || 'unclassified_change'} sub=${diff.firstDivergence.semanticSubReason || 'null'} path=${diff.firstDivergence.path} stage=${diff.firstDivergence.stage} reason=${diff.firstDivergence.reason}`);
       console.error(`  stored=${JSON.stringify(diff.firstDivergence.storedValue)}`);
       console.error(`  current=${JSON.stringify(diff.firstDivergence.currentValue)}`);
       console.error(`  semanticCounts=${JSON.stringify(diff.summary?.semanticReasons || {})}`);
