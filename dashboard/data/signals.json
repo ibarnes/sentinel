@@ -1286,5 +1286,36 @@
       "Signal Bundle"
     ],
     "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-08-US-TECHFORCE-001",
+    "title": "U.S. Tech Force program signals federal AI implementation capacity build",
+    "signal_class": "Sponsor Altitude",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-08T02:42:00Z",
+    "buyer_ids": [
+      "USG"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-AI-OPT-B"
+    ],
+    "summary": "TechForce.gov describes a planned ~1,000-person federal technology talent program to accelerate AI implementation and tackle critical government technology challenges via two-year terms and centralized programming.",
+    "flow": "federal AI policy priority -> dedicated execution workforce pipeline -> faster implementation capacity across agencies -> increased demand for infrastructure/platform coordination",
+    "verification_note": "Website-discovered signal from user-provided URL; treat as monitor until corroborated by formal White House/agency release artifacts and implementation timeline detail.",
+    "sources": [
+      {
+        "label": "TechForce official site (user-provided)",
+        "url": "https://techforce.gov"
+      }
+    ],
+    "tags": [
+      "US Federal",
+      "AI Implementation",
+      "Talent Capacity",
+      "Execution Infrastructure"
+    ],
+    "provenance": "provided_by_isaac"
   }
 ]
