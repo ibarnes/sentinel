@@ -89,6 +89,52 @@ Product-intelligence capture system at `/reveal`.
   - keyset signature fields (`keysetSignature*`)
 - Key lifecycle fields per key:
   - `keyStatus`, `activatedAt`, `retiresAt`, `revokedAt`, `previousKeyId`, `nextKeyId`, `rotationGroupId`, `verificationUse`
+
+## Reveal CLI
+- Entrypoint: `admin-server/src/reveal/cli/reveal-cli.js`
+- Test runner: `node admin-server/src/reveal/cli/run-cli-tests.mjs`
+
+### Commands
+- `reveal flows list`
+- `reveal flows show <flowId>`
+- `reveal snapshot create <flowId>`
+- `reveal snapshot list <flowId>`
+- `reveal snapshot show <flowId> <snapshotId>`
+- `reveal export flow <flowId> --format json|markdown|package`
+- `reveal export snapshot <flowId> <snapshotId> --format json|markdown|package`
+- `reveal package flow <flowId>`
+- `reveal package snapshot <flowId> <snapshotId>`
+- `reveal verify snapshot <flowId> <snapshotId>`
+- `reveal verify package <pathToRevealPkg>`
+- `reveal keyset show`
+- `reveal keyset verify`
+
+### JSON mode
+Add `--json` for deterministic machine output.
+
+### CLI config
+- Optional config file: `reveal.config.json` at workspace root (or `REVEAL_CONFIG`).
+- Environment/config fields:
+  - `serverBaseUrl`
+  - `defaultExportDir`
+  - signing env vars documented above
+
+### Examples
+- `node admin-server/src/reveal/cli/reveal-cli.js snapshot create flow_123 --json`
+- `node admin-server/src/reveal/cli/reveal-cli.js export snapshot flow_123 snap_abc --format package --output reveal/exports/flow.revealpkg.zip`
+- `node admin-server/src/reveal/cli/reveal-cli.js verify package reveal/exports/flow.revealpkg.zip --summary --json`
+
+### CI exit codes
+- `0` success
+- `1` verification failure
+- `2` malformed package/runtime failure
+- `3` missing inputs
+- `4` unsupported command
+
+### CI usage sketch
+- Build package: `node .../reveal-cli.js package flow <flowId> --output <artifact>`
+- Verify package: `node .../reveal-cli.js verify package <artifact> --json`
+- Fail pipeline when exit code != 0.
 - Snapshot fixture runner: `node admin-server/src/reveal/normalization/fixtures/run-snapshot-fixtures.mjs`
 
 ### Snapshot hash canonicalization
