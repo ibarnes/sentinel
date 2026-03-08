@@ -45,6 +45,7 @@ import { buildScriptAuditReport } from '../script/scriptAuditReportService.js';
 import { publishTrust, listTrustPublications, getLatestTrustPublication, getTrustPublication } from '../script/reviewedSnapshotTrustPublicationService.js';
 import { verifyLatestReviewedSnapshot } from '../script/reviewedSnapshotVerificationService.js';
 import { buildProofBundle } from '../script/reviewedSnapshotProofBundleService.js';
+import { createShotList, getShotList, exportShotList } from '../production/shotListService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -370,6 +371,51 @@ router.get('/api/scripts/:scriptId/review/export-with-proof', async (req, res) =
   res.setHeader('Content-Type', out.contentType);
   res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
   res.send(out.content);
+});
+
+router.post('/api/production/shot-lists', uploadPkg.single('package'), async (req, res) => {
+  const scriptId = req.body?.scriptId || null;
+  const flowId = req.body?.flowId || null;
+  const snapshotId = req.body?.snapshotId || null;
+  const sessionId = req.body?.sessionId || null;
+  const styleProfile = req.body?.styleProfile || null;
+  const publishReady = String(req.body?.publishReady || '0') === '1';
+  const requireLatestReviewedSnapshotIntegrity = String(req.body?.requireLatestReviewedSnapshotIntegrity || '0') === '1';
+  const requireLatestTrustPublication = String(req.body?.requireLatestTrustPublication || '0') === '1';
+
+  let packagePath = null;
+  if (req.file?.buffer?.length) {
+    packagePath = `/tmp/reveal-shotlist-upload-${Date.now()}-${Math.random().toString(16).slice(2)}.zip`;
+    await fs.writeFile(packagePath, req.file.buffer);
+  }
+
+  const out = await createShotList({ scriptId, flowId, snapshotId, sessionId, packagePath, styleProfile, publishReady, requireLatestReviewedSnapshotIntegrity, requireLatestTrustPublication });
+  if (packagePath) await fs.rm(packagePath, { force: true });
+
+  if (['missing_source_input','conflicting_source_inputs','empty_scene_generation'].includes(out.error)) return res.status(400).json(out);
+  if (['script_not_found','review_not_found','flow_not_found','snapshot_not_found','session_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['publish_gate_blocked','latest_trust_publication_missing','latest_trust_publication_unsigned','chain_head_digest_missing'].includes(out.error)) return res.status(409).json(out);
+  if (['malformed_package','malformed_package_flow','invalid_package_type'].includes(out.error)) return res.status(400).json(out);
+  if (out.error) return res.status(400).json(out);
+
+  res.status(201).json(out);
+});
+
+router.get('/api/production/shot-lists/:shotListId', async (req, res) => {
+  const out = await getShotList(String(req.params.shotListId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/shot-lists/:shotListId/export', async (req, res) => {
+  const out = await getShotList(String(req.params.shotListId || ''));
+  if (out.error) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const exp = exportShotList(out.shotList, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
 });
 
 router.get('/api/scripts/:scriptId/review/export', async (req, res) => {
@@ -870,6 +916,11 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="script-review-publish-export-md">Export Publish-Ready MD</button>
           <button data-action="script-export-json">Export Script JSON</button>
           <button data-action="script-export-md">Export Script MD</button>
+          <button data-action="shotlist-generate-script">Generate Shot List (Script)</button>
+          <button data-action="shotlist-generate-flow">Generate Shot List (Flow)</button>
+          <button data-action="shotlist-generate-session">Generate Shot List (Session)</button>
+          <button data-action="shotlist-export-json">Export Shot List JSON</button>
+          <button data-action="shotlist-export-md">Export Shot List MD</button>
         </div>
         <pre id="script-preview" class="dbg-pre">No script generated.</pre>
       </section>

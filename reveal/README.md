@@ -151,6 +151,11 @@ Product-intelligence capture system at `/reveal`.
     - `GET /reveal/api/scripts/:scriptId/review/export-with-proof?format=json|zip`
     - trust publication canonicalization mirrors deterministic object sort/normalization and signs canonical payload when keys are available.
   - publish gate blocks `mode=publish_ready` export when requirements fail; supports optional `requireLatestReviewedSnapshotIntegrity=1` and `requireLatestTrustPublication=1`.
+  - production shot lists:
+    - `POST /reveal/api/production/shot-lists`
+    - `GET /reveal/api/production/shot-lists/:shotListId`
+    - `GET /reveal/api/production/shot-lists/:shotListId/export?format=json|markdown`
+    - storage: `reveal/storage/shot-lists/{shotListId}.json`
   - style profiles: `neutral_walkthrough`, `concise_training`, `executive_overview`
 - Session lifecycle:
   - TTL + optional idle policy for `playing` sessions

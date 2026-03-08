@@ -9,7 +9,8 @@ let state = {
   compareMode: true,
   selectedStepId: null,
   selectedForMerge: new Set(),
-  latestScript: null
+  latestScript: null,
+  latestShotList: null
 };
 
 async function api(path, method = 'GET', body) {
@@ -396,6 +397,50 @@ function exportReviewedScript(format) {
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=${encodeURIComponent(format)}`);
 }
 
+function renderShotListPreview(shotList) {
+  const pre = document.getElementById('script-preview');
+  if (!pre) return;
+  pre.textContent = JSON.stringify({
+    shotListId: shotList.shotListId,
+    sourceType: shotList.sourceType,
+    totalEstimatedDurationMs: shotList.totalEstimatedDurationMs,
+    sceneCount: shotList.scenes?.length || 0,
+    scenes: (shotList.scenes || []).map((s) => ({
+      sceneId: s.sceneId,
+      title: s.title,
+      estimatedDurationMs: s.estimatedDurationMs,
+      timeline: s.timeline,
+      shots: (s.shots || []).map((h) => ({ shotId: h.shotId, shotType: h.shotType, title: h.title, startOffsetMs: h.startOffsetMs, endOffsetMs: h.endOffsetMs }))
+    }))
+  }, null, 2);
+}
+
+async function createShotList(payload) {
+  const out = await api('/reveal/api/production/shot-lists', 'POST', payload);
+  state.latestShotList = out.shotList;
+  renderShotListPreview(out.shotList);
+}
+
+async function createShotListFromScript() {
+  if (!state.latestScript?.scriptId) return alert('Generate script first');
+  await createShotList({ scriptId: state.latestScript.scriptId, publishReady: '1' });
+}
+
+async function createShotListFromFlow() {
+  await createShotList({ flowId: state.flowId });
+}
+
+async function createShotListFromSession() {
+  const sessionId = prompt('Session ID');
+  if (!sessionId) return;
+  await createShotList({ sessionId });
+}
+
+function exportShotList(format) {
+  if (!state.latestShotList?.shotListId) return alert('Generate shot list first');
+  download(`/reveal/api/production/shot-lists/${encodeURIComponent(state.latestShotList.shotListId)}/export?format=${encodeURIComponent(format)}`);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -673,6 +718,12 @@ function wireActions() {
   document.querySelector('[data-action="script-review-publish-export-md"]')?.addEventListener('click', () => exportPublishReadyReviewedMarkdown());
   document.querySelector('[data-action="script-export-json"]')?.addEventListener('click', () => exportLatestScript('json'));
   document.querySelector('[data-action="script-export-md"]')?.addEventListener('click', () => exportLatestScript('markdown'));
+
+  document.querySelector('[data-action="shotlist-generate-script"]')?.addEventListener('click', () => createShotListFromScript().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="shotlist-generate-flow"]')?.addEventListener('click', () => createShotListFromFlow().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="shotlist-generate-session"]')?.addEventListener('click', () => createShotListFromSession().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="shotlist-export-json"]')?.addEventListener('click', () => exportShotList('json'));
+  document.querySelector('[data-action="shotlist-export-md"]')?.addEventListener('click', () => exportShotList('markdown'));
 }
 
 async function boot() {
