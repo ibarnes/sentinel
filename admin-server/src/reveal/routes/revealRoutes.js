@@ -62,6 +62,8 @@ import { buildAttestationReport, exportAttestationBundle, exportVerifierPackage 
 import { createAttestationSnapshot, listAttestationSnapshots, getAttestationSnapshot } from '../verification/attestationSnapshotService.js';
 import { publishAttestationTrust, listAttestationTrustPublications, getLatestAttestationTrustPublication, getAttestationTrustPublication } from '../verification/attestationTrustPublicationService.js';
 import { verifyZipBundle } from '../verification/bundleVerificationService.js';
+import { createExternalVerifierProfile, getExternalVerifierProfile, latestExternalVerifierProfile } from '../verification/externalVerifierProfileService.js';
+import { exportExternalVerifierProfile } from '../verification/admissionControlExportService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -698,6 +700,51 @@ router.get('/api/verification/latest', async (_req, res) => {
   const out = await latestUnifiedVerifierPackage();
   if (out.error) return res.status(404).json(out);
   res.json(out);
+});
+
+router.post('/api/verification/external', async (req, res) => {
+  const out = await createExternalVerifierProfile({
+    verifierPackageId: req.body?.verifierPackageId || null,
+    scriptId: req.body?.scriptId || null,
+    shotListId: req.body?.shotListId || null,
+    voiceTrackPlanId: req.body?.voiceTrackPlanId || null,
+    policyProfileId: req.body?.policyProfileId || 'dev',
+    mode: req.body?.mode || 'latest'
+  });
+  if (['unsupported_policy_profile','invalid_mode','missing_required_source_refs'].includes(out.error)) return res.status(400).json(out);
+  if (['verifier_package_not_found','script_not_found','review_not_found','voice_track_plan_not_found','shot_list_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/verification/external/latest', async (req, res) => {
+  const policyProfileId = req.query.policyProfileId ? String(req.query.policyProfileId) : 'dev';
+  const verifierPackageId = req.query.verifierPackageId ? String(req.query.verifierPackageId) : null;
+  const mode = req.query.mode ? String(req.query.mode) : 'latest';
+
+  if (mode && !['latest','explicit_refs'].includes(mode)) return res.status(400).json({ error: 'invalid_mode' });
+  const out = await latestExternalVerifierProfile({ policyProfileId, verifierPackageId, mode });
+  if (['unsupported_policy_profile'].includes(out.error)) return res.status(400).json(out);
+  if (['verifier_package_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.get('/api/verification/external/:externalVerifierProfileId', async (req, res) => {
+  const out = await getExternalVerifierProfile(String(req.params.externalVerifierProfileId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/verification/external/:externalVerifierProfileId/export', async (req, res) => {
+  const out = await getExternalVerifierProfile(String(req.params.externalVerifierProfileId || ''));
+  if (out.error) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const exp = exportExternalVerifierProfile(out.externalVerifierProfile, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
 });
 
 router.get('/api/production/voice-tracks/:voiceTrackPlanId/export', async (req, res) => {
@@ -1367,6 +1414,9 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="unified-attestation-snapshot-list">List Attestation Snapshots</button>
           <button data-action="unified-attestation-trust-publish">Publish Attestation Trust</button>
           <button data-action="unified-attestation-trust-latest">View Latest Attestation Trust</button>
+          <button data-action="external-generate">Generate External Verifier</button>
+          <button data-action="external-latest">View Latest External Verdict</button>
+          <button data-action="external-export-verdict">Export Compliance Verdict</button>
           <button data-action="unified-verify-zip">Verify ZIP Bundle</button>
           <button data-action="policy-list">List Policy Manifests</button>
         </div>

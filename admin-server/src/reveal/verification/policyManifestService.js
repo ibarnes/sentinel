@@ -92,3 +92,29 @@ export async function listPolicyManifests() {
   for (const id of Object.keys(DEFINITIONS)) out.push((await getPolicyManifest(id)).policyManifest);
   return { policies: out };
 }
+
+export async function verifyPolicyManifest(policyProfileId) {
+  const out = await getPolicyManifest(policyProfileId);
+  if (out.error) return out;
+  const m = out.policyManifest;
+
+  if (!m.policyProfileId || !m.version || !Array.isArray(m.requiredChecks) || !Array.isArray(m.blockingConditions)) {
+    return { status: 'malformed_manifest', valid: false };
+  }
+  if (m.version !== POLICY_VERSION) {
+    return { status: 'version_incompatible', valid: false, expectedVersion: POLICY_VERSION, gotVersion: m.version };
+  }
+
+  if (m.policyManifestSignatureStatus !== 'signed' || !m.policyManifestSignature) {
+    return { status: 'unsigned', valid: null };
+  }
+
+  const ctx = await getSigningContext();
+  if (!ctx.enabled) return { status: 'unsigned', valid: null, reason: 'missing_verifier_key' };
+
+  const verifier = crypto.createVerify('RSA-SHA256');
+  verifier.update(JSON.stringify(payload(m)));
+  verifier.end();
+  const ok = verifier.verify(ctx.publicKey, m.policyManifestSignature, 'base64');
+  return { status: ok ? 'valid' : 'invalid_signature', valid: ok };
+}

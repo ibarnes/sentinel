@@ -12,7 +12,8 @@ let state = {
   latestScript: null,
   latestShotList: null,
   latestVoiceTrack: null,
-  latestUnified: null
+  latestUnified: null,
+  latestExternal: null
 };
 
 async function api(path, method = 'GET', body) {
@@ -622,6 +623,29 @@ async function verifyZipBundleUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 
+async function generateExternalVerifierUi() {
+  const payload = {
+    verifierPackageId: state.latestUnified?.verifierPackageId || null,
+    policyProfileId: prompt('Policy profile: dev|internal_verified|production_verified', 'production_verified') || 'production_verified',
+    mode: 'latest'
+  };
+  const out = await api('/reveal/api/verification/external', 'POST', payload);
+  state.latestExternal = out.externalVerifierProfile;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.externalVerifierProfile, null, 2);
+}
+
+async function viewExternalLatestUi() {
+  const profile = prompt('Policy profile', 'production_verified') || 'production_verified';
+  const out = await api(`/reveal/api/verification/external/latest?policyProfileId=${encodeURIComponent(profile)}&mode=latest`);
+  state.latestExternal = out.externalVerifierProfile;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.externalVerifierProfile, null, 2);
+}
+
+function exportExternalVerdictUi() {
+  if (!state.latestExternal?.externalVerifierProfileId) return alert('Generate external verifier first');
+  download(`/reveal/api/verification/external/${encodeURIComponent(state.latestExternal.externalVerifierProfileId)}/export?format=compliance_verdict`);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -933,6 +957,9 @@ function wireActions() {
   document.querySelector('[data-action="unified-attestation-snapshot-list"]')?.addEventListener('click', () => listAttestationSnapshotsUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="unified-attestation-trust-publish"]')?.addEventListener('click', () => publishAttestationTrustUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="unified-attestation-trust-latest"]')?.addEventListener('click', () => viewLatestAttestationTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="external-generate"]')?.addEventListener('click', () => generateExternalVerifierUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="external-latest"]')?.addEventListener('click', () => viewExternalLatestUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="external-export-verdict"]')?.addEventListener('click', () => exportExternalVerdictUi());
   document.querySelector('[data-action="unified-verify-zip"]')?.addEventListener('click', () => verifyZipBundleUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="policy-list"]')?.addEventListener('click', () => listPoliciesUi().catch((e) => alert(e.message)));
 }

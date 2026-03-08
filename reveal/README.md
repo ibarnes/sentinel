@@ -172,6 +172,11 @@ Product-intelligence capture system at `/reveal`.
       - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-trust-publications/latest`
       - `GET /reveal/api/verification/unified/:verifierPackageId/attestation-trust-publications/:attestationTrustPublicationId`
     - `GET /reveal/api/verification/latest`
+    - external admission verifier:
+      - `POST /reveal/api/verification/external`
+      - `GET /reveal/api/verification/external/latest`
+      - `GET /reveal/api/verification/external/:externalVerifierProfileId`
+      - `GET /reveal/api/verification/external/:externalVerifierProfileId/export?format=json|markdown|compliance_verdict`
     - `GET /reveal/api/verification/policies`
     - `GET /reveal/api/verification/policies/:policyProfileId`
     - `GET /reveal/api/verification/policies/:policyProfileId/export`
