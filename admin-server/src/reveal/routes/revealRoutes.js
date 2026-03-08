@@ -56,6 +56,9 @@ import { buildSubtitleBundle, buildVoiceTrackAuditReport } from '../production/s
 import { publishVoiceTrust, listVoiceTrustPublications, getLatestVoiceTrustPublication, getVoiceTrustPublication } from '../production/voiceTrustPublicationService.js';
 import { verifyLatestVoice } from '../production/voiceVerificationService.js';
 import { buildSignedSubtitleBundle, verifySubtitleBundle } from '../production/subtitleProofService.js';
+import { createUnifiedVerifierPackage, getUnifiedVerifierPackage, latestUnifiedVerifierPackage } from '../verification/unifiedVerifierService.js';
+import { listPolicyManifests, getPolicyManifest } from '../verification/policyManifestService.js';
+import { buildAttestationReport, exportAttestationBundle, exportVerifierPackage } from '../verification/attestationReportService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -571,6 +574,72 @@ router.post('/api/production/voice-tracks/verify-bundle', uploadPkg.single('bund
     catch { return res.status(400).json({ status: 'malformed_bundle', reasonCodes: ['invalid_json_bundle'] }); }
   }
   const out = await verifySubtitleBundle(bundleObj);
+  res.json(out);
+});
+
+router.post('/api/verification/unified', async (req, res) => {
+  const out = await createUnifiedVerifierPackage({
+    scriptId: req.body?.scriptId || null,
+    reviewedSnapshotId: req.body?.reviewedSnapshotId || null,
+    shotListId: req.body?.shotListId || null,
+    shotListSnapshotId: req.body?.shotListSnapshotId || null,
+    voiceTrackPlanId: req.body?.voiceTrackPlanId || null,
+    voicePlanSnapshotId: req.body?.voicePlanSnapshotId || null,
+    orchestrationPolicyProfile: req.body?.orchestrationPolicyProfile || 'dev'
+  });
+  if (out.error === 'unsupported_policy_profile') return res.status(400).json(out);
+  if (out.error === 'missing_required_source_refs') return res.status(400).json(out);
+  if (['review_not_found','script_not_found','voice_track_plan_not_found','shot_list_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/verification/unified/:verifierPackageId', async (req, res) => {
+  const out = await getUnifiedVerifierPackage(String(req.params.verifierPackageId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/verification/unified/:verifierPackageId/export', async (req, res) => {
+  const got = await getUnifiedVerifierPackage(String(req.params.verifierPackageId || ''));
+  if (got.error) return res.status(404).json(got);
+  const format = String(req.query.format || 'json').toLowerCase();
+  if (format === 'attestation_bundle') {
+    const out = await exportAttestationBundle(got.verifierPackage.verifierPackageId);
+    if (out.error) return res.status(400).json(out);
+    res.setHeader('Content-Type', out.contentType);
+    res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
+    return res.send(out.buffer);
+  }
+  const exp = exportVerifierPackage(got.verifierPackage, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
+router.get('/api/verification/policies', async (_req, res) => {
+  const out = await listPolicyManifests();
+  res.json(out);
+});
+
+router.get('/api/verification/policies/:policyProfileId', async (req, res) => {
+  const out = await getPolicyManifest(String(req.params.policyProfileId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/verification/policies/:policyProfileId/export', async (req, res) => {
+  const out = await getPolicyManifest(String(req.params.policyProfileId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Content-Disposition', `attachment; filename="policy-${out.policyManifest.policyProfileId}.json"`);
+  res.send(JSON.stringify(out.policyManifest, null, 2));
+});
+
+router.get('/api/verification/latest', async (_req, res) => {
+  const out = await latestUnifiedVerifierPackage();
+  if (out.error) return res.status(404).json(out);
   res.json(out);
 });
 
@@ -1235,6 +1304,9 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="voiceplan-export-signed-bundle">Export Signed Subtitle Bundle</button>
           <button data-action="voiceplan-verify-bundle">Verify Signed Bundle JSON</button>
           <button data-action="voiceplan-audit-report">Voice Audit Report</button>
+          <button data-action="unified-generate">Generate Unified Verifier</button>
+          <button data-action="unified-export-attestation">Export Attestation Bundle</button>
+          <button data-action="policy-list">List Policy Manifests</button>
         </div>
         <pre id="script-preview" class="dbg-pre">No script generated.</pre>
       </section>

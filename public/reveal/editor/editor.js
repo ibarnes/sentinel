@@ -11,7 +11,8 @@ let state = {
   selectedForMerge: new Set(),
   latestScript: null,
   latestShotList: null,
-  latestVoiceTrack: null
+  latestVoiceTrack: null,
+  latestUnified: null
 };
 
 async function api(path, method = 'GET', body) {
@@ -568,6 +569,28 @@ async function verifyBundleJsonUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 
+async function generateUnifiedVerifierUi() {
+  const payload = {
+    scriptId: state.latestScript?.scriptId || null,
+    shotListId: state.latestShotList?.shotListId || null,
+    voiceTrackPlanId: state.latestVoiceTrack?.voiceTrackPlanId || null,
+    orchestrationPolicyProfile: prompt('Policy profile: dev|internal_verified|production_verified', 'internal_verified') || 'internal_verified'
+  };
+  const out = await api('/reveal/api/verification/unified', 'POST', payload);
+  state.latestUnified = out.verifierPackage;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.verifierPackage, null, 2);
+}
+
+function exportUnifiedAttestationUi() {
+  if (!state.latestUnified?.verifierPackageId) return alert('Generate unified verifier first');
+  download(`/reveal/api/verification/unified/${encodeURIComponent(state.latestUnified.verifierPackageId)}/export?format=attestation_bundle`);
+}
+
+async function listPoliciesUi() {
+  const out = await api('/reveal/api/verification/policies');
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -873,6 +896,9 @@ function wireActions() {
   document.querySelector('[data-action="voiceplan-export-signed-bundle"]')?.addEventListener('click', () => exportSignedSubtitleBundleUi());
   document.querySelector('[data-action="voiceplan-verify-bundle"]')?.addEventListener('click', () => verifyBundleJsonUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="voiceplan-audit-report"]')?.addEventListener('click', () => viewVoiceAuditReportUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="unified-generate"]')?.addEventListener('click', () => generateUnifiedVerifierUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="unified-export-attestation"]')?.addEventListener('click', () => exportUnifiedAttestationUi());
+  document.querySelector('[data-action="policy-list"]')?.addEventListener('click', () => listPoliciesUi().catch((e) => alert(e.message)));
 }
 
 async function boot() {

@@ -151,6 +151,14 @@ Product-intelligence capture system at `/reveal`.
     - `GET /reveal/api/scripts/:scriptId/review/export-with-proof?format=json|zip`
     - trust publication canonicalization mirrors deterministic object sort/normalization and signs canonical payload when keys are available.
   - publish gate blocks `mode=publish_ready` export when requirements fail; supports optional `requireLatestReviewedSnapshotIntegrity=1` and `requireLatestTrustPublication=1`.
+  - unified verification:
+    - `POST /reveal/api/verification/unified`
+    - `GET /reveal/api/verification/unified/:verifierPackageId`
+    - `GET /reveal/api/verification/unified/:verifierPackageId/export?format=json|markdown|attestation_bundle`
+    - `GET /reveal/api/verification/latest`
+    - `GET /reveal/api/verification/policies`
+    - `GET /reveal/api/verification/policies/:policyProfileId`
+    - `GET /reveal/api/verification/policies/:policyProfileId/export`
   - production shot lists:
     - `POST /reveal/api/production/shot-lists`
     - `GET /reveal/api/production/shot-lists/:shotListId?view=baseline|effective|with_diff`
