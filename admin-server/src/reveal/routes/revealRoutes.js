@@ -53,6 +53,8 @@ import { createVoiceTrackPlan, getVoiceTrackPlan, exportVoiceTrackPlan } from '.
 import { createVoicePlanSnapshot, listVoicePlanSnapshots, getVoicePlanSnapshot } from '../production/voicePlanSnapshotService.js';
 import { verifyVoicePlanSnapshotIntegrity, recomputeVoicePlanSnapshotIntegrity } from '../production/voicePlanIntegrityService.js';
 import { buildSubtitleBundle, buildVoiceTrackAuditReport } from '../production/subtitleBundleService.js';
+import { createRenderAdapterContract, getRenderAdapterContract, exportRenderAdapterContract } from '../production/renderAdapterContractService.js';
+import { validateAdapterContract } from '../production/adapterValidationService.js';
 import { publishVoiceTrust, listVoiceTrustPublications, getLatestVoiceTrustPublication, getVoiceTrustPublication } from '../production/voiceTrustPublicationService.js';
 import { verifyLatestVoice } from '../production/voiceVerificationService.js';
 import { buildSignedSubtitleBundle, verifySubtitleBundle } from '../production/subtitleProofService.js';
@@ -832,6 +834,52 @@ router.get('/api/production/voice-tracks/:voiceTrackPlanId/snapshots/:voicePlanS
   res.send(exp.content);
 });
 
+router.post('/api/production/render-adapters', async (req, res) => {
+  const out = await createRenderAdapterContract({
+    adapterType: req.body?.adapterType || null,
+    orchestrationProfile: req.body?.orchestrationProfile || 'dev',
+    verifierPackageId: req.body?.verifierPackageId || null,
+    externalVerifierProfileId: req.body?.externalVerifierProfileId || null,
+    renderPlanId: req.body?.renderPlanId || null,
+    shotListId: req.body?.shotListId || null,
+    shotListSnapshotId: req.body?.shotListSnapshotId || null,
+    voiceTrackPlanId: req.body?.voiceTrackPlanId || null
+  });
+  if (['missing_adapter_type','unsupported_adapter_type','conflicting_source_refs','missing_trusted_upstream_refs'].includes(out.error)) return res.status(400).json(out);
+  if (['verifier_package_not_found','external_verifier_profile_not_found','shot_list_not_found','shot_list_snapshot_not_found','voice_track_plan_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['malformed_contract','missing_required_artifact'].includes(out.error)) return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/render-adapters/:renderAdapterContractId', async (req, res) => {
+  const out = await getRenderAdapterContract(String(req.params.renderAdapterContractId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/render-adapters/:renderAdapterContractId/export', async (req, res) => {
+  const out = await getRenderAdapterContract(String(req.params.renderAdapterContractId || ''));
+  if (out.error) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const exp = exportRenderAdapterContract(out.renderAdapterContract, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
+router.post('/api/production/render-adapters/validate', async (req, res) => {
+  let contract = req.body?.contract || null;
+  if (!contract && req.body?.renderAdapterContractId) {
+    const got = await getRenderAdapterContract(String(req.body.renderAdapterContractId));
+    if (got.error) return res.status(404).json(got);
+    contract = got.renderAdapterContract;
+  }
+  const out = validateAdapterContract(contract);
+  res.json(out);
+});
+
 router.get('/api/production/shot-lists/:shotListId/snapshots/:shotListSnapshotId/export', async (req, res) => {
   const shotListId = String(req.params.shotListId || '');
   const shotListSnapshotId = String(req.params.shotListSnapshotId || '');
@@ -1417,6 +1465,9 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="external-generate">Generate External Verifier</button>
           <button data-action="external-latest">View Latest External Verdict</button>
           <button data-action="external-export-verdict">Export Compliance Verdict</button>
+          <button data-action="adapter-generate">Generate Render Adapter Contract</button>
+          <button data-action="adapter-export-manifest">Export Adapter Manifest</button>
+          <button data-action="adapter-validate">Validate Adapter Contract</button>
           <button data-action="unified-verify-zip">Verify ZIP Bundle</button>
           <button data-action="policy-list">List Policy Manifests</button>
         </div>

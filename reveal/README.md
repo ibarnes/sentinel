@@ -180,6 +180,12 @@ Product-intelligence capture system at `/reveal`.
     - `GET /reveal/api/verification/policies`
     - `GET /reveal/api/verification/policies/:policyProfileId`
     - `GET /reveal/api/verification/policies/:policyProfileId/export`
+  - render adapter contracts:
+    - `POST /reveal/api/production/render-adapters`
+    - `GET /reveal/api/production/render-adapters/:renderAdapterContractId`
+    - `GET /reveal/api/production/render-adapters/:renderAdapterContractId/export?format=json|markdown|adapter_manifest`
+    - `POST /reveal/api/production/render-adapters/validate`
+    - storage: `reveal/storage/render-adapter-contracts/{renderAdapterContractId}.json`
   - production shot lists:
     - `POST /reveal/api/production/shot-lists`
     - `GET /reveal/api/production/shot-lists/:shotListId?view=baseline|effective|with_diff`

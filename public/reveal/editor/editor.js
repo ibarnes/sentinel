@@ -13,7 +13,8 @@ let state = {
   latestShotList: null,
   latestVoiceTrack: null,
   latestUnified: null,
-  latestExternal: null
+  latestExternal: null,
+  latestAdapter: null
 };
 
 async function api(path, method = 'GET', body) {
@@ -646,6 +647,33 @@ function exportExternalVerdictUi() {
   download(`/reveal/api/verification/external/${encodeURIComponent(state.latestExternal.externalVerifierProfileId)}/export?format=compliance_verdict`);
 }
 
+async function generateAdapterUi() {
+  const adapterType = prompt('adapterType: storyboard_export|narrated_walkthrough|subtitle_only|visual_only|composite_render', 'composite_render') || 'composite_render';
+  const orchestrationProfile = prompt('orchestrationProfile: dev|internal_verified|production_verified', 'internal_verified') || 'internal_verified';
+  const payload = {
+    adapterType,
+    orchestrationProfile,
+    verifierPackageId: state.latestUnified?.verifierPackageId || null,
+    externalVerifierProfileId: state.latestExternal?.externalVerifierProfileId || null,
+    shotListId: state.latestShotList?.shotListId || null,
+    voiceTrackPlanId: state.latestVoiceTrack?.voiceTrackPlanId || null
+  };
+  const out = await api('/reveal/api/production/render-adapters', 'POST', payload);
+  state.latestAdapter = out.renderAdapterContract;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.renderAdapterContract, null, 2);
+}
+
+function exportAdapterManifestUi() {
+  if (!state.latestAdapter?.renderAdapterContractId) return alert('Generate adapter first');
+  download(`/reveal/api/production/render-adapters/${encodeURIComponent(state.latestAdapter.renderAdapterContractId)}/export?format=adapter_manifest`);
+}
+
+async function validateAdapterUi() {
+  if (!state.latestAdapter?.renderAdapterContractId) return alert('Generate adapter first');
+  const out = await api('/reveal/api/production/render-adapters/validate', 'POST', { renderAdapterContractId: state.latestAdapter.renderAdapterContractId });
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -960,6 +988,9 @@ function wireActions() {
   document.querySelector('[data-action="external-generate"]')?.addEventListener('click', () => generateExternalVerifierUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="external-latest"]')?.addEventListener('click', () => viewExternalLatestUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="external-export-verdict"]')?.addEventListener('click', () => exportExternalVerdictUi());
+  document.querySelector('[data-action="adapter-generate"]')?.addEventListener('click', () => generateAdapterUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="adapter-export-manifest"]')?.addEventListener('click', () => exportAdapterManifestUi());
+  document.querySelector('[data-action="adapter-validate"]')?.addEventListener('click', () => validateAdapterUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="unified-verify-zip"]')?.addEventListener('click', () => verifyZipBundleUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="policy-list"]')?.addEventListener('click', () => listPoliciesUi().catch((e) => alert(e.message)));
 }
