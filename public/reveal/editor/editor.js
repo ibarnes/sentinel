@@ -4,6 +4,7 @@ let state = {
   baseline: null,
   reviewed: null,
   compare: null,
+  snapshots: [],
   compareMode: true,
   selectedStepId: null,
   selectedForMerge: new Set()
@@ -167,6 +168,41 @@ async function loadIntegrity(stepId) {
   }
 }
 
+async function refreshSnapshots() {
+  const out = await api(`/reveal/api/flows/${state.flowId}/snapshots`);
+  state.snapshots = out.snapshots || [];
+  const sel = document.getElementById('snapshot-select');
+  if (!sel) return;
+  sel.innerHTML = '';
+  const empty = document.createElement('option');
+  empty.value = '';
+  empty.textContent = '-- select snapshot --';
+  sel.appendChild(empty);
+  for (const s of state.snapshots) {
+    const o = document.createElement('option');
+    o.value = s.snapshotId;
+    o.textContent = `${s.snapshotId} (v${s.reviewVersion})`;
+    sel.appendChild(o);
+  }
+  renderSnapshotSummary();
+}
+
+function selectedSnapshotId() {
+  return document.getElementById('snapshot-select')?.value || '';
+}
+
+function renderSnapshotSummary() {
+  const id = selectedSnapshotId();
+  const s = state.snapshots.find((x) => x.snapshotId === id);
+  const pre = document.getElementById('snapshot-summary');
+  if (!pre) return;
+  pre.textContent = s ? JSON.stringify(s.manifest || s, null, 2) : 'No snapshot selected';
+}
+
+function download(url) {
+  window.open(url, '_blank', 'noopener');
+}
+
 function renderInspector(step, replay, integrity) {
   const el = document.getElementById('coord-inspector');
   if (!el) return;
@@ -246,6 +282,7 @@ async function refresh() {
   state.reviewed = data.reviewed || data.baseline;
   state.flow = state.reviewed;
   renderTimeline();
+  await refreshSnapshots();
 }
 
 function selectedStep() {
@@ -322,6 +359,26 @@ function wireActions() {
     const out = await api(`/reveal/api/flows/${state.flowId}/replay-integrity/recompute?includeDiff=1`, 'POST', {});
     alert(`Integrity recompute: matched ${out.summary.matchedSteps}/${out.summary.totalReplayableSteps}, mismatched ${out.summary.mismatchedSteps}, unreplayable ${out.summary.unreplayableSteps}`);
     await refresh();
+  });
+  document.querySelector('[data-action="snapshot-create"]')?.addEventListener('click', async () => {
+    const createdBy = prompt('Snapshot createdBy', 'editor-user') || 'editor-user';
+    await api(`/reveal/api/flows/${state.flowId}/snapshots`, 'POST', { createdBy });
+    await refreshSnapshots();
+  });
+  document.querySelector('[data-action="snapshot-refresh"]')?.addEventListener('click', refreshSnapshots);
+  document.getElementById('snapshot-select')?.addEventListener('change', renderSnapshotSummary);
+
+  document.querySelector('[data-action="export-reviewed-json"]')?.addEventListener('click', () => download(`/reveal/api/flows/${state.flowId}/export?format=json`));
+  document.querySelector('[data-action="export-reviewed-md"]')?.addEventListener('click', () => download(`/reveal/api/flows/${state.flowId}/export?format=markdown`));
+  document.querySelector('[data-action="export-snapshot-json"]')?.addEventListener('click', () => {
+    const sid = selectedSnapshotId();
+    if (!sid) return alert('Select snapshot first');
+    download(`/reveal/api/flows/${state.flowId}/snapshots/${encodeURIComponent(sid)}/export?format=json`);
+  });
+  document.querySelector('[data-action="export-snapshot-md"]')?.addEventListener('click', () => {
+    const sid = selectedSnapshotId();
+    if (!sid) return alert('Select snapshot first');
+    download(`/reveal/api/flows/${state.flowId}/snapshots/${encodeURIComponent(sid)}/export?format=markdown`);
   });
 }
 

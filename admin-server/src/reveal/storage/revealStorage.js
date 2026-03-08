@@ -8,6 +8,7 @@ const PATHS = {
   rawEvents: path.join(ROOT, 'raw-events'),
   normalizedFlows: path.join(ROOT, 'normalized-flows'),
   reviewedFlows: path.join(ROOT, 'reviewed-flows'),
+  reviewSnapshots: path.join(ROOT, 'review-snapshots'),
   assets: path.join(ROOT, 'assets')
 };
 
@@ -33,6 +34,14 @@ export function fileForNormalizedFlow(flowId) {
 
 export function fileForReviewedFlow(flowId) {
   return path.join(PATHS.reviewedFlows, `${flowId}.json`);
+}
+
+export function dirForSnapshots(flowId) {
+  return path.join(PATHS.reviewSnapshots, flowId);
+}
+
+export function fileForSnapshot(flowId, snapshotId) {
+  return path.join(dirForSnapshots(flowId), `${snapshotId}.json`);
 }
 
 export function assetPath(sessionId, stepId, kind) {

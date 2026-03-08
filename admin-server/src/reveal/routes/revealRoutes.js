@@ -15,6 +15,8 @@ import {
 import { getFlowCompare } from '../services/compareService.js';
 import { buildStepCoordinateReplay } from '../services/coordinateReplayService.js';
 import { integrityForStep, integrityRecomputeFlow } from '../services/replayIntegrityService.js';
+import { createSnapshot, listSnapshots, getSnapshot } from '../services/snapshotService.js';
+import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
 
 const router = express.Router();
 
@@ -77,6 +79,51 @@ router.post('/api/flows/:flowId/replay-integrity/recompute', async (req, res) =>
   const out = await integrityRecomputeFlow(flowId, { persist: true, includeDiff });
   if (out.error === 'flow_not_found') return res.status(404).json(out);
   res.json(out);
+});
+
+router.post('/api/flows/:flowId/snapshots', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const out = await createSnapshot(flowId, { createdBy: req.body?.createdBy || 'editor' });
+  if (out.error === 'reviewed_flow_not_found') return res.status(404).json(out);
+  if (out.error === 'snapshot_id_collision') return res.status(409).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/flows/:flowId/snapshots', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const out = await listSnapshots(flowId);
+  res.json(out);
+});
+
+router.get('/api/flows/:flowId/snapshots/:snapshotId', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const snapshotId = String(req.params.snapshotId || '');
+  const out = await getSnapshot(flowId, snapshotId);
+  if (out.error === 'snapshot_not_found') return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/flows/:flowId/export', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const format = String(req.query.format || 'json').toLowerCase();
+  const out = await exportReviewedFlow(flowId, format);
+  if (out.error === 'flow_not_found') return res.status(404).json(out);
+  if (out.error === 'invalid_export_format') return res.status(400).json(out);
+  res.setHeader('Content-Type', out.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
+  res.send(out.content);
+});
+
+router.get('/api/flows/:flowId/snapshots/:snapshotId/export', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const snapshotId = String(req.params.snapshotId || '');
+  const format = String(req.query.format || 'json').toLowerCase();
+  const out = await exportSnapshot(flowId, snapshotId, format);
+  if (out.error === 'snapshot_not_found') return res.status(404).json(out);
+  if (out.error === 'invalid_export_format') return res.status(400).json(out);
+  res.setHeader('Content-Type', out.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
+  res.send(out.content);
 });
 
 router.post('/api/flows/:flowId/review/init', async (req, res) => {
@@ -180,6 +227,9 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="reload">Reload</button>
           <button data-action="compare-toggle">Compare: On</button>
           <button data-action="integrity-recompute">Recompute Integrity</button>
+          <button data-action="snapshot-create">Create Snapshot</button>
+          <button data-action="export-reviewed-json">Export Reviewed JSON</button>
+          <button data-action="export-reviewed-md">Export Reviewed MD</button>
         </div>
       </header>
       <section class="meta" id="step-meta"></section>
@@ -194,6 +244,16 @@ router.get('/editor/:flowId', async (req, res) => {
         <summary>Coordinate Replay Debugger (read-only)</summary>
         <pre id="debugger-panel" class="dbg-pre"></pre>
       </details>
+      <section class="compare">
+        <h4>Snapshots</h4>
+        <select id="snapshot-select"></select>
+        <div class="actions">
+          <button data-action="snapshot-refresh">Refresh Snapshots</button>
+          <button data-action="export-snapshot-json">Export Snapshot JSON</button>
+          <button data-action="export-snapshot-md">Export Snapshot MD</button>
+        </div>
+        <pre id="snapshot-summary" class="dbg-pre"></pre>
+      </section>
       <section>
         <h4>Annotations</h4>
         <ul id="annotations"></ul>

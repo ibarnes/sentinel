@@ -13,6 +13,7 @@ Product-intelligence capture system at `/reveal`.
 - Stage-diff mismatch explainer (first divergence + structured diff)
 - Semantic reason refinement for mismatches (rule-based path/stage mapping)
 - Semantic sub-reason drilldown (deterministic subtype classification)
+- Immutable review snapshots + exportable reviewed/snapshot artifacts (JSON/Markdown)
 
 ## Semantic mismatch mapping notes
 - Rule priority is top-down and deterministic; first matching rule wins.
@@ -38,6 +39,17 @@ Product-intelligence capture system at `/reveal`.
   3) add sub-rules
   4) add explicit matrix cases
 - To intentionally update outputs after rule changes: update matrix expectations and rerun; keep precedence cases explicit.
+
+## Snapshots + exports
+- Snapshot storage: `reveal/storage/review-snapshots/{flowId}/{snapshotId}.json`
+- Snapshot routes:
+  - `POST /reveal/api/flows/:flowId/snapshots`
+  - `GET /reveal/api/flows/:flowId/snapshots`
+  - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId`
+- Export routes:
+  - `GET /reveal/api/flows/:flowId/export?format=json|markdown`
+  - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId/export?format=json|markdown`
+- Snapshot fixture runner: `node admin-server/src/reveal/normalization/fixtures/run-snapshot-fixtures.mjs`
 - Flow editor compare mode (baseline vs reviewed diffs)
 - Flow editor shell with live reviewed mutations
 - Storage conventions for sessions/events/flows/assets
