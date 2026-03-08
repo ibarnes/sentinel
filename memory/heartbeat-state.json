@@ -1,6 +1,6 @@
 {
-  "buyerAccessGraphSignature": "45c9ad337eaa2b42126c530492bfc6f93f2f0959264d306dbf957c2ad88522c2",
-  "updatedAtUtc": "2026-03-07T05:18:00Z",
+  "buyerAccessGraphSignature": "8a4a6c8da255a525919138977cedeb01da8884454b0f0390f82e7a8a1542a230",
+  "updatedAtUtc": "2026-03-08T04:48:00Z",
   "issues": [
     {
       "type": "missing_decision_arch",
@@ -20,7 +20,15 @@
       "items": [
         {
           "buyer_id": "DFC",
-          "high_roles": 2
+          "person": "Ben Black"
+        },
+        {
+          "buyer_id": "DFC",
+          "person": "Conor Coleman"
+        },
+        {
+          "buyer_id": "TAFF",
+          "person": "Tariq Al Futtaim"
         }
       ]
     },
