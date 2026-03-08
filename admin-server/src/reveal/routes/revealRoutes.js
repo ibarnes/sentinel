@@ -19,12 +19,18 @@ import { integrityForStep, integrityRecomputeFlow } from '../services/replayInte
 import { createSnapshot, listSnapshots, getSnapshot, verifySnapshotIntegrity, recomputeFlowSnapshotIntegrity } from '../services/snapshotService.js';
 import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
 import { buildReviewedPackage, buildSnapshotPackage, getReviewedPackageVerificationMetadata, getSnapshotPackageVerificationMetadata } from '../services/packageService.js';
-import { getSigningContext, verifyVerificationMetadata, getVerificationKeyset, TRUST_PROFILES } from '../services/packageSigningService.js';
+import { getSigningContext, verifyVerificationMetadata, getVerificationKeyset, verifyKeysetIntegrity, TRUST_PROFILES } from '../services/packageSigningService.js';
 
 const router = express.Router();
 
 router.get('/api/verification/keyset', async (_req, res) => {
   const out = await getVerificationKeyset();
+  res.json(out);
+});
+
+router.get('/api/verification/keyset/integrity', async (_req, res) => {
+  const keyset = await getVerificationKeyset();
+  const out = await verifyKeysetIntegrity(keyset);
   res.json(out);
 });
 

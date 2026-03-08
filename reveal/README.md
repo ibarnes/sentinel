@@ -70,13 +70,25 @@ Product-intelligence capture system at `/reveal`.
   - `packageVerificationScope` (exact signed fields)
 - Verification metadata routes:
   - `GET /reveal/api/verification/keyset`
+  - `GET /reveal/api/verification/keyset/integrity`
   - `GET /reveal/api/verification/trust-profiles`
   - `GET /reveal/api/flows/:flowId/export/verification-metadata`
   - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId/export/verification-metadata`
   - `POST /reveal/api/revealpkg/verify`
 - Local signing config (optional):
-  - env: `REVEAL_SIGNING_PRIVATE_KEY`, `REVEAL_SIGNING_PUBLIC_KEY`, `REVEAL_SIGNING_KEY_ID`
-  - file fallback: `reveal/keys/package-signing-private.pem` and `reveal/keys/package-signing-public.pem`
+  - package signing env: `REVEAL_SIGNING_PRIVATE_KEY`, `REVEAL_SIGNING_PUBLIC_KEY`, `REVEAL_SIGNING_KEY_ID`
+  - keyset signing env: `REVEAL_KEYSET_SIGNING_PRIVATE_KEY`, `REVEAL_KEYSET_SIGNING_PUBLIC_KEY`, `REVEAL_KEYSET_SIGNING_KEY_ID`
+  - trust profile env: `REVEAL_TRUST_PROFILE_ID` (`local_dev|internal_verified|unsigned_export`)
+  - additional key metadata env: `REVEAL_ADDITIONAL_KEYS_JSON`
+  - file fallback: `reveal/keys/package-signing-private.pem`, `reveal/keys/package-signing-public.pem`, `reveal/keys/keyset-signing-private.pem`, `reveal/keys/keyset-signing-public.pem`
+
+### Keyset continuity + rotation
+- Keyset includes chain metadata:
+  - `keysetVersion`, `previousKeysetVersion`, `previousKeysetHash`, `keysetChainIndex`
+  - `keysetContentHash`, `keysetHashVersion`
+  - keyset signature fields (`keysetSignature*`)
+- Key lifecycle fields per key:
+  - `keyStatus`, `activatedAt`, `retiresAt`, `revokedAt`, `previousKeyId`, `nextKeyId`, `rotationGroupId`, `verificationUse`
 - Snapshot fixture runner: `node admin-server/src/reveal/normalization/fixtures/run-snapshot-fixtures.mjs`
 
 ### Snapshot hash canonicalization

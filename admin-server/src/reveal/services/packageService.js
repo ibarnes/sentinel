@@ -12,7 +12,8 @@ import {
   signPayload,
   verifyVerificationMetadata,
   buildSigningPayload,
-  PACKAGE_SIGNATURE_VERSION
+  PACKAGE_SIGNATURE_VERSION,
+  getVerificationKeyset
 } from './packageSigningService.js';
 
 const pexecFile = promisify(execFile);
@@ -102,7 +103,8 @@ async function applySignatureMetadata(manifest) {
   manifest.trustProfileType = ctx.trustProfile?.trustProfileType || 'unsigned_export';
   manifest.signerIdentity = ctx.trustProfile?.signerIdentity || 'None';
   manifest.verificationPolicyVersion = ctx.trustProfile?.verificationPolicyVersion || 'policy-v1';
-  manifest.verifierKeysetVersion = ctx.keysetVersion || 'keyset-v1';
+  const keyset = await getVerificationKeyset();
+  manifest.verifierKeysetVersion = keyset.keysetVersion || 'keyset-v1';
 
   if (!ctx.enabled) {
     manifest.signatureStatus = 'unsigned';

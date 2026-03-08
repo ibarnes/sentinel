@@ -173,9 +173,13 @@ async function refreshSnapshots() {
   const out = await api(`/reveal/api/flows/${state.flowId}/snapshots`);
   state.snapshots = out.snapshots || [];
   try {
-    state.packageTrust = await api(`/reveal/api/flows/${state.flowId}/export/verification-metadata`);
+    const keyset = await api('/reveal/api/verification/keyset');
+    state.packageTrust = {
+      ...(await api(`/reveal/api/flows/${state.flowId}/export/verification-metadata`)),
+      keyset
+    };
   } catch {
-    state.packageTrust = { verificationResult: { status: 'unsigned' }, verificationMetadata: { unsignedReason: 'missing_key' } };
+    state.packageTrust = { verificationResult: { status: 'unsigned' }, verificationMetadata: { unsignedReason: 'missing_key' }, keyset: { keysetVersion: 'n/a', keysetSignatureStatus: 'unsigned' } };
   }
   const sel = document.getElementById('snapshot-select');
   if (!sel) return;
@@ -222,7 +226,11 @@ async function renderSnapshotSummary() {
     reviewedPackageSigning: {
       status: state.packageTrust?.verificationResult?.status || 'unknown',
       keyId: state.packageTrust?.verificationMetadata?.signingKeyId || null,
-      packageContentHash: state.packageTrust?.verificationMetadata?.packageContentHash || null
+      fingerprint: state.packageTrust?.verificationMetadata?.signerKeyFingerprint || null,
+      trustProfile: state.packageTrust?.verificationMetadata?.trustProfileName || null,
+      packageContentHash: state.packageTrust?.verificationMetadata?.packageContentHash || null,
+      keysetVersion: state.packageTrust?.keyset?.keysetVersion || null,
+      keysetSignatureStatus: state.packageTrust?.keyset?.keysetSignatureStatus || null
     },
     snapshotId: s.snapshotId,
     chainIndex: s.snapshotChainIndex,

@@ -37,6 +37,8 @@ delete process.env.REVEAL_SIGNING_KEY_ID;
 const rpUnsigned = await buildReviewedPackage(flowId);
 if (rpUnsigned.error) throw new Error(rpUnsigned.error);
 if (rpUnsigned.manifest.signatureStatus !== 'unsigned') throw new Error('expected unsigned package without key');
+const ksUnsigned = await getVerificationKeyset();
+if (ksUnsigned.keysetSignatureStatus !== 'unsigned') throw new Error('expected unsigned keyset without keyset signing material');
 
 // signed mode
 const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', { modulusLength: 2048, publicKeyEncoding: { type: 'spki', format: 'pem' }, privateKeyEncoding: { type: 'pkcs8', format: 'pem' } });
@@ -102,6 +104,31 @@ if (verifyMismatch.status !== 'signer_key_mismatch') throw new Error('expected s
 // unknown trust profile
 const unknownTrust = await verifyVerificationMetadata({ ...man, trustProfileId: 'unknown_profile' }, { enabled: true, publicKey, signingKeyId: 'fixture-key', signerKeyFingerprint: man.signerKeyFingerprint });
 if (unknownTrust.status !== 'unknown_trust_profile') throw new Error('expected unknown_trust_profile');
+
+// lifecycle-aware verification statuses
+const retired = await verifyVerificationMetadata(man, {
+  enabled: true,
+  publicKey,
+  signingKeyId: 'fixture-key',
+  signerKeyFingerprint: man.signerKeyFingerprint,
+  keyset: {
+    keysetVersion: 'test-v2',
+    keys: [{ signingKeyId: 'fixture-key', signerKeyFingerprint: man.signerKeyFingerprint, keyStatus: 'retired', retiresAt: '2000-01-01T00:00:00.000Z' }]
+  }
+});
+if (retired.status !== 'verified_with_retired_key') throw new Error('expected verified_with_retired_key');
+
+const revoked = await verifyVerificationMetadata(man, {
+  enabled: true,
+  publicKey,
+  signingKeyId: 'fixture-key',
+  signerKeyFingerprint: man.signerKeyFingerprint,
+  keyset: {
+    keysetVersion: 'test-v3',
+    keys: [{ signingKeyId: 'fixture-key', signerKeyFingerprint: man.signerKeyFingerprint, keyStatus: 'revoked', revokedAt: '2020-01-01T00:00:00.000Z' }]
+  }
+});
+if (revoked.status !== 'signer_key_revoked') throw new Error('expected signer_key_revoked');
 
 // malformed metadata
 const malformed = await verifyVerificationMetadata({}, { enabled: true, publicKey, signingKeyId: 'fixture-key', signerKeyFingerprint: man.signerKeyFingerprint });
