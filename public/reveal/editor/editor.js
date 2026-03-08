@@ -441,6 +441,42 @@ function exportShotList(format) {
   download(`/reveal/api/production/shot-lists/${encodeURIComponent(state.latestShotList.shotListId)}/export?format=${encodeURIComponent(format)}`);
 }
 
+async function addShotEditIntent() {
+  if (!state.latestShotList?.shotListId) return alert('Generate shot list first');
+  const shotId = prompt('shotId');
+  if (!shotId) return;
+  const type = prompt('type: hold_extension_ms|trim_start_ms|trim_end_ms|reorder_hint|transition_override|emphasis_override|note|disable_shot|duplicate_for_variant', 'note');
+  if (!type) return;
+  const valueRaw = prompt('value', '1000');
+  const value = ['hold_extension_ms','trim_start_ms','trim_end_ms','reorder_hint'].includes(type) ? Number(valueRaw) : valueRaw;
+  await api(`/reveal/api/production/shot-lists/${encodeURIComponent(state.latestShotList.shotListId)}/edit-intents`, 'POST', { shotId, type, value, createdBy: 'editor-user' });
+  alert('Edit intent added');
+}
+
+async function viewShotListWithDiff() {
+  if (!state.latestShotList?.shotListId) return alert('Generate shot list first');
+  const out = await api(`/reveal/api/production/shot-lists/${encodeURIComponent(state.latestShotList.shotListId)}?view=with_diff`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function createShotListSnapshotUi() {
+  if (!state.latestShotList?.shotListId) return alert('Generate shot list first');
+  const out = await api(`/reveal/api/production/shot-lists/${encodeURIComponent(state.latestShotList.shotListId)}/snapshots`, 'POST', { createdBy: 'editor-user' });
+  alert(`Shot list snapshot created: ${out.snapshot.shotListSnapshotId}`);
+}
+
+async function listShotListSnapshotsUi() {
+  if (!state.latestShotList?.shotListId) return alert('Generate shot list first');
+  const out = await api(`/reveal/api/production/shot-lists/${encodeURIComponent(state.latestShotList.shotListId)}/snapshots`);
+  const lines = (out.snapshots || []).map((s) => `${s.shotListSnapshotId} • scenes ${s.manifest?.sceneCount} • shots ${s.manifest?.shotCount}`);
+  alert(lines.length ? lines.join('\n') : 'No shot list snapshots');
+}
+
+function exportAssemblyPackageUi() {
+  if (!state.latestShotList?.shotListId) return alert('Generate shot list first');
+  download(`/reveal/api/production/shot-lists/${encodeURIComponent(state.latestShotList.shotListId)}/export?format=assembly_package`);
+}
+
 function exportPublishReadyReviewedMarkdown() {
   if (!state.latestScript?.scriptId) return alert('Generate a script first');
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=markdown&mode=publish_ready`);
@@ -724,6 +760,11 @@ function wireActions() {
   document.querySelector('[data-action="shotlist-generate-session"]')?.addEventListener('click', () => createShotListFromSession().catch((e) => alert(e.message)));
   document.querySelector('[data-action="shotlist-export-json"]')?.addEventListener('click', () => exportShotList('json'));
   document.querySelector('[data-action="shotlist-export-md"]')?.addEventListener('click', () => exportShotList('markdown'));
+  document.querySelector('[data-action="shotlist-add-edit-intent"]')?.addEventListener('click', () => addShotEditIntent().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="shotlist-view-with-diff"]')?.addEventListener('click', () => viewShotListWithDiff().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="shotlist-snapshot-create"]')?.addEventListener('click', () => createShotListSnapshotUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="shotlist-snapshot-list"]')?.addEventListener('click', () => listShotListSnapshotsUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="shotlist-export-assembly"]')?.addEventListener('click', () => exportAssemblyPackageUi());
 }
 
 async function boot() {

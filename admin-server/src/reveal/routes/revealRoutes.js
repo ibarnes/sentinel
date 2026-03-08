@@ -46,6 +46,9 @@ import { publishTrust, listTrustPublications, getLatestTrustPublication, getTrus
 import { verifyLatestReviewedSnapshot } from '../script/reviewedSnapshotVerificationService.js';
 import { buildProofBundle } from '../script/reviewedSnapshotProofBundleService.js';
 import { createShotList, getShotList, exportShotList } from '../production/shotListService.js';
+import { createEditIntent, listEditIntents, patchEditIntent, deleteEditIntent, applyEditIntentsToShotList, diffShotLists } from '../production/editIntentService.js';
+import { createShotListSnapshot, listShotListSnapshots, getShotListSnapshot } from '../production/shotListSnapshotService.js';
+import { buildAssemblyPackage } from '../production/assemblyPackageService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -402,16 +405,106 @@ router.post('/api/production/shot-lists', uploadPkg.single('package'), async (re
 });
 
 router.get('/api/production/shot-lists/:shotListId', async (req, res) => {
-  const out = await getShotList(String(req.params.shotListId || ''));
+  const shotListId = String(req.params.shotListId || '');
+  const out = await getShotList(shotListId);
+  if (out.error) return res.status(404).json(out);
+  const intents = await listEditIntents(shotListId);
+  const effective = applyEditIntentsToShotList(out.shotList, intents.editIntents || []);
+  const diff = diffShotLists(out.shotList, effective);
+  const view = String(req.query.view || 'baseline');
+  if (view === 'effective') return res.json({ shotList: effective });
+  if (view === 'with_diff') return res.json({ baseline: out.shotList, editIntents: intents.editIntents || [], effective, diff });
+  res.json(out);
+});
+
+router.post('/api/production/shot-lists/:shotListId/edit-intents', async (req, res) => {
+  const out = await createEditIntent(String(req.params.shotListId || ''), req.body || {});
+  if (['invalid_shot_id','invalid_edit_intent_type','invalid_duration_value','invalid_reorder_hint'].includes(out.error)) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/shot-lists/:shotListId/edit-intents', async (req, res) => {
+  const out = await listEditIntents(String(req.params.shotListId || ''));
+  res.json(out);
+});
+
+router.patch('/api/production/shot-lists/:shotListId/edit-intents/:editIntentId', async (req, res) => {
+  const out = await patchEditIntent(String(req.params.shotListId || ''), String(req.params.editIntentId || ''), req.body || {});
+  if (out.error === 'edit_intent_not_found') return res.status(404).json(out);
+  if (['invalid_shot_id','invalid_edit_intent_type','invalid_duration_value','invalid_reorder_hint'].includes(out.error)) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.delete('/api/production/shot-lists/:shotListId/edit-intents/:editIntentId', async (req, res) => {
+  const out = await deleteEditIntent(String(req.params.shotListId || ''), String(req.params.editIntentId || ''));
   if (out.error) return res.status(404).json(out);
   res.json(out);
 });
 
-router.get('/api/production/shot-lists/:shotListId/export', async (req, res) => {
-  const out = await getShotList(String(req.params.shotListId || ''));
+router.post('/api/production/shot-lists/:shotListId/snapshots', async (req, res) => {
+  const out = await createShotListSnapshot(String(req.params.shotListId || ''), { createdBy: req.body?.createdBy || null });
+  if (out.error === 'shot_list_not_found') return res.status(404).json(out);
+  if (out.error === 'shot_list_snapshot_id_collision') return res.status(409).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/shot-lists/:shotListId/snapshots', async (req, res) => {
+  const out = await listShotListSnapshots(String(req.params.shotListId || ''));
+  res.json(out);
+});
+
+router.get('/api/production/shot-lists/:shotListId/snapshots/:shotListSnapshotId', async (req, res) => {
+  const out = await getShotListSnapshot(String(req.params.shotListId || ''), String(req.params.shotListSnapshotId || ''));
   if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/shot-lists/:shotListId/snapshots/:shotListSnapshotId/export', async (req, res) => {
+  const shotListId = String(req.params.shotListId || '');
+  const shotListSnapshotId = String(req.params.shotListSnapshotId || '');
   const format = String(req.query.format || 'json').toLowerCase();
-  const exp = exportShotList(out.shotList, format);
+
+  if (format === 'assembly_package') {
+    const out = await buildAssemblyPackage({ shotListId, shotListSnapshotId, format, requireLatestTrustPublication: String(req.query.requireLatestTrustPublication || '0') === '1' });
+    if (['shot_list_not_found','shot_list_snapshot_not_found'].includes(out.error)) return res.status(404).json(out);
+    if (['latest_trust_publication_missing','invalid_assembly_export_format'].includes(out.error)) return res.status(409).json(out);
+    res.setHeader('Content-Type', out.contentType);
+    res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
+    return res.send(out.buffer);
+  }
+
+  const out = await getShotListSnapshot(shotListId, shotListSnapshotId);
+  if (out.error) return res.status(404).json(out);
+  const exp = exportShotList(out.snapshot.frozenShotList, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
+router.get('/api/production/shot-lists/:shotListId/export', async (req, res) => {
+  const shotListId = String(req.params.shotListId || '');
+  const shotListSnapshotId = req.query.shotListSnapshotId ? String(req.query.shotListSnapshotId) : null;
+  const format = String(req.query.format || 'json').toLowerCase();
+
+  if (format === 'assembly_package') {
+    const out = await buildAssemblyPackage({
+      shotListId,
+      shotListSnapshotId,
+      format,
+      requireLatestTrustPublication: String(req.query.requireLatestTrustPublication || '0') === '1'
+    });
+    if (['shot_list_not_found','shot_list_snapshot_not_found'].includes(out.error)) return res.status(404).json(out);
+    if (['latest_trust_publication_missing','invalid_assembly_export_format'].includes(out.error)) return res.status(409).json(out);
+    res.setHeader('Content-Type', out.contentType);
+    res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
+    return res.send(out.buffer);
+  }
+
+  const out = shotListSnapshotId ? await getShotListSnapshot(shotListId, shotListSnapshotId) : await getShotList(shotListId);
+  if (out.error) return res.status(404).json(out);
+  const shotList = shotListSnapshotId ? out.snapshot.frozenShotList : out.shotList;
+  const exp = exportShotList(shotList, format);
   if (exp.error) return res.status(400).json(exp);
   res.setHeader('Content-Type', exp.contentType);
   res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
@@ -921,6 +1014,11 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="shotlist-generate-session">Generate Shot List (Session)</button>
           <button data-action="shotlist-export-json">Export Shot List JSON</button>
           <button data-action="shotlist-export-md">Export Shot List MD</button>
+          <button data-action="shotlist-add-edit-intent">Add Shot Edit Intent</button>
+          <button data-action="shotlist-view-with-diff">View Effective vs Baseline</button>
+          <button data-action="shotlist-snapshot-create">Create Shot List Snapshot</button>
+          <button data-action="shotlist-snapshot-list">List Shot List Snapshots</button>
+          <button data-action="shotlist-export-assembly">Export Assembly Package</button>
         </div>
         <pre id="script-preview" class="dbg-pre">No script generated.</pre>
       </section>

@@ -153,9 +153,17 @@ Product-intelligence capture system at `/reveal`.
   - publish gate blocks `mode=publish_ready` export when requirements fail; supports optional `requireLatestReviewedSnapshotIntegrity=1` and `requireLatestTrustPublication=1`.
   - production shot lists:
     - `POST /reveal/api/production/shot-lists`
-    - `GET /reveal/api/production/shot-lists/:shotListId`
-    - `GET /reveal/api/production/shot-lists/:shotListId/export?format=json|markdown`
-    - storage: `reveal/storage/shot-lists/{shotListId}.json`
+    - `GET /reveal/api/production/shot-lists/:shotListId?view=baseline|effective|with_diff`
+    - `POST /reveal/api/production/shot-lists/:shotListId/edit-intents`
+    - `GET /reveal/api/production/shot-lists/:shotListId/edit-intents`
+    - `PATCH /reveal/api/production/shot-lists/:shotListId/edit-intents/:editIntentId`
+    - `DELETE /reveal/api/production/shot-lists/:shotListId/edit-intents/:editIntentId`
+    - `POST /reveal/api/production/shot-lists/:shotListId/snapshots`
+    - `GET /reveal/api/production/shot-lists/:shotListId/snapshots`
+    - `GET /reveal/api/production/shot-lists/:shotListId/snapshots/:shotListSnapshotId`
+    - `GET /reveal/api/production/shot-lists/:shotListId/export?format=json|markdown|assembly_package`
+    - `GET /reveal/api/production/shot-lists/:shotListId/snapshots/:shotListSnapshotId/export?format=json|markdown|assembly_package`
+    - storage: `reveal/storage/shot-lists/{shotListId}.json`, `reveal/storage/shot-list-snapshots/{shotListId}/{shotListSnapshotId}.json`, `reveal/storage/shot-list-edit-intents/{shotListId}.json`
   - style profiles: `neutral_walkthrough`, `concise_training`, `executive_overview`
 - Session lifecycle:
   - TTL + optional idle policy for `playing` sessions
