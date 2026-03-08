@@ -46,10 +46,26 @@ Product-intelligence capture system at `/reveal`.
   - `POST /reveal/api/flows/:flowId/snapshots`
   - `GET /reveal/api/flows/:flowId/snapshots`
   - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId`
+- Snapshot integrity routes:
+  - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId/integrity`
+  - `POST /reveal/api/flows/:flowId/snapshots/integrity/recompute`
 - Export routes:
   - `GET /reveal/api/flows/:flowId/export?format=json|markdown`
   - `GET /reveal/api/flows/:flowId/snapshots/:snapshotId/export?format=json|markdown`
 - Snapshot fixture runner: `node admin-server/src/reveal/normalization/fixtures/run-snapshot-fixtures.mjs`
+
+### Snapshot hash canonicalization
+- Hash: `sha256` over canonical frozen snapshot payload
+- Snapshot hash version: `sha256-v1`
+- Rules:
+  - stable object key ordering
+  - numbers rounded to 6dp
+  - semantic arrays keep order
+  - `undefined` removed, `null` preserved
+  - transient presentation fields excluded (`exportAvailability`)
+- Chain model:
+  - first snapshot: `snapshotChainIndex=1`, parent fields null
+  - later snapshots link `parentSnapshotId` + `parentSnapshotContentHash`
 - Flow editor compare mode (baseline vs reviewed diffs)
 - Flow editor shell with live reviewed mutations
 - Storage conventions for sessions/events/flows/assets

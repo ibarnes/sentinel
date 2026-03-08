@@ -184,19 +184,38 @@ async function refreshSnapshots() {
     o.textContent = `${s.snapshotId} (v${s.reviewVersion})`;
     sel.appendChild(o);
   }
-  renderSnapshotSummary();
+  await renderSnapshotSummary();
 }
 
 function selectedSnapshotId() {
   return document.getElementById('snapshot-select')?.value || '';
 }
 
-function renderSnapshotSummary() {
+async function renderSnapshotSummary() {
   const id = selectedSnapshotId();
   const s = state.snapshots.find((x) => x.snapshotId === id);
   const pre = document.getElementById('snapshot-summary');
   if (!pre) return;
-  pre.textContent = s ? JSON.stringify(s.manifest || s, null, 2) : 'No snapshot selected';
+  if (!s) {
+    pre.textContent = 'No snapshot selected';
+    return;
+  }
+  let integrity = null;
+  try {
+    integrity = await api(`/reveal/api/flows/${state.flowId}/snapshots/${encodeURIComponent(id)}/integrity`);
+  } catch {
+    integrity = { status: 'unavailable' };
+  }
+  pre.textContent = JSON.stringify({
+    snapshotId: s.snapshotId,
+    chainIndex: s.snapshotChainIndex,
+    chainRoot: s.chainRoot,
+    contentHash: s.snapshotContentHash,
+    parentSnapshotId: s.parentSnapshotId,
+    parentSnapshotContentHash: s.parentSnapshotContentHash,
+    manifest: s.manifest,
+    integrity
+  }, null, 2);
 }
 
 function download(url) {
@@ -366,7 +385,12 @@ function wireActions() {
     await refreshSnapshots();
   });
   document.querySelector('[data-action="snapshot-refresh"]')?.addEventListener('click', refreshSnapshots);
-  document.getElementById('snapshot-select')?.addEventListener('change', renderSnapshotSummary);
+  document.querySelector('[data-action="snapshot-integrity-recompute"]')?.addEventListener('click', async () => {
+    const out = await api(`/reveal/api/flows/${state.flowId}/snapshots/integrity/recompute`, 'POST', {});
+    alert(`Snapshot integrity: matched ${out.matched}/${out.totalSnapshots}, mismatched ${out.mismatched}, broken ${out.brokenChainLinks}`);
+    await refreshSnapshots();
+  });
+  document.getElementById('snapshot-select')?.addEventListener('change', () => { renderSnapshotSummary().catch(() => {}); });
 
   document.querySelector('[data-action="export-reviewed-json"]')?.addEventListener('click', () => download(`/reveal/api/flows/${state.flowId}/export?format=json`));
   document.querySelector('[data-action="export-reviewed-md"]')?.addEventListener('click', () => download(`/reveal/api/flows/${state.flowId}/export?format=markdown`));

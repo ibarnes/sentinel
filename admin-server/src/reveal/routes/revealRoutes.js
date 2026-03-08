@@ -15,7 +15,7 @@ import {
 import { getFlowCompare } from '../services/compareService.js';
 import { buildStepCoordinateReplay } from '../services/coordinateReplayService.js';
 import { integrityForStep, integrityRecomputeFlow } from '../services/replayIntegrityService.js';
-import { createSnapshot, listSnapshots, getSnapshot } from '../services/snapshotService.js';
+import { createSnapshot, listSnapshots, getSnapshot, verifySnapshotIntegrity, recomputeFlowSnapshotIntegrity } from '../services/snapshotService.js';
 import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js';
 
 const router = express.Router();
@@ -124,6 +124,20 @@ router.get('/api/flows/:flowId/snapshots/:snapshotId/export', async (req, res) =
   res.setHeader('Content-Type', out.contentType);
   res.setHeader('Content-Disposition', `attachment; filename="${out.filename}"`);
   res.send(out.content);
+});
+
+router.get('/api/flows/:flowId/snapshots/:snapshotId/integrity', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const snapshotId = String(req.params.snapshotId || '');
+  const out = await verifySnapshotIntegrity(flowId, snapshotId);
+  if (out.error === 'snapshot_not_found') return res.status(404).json(out);
+  res.json(out);
+});
+
+router.post('/api/flows/:flowId/snapshots/integrity/recompute', async (req, res) => {
+  const flowId = String(req.params.flowId || '');
+  const out = await recomputeFlowSnapshotIntegrity(flowId);
+  res.json(out);
 });
 
 router.post('/api/flows/:flowId/review/init', async (req, res) => {
@@ -249,6 +263,7 @@ router.get('/editor/:flowId', async (req, res) => {
         <select id="snapshot-select"></select>
         <div class="actions">
           <button data-action="snapshot-refresh">Refresh Snapshots</button>
+          <button data-action="snapshot-integrity-recompute">Recompute Snapshot Integrity</button>
           <button data-action="export-snapshot-json">Export Snapshot JSON</button>
           <button data-action="export-snapshot-md">Export Snapshot MD</button>
         </div>
