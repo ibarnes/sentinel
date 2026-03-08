@@ -10,6 +10,8 @@ import pdfParse from 'pdf-parse';
 import mammoth from 'mammoth';
 import Ajv from 'ajv';
 import nodemailer from 'nodemailer';
+import revealRoutes from './reveal/routes/revealRoutes.js';
+import { ensureRevealStorage } from './reveal/storage/revealStorage.js';
 
 const app = express();
 app.set('trust proxy', 1);
@@ -2866,6 +2868,16 @@ app.use('/presentations', express.static(path.join(ROOT, 'presentations'), {
   fallthrough: true,
   redirect: false,
   setHeaders(res) { res.setHeader('Cache-Control', 'no-store'); }
+}));
+
+app.use('/reveal', revealRoutes);
+app.use('/reveal/editor', express.static(path.join(ROOT, 'public', 'reveal', 'editor'), {
+  index: false,
+  fallthrough: true,
+  redirect: false,
+  setHeaders(res) {
+    res.setHeader('Cache-Control', 'no-store');
+  }
 }));
 
 app.use('/dashboard', express.static(path.join(ROOT, 'dashboard'), {
@@ -5918,6 +5930,7 @@ function renderSimpleMarkdown(md) {
 
 await ensureDirs();
 await ensureTeamAndBoardFiles();
+await ensureRevealStorage();
 
 app.listen(ADMIN_PORT, ADMIN_HOST, () => {
   console.log(`UOS admin server listening on http://${ADMIN_HOST}:${ADMIN_PORT}`);
