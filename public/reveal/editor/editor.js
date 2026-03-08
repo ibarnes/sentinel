@@ -348,6 +348,54 @@ function exportLatestScript(format) {
   download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/export?format=${encodeURIComponent(format)}`);
 }
 
+async function initScriptReview() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/init`, 'POST', { actor: 'editor-user' });
+  renderScriptPreview({ ...state.latestScript, review: out.reviewed, diff: out.diff });
+}
+
+async function editReviewedSection() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const sid = prompt('Section ID to edit');
+  if (!sid) return;
+  const narrationText = prompt('New narration text');
+  if (narrationText == null) return;
+  const onScreenText = prompt('New on-screen text (optional)', '');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/sections/${encodeURIComponent(sid)}`, 'PATCH', { narrationText, onScreenText, actor: 'editor-user' });
+  renderScriptPreview({ ...state.latestScript, review: out.reviewed, diff: out.diff });
+}
+
+async function addReviewedNote() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const sid = prompt('Section ID for note');
+  if (!sid) return;
+  const note = prompt('Note text');
+  if (!note) return;
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/sections/${encodeURIComponent(sid)}/notes`, 'POST', { note, actor: 'editor-user' });
+  renderScriptPreview({ ...state.latestScript, review: out.reviewed, diff: out.diff });
+}
+
+async function viewScriptDiff() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/diff`);
+  const pre = document.getElementById('script-preview');
+  pre.textContent = JSON.stringify(out, null, 2);
+}
+
+async function updateScriptReviewStatus() {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  const targetStatus = prompt('targetStatus: draft|in_review|approved|rejected|published_ready', 'in_review');
+  if (!targetStatus) return;
+  const reason = targetStatus === 'rejected' ? (prompt('Rejection reason', 'Needs revision') || null) : null;
+  const out = await api(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/status`, 'POST', { targetStatus, reason, actor: 'editor-user' });
+  renderScriptPreview({ ...state.latestScript, review: out.reviewed, diff: out.diff });
+}
+
+function exportReviewedScript(format) {
+  if (!state.latestScript?.scriptId) return alert('Generate a script first');
+  download(`/reveal/api/scripts/${encodeURIComponent(state.latestScript.scriptId)}/review/export?format=${encodeURIComponent(format)}`);
+}
+
 function renderInspector(step, replay, integrity) {
   const el = document.getElementById('coord-inspector');
   if (!el) return;
@@ -543,6 +591,13 @@ function wireActions() {
   document.querySelector('[data-action="script-generate-flow"]')?.addEventListener('click', () => createScriptFromFlow().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-generate-snapshot"]')?.addEventListener('click', () => createScriptFromSnapshot().catch((e) => alert(e.message)));
   document.querySelector('[data-action="script-generate-session"]')?.addEventListener('click', () => createScriptFromSession().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-init"]')?.addEventListener('click', () => initScriptReview().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-edit-section"]')?.addEventListener('click', () => editReviewedSection().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-add-note"]')?.addEventListener('click', () => addReviewedNote().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-diff"]')?.addEventListener('click', () => viewScriptDiff().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-status"]')?.addEventListener('click', () => updateScriptReviewStatus().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="script-review-export-json"]')?.addEventListener('click', () => exportReviewedScript('json'));
+  document.querySelector('[data-action="script-review-export-md"]')?.addEventListener('click', () => exportReviewedScript('markdown'));
   document.querySelector('[data-action="script-export-json"]')?.addEventListener('click', () => exportLatestScript('json'));
   document.querySelector('[data-action="script-export-md"]')?.addEventListener('click', () => exportLatestScript('markdown'));
 }

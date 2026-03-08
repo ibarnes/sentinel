@@ -29,6 +29,16 @@ import { exportReviewedFlow, exportSnapshot } from '../services/exportService.js
 import { buildReviewedPackage, buildSnapshotPackage, getReviewedPackageVerificationMetadata, getSnapshotPackageVerificationMetadata } from '../services/packageService.js';
 import { getSigningContext, verifyVerificationMetadata, getVerificationKeyset, verifyKeysetIntegrity, TRUST_PROFILES } from '../services/packageSigningService.js';
 import { createNarrationScript, getScript, getScriptExport, listStyleProfiles } from '../script/narrationScriptService.js';
+import {
+  initReviewedScript,
+  getReviewedScript,
+  updateReviewedSection,
+  reorderReviewedSections,
+  addReviewedSectionNote,
+  replaceReviewedScript,
+  updateReviewedStatus,
+  reviewedExport
+} from '../script/reviewedScriptService.js';
 
 const router = express.Router();
 const uploadPkg = multer({ storage: multer.memoryStorage(), limits: { fileSize: 200 * 1024 * 1024 } });
@@ -211,6 +221,75 @@ router.get('/api/scripts/:scriptId/export', async (req, res) => {
   if (out.error) return res.status(404).json(out);
   const format = String(req.query.format || 'json').toLowerCase();
   const exp = getScriptExport(out.script, format);
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
+router.post('/api/scripts/:scriptId/review/init', async (req, res) => {
+  const out = await initReviewedScript(String(req.params.scriptId || ''), { actor: req.body?.actor || null });
+  if (out.error === 'script_not_found') return res.status(404).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/scripts/:scriptId/review', async (req, res) => {
+  const out = await getReviewedScript(String(req.params.scriptId || ''));
+  if (out.error === 'script_not_found' || out.error === 'review_not_found') return res.status(404).json(out);
+  res.json(out);
+});
+
+router.patch('/api/scripts/:scriptId/review/sections/:sectionId', async (req, res) => {
+  const out = await updateReviewedSection(String(req.params.scriptId || ''), String(req.params.sectionId || ''), req.body || {}, req.body?.actor || null);
+  if (['script_not_found', 'review_not_found', 'section_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['invalid_narration_text', 'invalid_timing'].includes(out.error)) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.post('/api/scripts/:scriptId/review/sections/reorder', async (req, res) => {
+  const out = await reorderReviewedSections(String(req.params.scriptId || ''), Array.isArray(req.body?.orderedSectionIds) ? req.body.orderedSectionIds : [], req.body?.actor || null);
+  if (['script_not_found', 'review_not_found', 'section_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (['invalid_reorder_payload', 'duplicate_reorder_ids'].includes(out.error)) return res.status(400).json(out);
+  res.json(out);
+});
+
+router.post('/api/scripts/:scriptId/review/sections/:sectionId/notes', async (req, res) => {
+  const out = await addReviewedSectionNote(String(req.params.scriptId || ''), String(req.params.sectionId || ''), req.body?.note || '', req.body?.actor || null);
+  if (['script_not_found', 'review_not_found', 'section_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error === 'invalid_note') return res.status(400).json(out);
+  res.json(out);
+});
+
+router.put('/api/scripts/:scriptId/review', async (req, res) => {
+  const out = await replaceReviewedScript(String(req.params.scriptId || ''), req.body || {}, req.body?.actor || null);
+  if (['script_not_found', 'review_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error === 'invalid_review_payload') return res.status(400).json(out);
+  res.json(out);
+});
+
+router.post('/api/scripts/:scriptId/review/status', async (req, res) => {
+  const out = await updateReviewedStatus(String(req.params.scriptId || ''), {
+    targetStatus: req.body?.targetStatus,
+    reason: req.body?.reason || null,
+    actor: req.body?.actor || null
+  });
+  if (['script_not_found', 'review_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error === 'invalid_status_transition') return res.status(400).json(out);
+  res.json(out);
+});
+
+router.get('/api/scripts/:scriptId/review/diff', async (req, res) => {
+  const out = await getReviewedScript(String(req.params.scriptId || ''));
+  if (['script_not_found', 'review_not_found'].includes(out.error)) return res.status(404).json(out);
+  res.json({ diff: out.diff, reviewStatus: out.reviewed.reviewStatus, reviewVersion: out.reviewed.reviewVersion });
+});
+
+router.get('/api/scripts/:scriptId/review/export', async (req, res) => {
+  const out = await getReviewedScript(String(req.params.scriptId || ''));
+  if (['script_not_found', 'review_not_found'].includes(out.error)) return res.status(404).json(out);
+  const format = String(req.query.format || 'json').toLowerCase();
+  const includeNotes = String(req.query.includeNotes || '1') === '1';
+  const exp = reviewedExport(out, format, includeNotes);
   if (exp.error) return res.status(400).json(exp);
   res.setHeader('Content-Type', exp.contentType);
   res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
@@ -649,6 +728,13 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="script-generate-flow">Generate from Flow</button>
           <button data-action="script-generate-snapshot">Generate from Snapshot</button>
           <button data-action="script-generate-session">Generate from Session</button>
+          <button data-action="script-review-init">Init Script Review</button>
+          <button data-action="script-review-edit-section">Edit Reviewed Section</button>
+          <button data-action="script-review-add-note">Add Section Note</button>
+          <button data-action="script-review-diff">View Script Diff</button>
+          <button data-action="script-review-status">Update Review Status</button>
+          <button data-action="script-review-export-json">Export Reviewed JSON</button>
+          <button data-action="script-review-export-md">Export Reviewed MD</button>
           <button data-action="script-export-json">Export Script JSON</button>
           <button data-action="script-export-md">Export Script MD</button>
         </div>

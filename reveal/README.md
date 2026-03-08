@@ -123,6 +123,16 @@ Product-intelligence capture system at `/reveal`.
   - `POST /reveal/api/scripts` (flowId|snapshotId|sessionId|package + styleProfile)
   - `GET /reveal/api/scripts/:scriptId`
   - `GET /reveal/api/scripts/:scriptId/export?format=json|markdown`
+  - review pipeline:
+    - `POST /reveal/api/scripts/:scriptId/review/init`
+    - `GET /reveal/api/scripts/:scriptId/review`
+    - `PATCH /reveal/api/scripts/:scriptId/review/sections/:sectionId`
+    - `POST /reveal/api/scripts/:scriptId/review/sections/reorder`
+    - `POST /reveal/api/scripts/:scriptId/review/sections/:sectionId/notes`
+    - `PUT /reveal/api/scripts/:scriptId/review`
+    - `POST /reveal/api/scripts/:scriptId/review/status`
+    - `GET /reveal/api/scripts/:scriptId/review/diff`
+    - `GET /reveal/api/scripts/:scriptId/review/export?format=json|markdown`
   - style profiles: `neutral_walkthrough`, `concise_training`, `executive_overview`
 - Session lifecycle:
   - TTL + optional idle policy for `playing` sessions
