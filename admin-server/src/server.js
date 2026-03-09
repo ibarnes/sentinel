@@ -2173,7 +2173,7 @@ app.get('/dashboard/initiatives', async (req, res) => {
     ${pageHeader('Initiatives', '', 'Gate 0–7 is the canonical initiative workflow')}
     <form id="initiativesFilterForm" method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-4"><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div></form>
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Name</th><th>Infrastructure Type</th><th>Gate Stage</th><th>Linked Buyers</th><th>Updated</th></tr></thead><tbody>
-      ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="d-flex gap-1 align-items-center"><select name="gate_stage" class="form-select form-select-sm" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form>` : escapeHtml(inferGate(i))}</td><td>${(i.linked_buyers || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td></tr>`).join('') || '<tr><td colspan="6">No initiatives</td></tr>'}
+      ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<div class="d-flex gap-1 align-items-center"><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="d-flex gap-1 align-items-center"><select name="gate_stage" class="form-select form-select-sm" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/delete" onsubmit="return confirm('Delete initiative ${escapeHtml(i.initiative_id)}? This cannot be undone.');"><button class="btn btn-sm btn-outline-danger" type="submit">Delete</button></form></div>` : escapeHtml(inferGate(i))}</td><td>${(i.linked_buyers || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td></tr>`).join('') || '<tr><td colspan="6">No initiatives</td></tr>'}
     </tbody></table></div>
   </div>
   <script>
@@ -4722,6 +4722,50 @@ app.post('/api/initiatives/:id/gate', requireRole('architect','editor'), async (
   i.gate_updated_at = nowIso();
   await writeJson(initiativesPath, initiatives);
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'initiative.gate.update', entity_type: 'initiative', entity_id: id, meta: { gate_stage: gate } });
+  res.redirect('/dashboard/initiatives');
+});
+
+app.post('/api/initiatives/:id/delete', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  if (!id) return res.status(400).send('initiative id required');
+
+  const initiativesPath = path.join(ROOT, 'dashboard/data/initiatives.json');
+  const buyersPath = path.join(ROOT, 'dashboard/data/buyers.json');
+
+  const initiatives = await readJson(initiativesPath, []);
+  const initiative = initiatives.find((x) => String(x.initiative_id || '') === id);
+  if (!initiative) return res.status(404).send('initiative not found');
+
+  const beacons = await readBeaconQueue();
+  const linkedBeacons = (beacons.beacons || []).filter((b) => String(b.initiative_id || '') === id);
+
+  const deckStore = await readDeckSpecStore();
+  const linkedDecks = (deckStore.decks || []).filter((d) => String(d.initiativeId || '') === id);
+
+  if (linkedBeacons.length > 0 || linkedDecks.length > 0) {
+    return res.status(409).send(`cannot delete initiative with dependencies (beacons=${linkedBeacons.length}, decks=${linkedDecks.length})`);
+  }
+
+  const kept = initiatives.filter((x) => String(x.initiative_id || '') !== id);
+  await writeJson(initiativesPath, kept);
+
+  const buyers = await readJson(buyersPath, []);
+  for (const b of buyers) {
+    if (!Array.isArray(b.initiatives)) continue;
+    b.initiatives = b.initiatives.filter((iid) => String(iid || '') !== id);
+  }
+  await writeJson(buyersPath, buyers);
+
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'task.delete',
+    entity_type: 'initiative',
+    entity_id: id,
+    meta: { linked_buyers: initiative.linked_buyers || [] }
+  });
+
   res.redirect('/dashboard/initiatives');
 });
 
