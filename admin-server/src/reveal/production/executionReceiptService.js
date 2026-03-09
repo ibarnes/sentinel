@@ -50,7 +50,14 @@ function signingPayload(receipt) {
     callbackWarningsSummary: receipt.callbackWarningsSummary || [],
     lastCallbackReplayStatus: receipt.lastCallbackReplayStatus || null,
     lastCallbackKeyRegistryStatus: receipt.lastCallbackKeyRegistryStatus || null,
-    lastCallbackOutcome: receipt.lastCallbackOutcome || null
+    lastCallbackOutcome: receipt.lastCallbackOutcome || null,
+    ingestedArtifactCount: Number(receipt.ingestedArtifactCount || 0),
+    latestResultArtifactId: receipt.latestResultArtifactId || null,
+    latestResultArtifactType: receipt.latestResultArtifactType || null,
+    latestResultArtifactAt: receipt.latestResultArtifactAt || null,
+    resultArtifactTrustStatus: receipt.resultArtifactTrustStatus || 'none',
+    availableOutputTypes: receipt.availableOutputTypes || [],
+    resultArtifactWarningsSummary: receipt.resultArtifactWarningsSummary || []
   });
 }
 
@@ -152,6 +159,13 @@ export async function createExecutionReceipt({ providerSubmissionContractId = nu
     lastCallbackReplayStatus: null,
     lastCallbackKeyRegistryStatus: null,
     lastCallbackOutcome: null,
+    ingestedArtifactCount: 0,
+    latestResultArtifactId: null,
+    latestResultArtifactType: null,
+    latestResultArtifactAt: null,
+    resultArtifactTrustStatus: 'none',
+    availableOutputTypes: [],
+    resultArtifactWarningsSummary: [],
     metadata: { deterministic: true }
   };
 
@@ -223,6 +237,18 @@ export async function patchExecutionReceipt(executionReceiptId, patch = {}) {
     receipt.lastCallbackOutcome = patch.callbackUpdate.lastCallbackOutcome || receipt.lastCallbackOutcome || null;
   }
 
+  if (patch.resultArtifactUpdate && typeof patch.resultArtifactUpdate === 'object') {
+    receipt.latestResultArtifactId = patch.resultArtifactUpdate.latestResultArtifactId || receipt.latestResultArtifactId || null;
+    receipt.latestResultArtifactType = patch.resultArtifactUpdate.latestResultArtifactType || receipt.latestResultArtifactType || null;
+    receipt.latestResultArtifactAt = patch.resultArtifactUpdate.latestResultArtifactAt || receipt.latestResultArtifactAt || null;
+    receipt.resultArtifactTrustStatus = patch.resultArtifactUpdate.resultArtifactTrustStatus || receipt.resultArtifactTrustStatus || 'none';
+    receipt.ingestedArtifactCount = Number(receipt.ingestedArtifactCount || 0) + (Number(patch.resultArtifactUpdate.incrementIngestedArtifactCount || 0) || 0);
+    const outputs = Array.isArray(patch.resultArtifactUpdate.availableOutputTypesAppend) ? patch.resultArtifactUpdate.availableOutputTypesAppend : [];
+    receipt.availableOutputTypes = [...new Set([...(receipt.availableOutputTypes || []), ...outputs])].slice(0, 32);
+    const rw = Array.isArray(patch.resultArtifactUpdate.resultArtifactWarningsSummary) ? patch.resultArtifactUpdate.resultArtifactWarningsSummary : [];
+    receipt.resultArtifactWarningsSummary = [...new Set([...(receipt.resultArtifactWarningsSummary || []), ...rw])].slice(0, 20);
+  }
+
   receipt.updatedAt = new Date().toISOString();
   receipt = await signReceipt(receipt);
   await writeReceipt(receipt);
@@ -262,6 +288,9 @@ export function exportExecutionReceipt(receipt, format = 'json') {
   lines.push(`- Callback Trust: ${receipt.callbackTrustStatus || 'none'} • Count: ${receipt.callbackCount || 0}`);
   lines.push(`- Callback Replay: ${receipt.lastCallbackReplayStatus || 'n/a'} • Key Registry: ${receipt.lastCallbackKeyRegistryStatus || 'n/a'} • Outcome: ${receipt.lastCallbackOutcome || 'n/a'}`);
   lines.push(`- Callback Warnings: ${(receipt.callbackWarningsSummary || []).join(', ') || 'none'}`);
+  lines.push(`- Result Artifacts: ${receipt.ingestedArtifactCount || 0} • Latest: ${receipt.latestResultArtifactType || 'none'} (${receipt.latestResultArtifactId || 'n/a'}) @ ${receipt.latestResultArtifactAt || 'n/a'}`);
+  lines.push(`- Result Artifact Trust: ${receipt.resultArtifactTrustStatus || 'none'} • Outputs: ${(receipt.availableOutputTypes || []).join(', ') || 'none'}`);
+  lines.push(`- Result Artifact Warnings: ${(receipt.resultArtifactWarningsSummary || []).join(', ') || 'none'}`);
   lines.push(`- Blocking: ${(receipt.blockingReasons || []).join(', ') || 'none'}`);
   lines.push(`- Warnings: ${(receipt.warnings || []).join(', ') || 'none'}`);
   lines.push('', '## Lifecycle Events');

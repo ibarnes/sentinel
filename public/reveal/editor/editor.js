@@ -20,6 +20,7 @@ let state = {
   latestProviderSubmission: null,
   latestExecutionReceipt: null,
   latestExecutionCallback: null,
+  latestExecutionResultArtifact: null,
   latestSchedulerBoard: null,
   latestAdmission: null,
   latestProof: null
@@ -911,6 +912,48 @@ async function viewExecutionCallbackUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out.executionCallback, null, 2);
 }
 
+async function submitExecutionResultUi() {
+  const providerType = prompt('providerType', state.latestProviderSubmission?.providerType || 'generic_renderer') || 'generic_renderer';
+  const providerProfileId = prompt('providerProfileId', state.latestProviderSubmission?.providerProfileId || 'default') || 'default';
+  const artifactType = prompt('artifactType', 'execution_result_summary') || 'execution_result_summary';
+  const payloadRaw = prompt('artifactPayload JSON', '{"status":"completed","completedAt":"2026-03-09T13:00:00.000Z","outputCount":1,"message":"done"}');
+  let artifactPayload;
+  try { artifactPayload = JSON.parse(payloadRaw || '{}'); } catch { return alert('Invalid artifact payload JSON'); }
+  const out = await api('/reveal/api/production/execution-results', 'POST', {
+    providerType,
+    providerProfileId,
+    artifactType,
+    artifactPayload,
+    sourceExecutionReceiptId: state.latestExecutionReceipt?.executionReceiptId || null,
+    sourceProviderSubmissionContractId: state.latestProviderSubmission?.providerSubmissionContractId || null,
+    sourceExternalExecutionRef: prompt('sourceExternalExecutionRef (optional)', state.latestExecutionReceipt?.externalExecutionRef || '') || null,
+    policyProfile: 'dev',
+    trustMetadata: { unsignedAllowed: true }
+  });
+  state.latestExecutionResultArtifact = out.executionResultArtifact;
+  if (out.ingestionResult?.targetExecutionReceiptId) {
+    state.latestExecutionReceipt = (await api(`/reveal/api/production/execution-receipts/${encodeURIComponent(out.ingestionResult.targetExecutionReceiptId)}`)).executionReceipt;
+  }
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function verifyExecutionResultUi() {
+  const providerType = prompt('providerType', 'generic_renderer') || 'generic_renderer';
+  const providerProfileId = prompt('providerProfileId', 'default') || 'default';
+  const artifactType = prompt('artifactType', 'execution_result_summary') || 'execution_result_summary';
+  const payloadRaw = prompt('artifactPayload JSON', '{"status":"completed","completedAt":"2026-03-09T13:00:00.000Z","outputCount":1}');
+  let artifactPayload;
+  try { artifactPayload = JSON.parse(payloadRaw || '{}'); } catch { return alert('Invalid artifact payload JSON'); }
+  const out = await api('/reveal/api/production/execution-results/verify', 'POST', { providerType, providerProfileId, artifactType, artifactPayload, policyProfile: 'dev', trustMetadata: { unsignedAllowed: true } });
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function viewExecutionResultUi() {
+  if (!state.latestExecutionResultArtifact?.executionResultArtifactId) return alert('Submit result artifact first');
+  const out = await api(`/reveal/api/production/execution-results/${encodeURIComponent(state.latestExecutionResultArtifact.executionResultArtifactId)}`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out.executionResultArtifact, null, 2);
+}
+
 async function generateSchedulerBoardUi() {
   const out = await api('/reveal/api/production/scheduler-board', 'POST', {
     renderAdapterContractId: state.latestAdapter?.renderAdapterContractId || null,
@@ -1354,6 +1397,9 @@ function wireActions() {
   document.querySelector('[data-action="execution-callback-submit"]')?.addEventListener('click', () => submitExecutionCallbackUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="execution-callback-verify"]')?.addEventListener('click', () => verifyExecutionCallbackUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="execution-callback-view"]')?.addEventListener('click', () => viewExecutionCallbackUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-result-submit"]')?.addEventListener('click', () => submitExecutionResultUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-result-verify"]')?.addEventListener('click', () => verifyExecutionResultUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-result-view"]')?.addEventListener('click', () => viewExecutionResultUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-generate"]')?.addEventListener('click', () => generateSchedulerBoardUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-latest"]')?.addEventListener('click', () => viewLatestSchedulerBoardUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-export"]')?.addEventListener('click', () => exportSchedulerBoardUi());

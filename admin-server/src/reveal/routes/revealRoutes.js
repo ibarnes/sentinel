@@ -60,6 +60,8 @@ import { createProviderSubmissionContract, getProviderSubmissionContract, export
 import { createExecutionReceipt, getExecutionReceipt, patchExecutionReceipt, listExecutionReceipts, exportExecutionReceipt } from '../production/executionReceiptService.js';
 import { createExecutionCallback, getExecutionCallback, listExecutionCallbacks, exportExecutionCallback, replayCheckExecutionCallback } from '../production/executionCallbackService.js';
 import { verifyExecutionCallback } from '../production/callbackVerificationService.js';
+import { createExecutionResultArtifact, getExecutionResultArtifact, listExecutionResultArtifacts, exportExecutionResultArtifact } from '../production/executionResultArtifactService.js';
+import { verifyResultArtifact } from '../production/resultArtifactVerificationService.js';
 import { listCallbackSigningKeys, listCallbackSigningKeysByProfile } from '../production/callbackKeyRegistryService.js';
 import { listReplayLedger } from '../production/callbackReplayLedgerService.js';
 import { publishSubmissionTrust, listSubmissionTrustPublications, getLatestSubmissionTrustPublication, getSubmissionTrustPublication } from '../production/submissionTrustPublicationService.js';
@@ -1381,6 +1383,54 @@ router.get('/api/production/execution-callbacks/:executionCallbackId/export', as
   res.send(exp.content);
 });
 
+router.post('/api/production/execution-results/verify', async (req, res) => {
+  const out = await verifyResultArtifact({
+    providerType: req.body?.providerType || null,
+    providerProfileId: req.body?.providerProfileId || 'default',
+    artifactType: req.body?.artifactType || null,
+    artifactPayload: req.body?.artifactPayload || null,
+    trustMetadata: req.body?.trustMetadata || {},
+    artifactDigest: req.body?.artifactDigest || null,
+    policyProfile: req.body?.policyProfile || 'dev'
+  });
+  res.json(out);
+});
+
+router.post('/api/production/execution-results', async (req, res) => {
+  const out = await createExecutionResultArtifact(req.body || {});
+  if (['missing_provider_profile','unsupported_artifact_type','malformed_artifact_payload','malformed_artifact','capability_mismatch'].includes(out.error)) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/execution-results', async (req, res) => {
+  const out = await listExecutionResultArtifacts({
+    providerType: req.query.providerType ? String(req.query.providerType) : null,
+    providerProfileId: req.query.providerProfileId ? String(req.query.providerProfileId) : null,
+    artifactType: req.query.artifactType ? String(req.query.artifactType) : null,
+    sourceExecutionReceiptId: req.query.sourceExecutionReceiptId ? String(req.query.sourceExecutionReceiptId) : null,
+    sourceExternalExecutionRef: req.query.sourceExternalExecutionRef ? String(req.query.sourceExternalExecutionRef) : null,
+    ingestionStatus: req.query.ingestionStatus ? String(req.query.ingestionStatus) : null,
+    createdAfter: req.query.createdAfter ? String(req.query.createdAfter) : null
+  });
+  res.json(out);
+});
+
+router.get('/api/production/execution-results/:executionResultArtifactId', async (req, res) => {
+  const out = await getExecutionResultArtifact(String(req.params.executionResultArtifactId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/execution-results/:executionResultArtifactId/export', async (req, res) => {
+  const out = await getExecutionResultArtifact(String(req.params.executionResultArtifactId || ''));
+  if (out.error) return res.status(404).json(out);
+  const exp = exportExecutionResultArtifact(out.executionResultArtifact, String(req.query.format || 'json').toLowerCase());
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
 router.get('/api/production/execution-receipts/:executionReceiptId/trust-publications', async (req, res) => {
   const out = await listReceiptTrustPublications(String(req.params.executionReceiptId || ''));
   res.json(out);
@@ -2056,6 +2106,9 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="execution-callback-submit">Submit Execution Callback</button>
           <button data-action="execution-callback-verify">Verify Execution Callback</button>
           <button data-action="execution-callback-view">View Execution Callback</button>
+          <button data-action="execution-result-submit">Submit Execution Result</button>
+          <button data-action="execution-result-verify">Verify Execution Result</button>
+          <button data-action="execution-result-view">View Execution Result</button>
           <button data-action="scheduler-board-generate">Generate Scheduler Board</button>
           <button data-action="scheduler-board-latest">View Latest Scheduler Board</button>
           <button data-action="scheduler-board-export">Export Scheduler Board</button>
