@@ -89,7 +89,7 @@
     "name": "Nigeria Financial & Energy Circulation Spine",
     "status": "Execution-Layer Infrastructure (Subsidiary)",
     "gate_stage": "Gate 5",
-    "gate_updated_at": "2026-03-02T21:29:21.303Z",
+    "gate_updated_at": "2026-03-09T17:12:59.307Z",
     "infrastructure_category": "Economic",
     "primary_buyer_id": "FMF-NG",
     "linked_buyers": [
@@ -99,14 +99,833 @@
       "DFC"
     ],
     "macro_gravity_summary": "A licensed, revenue-generating microfinance banking and financial circulation system embedded in Nigeria, integrating: regulated banking core, wallet and payment rails, 2000+ fuel station QR redemption nodes, enterprise allocation controls, and a governance control plane.",
-    "structural_role": "UDG executes. USG architects scale, governance alignment, and regional expansion sequencing."
+    "structural_role": "UDG executes. USG architects scale, governance alignment, and regional expansion sequencing.",
+    "actor_alignment": {
+      "layers": {
+        "political": [
+          {
+            "role_id": "cbn",
+            "role_label": "Central Bank of Nigeria",
+            "layer": "political",
+            "status": "validated",
+            "notes": "",
+            "mapped_entity_type": "regulator",
+            "mapped_entity_ref": "CBN",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "ncc",
+            "role_label": "Nigerian Communications Commission",
+            "layer": "political",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "regulator",
+            "mapped_entity_ref": "NCC",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "nimc",
+            "role_label": "National Identity Management Commission",
+            "layer": "political",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "regulator",
+            "mapped_entity_ref": "NIMC",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "data_protection_regulator",
+            "role_label": "Data Protection Regulator",
+            "layer": "political",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "regulator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "fiu_aml_counterpart",
+            "role_label": "Financial Intelligence / AML Counterpart",
+            "layer": "political",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "regulator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "finance_ministry_ng",
+            "role_label": "Ministry of Finance Nigeria",
+            "layer": "political",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "FMF Nigeria",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "asset": [
+          {
+            "role_id": "financial_platform_operator",
+            "role_label": "Financial Platform Operator",
+            "layer": "asset",
+            "status": "engaged",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Quick Microfinance Bank",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "payment_processors",
+            "role_label": "Payment Processor Integrations",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "mobile_money_integrations",
+            "role_label": "Mobile Money Integrations",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "fuel_distribution_network",
+            "role_label": "Fuel Distribution Network",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "logistics_operator",
+            "role_label": "Logistics Operator",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "merchant_network_operator",
+            "role_label": "Merchant Network Operator",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "development": [
+          {
+            "role_id": "usg_architecture_lead",
+            "role_label": "USG Platform Architecture Lead",
+            "layer": "development",
+            "status": "committed",
+            "notes": "",
+            "mapped_entity_type": "team",
+            "mapped_entity_ref": "USG",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "platform_governance_designer",
+            "role_label": "Platform Governance Designer",
+            "layer": "development",
+            "status": "engaged",
+            "notes": "",
+            "mapped_entity_type": "team",
+            "mapped_entity_ref": "USG",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "fid_structuring_lead",
+            "role_label": "FID Structuring Lead",
+            "layer": "development",
+            "status": "engaged",
+            "notes": "",
+            "mapped_entity_type": "team",
+            "mapped_entity_ref": "USG",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "regulatory_pathway_advisor",
+            "role_label": "Regulatory Pathway Advisor",
+            "layer": "development",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "cross_actor_alignment_pm",
+            "role_label": "Cross-Actor Alignment Program Lead",
+            "layer": "development",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "team",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "system_integrator",
+            "role_label": "System Integrator",
+            "layer": "development",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Deloitte / Slalom / Quocoon",
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "capital": [
+          {
+            "role_id": "nsia",
+            "role_label": "Nigeria Sovereign Investment Authority (NSIA)",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "buyer",
+            "mapped_entity_ref": "NSIA",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "afc",
+            "role_label": "Africa Finance Corporation",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "buyer",
+            "mapped_entity_ref": "AFC",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "dfc",
+            "role_label": "U.S. International Development Finance Corporation",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "buyer",
+            "mapped_entity_ref": "DFC",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "worldbank_ifc",
+            "role_label": "World Bank / IFC",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "buyer",
+            "mapped_entity_ref": "WORLDBANK",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "afdb",
+            "role_label": "African Development Bank",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "buyer",
+            "mapped_entity_ref": "AfDB",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "gulf_sovereigns",
+            "role_label": "Gulf Sovereign Funds (ADQ, Mubadala)",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "buyer",
+            "mapped_entity_ref": "ADQ / MUBADALA",
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "infra_funds",
+            "role_label": "Global Infrastructure Funds",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "family_office_infra_capital",
+            "role_label": "Family Office Infrastructure Capital",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "delivery": [
+          {
+            "role_id": "telecom_network_operator",
+            "role_label": "Telecommunications Network Operators",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "agent_banking_network",
+            "role_label": "Agent Banking Networks",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "fuel_station_node_network",
+            "role_label": "Fuel Station Operator Network (2000+ nodes)",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "mobile_device_ecosystem",
+            "role_label": "Mobile Device Ecosystem",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "cloud_infrastructure_provider",
+            "role_label": "Cloud Infrastructure Provider",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "AWS",
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "ai_compute_provider",
+            "role_label": "AI / Compute Provider",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "NVIDIA",
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "satellite_connectivity_provider",
+            "role_label": "Satellite Connectivity Provider",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "SpaceX",
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          }
+        ]
+      }
+    },
+    "actor_alignment_layers": {
+      "political": [
+        {
+          "role_id": "cbn",
+          "role_label": "Central Bank of Nigeria",
+          "layer": "political",
+          "status": "validated",
+          "notes": "",
+          "mapped_entity_type": "regulator",
+          "mapped_entity_ref": "CBN",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "ncc",
+          "role_label": "Nigerian Communications Commission",
+          "layer": "political",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "regulator",
+          "mapped_entity_ref": "NCC",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "nimc",
+          "role_label": "National Identity Management Commission",
+          "layer": "political",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "regulator",
+          "mapped_entity_ref": "NIMC",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "data_protection_regulator",
+          "role_label": "Data Protection Regulator",
+          "layer": "political",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "regulator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "fiu_aml_counterpart",
+          "role_label": "Financial Intelligence / AML Counterpart",
+          "layer": "political",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "regulator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "finance_ministry_ng",
+          "role_label": "Ministry of Finance Nigeria",
+          "layer": "political",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "FMF Nigeria",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "asset": [
+        {
+          "role_id": "financial_platform_operator",
+          "role_label": "Financial Platform Operator",
+          "layer": "asset",
+          "status": "engaged",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "Quick Microfinance Bank",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "payment_processors",
+          "role_label": "Payment Processor Integrations",
+          "layer": "asset",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "mobile_money_integrations",
+          "role_label": "Mobile Money Integrations",
+          "layer": "asset",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "fuel_distribution_network",
+          "role_label": "Fuel Distribution Network",
+          "layer": "asset",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "logistics_operator",
+          "role_label": "Logistics Operator",
+          "layer": "asset",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "merchant_network_operator",
+          "role_label": "Merchant Network Operator",
+          "layer": "asset",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "development": [
+        {
+          "role_id": "usg_architecture_lead",
+          "role_label": "USG Platform Architecture Lead",
+          "layer": "development",
+          "status": "committed",
+          "notes": "",
+          "mapped_entity_type": "team",
+          "mapped_entity_ref": "USG",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "platform_governance_designer",
+          "role_label": "Platform Governance Designer",
+          "layer": "development",
+          "status": "engaged",
+          "notes": "",
+          "mapped_entity_type": "team",
+          "mapped_entity_ref": "USG",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "fid_structuring_lead",
+          "role_label": "FID Structuring Lead",
+          "layer": "development",
+          "status": "engaged",
+          "notes": "",
+          "mapped_entity_type": "team",
+          "mapped_entity_ref": "USG",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "regulatory_pathway_advisor",
+          "role_label": "Regulatory Pathway Advisor",
+          "layer": "development",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "cross_actor_alignment_pm",
+          "role_label": "Cross-Actor Alignment Program Lead",
+          "layer": "development",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "team",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "system_integrator",
+          "role_label": "System Integrator",
+          "layer": "development",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "Deloitte / Slalom / Quocoon",
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "capital": [
+        {
+          "role_id": "nsia",
+          "role_label": "Nigeria Sovereign Investment Authority (NSIA)",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "buyer",
+          "mapped_entity_ref": "NSIA",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "afc",
+          "role_label": "Africa Finance Corporation",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "buyer",
+          "mapped_entity_ref": "AFC",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "dfc",
+          "role_label": "U.S. International Development Finance Corporation",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "buyer",
+          "mapped_entity_ref": "DFC",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "worldbank_ifc",
+          "role_label": "World Bank / IFC",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "buyer",
+          "mapped_entity_ref": "WORLDBANK",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "afdb",
+          "role_label": "African Development Bank",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "buyer",
+          "mapped_entity_ref": "AfDB",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "gulf_sovereigns",
+          "role_label": "Gulf Sovereign Funds (ADQ, Mubadala)",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "buyer",
+          "mapped_entity_ref": "ADQ / MUBADALA",
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "infra_funds",
+          "role_label": "Global Infrastructure Funds",
+          "layer": "capital",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "family_office_infra_capital",
+          "role_label": "Family Office Infrastructure Capital",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "delivery": [
+        {
+          "role_id": "telecom_network_operator",
+          "role_label": "Telecommunications Network Operators",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "agent_banking_network",
+          "role_label": "Agent Banking Networks",
+          "layer": "delivery",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "fuel_station_node_network",
+          "role_label": "Fuel Station Operator Network (2000+ nodes)",
+          "layer": "delivery",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "mobile_device_ecosystem",
+          "role_label": "Mobile Device Ecosystem",
+          "layer": "delivery",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "cloud_infrastructure_provider",
+          "role_label": "Cloud Infrastructure Provider",
+          "layer": "delivery",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "AWS",
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "ai_compute_provider",
+          "role_label": "AI / Compute Provider",
+          "layer": "delivery",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "NVIDIA",
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "satellite_connectivity_provider",
+          "role_label": "Satellite Connectivity Provider",
+          "layer": "delivery",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "SpaceX",
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        }
+      ]
+    },
+    "updated_at": "2026-03-09T22:03:00Z"
   },
   {
     "initiative_id": "INIT-AP-AI-FACTORY-001",
     "name": "Hyperscaler-Aligned AI Infrastructure Platform (Andhra Pradesh)",
     "status": "Pre-FID / Formation",
-    "gate_stage": "Gate 1",
-    "gate_updated_at": "2026-03-05T16:06:00Z",
+    "gate_stage": "Gate 2",
+    "gate_updated_at": "2026-03-09T17:12:34.057Z",
     "infrastructure_category": "Digital",
     "primary_buyer_id": "GIC",
     "linked_buyers": [
@@ -159,11 +978,641 @@
       "utc_internal": "",
       "buyer_alignment": {}
     },
-    "gate_stage": "Gate 1",
-    "gate_updated_at": "2026-03-06T18:37:00Z",
+    "gate_stage": "Gate 0",
+    "gate_updated_at": "2026-03-06T18:38:52.269Z",
     "infrastructure_category": "Digital + Urban Infrastructure",
     "buyer_path": "Mixed / Multi-actor (Sovereign + DFI)",
     "usg_relevance": "Track",
     "next_intelligence_action": "Identify sovereign anchor buyer and DFI de-risking path"
+  },
+  {
+    "initiative_id": "INIT-653306",
+    "name": "Carepoint Pan-African Digital Health Backbone",
+    "status": "Pre-FID / Formation",
+    "infrastructure_category": "Digital Health Infrastructure",
+    "macro_gravity_summary": "Build a unified, cloud-native digital health backbone for Carepoint across Rabito/Lily/Seha hospitals and expansion markets, combining telehealth, interoperable clinical data infrastructure, and AI-enabled decision support to improve access, quality, and equity for underserved populations across Africa. Phase focus: reference architecture, cross-border data governance, provider workflow integration, and scalable operating model for 10+ country rollout.",
+    "linked_buyers": [
+      "AFC",
+      "AfDB",
+      "DFC",
+      "WORLDBANK",
+      "TEMASEK"
+    ],
+    "presentations": {
+      "utc_internal": "presentations/INIT-653306/decks/utc-internal/index.html",
+      "buyer_alignment": {
+        "AFC": "presentations/INIT-653306/decks/buyer-alignment/AFC/index.html",
+        "AfDB": "presentations/INIT-653306/decks/buyer-alignment/AfDB/index.html",
+        "DFC": "presentations/INIT-653306/decks/buyer-alignment/DFC/index.html",
+        "WORLDBANK": "presentations/INIT-653306/decks/buyer-alignment/WORLDBANK/index.html",
+        "TEMASEK": "presentations/INIT-653306/decks/buyer-alignment/TEMASEK/index.html"
+      }
+    },
+    "gate_stage": "Gate 1",
+    "gate_updated_at": "2026-03-09T18:16:44Z",
+    "source_note": "Initiative seeded from Isaac-provided Carepoint Vision brief (June 2025).",
+    "actor_alignment": {
+      "layers": {
+        "political": [
+          {
+            "role_id": "health_ministry",
+            "role_label": "Health Ministry / Public Health Sponsor",
+            "layer": "political",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "national_digital_ict_ministry",
+            "role_label": "National Digital / ICT Ministry Counterpart",
+            "layer": "political",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "health_regulator",
+            "role_label": "Health Regulator",
+            "layer": "political",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "data_protection_authority",
+            "role_label": "Data Protection Authority",
+            "layer": "political",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "cross_border_health_data_policy_forum",
+            "role_label": "Cross-Border Health Data Policy Forum / Regional Policy Counterpart",
+            "layer": "political",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "asset": [
+          {
+            "role_id": "hospital_network_owner",
+            "role_label": "Hospital Network Owner",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "clinical_platform_operator",
+            "role_label": "Clinical Platform Operator",
+            "layer": "asset",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "national_hie_counterpart",
+            "role_label": "National Health Information Exchange Counterpart",
+            "layer": "asset",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "country_data_residency_governance_owner",
+            "role_label": "Country Data Hosting / Residency Governance Owner",
+            "layer": "asset",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "development": [
+          {
+            "role_id": "platform_architect",
+            "role_label": "Platform Architect / Product Owner",
+            "layer": "development",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "systems_integrator",
+            "role_label": "Systems Integrator",
+            "layer": "development",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "clinical_workflow_transformation_lead",
+            "role_label": "Clinical Workflow Transformation Lead",
+            "layer": "development",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "cybersecurity_privacy_lead",
+            "role_label": "Cybersecurity + Privacy-by-Design Lead",
+            "layer": "development",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "interoperability_lead",
+            "role_label": "Interoperability Lead",
+            "layer": "development",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "capital": [
+          {
+            "role_id": "anchor_equity",
+            "role_label": "Anchor Equity / Platform Investor",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "development_finance_partner",
+            "role_label": "Development Finance Partner",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "care_delivery_payor_anchor",
+            "role_label": "Care Delivery / Payor Anchor",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "blended_finance_structurer",
+            "role_label": "Blended Finance Structurer",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "delivery": [
+          {
+            "role_id": "cloud_infrastructure_provider",
+            "role_label": "Cloud Infrastructure Provider",
+            "layer": "delivery",
+            "status": "committed",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Amazon Web Services",
+            "is_critical_role": true,
+            "owner": "Leo LeBranche",
+            "due": ""
+          },
+          {
+            "role_id": "ehr_interoperability_vendor",
+            "role_label": "EHR / Interoperability Vendor",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "telehealth_front_door_vendor_stack",
+            "role_label": "Telehealth / Front-Door Vendor Stack",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "identity_consent_trust_provider",
+            "role_label": "Identity + Consent + Trust Services Provider",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "local_implementation_partner",
+            "role_label": "Local Implementation Partner",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "training_adoption_partner",
+            "role_label": "Training / Adoption Partner",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          }
+        ]
+      }
+    },
+    "actor_alignment_layers": {
+      "political": [
+        {
+          "role_id": "health_ministry",
+          "role_label": "Health Ministry / Public Health Sponsor",
+          "layer": "political",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "national_digital_ict_ministry",
+          "role_label": "National Digital / ICT Ministry Counterpart",
+          "layer": "political",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "health_regulator",
+          "role_label": "Health Regulator",
+          "layer": "political",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "data_protection_authority",
+          "role_label": "Data Protection Authority",
+          "layer": "political",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "cross_border_health_data_policy_forum",
+          "role_label": "Cross-Border Health Data Policy Forum / Regional Policy Counterpart",
+          "layer": "political",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "asset": [
+        {
+          "role_id": "hospital_network_owner",
+          "role_label": "Hospital Network Owner",
+          "layer": "asset",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "clinical_platform_operator",
+          "role_label": "Clinical Platform Operator",
+          "layer": "asset",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "national_hie_counterpart",
+          "role_label": "National Health Information Exchange Counterpart",
+          "layer": "asset",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "country_data_residency_governance_owner",
+          "role_label": "Country Data Hosting / Residency Governance Owner",
+          "layer": "asset",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "development": [
+        {
+          "role_id": "platform_architect",
+          "role_label": "Platform Architect / Product Owner",
+          "layer": "development",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "systems_integrator",
+          "role_label": "Systems Integrator",
+          "layer": "development",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "clinical_workflow_transformation_lead",
+          "role_label": "Clinical Workflow Transformation Lead",
+          "layer": "development",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "cybersecurity_privacy_lead",
+          "role_label": "Cybersecurity + Privacy-by-Design Lead",
+          "layer": "development",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "interoperability_lead",
+          "role_label": "Interoperability Lead",
+          "layer": "development",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "capital": [
+        {
+          "role_id": "anchor_equity",
+          "role_label": "Anchor Equity / Platform Investor",
+          "layer": "capital",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "development_finance_partner",
+          "role_label": "Development Finance Partner",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "care_delivery_payor_anchor",
+          "role_label": "Care Delivery / Payor Anchor",
+          "layer": "capital",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "blended_finance_structurer",
+          "role_label": "Blended Finance Structurer",
+          "layer": "capital",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "delivery": [
+        {
+          "role_id": "cloud_infrastructure_provider",
+          "role_label": "Cloud Infrastructure Provider",
+          "layer": "delivery",
+          "status": "committed",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "Amazon Web Services",
+          "is_critical_role": true,
+          "owner": "Leo LeBranche",
+          "due": ""
+        },
+        {
+          "role_id": "ehr_interoperability_vendor",
+          "role_label": "EHR / Interoperability Vendor",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "telehealth_front_door_vendor_stack",
+          "role_label": "Telehealth / Front-Door Vendor Stack",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "identity_consent_trust_provider",
+          "role_label": "Identity + Consent + Trust Services Provider",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "local_implementation_partner",
+          "role_label": "Local Implementation Partner",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "training_adoption_partner",
+          "role_label": "Training / Adoption Partner",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        }
+      ]
+    },
+    "updated_at": "2026-03-09T21:54:24.002Z"
   }
 ]
