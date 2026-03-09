@@ -105,7 +105,7 @@
         "political": [
           {
             "role_id": "financial_regulator_primary",
-            "role_label": "Financial Regulator (Primary)",
+            "role_label": "Financial Regulator (Primary",
             "layer": "political",
             "status": "validated",
             "notes": "",
@@ -117,7 +117,7 @@
           },
           {
             "role_id": "telecom_regulator_primary",
-            "role_label": "Telecom Regulator (Primary)",
+            "role_label": "Telecom Regulator (Primary",
             "layer": "political",
             "status": "identified",
             "notes": "",
@@ -129,7 +129,7 @@
           },
           {
             "role_id": "national_identity_authority",
-            "role_label": "National Identity Authority",
+            "role_label": "Identity Authority Counterpart",
             "layer": "political",
             "status": "identified",
             "notes": "",
@@ -327,7 +327,7 @@
         "capital": [
           {
             "role_id": "anchor_national_capital_sponsor",
-            "role_label": "Anchor National Capital Sponsor",
+            "role_label": "Anchor Public Capital Sponsor",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -387,7 +387,7 @@
           },
           {
             "role_id": "gulf_sovereign_capital_pool",
-            "role_label": "Gulf Sovereign Capital Pool",
+            "role_label": "Sovereign Capital Pool",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -449,7 +449,7 @@
           },
           {
             "role_id": "fuel_station_node_network",
-            "role_label": "Fuel Station Operator Network (2000+ nodes)",
+            "role_label": "Fuel Station Operator Network",
             "layer": "delivery",
             "status": "identified",
             "notes": "",
@@ -514,7 +514,7 @@
       "political": [
         {
           "role_id": "financial_regulator_primary",
-          "role_label": "Financial Regulator (Primary)",
+          "role_label": "Financial Regulator (Primary",
           "layer": "political",
           "status": "validated",
           "notes": "",
@@ -526,7 +526,7 @@
         },
         {
           "role_id": "telecom_regulator_primary",
-          "role_label": "Telecom Regulator (Primary)",
+          "role_label": "Telecom Regulator (Primary",
           "layer": "political",
           "status": "identified",
           "notes": "",
@@ -538,7 +538,7 @@
         },
         {
           "role_id": "national_identity_authority",
-          "role_label": "National Identity Authority",
+          "role_label": "Identity Authority Counterpart",
           "layer": "political",
           "status": "identified",
           "notes": "",
@@ -736,7 +736,7 @@
       "capital": [
         {
           "role_id": "anchor_national_capital_sponsor",
-          "role_label": "Anchor National Capital Sponsor",
+          "role_label": "Anchor Public Capital Sponsor",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -796,7 +796,7 @@
         },
         {
           "role_id": "gulf_sovereign_capital_pool",
-          "role_label": "Gulf Sovereign Capital Pool",
+          "role_label": "Sovereign Capital Pool",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -858,7 +858,7 @@
         },
         {
           "role_id": "fuel_station_node_network",
-          "role_label": "Fuel Station Operator Network (2000+ nodes)",
+          "role_label": "Fuel Station Operator Network",
           "layer": "delivery",
           "status": "identified",
           "notes": "",
@@ -918,7 +918,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T22:24:00Z"
+    "updated_at": "2026-03-09T22:29:00Z"
   },
   {
     "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -942,7 +942,7 @@
         "political": [
           {
             "role_id": "ap_state_government",
-            "role_label": "Andhra Pradesh State Government",
+            "role_label": "Government Counterpart",
             "layer": "political",
             "status": "identified",
             "notes": "",
@@ -954,7 +954,7 @@
           },
           {
             "role_id": "india_data_sovereignty_regulator",
-            "role_label": "India Data Sovereignty Regulator",
+            "role_label": "Data Sovereignty Regulator",
             "layer": "political",
             "status": "missing",
             "notes": "",
@@ -966,7 +966,7 @@
           },
           {
             "role_id": "india_digital_infra_agency",
-            "role_label": "India Digital Infrastructure Agency",
+            "role_label": "Digital Infrastructure Agency",
             "layer": "political",
             "status": "missing",
             "notes": "",
@@ -1236,7 +1236,7 @@
           },
           {
             "role_id": "project_finance_lenders",
-            "role_label": "Project Finance Lenders (Debt Stack)",
+            "role_label": "Project Finance Lenders (Debt Stack",
             "layer": "capital",
             "status": "missing",
             "notes": "",
@@ -1375,7 +1375,7 @@
       "political": [
         {
           "role_id": "ap_state_government",
-          "role_label": "Andhra Pradesh State Government",
+          "role_label": "Government Counterpart",
           "layer": "political",
           "status": "identified",
           "notes": "",
@@ -1387,7 +1387,7 @@
         },
         {
           "role_id": "india_data_sovereignty_regulator",
-          "role_label": "India Data Sovereignty Regulator",
+          "role_label": "Data Sovereignty Regulator",
           "layer": "political",
           "status": "missing",
           "notes": "",
@@ -1399,7 +1399,7 @@
         },
         {
           "role_id": "india_digital_infra_agency",
-          "role_label": "India Digital Infrastructure Agency",
+          "role_label": "Digital Infrastructure Agency",
           "layer": "political",
           "status": "missing",
           "notes": "",
@@ -1669,7 +1669,7 @@
         },
         {
           "role_id": "project_finance_lenders",
-          "role_label": "Project Finance Lenders (Debt Stack)",
+          "role_label": "Project Finance Lenders (Debt Stack",
           "layer": "capital",
           "status": "missing",
           "notes": "",
@@ -1803,7 +1803,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T22:26:00Z"
+    "updated_at": "2026-03-09T22:28:00Z"
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -1895,7 +1895,7 @@
           },
           {
             "role_id": "national_digital_ict_ministry",
-            "role_label": "National Digital / ICT Ministry Counterpart",
+            "role_label": "Digital / ICT Ministry Counterpart",
             "layer": "political",
             "status": "missing",
             "notes": "",
@@ -1969,7 +1969,7 @@
           },
           {
             "role_id": "national_hie_counterpart",
-            "role_label": "National Health Information Exchange Counterpart",
+            "role_label": "Health Information Exchange Counterpart",
             "layer": "asset",
             "status": "missing",
             "notes": "",
@@ -1981,7 +1981,7 @@
           },
           {
             "role_id": "country_data_residency_governance_owner",
-            "role_label": "Country Data Hosting / Residency Governance Owner",
+            "role_label": "Data Hosting / Residency Governance Owner",
             "layer": "asset",
             "status": "missing",
             "notes": "",
@@ -2196,7 +2196,7 @@
         },
         {
           "role_id": "national_digital_ict_ministry",
-          "role_label": "National Digital / ICT Ministry Counterpart",
+          "role_label": "Digital / ICT Ministry Counterpart",
           "layer": "political",
           "status": "missing",
           "notes": "",
@@ -2270,7 +2270,7 @@
         },
         {
           "role_id": "national_hie_counterpart",
-          "role_label": "National Health Information Exchange Counterpart",
+          "role_label": "Health Information Exchange Counterpart",
           "layer": "asset",
           "status": "missing",
           "notes": "",
@@ -2282,7 +2282,7 @@
         },
         {
           "role_id": "country_data_residency_governance_owner",
-          "role_label": "Country Data Hosting / Residency Governance Owner",
+          "role_label": "Data Hosting / Residency Governance Owner",
           "layer": "asset",
           "status": "missing",
           "notes": "",
@@ -2480,6 +2480,6 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T22:08:36.099Z"
+    "updated_at": "2026-03-09T22:28:00Z"
   }
 ]
