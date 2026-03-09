@@ -3577,6 +3577,14 @@ async function writeSavepointStore(store) {
 const PIPELINE_ALLOWED_SCOPES = new Set(['deck', 'slide']);
 const PIPELINE_ALLOWED_STAGES = ['plan', 'draft', 'critique', 'rewrite', 'render', 'qa'];
 const PIPELINE_ALLOWED_STAGES_SET = new Set(PIPELINE_ALLOWED_STAGES);
+const PIPELINE_STAGE_STATUS_FLOW = {
+  pending: ['in_progress', 'skipped'],
+  in_progress: ['completed', 'failed', 'skipped'],
+  completed: [],
+  failed: [],
+  skipped: []
+};
+const PIPELINE_STAGE_ALLOWED_STATUS = new Set(Object.keys(PIPELINE_STAGE_STATUS_FLOW));
 
 function normalizePipelineRunPayload(payload) {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
@@ -3616,15 +3624,37 @@ function buildPipelineRunId(ts = new Date()) {
   return `run_${compact}_${suffix}`;
 }
 
+function buildInitialPipelineStageState(stages = []) {
+  const safeStages = Array.isArray(stages) ? stages : [];
+  return safeStages.map((stage, idx) => ({
+    stage,
+    status: idx === 0 ? 'in_progress' : 'pending',
+    updatedAt: nowIso(),
+    startedAt: idx === 0 ? nowIso() : null,
+    completedAt: null,
+    error: null
+  }));
+}
+
+function derivePipelineRunStatus(stageState = []) {
+  if (!Array.isArray(stageState) || stageState.length === 0) return 'started';
+  if (stageState.some((s) => s.status === 'failed')) return 'failed';
+  if (stageState.every((s) => s.status === 'completed' || s.status === 'skipped')) return 'completed';
+  if (stageState.some((s) => s.status === 'in_progress')) return 'running';
+  return 'started';
+}
+
 async function createPipelineRunRecord({ deckId, scope, slideId = null, stages = [] } = {}) {
   const now = nowIso();
+  const stageState = buildInitialPipelineStageState(stages);
   const run = {
     runId: buildPipelineRunId(new Date()),
     deckId: String(deckId || '').trim(),
     scope,
     slideId: scope === 'slide' ? String(slideId || '').trim() : null,
     stages,
-    status: 'started',
+    stageState,
+    status: derivePipelineRunStatus(stageState),
     createdAt: now,
     updatedAt: now,
   };
@@ -3633,6 +3663,46 @@ async function createPipelineRunRecord({ deckId, scope, slideId = null, stages =
   store.runs.unshift(run);
   await writePipelineRunStore(store);
   return run;
+}
+
+async function updatePipelineRunStage({ runId, stage, nextStatus, error = null } = {}) {
+  const safeRunId = String(runId || '').trim();
+  const safeStage = String(stage || '').trim().toLowerCase();
+  const safeNextStatus = String(nextStatus || '').trim().toLowerCase();
+  if (!safeRunId || !safeStage || !PIPELINE_ALLOWED_STAGES_SET.has(safeStage) || !PIPELINE_STAGE_ALLOWED_STATUS.has(safeNextStatus)) {
+    return { error: 'invalid_stage_transition', status: 400 };
+  }
+
+  const store = await readPipelineRunStore();
+  const run = store.runs.find((r) => String(r.runId) === safeRunId);
+  if (!run) return { error: 'run_not_found', status: 404 };
+
+  if (!Array.isArray(run.stageState) || run.stageState.length === 0) {
+    run.stageState = buildInitialPipelineStageState(run.stages || []);
+  }
+
+  const stageRow = run.stageState.find((s) => String(s.stage || '').toLowerCase() === safeStage);
+  if (!stageRow) return { error: 'stage_not_in_run', status: 400 };
+
+  const allowedNext = PIPELINE_STAGE_STATUS_FLOW[String(stageRow.status || 'pending')] || [];
+  if (!allowedNext.includes(safeNextStatus)) {
+    return { error: 'invalid_stage_transition', status: 400 };
+  }
+
+  const ts = nowIso();
+  stageRow.status = safeNextStatus;
+  stageRow.updatedAt = ts;
+  if (safeNextStatus === 'in_progress' && !stageRow.startedAt) stageRow.startedAt = ts;
+  if (safeNextStatus === 'completed' || safeNextStatus === 'failed' || safeNextStatus === 'skipped') {
+    stageRow.completedAt = ts;
+  }
+  stageRow.error = safeNextStatus === 'failed' ? (error ? String(error).slice(0, 500) : 'stage_failed') : null;
+
+  run.status = derivePipelineRunStatus(run.stageState);
+  run.updatedAt = ts;
+
+  await writePipelineRunStore(store);
+  return { run };
 }
 
 function defaultBeaconQueue() {
@@ -5430,10 +5500,46 @@ app.post('/api/presentation-studio/decks/:deckId/pipeline/run', requireRole('arc
       scope: run.scope,
       slideId: run.slideId,
       stages: run.stages,
+      status: run.status
     }
   });
 
   return res.status(201).json({ ok: true, run });
+});
+
+app.get('/api/presentation-studio/pipeline/runs/:runId', requireRole('architect','editor'), async (req, res) => {
+  const runId = String(req.params.runId || '').trim();
+  if (!runId) return res.status(400).json({ error: 'invalid_run_id' });
+  const store = await readPipelineRunStore();
+  const run = store.runs.find((r) => String(r.runId) === runId);
+  if (!run) return res.status(404).json({ error: 'run_not_found' });
+  return res.json({ ok: true, run });
+});
+
+app.patch('/api/presentation-studio/pipeline/runs/:runId/stages/:stage', requireRole('architect','editor'), async (req, res) => {
+  const runId = String(req.params.runId || '').trim();
+  const stage = String(req.params.stage || '').trim().toLowerCase();
+  const nextStatus = String(req.body?.status || '').trim().toLowerCase();
+  const error = req.body?.error == null ? null : String(req.body.error);
+
+  const updated = await updatePipelineRunStage({ runId, stage, nextStatus, error });
+  if (updated.error) return res.status(updated.status || 400).json({ error: updated.error });
+
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'pipeline.run.stage.updated',
+    entity_type: 'pipeline_run',
+    entity_id: runId,
+    meta: {
+      stage,
+      status: nextStatus,
+      runStatus: updated.run.status
+    }
+  });
+
+  return res.json({ ok: true, run: updated.run });
 });
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {

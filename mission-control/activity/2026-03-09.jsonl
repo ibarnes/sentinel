@@ -1,2 +1,3 @@
 {"ts":"2026-03-09T00:01:00.000Z","actor":"sentinel","role":"operator","event_type":"heartbeat.buyer_access_graph_check","entity_type":"workflow","entity_id":"heartbeat","meta":{"changed":false,"alerted":false}}
 {"ts":"2026-03-09T03:00:00.000Z","actor":"sentinel","role":"operator","event_type":"workflow_c.queue.created","entity_type":"workflow","entity_id":"C","meta":{"queue_file":"mission-control/workflow-c/queue/2026-03-09.json","execute_immediately":false,"delivery":"internal_only"}}
+{"ts":"2026-03-09T03:10:00.000Z","actor":"sentinel","role":"operator","event_type":"board_build_window.execution","entity_type":"task","entity_id":"TASK-0044","meta":{"decomposition":["TASK-0122","TASK-0123","TASK-0124"],"review_packet":"RP-0043","status":"Ready for Review"}}

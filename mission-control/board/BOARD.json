@@ -1162,7 +1162,7 @@
     {
       "id": "TASK-0044",
       "title": "TS-H1.2 Persist per-stage status transitions",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1172,15 +1172,39 @@
         "epic:EP-H"
       ],
       "linked_refs": [
-        "pipeline.status"
+        "pipeline.status",
+        "TASK-0122",
+        "TASK-0123",
+        "TASK-0124"
       ],
       "description": "Add stage-by-stage status persistence (plan/draft/critique/rewrite/render/qa).",
-      "comments": [],
-      "request_approval": null,
+      "comments": [
+        {
+          "id": "decomp-0044-20260309-0310",
+          "author": "sentinel",
+          "text": "Decomposition gate applied: split into TASK-0122/0123/0124 (contract -> persistence -> endpoints/smoke).",
+          "created_at": "2026-03-09T03:10:00Z"
+        },
+        {
+          "id": "done-0044-20260309-0310",
+          "author": "sentinel",
+          "text": "Delivered per-stage status persistence with transition endpoint + run read endpoint; see RP-0043.",
+          "created_at": "2026-03-09T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-09T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0043-pipeline-stage-status-transitions.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
       "created_at": "2026-02-27T23:24:00Z",
-      "updated_at": "2026-02-27T23:24:00Z",
+      "updated_at": "2026-03-09T03:10:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0043"
     },
     {
       "id": "TASK-0045",
@@ -3579,6 +3603,104 @@
         }
       ],
       "review_packet_id": "RP-0042"
+    },
+    {
+      "id": "TASK-0122",
+      "title": "TS-H1.2a Define per-stage state model + transition rules",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0044"
+      ],
+      "description": "Define pipeline stageState schema and allowed transition flow before implementation.",
+      "comments": [
+        {
+          "id": "done-0122-20260309-0310",
+          "author": "sentinel",
+          "text": "Defined stageState schema and deterministic transition flow in server helpers/constants.",
+          "created_at": "2026-03-09T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-09T03:10:00Z",
+      "updated_at": "2026-03-09T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0123",
+      "title": "TS-H1.2b Persist stage transitions + run-level status derivation",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0044",
+        "admin-server/src/server.js"
+      ],
+      "description": "Implement persisted stage transitions and run status rollup (started/running/completed/failed).",
+      "comments": [
+        {
+          "id": "done-0123-20260309-0310",
+          "author": "sentinel",
+          "text": "Implemented updatePipelineRunStage helper with persistent stage updates and derived run status logic.",
+          "created_at": "2026-03-09T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-09T03:10:00Z",
+      "updated_at": "2026-03-09T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0124",
+      "title": "TS-H1.2c Add stage transition/read endpoints + syntax smoke + RP",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "board-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0044",
+        "mission-control/review-packets/RP-0043-pipeline-stage-status-transitions.md"
+      ],
+      "description": "Add run read + stage transition endpoints and validate syntax smoke evidence.",
+      "comments": [
+        {
+          "id": "done-0124-20260309-0310",
+          "author": "sentinel",
+          "text": "Added GET run and PATCH run-stage endpoints and passed `node --check admin-server/src/server.js`.",
+          "created_at": "2026-03-09T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-09T03:10:00Z",
+      "updated_at": "2026-03-09T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
