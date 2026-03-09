@@ -58,6 +58,8 @@ import { validateAdapterContract } from '../production/adapterValidationService.
 import { createProviderAdapter, getProviderAdapter, exportProviderAdapter, validateProviderAdapter, listProviderCapabilityProfiles, inspectProviderCapabilityProfile } from '../production/providerAdapterService.js';
 import { createProviderSubmissionContract, getProviderSubmissionContract, exportProviderSubmissionContract, listProviderSubmissionContracts, validateProviderSubmission } from '../production/providerSubmissionService.js';
 import { createExecutionReceipt, getExecutionReceipt, patchExecutionReceipt, listExecutionReceipts, exportExecutionReceipt } from '../production/executionReceiptService.js';
+import { createExecutionCallback, getExecutionCallback, listExecutionCallbacks, exportExecutionCallback } from '../production/executionCallbackService.js';
+import { verifyExecutionCallback } from '../production/callbackVerificationService.js';
 import { publishSubmissionTrust, listSubmissionTrustPublications, getLatestSubmissionTrustPublication, getSubmissionTrustPublication } from '../production/submissionTrustPublicationService.js';
 import { publishReceiptTrust, listReceiptTrustPublications, getLatestReceiptTrustPublication, getReceiptTrustPublication } from '../production/receiptTrustPublicationService.js';
 import { createSchedulerBoard, getSchedulerBoard, latestSchedulerBoard, exportSchedulerBoard, verifySchedulerBoard } from '../production/schedulerBoardService.js';
@@ -1316,6 +1318,46 @@ router.post('/api/production/execution-receipts/:executionReceiptId/trust-public
   res.status(201).json(out);
 });
 
+router.post('/api/production/execution-callbacks/verify', async (req, res) => {
+  const out = verifyExecutionCallback({
+    providerType: req.body?.providerType || null,
+    providerProfileId: req.body?.providerProfileId || 'default',
+    callbackType: req.body?.callbackType || null,
+    callbackPayload: req.body?.callbackPayload || null,
+    trustMetadata: req.body?.trustMetadata || {},
+    callbackDigest: req.body?.callbackDigest || null
+  });
+  res.json(out);
+});
+
+router.post('/api/production/execution-callbacks', async (req, res) => {
+  const out = await createExecutionCallback(req.body || {});
+  if (['missing_provider_profile','unsupported_callback_type','malformed_callback_payload'].includes(out.error)) return res.status(400).json(out);
+  if (out.executionCallback?.reconciliationStatus === 'malformed_callback') return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/execution-callbacks', async (_req, res) => {
+  const out = await listExecutionCallbacks();
+  res.json(out);
+});
+
+router.get('/api/production/execution-callbacks/:executionCallbackId', async (req, res) => {
+  const out = await getExecutionCallback(String(req.params.executionCallbackId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/execution-callbacks/:executionCallbackId/export', async (req, res) => {
+  const out = await getExecutionCallback(String(req.params.executionCallbackId || ''));
+  if (out.error) return res.status(404).json(out);
+  const exp = exportExecutionCallback(out.executionCallback, String(req.query.format || 'json').toLowerCase());
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
 router.get('/api/production/execution-receipts/:executionReceiptId/trust-publications', async (req, res) => {
   const out = await listReceiptTrustPublications(String(req.params.executionReceiptId || ''));
   res.json(out);
@@ -1988,6 +2030,9 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="execution-receipt-export-signed">Export Signed Receipt</button>
           <button data-action="execution-receipt-trust-publish">Publish Receipt Trust</button>
           <button data-action="execution-receipt-trust-latest">View Latest Receipt Trust</button>
+          <button data-action="execution-callback-submit">Submit Execution Callback</button>
+          <button data-action="execution-callback-verify">Verify Execution Callback</button>
+          <button data-action="execution-callback-view">View Execution Callback</button>
           <button data-action="scheduler-board-generate">Generate Scheduler Board</button>
           <button data-action="scheduler-board-latest">View Latest Scheduler Board</button>
           <button data-action="scheduler-board-export">Export Scheduler Board</button>

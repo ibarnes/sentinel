@@ -19,6 +19,7 @@ let state = {
   latestProviderExecutionAdapter: null,
   latestProviderSubmission: null,
   latestExecutionReceipt: null,
+  latestExecutionCallback: null,
   latestSchedulerBoard: null,
   latestAdmission: null,
   latestProof: null
@@ -855,6 +856,47 @@ async function viewLatestReceiptTrustUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 
+async function submitExecutionCallbackUi() {
+  const providerType = prompt('providerType', state.latestProviderSubmission?.providerType || 'generic_renderer') || 'generic_renderer';
+  const providerProfileId = prompt('providerProfileId', state.latestProviderSubmission?.providerProfileId || 'default') || 'default';
+  const callbackType = prompt('callbackType', 'provider_acknowledged') || 'provider_acknowledged';
+  const payloadRaw = prompt('callbackPayload JSON', '{"status":"accepted","eventAt":"2026-03-09T12:00:00.000Z","message":"ack"}');
+  let callbackPayload;
+  try { callbackPayload = JSON.parse(payloadRaw || '{}'); } catch { return alert('Invalid callback payload JSON'); }
+  const out = await api('/reveal/api/production/execution-callbacks', 'POST', {
+    providerType,
+    providerProfileId,
+    callbackType,
+    callbackPayload,
+    targetExecutionReceiptId: state.latestExecutionReceipt?.executionReceiptId || null,
+    targetProviderSubmissionContractId: state.latestProviderSubmission?.providerSubmissionContractId || null,
+    externalExecutionRef: prompt('externalExecutionRef (optional)', '') || null,
+    trustMetadata: { unsignedAllowed: true }
+  });
+  state.latestExecutionCallback = out.executionCallback;
+  if (out.reconciliationResult?.targetExecutionReceiptId) {
+    state.latestExecutionReceipt = (await api(`/reveal/api/production/execution-receipts/${encodeURIComponent(out.reconciliationResult.targetExecutionReceiptId)}`)).executionReceipt;
+  }
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function verifyExecutionCallbackUi() {
+  const providerType = prompt('providerType', 'generic_renderer') || 'generic_renderer';
+  const providerProfileId = prompt('providerProfileId', 'default') || 'default';
+  const callbackType = prompt('callbackType', 'provider_acknowledged') || 'provider_acknowledged';
+  const payloadRaw = prompt('callbackPayload JSON', '{"status":"accepted","eventAt":"2026-03-09T12:00:00.000Z"}');
+  let callbackPayload;
+  try { callbackPayload = JSON.parse(payloadRaw || '{}'); } catch { return alert('Invalid callback payload JSON'); }
+  const out = await api('/reveal/api/production/execution-callbacks/verify', 'POST', { providerType, providerProfileId, callbackType, callbackPayload, trustMetadata: { unsignedAllowed: true } });
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function viewExecutionCallbackUi() {
+  if (!state.latestExecutionCallback?.executionCallbackId) return alert('Submit callback first');
+  const out = await api(`/reveal/api/production/execution-callbacks/${encodeURIComponent(state.latestExecutionCallback.executionCallbackId)}`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out.executionCallback, null, 2);
+}
+
 async function generateSchedulerBoardUi() {
   const out = await api('/reveal/api/production/scheduler-board', 'POST', {
     renderAdapterContractId: state.latestAdapter?.renderAdapterContractId || null,
@@ -1295,6 +1337,9 @@ function wireActions() {
   document.querySelector('[data-action="execution-receipt-export-signed"]')?.addEventListener('click', () => exportSignedExecutionReceiptUi());
   document.querySelector('[data-action="execution-receipt-trust-publish"]')?.addEventListener('click', () => publishReceiptTrustUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="execution-receipt-trust-latest"]')?.addEventListener('click', () => viewLatestReceiptTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-callback-submit"]')?.addEventListener('click', () => submitExecutionCallbackUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-callback-verify"]')?.addEventListener('click', () => verifyExecutionCallbackUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-callback-view"]')?.addEventListener('click', () => viewExecutionCallbackUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-generate"]')?.addEventListener('click', () => generateSchedulerBoardUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-latest"]')?.addEventListener('click', () => viewLatestSchedulerBoardUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-export"]')?.addEventListener('click', () => exportSchedulerBoardUi());

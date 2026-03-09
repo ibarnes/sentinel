@@ -31,6 +31,8 @@ export function eventTypeForAction(action) {
     recordHandoff: 'handoff_recorded',
     recordAcknowledgement: 'provider_acknowledged',
     recordRejection: 'rejection_recorded',
+    closeSuccess: 'execution_completed',
+    closeFailure: 'execution_failed',
     cancel: 'cancellation_recorded',
     expire: 'expiry_recorded',
     addNote: 'note_added'
@@ -43,6 +45,8 @@ export function nextStatusForAction(action, current) {
   if (action === 'recordHandoff') return current === 'queued' ? 'handed_off' : current;
   if (action === 'recordAcknowledgement') return current === 'handed_off' ? 'acknowledged' : current;
   if (action === 'recordRejection') return current === 'handed_off' ? 'rejected' : current;
+  if (action === 'closeSuccess') return ['acknowledged','rejected'].includes(current) ? 'closed' : current;
+  if (action === 'closeFailure') return ['acknowledged','rejected'].includes(current) ? 'closed' : current;
   if (action === 'cancel') return ['prepared','queued','handed_off','acknowledged'].includes(current) ? 'canceled' : current;
   if (action === 'expire') return ['prepared','queued','handed_off','acknowledged'].includes(current) ? 'expired' : current;
   return current;

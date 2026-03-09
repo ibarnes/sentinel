@@ -41,7 +41,13 @@ function signingPayload(receipt) {
     policyEvaluation: receipt.policyEvaluation,
     blockingReasons: receipt.blockingReasons || [],
     warnings: receipt.warnings || [],
-    lifecycleEvents: receipt.lifecycleEvents || []
+    lifecycleEvents: receipt.lifecycleEvents || [],
+    lastCallbackId: receipt.lastCallbackId || null,
+    lastCallbackType: receipt.lastCallbackType || null,
+    lastCallbackAt: receipt.lastCallbackAt || null,
+    callbackTrustStatus: receipt.callbackTrustStatus || 'none',
+    callbackCount: Number(receipt.callbackCount || 0),
+    callbackWarningsSummary: receipt.callbackWarningsSummary || []
   });
 }
 
@@ -134,6 +140,12 @@ export async function createExecutionReceipt({ providerSubmissionContractId = nu
     blockingReasons: [...(s.blockingReasons || [])],
     warnings: [...(s.warnings || [])],
     lifecycleEvents: [],
+    lastCallbackId: null,
+    lastCallbackType: null,
+    lastCallbackAt: null,
+    callbackTrustStatus: 'none',
+    callbackCount: 0,
+    callbackWarningsSummary: [],
     metadata: { deterministic: true }
   };
 
@@ -165,13 +177,15 @@ export async function patchExecutionReceipt(executionReceiptId, patch = {}) {
   if (action !== 'addNote' && !canTransition(before, after)) return { error: 'illegal_status_transition', currentStatus: before, attemptedStatus: after };
 
   if (action === 'recordHandoff' && patch.externalExecutionRef) receipt.externalExecutionRef = String(patch.externalExecutionRef);
-  if (action === 'recordAcknowledgement' || action === 'recordRejection') {
+  if (action === 'recordAcknowledgement' || action === 'recordRejection' || action === 'closeSuccess' || action === 'closeFailure') {
     receipt.responseSummary = {
+      ...(receipt.responseSummary || {}),
       acknowledgedAt: new Date().toISOString(),
       externalExecutionRef: patch.externalExecutionRef || receipt.externalExecutionRef || null,
       providerMessage: patch.providerMessage || null,
       responseCode: patch.responseCode || null,
-      errorClass: patch.errorClass || null
+      errorClass: patch.errorClass || null,
+      providerResult: patch.providerResult || null
     };
     if (patch.externalExecutionRef) receipt.externalExecutionRef = patch.externalExecutionRef;
   }
@@ -189,6 +203,16 @@ export async function patchExecutionReceipt(executionReceiptId, patch = {}) {
     statusAfter: action === 'addNote' ? before : after,
     metadata: patch.metadata || {}
   });
+
+  if (patch.callbackUpdate && typeof patch.callbackUpdate === 'object') {
+    receipt.lastCallbackId = patch.callbackUpdate.lastCallbackId || receipt.lastCallbackId || null;
+    receipt.lastCallbackType = patch.callbackUpdate.lastCallbackType || receipt.lastCallbackType || null;
+    receipt.lastCallbackAt = patch.callbackUpdate.lastCallbackAt || receipt.lastCallbackAt || null;
+    receipt.callbackTrustStatus = patch.callbackUpdate.callbackTrustStatus || receipt.callbackTrustStatus || 'none';
+    receipt.callbackCount = Number(receipt.callbackCount || 0) + (Number(patch.callbackUpdate.incrementCallbackCount || 0) || 0);
+    const warnings = Array.isArray(patch.callbackUpdate.callbackWarningsSummary) ? patch.callbackUpdate.callbackWarningsSummary : [];
+    receipt.callbackWarningsSummary = [...new Set([...(receipt.callbackWarningsSummary || []), ...warnings])].slice(0, 20);
+  }
 
   receipt.updatedAt = new Date().toISOString();
   receipt = await signReceipt(receipt);
@@ -225,6 +249,9 @@ export function exportExecutionReceipt(receipt, format = 'json') {
   lines.push(`- Scheduler Status: ${receipt.schedulerStatus}`);
   lines.push(`- External Ref: ${receipt.externalExecutionRef || 'none'}`);
   lines.push(`- Signature: ${receipt.receiptSignatureStatus || 'unsigned'}`);
+  lines.push(`- Last Callback: ${receipt.lastCallbackType || 'none'} (${receipt.lastCallbackId || 'n/a'}) @ ${receipt.lastCallbackAt || 'n/a'}`);
+  lines.push(`- Callback Trust: ${receipt.callbackTrustStatus || 'none'} • Count: ${receipt.callbackCount || 0}`);
+  lines.push(`- Callback Warnings: ${(receipt.callbackWarningsSummary || []).join(', ') || 'none'}`);
   lines.push(`- Blocking: ${(receipt.blockingReasons || []).join(', ') || 'none'}`);
   lines.push(`- Warnings: ${(receipt.warnings || []).join(', ') || 'none'}`);
   lines.push('', '## Lifecycle Events');

@@ -136,7 +136,15 @@ export async function createSchedulerBoard({ renderAdapterContractId = null, pro
       receiptDigest: receiptDigest(receipt),
       submissionStatus: receipt.submissionStatus,
       schedulerStatus: receipt.schedulerStatus,
-      receiptSignatureStatus: receipt.receiptSignatureStatus || 'unsigned'
+      receiptSignatureStatus: receipt.receiptSignatureStatus || 'unsigned',
+      callbackDerivedState: {
+        lastCallbackType: receipt.lastCallbackType || null,
+        lastCallbackAt: receipt.lastCallbackAt || null,
+        callbackTrustStatus: receipt.callbackTrustStatus || 'none',
+        callbackCount: Number(receipt.callbackCount || 0)
+      },
+      externallyAcknowledged: ['acknowledged','closed','rejected'].includes(receipt.submissionStatus),
+      stateMismatchWarning: receipt.lastCallbackType === 'execution_completed' && receipt.submissionStatus !== 'closed' ? 'provider_completed_but_receipt_not_closed' : null
     } : null,
     submissionTrustPublicationSummary: subTrust.error ? null : {
       submissionTrustPublicationId: subTrust.submissionTrustPublication.submissionTrustPublicationId,
