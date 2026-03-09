@@ -104,8 +104,8 @@
       "layers": {
         "political": [
           {
-            "role_id": "cbn",
-            "role_label": "Central Bank of Nigeria",
+            "role_id": "financial_regulator_primary",
+            "role_label": "Financial Regulator (Primary)",
             "layer": "political",
             "status": "validated",
             "notes": "",
@@ -116,8 +116,8 @@
             "due": ""
           },
           {
-            "role_id": "ncc",
-            "role_label": "Nigerian Communications Commission",
+            "role_id": "telecom_regulator_primary",
+            "role_label": "Telecom Regulator (Primary)",
             "layer": "political",
             "status": "identified",
             "notes": "",
@@ -128,8 +128,8 @@
             "due": ""
           },
           {
-            "role_id": "nimc",
-            "role_label": "National Identity Management Commission",
+            "role_id": "national_identity_authority",
+            "role_label": "National Identity Authority",
             "layer": "political",
             "status": "identified",
             "notes": "",
@@ -164,8 +164,8 @@
             "due": ""
           },
           {
-            "role_id": "finance_ministry_ng",
-            "role_label": "Ministry of Finance Nigeria",
+            "role_id": "finance_ministry_counterpart",
+            "role_label": "Finance Ministry Counterpart",
             "layer": "political",
             "status": "identified",
             "notes": "",
@@ -252,8 +252,8 @@
         ],
         "development": [
           {
-            "role_id": "usg_architecture_lead",
-            "role_label": "USG Platform Architecture Lead",
+            "role_id": "platform_architecture_lead",
+            "role_label": "Platform Architecture Lead",
             "layer": "development",
             "status": "committed",
             "notes": "",
@@ -326,8 +326,8 @@
         ],
         "capital": [
           {
-            "role_id": "nsia",
-            "role_label": "Nigeria Sovereign Investment Authority (NSIA)",
+            "role_id": "anchor_national_capital_sponsor",
+            "role_label": "Anchor National Capital Sponsor",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -338,8 +338,8 @@
             "due": ""
           },
           {
-            "role_id": "afc",
-            "role_label": "Africa Finance Corporation",
+            "role_id": "development_finance_partner_1",
+            "role_label": "Development Finance Partner",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -350,8 +350,8 @@
             "due": ""
           },
           {
-            "role_id": "dfc",
-            "role_label": "U.S. International Development Finance Corporation",
+            "role_id": "development_finance_partner_2",
+            "role_label": "Development Finance Partner",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -362,8 +362,8 @@
             "due": ""
           },
           {
-            "role_id": "worldbank_ifc",
-            "role_label": "World Bank / IFC",
+            "role_id": "development_finance_partner_3",
+            "role_label": "Development Finance Partner",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -374,8 +374,8 @@
             "due": ""
           },
           {
-            "role_id": "afdb",
-            "role_label": "African Development Bank",
+            "role_id": "development_finance_partner_4",
+            "role_label": "Development Finance Partner",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -386,8 +386,8 @@
             "due": ""
           },
           {
-            "role_id": "gulf_sovereigns",
-            "role_label": "Gulf Sovereign Funds (ADQ, Mubadala)",
+            "role_id": "gulf_sovereign_capital_pool",
+            "role_label": "Gulf Sovereign Capital Pool",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -513,8 +513,8 @@
     "actor_alignment_layers": {
       "political": [
         {
-          "role_id": "cbn",
-          "role_label": "Central Bank of Nigeria",
+          "role_id": "financial_regulator_primary",
+          "role_label": "Financial Regulator (Primary)",
           "layer": "political",
           "status": "validated",
           "notes": "",
@@ -525,8 +525,8 @@
           "due": ""
         },
         {
-          "role_id": "ncc",
-          "role_label": "Nigerian Communications Commission",
+          "role_id": "telecom_regulator_primary",
+          "role_label": "Telecom Regulator (Primary)",
           "layer": "political",
           "status": "identified",
           "notes": "",
@@ -537,8 +537,8 @@
           "due": ""
         },
         {
-          "role_id": "nimc",
-          "role_label": "National Identity Management Commission",
+          "role_id": "national_identity_authority",
+          "role_label": "National Identity Authority",
           "layer": "political",
           "status": "identified",
           "notes": "",
@@ -573,8 +573,8 @@
           "due": ""
         },
         {
-          "role_id": "finance_ministry_ng",
-          "role_label": "Ministry of Finance Nigeria",
+          "role_id": "finance_ministry_counterpart",
+          "role_label": "Finance Ministry Counterpart",
           "layer": "political",
           "status": "identified",
           "notes": "",
@@ -661,8 +661,8 @@
       ],
       "development": [
         {
-          "role_id": "usg_architecture_lead",
-          "role_label": "USG Platform Architecture Lead",
+          "role_id": "platform_architecture_lead",
+          "role_label": "Platform Architecture Lead",
           "layer": "development",
           "status": "committed",
           "notes": "",
@@ -735,8 +735,8 @@
       ],
       "capital": [
         {
-          "role_id": "nsia",
-          "role_label": "Nigeria Sovereign Investment Authority (NSIA)",
+          "role_id": "anchor_national_capital_sponsor",
+          "role_label": "Anchor National Capital Sponsor",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -747,8 +747,8 @@
           "due": ""
         },
         {
-          "role_id": "afc",
-          "role_label": "Africa Finance Corporation",
+          "role_id": "development_finance_partner_1",
+          "role_label": "Development Finance Partner",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -759,8 +759,8 @@
           "due": ""
         },
         {
-          "role_id": "dfc",
-          "role_label": "U.S. International Development Finance Corporation",
+          "role_id": "development_finance_partner_2",
+          "role_label": "Development Finance Partner",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -771,8 +771,8 @@
           "due": ""
         },
         {
-          "role_id": "worldbank_ifc",
-          "role_label": "World Bank / IFC",
+          "role_id": "development_finance_partner_3",
+          "role_label": "Development Finance Partner",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -783,8 +783,8 @@
           "due": ""
         },
         {
-          "role_id": "afdb",
-          "role_label": "African Development Bank",
+          "role_id": "development_finance_partner_4",
+          "role_label": "Development Finance Partner",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -795,8 +795,8 @@
           "due": ""
         },
         {
-          "role_id": "gulf_sovereigns",
-          "role_label": "Gulf Sovereign Funds (ADQ, Mubadala)",
+          "role_id": "gulf_sovereign_capital_pool",
+          "role_label": "Gulf Sovereign Capital Pool",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -918,7 +918,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T22:03:00Z"
+    "updated_at": "2026-03-09T22:24:00Z"
   },
   {
     "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -1003,8 +1003,8 @@
         ],
         "asset": [
           {
-            "role_id": "larsen_toubro_execution",
-            "role_label": "Larsen & Toubro (Execution Lead)",
+            "role_id": "epc_execution_lead",
+            "role_label": "EPC / Execution Lead",
             "layer": "asset",
             "status": "identified",
             "notes": "",
@@ -1077,8 +1077,8 @@
         ],
         "development": [
           {
-            "role_id": "usg_architecture_lead",
-            "role_label": "USG Platform Architecture Lead",
+            "role_id": "platform_architecture_lead",
+            "role_label": "Platform Architecture Lead",
             "layer": "development",
             "status": "committed",
             "notes": "",
@@ -1089,8 +1089,8 @@
             "due": ""
           },
           {
-            "role_id": "sun_group_sponsor",
-            "role_label": "Sun Group Sponsor",
+            "role_id": "platform_sponsor_counterpart",
+            "role_label": "Platform Sponsor Counterpart",
             "layer": "development",
             "status": "engaged",
             "notes": "",
@@ -1101,8 +1101,8 @@
             "due": ""
           },
           {
-            "role_id": "usg_sun_gp_structure",
-            "role_label": "USG-Sun AI Infrastructure GP Structure",
+            "role_id": "gp_structure_vehicle",
+            "role_label": "GP Structure Vehicle",
             "layer": "development",
             "status": "validated",
             "notes": "",
@@ -1113,8 +1113,8 @@
             "due": ""
           },
           {
-            "role_id": "unified_equity_vehicle",
-            "role_label": "Unified Equity Infrastructure Vehicle",
+            "role_id": "equity_vehicle",
+            "role_label": "Equity Vehicle",
             "layer": "development",
             "status": "identified",
             "notes": "",
@@ -1139,8 +1139,8 @@
         ],
         "capital": [
           {
-            "role_id": "mubadala",
-            "role_label": "Mubadala Investment Company",
+            "role_id": "anchor_sovereign_equity_1",
+            "role_label": "Anchor Sovereign Equity Sponsor",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -1151,8 +1151,8 @@
             "due": ""
           },
           {
-            "role_id": "pif",
-            "role_label": "Public Investment Fund",
+            "role_id": "anchor_sovereign_equity_2",
+            "role_label": "Anchor Sovereign Equity Sponsor",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -1163,8 +1163,8 @@
             "due": ""
           },
           {
-            "role_id": "qia",
-            "role_label": "Qatar Investment Authority",
+            "role_id": "anchor_sovereign_equity_3",
+            "role_label": "Anchor Sovereign Equity Sponsor",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -1273,8 +1273,8 @@
         ],
         "delivery": [
           {
-            "role_id": "nvidia",
-            "role_label": "NVIDIA",
+            "role_id": "ai_compute_architecture_provider",
+            "role_label": "AI Compute Architecture Provider",
             "layer": "delivery",
             "status": "identified",
             "notes": "",
@@ -1436,8 +1436,8 @@
       ],
       "asset": [
         {
-          "role_id": "larsen_toubro_execution",
-          "role_label": "Larsen & Toubro (Execution Lead)",
+          "role_id": "epc_execution_lead",
+          "role_label": "EPC / Execution Lead",
           "layer": "asset",
           "status": "identified",
           "notes": "",
@@ -1510,8 +1510,8 @@
       ],
       "development": [
         {
-          "role_id": "usg_architecture_lead",
-          "role_label": "USG Platform Architecture Lead",
+          "role_id": "platform_architecture_lead",
+          "role_label": "Platform Architecture Lead",
           "layer": "development",
           "status": "committed",
           "notes": "",
@@ -1522,8 +1522,8 @@
           "due": ""
         },
         {
-          "role_id": "sun_group_sponsor",
-          "role_label": "Sun Group Sponsor",
+          "role_id": "platform_sponsor_counterpart",
+          "role_label": "Platform Sponsor Counterpart",
           "layer": "development",
           "status": "engaged",
           "notes": "",
@@ -1534,8 +1534,8 @@
           "due": ""
         },
         {
-          "role_id": "usg_sun_gp_structure",
-          "role_label": "USG-Sun AI Infrastructure GP Structure",
+          "role_id": "gp_structure_vehicle",
+          "role_label": "GP Structure Vehicle",
           "layer": "development",
           "status": "validated",
           "notes": "",
@@ -1546,8 +1546,8 @@
           "due": ""
         },
         {
-          "role_id": "unified_equity_vehicle",
-          "role_label": "Unified Equity Infrastructure Vehicle",
+          "role_id": "equity_vehicle",
+          "role_label": "Equity Vehicle",
           "layer": "development",
           "status": "identified",
           "notes": "",
@@ -1572,8 +1572,8 @@
       ],
       "capital": [
         {
-          "role_id": "mubadala",
-          "role_label": "Mubadala Investment Company",
+          "role_id": "anchor_sovereign_equity_1",
+          "role_label": "Anchor Sovereign Equity Sponsor",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -1584,8 +1584,8 @@
           "due": ""
         },
         {
-          "role_id": "pif",
-          "role_label": "Public Investment Fund",
+          "role_id": "anchor_sovereign_equity_2",
+          "role_label": "Anchor Sovereign Equity Sponsor",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -1596,8 +1596,8 @@
           "due": ""
         },
         {
-          "role_id": "qia",
-          "role_label": "Qatar Investment Authority",
+          "role_id": "anchor_sovereign_equity_3",
+          "role_label": "Anchor Sovereign Equity Sponsor",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -1706,8 +1706,8 @@
       ],
       "delivery": [
         {
-          "role_id": "nvidia",
-          "role_label": "NVIDIA",
+          "role_id": "ai_compute_architecture_provider",
+          "role_label": "AI Compute Architecture Provider",
           "layer": "delivery",
           "status": "identified",
           "notes": "",
@@ -1803,7 +1803,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T22:21:00Z"
+    "updated_at": "2026-03-09T22:24:00Z"
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
