@@ -47,6 +47,9 @@ export async function applyCallbackToReceipt({ executionReceiptId, callback }) {
         lastCallbackType: callback.callbackType,
         lastCallbackAt: callback.createdAt,
         callbackTrustStatus: callback.trustMetadata?.callbackOriginStatus || 'unknown_origin',
+        lastCallbackReplayStatus: callback.replayStatus || 'first_seen',
+        lastCallbackKeyRegistryStatus: callback.trustMetadata?.keyRegistryStatus || 'not_evaluated',
+        lastCallbackOutcome: callback.reconciliationStatus || 'applied',
         incrementCallbackCount: action === actions[actions.length - 1] ? 1 : 0,
         callbackWarningsSummary: callback.warnings || []
       }

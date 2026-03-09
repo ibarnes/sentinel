@@ -47,7 +47,10 @@ function signingPayload(receipt) {
     lastCallbackAt: receipt.lastCallbackAt || null,
     callbackTrustStatus: receipt.callbackTrustStatus || 'none',
     callbackCount: Number(receipt.callbackCount || 0),
-    callbackWarningsSummary: receipt.callbackWarningsSummary || []
+    callbackWarningsSummary: receipt.callbackWarningsSummary || [],
+    lastCallbackReplayStatus: receipt.lastCallbackReplayStatus || null,
+    lastCallbackKeyRegistryStatus: receipt.lastCallbackKeyRegistryStatus || null,
+    lastCallbackOutcome: receipt.lastCallbackOutcome || null
   });
 }
 
@@ -146,6 +149,9 @@ export async function createExecutionReceipt({ providerSubmissionContractId = nu
     callbackTrustStatus: 'none',
     callbackCount: 0,
     callbackWarningsSummary: [],
+    lastCallbackReplayStatus: null,
+    lastCallbackKeyRegistryStatus: null,
+    lastCallbackOutcome: null,
     metadata: { deterministic: true }
   };
 
@@ -212,6 +218,9 @@ export async function patchExecutionReceipt(executionReceiptId, patch = {}) {
     receipt.callbackCount = Number(receipt.callbackCount || 0) + (Number(patch.callbackUpdate.incrementCallbackCount || 0) || 0);
     const warnings = Array.isArray(patch.callbackUpdate.callbackWarningsSummary) ? patch.callbackUpdate.callbackWarningsSummary : [];
     receipt.callbackWarningsSummary = [...new Set([...(receipt.callbackWarningsSummary || []), ...warnings])].slice(0, 20);
+    receipt.lastCallbackReplayStatus = patch.callbackUpdate.lastCallbackReplayStatus || receipt.lastCallbackReplayStatus || null;
+    receipt.lastCallbackKeyRegistryStatus = patch.callbackUpdate.lastCallbackKeyRegistryStatus || receipt.lastCallbackKeyRegistryStatus || null;
+    receipt.lastCallbackOutcome = patch.callbackUpdate.lastCallbackOutcome || receipt.lastCallbackOutcome || null;
   }
 
   receipt.updatedAt = new Date().toISOString();
@@ -251,6 +260,7 @@ export function exportExecutionReceipt(receipt, format = 'json') {
   lines.push(`- Signature: ${receipt.receiptSignatureStatus || 'unsigned'}`);
   lines.push(`- Last Callback: ${receipt.lastCallbackType || 'none'} (${receipt.lastCallbackId || 'n/a'}) @ ${receipt.lastCallbackAt || 'n/a'}`);
   lines.push(`- Callback Trust: ${receipt.callbackTrustStatus || 'none'} • Count: ${receipt.callbackCount || 0}`);
+  lines.push(`- Callback Replay: ${receipt.lastCallbackReplayStatus || 'n/a'} • Key Registry: ${receipt.lastCallbackKeyRegistryStatus || 'n/a'} • Outcome: ${receipt.lastCallbackOutcome || 'n/a'}`);
   lines.push(`- Callback Warnings: ${(receipt.callbackWarningsSummary || []).join(', ') || 'none'}`);
   lines.push(`- Blocking: ${(receipt.blockingReasons || []).join(', ') || 'none'}`);
   lines.push(`- Warnings: ${(receipt.warnings || []).join(', ') || 'none'}`);

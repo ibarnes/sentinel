@@ -58,8 +58,10 @@ import { validateAdapterContract } from '../production/adapterValidationService.
 import { createProviderAdapter, getProviderAdapter, exportProviderAdapter, validateProviderAdapter, listProviderCapabilityProfiles, inspectProviderCapabilityProfile } from '../production/providerAdapterService.js';
 import { createProviderSubmissionContract, getProviderSubmissionContract, exportProviderSubmissionContract, listProviderSubmissionContracts, validateProviderSubmission } from '../production/providerSubmissionService.js';
 import { createExecutionReceipt, getExecutionReceipt, patchExecutionReceipt, listExecutionReceipts, exportExecutionReceipt } from '../production/executionReceiptService.js';
-import { createExecutionCallback, getExecutionCallback, listExecutionCallbacks, exportExecutionCallback } from '../production/executionCallbackService.js';
+import { createExecutionCallback, getExecutionCallback, listExecutionCallbacks, exportExecutionCallback, replayCheckExecutionCallback } from '../production/executionCallbackService.js';
 import { verifyExecutionCallback } from '../production/callbackVerificationService.js';
+import { listCallbackSigningKeys, listCallbackSigningKeysByProfile } from '../production/callbackKeyRegistryService.js';
+import { listReplayLedger } from '../production/callbackReplayLedgerService.js';
 import { publishSubmissionTrust, listSubmissionTrustPublications, getLatestSubmissionTrustPublication, getSubmissionTrustPublication } from '../production/submissionTrustPublicationService.js';
 import { publishReceiptTrust, listReceiptTrustPublications, getLatestReceiptTrustPublication, getReceiptTrustPublication } from '../production/receiptTrustPublicationService.js';
 import { createSchedulerBoard, getSchedulerBoard, latestSchedulerBoard, exportSchedulerBoard, verifySchedulerBoard } from '../production/schedulerBoardService.js';
@@ -1319,13 +1321,14 @@ router.post('/api/production/execution-receipts/:executionReceiptId/trust-public
 });
 
 router.post('/api/production/execution-callbacks/verify', async (req, res) => {
-  const out = verifyExecutionCallback({
+  const out = await verifyExecutionCallback({
     providerType: req.body?.providerType || null,
     providerProfileId: req.body?.providerProfileId || 'default',
     callbackType: req.body?.callbackType || null,
     callbackPayload: req.body?.callbackPayload || null,
     trustMetadata: req.body?.trustMetadata || {},
-    callbackDigest: req.body?.callbackDigest || null
+    callbackDigest: req.body?.callbackDigest || null,
+    callbackPolicyProfile: req.body?.callbackPolicyProfile || 'dev'
   });
   res.json(out);
 });
@@ -1335,6 +1338,26 @@ router.post('/api/production/execution-callbacks', async (req, res) => {
   if (['missing_provider_profile','unsupported_callback_type','malformed_callback_payload'].includes(out.error)) return res.status(400).json(out);
   if (out.executionCallback?.reconciliationStatus === 'malformed_callback') return res.status(400).json(out);
   res.status(201).json(out);
+});
+
+router.post('/api/production/execution-callbacks/replay-check', async (req, res) => {
+  const out = await replayCheckExecutionCallback(req.body || {});
+  res.json(out);
+});
+
+router.get('/api/production/callback-keys', async (_req, res) => {
+  const out = await listCallbackSigningKeys();
+  res.json(out);
+});
+
+router.get('/api/production/callback-keys/:providerType/:providerProfileId', async (req, res) => {
+  const out = await listCallbackSigningKeysByProfile(String(req.params.providerType || ''), String(req.params.providerProfileId || 'default'));
+  res.json(out);
+});
+
+router.get('/api/production/execution-callbacks/replay-ledger', async (_req, res) => {
+  const out = await listReplayLedger();
+  res.json(out);
 });
 
 router.get('/api/production/execution-callbacks', async (_req, res) => {

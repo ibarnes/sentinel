@@ -860,18 +860,22 @@ async function submitExecutionCallbackUi() {
   const providerType = prompt('providerType', state.latestProviderSubmission?.providerType || 'generic_renderer') || 'generic_renderer';
   const providerProfileId = prompt('providerProfileId', state.latestProviderSubmission?.providerProfileId || 'default') || 'default';
   const callbackType = prompt('callbackType', 'provider_acknowledged') || 'provider_acknowledged';
-  const payloadRaw = prompt('callbackPayload JSON', '{"status":"accepted","eventAt":"2026-03-09T12:00:00.000Z","message":"ack"}');
+  const callbackPolicyProfile = prompt('callbackPolicyProfile: dev|internal_verified|production_verified', 'internal_verified') || 'internal_verified';
+  const payloadRaw = prompt('callbackPayload JSON', '{"status":"accepted","eventAt":"2026-03-09T12:00:00.000Z","message":"ack","externalExecutionRef":"job-1"}');
   let callbackPayload;
   try { callbackPayload = JSON.parse(payloadRaw || '{}'); } catch { return alert('Invalid callback payload JSON'); }
+  const callbackSigningKeyId = prompt('callbackSigningKeyId (optional)', 'cbk_generic_default_v1') || null;
+  const callbackSignature = prompt('callbackSignature (optional, hmac hex)', '') || null;
   const out = await api('/reveal/api/production/execution-callbacks', 'POST', {
     providerType,
     providerProfileId,
     callbackType,
+    callbackPolicyProfile,
     callbackPayload,
     targetExecutionReceiptId: state.latestExecutionReceipt?.executionReceiptId || null,
     targetProviderSubmissionContractId: state.latestProviderSubmission?.providerSubmissionContractId || null,
-    externalExecutionRef: prompt('externalExecutionRef (optional)', '') || null,
-    trustMetadata: { unsignedAllowed: true }
+    externalExecutionRef: prompt('externalExecutionRef (optional)', callbackPayload.externalExecutionRef || '') || null,
+    trustMetadata: { unsignedAllowed: true, callbackSigningKeyId, callbackSignature, callbackSigningAlgorithm: 'HMAC-SHA256' }
   });
   state.latestExecutionCallback = out.executionCallback;
   if (out.reconciliationResult?.targetExecutionReceiptId) {
@@ -884,10 +888,20 @@ async function verifyExecutionCallbackUi() {
   const providerType = prompt('providerType', 'generic_renderer') || 'generic_renderer';
   const providerProfileId = prompt('providerProfileId', 'default') || 'default';
   const callbackType = prompt('callbackType', 'provider_acknowledged') || 'provider_acknowledged';
-  const payloadRaw = prompt('callbackPayload JSON', '{"status":"accepted","eventAt":"2026-03-09T12:00:00.000Z"}');
+  const callbackPolicyProfile = prompt('callbackPolicyProfile: dev|internal_verified|production_verified', 'internal_verified') || 'internal_verified';
+  const payloadRaw = prompt('callbackPayload JSON', '{"status":"accepted","eventAt":"2026-03-09T12:00:00.000Z","externalExecutionRef":"job-1"}');
   let callbackPayload;
   try { callbackPayload = JSON.parse(payloadRaw || '{}'); } catch { return alert('Invalid callback payload JSON'); }
-  const out = await api('/reveal/api/production/execution-callbacks/verify', 'POST', { providerType, providerProfileId, callbackType, callbackPayload, trustMetadata: { unsignedAllowed: true } });
+  const callbackSigningKeyId = prompt('callbackSigningKeyId (optional)', 'cbk_generic_default_v1') || null;
+  const callbackSignature = prompt('callbackSignature (optional)', '') || null;
+  const out = await api('/reveal/api/production/execution-callbacks/verify', 'POST', {
+    providerType,
+    providerProfileId,
+    callbackType,
+    callbackPolicyProfile,
+    callbackPayload,
+    trustMetadata: { unsignedAllowed: true, callbackSigningKeyId, callbackSignature, callbackSigningAlgorithm: 'HMAC-SHA256' }
+  });
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 

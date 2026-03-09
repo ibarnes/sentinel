@@ -141,9 +141,14 @@ export async function createSchedulerBoard({ renderAdapterContractId = null, pro
         lastCallbackType: receipt.lastCallbackType || null,
         lastCallbackAt: receipt.lastCallbackAt || null,
         callbackTrustStatus: receipt.callbackTrustStatus || 'none',
-        callbackCount: Number(receipt.callbackCount || 0)
+        callbackCount: Number(receipt.callbackCount || 0),
+        replayStatus: receipt.lastCallbackReplayStatus || null,
+        keyRegistryStatus: receipt.lastCallbackKeyRegistryStatus || null,
+        outcome: receipt.lastCallbackOutcome || null
       },
       externallyAcknowledged: ['acknowledged','closed','rejected'].includes(receipt.submissionStatus),
+      replayRiskSummary: ['conflicting_replay','duplicate_within_window'].includes(receipt.lastCallbackReplayStatus) ? 'elevated' : 'normal',
+      schedulerPostureWarning: receipt.callbackTrustStatus === 'unsigned' ? 'state_advanced_from_unsigned_callback' : null,
       stateMismatchWarning: receipt.lastCallbackType === 'execution_completed' && receipt.submissionStatus !== 'closed' ? 'provider_completed_but_receipt_not_closed' : null
     } : null,
     submissionTrustPublicationSummary: subTrust.error ? null : {
