@@ -2472,8 +2472,8 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
     walk(decksRoot);
   }
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiative Detail')}</head><body><div class="app-shell">
-    ${dashboardNav('buyers')}
-    <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/buyers">← Buyers</a>
+    ${dashboardNav('initiatives')}
+    <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/initiatives">← Initiatives</a>
     <h3>${escapeHtml(i.name)}</h3>
     <p>${escapeHtml(i.macro_gravity_summary || '')}</p>
     <p><strong>Status:</strong> ${escapeHtml(i.status || '')}</p>
