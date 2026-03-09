@@ -936,7 +936,874 @@
     ],
     "macro_gravity_summary": "Government land/power enablement plus L&T execution and Nvidia anchoring create high-pressure pre-FID conditions for a gigawatt-scale AI campus, with unresolved sponsor governance and capital-stack sequencing as the primary bottleneck.",
     "structural_role": "USG designs commitment architecture pre-FID: governance, capital sequencing, risk allocation, and bankability package.",
-    "fid_event_definition": "Capital close + tenancy/offtake commitments + governance package ratification + EPC NTP + power/land enforceable terms"
+    "fid_event_definition": "Capital close + tenancy/offtake commitments + governance package ratification + EPC NTP + power/land enforceable terms",
+    "actor_alignment": {
+      "layers": {
+        "political": [
+          {
+            "role_id": "ap_state_government",
+            "role_label": "Andhra Pradesh State Government",
+            "layer": "political",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Andhra Pradesh Government",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "india_data_sovereignty_regulator",
+            "role_label": "India Data Sovereignty Regulator",
+            "layer": "political",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "regulator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "india_digital_infra_agency",
+            "role_label": "India Digital Infrastructure Agency",
+            "layer": "political",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "regulator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "cross_border_investment_regulator",
+            "role_label": "Cross-Border Investment Regulator",
+            "layer": "political",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "regulator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "data_residency_authority",
+            "role_label": "Data Residency Authority",
+            "layer": "political",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "regulator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "asset": [
+          {
+            "role_id": "larsen_toubro_execution",
+            "role_label": "Larsen & Toubro (Execution Lead)",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "L&T",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "hyperscale_campus_developer",
+            "role_label": "Hyperscale Campus Developer",
+            "layer": "asset",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "modular_dc_builder",
+            "role_label": "Modular Data Center Builder",
+            "layer": "asset",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "dc_operator",
+            "role_label": "Data Center Operator",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": "Gulf Data Hub / G42",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "compute_demand_anchor",
+            "role_label": "Enterprise / Sovereign Compute Demand Anchor",
+            "layer": "asset",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "sovereign_ai_program_offtaker",
+            "role_label": "Sovereign AI Program Off-Taker",
+            "layer": "asset",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "development": [
+          {
+            "role_id": "usg_architecture_lead",
+            "role_label": "USG Platform Architecture Lead",
+            "layer": "development",
+            "status": "committed",
+            "notes": "",
+            "mapped_entity_type": "team",
+            "mapped_entity_ref": "USG",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "sun_group_sponsor",
+            "role_label": "Sun Group Sponsor",
+            "layer": "development",
+            "status": "engaged",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Sun Group",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "usg_sun_gp_structure",
+            "role_label": "USG-Sun AI Infrastructure GP Structure",
+            "layer": "development",
+            "status": "validated",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "USG-Sun GP",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "unified_equity_vehicle",
+            "role_label": "Unified Equity Infrastructure Vehicle",
+            "layer": "development",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Unified Equity",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "fid_sequencing_lead",
+            "role_label": "FID Sequencing Lead",
+            "layer": "development",
+            "status": "engaged",
+            "notes": "",
+            "mapped_entity_type": "team",
+            "mapped_entity_ref": "USG",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "capital": [
+          {
+            "role_id": "mubadala",
+            "role_label": "Mubadala Investment Company",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "buyer",
+            "mapped_entity_ref": "MUBADALA",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "pif",
+            "role_label": "Public Investment Fund",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "buyer",
+            "mapped_entity_ref": "PIF",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "qia",
+            "role_label": "Qatar Investment Authority",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "buyer",
+            "mapped_entity_ref": "QIA",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "global_infrastructure_funds",
+            "role_label": "Global Infrastructure Funds",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "pension_funds",
+            "role_label": "Pension Funds",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "walton_family_office",
+            "role_label": "Walton Family Office Infrastructure Capital",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Walton Family Office",
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "slim_family_office",
+            "role_label": "Slim Family Office Infrastructure Capital",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Slim Family Office",
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "dangote_family_office",
+            "role_label": "Dangote Family Office Infrastructure Capital",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Dangote Family Office",
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "project_finance_lenders",
+            "role_label": "Project Finance Lenders (Debt Stack)",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "export_credit_agencies",
+            "role_label": "Export Credit Agencies",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "gpu_financing_vehicle",
+            "role_label": "GPU Financing Vehicle / Leasing SPV",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          }
+        ],
+        "delivery": [
+          {
+            "role_id": "nvidia",
+            "role_label": "NVIDIA",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "NVIDIA",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "hyperscaler_platform",
+            "role_label": "Hyperscaler / AI Workload Platform",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "AWS / OpenAI",
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "energy_provider",
+            "role_label": "Energy Provider / Utility Counterpart",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "renewable_power_partner",
+            "role_label": "Renewable Power Infrastructure Partner",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "transmission_infrastructure_developer",
+            "role_label": "Transmission Infrastructure Developer",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "gpu_supply_chain_partner",
+            "role_label": "GPU Supply Chain Partner",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "advanced_cooling_vendor",
+            "role_label": "Advanced Cooling Vendor",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          },
+          {
+            "role_id": "high_performance_networking_supplier",
+            "role_label": "High-Performance Networking Supplier",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": ""
+          }
+        ]
+      }
+    },
+    "actor_alignment_layers": {
+      "political": [
+        {
+          "role_id": "ap_state_government",
+          "role_label": "Andhra Pradesh State Government",
+          "layer": "political",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "Andhra Pradesh Government",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "india_data_sovereignty_regulator",
+          "role_label": "India Data Sovereignty Regulator",
+          "layer": "political",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "regulator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "india_digital_infra_agency",
+          "role_label": "India Digital Infrastructure Agency",
+          "layer": "political",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "regulator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "cross_border_investment_regulator",
+          "role_label": "Cross-Border Investment Regulator",
+          "layer": "political",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "regulator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "data_residency_authority",
+          "role_label": "Data Residency Authority",
+          "layer": "political",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "regulator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "asset": [
+        {
+          "role_id": "larsen_toubro_execution",
+          "role_label": "Larsen & Toubro (Execution Lead)",
+          "layer": "asset",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "L&T",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "hyperscale_campus_developer",
+          "role_label": "Hyperscale Campus Developer",
+          "layer": "asset",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "modular_dc_builder",
+          "role_label": "Modular Data Center Builder",
+          "layer": "asset",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "dc_operator",
+          "role_label": "Data Center Operator",
+          "layer": "asset",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": "Gulf Data Hub / G42",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "compute_demand_anchor",
+          "role_label": "Enterprise / Sovereign Compute Demand Anchor",
+          "layer": "asset",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "sovereign_ai_program_offtaker",
+          "role_label": "Sovereign AI Program Off-Taker",
+          "layer": "asset",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "development": [
+        {
+          "role_id": "usg_architecture_lead",
+          "role_label": "USG Platform Architecture Lead",
+          "layer": "development",
+          "status": "committed",
+          "notes": "",
+          "mapped_entity_type": "team",
+          "mapped_entity_ref": "USG",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "sun_group_sponsor",
+          "role_label": "Sun Group Sponsor",
+          "layer": "development",
+          "status": "engaged",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "Sun Group",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "usg_sun_gp_structure",
+          "role_label": "USG-Sun AI Infrastructure GP Structure",
+          "layer": "development",
+          "status": "validated",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "USG-Sun GP",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "unified_equity_vehicle",
+          "role_label": "Unified Equity Infrastructure Vehicle",
+          "layer": "development",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "Unified Equity",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "fid_sequencing_lead",
+          "role_label": "FID Sequencing Lead",
+          "layer": "development",
+          "status": "engaged",
+          "notes": "",
+          "mapped_entity_type": "team",
+          "mapped_entity_ref": "USG",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "capital": [
+        {
+          "role_id": "mubadala",
+          "role_label": "Mubadala Investment Company",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "buyer",
+          "mapped_entity_ref": "MUBADALA",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "pif",
+          "role_label": "Public Investment Fund",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "buyer",
+          "mapped_entity_ref": "PIF",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "qia",
+          "role_label": "Qatar Investment Authority",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "buyer",
+          "mapped_entity_ref": "QIA",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "global_infrastructure_funds",
+          "role_label": "Global Infrastructure Funds",
+          "layer": "capital",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "pension_funds",
+          "role_label": "Pension Funds",
+          "layer": "capital",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "walton_family_office",
+          "role_label": "Walton Family Office Infrastructure Capital",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "Walton Family Office",
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "slim_family_office",
+          "role_label": "Slim Family Office Infrastructure Capital",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "Slim Family Office",
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "dangote_family_office",
+          "role_label": "Dangote Family Office Infrastructure Capital",
+          "layer": "capital",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "Dangote Family Office",
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "project_finance_lenders",
+          "role_label": "Project Finance Lenders (Debt Stack)",
+          "layer": "capital",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "export_credit_agencies",
+          "role_label": "Export Credit Agencies",
+          "layer": "capital",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "gpu_financing_vehicle",
+          "role_label": "GPU Financing Vehicle / Leasing SPV",
+          "layer": "capital",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        }
+      ],
+      "delivery": [
+        {
+          "role_id": "nvidia",
+          "role_label": "NVIDIA",
+          "layer": "delivery",
+          "status": "identified",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "NVIDIA",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "hyperscaler_platform",
+          "role_label": "Hyperscaler / AI Workload Platform",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": "AWS / OpenAI",
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "energy_provider",
+          "role_label": "Energy Provider / Utility Counterpart",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "renewable_power_partner",
+          "role_label": "Renewable Power Infrastructure Partner",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "transmission_infrastructure_developer",
+          "role_label": "Transmission Infrastructure Developer",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "operator",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "gpu_supply_chain_partner",
+          "role_label": "GPU Supply Chain Partner",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "advanced_cooling_vendor",
+          "role_label": "Advanced Cooling Vendor",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        },
+        {
+          "role_id": "high_performance_networking_supplier",
+          "role_label": "High-Performance Networking Supplier",
+          "layer": "delivery",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": "organization",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": ""
+        }
+      ]
+    },
+    "updated_at": "2026-03-09T22:21:00Z"
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -987,7 +1854,7 @@
   },
   {
     "initiative_id": "INIT-653306",
-    "name": "Carepoint Pan-African Digital Health Backbone",
+    "name": "Pan-African Digital Health Backbone",
     "status": "Pre-FID / Formation",
     "infrastructure_category": "Digital Health Infrastructure",
     "macro_gravity_summary": "Build a unified, cloud-native digital health backbone for Carepoint across Rabito/Lily/Seha hospitals and expansion markets, combining telehealth, interoperable clinical data infrastructure, and AI-enabled decision support to improve access, quality, and equity for underserved populations across Africa. Phase focus: reference architecture, cross-border data governance, provider workflow integration, and scalable operating model for 10+ country rollout.",
@@ -1613,6 +2480,6 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T21:54:24.002Z"
+    "updated_at": "2026-03-09T22:08:36.099Z"
   }
 ]
