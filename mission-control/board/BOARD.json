@@ -2714,7 +2714,9 @@
         "TASK-0102",
         "TASK-0103",
         "TASK-0125",
-        "TASK-0126"
+        "TASK-0126",
+        "TASK-0127",
+        "TASK-0128"
       ],
       "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
       "comments": [
@@ -2740,11 +2742,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep decomposition gate reapplied: added child subtasks TASK-0125 (preflight artifact refresh) and TASK-0126 (credentialed execution request packet) with acceptance criteria and explicit parent/child linkage.",
           "created_at": "2026-03-09T06:30:00Z"
+        },
+        {
+          "id": "progress-0097-20260309-1040",
+          "author": "sentinel",
+          "text": "Morning sweep executed atomic unblock tasks TASK-0127/TASK-0128 (auto-resolve smoke script + refreshed runbook). Credentialed execution evidence (TASK-0111/TASK-0103) remains final blocker.",
+          "created_at": "2026-03-09T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-09T06:30:00Z",
+      "updated_at": "2026-03-09T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3781,6 +3789,82 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0097"
+    },
+    {
+      "id": "TASK-0127",
+      "title": "TS-H1.1c.2e Add selector-based deck auto-resolve to pipeline smoke script",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep",
+        "morning-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "scripts/pipeline-run-smoke.sh",
+        "mission-control/review-packets/RP-0044-auth-smoke-operator-friction-reduction.md"
+      ],
+      "description": "Reduce credentialed execution friction by allowing smoke script to resolve DECK_ID via initiative/deck selectors when explicit deck id is unavailable.\nAcceptance Criteria:\n- Script supports INITIATIVE_ID + DECK_TYPE (+ optional BUYER_ID) auto-resolve path.\n- Existing DECK_ID flow remains backward-compatible.\n- Script syntax check passes.",
+      "comments": [
+        {
+          "id": "done-0127-20260309-1040",
+          "author": "sentinel",
+          "text": "Implemented selector-based deck auto-resolve in scripts/pipeline-run-smoke.sh and validated with `bash -n`.",
+          "created_at": "2026-03-09T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-09T10:40:00Z",
+      "updated_at": "2026-03-09T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0097",
+      "review_packet_id": "RP-0044"
+    },
+    {
+      "id": "TASK-0128",
+      "title": "TS-H1.1c.2f Refresh credentialed smoke runbook with timestamped evidence flow",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep",
+        "morning-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/runbooks/pipeline-run-auth-smoke.md",
+        "mission-control/review-packets/RP-0044-auth-smoke-operator-friction-reduction.md"
+      ],
+      "description": "Refresh operator runbook to include explicit and auto-resolve command paths and timestamped evidence capture naming.\nAcceptance Criteria:\n- Runbook includes DECK_ID path and selector auto-resolve path.\n- Evidence file naming uses UTC timestamp convention.\n- Checklist aligns with TASK-0097 closure evidence requirements.",
+      "comments": [
+        {
+          "id": "done-0128-20260309-1040",
+          "author": "sentinel",
+          "text": "Updated runbook with dual command paths and UTC timestamped evidence capture convention.",
+          "created_at": "2026-03-09T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-09T10:40:00Z",
+      "updated_at": "2026-03-09T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0097",
+      "review_packet_id": "RP-0044"
     }
   ]
 }
