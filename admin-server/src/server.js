@@ -2536,14 +2536,40 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
     ${canEdit && editMode ? `<div class="card mb-3"><div class="card-body"><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/update" class="row g-2"><div class="col-md-6"><label class="form-label">Name</label><input class="form-control" name="name" value="${escapeHtml(i.name || '')}" required /></div><div class="col-md-3"><label class="form-label">Status</label><input class="form-control" name="status" value="${escapeHtml(i.status || '')}" /></div><div class="col-md-3"><label class="form-label">Infrastructure Type</label><input class="form-control" name="infrastructure_category" value="${escapeHtml(i.infrastructure_category || '')}" /></div><div class="col-12"><label class="form-label">Macro Gravity Summary</label><textarea class="form-control" name="macro_gravity_summary" rows="3">${escapeHtml(i.macro_gravity_summary || '')}</textarea></div><div class="col-12"><label class="form-label">Actor Alignment Layers (JSON)</label><textarea class="form-control mono" name="actor_alignment_layers_json" rows="10">${escapeHtml(JSON.stringify(i.actor_alignment_layers || {}, null, 2))}</textarea></div><div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-primary" type="submit">Save Initiative</button><a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">Cancel</a></div></form></div></div>` : `<p>${escapeHtml(i.macro_gravity_summary || '')}</p>
     <p><strong>Status:</strong> ${escapeHtml(i.status || '')}</p>`}
     <div class="card mb-3"><div class="card-body">
-      <h5 class="mb-2">Actor Alignment</h5>
+      <h5 class="mb-2">Actor Alignment Map</h5>
       <div class="small text-muted mb-2">Structural alignment proxy (not literal FID readiness).</div>
-      <div class="row g-2 mb-2">
-        ${LAYERS.map((l)=>`<div class="col-6 col-md-4 col-lg-2"><div class="border rounded p-2"><div class="small text-muted">${escapeHtml(LAYER_LABEL[l])}</div><div><strong>${perLayer[l]}%</strong></div></div></div>`).join('')}
+
+      <div class="row g-2 mb-3">
         <div class="col-6 col-md-4 col-lg-2"><div class="border rounded p-2"><div class="small text-muted">Overall Alignment</div><div><strong>${overallAlign}%</strong></div></div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="border rounded p-2"><div class="small text-muted">Weakest Layer</div><div class="text-capitalize"><strong>${escapeHtml(((() => { let w=LAYERS[0]; for (const l of LAYERS) if (perLayer[l] < perLayer[w]) w=l; return w; })()))}</strong></div></div></div>
+        <div class="col-6 col-md-4 col-lg-3"><div class="border rounded p-2"><div class="small text-muted">Primary Constraint</div><div><strong>${escapeHtml(primaryConstraint ? (primaryConstraint.role_label || primaryConstraint.role_id || 'None') : 'None')}</strong></div></div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="border rounded p-2"><div class="small text-muted">Critical Roles Missing</div><div><strong>${rolesAll.filter((r)=>Boolean(r?.is_critical_role) && String(r?.status||'missing')==='missing').length}</strong></div></div></div>
+        <div class="col-6 col-md-4 col-lg-3"><div class="border rounded p-2"><div class="small text-muted">Last Updated</div><div><strong>${escapeHtml(String(i.updated_at || i.gate_updated_at || '—').slice(0,19).replace('T',' '))}</strong></div></div></div>
       </div>
-      <div class="mb-2"><strong>Primary Constraint:</strong> ${escapeHtml(primaryConstraint ? (primaryConstraint.role_label || primaryConstraint.role_id || 'Unspecified role') : 'None')}</div>
-      ${LAYERS.map((l)=>`<div class="mb-2"><div><strong>${escapeHtml(LAYER_LABEL[l])}</strong></div><ul class="mb-1">${(actorLayers[l]||[]).map((r)=>`<li>${escapeHtml(STATUS_ICON[String(r?.status||'missing')] || '⬜')} ${escapeHtml(r.role_label || r.role_id || 'Unnamed role')} <span class="text-muted">(${escapeHtml(String(r?.status || 'missing'))}${r?.is_critical_role ? ', critical' : ''})</span></li>`).join('') || '<li class="text-muted">No roles defined</li>'}</ul></div>`).join('')}
+
+      <div class="d-flex gap-2 mb-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary active" data-view-mode="layer">View by Layer</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-view-mode="status">View by Status</button>
+      </div>
+
+      <div id="actor-view-layer" class="row g-2 mb-3">
+        ${LAYERS.map((l)=>`<div class="col-12 col-lg"><div class="border rounded p-2 h-100"><div class="d-flex justify-content-between"><strong>${escapeHtml(LAYER_LABEL[l])}</strong><span class="small text-muted">${perLayer[l]}%</span></div><div class="mt-2 d-flex flex-column gap-1">${(actorLayers[l]||[]).map((r)=>`<div class="border rounded px-2 py-1 small ${r?.is_critical_role ? 'border-danger-subtle' : ''}">${escapeHtml(STATUS_ICON[String(r?.status||'missing')] || '⬜')} ${escapeHtml(r.role_label || r.role_id || 'Unnamed role')}${r?.mapped_entity_ref ? ` <span class="text-muted">— ${escapeHtml(String(r.mapped_entity_ref))}</span>` : ''}${r?.is_critical_role ? ' <span class="badge text-bg-light border ms-1">Critical</span>' : ''}</div>`).join('') || '<div class="small text-muted">No roles defined</div>'}</div></div></div>`).join('')}
+      </div>
+
+      <div id="actor-view-status" class="mb-3" style="display:none">
+        ${['missing','identified','validated','engaged','committed'].map((s)=>`<div class="mb-2"><div><strong>${escapeHtml(s)}</strong></div><div class="d-flex flex-wrap gap-1 mt-1">${rolesAll.filter((r)=>String(r?.status||'missing')===s).map((r)=>`<span class="badge text-bg-light border">${escapeHtml(LAYER_LABEL[r.layer])}: ${escapeHtml(r.role_label || r.role_id || 'Unnamed role')}${r?.is_critical_role ? ' *' : ''}</span>`).join('') || '<span class="small text-muted">None</span>'}</div></div>`).join('')}
+      </div>
+
+      <div class="card mb-2"><div class="card-body py-2">
+        <div><strong>Primary Constraint:</strong> ${escapeHtml(primaryConstraint ? (primaryConstraint.role_label || primaryConstraint.role_id || 'None') : 'None')}</div>
+        <div class="small text-muted">Why it matters: alignment is below engaged for a critical path role, which blocks forward progression.</div>
+        <div class="small">Next action: identify and validate candidate role owner, then move to engaged.</div>
+        <div class="small">Owner: ${escapeHtml(primaryConstraint?.owner || 'TBD')} · Due: ${escapeHtml(primaryConstraint?.due || 'TBD')}</div>
+      </div></div>
+
+      <div class="table-responsive"><table class="table table-sm align-middle mb-0"><thead><tr><th>Layer</th><th>Role</th><th>Status</th><th>Mapped Entity</th><th>Critical</th><th>Notes</th></tr></thead><tbody>
+        ${rolesAll.map((r)=>`<tr><td>${escapeHtml(LAYER_LABEL[r.layer])}</td><td>${escapeHtml(r.role_label || r.role_id || 'Unnamed role')}</td><td>${escapeHtml(String(r.status || 'missing'))}</td><td>${escapeHtml(String(r.mapped_entity_ref || '—'))}</td><td>${r?.is_critical_role ? 'Yes' : 'No'}</td><td>${escapeHtml(String(r.notes || ''))}</td></tr>`).join('') || '<tr><td colspan="6" class="text-muted">No actor roles defined.</td></tr>'}
+      </tbody></table></div>
     </div></div>
     <h5>Linked Buyers</h5><ul>${linkedBuyers.map(b=>`<li>${escapeHtml(b.name)}</li>`).join('')}</ul>
     <h5 class="mt-3">Decks</h5>
@@ -2561,7 +2587,26 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
         <div class="col-12"><button class="btn btn-primary">Generate</button></div>
       </form>
     </div></div>
-  </div></body></html>`);
+  </div>
+  <script>
+    document.querySelectorAll('[data-view-mode]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const layer = document.getElementById('actor-view-layer');
+        const status = document.getElementById('actor-view-status');
+        const mode = btn.getAttribute('data-view-mode');
+        if (mode === 'status') {
+          if (layer) layer.style.display = 'none';
+          if (status) status.style.display = '';
+        } else {
+          if (layer) layer.style.display = '';
+          if (status) status.style.display = 'none';
+        }
+        document.querySelectorAll('[data-view-mode]').forEach((x) => x.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+  </body></html>`);
 });
 
 app.get('/api/presentations/whoami', requireAnyAuth, async (req, res) => {
