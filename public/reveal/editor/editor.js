@@ -21,6 +21,7 @@ let state = {
   latestExecutionReceipt: null,
   latestExecutionCallback: null,
   latestExecutionResultArtifact: null,
+  latestProducedOutputVerifier: null,
   latestSchedulerBoard: null,
   latestAdmission: null,
   latestProof: null
@@ -967,9 +968,27 @@ async function viewLatestResultTrustUi() {
 }
 
 async function verifyProducedOutputSurfaceUi() {
-  if (!state.latestExecutionResultArtifact?.executionResultArtifactId) return alert('Submit execution result first');
-  const out = await api(`/reveal/api/production/execution-results/${encodeURIComponent(state.latestExecutionResultArtifact.executionResultArtifactId)}/verify-produced-output`);
+  const out = await api('/reveal/api/production/outputs/verify', 'POST', {
+    executionReceiptId: state.latestExecutionReceipt?.executionReceiptId || null,
+    providerSubmissionContractId: state.latestProviderSubmission?.providerSubmissionContractId || null,
+    latestResultArtifactId: state.latestExecutionResultArtifact?.executionResultArtifactId || null,
+    policyProfileId: prompt('policyProfileId: dev|internal_verified|production_verified', 'production_verified') || 'production_verified',
+    mode: prompt('mode: latest|explicit_refs', 'latest') || 'latest'
+  });
+  state.latestProducedOutputVerifier = out.producedOutputVerifier;
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function viewLatestProducedOutputVerifierUi() {
+  const profile = prompt('policyProfileId', 'production_verified') || 'production_verified';
+  const out = await api(`/reveal/api/production/outputs/verify/latest?policyProfileId=${encodeURIComponent(profile)}${state.latestExecutionReceipt?.executionReceiptId ? `&executionReceiptId=${encodeURIComponent(state.latestExecutionReceipt.executionReceiptId)}` : ''}${state.latestProviderSubmission?.providerSubmissionContractId ? `&providerSubmissionContractId=${encodeURIComponent(state.latestProviderSubmission.providerSubmissionContractId)}` : ''}`);
+  state.latestProducedOutputVerifier = out.producedOutputVerifier;
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+function exportLatestOutputVerdictUi() {
+  if (!state.latestProducedOutputVerifier?.producedOutputVerifierId) return alert('Create/view produced output verifier first');
+  download(`/reveal/api/production/outputs/verify/${encodeURIComponent(state.latestProducedOutputVerifier.producedOutputVerifierId)}/export?format=output_verdict`);
 }
 
 async function viewOutputComplianceUi() {
@@ -1427,6 +1446,9 @@ function wireActions() {
   document.querySelector('[data-action="execution-result-trust-publish"]')?.addEventListener('click', () => publishResultTrustUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="execution-result-trust-latest"]')?.addEventListener('click', () => viewLatestResultTrustUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="execution-result-verify-surface"]')?.addEventListener('click', () => verifyProducedOutputSurfaceUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-output-verifier-create"]')?.addEventListener('click', () => verifyProducedOutputSurfaceUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-output-verifier-latest"]')?.addEventListener('click', () => viewLatestProducedOutputVerifierUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-output-verifier-export"]')?.addEventListener('click', () => exportLatestOutputVerdictUi());
   document.querySelector('[data-action="execution-receipt-output-compliance"]')?.addEventListener('click', () => viewOutputComplianceUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-generate"]')?.addEventListener('click', () => generateSchedulerBoardUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-latest"]')?.addEventListener('click', () => viewLatestSchedulerBoardUi().catch((e) => alert(e.message)));

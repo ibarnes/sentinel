@@ -3,6 +3,7 @@ import path from 'path';
 import crypto from 'crypto';
 import { getSigningContext } from '../services/packageSigningService.js';
 import { getExecutionResultArtifact, listExecutionResultArtifacts } from './executionResultArtifactService.js';
+import { patchExecutionReceipt } from './executionReceiptService.js';
 
 const ROOT = '/home/ec2-user/.openclaw/workspace/reveal/storage/result-trust-publications';
 const DIGEST_VERSION = 'sha256-v1';
@@ -26,8 +27,9 @@ const canonicalize = (v) => {
 };
 
 const id = () => `rtpub_${Date.now()}_${crypto.randomBytes(4).toString('hex')}`;
-const dirFor = (executionResultArtifactId) => path.join(ROOT, executionResultArtifactId);
-const fileFor = (executionResultArtifactId, resultTrustPublicationId) => path.join(dirFor(executionResultArtifactId), `${resultTrustPublicationId}.json`);
+const lineageKey = ({ sourceExecutionReceiptId, sourceProviderSubmissionContractId, latestExecutionResultArtifactId }) => sourceExecutionReceiptId || sourceProviderSubmissionContractId || latestExecutionResultArtifactId;
+const dirFor = (lineageId) => path.join(ROOT, lineageId);
+const fileFor = (lineageId, resultTrustPublicationId) => path.join(dirFor(lineageId), `${resultTrustPublicationId}.json`);
 
 const headPayload = (r) => canonicalize({
   latestExecutionResultArtifactId: r.latestExecutionResultArtifactId,
@@ -57,8 +59,8 @@ const signingPayload = (r) => canonicalize({
   resultHeadDigestVersion: r.resultHeadDigestVersion
 });
 
-async function listRaw(executionResultArtifactId) {
-  const dir = dirFor(executionResultArtifactId);
+async function listRaw(lineageId) {
+  const dir = dirFor(lineageId);
   const exists = await fs.access(dir).then(() => true).catch(() => false);
   if (!exists) return [];
   const files = (await fs.readdir(dir)).filter((f) => f.endsWith('.json'));
@@ -85,8 +87,9 @@ export async function publishResultTrust(executionResultArtifactId) {
   const got = await getExecutionResultArtifact(executionResultArtifactId);
   if (got.error) return got;
   const resolvedLatest = await resolveLatestLineageArtifact(got.executionResultArtifact);
+  const lineageId = lineageKey(resolvedLatest);
 
-  const prev = await getLatestResultTrustPublication(executionResultArtifactId);
+  const prev = await getLatestResultTrustPublicationByLineage(lineageId);
   const row = {
     resultTrustPublicationId: id(),
     createdAt: new Date().toISOString(),
@@ -135,27 +138,65 @@ export async function publishResultTrust(executionResultArtifactId) {
     row.unsignedReason = ctx.unsignedReason || 'missing_key';
   }
 
-  await fs.mkdir(dirFor(executionResultArtifactId), { recursive: true });
-  const fp = fileFor(executionResultArtifactId, row.resultTrustPublicationId);
+  await fs.mkdir(dirFor(lineageId), { recursive: true });
+  const fp = fileFor(lineageId, row.resultTrustPublicationId);
   const exists = await fs.access(fp).then(() => true).catch(() => false);
   if (exists) return { error: 'result_trust_publication_id_collision' };
   await fs.writeFile(fp, JSON.stringify(row, null, 2), 'utf8');
+
+  if (row.sourceExecutionReceiptId) {
+    await patchExecutionReceipt(row.sourceExecutionReceiptId, {
+      action: 'addNote',
+      actorType: 'result_trust_publication',
+      summary: `result_trust_publication:${row.resultTrustPublicationId}`,
+      metadata: { resultHeadDigest: row.resultHeadDigest },
+      resultTrustUpdate: {
+        latestResultTrustPublicationId: row.resultTrustPublicationId,
+        latestResultHeadDigest: row.resultHeadDigest
+      }
+    });
+  }
+
   return { resultTrustPublication: row };
 }
 
-export async function listResultTrustPublications(executionResultArtifactId) {
-  return { resultTrustPublications: await listRaw(executionResultArtifactId) };
+export async function listResultTrustPublicationsByLineage(lineageId) {
+  return { resultTrustPublications: await listRaw(lineageId) };
 }
 
-export async function getResultTrustPublication(executionResultArtifactId, resultTrustPublicationId) {
-  try { return { resultTrustPublication: JSON.parse(await fs.readFile(fileFor(executionResultArtifactId, resultTrustPublicationId), 'utf8')) }; }
+export async function getResultTrustPublicationByLineage(lineageId, resultTrustPublicationId) {
+  try { return { resultTrustPublication: JSON.parse(await fs.readFile(fileFor(lineageId, resultTrustPublicationId), 'utf8')) }; }
   catch { return { error: 'result_trust_publication_not_found' }; }
 }
 
-export async function getLatestResultTrustPublication(executionResultArtifactId) {
-  const rows = await listRaw(executionResultArtifactId);
+export async function getLatestResultTrustPublicationByLineage(lineageId) {
+  const rows = await listRaw(lineageId);
   if (!rows.length) return { error: 'result_trust_publication_not_found' };
   return { resultTrustPublication: rows[rows.length - 1] };
+}
+
+async function resolveLineageIdFromArtifact(executionResultArtifactId) {
+  const got = await getExecutionResultArtifact(executionResultArtifactId);
+  if (got.error) return { error: got.error };
+  return { lineageId: lineageKey(got.executionResultArtifact), artifact: got.executionResultArtifact };
+}
+
+export async function listResultTrustPublications(executionResultArtifactId) {
+  const r = await resolveLineageIdFromArtifact(executionResultArtifactId);
+  if (r.error) return { error: r.error };
+  return listResultTrustPublicationsByLineage(r.lineageId);
+}
+
+export async function getResultTrustPublication(executionResultArtifactId, resultTrustPublicationId) {
+  const r = await resolveLineageIdFromArtifact(executionResultArtifactId);
+  if (r.error) return { error: r.error };
+  return getResultTrustPublicationByLineage(r.lineageId, resultTrustPublicationId);
+}
+
+export async function getLatestResultTrustPublication(executionResultArtifactId) {
+  const r = await resolveLineageIdFromArtifact(executionResultArtifactId);
+  if (r.error) return { error: r.error };
+  return getLatestResultTrustPublicationByLineage(r.lineageId);
 }
 
 export async function verifyResultTrustPublication(executionResultArtifactId, resultTrustPublicationId = null) {

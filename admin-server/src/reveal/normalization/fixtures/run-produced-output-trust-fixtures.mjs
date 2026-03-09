@@ -1,7 +1,7 @@
 import assert from 'assert';
 import { listExecutionResultArtifacts } from '../../production/executionResultArtifactService.js';
 import { publishResultTrust, getLatestResultTrustPublication, verifyResultTrustPublication } from '../../production/resultTrustPublicationService.js';
-import { verifyProducedOutputSurface } from '../../production/producedOutputVerifierService.js';
+import { createProducedOutputVerifier } from '../../production/producedOutputVerifierService.js';
 import { buildOutputComplianceSurface } from '../../production/outputComplianceService.js';
 
 (async () => {
@@ -18,8 +18,8 @@ import { buildOutputComplianceSurface } from '../../production/outputComplianceS
   const verify = await verifyResultTrustPublication(artifact.executionResultArtifactId);
   assert.equal(verify.status, 'verified');
 
-  const surface = await verifyProducedOutputSurface({ executionResultArtifactId: artifact.executionResultArtifactId });
-  assert.ok(surface.producedOutputVerifier.latestResultHeadDigest);
+  const surface = await createProducedOutputVerifier({ latestResultArtifactId: artifact.executionResultArtifactId, mode: 'explicit_refs', policyProfileId: 'internal_verified' });
+  assert.ok(surface.producedOutputVerifier.resultTrustPublicationSummary?.resultHeadDigest || surface.producedOutputVerifier.overallOutputVerdict);
 
   if (artifact.sourceExecutionReceiptId) {
     const compliance = await buildOutputComplianceSurface({ executionReceiptId: artifact.sourceExecutionReceiptId });

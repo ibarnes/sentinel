@@ -4,6 +4,8 @@ import { listProviderSubmissionContracts } from '../../production/providerSubmis
 import { createExecutionReceipt, getExecutionReceipt } from '../../production/executionReceiptService.js';
 import { createExecutionResultArtifact, exportExecutionResultArtifact } from '../../production/executionResultArtifactService.js';
 import { verifyResultArtifact } from '../../production/resultArtifactVerificationService.js';
+import { publishResultTrust, verifyResultTrustPublication, getLatestResultTrustPublication } from '../../production/resultTrustPublicationService.js';
+import { createProducedOutputVerifier, exportProducedOutputVerifier } from '../../production/producedOutputVerifierService.js';
 
 function canon(v) { if (v === null || typeof v !== 'object') return v; if (Array.isArray(v)) return v.map(canon); const o = {}; for (const k of Object.keys(v).sort()) o[k] = canon(v[k]); return o; }
 function sign(payload, secret) { return crypto.createHmac('sha256', secret).update(JSON.stringify(canon(payload))).digest('hex'); }
@@ -34,14 +36,17 @@ async function seed() {
     providerType: 'generic_renderer', providerProfileId: 'default', artifactType: 'execution_result_summary',
     artifactPayload: summaryPayload,
     sourceExecutionReceiptId: rec.executionReceiptId,
+    sourceProviderSubmissionContractId: sub.providerSubmissionContractId,
     trustMetadata: { artifactSigningKeyId: 'cbk_generic_default_v1', artifactSignature: summarySig, artifactSigningAlgorithm: 'HMAC-SHA256' }
   });
   assert.equal(summary.ingestionResult.ingestionStatus, 'applied');
 
+  const manifestPayload = { manifestDigest: 'abc123', outputRefs: ['s3://x/a.mp4'], contentSummary: 'render manifest' };
   const manifest = await createExecutionResultArtifact({
     providerType: 'generic_renderer', providerProfileId: 'default', artifactType: 'render_manifest_output',
-    artifactPayload: { manifestDigest: 'abc123', outputRefs: ['s3://x/a.mp4'], contentSummary: 'render manifest' },
+    artifactPayload: manifestPayload,
     sourceExecutionReceiptId: rec.executionReceiptId,
+    sourceProviderSubmissionContractId: sub.providerSubmissionContractId,
     trustMetadata: { unsignedAllowed: true }
   });
   assert.equal(manifest.ingestionResult.ingestionStatus, 'applied');
@@ -72,9 +77,32 @@ async function seed() {
   });
   assert.equal(mismatch.ingestionResult.ingestionStatus, 'blocked');
 
+  const trustPub = await publishResultTrust(summary.executionResultArtifact.executionResultArtifactId);
+  assert.ok(trustPub.resultTrustPublication.resultHeadDigest);
+  const trustVerify = await verifyResultTrustPublication(summary.executionResultArtifact.executionResultArtifactId);
+  assert.equal(trustVerify.status, 'verified');
+
+  const trustPub2 = await publishResultTrust(summary.executionResultArtifact.executionResultArtifactId);
+  assert.equal(trustPub2.resultTrustPublication.latestResultArtifactDigest, trustPub.resultTrustPublication.latestResultArtifactDigest);
+  assert.ok(trustPub2.resultTrustPublication.previousPublishedResultHeadDigest);
+
+  const latestPub = await getLatestResultTrustPublication(summary.executionResultArtifact.executionResultArtifactId);
+  assert.equal(latestPub.resultTrustPublication.resultTrustPublicationId, trustPub2.resultTrustPublication.resultTrustPublicationId);
+
+  const verifierLatest = await createProducedOutputVerifier({ executionReceiptId: rec.executionReceiptId, policyProfileId: 'internal_verified', mode: 'latest' });
+  assert.ok(['verified_output','verified_output_with_warnings','blocked','invalid_publication_signature','invalid_result_signature','missing_output'].includes(verifierLatest.producedOutputVerifier.overallOutputVerdict));
+
+  const strictMissing = await createProducedOutputVerifier({ executionReceiptId: rec.executionReceiptId, latestResultArtifactId: subtitle.executionResultArtifact.executionResultArtifactId, policyProfileId: 'production_verified', mode: 'explicit_refs' });
+  assert.ok(['blocked','invalid_publication_signature','missing_output'].includes(strictMissing.producedOutputVerifier.overallOutputVerdict));
+
+  const expVerdict = exportProducedOutputVerifier(verifierLatest.producedOutputVerifier, 'output_verdict');
+  const parsedVerdict = JSON.parse(expVerdict.content);
+  assert.ok(parsedVerdict.overallOutputVerdict);
+  assert.ok(parsedVerdict.outputAvailabilitySummary);
+
   const updatedReceipt = await getExecutionReceipt(rec.executionReceiptId);
   assert.ok(Number(updatedReceipt.executionReceipt.ingestedArtifactCount || 0) >= 3);
-  assert.ok((updatedReceipt.executionReceipt.availableOutputTypes || []).includes('subtitle_output'));
+  assert.ok(updatedReceipt.executionReceipt.latestResultTrustPublicationId);
 
   const exp = exportExecutionResultArtifact(summary.executionResultArtifact, 'markdown');
   assert.ok(String(exp.content).includes('# Execution Result Artifact'));

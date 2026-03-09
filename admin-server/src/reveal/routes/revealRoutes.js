@@ -63,7 +63,7 @@ import { verifyExecutionCallback } from '../production/callbackVerificationServi
 import { createExecutionResultArtifact, getExecutionResultArtifact, listExecutionResultArtifacts, exportExecutionResultArtifact } from '../production/executionResultArtifactService.js';
 import { verifyResultArtifact } from '../production/resultArtifactVerificationService.js';
 import { publishResultTrust, listResultTrustPublications, getLatestResultTrustPublication, getResultTrustPublication, verifyResultTrustPublication } from '../production/resultTrustPublicationService.js';
-import { verifyProducedOutputSurface } from '../production/producedOutputVerifierService.js';
+import { createProducedOutputVerifier, getProducedOutputVerifier, latestProducedOutputVerifier, exportProducedOutputVerifier } from '../production/producedOutputVerifierService.js';
 import { buildOutputComplianceSurface } from '../production/outputComplianceService.js';
 import { listCallbackSigningKeys, listCallbackSigningKeysByProfile } from '../production/callbackKeyRegistryService.js';
 import { listReplayLedger } from '../production/callbackReplayLedgerService.js';
@@ -1459,10 +1459,43 @@ router.get('/api/production/execution-results/:executionResultArtifactId/trust-p
   res.json(out);
 });
 
-router.get('/api/production/execution-results/:executionResultArtifactId/verify-produced-output', async (req, res) => {
-  const out = await verifyProducedOutputSurface({ executionResultArtifactId: String(req.params.executionResultArtifactId || '') });
+router.post('/api/production/outputs/verify', async (req, res) => {
+  const out = await createProducedOutputVerifier({
+    executionReceiptId: req.body?.executionReceiptId || null,
+    providerSubmissionContractId: req.body?.providerSubmissionContractId || null,
+    latestResultArtifactId: req.body?.latestResultArtifactId || null,
+    policyProfileId: req.body?.policyProfileId || 'dev',
+    mode: req.body?.mode || 'latest'
+  });
+  if (['unsupported_output_verifier_scope'].includes(out.error)) return res.status(400).json(out);
+  if (['execution_result_artifact_not_found','execution_receipt_not_found','provider_submission_contract_not_found'].includes(out.error)) return res.status(404).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/outputs/verify/latest', async (req, res) => {
+  const out = await latestProducedOutputVerifier({
+    executionReceiptId: req.query.executionReceiptId ? String(req.query.executionReceiptId) : null,
+    providerSubmissionContractId: req.query.providerSubmissionContractId ? String(req.query.providerSubmissionContractId) : null,
+    policyProfileId: req.query.policyProfileId ? String(req.query.policyProfileId) : 'dev'
+  });
   if (out.error) return res.status(404).json(out);
   res.json(out);
+});
+
+router.get('/api/production/outputs/verify/:producedOutputVerifierId', async (req, res) => {
+  const out = await getProducedOutputVerifier(String(req.params.producedOutputVerifierId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/outputs/verify/:producedOutputVerifierId/export', async (req, res) => {
+  const out = await getProducedOutputVerifier(String(req.params.producedOutputVerifierId || ''));
+  if (out.error) return res.status(404).json(out);
+  const exp = exportProducedOutputVerifier(out.producedOutputVerifier, String(req.query.format || 'json').toLowerCase());
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
 });
 
 router.get('/api/production/execution-results/:executionResultArtifactId/verify-result-trust', async (req, res) => {
@@ -2158,6 +2191,9 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="execution-result-trust-publish">Publish Result Trust</button>
           <button data-action="execution-result-trust-latest">View Latest Result Trust</button>
           <button data-action="execution-result-verify-surface">Verify Produced Output Surface</button>
+          <button data-action="execution-output-verifier-create">Create Produced Output Verifier</button>
+          <button data-action="execution-output-verifier-latest">View Latest Output Verifier</button>
+          <button data-action="execution-output-verifier-export">Export Output Verdict</button>
           <button data-action="execution-receipt-output-compliance">View Output Compliance</button>
           <button data-action="scheduler-board-generate">Generate Scheduler Board</button>
           <button data-action="scheduler-board-latest">View Latest Scheduler Board</button>

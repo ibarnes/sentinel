@@ -19,3 +19,5 @@ Result head digest includes:
 - publicationVersion
 
 Unsigned signing fallback is explicit via `resultTrustPublicationSignatureStatus=unsigned` + `unsignedReason`.
+
+Publications are keyed by lineage (`sourceExecutionReceiptId` preferred, then submission lineage), while explicit artifact linkage is preserved in each publication record (`latestExecutionResultArtifactId`).

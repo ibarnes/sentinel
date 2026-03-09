@@ -57,7 +57,11 @@ function signingPayload(receipt) {
     latestResultArtifactAt: receipt.latestResultArtifactAt || null,
     resultArtifactTrustStatus: receipt.resultArtifactTrustStatus || 'none',
     availableOutputTypes: receipt.availableOutputTypes || [],
-    resultArtifactWarningsSummary: receipt.resultArtifactWarningsSummary || []
+    resultArtifactWarningsSummary: receipt.resultArtifactWarningsSummary || [],
+    latestResultTrustPublicationId: receipt.latestResultTrustPublicationId || null,
+    latestResultHeadDigest: receipt.latestResultHeadDigest || null,
+    latestProducedOutputVerdict: receipt.latestProducedOutputVerdict || null,
+    outputAvailabilitySummary: receipt.outputAvailabilitySummary || null
   });
 }
 
@@ -166,6 +170,10 @@ export async function createExecutionReceipt({ providerSubmissionContractId = nu
     resultArtifactTrustStatus: 'none',
     availableOutputTypes: [],
     resultArtifactWarningsSummary: [],
+    latestResultTrustPublicationId: null,
+    latestResultHeadDigest: null,
+    latestProducedOutputVerdict: null,
+    outputAvailabilitySummary: null,
     metadata: { deterministic: true }
   };
 
@@ -249,6 +257,16 @@ export async function patchExecutionReceipt(executionReceiptId, patch = {}) {
     receipt.resultArtifactWarningsSummary = [...new Set([...(receipt.resultArtifactWarningsSummary || []), ...rw])].slice(0, 20);
   }
 
+  if (patch.resultTrustUpdate && typeof patch.resultTrustUpdate === 'object') {
+    receipt.latestResultTrustPublicationId = patch.resultTrustUpdate.latestResultTrustPublicationId || receipt.latestResultTrustPublicationId || null;
+    receipt.latestResultHeadDigest = patch.resultTrustUpdate.latestResultHeadDigest || receipt.latestResultHeadDigest || null;
+  }
+
+  if (patch.outputVerifierUpdate && typeof patch.outputVerifierUpdate === 'object') {
+    receipt.latestProducedOutputVerdict = patch.outputVerifierUpdate.latestProducedOutputVerdict || receipt.latestProducedOutputVerdict || null;
+    receipt.outputAvailabilitySummary = patch.outputVerifierUpdate.outputAvailabilitySummary || receipt.outputAvailabilitySummary || null;
+  }
+
   receipt.updatedAt = new Date().toISOString();
   receipt = await signReceipt(receipt);
   await writeReceipt(receipt);
@@ -290,6 +308,9 @@ export function exportExecutionReceipt(receipt, format = 'json') {
   lines.push(`- Callback Warnings: ${(receipt.callbackWarningsSummary || []).join(', ') || 'none'}`);
   lines.push(`- Result Artifacts: ${receipt.ingestedArtifactCount || 0} • Latest: ${receipt.latestResultArtifactType || 'none'} (${receipt.latestResultArtifactId || 'n/a'}) @ ${receipt.latestResultArtifactAt || 'n/a'}`);
   lines.push(`- Result Artifact Trust: ${receipt.resultArtifactTrustStatus || 'none'} • Outputs: ${(receipt.availableOutputTypes || []).join(', ') || 'none'}`);
+  lines.push(`- Result Trust Head: ${receipt.latestResultHeadDigest || 'none'} (pub ${receipt.latestResultTrustPublicationId || 'n/a'})`);
+  lines.push(`- Produced Output Verdict: ${receipt.latestProducedOutputVerdict || 'n/a'}`);
+  lines.push(`- Output Availability: ${receipt.outputAvailabilitySummary ? JSON.stringify(receipt.outputAvailabilitySummary) : 'n/a'}`);
   lines.push(`- Result Artifact Warnings: ${(receipt.resultArtifactWarningsSummary || []).join(', ') || 'none'}`);
   lines.push(`- Blocking: ${(receipt.blockingReasons || []).join(', ') || 'none'}`);
   lines.push(`- Warnings: ${(receipt.warnings || []).join(', ') || 'none'}`);

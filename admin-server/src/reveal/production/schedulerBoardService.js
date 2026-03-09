@@ -154,9 +154,15 @@ export async function createSchedulerBoard({ renderAdapterContractId = null, pro
         latestResultArtifactType: receipt.latestResultArtifactType || null,
         latestResultArtifactAt: receipt.latestResultArtifactAt || null,
         resultArtifactTrustStatus: receipt.resultArtifactTrustStatus || 'none',
-        availableOutputTypes: receipt.availableOutputTypes || []
+        availableOutputTypes: receipt.availableOutputTypes || [],
+        latestResultTrustPublicationId: receipt.latestResultTrustPublicationId || null,
+        latestResultHeadDigest: receipt.latestResultHeadDigest || null,
+        latestProducedOutputVerdict: receipt.latestProducedOutputVerdict || null,
+        outputAvailabilitySummary: receipt.outputAvailabilitySummary || null
       },
       outputMismatchWarning: (receipt.requestSummary?.artifactCounts?.outputs > 0 && Number(receipt.ingestedArtifactCount || 0) === 0) ? 'expected_outputs_missing' : null,
+      outputTrustWarning: (Number(receipt.ingestedArtifactCount || 0) > 0 && ['unsigned','invalid_signature','unknown_origin'].includes(receipt.resultArtifactTrustStatus || 'none')) ? 'outputs_present_but_untrusted' : null,
+      outputVerifierBlocker: ['blocked','invalid_result_signature','invalid_publication_signature','missing_output'].includes(receipt.latestProducedOutputVerdict || '') ? 'produced_output_verification_failed' : null,
       stateMismatchWarning: receipt.lastCallbackType === 'execution_completed' && receipt.submissionStatus !== 'closed' ? 'provider_completed_but_receipt_not_closed' : null
     } : null,
     submissionTrustPublicationSummary: subTrust.error ? null : {

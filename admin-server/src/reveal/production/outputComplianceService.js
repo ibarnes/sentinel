@@ -24,6 +24,9 @@ export async function buildOutputComplianceSurface({ executionReceiptId }) {
       latestResultArtifactId: r.latestResultArtifactId || null,
       latestResultArtifactType: r.latestResultArtifactType || null,
       latestResultArtifactAt: r.latestResultArtifactAt || null,
+      latestResultTrustPublicationId: r.latestResultTrustPublicationId || null,
+      latestResultHeadDigest: r.latestResultHeadDigest || null,
+      latestProducedOutputVerdict: r.latestProducedOutputVerdict || null,
       resultArtifactTrustStatus: r.resultArtifactTrustStatus || 'none',
       complianceStatus: missing === 0 ? 'ready' : 'incomplete',
       warnings: [
