@@ -1200,7 +1200,7 @@
           },
           {
             "role_id": "walton_family_office",
-            "role_label": "Walton Family Office Infrastructure Capital",
+            "role_label": "Family Office Infrastructure Capital Partner",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -1212,7 +1212,7 @@
           },
           {
             "role_id": "slim_family_office",
-            "role_label": "Slim Family Office Infrastructure Capital",
+            "role_label": "Family Office Infrastructure Capital Partner",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -1224,7 +1224,7 @@
           },
           {
             "role_id": "dangote_family_office",
-            "role_label": "Dangote Family Office Infrastructure Capital",
+            "role_label": "Family Office Infrastructure Capital Partner",
             "layer": "capital",
             "status": "identified",
             "notes": "",
@@ -1633,7 +1633,7 @@
         },
         {
           "role_id": "walton_family_office",
-          "role_label": "Walton Family Office Infrastructure Capital",
+          "role_label": "Family Office Infrastructure Capital Partner",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -1645,7 +1645,7 @@
         },
         {
           "role_id": "slim_family_office",
-          "role_label": "Slim Family Office Infrastructure Capital",
+          "role_label": "Family Office Infrastructure Capital Partner",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -1657,7 +1657,7 @@
         },
         {
           "role_id": "dangote_family_office",
-          "role_label": "Dangote Family Office Infrastructure Capital",
+          "role_label": "Family Office Infrastructure Capital Partner",
           "layer": "capital",
           "status": "identified",
           "notes": "",
@@ -1803,7 +1803,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T22:24:00Z"
+    "updated_at": "2026-03-09T22:26:00Z"
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
