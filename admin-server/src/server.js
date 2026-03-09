@@ -2158,9 +2158,10 @@ app.get('/dashboard/initiatives', async (req, res) => {
   const byId = Object.fromEntries(buyers.map(b => [b.buyer_id, b.name]));
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const category = String(req.query.category || 'All');
+  const weakestLayerFilter = String(req.query.weakest_layer || 'All');
+  const primaryConstraintFilter = String(req.query.primary_constraint || 'All');
   const categories = ['All', ...new Set(initiatives.map((i)=>String(i.infrastructure_category || '').trim()).filter((c)=>Boolean(c) && c !== 'All'))];
-  const filtered = category === 'All' ? initiatives : initiatives.filter((i)=>String(i.infrastructure_category || '') === category);
-  const sorted = [...filtered].sort((a, b) => {
+  const sorted = [...initiatives].sort((a, b) => {
     const at = Date.parse(String(a.gate_updated_at || '')) || 0;
     const bt = Date.parse(String(b.gate_updated_at || '')) || 0;
     if (bt !== at) return bt - at;
@@ -2194,19 +2195,31 @@ app.get('/dashboard/initiatives', async (req, res) => {
     const primary = all.find((r) => Boolean(r?.is_critical_role) && ['missing','identified','validated'].includes(String(r?.status || 'missing'))) || all.find((r) => ['missing','identified','validated'].includes(String(r?.status || 'missing')));
     return { layerScores, overall, missingRoles, weakestLayer, primaryConstraint: primary ? (primary.role_label || primary.role_id || 'Unspecified role') : 'None' };
   };
-  const enriched = sorted.map((i) => ({ initiative: i, align: alignmentSummary(i) }));
+  const enrichedAll = sorted.map((i) => ({ initiative: i, align: alignmentSummary(i) }));
+  const weakestLayerOptions = ['All', ...LAYERS.map((x) => x)];
+  const primaryConstraintOptions = ['All', ...new Set(enrichedAll.map((x) => x.align.primaryConstraint).filter((x) => x && x !== 'None'))];
+  const enriched = enrichedAll.filter(({ initiative:i, align:a }) => {
+    if (category !== 'All' && String(i.infrastructure_category || '') !== category) return false;
+    if (weakestLayerFilter !== 'All' && String(a.weakestLayer || '') !== weakestLayerFilter) return false;
+    if (primaryConstraintFilter !== 'All' && String(a.primaryConstraint || '') !== primaryConstraintFilter) return false;
+    return true;
+  });
+  const weakestCounts = Object.fromEntries(LAYERS.map((l) => [l, enrichedAll.filter((x) => x.align.weakestLayer === l).length]));
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
     ${pageHeader('Initiatives', '', 'Gate 0–7 is the canonical initiative workflow')}
-    <form id="initiativesFilterForm" method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-4"><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div></form>
+    <form id="initiativesFilterForm" method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-3"><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div><div class="col-md-3"><select class="form-select" name="weakest_layer">${weakestLayerOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===weakestLayerFilter?'selected':''}>Weakest Layer: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-4"><select class="form-select" name="primary_constraint">${primaryConstraintOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===primaryConstraintFilter?'selected':''}>Primary Constraint: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-2"><a class="btn btn-outline-secondary w-100" href="/dashboard/initiatives">Reset</a></div></form>
+    <div class="card mb-3"><div class="card-body py-2"><div class="small text-muted mb-1">Actor Gap Analytics (all initiatives)</div><div class="d-flex flex-wrap gap-2">${LAYERS.map((l)=>`<span class="badge text-bg-light border">${escapeHtml(l)}: ${weakestCounts[l]}</span>`).join('')}</div></div></div>
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Name</th><th>Infrastructure Type</th><th>Gate Stage</th><th>Actor Gaps</th><th>Alignment %</th><th>Weakest Layer</th><th>Primary Constraint</th><th>Linked Buyers</th><th>Updated</th><th class="text-end">Actions</th></tr></thead><tbody>
       ${enriched.map(({initiative:i, align:a})=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="initiative-gate-form d-inline"><select name="gate_stage" class="form-select form-select-sm initiative-gate-select" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select></form>` : escapeHtml(inferGate(i))}</td><td>${a.missingRoles}</td><td><strong>${a.overall}%</strong></td><td class="text-capitalize">${escapeHtml(a.weakestLayer)}</td><td>${escapeHtml(a.primaryConstraint)}</td><td>${(i.linked_buyers || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td><td class="text-end">${canEdit ? `<details class="initiative-actions-menu d-inline-block text-start"><summary class="btn btn-sm btn-outline-secondary" aria-label="More actions">⋯</summary><div class="card p-1 mt-1" style="position:absolute;z-index:20;min-width:160px;"><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">View Initiative</a><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/delete" onsubmit="return confirm('Delete initiative ${escapeHtml(i.initiative_id)}? This cannot be undone.');"><button class="dropdown-item text-danger" type="submit">Delete</button></form></div></details>` : '—'}</td></tr>`).join('') || '<tr><td colspan="11">No initiatives</td></tr>'}
     </tbody></table></div>
   </div>
   <script>
-    document.querySelector('#initiativesFilterForm select[name="category"]')?.addEventListener('change', () => {
-      document.getElementById('initiativesFilterForm')?.submit();
+    document.querySelectorAll('#initiativesFilterForm select').forEach((el) => {
+      el.addEventListener('change', () => {
+        document.getElementById('initiativesFilterForm')?.submit();
+      });
     });
     document.querySelectorAll('.initiative-gate-select').forEach((el) => {
       el.addEventListener('change', () => {
