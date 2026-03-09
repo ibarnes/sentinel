@@ -1041,7 +1041,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Specialized contractor that deploys prefabricated modular data center units designed for rapid expansion of hyperscale compute capacity."
           },
           {
             "role_id": "dc_operator",
@@ -1094,7 +1095,8 @@
             "mapped_entity_ref": "USG",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Designs the commitment architecture that aligns capital, governance, and actors so the platform can reach Final Investment Decision safely. This role defines capital structure, governance boundaries, sequencing logic, and risk allocation before execution begins."
           },
           {
             "role_id": "platform_sponsor_counterpart",
@@ -1106,7 +1108,8 @@
             "mapped_entity_ref": "Sun Group",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Strategic partner counterpart providing local market expertise, relationships, and coordination across the infrastructure ecosystem."
           },
           {
             "role_id": "gp_structure_vehicle",
@@ -1118,7 +1121,8 @@
             "mapped_entity_ref": "USG-Sun GP",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "General Partner entity responsible for fund governance, capital deployment decisions, and investor oversight within the infrastructure investment platform."
           },
           {
             "role_id": "equity_vehicle",
@@ -1131,7 +1135,7 @@
             "is_critical_role": true,
             "owner": "",
             "due": "",
-            "role_definition": "Acts as the structured equity investment vehicle used to pool, govern, and deploy long-term infrastructure equity capital."
+            "role_definition": "Institutional investment vehicle that aggregates investor capital and deploys it into project-level infrastructure assets through structured equity participation."
           },
           {
             "role_id": "fid_sequencing_lead",
@@ -1143,7 +1147,8 @@
             "mapped_entity_ref": "USG",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Defines the sequence of commitments required before Final Investment Decision occurs, ensuring capital alignment, governance clarity, and risk allocation across all actors."
           }
         ],
         "capital": [
@@ -1196,7 +1201,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Institutional investment funds specializing in large-scale infrastructure assets that may participate as equity co-investors in the project capital stack."
           },
           {
             "role_id": "pension_funds",
@@ -1208,7 +1214,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Long-term institutional investors seeking stable infrastructure returns through participation in large-scale infrastructure projects."
           },
           {
             "role_id": "walton_family_office",
@@ -1220,7 +1227,8 @@
             "mapped_entity_ref": "Walton Family Office",
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Supplies private family capital participation alongside institutional investors in long-term infrastructure investment platforms."
           },
           {
             "role_id": "slim_family_office",
@@ -1232,7 +1240,8 @@
             "mapped_entity_ref": "Slim Family Office",
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Supplies private family capital participation alongside institutional investors in long-term infrastructure investment platforms."
           },
           {
             "role_id": "dangote_family_office",
@@ -1244,7 +1253,8 @@
             "mapped_entity_ref": "Dangote Family Office",
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Supplies private family capital participation alongside institutional investors in long-term infrastructure investment platforms."
           },
           {
             "role_id": "project_finance_lenders",
@@ -1269,7 +1279,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Government-backed financial institutions that provide financing or guarantees for technology or infrastructure equipment supplied from their home jurisdictions."
           },
           {
             "role_id": "gpu_financing_vehicle",
@@ -1281,7 +1292,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Special purpose financing entity that purchases GPU hardware and leases it to infrastructure operators, reducing upfront capital requirements for AI compute infrastructure."
           }
         ],
         "delivery": [
@@ -1295,7 +1307,8 @@
             "mapped_entity_ref": "NVIDIA",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Supplies GPU hardware and defines the technical architecture for AI compute clusters, including networking, GPU configuration, and AI factory design standards."
           },
           {
             "role_id": "hyperscaler_platform",
@@ -1307,7 +1320,8 @@
             "mapped_entity_ref": "AWS / OpenAI",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides AI workloads, cloud infrastructure integration, and enterprise compute demand that utilizes the AI infrastructure platform."
           },
           {
             "role_id": "energy_provider",
@@ -1345,7 +1359,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Constructs and manages high-capacity electrical transmission systems connecting power generation sources to the AI infrastructure campus."
           },
           {
             "role_id": "gpu_supply_chain_partner",
@@ -1370,7 +1385,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides high-efficiency cooling technologies required to maintain safe operating temperatures for dense AI compute clusters."
           },
           {
             "role_id": "high_performance_networking_supplier",
@@ -1382,7 +1398,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Supplies high-speed networking hardware and software necessary for large-scale distributed AI computing environments."
           }
         ]
       }
@@ -1490,7 +1507,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Specialized contractor that deploys prefabricated modular data center units designed for rapid expansion of hyperscale compute capacity."
         },
         {
           "role_id": "dc_operator",
@@ -1543,7 +1561,8 @@
           "mapped_entity_ref": "USG",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Designs the commitment architecture that aligns capital, governance, and actors so the platform can reach Final Investment Decision safely. This role defines capital structure, governance boundaries, sequencing logic, and risk allocation before execution begins."
         },
         {
           "role_id": "platform_sponsor_counterpart",
@@ -1555,7 +1574,8 @@
           "mapped_entity_ref": "Sun Group",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Strategic partner counterpart providing local market expertise, relationships, and coordination across the infrastructure ecosystem."
         },
         {
           "role_id": "gp_structure_vehicle",
@@ -1567,7 +1587,8 @@
           "mapped_entity_ref": "USG-Sun GP",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "General Partner entity responsible for fund governance, capital deployment decisions, and investor oversight within the infrastructure investment platform."
         },
         {
           "role_id": "equity_vehicle",
@@ -1580,7 +1601,7 @@
           "is_critical_role": true,
           "owner": "",
           "due": "",
-          "role_definition": "Acts as the structured equity investment vehicle used to pool, govern, and deploy long-term infrastructure equity capital."
+          "role_definition": "Institutional investment vehicle that aggregates investor capital and deploys it into project-level infrastructure assets through structured equity participation."
         },
         {
           "role_id": "fid_sequencing_lead",
@@ -1592,7 +1613,8 @@
           "mapped_entity_ref": "USG",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Defines the sequence of commitments required before Final Investment Decision occurs, ensuring capital alignment, governance clarity, and risk allocation across all actors."
         }
       ],
       "capital": [
@@ -1645,7 +1667,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Institutional investment funds specializing in large-scale infrastructure assets that may participate as equity co-investors in the project capital stack."
         },
         {
           "role_id": "pension_funds",
@@ -1657,7 +1680,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Long-term institutional investors seeking stable infrastructure returns through participation in large-scale infrastructure projects."
         },
         {
           "role_id": "walton_family_office",
@@ -1669,7 +1693,8 @@
           "mapped_entity_ref": "Walton Family Office",
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Supplies private family capital participation alongside institutional investors in long-term infrastructure investment platforms."
         },
         {
           "role_id": "slim_family_office",
@@ -1681,7 +1706,8 @@
           "mapped_entity_ref": "Slim Family Office",
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Supplies private family capital participation alongside institutional investors in long-term infrastructure investment platforms."
         },
         {
           "role_id": "dangote_family_office",
@@ -1693,7 +1719,8 @@
           "mapped_entity_ref": "Dangote Family Office",
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Supplies private family capital participation alongside institutional investors in long-term infrastructure investment platforms."
         },
         {
           "role_id": "project_finance_lenders",
@@ -1718,7 +1745,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Government-backed financial institutions that provide financing or guarantees for technology or infrastructure equipment supplied from their home jurisdictions."
         },
         {
           "role_id": "gpu_financing_vehicle",
@@ -1730,7 +1758,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Special purpose financing entity that purchases GPU hardware and leases it to infrastructure operators, reducing upfront capital requirements for AI compute infrastructure."
         }
       ],
       "delivery": [
@@ -1744,7 +1773,8 @@
           "mapped_entity_ref": "NVIDIA",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Supplies GPU hardware and defines the technical architecture for AI compute clusters, including networking, GPU configuration, and AI factory design standards."
         },
         {
           "role_id": "hyperscaler_platform",
@@ -1756,7 +1786,8 @@
           "mapped_entity_ref": "AWS / OpenAI",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides AI workloads, cloud infrastructure integration, and enterprise compute demand that utilizes the AI infrastructure platform."
         },
         {
           "role_id": "energy_provider",
@@ -1794,7 +1825,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Constructs and manages high-capacity electrical transmission systems connecting power generation sources to the AI infrastructure campus."
         },
         {
           "role_id": "gpu_supply_chain_partner",
@@ -1819,7 +1851,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides high-efficiency cooling technologies required to maintain safe operating temperatures for dense AI compute clusters."
         },
         {
           "role_id": "high_performance_networking_supplier",
@@ -1831,11 +1864,12 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Supplies high-speed networking hardware and software necessary for large-scale distributed AI computing environments."
         }
       ]
     },
-    "updated_at": "2026-03-09T23:36:00Z"
+    "updated_at": "2026-03-09T23:40:00Z"
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
