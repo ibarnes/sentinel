@@ -31,7 +31,13 @@ Run this check on each heartbeat, but only send a user-visible alert when someth
 
 ## Signal Pressure Monitor (Secondary)
 
-After Buyer Access Graph check, inspect:
+Before checking delta, ensure freshness:
+1. Run `node mission-control/signal-pressure/run-if-stale.mjs`
+2. If it reports `status=fresh`, continue.
+3. If it reports `status=refreshed`, continue using refreshed delta.
+4. If refresh errors, send one concise alert: **Signal Pressure Monitor Error** with error summary and remediation suggestion.
+
+Then inspect:
 - `mission-control/signal-pressure/out/pressure-delta.json`
 
 Send a user-visible alert only if:
