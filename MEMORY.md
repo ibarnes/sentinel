@@ -111,17 +111,21 @@
 - 2026-03-01 review: no scoring model or weighting changes approved.
 - 2026-03-02 maintenance: no new scoring changes approved.
 
-# Project Status Snapshot (2026-03-08)
+# Project Status Snapshot (2026-03-09)
 - Workflow C queue discipline maintained on schedule:
-  - 00:00 UTC intake reminder handled internal-only.
-  - 04:00 UTC queue event recorded for `mission-control/workflow-c/queue/2026-03-08.json`; `execute_immediately=false`.
+  - 03:00 UTC queue event recorded for `mission-control/workflow-c/queue/2026-03-09.json`; `execute_immediately=false`.
   - Execution remains deferred to local 23:00 ET pending explicit queued tasks.
-- Presentation Studio build advanced during 04:10 UTC Board Build Window:
-  - Template list/detail API slice implemented under TASK-0026 with decomposition gate subtasks (TASK-0115/0116/0117).
-  - Review packet generated: `mission-control/review-packets/RP-0040`.
-  - Board movement: TASK-0026 advanced to Ready for Review (no Done-state bypass).
-- Scoring policy status: no scoring model or weighting changes approved as of 2026-03-08 maintenance.
-- Durable rule/status changes today: none beyond existing Structured + Safe and internal-only cron-event relay handling.
+- Board Build Window progress (03:10 UTC):
+  - TASK-0044 (pipeline per-stage status transitions) executed via decomposition gate (TASK-0122/0123/0124).
+  - Review packet generated: `mission-control/review-packets/RP-0043`.
+  - Board movement: TASK-0044 advanced to Ready for Review (no Done-state bypass).
+- Scoring policy status: no scoring model or weighting changes approved as of 2026-03-09 maintenance.
+- Durable rule/status changes today: none.
+
+# Nightly Memory Maintenance (2026-03-09)
+- Daily log distilled and folded into this snapshot.
+- Durable changes captured: Workflow C queue timestamp rollover + TASK-0044/RP-0043 status progression.
+- No new operating-rule or scoring-policy changes.
 
 # Communication Operating Rule (2026-03-01)
 - Proactive update protocol is mandatory during active build windows:
