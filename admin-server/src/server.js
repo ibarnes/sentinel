@@ -2168,12 +2168,40 @@ app.get('/dashboard/initiatives', async (req, res) => {
   });
   const gateOptions = ['Gate 0','Gate 1','Gate 2','Gate 3','Gate 4','Gate 5','Gate 6','Gate 7'];
   const inferGate = (i) => i.gate_stage || (String(i.status || '').toLowerCase()==='pre-fid' ? 'Gate 1' : 'Gate 1');
+  const LAYERS = ['political','asset','development','capital','delivery'];
+  const WEIGHT = { missing: 0, identified: 0.25, validated: 0.5, engaged: 0.75, committed: 1 };
+  const normLayers = (i) => {
+    const src = i?.actor_alignment_layers && typeof i.actor_alignment_layers === 'object' ? i.actor_alignment_layers : {};
+    const out = {};
+    for (const l of LAYERS) out[l] = Array.isArray(src[l]) ? src[l] : [];
+    return out;
+  };
+  const alignmentSummary = (i) => {
+    const layers = normLayers(i);
+    const layerScores = {};
+    let all = [];
+    for (const l of LAYERS) {
+      const rows = layers[l];
+      all = all.concat(rows.map((r) => ({ ...r, layer: l })));
+      if (!rows.length) { layerScores[l] = 0; continue; }
+      const avg = rows.reduce((s, r) => s + (WEIGHT[String(r?.status || 'missing')] ?? 0), 0) / rows.length;
+      layerScores[l] = Number((avg * 100).toFixed(0));
+    }
+    const overall = Number((LAYERS.reduce((s, l) => s + layerScores[l], 0) / LAYERS.length).toFixed(0));
+    const missingRoles = all.filter((r) => String(r?.status || 'missing') === 'missing').length;
+    let weakestLayer = LAYERS[0];
+    for (const l of LAYERS) if (layerScores[l] < layerScores[weakestLayer]) weakestLayer = l;
+    const primary = all.find((r) => Boolean(r?.is_critical_role) && ['missing','identified','validated'].includes(String(r?.status || 'missing'))) || all.find((r) => ['missing','identified','validated'].includes(String(r?.status || 'missing')));
+    return { layerScores, overall, missingRoles, weakestLayer, primaryConstraint: primary ? (primary.role_label || primary.role_id || 'Unspecified role') : 'None' };
+  };
+  const enriched = sorted.map((i) => ({ initiative: i, align: alignmentSummary(i) }));
+
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
     ${pageHeader('Initiatives', '', 'Gate 0–7 is the canonical initiative workflow')}
     <form id="initiativesFilterForm" method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-4"><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div></form>
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Name</th><th>Infrastructure Type</th><th>Gate Stage</th><th>Linked Buyers</th><th>Updated</th><th class="text-end">Actions</th></tr></thead><tbody>
-      ${sorted.map(i=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="initiative-gate-form d-inline"><select name="gate_stage" class="form-select form-select-sm initiative-gate-select" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select></form>` : escapeHtml(inferGate(i))}</td><td>${(i.linked_buyers || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td><td class="text-end">${canEdit ? `<details class="initiative-actions-menu d-inline-block text-start"><summary class="btn btn-sm btn-outline-secondary" aria-label="More actions">⋯</summary><div class="card p-1 mt-1" style="position:absolute;z-index:20;min-width:160px;"><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">View Initiative</a><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/delete" onsubmit="return confirm('Delete initiative ${escapeHtml(i.initiative_id)}? This cannot be undone.');"><button class="dropdown-item text-danger" type="submit">Delete</button></form></div></details>` : '—'}</td></tr>`).join('') || '<tr><td colspan="7">No initiatives</td></tr>'}
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Name</th><th>Infrastructure Type</th><th>Gate Stage</th><th>Actor Gaps</th><th>Alignment %</th><th>Weakest Layer</th><th>Primary Constraint</th><th>Linked Buyers</th><th>Updated</th><th class="text-end">Actions</th></tr></thead><tbody>
+      ${enriched.map(({initiative:i, align:a})=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.initiative_id)}</a></td><td>${escapeHtml(i.name || '')}</td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="initiative-gate-form d-inline"><select name="gate_stage" class="form-select form-select-sm initiative-gate-select" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select></form>` : escapeHtml(inferGate(i))}</td><td>${a.missingRoles}</td><td><strong>${a.overall}%</strong></td><td class="text-capitalize">${escapeHtml(a.weakestLayer)}</td><td>${escapeHtml(a.primaryConstraint)}</td><td>${(i.linked_buyers || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td><td class="text-end">${canEdit ? `<details class="initiative-actions-menu d-inline-block text-start"><summary class="btn btn-sm btn-outline-secondary" aria-label="More actions">⋯</summary><div class="card p-1 mt-1" style="position:absolute;z-index:20;min-width:160px;"><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">View Initiative</a><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/delete" onsubmit="return confirm('Delete initiative ${escapeHtml(i.initiative_id)}? This cannot be undone.');"><button class="dropdown-item text-danger" type="submit">Delete</button></form></div></details>` : '—'}</td></tr>`).join('') || '<tr><td colspan="11">No initiatives</td></tr>'}
     </tbody></table></div>
   </div>
   <script>
@@ -2467,6 +2495,21 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
   const linkedBuyers = buyers.filter(b => (i.linked_buyers||[]).includes(b.buyer_id));
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const editMode = String(req.query.edit || '') === '1';
+  const LAYERS = ['political','asset','development','capital','delivery'];
+  const LAYER_LABEL = { political:'Political', asset:'Asset', development:'Development', capital:'Capital', delivery:'Delivery' };
+  const STATUS_ICON = { committed:'✔', engaged:'●', validated:'◐', identified:'◔', missing:'⬜' };
+  const WEIGHT = { missing: 0, identified: 0.25, validated: 0.5, engaged: 0.75, committed: 1 };
+  const actorLayers = (() => {
+    const src = i?.actor_alignment_layers && typeof i.actor_alignment_layers === 'object' ? i.actor_alignment_layers : {};
+    const out = {};
+    for (const l of LAYERS) out[l] = Array.isArray(src[l]) ? src[l] : [];
+    return out;
+  })();
+  const layerScore = (rows=[]) => rows.length ? Number(((rows.reduce((s,r)=>s + (WEIGHT[String(r?.status || 'missing')] ?? 0),0) / rows.length) * 100).toFixed(0)) : 0;
+  const perLayer = Object.fromEntries(LAYERS.map((l)=>[l, layerScore(actorLayers[l])]));
+  const overallAlign = Number((LAYERS.reduce((s,l)=>s + perLayer[l],0)/LAYERS.length).toFixed(0));
+  const rolesAll = LAYERS.flatMap((l)=>(actorLayers[l]||[]).map((r)=>({...r, layer:l})));
+  const primaryConstraint = rolesAll.find((r)=>Boolean(r?.is_critical_role) && ['missing','identified','validated'].includes(String(r?.status || 'missing'))) || rolesAll.find((r)=>['missing','identified','validated'].includes(String(r?.status || 'missing')));
   const decksRoot = path.join(ROOT, 'presentations', id, 'decks');
   const deckLinks = [];
   if (fssync.existsSync(decksRoot)) {
@@ -2477,8 +2520,18 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
     ${dashboardNav('initiatives')}
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/initiatives">← Initiatives</a>
     <div class="d-flex justify-content-between align-items-center mb-2"><h3 class="mb-0">${escapeHtml(i.name)}</h3>${canEdit ? `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a>` : ''}</div>
-    ${canEdit && editMode ? `<div class="card mb-3"><div class="card-body"><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/update" class="row g-2"><div class="col-md-6"><label class="form-label">Name</label><input class="form-control" name="name" value="${escapeHtml(i.name || '')}" required /></div><div class="col-md-3"><label class="form-label">Status</label><input class="form-control" name="status" value="${escapeHtml(i.status || '')}" /></div><div class="col-md-3"><label class="form-label">Infrastructure Type</label><input class="form-control" name="infrastructure_category" value="${escapeHtml(i.infrastructure_category || '')}" /></div><div class="col-12"><label class="form-label">Macro Gravity Summary</label><textarea class="form-control" name="macro_gravity_summary" rows="3">${escapeHtml(i.macro_gravity_summary || '')}</textarea></div><div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-primary" type="submit">Save Initiative</button><a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">Cancel</a></div></form></div></div>` : `<p>${escapeHtml(i.macro_gravity_summary || '')}</p>
+    ${canEdit && editMode ? `<div class="card mb-3"><div class="card-body"><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/update" class="row g-2"><div class="col-md-6"><label class="form-label">Name</label><input class="form-control" name="name" value="${escapeHtml(i.name || '')}" required /></div><div class="col-md-3"><label class="form-label">Status</label><input class="form-control" name="status" value="${escapeHtml(i.status || '')}" /></div><div class="col-md-3"><label class="form-label">Infrastructure Type</label><input class="form-control" name="infrastructure_category" value="${escapeHtml(i.infrastructure_category || '')}" /></div><div class="col-12"><label class="form-label">Macro Gravity Summary</label><textarea class="form-control" name="macro_gravity_summary" rows="3">${escapeHtml(i.macro_gravity_summary || '')}</textarea></div><div class="col-12"><label class="form-label">Actor Alignment Layers (JSON)</label><textarea class="form-control mono" name="actor_alignment_layers_json" rows="10">${escapeHtml(JSON.stringify(i.actor_alignment_layers || {}, null, 2))}</textarea></div><div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-primary" type="submit">Save Initiative</button><a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">Cancel</a></div></form></div></div>` : `<p>${escapeHtml(i.macro_gravity_summary || '')}</p>
     <p><strong>Status:</strong> ${escapeHtml(i.status || '')}</p>`}
+    <div class="card mb-3"><div class="card-body">
+      <h5 class="mb-2">Actor Alignment</h5>
+      <div class="small text-muted mb-2">Structural alignment proxy (not literal FID readiness).</div>
+      <div class="row g-2 mb-2">
+        ${LAYERS.map((l)=>`<div class="col-6 col-md-4 col-lg-2"><div class="border rounded p-2"><div class="small text-muted">${escapeHtml(LAYER_LABEL[l])}</div><div><strong>${perLayer[l]}%</strong></div></div></div>`).join('')}
+        <div class="col-6 col-md-4 col-lg-2"><div class="border rounded p-2"><div class="small text-muted">Overall Alignment</div><div><strong>${overallAlign}%</strong></div></div></div>
+      </div>
+      <div class="mb-2"><strong>Primary Constraint:</strong> ${escapeHtml(primaryConstraint ? (primaryConstraint.role_label || primaryConstraint.role_id || 'Unspecified role') : 'None')}</div>
+      ${LAYERS.map((l)=>`<div class="mb-2"><div><strong>${escapeHtml(LAYER_LABEL[l])}</strong></div><ul class="mb-1">${(actorLayers[l]||[]).map((r)=>`<li>${escapeHtml(STATUS_ICON[String(r?.status||'missing')] || '⬜')} ${escapeHtml(r.role_label || r.role_id || 'Unnamed role')} <span class="text-muted">(${escapeHtml(String(r?.status || 'missing'))}${r?.is_critical_role ? ', critical' : ''})</span></li>`).join('') || '<li class="text-muted">No roles defined</li>'}</ul></div>`).join('')}
+    </div></div>
     <h5>Linked Buyers</h5><ul>${linkedBuyers.map(b=>`<li>${escapeHtml(b.name)}</li>`).join('')}</ul>
     <h5 class="mt-3">Decks</h5>
     <ul>${deckLinks.map(p=>`<li><a href="/${p}">${escapeHtml(p)}</a></li>`).join('') || '<li>No decks yet</li>'}</ul>
@@ -4696,6 +4749,7 @@ app.post('/api/initiatives', requireRole('architect','editor'), async (req, res)
     status,
     macro_gravity_summary,
     linked_buyers,
+    actor_alignment_layers: { political: [], asset: [], development: [], capital: [], delivery: [] },
     presentations: {
       utc_internal: `presentations/${initiative_id}/decks/utc-internal/index.html`,
       buyer_alignment: Object.fromEntries(linked_buyers.map((b) => [b, `presentations/${initiative_id}/decks/buyer-alignment/${b}/index.html`]))
@@ -4746,11 +4800,25 @@ app.post('/api/initiatives/:id/update', requireRole('architect','editor'), async
   const status = String(req.body.status || '').trim();
   const macro = String(req.body.macro_gravity_summary || '').trim();
   const category = String(req.body.infrastructure_category || '').trim();
+  const layersRaw = String(req.body.actor_alignment_layers_json || '').trim();
 
   if (name) initiative.name = name;
   if (status) initiative.status = status;
   if (macro || macro === '') initiative.macro_gravity_summary = macro;
   if (category || category === '') initiative.infrastructure_category = category;
+  if (layersRaw) {
+    try {
+      const parsed = JSON.parse(layersRaw);
+      if (!parsed || typeof parsed !== 'object') return res.status(400).send('invalid actor_alignment_layers_json');
+      const next = {};
+      for (const l of ['political','asset','development','capital','delivery']) {
+        next[l] = Array.isArray(parsed[l]) ? parsed[l] : [];
+      }
+      initiative.actor_alignment_layers = next;
+    } catch {
+      return res.status(400).send('invalid actor_alignment_layers_json');
+    }
+  }
   initiative.updated_at = nowIso();
 
   await writeJson(initiativesPath, initiatives);
@@ -4761,7 +4829,7 @@ app.post('/api/initiatives/:id/update', requireRole('architect','editor'), async
     event_type: 'initiative.update',
     entity_type: 'initiative',
     entity_id: id,
-    meta: { fields: ['name','status','macro_gravity_summary','infrastructure_category'] }
+    meta: { fields: ['name','status','macro_gravity_summary','infrastructure_category','actor_alignment_layers'] }
   });
 
   res.redirect(`/dashboard/initiative/${encodeURIComponent(id)}?updated=1`);
