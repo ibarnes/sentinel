@@ -2171,12 +2171,7 @@ app.get('/dashboard/initiatives', async (req, res) => {
   const inferGate = (i) => i.gate_stage || (String(i.status || '').toLowerCase()==='pre-fid' ? 'Gate 1' : 'Gate 1');
   const LAYERS = ['political','asset','development','capital','delivery'];
   const WEIGHT = { missing: 0, identified: 0.25, validated: 0.5, engaged: 0.75, committed: 1 };
-  const normLayers = (i) => {
-    const src = i?.actor_alignment_layers && typeof i.actor_alignment_layers === 'object' ? i.actor_alignment_layers : {};
-    const out = {};
-    for (const l of LAYERS) out[l] = Array.isArray(src[l]) ? src[l] : [];
-    return out;
-  };
+  const normLayers = (i) => normalizeActorAlignment(i);
   const alignmentSummary = (i) => {
     const layers = normLayers(i);
     const layerScores = {};
@@ -2192,7 +2187,15 @@ app.get('/dashboard/initiatives', async (req, res) => {
     const missingRoles = all.filter((r) => String(r?.status || 'missing') === 'missing').length;
     let weakestLayer = LAYERS[0];
     for (const l of LAYERS) if (layerScores[l] < layerScores[weakestLayer]) weakestLayer = l;
-    const primary = all.find((r) => Boolean(r?.is_critical_role) && ['missing','identified','validated'].includes(String(r?.status || 'missing'))) || all.find((r) => ['missing','identified','validated'].includes(String(r?.status || 'missing')));
+    const rank = ['political_sponsor','regulator','asset_owner','operator','off_taker','anchor_equity','development_finance_lender','project_developer','technical_integrator','epc_contractor','key_supplier'];
+    const sortKey = (r) => {
+      const w = WEIGHT[String(r?.status || 'missing')] ?? 0;
+      const idx = rank.indexOf(String(r?.role_id || ''));
+      return `${w.toFixed(2)}_${idx >= 0 ? String(idx).padStart(3,'0') : '999'}`;
+    };
+    const candidatesCritical = all.filter((r) => Boolean(r?.is_critical_role) && ['missing','identified','validated'].includes(String(r?.status || 'missing'))).sort((a,b)=>sortKey(a).localeCompare(sortKey(b)));
+    const candidatesAny = all.filter((r) => ['missing','identified','validated'].includes(String(r?.status || 'missing'))).sort((a,b)=>sortKey(a).localeCompare(sortKey(b)));
+    const primary = candidatesCritical[0] || candidatesAny[0] || null;
     return { layerScores, overall, missingRoles, weakestLayer, primaryConstraint: primary ? (primary.role_label || primary.role_id || 'Unspecified role') : 'None' };
   };
   const enrichedAll = sorted.map((i) => ({ initiative: i, align: alignmentSummary(i) }));
@@ -2512,17 +2515,19 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
   const LAYER_LABEL = { political:'Political', asset:'Asset', development:'Development', capital:'Capital', delivery:'Delivery' };
   const STATUS_ICON = { committed:'✔', engaged:'●', validated:'◐', identified:'◔', missing:'⬜' };
   const WEIGHT = { missing: 0, identified: 0.25, validated: 0.5, engaged: 0.75, committed: 1 };
-  const actorLayers = (() => {
-    const src = i?.actor_alignment_layers && typeof i.actor_alignment_layers === 'object' ? i.actor_alignment_layers : {};
-    const out = {};
-    for (const l of LAYERS) out[l] = Array.isArray(src[l]) ? src[l] : [];
-    return out;
-  })();
+  const actorLayers = normalizeActorAlignment(i);
   const layerScore = (rows=[]) => rows.length ? Number(((rows.reduce((s,r)=>s + (WEIGHT[String(r?.status || 'missing')] ?? 0),0) / rows.length) * 100).toFixed(0)) : 0;
   const perLayer = Object.fromEntries(LAYERS.map((l)=>[l, layerScore(actorLayers[l])]));
   const overallAlign = Number((LAYERS.reduce((s,l)=>s + perLayer[l],0)/LAYERS.length).toFixed(0));
   const rolesAll = LAYERS.flatMap((l)=>(actorLayers[l]||[]).map((r)=>({...r, layer:l})));
-  const primaryConstraint = rolesAll.find((r)=>Boolean(r?.is_critical_role) && ['missing','identified','validated'].includes(String(r?.status || 'missing'))) || rolesAll.find((r)=>['missing','identified','validated'].includes(String(r?.status || 'missing')));
+  const ROLE_RANK = ['political_sponsor','regulator','asset_owner','operator','off_taker','anchor_equity','development_finance_lender','project_developer','technical_integrator','epc_contractor','key_supplier'];
+  const roleSortKey = (r) => {
+    const w = WEIGHT[String(r?.status || 'missing')] ?? 0;
+    const idx = ROLE_RANK.indexOf(String(r?.role_id || ''));
+    return `${w.toFixed(2)}_${idx >= 0 ? String(idx).padStart(3,'0') : '999'}`;
+  };
+  const primaryConstraint = (rolesAll.filter((r)=>Boolean(r?.is_critical_role) && ['missing','identified','validated'].includes(String(r?.status || 'missing'))).sort((a,b)=>roleSortKey(a).localeCompare(roleSortKey(b)))[0]) ||
+    (rolesAll.filter((r)=>['missing','identified','validated'].includes(String(r?.status || 'missing'))).sort((a,b)=>roleSortKey(a).localeCompare(roleSortKey(b)))[0]) || null;
   const decksRoot = path.join(ROOT, 'presentations', id, 'decks');
   const deckLinks = [];
   if (fssync.existsSync(decksRoot)) {
@@ -2533,7 +2538,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
     ${dashboardNav('initiatives')}
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/initiatives">← Initiatives</a>
     <div class="d-flex justify-content-between align-items-center mb-2"><h3 class="mb-0">${escapeHtml(i.name)}</h3>${canEdit ? `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a>` : ''}</div>
-    ${canEdit && editMode ? `<div class="card mb-3"><div class="card-body"><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/update" class="row g-2"><div class="col-md-6"><label class="form-label">Name</label><input class="form-control" name="name" value="${escapeHtml(i.name || '')}" required /></div><div class="col-md-3"><label class="form-label">Status</label><input class="form-control" name="status" value="${escapeHtml(i.status || '')}" /></div><div class="col-md-3"><label class="form-label">Infrastructure Type</label><input class="form-control" name="infrastructure_category" value="${escapeHtml(i.infrastructure_category || '')}" /></div><div class="col-12"><label class="form-label">Macro Gravity Summary</label><textarea class="form-control" name="macro_gravity_summary" rows="3">${escapeHtml(i.macro_gravity_summary || '')}</textarea></div><div class="col-12"><label class="form-label">Actor Alignment Layers (JSON)</label><textarea class="form-control mono" name="actor_alignment_layers_json" rows="10">${escapeHtml(JSON.stringify(i.actor_alignment_layers || {}, null, 2))}</textarea></div><div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-primary" type="submit">Save Initiative</button><a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">Cancel</a></div></form></div></div>` : `<p>${escapeHtml(i.macro_gravity_summary || '')}</p>
+    ${canEdit && editMode ? `<div class="card mb-3"><div class="card-body"><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/update" class="row g-2"><div class="col-md-6"><label class="form-label">Name</label><input class="form-control" name="name" value="${escapeHtml(i.name || '')}" required /></div><div class="col-md-3"><label class="form-label">Status</label><input class="form-control" name="status" value="${escapeHtml(i.status || '')}" /></div><div class="col-md-3"><label class="form-label">Infrastructure Type</label><input class="form-control" name="infrastructure_category" value="${escapeHtml(i.infrastructure_category || '')}" /></div><div class="col-12"><label class="form-label">Macro Gravity Summary</label><textarea class="form-control" name="macro_gravity_summary" rows="3">${escapeHtml(i.macro_gravity_summary || '')}</textarea></div><div class="col-12"><label class="form-label">Initiative Stakeholders</label><div class="d-flex flex-wrap gap-2 mb-2"><button class="btn btn-sm btn-outline-primary" type="submit" formaction="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/apply-template">Apply Template</button><button class="btn btn-sm btn-outline-secondary" type="submit" formaction="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/apply-template" name="overwrite" value="true">Apply Template (Overwrite)</button></div><div class="border rounded p-2 small text-muted">Use “+ Add Actor Role” below to manage stakeholder roles. Raw JSON is hidden in normal workflow.</div></div><div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-primary" type="submit">Save Initiative</button><a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">Cancel</a></div></form></div></div><div class="card mb-3"><div class="card-body"><div class="d-flex justify-content-between align-items-center"><h6 class="mb-2">Actor Role Management</h6><span class="small text-muted">+ Add Actor Role</span></div><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/add" class="row g-2"><div class="col-md-2"><label class="form-label">Layer</label><select class="form-select form-select-sm" name="layer" required>${LAYERS.map((l)=>`<option value="${l}">${escapeHtml(LAYER_LABEL[l])}</option>`).join('')}</select></div><div class="col-md-3"><label class="form-label">Role</label><input class="form-control form-control-sm" name="role_label" placeholder="e.g., Anchor Equity" required /></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select form-select-sm" name="status">${['missing','identified','validated','engaged','committed'].map((s)=>`<option value="${s}">${s}</option>`).join('')}</select></div><div class="col-md-2"><label class="form-label">Entity Type</label><select class="form-select form-select-sm" name="mapped_entity_type"><option value="">(none)</option><option>buyer</option><option>organization</option><option>team</option><option>regulator</option><option>operator</option><option>other</option></select></div><div class="col-md-3"><label class="form-label">Linked Entity</label><input class="form-control form-control-sm" name="mapped_entity_ref" placeholder="buyer_id or org" /></div><div class="col-md-8"><label class="form-label">Notes</label><input class="form-control form-control-sm" name="notes" /></div><div class="col-md-2 d-flex align-items-end"><div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="is_critical_role" id="criticalRoleTick" /><label class="form-check-label" for="criticalRoleTick">Critical</label></div></div><div class="col-md-2 d-flex align-items-end"><button class="btn btn-sm btn-primary w-100" type="submit">Add Role</button></div></form></div></div>` : `<p>${escapeHtml(i.macro_gravity_summary || '')}</p>
     <p><strong>Status:</strong> ${escapeHtml(i.status || '')}</p>`}
     <div class="card mb-3"><div class="card-body">
       <h5 class="mb-2">Actor Alignment Map</h5>
@@ -2567,8 +2572,8 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
         <div class="small">Owner: ${escapeHtml(primaryConstraint?.owner || 'TBD')} · Due: ${escapeHtml(primaryConstraint?.due || 'TBD')}</div>
       </div></div>
 
-      <div class="table-responsive"><table class="table table-sm align-middle mb-0"><thead><tr><th>Layer</th><th>Role</th><th>Status</th><th>Mapped Entity</th><th>Critical</th><th>Notes</th></tr></thead><tbody>
-        ${rolesAll.map((r)=>`<tr><td>${escapeHtml(LAYER_LABEL[r.layer])}</td><td>${escapeHtml(r.role_label || r.role_id || 'Unnamed role')}</td><td>${escapeHtml(String(r.status || 'missing'))}</td><td>${escapeHtml(String(r.mapped_entity_ref || '—'))}</td><td>${r?.is_critical_role ? 'Yes' : 'No'}</td><td>${escapeHtml(String(r.notes || ''))}</td></tr>`).join('') || '<tr><td colspan="6" class="text-muted">No actor roles defined.</td></tr>'}
+      <div class="table-responsive"><table class="table table-sm align-middle mb-0"><thead><tr><th>Layer</th><th>Role</th><th>Status</th><th>Mapped Entity</th><th>Critical</th><th>Notes</th>${canEdit && editMode ? '<th></th>' : ''}</tr></thead><tbody>
+        ${rolesAll.map((r)=>`<tr><td>${escapeHtml(LAYER_LABEL[r.layer])}</td><td>${escapeHtml(r.role_label || r.role_id || 'Unnamed role')}</td><td>${escapeHtml(String(r.status || 'missing'))}</td><td>${escapeHtml(String(r.mapped_entity_ref || '—'))}</td><td>${r?.is_critical_role ? 'Yes' : 'No'}</td><td>${escapeHtml(String(r.notes || ''))}</td>${canEdit && editMode ? `<td class="text-end"><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/${encodeURIComponent(String(r.role_id || ''))}/delete" onsubmit="return confirm('Remove role ${escapeHtml(r.role_label || r.role_id || '')}?');"><button class="btn btn-sm btn-outline-danger" type="submit">Remove</button></form></td>` : ''}</tr>`).join('') || `<tr><td colspan="${canEdit && editMode ? '7' : '6'}" class="text-muted">No actor roles defined.</td></tr>`}
       </tbody></table></div>
     </div></div>
     <h5>Linked Buyers</h5><ul>${linkedBuyers.map(b=>`<li>${escapeHtml(b.name)}</li>`).join('')}</ul>
@@ -4771,6 +4776,57 @@ app.post('/api/initiatives/suggest', requireRole('architect','editor'), async (r
   res.json({ buyer_id, ideas });
 });
 
+function normalizeActorAlignment(initiative = {}) {
+  const src = initiative?.actor_alignment?.layers && typeof initiative.actor_alignment.layers === 'object'
+    ? initiative.actor_alignment.layers
+    : (initiative?.actor_alignment_layers && typeof initiative.actor_alignment_layers === 'object' ? initiative.actor_alignment_layers : {});
+  const out = {};
+  for (const l of ['political','asset','development','capital','delivery']) out[l] = Array.isArray(src[l]) ? src[l] : [];
+  return out;
+}
+
+function baseInfraRoleTemplate() {
+  return [
+    { role_id:'political_sponsor', role_label:'Political Sponsor', layer:'political', status:'missing', is_critical_role:true },
+    { role_id:'regulator', role_label:'Regulator', layer:'political', status:'missing', is_critical_role:true },
+    { role_id:'asset_owner', role_label:'Asset Owner', layer:'asset', status:'missing', is_critical_role:true },
+    { role_id:'operator', role_label:'Operator', layer:'asset', status:'missing', is_critical_role:true },
+    { role_id:'project_developer', role_label:'Project Developer', layer:'development', status:'missing', is_critical_role:true },
+    { role_id:'technical_integrator', role_label:'Technical Integrator', layer:'development', status:'missing', is_critical_role:false },
+    { role_id:'off_taker', role_label:'Off-Taker', layer:'capital', status:'missing', is_critical_role:true },
+    { role_id:'anchor_equity', role_label:'Anchor Equity', layer:'capital', status:'missing', is_critical_role:true },
+    { role_id:'development_finance_lender', role_label:'Development Finance Lender', layer:'capital', status:'missing', is_critical_role:true },
+    { role_id:'commercial_lender', role_label:'Commercial Lender', layer:'capital', status:'missing', is_critical_role:false },
+    { role_id:'epc_contractor', role_label:'EPC Contractor', layer:'delivery', status:'missing', is_critical_role:false },
+    { role_id:'key_supplier', role_label:'Key Supplier / OEM', layer:'delivery', status:'missing', is_critical_role:false }
+  ];
+}
+
+function infrastructureRoleTemplate(infraType = '') {
+  const key = String(infraType || '').toLowerCase();
+  if (key.includes('digital health')) {
+    return [
+      { role_id:'health_ministry', role_label:'Health Ministry / Public Health Sponsor', layer:'political', status:'missing', is_critical_role:true },
+      { role_id:'health_regulator', role_label:'Health Regulator', layer:'political', status:'missing', is_critical_role:true },
+      { role_id:'data_protection_authority', role_label:'Data Protection Authority', layer:'political', status:'missing', is_critical_role:true },
+      { role_id:'hospital_network_owner', role_label:'Hospital Network Owner', layer:'asset', status:'missing', is_critical_role:true },
+      { role_id:'clinical_platform_operator', role_label:'Clinical Platform Operator', layer:'asset', status:'missing', is_critical_role:true },
+      { role_id:'platform_architect', role_label:'Platform Architect', layer:'development', status:'missing', is_critical_role:true },
+      { role_id:'systems_integrator', role_label:'Systems Integrator', layer:'development', status:'missing', is_critical_role:false },
+      { role_id:'care_delivery_anchor', role_label:'Care Delivery Anchor', layer:'capital', status:'missing', is_critical_role:true },
+      { role_id:'development_finance_partner', role_label:'Development Finance Partner', layer:'capital', status:'missing', is_critical_role:true },
+      { role_id:'cloud_infrastructure_provider', role_label:'Cloud Infrastructure Provider', layer:'delivery', status:'missing', is_critical_role:false },
+      { role_id:'ehr_or_interoperability_vendor', role_label:'EHR / Interoperability Vendor', layer:'delivery', status:'missing', is_critical_role:false }
+    ];
+  }
+  return baseInfraRoleTemplate();
+}
+
+function writeActorAlignment(initiative, layers) {
+  initiative.actor_alignment = { layers };
+  initiative.actor_alignment_layers = layers;
+}
+
 app.post('/api/initiatives', requireRole('architect','editor'), async (req, res) => {
   const initiativesPath = path.join(ROOT, 'dashboard/data/initiatives.json');
   const buyersPath = path.join(ROOT, 'dashboard/data/buyers.json');
@@ -4807,6 +4863,7 @@ app.post('/api/initiatives', requireRole('architect','editor'), async (req, res)
     status,
     macro_gravity_summary,
     linked_buyers,
+    actor_alignment: { layers: { political: [], asset: [], development: [], capital: [], delivery: [] } },
     actor_alignment_layers: { political: [], asset: [], development: [], capital: [], delivery: [] },
     presentations: {
       utc_internal: `presentations/${initiative_id}/decks/utc-internal/index.html`,
@@ -4872,7 +4929,7 @@ app.post('/api/initiatives/:id/update', requireRole('architect','editor'), async
       for (const l of ['political','asset','development','capital','delivery']) {
         next[l] = Array.isArray(parsed[l]) ? parsed[l] : [];
       }
-      initiative.actor_alignment_layers = next;
+      writeActorAlignment(initiative, next);
     } catch {
       return res.status(400).send('invalid actor_alignment_layers_json');
     }
@@ -4891,6 +4948,75 @@ app.post('/api/initiatives/:id/update', requireRole('architect','editor'), async
   });
 
   res.redirect(`/dashboard/initiative/${encodeURIComponent(id)}?updated=1`);
+});
+
+app.post('/api/initiatives/:id/actor-roles/add', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  const initiativesPath = path.join(ROOT, 'dashboard/data/initiatives.json');
+  const initiatives = await readJson(initiativesPath, []);
+  const initiative = initiatives.find((x) => String(x.initiative_id || '') === id);
+  if (!initiative) return res.status(404).send('initiative not found');
+
+  const layer = String(req.body.layer || '').trim();
+  if (!['political','asset','development','capital','delivery'].includes(layer)) return res.status(400).send('invalid layer');
+
+  const role = {
+    role_id: String(req.body.role_id || `role_${Date.now()}`),
+    role_label: String(req.body.role_label || '').trim() || 'Unnamed role',
+    layer,
+    status: ['missing','identified','validated','engaged','committed'].includes(String(req.body.status || 'missing')) ? String(req.body.status) : 'missing',
+    notes: String(req.body.notes || '').trim(),
+    mapped_entity_type: req.body.mapped_entity_type ? String(req.body.mapped_entity_type) : null,
+    mapped_entity_ref: req.body.mapped_entity_ref ? String(req.body.mapped_entity_ref) : null,
+    is_critical_role: String(req.body.is_critical_role || '') === 'on' || String(req.body.is_critical_role || '') === 'true'
+  };
+
+  const layers = normalizeActorAlignment(initiative);
+  layers[layer].push(role);
+  writeActorAlignment(initiative, layers);
+  initiative.updated_at = nowIso();
+  await writeJson(initiativesPath, initiatives);
+  return res.redirect(`/dashboard/initiative/${encodeURIComponent(id)}?edit=1`);
+});
+
+app.post('/api/initiatives/:id/actor-roles/:roleId/delete', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  const roleId = String(req.params.roleId || '').trim();
+  const initiativesPath = path.join(ROOT, 'dashboard/data/initiatives.json');
+  const initiatives = await readJson(initiativesPath, []);
+  const initiative = initiatives.find((x) => String(x.initiative_id || '') === id);
+  if (!initiative) return res.status(404).send('initiative not found');
+  const layers = normalizeActorAlignment(initiative);
+  for (const l of ['political','asset','development','capital','delivery']) {
+    layers[l] = layers[l].filter((r) => String(r.role_id || '') !== roleId);
+  }
+  writeActorAlignment(initiative, layers);
+  initiative.updated_at = nowIso();
+  await writeJson(initiativesPath, initiatives);
+  return res.redirect(`/dashboard/initiative/${encodeURIComponent(id)}?edit=1`);
+});
+
+app.post('/api/initiatives/:id/actor-roles/apply-template', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  const overwrite = String(req.body.overwrite || '') === 'true';
+  const initiativesPath = path.join(ROOT, 'dashboard/data/initiatives.json');
+  const initiatives = await readJson(initiativesPath, []);
+  const initiative = initiatives.find((x) => String(x.initiative_id || '') === id);
+  if (!initiative) return res.status(404).send('initiative not found');
+
+  const layers = normalizeActorAlignment(initiative);
+  const template = infrastructureRoleTemplate(initiative.infrastructure_category || '');
+  for (const r of template) {
+    const exists = (layers[r.layer] || []).some((x) => String(x.role_id || '') === String(r.role_id));
+    if (overwrite || !exists) {
+      if (overwrite) layers[r.layer] = layers[r.layer].filter((x) => String(x.role_id || '') !== String(r.role_id));
+      layers[r.layer].push({ ...r, notes: '', mapped_entity_type: null, mapped_entity_ref: null });
+    }
+  }
+  writeActorAlignment(initiative, layers);
+  initiative.updated_at = nowIso();
+  await writeJson(initiativesPath, initiatives);
+  return res.redirect(`/dashboard/initiative/${encodeURIComponent(id)}?edit=1`);
 });
 
 app.post('/api/initiatives/:id/delete', requireRole('architect','editor'), async (req, res) => {
