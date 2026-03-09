@@ -2465,6 +2465,8 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
   const i = initiatives.find(x=>x.initiative_id===id);
   if(!i) return res.status(404).send('Initiative not found');
   const linkedBuyers = buyers.filter(b => (i.linked_buyers||[]).includes(b.buyer_id));
+  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
+  const editMode = String(req.query.edit || '') === '1';
   const decksRoot = path.join(ROOT, 'presentations', id, 'decks');
   const deckLinks = [];
   if (fssync.existsSync(decksRoot)) {
@@ -2474,9 +2476,9 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiative Detail')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/initiatives">← Initiatives</a>
-    <h3>${escapeHtml(i.name)}</h3>
-    <p>${escapeHtml(i.macro_gravity_summary || '')}</p>
-    <p><strong>Status:</strong> ${escapeHtml(i.status || '')}</p>
+    <div class="d-flex justify-content-between align-items-center mb-2"><h3 class="mb-0">${escapeHtml(i.name)}</h3>${canEdit ? `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a>` : ''}</div>
+    ${canEdit && editMode ? `<div class="card mb-3"><div class="card-body"><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/update" class="row g-2"><div class="col-md-6"><label class="form-label">Name</label><input class="form-control" name="name" value="${escapeHtml(i.name || '')}" required /></div><div class="col-md-3"><label class="form-label">Status</label><input class="form-control" name="status" value="${escapeHtml(i.status || '')}" /></div><div class="col-md-3"><label class="form-label">Infrastructure Type</label><input class="form-control" name="infrastructure_category" value="${escapeHtml(i.infrastructure_category || '')}" /></div><div class="col-12"><label class="form-label">Macro Gravity Summary</label><textarea class="form-control" name="macro_gravity_summary" rows="3">${escapeHtml(i.macro_gravity_summary || '')}</textarea></div><div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-primary" type="submit">Save Initiative</button><a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">Cancel</a></div></form></div></div>` : `<p>${escapeHtml(i.macro_gravity_summary || '')}</p>
+    <p><strong>Status:</strong> ${escapeHtml(i.status || '')}</p>`}
     <h5>Linked Buyers</h5><ul>${linkedBuyers.map(b=>`<li>${escapeHtml(b.name)}</li>`).join('')}</ul>
     <h5 class="mt-3">Decks</h5>
     <ul>${deckLinks.map(p=>`<li><a href="/${p}">${escapeHtml(p)}</a></li>`).join('') || '<li>No decks yet</li>'}</ul>
@@ -4729,6 +4731,40 @@ app.post('/api/initiatives/:id/gate', requireRole('architect','editor'), async (
   await writeJson(initiativesPath, initiatives);
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'initiative.gate.update', entity_type: 'initiative', entity_id: id, meta: { gate_stage: gate } });
   res.redirect('/dashboard/initiatives');
+});
+
+app.post('/api/initiatives/:id/update', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  if (!id) return res.status(400).send('initiative id required');
+
+  const initiativesPath = path.join(ROOT, 'dashboard/data/initiatives.json');
+  const initiatives = await readJson(initiativesPath, []);
+  const initiative = initiatives.find((x) => String(x.initiative_id || '') === id);
+  if (!initiative) return res.status(404).send('initiative not found');
+
+  const name = String(req.body.name || '').trim();
+  const status = String(req.body.status || '').trim();
+  const macro = String(req.body.macro_gravity_summary || '').trim();
+  const category = String(req.body.infrastructure_category || '').trim();
+
+  if (name) initiative.name = name;
+  if (status) initiative.status = status;
+  if (macro || macro === '') initiative.macro_gravity_summary = macro;
+  if (category || category === '') initiative.infrastructure_category = category;
+  initiative.updated_at = nowIso();
+
+  await writeJson(initiativesPath, initiatives);
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'initiative.update',
+    entity_type: 'initiative',
+    entity_id: id,
+    meta: { fields: ['name','status','macro_gravity_summary','infrastructure_category'] }
+  });
+
+  res.redirect(`/dashboard/initiative/${encodeURIComponent(id)}?updated=1`);
 });
 
 app.post('/api/initiatives/:id/delete', requireRole('architect','editor'), async (req, res) => {
