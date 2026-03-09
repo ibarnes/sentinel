@@ -2640,8 +2640,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
       </tbody></table></div>
     </div></details>
     <details class="card mb-3" open><summary class="card-header"><strong>Linked Buyers</strong></summary><div class="card-body"><ul class="mb-0">${linkedBuyers.map(b=>`<li>${escapeHtml(b.name)}</li>`).join('') || '<li class="text-muted">No linked buyers</li>'}</ul></div></details>
-    <h5 class="mt-3">Decks</h5>
-    <ul>${deckLinks.map(p=>`<li><a href="/${p}">${escapeHtml(p)}</a></li>`).join('') || '<li>No decks yet</li>'}</ul>
+    <details class="card mb-3" open><summary class="card-header"><strong>Decks</strong></summary><div class="card-body"><ul class="mb-0">${deckLinks.map(p=>`<li><a href="/${p}">${escapeHtml(p)}</a></li>`).join('') || '<li class="text-muted">No decks yet</li>'}</ul></div></details>
     <details class="card mt-3" open><summary class="card-header"><strong>Create Presentation</strong></summary><div class="card-body">
       <form method="post" action="/api/presentations/generate" class="row g-2">
         <input type="hidden" name="initiative_id" value="${escapeHtml(i.initiative_id)}" />
@@ -2656,13 +2655,48 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
     </div></details>
   </div>
   <script>
-    document.querySelectorAll('.priority-badge').forEach((el) => {
-      const msg = el.getAttribute('data-priority-meaning') || el.getAttribute('title') || '';
-      const show = () => { if (msg) el.setAttribute('title', msg); };
-      el.addEventListener('click', show);
-      el.addEventListener('touchstart', show, { passive: true });
-      el.addEventListener('focus', show);
-    });
+    (function setupPriorityTooltips(){
+      let tip = null;
+      const ensureTip = () => {
+        if (tip) return tip;
+        tip = document.createElement('div');
+        tip.style.position = 'fixed';
+        tip.style.zIndex = '9999';
+        tip.style.background = '#111';
+        tip.style.color = '#fff';
+        tip.style.padding = '6px 8px';
+        tip.style.borderRadius = '6px';
+        tip.style.fontSize = '12px';
+        tip.style.maxWidth = '240px';
+        tip.style.boxShadow = '0 2px 8px rgba(0,0,0,.25)';
+        tip.style.display = 'none';
+        document.body.appendChild(tip);
+        return tip;
+      };
+      const showTip = (el) => {
+        const msg = el.getAttribute('data-priority-meaning') || '';
+        if (!msg) return;
+        const t = ensureTip();
+        t.textContent = msg;
+        t.style.display = 'block';
+        const r = el.getBoundingClientRect();
+        const top = Math.max(8, r.top - t.offsetHeight - 8);
+        let left = r.left + (r.width / 2) - (t.offsetWidth / 2);
+        left = Math.max(8, Math.min(left, window.innerWidth - t.offsetWidth - 8));
+        t.style.top = String(top) + 'px';
+        t.style.left = String(left) + 'px';
+      };
+      const hideTip = () => { if (tip) tip.style.display = 'none'; };
+      document.querySelectorAll('.priority-badge').forEach((el) => {
+        el.addEventListener('mouseenter', () => showTip(el));
+        el.addEventListener('mouseleave', hideTip);
+        el.addEventListener('focus', () => showTip(el));
+        el.addEventListener('blur', hideTip);
+        el.addEventListener('click', (e) => { e.preventDefault(); showTip(el); setTimeout(hideTip, 1800); });
+        el.addEventListener('touchstart', () => { showTip(el); setTimeout(hideTip, 1800); }, { passive: true });
+      });
+      document.addEventListener('scroll', hideTip, true);
+    })();
     document.querySelectorAll('[data-view-mode]').forEach((btn) => {
       btn.addEventListener('click', () => {
         const layer = document.getElementById('actor-view-layer');
