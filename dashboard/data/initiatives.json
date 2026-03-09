@@ -934,7 +934,7 @@
       "AFC",
       "DFC"
     ],
-    "macro_gravity_summary": "Government land/power enablement plus L&T execution and Nvidia anchoring create high-pressure pre-FID conditions for a gigawatt-scale AI campus, with unresolved sponsor governance and capital-stack sequencing as the primary bottleneck.",
+    "macro_gravity_summary": "Government land/power enablement plus L&T execution and Nvidia anchoring create high-pressure pre-FID conditions for a gigawatt-scale AI campus, with unresolved sponsor governance and capital-stack sequencing as the primary bottleneck.\r\n\r\nPlatform Structure\r\n\r\nThis initiative proposes a hyperscaler-aligned sovereign AI compute campus in Andhra Pradesh.\r\n\r\nThe platform requires alignment across:\r\n\r\n- hyperscaler demand\r\n- sovereign AI program adoption\r\n- energy infrastructure\r\n- data sovereignty regulation\r\n- sovereign capital sponsors\r\n- EPC delivery partners\r\n\r\nFinal Investment Decision (FID) occurs once capital sponsors, hyperscaler demand, regulatory approvals, and power infrastructure are aligned.",
     "structural_role": "USG designs commitment architecture pre-FID: governance, capital sequencing, risk allocation, and bankability package.",
     "fid_event_definition": "Capital close + tenancy/offtake commitments + governance package ratification + EPC NTP + power/land enforceable terms",
     "actor_alignment": {
@@ -950,7 +950,8 @@
             "mapped_entity_ref": "Andhra Pradesh Government",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides the sovereign operating environment for the project, including land allocation, power infrastructure coordination, regulatory approvals, and policy support for the AI infrastructure campus."
           },
           {
             "role_id": "india_data_sovereignty_regulator",
@@ -986,7 +987,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Approves and monitors foreign capital participation in strategic infrastructure projects. Ensures compliance with national security, foreign investment, and ownership regulations affecting international investors."
           },
           {
             "role_id": "data_residency_authority",
@@ -998,7 +1000,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Enforces requirements regarding where sensitive data must physically reside. Ensures AI compute infrastructure complies with data localization policy."
           }
         ],
         "asset": [
@@ -1012,7 +1015,8 @@
             "mapped_entity_ref": "L&T",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Designs, engineers, and constructs the physical AI infrastructure campus, including facilities, cooling systems, power integration, and supporting infrastructure."
           },
           {
             "role_id": "hyperscale_campus_developer",
@@ -1024,7 +1028,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Designs and plans large-scale data center campuses optimized for hyperscaler compute infrastructure, including site planning, scalability, utility integration, and long-term campus expansion."
           },
           {
             "role_id": "modular_dc_builder",
@@ -1048,7 +1053,8 @@
             "mapped_entity_ref": "Gulf Data Hub / G42",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Operates the completed infrastructure campus, managing uptime, cooling systems, maintenance, and day-to-day facility operations."
           },
           {
             "role_id": "compute_demand_anchor",
@@ -1060,7 +1066,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides large-scale long-term compute demand commitments that stabilize infrastructure revenue through long-term compute agreements."
           },
           {
             "role_id": "sovereign_ai_program_offtaker",
@@ -1072,7 +1079,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Represents government or national AI programs that purchase or reserve compute capacity for sovereign AI initiatives such as national research, digital public infrastructure, or defense-adjacent applications."
           }
         ],
         "development": [
@@ -1122,7 +1130,8 @@
             "mapped_entity_ref": "Unified Equity",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Acts as the structured equity investment vehicle used to pool, govern, and deploy long-term infrastructure equity capital."
           },
           {
             "role_id": "fid_sequencing_lead",
@@ -1148,7 +1157,8 @@
             "mapped_entity_ref": "MUBADALA",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides cornerstone equity investment and participates in governance of the infrastructure platform. Anchor capital commitments signal credibility and enable additional institutional investment."
           },
           {
             "role_id": "anchor_sovereign_equity_2",
@@ -1160,7 +1170,8 @@
             "mapped_entity_ref": "PIF",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Supplies large-scale sovereign capital participation and strategic alignment for global AI infrastructure development."
           },
           {
             "role_id": "anchor_sovereign_equity_3",
@@ -1172,7 +1183,8 @@
             "mapped_entity_ref": "QIA",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Participates as a sovereign capital investor contributing long-term infrastructure equity and institutional credibility to the capital stack."
           },
           {
             "role_id": "global_infrastructure_funds",
@@ -1244,7 +1256,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provide long-term debt financing for infrastructure construction and expansion. Underwrite credit risk, structure loan facilities, and supply leverage for project capital stacks."
           },
           {
             "role_id": "export_credit_agencies",
@@ -1288,7 +1301,7 @@
             "role_id": "hyperscaler_platform",
             "role_label": "Hyperscaler / AI Workload Platform",
             "layer": "delivery",
-            "status": "missing",
+            "status": "identified",
             "notes": "",
             "mapped_entity_type": "organization",
             "mapped_entity_ref": "AWS / OpenAI",
@@ -1306,7 +1319,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Supplies grid power required to operate hyperscale compute infrastructure. Responsible for generation capacity, grid connection, and long-term power delivery agreements."
           },
           {
             "role_id": "renewable_power_partner",
@@ -1318,7 +1332,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Develops renewable energy infrastructure that supplies sustainable power to the AI campus through long-term power purchase agreements or dedicated generation facilities."
           },
           {
             "role_id": "transmission_infrastructure_developer",
@@ -1342,7 +1357,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Supports procurement, manufacturing logistics, and delivery of specialized AI hardware required for large-scale compute clusters."
           },
           {
             "role_id": "advanced_cooling_vendor",
@@ -1383,7 +1399,8 @@
           "mapped_entity_ref": "Andhra Pradesh Government",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides the sovereign operating environment for the project, including land allocation, power infrastructure coordination, regulatory approvals, and policy support for the AI infrastructure campus."
         },
         {
           "role_id": "india_data_sovereignty_regulator",
@@ -1419,7 +1436,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Approves and monitors foreign capital participation in strategic infrastructure projects. Ensures compliance with national security, foreign investment, and ownership regulations affecting international investors."
         },
         {
           "role_id": "data_residency_authority",
@@ -1431,7 +1449,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Enforces requirements regarding where sensitive data must physically reside. Ensures AI compute infrastructure complies with data localization policy."
         }
       ],
       "asset": [
@@ -1445,7 +1464,8 @@
           "mapped_entity_ref": "L&T",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Designs, engineers, and constructs the physical AI infrastructure campus, including facilities, cooling systems, power integration, and supporting infrastructure."
         },
         {
           "role_id": "hyperscale_campus_developer",
@@ -1457,7 +1477,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Designs and plans large-scale data center campuses optimized for hyperscaler compute infrastructure, including site planning, scalability, utility integration, and long-term campus expansion."
         },
         {
           "role_id": "modular_dc_builder",
@@ -1481,7 +1502,8 @@
           "mapped_entity_ref": "Gulf Data Hub / G42",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Operates the completed infrastructure campus, managing uptime, cooling systems, maintenance, and day-to-day facility operations."
         },
         {
           "role_id": "compute_demand_anchor",
@@ -1493,7 +1515,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides large-scale long-term compute demand commitments that stabilize infrastructure revenue through long-term compute agreements."
         },
         {
           "role_id": "sovereign_ai_program_offtaker",
@@ -1505,7 +1528,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Represents government or national AI programs that purchase or reserve compute capacity for sovereign AI initiatives such as national research, digital public infrastructure, or defense-adjacent applications."
         }
       ],
       "development": [
@@ -1555,7 +1579,8 @@
           "mapped_entity_ref": "Unified Equity",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Acts as the structured equity investment vehicle used to pool, govern, and deploy long-term infrastructure equity capital."
         },
         {
           "role_id": "fid_sequencing_lead",
@@ -1581,7 +1606,8 @@
           "mapped_entity_ref": "MUBADALA",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides cornerstone equity investment and participates in governance of the infrastructure platform. Anchor capital commitments signal credibility and enable additional institutional investment."
         },
         {
           "role_id": "anchor_sovereign_equity_2",
@@ -1593,7 +1619,8 @@
           "mapped_entity_ref": "PIF",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Supplies large-scale sovereign capital participation and strategic alignment for global AI infrastructure development."
         },
         {
           "role_id": "anchor_sovereign_equity_3",
@@ -1605,7 +1632,8 @@
           "mapped_entity_ref": "QIA",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Participates as a sovereign capital investor contributing long-term infrastructure equity and institutional credibility to the capital stack."
         },
         {
           "role_id": "global_infrastructure_funds",
@@ -1677,7 +1705,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provide long-term debt financing for infrastructure construction and expansion. Underwrite credit risk, structure loan facilities, and supply leverage for project capital stacks."
         },
         {
           "role_id": "export_credit_agencies",
@@ -1721,7 +1750,7 @@
           "role_id": "hyperscaler_platform",
           "role_label": "Hyperscaler / AI Workload Platform",
           "layer": "delivery",
-          "status": "missing",
+          "status": "identified",
           "notes": "",
           "mapped_entity_type": "organization",
           "mapped_entity_ref": "AWS / OpenAI",
@@ -1739,7 +1768,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Supplies grid power required to operate hyperscale compute infrastructure. Responsible for generation capacity, grid connection, and long-term power delivery agreements."
         },
         {
           "role_id": "renewable_power_partner",
@@ -1751,7 +1781,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Develops renewable energy infrastructure that supplies sustainable power to the AI campus through long-term power purchase agreements or dedicated generation facilities."
         },
         {
           "role_id": "transmission_infrastructure_developer",
@@ -1775,7 +1806,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Supports procurement, manufacturing logistics, and delivery of specialized AI hardware required for large-scale compute clusters."
         },
         {
           "role_id": "advanced_cooling_vendor",
@@ -1803,7 +1835,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T22:28:00Z"
+    "updated_at": "2026-03-09T23:36:00Z"
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
