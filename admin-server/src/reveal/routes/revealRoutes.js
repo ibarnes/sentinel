@@ -62,6 +62,9 @@ import { createExecutionCallback, getExecutionCallback, listExecutionCallbacks, 
 import { verifyExecutionCallback } from '../production/callbackVerificationService.js';
 import { createExecutionResultArtifact, getExecutionResultArtifact, listExecutionResultArtifacts, exportExecutionResultArtifact } from '../production/executionResultArtifactService.js';
 import { verifyResultArtifact } from '../production/resultArtifactVerificationService.js';
+import { publishResultTrust, listResultTrustPublications, getLatestResultTrustPublication, getResultTrustPublication, verifyResultTrustPublication } from '../production/resultTrustPublicationService.js';
+import { verifyProducedOutputSurface } from '../production/producedOutputVerifierService.js';
+import { buildOutputComplianceSurface } from '../production/outputComplianceService.js';
 import { listCallbackSigningKeys, listCallbackSigningKeysByProfile } from '../production/callbackKeyRegistryService.js';
 import { listReplayLedger } from '../production/callbackReplayLedgerService.js';
 import { publishSubmissionTrust, listSubmissionTrustPublications, getLatestSubmissionTrustPublication, getSubmissionTrustPublication } from '../production/submissionTrustPublicationService.js';
@@ -1431,6 +1434,49 @@ router.get('/api/production/execution-results/:executionResultArtifactId/export'
   res.send(exp.content);
 });
 
+router.post('/api/production/execution-results/:executionResultArtifactId/trust-publications', async (req, res) => {
+  const out = await publishResultTrust(String(req.params.executionResultArtifactId || ''));
+  if (out.error === 'execution_result_artifact_not_found') return res.status(404).json(out);
+  if (out.error === 'result_trust_publication_id_collision') return res.status(409).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/execution-results/:executionResultArtifactId/trust-publications', async (req, res) => {
+  const out = await listResultTrustPublications(String(req.params.executionResultArtifactId || ''));
+  res.json(out);
+});
+
+router.get('/api/production/execution-results/:executionResultArtifactId/trust-publications/latest', async (req, res) => {
+  const out = await getLatestResultTrustPublication(String(req.params.executionResultArtifactId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/execution-results/:executionResultArtifactId/trust-publications/:resultTrustPublicationId', async (req, res) => {
+  const out = await getResultTrustPublication(String(req.params.executionResultArtifactId || ''), String(req.params.resultTrustPublicationId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/execution-results/:executionResultArtifactId/verify-produced-output', async (req, res) => {
+  const out = await verifyProducedOutputSurface({ executionResultArtifactId: String(req.params.executionResultArtifactId || '') });
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/execution-results/:executionResultArtifactId/verify-result-trust', async (req, res) => {
+  const out = await verifyResultTrustPublication(String(req.params.executionResultArtifactId || ''), req.query.resultTrustPublicationId ? String(req.query.resultTrustPublicationId) : null);
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/execution-receipts/:executionReceiptId/output-compliance', async (req, res) => {
+  const out = await buildOutputComplianceSurface({ executionReceiptId: String(req.params.executionReceiptId || '') });
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
 router.get('/api/production/execution-receipts/:executionReceiptId/trust-publications', async (req, res) => {
   const out = await listReceiptTrustPublications(String(req.params.executionReceiptId || ''));
   res.json(out);
@@ -2109,6 +2155,10 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="execution-result-submit">Submit Execution Result</button>
           <button data-action="execution-result-verify">Verify Execution Result</button>
           <button data-action="execution-result-view">View Execution Result</button>
+          <button data-action="execution-result-trust-publish">Publish Result Trust</button>
+          <button data-action="execution-result-trust-latest">View Latest Result Trust</button>
+          <button data-action="execution-result-verify-surface">Verify Produced Output Surface</button>
+          <button data-action="execution-receipt-output-compliance">View Output Compliance</button>
           <button data-action="scheduler-board-generate">Generate Scheduler Board</button>
           <button data-action="scheduler-board-latest">View Latest Scheduler Board</button>
           <button data-action="scheduler-board-export">Export Scheduler Board</button>

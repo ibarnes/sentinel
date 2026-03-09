@@ -954,6 +954,30 @@ async function viewExecutionResultUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out.executionResultArtifact, null, 2);
 }
 
+async function publishResultTrustUi() {
+  if (!state.latestExecutionResultArtifact?.executionResultArtifactId) return alert('Submit execution result first');
+  const out = await api(`/reveal/api/production/execution-results/${encodeURIComponent(state.latestExecutionResultArtifact.executionResultArtifactId)}/trust-publications`, 'POST', {});
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function viewLatestResultTrustUi() {
+  if (!state.latestExecutionResultArtifact?.executionResultArtifactId) return alert('Submit execution result first');
+  const out = await api(`/reveal/api/production/execution-results/${encodeURIComponent(state.latestExecutionResultArtifact.executionResultArtifactId)}/trust-publications/latest`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function verifyProducedOutputSurfaceUi() {
+  if (!state.latestExecutionResultArtifact?.executionResultArtifactId) return alert('Submit execution result first');
+  const out = await api(`/reveal/api/production/execution-results/${encodeURIComponent(state.latestExecutionResultArtifact.executionResultArtifactId)}/verify-produced-output`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
+async function viewOutputComplianceUi() {
+  if (!state.latestExecutionReceipt?.executionReceiptId) return alert('Create receipt first');
+  const out = await api(`/reveal/api/production/execution-receipts/${encodeURIComponent(state.latestExecutionReceipt.executionReceiptId)}/output-compliance`);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
 async function generateSchedulerBoardUi() {
   const out = await api('/reveal/api/production/scheduler-board', 'POST', {
     renderAdapterContractId: state.latestAdapter?.renderAdapterContractId || null,
@@ -1400,6 +1424,10 @@ function wireActions() {
   document.querySelector('[data-action="execution-result-submit"]')?.addEventListener('click', () => submitExecutionResultUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="execution-result-verify"]')?.addEventListener('click', () => verifyExecutionResultUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="execution-result-view"]')?.addEventListener('click', () => viewExecutionResultUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-result-trust-publish"]')?.addEventListener('click', () => publishResultTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-result-trust-latest"]')?.addEventListener('click', () => viewLatestResultTrustUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-result-verify-surface"]')?.addEventListener('click', () => verifyProducedOutputSurfaceUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="execution-receipt-output-compliance"]')?.addEventListener('click', () => viewOutputComplianceUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-generate"]')?.addEventListener('click', () => generateSchedulerBoardUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-latest"]')?.addEventListener('click', () => viewLatestSchedulerBoardUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="scheduler-board-export"]')?.addEventListener('click', () => exportSchedulerBoardUi());
