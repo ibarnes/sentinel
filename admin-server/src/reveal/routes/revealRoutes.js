@@ -61,6 +61,7 @@ import { createExecutionReceipt, getExecutionReceipt, patchExecutionReceipt, lis
 import { publishSubmissionTrust, listSubmissionTrustPublications, getLatestSubmissionTrustPublication, getSubmissionTrustPublication } from '../production/submissionTrustPublicationService.js';
 import { publishReceiptTrust, listReceiptTrustPublications, getLatestReceiptTrustPublication, getReceiptTrustPublication } from '../production/receiptTrustPublicationService.js';
 import { createSchedulerBoard, getSchedulerBoard, latestSchedulerBoard, exportSchedulerBoard, verifySchedulerBoard } from '../production/schedulerBoardService.js';
+import { createProviderExecutionAdapter, getProviderExecutionAdapter, exportProviderExecutionAdapter, validateProviderExecutionAdapter } from '../production/providerExecutionAdapterService.js';
 import { publishVoiceTrust, listVoiceTrustPublications, getLatestVoiceTrustPublication, getVoiceTrustPublication } from '../production/voiceTrustPublicationService.js';
 import { verifyLatestVoice } from '../production/voiceVerificationService.js';
 import { buildSignedSubtitleBundle, verifySubtitleBundle } from '../production/subtitleProofService.js';
@@ -1146,6 +1147,45 @@ router.get('/api/production/provider-profiles/:providerType/:providerProfileId',
   res.json(out);
 });
 
+router.post('/api/production/provider-execution-adapters', async (req, res) => {
+  const out = await createProviderExecutionAdapter({
+    providerSubmissionContractId: req.body?.providerSubmissionContractId || null,
+    providerType: req.body?.providerType || null,
+    providerProfileId: req.body?.providerProfileId || 'default',
+    policyProfileId: req.body?.policyProfileId || null,
+    mode: req.body?.mode || 'latest'
+  });
+  if (['missing_provider_submission_contract_id','unsupported_provider_profile'].includes(out.error)) return res.status(400).json(out);
+  if (['provider_submission_contract_not_found'].includes(out.error)) return res.status(404).json(out);
+  if (out.error) return res.status(400).json(out);
+  res.status(201).json(out);
+});
+
+router.get('/api/production/provider-execution-adapters/:providerExecutionAdapterId', async (req, res) => {
+  const out = await getProviderExecutionAdapter(String(req.params.providerExecutionAdapterId || ''));
+  if (out.error) return res.status(404).json(out);
+  res.json(out);
+});
+
+router.get('/api/production/provider-execution-adapters/:providerExecutionAdapterId/export', async (req, res) => {
+  const out = await getProviderExecutionAdapter(String(req.params.providerExecutionAdapterId || ''));
+  if (out.error) return res.status(404).json(out);
+  const exp = exportProviderExecutionAdapter(out.providerExecutionAdapter, String(req.query.format || 'json').toLowerCase());
+  if (exp.error) return res.status(400).json(exp);
+  res.setHeader('Content-Type', exp.contentType);
+  res.setHeader('Content-Disposition', `attachment; filename="${exp.filename}"`);
+  res.send(exp.content);
+});
+
+router.post('/api/production/provider-execution-adapters/validate', async (req, res) => {
+  const out = await validateProviderExecutionAdapter({
+    providerExecutionAdapterId: req.body?.providerExecutionAdapterId || null,
+    providerExecutionPayload: req.body?.providerExecutionPayload || req.body?.payload || null
+  });
+  if (out.error === 'provider_execution_adapter_not_found') return res.status(404).json(out);
+  res.json(out);
+});
+
 router.post('/api/production/provider-submissions', async (req, res) => {
   const out = await createProviderSubmissionContract({
     providerAdapterId: req.body?.providerAdapterId || null,
@@ -1933,6 +1973,9 @@ router.get('/editor/:flowId', async (req, res) => {
           <button data-action="provider-profile-list">List Provider Profiles</button>
           <button data-action="provider-adapter-export-manifest">Export Provider Manifest</button>
           <button data-action="provider-adapter-validate">Validate Provider Adapter/Manifest</button>
+          <button data-action="provider-exec-generate">Generate Provider Execution Adapter</button>
+          <button data-action="provider-exec-export-payload">Export Provider Execution Payload</button>
+          <button data-action="provider-exec-validate">Validate Provider Execution Payload</button>
           <button data-action="provider-submission-generate">Generate Provider Submission</button>
           <button data-action="provider-submission-export-payload">Export Submission Payload</button>
           <button data-action="provider-submission-export-signed">Export Signed Submission</button>

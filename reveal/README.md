@@ -201,6 +201,11 @@ Product-intelligence capture system at `/reveal`.
       - `POST /reveal/api/production/provider-adapters/validate`
       - `GET /reveal/api/production/provider-profiles`
       - `GET /reveal/api/production/provider-profiles/:providerType/:providerProfileId`
+    - provider execution adapters:
+      - `POST /reveal/api/production/provider-execution-adapters`
+      - `GET /reveal/api/production/provider-execution-adapters/:providerExecutionAdapterId`
+      - `GET /reveal/api/production/provider-execution-adapters/:providerExecutionAdapterId/export?format=json|markdown|provider_execution_payload`
+      - `POST /reveal/api/production/provider-execution-adapters/validate`
     - provider submissions:
       - `POST /reveal/api/production/provider-submissions`
       - `GET /reveal/api/production/provider-submissions`

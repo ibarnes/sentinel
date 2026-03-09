@@ -16,6 +16,7 @@ let state = {
   latestExternal: null,
   latestAdapter: null,
   latestProviderAdapter: null,
+  latestProviderExecutionAdapter: null,
   latestProviderSubmission: null,
   latestExecutionReceipt: null,
   latestSchedulerBoard: null,
@@ -729,6 +730,39 @@ async function validateProviderAdapterUi() {
   document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
 }
 
+async function generateProviderExecutionAdapterUi() {
+  if (!state.latestProviderSubmission?.providerSubmissionContractId) return alert('Generate provider submission first');
+  const providerType = prompt('providerType: generic_renderer|subtitle_compositor|narration_pipeline|scene_compositor|storyboard_exporter', state.latestProviderAdapter?.providerType || 'generic_renderer') || 'generic_renderer';
+  const providerProfileId = prompt('providerProfileId', 'default') || 'default';
+  const out = await api('/reveal/api/production/provider-execution-adapters', 'POST', {
+    providerSubmissionContractId: state.latestProviderSubmission.providerSubmissionContractId,
+    providerType,
+    providerProfileId,
+    mode: 'explicit_refs'
+  });
+  state.latestProviderExecutionAdapter = out.providerExecutionAdapter;
+  document.getElementById('script-preview').textContent = JSON.stringify(out.providerExecutionAdapter, null, 2);
+}
+
+function exportProviderExecutionPayloadUi() {
+  if (!state.latestProviderExecutionAdapter?.providerExecutionAdapterId) return alert('Generate provider execution adapter first');
+  download(`/reveal/api/production/provider-execution-adapters/${encodeURIComponent(state.latestProviderExecutionAdapter.providerExecutionAdapterId)}/export?format=provider_execution_payload`);
+}
+
+async function validateProviderExecutionPayloadUi() {
+  const raw = prompt('Optional provider execution payload JSON (leave empty to validate current provider execution adapter)');
+  let payload = {};
+  if (raw && raw.trim()) {
+    try { payload.providerExecutionPayload = JSON.parse(raw); } catch { return alert('Invalid JSON'); }
+  } else if (state.latestProviderExecutionAdapter?.providerExecutionAdapterId) {
+    payload.providerExecutionAdapterId = state.latestProviderExecutionAdapter.providerExecutionAdapterId;
+  } else {
+    return alert('Generate provider execution adapter first or paste payload');
+  }
+  const out = await api('/reveal/api/production/provider-execution-adapters/validate', 'POST', payload);
+  document.getElementById('script-preview').textContent = JSON.stringify(out, null, 2);
+}
+
 async function generateProviderSubmissionUi() {
   if (!state.latestProviderAdapter?.providerAdapterId) return alert('Generate provider adapter first');
   const submissionMode = prompt('submissionMode: dry_run|handoff_only|scheduler_dispatch_ready', 'handoff_only') || 'handoff_only';
@@ -1246,6 +1280,9 @@ function wireActions() {
   document.querySelector('[data-action="provider-profile-list"]')?.addEventListener('click', () => listProviderProfilesUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="provider-adapter-export-manifest"]')?.addEventListener('click', () => exportProviderManifestUi());
   document.querySelector('[data-action="provider-adapter-validate"]')?.addEventListener('click', () => validateProviderAdapterUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="provider-exec-generate"]')?.addEventListener('click', () => generateProviderExecutionAdapterUi().catch((e) => alert(e.message)));
+  document.querySelector('[data-action="provider-exec-export-payload"]')?.addEventListener('click', () => exportProviderExecutionPayloadUi());
+  document.querySelector('[data-action="provider-exec-validate"]')?.addEventListener('click', () => validateProviderExecutionPayloadUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="provider-submission-generate"]')?.addEventListener('click', () => generateProviderSubmissionUi().catch((e) => alert(e.message)));
   document.querySelector('[data-action="provider-submission-export-payload"]')?.addEventListener('click', () => exportSubmissionPayloadUi());
   document.querySelector('[data-action="provider-submission-export-signed"]')?.addEventListener('click', () => exportSignedSubmissionUi());
