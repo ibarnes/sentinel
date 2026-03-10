@@ -36,7 +36,7 @@
     "initiative_ids": [
       "USG"
     ],
-    "summary": "Nigeria\u2019s infrastructure financing gap remains materially above available annual public allocation capacity. The widening gap increases pressure on sovereign capital allocation authorities to approve structured, governance-aligned platforms that compress risk before FID. This strengthens the probability of mandate-based pre-FID structuring engagements.",
+    "summary": "Nigeria’s infrastructure financing gap remains materially above available annual public allocation capacity. The widening gap increases pressure on sovereign capital allocation authorities to approve structured, governance-aligned platforms that compress risk before FID. This strengthens the probability of mandate-based pre-FID structuring engagements.",
     "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
     "sources": [
       {
@@ -120,7 +120,7 @@
   },
   {
     "signal_id": "SIG-2026-02-27-USNG-001",
-    "title": "U.S.\u2013Nigeria Strategic Infrastructure Alignment",
+    "title": "U.S.–Nigeria Strategic Infrastructure Alignment",
     "status": "Monitor",
     "confidence": "Medium",
     "observed_at": "2026-02-27T00:00:00Z",
@@ -131,7 +131,7 @@
     "initiative_ids": [
       "USG"
     ],
-    "summary": "Ongoing U.S.\u2013Nigeria cooperation in infrastructure and energy sectors improves perceived political risk alignment and strengthens downstream bankability pathways. While catalytic capital participates below governance, this alignment increases sovereign confidence in structured platforms.",
+    "summary": "Ongoing U.S.–Nigeria cooperation in infrastructure and energy sectors improves perceived political risk alignment and strengthens downstream bankability pathways. While catalytic capital participates below governance, this alignment increases sovereign confidence in structured platforms.",
     "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
     "sources": [
       {
@@ -493,7 +493,7 @@
   },
   {
     "signal_id": "SIG-2026-03-02-NG-LIVE-FINENERGY-001",
-    "title": "Live Regulated Financial-Energy Operating System \u2014 Nigeria",
+    "title": "Live Regulated Financial-Energy Operating System — Nigeria",
     "signal_class": "Capital Reality",
     "status": "Verified",
     "confidence": "High",
@@ -519,7 +519,7 @@
         "url": "internal://chat/2026-03-02-live-financial-energy-os"
       },
       {
-        "label": "Apple App Store listing \u2014 Quick Microfinance Bank",
+        "label": "Apple App Store listing — Quick Microfinance Bank",
         "url": "https://apps.apple.com/us/app/quick-microfinance-bank/id1614636080"
       }
     ],
@@ -913,7 +913,7 @@
         "url": "internal://chat/2026-03-03-dangote-industrial-stack"
       },
       {
-        "label": "Argus market report excerpt (2026-03-04) \u2014 RFCC ~90% capacity",
+        "label": "Argus market report excerpt (2026-03-04) — RFCC ~90% capacity",
         "url": "internal://chat/2026-03-04-argus-dangote-rfcc-90"
       },
       {
@@ -1315,6 +1315,263 @@
       "AI Implementation",
       "Talent Capacity",
       "Execution Infrastructure"
+    ],
+    "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-09-SA-HUMAIN-AIINFRA-001",
+    "title": "Saudi/HUMAIN AI infrastructure contract claim (MIS ~SR1.88B)",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-09T15:38:00Z",
+    "buyer_ids": [
+      "PIF",
+      "ADQ",
+      "QIA",
+      "TEMASEK"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-AI-OPT-D"
+    ],
+    "summary": "Screenshot-sourced claim indicates a large AI data-center infrastructure contract reportedly linked to HUMAIN/PIF ecosystem activity, implying continued sovereign-scale AI infrastructure deployment pressure.",
+    "flow": "AI infra contract signal -> sovereign ecosystem deployment momentum -> increased competitive urgency for compute-energy infrastructure pathways",
+    "verification_note": "Monitor pending direct Tadawul filing capture/issuer disclosure text.",
+    "sources": [
+      {
+        "label": "Isaac-provided screenshot signal batch (2026-03-09)",
+        "url": "internal://isaac/telegram/2026-03-09-signal-screenshots"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "updated_at": "2026-03-09T15:55:00Z"
+  },
+  {
+    "signal_id": "SIG-2026-03-09-UAE-TRUDOC-FUNDING-001",
+    "title": "TruDoc funding claim (~$15M pre-Series B) with UAE family-capital anchor",
+    "signal_class": "Capital Reality",
+    "status": "Verified",
+    "confidence": "Medium-High",
+    "observed_at": "2026-03-09T15:38:00Z",
+    "buyer_ids": [
+      "TAFF",
+      "ADQ"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Screenshot-sourced claim indicates UAE-linked healthtech growth financing and family-capital participation, relevant as a family-capital deployment behavior signal.",
+    "flow": "family-capital participation in growth round -> evidence of active private principal deployment -> potential cross-sector mandate appetite signal",
+    "verification_note": "Verified via first-party PRNewswire corporate release with named participants.",
+    "sources": [
+      {
+        "label": "Isaac-provided screenshot signal batch (2026-03-09)",
+        "url": "internal://isaac/telegram/2026-03-09-signal-screenshots"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "updated_at": "2026-03-09T15:55:00Z"
+  },
+  {
+    "signal_id": "SIG-2026-03-09-SG-AI-WORKFORCE-001",
+    "title": "Singapore AI workforce scale-program claim (100k workers / 10k firms by 2029)",
+    "signal_class": "Sponsor Altitude",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-09T15:38:00Z",
+    "buyer_ids": [
+      "TEMASEK",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-AI-OPT-B"
+    ],
+    "summary": "Screenshot-sourced claim suggests large national AI capability and adoption targets in Singapore, indicating state-backed implementation acceleration.",
+    "flow": "national capability program -> talent + enterprise adoption scale-up -> stronger AI infrastructure and capital formation demand",
+    "verification_note": "Verified via official Singapore MDDI National AI Impact Programme factsheet.",
+    "sources": [
+      {
+        "label": "Isaac-provided screenshot signal batch (2026-03-09)",
+        "url": "internal://isaac/telegram/2026-03-09-signal-screenshots"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "updated_at": "2026-03-09T15:55:00Z"
+  },
+  {
+    "signal_id": "SIG-2026-03-09-ZA-MANGANESE-NGQURA-001",
+    "title": "South Africa manganese export facility expansion claim (Ngqura)",
+    "signal_class": "FID Definability",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-09T15:38:00Z",
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Screenshot-sourced claim indicates export infrastructure expansion tied to manganese corridor throughput, potentially improving logistics definability for minerals-linked capital pathways.",
+    "flow": "export facility expansion signal -> improved corridor throughput expectations -> stronger pre-FID logistics and financing case",
+    "verification_note": "Monitor pending first-party ARM/Transnet project disclosure capture.",
+    "sources": [
+      {
+        "label": "Isaac-provided screenshot signal batch (2026-03-09)",
+        "url": "internal://isaac/telegram/2026-03-09-signal-screenshots"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "updated_at": "2026-03-09T15:55:00Z"
+  },
+  {
+    "signal_id": "SIG-2026-03-10-CN-15FYP-INDUSTRIAL-SYSTEM-001",
+    "title": "China 15th Five-Year Plan signals integrated industrial-system strategy (2026–2030)",
+    "signal_class": "Sponsor Altitude",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-10T10:12:00Z",
+    "buyer_ids": [
+      "TEMASEK",
+      "GIC",
+      "PIF",
+      "ADQ",
+      "QIA"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-AP-AI-FACTORY-001"
+    ],
+    "summary": "Official CPC 15th FYP recommendations emphasize advanced-manufacturing backbone, scientific/technological self-reliance, future-industry acceleration, and economy-wide AI integration. Core signal is national system-integration across energy, materials, manufacturing, robotics, and infrastructure under resilience/decoupling conditions.",
+    "flow": "national integrated industrial strategy -> stronger strategic autonomy posture -> increased competitive pressure on AI infra, materials, and supply-chain platforms -> higher relevance of cross-border infrastructure/capital coordination initiatives",
+    "verification_note": "Derived from official CPC Central Committee recommendation document for 15th Five-Year Plan (2026–2030); social-post numeric penetration claims treated as unverified and excluded from core signal.",
+    "sources": [
+      {
+        "label": "Official CPC 15th Five-Year Plan recommendation document (user-provided)",
+        "url": "internal://isaac/source/cpc-15fyp-recommendations-2026-2030"
+      },
+      {
+        "label": "Isaac analytical note (2026-03-10)",
+        "url": "internal://isaac/telegram/2026-03-10-new-signal-china-15fyp"
+      }
+    ],
+    "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-10-US-DRC-HEALTH-INFRA-BILATERAL-001",
+    "title": "US–DRC bilateral health infrastructure partnership (~$1.2B, 5-year) as gateway platform signal",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-10T10:32:00Z",
+    "buyer_ids": [
+      "DFC",
+      "WORLDBANK",
+      "AfDB",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-653306",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "summary": "Bilateral US–DRC health-system program indicates political-capital alignment with likely second-order effects in digital health infrastructure, logistics corridors, data systems, and supply-chain stabilization around strategic mineral regions.",
+    "flow": "bilateral health infra deployment -> governance + digital system expansion -> logistics and data infrastructure demand -> strategic influence and mineral-corridor resilience effects",
+    "verification_note": "Treated as high-quality geopolitical-infrastructure signal; monitor follow-on events for EHR rollout, health logistics platforms, biotech manufacturing, and AI surveillance systems.",
+    "sources": [
+      {
+        "label": "Isaac analytical signal note (US–DRC health partnership)",
+        "url": "internal://isaac/telegram/2026-03-10-us-drc-health-partnership"
+      }
+    ],
+    "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-10-US-AFRICA-BILATERAL-HEALTH-WAVE-001",
+    "title": "US bilateral health-financing wave across African states indicates infrastructure-entry strategy",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-10T10:38:00Z",
+    "buyer_ids": [
+      "DFC",
+      "WORLDBANK",
+      "AfDB",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-653306",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "summary": "Pattern of US bilateral health agreements (Kenya, Uganda, Mozambique, Cameroon, Ethiopia, Ivory Coast, Rwanda, DRC, and others) with domestic co-investment requirements suggests coordinated long-duration entry into health, data, identity, logistics, and payment infrastructure layers.",
+    "flow": "bilateral health commitments + co-investment -> health-system digitization -> identity/data/payment/logistics stack formation -> broader state-capacity and supply-corridor leverage",
+    "verification_note": "Country/funding values provided by Isaac analytical brief; maintain per-country verification queue for official agreement texts and budget annexes.",
+    "sources": [
+      {
+        "label": "Isaac analytical dossier on US-Africa bilateral health agreements (2026-03-10)",
+        "url": "internal://isaac/telegram/2026-03-10-bilateral-health-wave"
+      }
+    ],
+    "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-10-AFR-HEALTH-TO-DIGITAL-STATE-SEQUENCE-001",
+    "title": "Health-system programs functioning as first-layer digital-state infrastructure sequence",
+    "signal_class": "Sponsor Altitude",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-10T10:38:00Z",
+    "buyer_ids": [
+      "TEMASEK",
+      "GIC",
+      "DFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-653306",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "summary": "Observed sequence: health funding -> digital health records -> identity integration -> payment rails -> cloud/data systems -> AI analytics, indicating health as low-friction entry point into national digital infrastructure architecture.",
+    "flow": "health delivery digitization -> nationwide identity/data/payment rails -> state digital operating layer -> increased demand for cloud, analytics, logistics, and governance orchestration",
+    "verification_note": "Treat as system pattern signal; validate by country-specific implementation milestones (EHR, health ID, payment integration, logistics platforms).",
+    "sources": [
+      {
+        "label": "Isaac analytical systems note (2026-03-10)",
+        "url": "internal://isaac/telegram/2026-03-10-health-digital-state-sequence"
+      }
+    ],
+    "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-10-NG-CBN-AML-AUTOMATION-001",
+    "title": "Nigeria CBN AML automation requirement signal for regulated financial institutions",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "unverified",
+    "observed_at": "2026-03-10T21:02:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "summary": "User-provided signal indicates CBN may have introduced AML automation requirements for banks/financial institutions, potentially accelerating compliance-tech and data-infrastructure demand in Nigeria's financial system.",
+    "flow": "regulatory AML automation requirement -> bank compliance stack upgrades -> demand for regtech/data orchestration platforms -> expanded pre-FID advisory and implementation pathways",
+    "verification_note": "Monitor only until first-party CBN circular or two Tier-1 outlet confirmations are obtained. No posture change before threshold is met.",
+    "sources": [
+      {
+        "label": "Isaac-provided screenshot signal note (Telegram, 2026-03-10)",
+        "url": "internal://isaac/telegram/2026-03-10-cbn-aml-automation-screenshot"
+      }
     ],
     "provenance": "provided_by_isaac"
   }
