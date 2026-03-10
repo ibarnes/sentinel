@@ -1136,7 +1136,7 @@ app.get('/dashboard/platform-pressure-v2', requireAnyAuth, async (req, res) => {
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure v2')}</head><body><div class="app-shell">
     ${dashboardNav('platform-pressure')}
-    ${pageHeader('Platform Pressure v2', '', 'Clean progressive signal interpretation surface')}
+    ${pageHeader('Platform Pressure v2', '', 'Where infrastructure opportunity is forming.')}
 
     <div class="card mb-3"><div class="card-body py-2">
       <form class="row g-2" method="get" action="/dashboard/platform-pressure-v2">
