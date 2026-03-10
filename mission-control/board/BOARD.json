@@ -2748,11 +2748,17 @@
           "author": "sentinel",
           "text": "Morning sweep executed atomic unblock tasks TASK-0127/TASK-0128 (auto-resolve smoke script + refreshed runbook). Credentialed execution evidence (TASK-0111/TASK-0103) remains final blocker.",
           "created_at": "2026-03-09T10:40:00Z"
+        },
+        {
+          "id": "progress-0097-20260310-0310",
+          "author": "sentinel",
+          "text": "Night build window: executed TASK-0129 unblock matrix artifact and queued TASK-0130 apply-ready transition patchset (decomposition gate maintained).",
+          "created_at": "2026-03-10T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-09T10:40:00Z",
+      "updated_at": "2026-03-10T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3865,6 +3871,78 @@
       "updated_by": "sentinel",
       "parent_id": "TASK-0097",
       "review_packet_id": "RP-0044"
+    },
+    {
+      "id": "TASK-0129",
+      "title": "BRS-2026-03-10a Build night unblock matrix + decision microbatch",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "board-build-window",
+        "night-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/board/sweeps/2026-03-10T03-10-00Z-night-unblock-matrix.md"
+      ],
+      "description": "Produce a night unblock artifact with decomposition, decision microbatch, and explicit next-slot sequence for highest leverage blocked chain.\nAcceptance Criteria:\n- Artifact includes blocker chain and ordered decision asks.\n- Includes governance constraints (no Done without approved RP).\n- Identifies next queued 30–90 minute subtasks.",
+      "comments": [
+        {
+          "id": "done-0129-20260310-0310",
+          "author": "sentinel",
+          "text": "Created night unblock matrix artifact and executed decomposition gate with next-slot queue.",
+          "created_at": "2026-03-10T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-10T03:12:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0046-board-build-window-night-2026-03-10.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-10T03:10:00Z",
+      "updated_at": "2026-03-10T03:12:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0097",
+      "review_packet_id": "RP-0046"
+    },
+    {
+      "id": "TASK-0130",
+      "title": "BRS-2026-03-10b Prepare apply-ready transition patchset for post-decision execution",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "board-build-window",
+        "night-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0109",
+        "TASK-0113",
+        "TASK-0114",
+        "mission-control/board/sweeps/2026-03-10T03-10-00Z-night-unblock-matrix.md"
+      ],
+      "description": "Precompute decision-dependent BOARD.json patch instructions so post-approval transitions can be applied in <30 minutes.\nAcceptance Criteria:\n- Includes approve/defer/hold transition instructions per target task.\n- Includes deterministic comment templates and follow-up date rule.\n- No Done transitions without approved RP evidence.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-10T03:10:00Z",
+      "updated_at": "2026-03-10T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0109"
     }
   ]
 }
