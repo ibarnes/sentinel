@@ -3557,7 +3557,8 @@
             "mapped_entity_ref": "Amazon Web Services",
             "is_critical_role": true,
             "owner": "Leo LeBranche",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides the underlying cloud infrastructure that hosts the digital health platform, enabling scalable computing, storage, and secure data management."
           },
           {
             "role_id": "ehr_interoperability_vendor",
@@ -3583,7 +3584,7 @@
             "is_critical_role": false,
             "owner": "",
             "due": "",
-            "role_definition": "Provides telehealth and digital front-door components that support patient access, triage, scheduling, and virtual care workflows."
+            "role_definition": "Provides patient-facing digital tools such as telemedicine platforms, appointment systems, and digital triage interfaces that serve as the primary entry point into the healthcare system."
           },
           {
             "role_id": "identity_consent_trust_provider",
@@ -3595,7 +3596,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Manages digital identity verification, patient consent management, and trust frameworks required for secure access to healthcare services and data."
           },
           {
             "role_id": "local_implementation_partner",
@@ -3607,7 +3609,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Local technology or healthcare partner responsible for deploying systems, supporting onboarding, and adapting the platform to local healthcare environments."
           },
           {
             "role_id": "training_adoption_partner",
@@ -3619,7 +3622,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides education and training programs that help clinicians, administrators, and healthcare staff adopt and effectively use the digital platform."
           }
         ]
       }
@@ -3878,7 +3882,8 @@
           "mapped_entity_ref": "Amazon Web Services",
           "is_critical_role": true,
           "owner": "Leo LeBranche",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides the underlying cloud infrastructure that hosts the digital health platform, enabling scalable computing, storage, and secure data management."
         },
         {
           "role_id": "ehr_interoperability_vendor",
@@ -3904,7 +3909,7 @@
           "is_critical_role": false,
           "owner": "",
           "due": "",
-          "role_definition": "Provides telehealth and digital front-door components that support patient access, triage, scheduling, and virtual care workflows."
+          "role_definition": "Provides patient-facing digital tools such as telemedicine platforms, appointment systems, and digital triage interfaces that serve as the primary entry point into the healthcare system."
         },
         {
           "role_id": "identity_consent_trust_provider",
@@ -3916,7 +3921,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Manages digital identity verification, patient consent management, and trust frameworks required for secure access to healthcare services and data."
         },
         {
           "role_id": "local_implementation_partner",
@@ -3928,7 +3934,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Local technology or healthcare partner responsible for deploying systems, supporting onboarding, and adapting the platform to local healthcare environments."
         },
         {
           "role_id": "training_adoption_partner",
@@ -3940,10 +3947,11 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides education and training programs that help clinicians, administrators, and healthcare staff adopt and effectively use the digital platform."
         }
       ]
     },
-    "updated_at": "2026-03-10T15:31:00Z"
+    "updated_at": "2026-03-10T15:32:00Z"
   }
 ]
