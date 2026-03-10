@@ -2987,7 +2987,8 @@
         "TASK-0097",
         "TASK-0102",
         "TASK-0110",
-        "TASK-0111"
+        "TASK-0111",
+        "TASK-0133"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3008,11 +3009,17 @@
           "author": "sentinel",
           "text": "Recovery sweep normalization: credential boundary persists; prepared apply-ready transition patchset (TASK-0130/RP-0047) for immediate post-credential status replay.",
           "created_at": "2026-03-10T06:30:00Z"
+        },
+        {
+          "id": "decomp-0103-20260310-1040",
+          "author": "sentinel",
+          "text": "Morning decomposition gate follow-through: added TASK-0133 (transition replay checklist) and executed TASK-0132 macro pack to compress post-credential board updates into <30 min.",
+          "created_at": "2026-03-10T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-10T06:30:00Z",
+      "updated_at": "2026-03-10T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4003,7 +4010,7 @@
     {
       "id": "TASK-0132",
       "title": "BRS-2026-03-10d Prepare post-credential closure comment macros for TASK-0103 chain",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -4021,13 +4028,71 @@
         "mission-control/board/sweeps/2026-03-10T06-30-00Z-apply-ready-transition-patchset.md"
       ],
       "description": "Prepare deterministic comment macros for success/failure credential outcomes and corresponding board transitions across parent chain. Acceptance: macros cover 201+400 success and failure branches with follow-up date rule.",
-      "comments": [],
-      "request_approval": null,
+      "comments": [
+        {
+          "id": "done-0132-20260310-1040",
+          "author": "sentinel",
+          "text": "Executed macro pack artifact for success/failure branches at mission-control/board/sweeps/2026-03-10T10-40-00Z-post-credential-comment-macros.md; queued for review in RP-0048.",
+          "created_at": "2026-03-10T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-10T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0048-board-sweep-2026-03-10-1040.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
       "created_at": "2026-03-10T06:30:00Z",
-      "updated_at": "2026-03-10T06:30:00Z",
+      "updated_at": "2026-03-10T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
-      "parent_id": "TASK-0097"
+      "parent_id": "TASK-0097",
+      "review_packet_id": "RP-0048"
+    },
+    {
+      "id": "TASK-0133",
+      "title": "BRS-2026-03-10e Build deterministic post-credential transition replay checklist",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "morning-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "TASK-0132",
+        "mission-control/board/sweeps/2026-03-10T10-40-00Z-transition-replay-checklist.md"
+      ],
+      "description": "Prepare strict replay order and branch-dependent status transition map so credential-result updates can be applied in <30 min with governance constraints preserved.",
+      "comments": [
+        {
+          "id": "done-0133-20260310-1040",
+          "author": "sentinel",
+          "text": "Checklist created at mission-control/board/sweeps/2026-03-10T10-40-00Z-transition-replay-checklist.md and attached to RP-0048.",
+          "created_at": "2026-03-10T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-10T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0048-board-sweep-2026-03-10-1040.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-10T10:40:00Z",
+      "updated_at": "2026-03-10T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0048"
     }
   ]
 }
