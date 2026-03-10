@@ -2716,7 +2716,9 @@
         "TASK-0125",
         "TASK-0126",
         "TASK-0127",
-        "TASK-0128"
+        "TASK-0128",
+        "TASK-0134",
+        "TASK-0135"
       ],
       "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
       "comments": [
@@ -2758,7 +2760,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-10T03:10:00Z",
+      "updated_at": "2026-03-10T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2988,7 +2990,9 @@
         "TASK-0102",
         "TASK-0110",
         "TASK-0111",
-        "TASK-0133"
+        "TASK-0133",
+        "TASK-0134",
+        "TASK-0135"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3015,11 +3019,17 @@
           "author": "sentinel",
           "text": "Morning decomposition gate follow-through: added TASK-0133 (transition replay checklist) and executed TASK-0132 macro pack to compress post-credential board updates into <30 min.",
           "created_at": "2026-03-10T10:40:00Z"
+        },
+        {
+          "id": "progress-0103-20260310-1630",
+          "author": "sentinel",
+          "text": "Midday sweep advanced atomic children TASK-0134/0135 (evidence completeness automation + baseline blocker proof). Credentialed execution remains only closure gate.",
+          "created_at": "2026-03-10T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-10T10:40:00Z",
+      "updated_at": "2026-03-10T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4088,11 +4098,98 @@
         "approved_at": null
       },
       "created_at": "2026-03-10T10:40:00Z",
-      "updated_at": "2026-03-10T10:40:00Z",
+      "updated_at": "2026-03-10T15:38:23.925Z",
+      "created_by": "sentinel",
+      "updated_by": "isaac",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0048"
+    },
+    {
+      "id": "TASK-0134",
+      "title": "TS-H1.1c.2g Add automated evidence completeness checker for credentialed smoke",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0111",
+        "scripts/pipeline-run-evidence-check.mjs"
+      ],
+      "description": "Implement deterministic checker that validates credentialed smoke evidence contains 201 success and 400 invalid-path outputs with runId/start markers.",
+      "comments": [
+        {
+          "id": "done-0134-20260310-1630",
+          "author": "sentinel",
+          "text": "Implemented scripts/pipeline-run-evidence-check.mjs with deterministic acceptance checks for 201/400/runId/started markers.",
+          "created_at": "2026-03-10T16:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-10T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0049-board-progress-sweep-midday-2026-03-10.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-10T16:30:00Z",
+      "updated_at": "2026-03-10T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
-      "review_packet_id": "RP-0048"
+      "review_packet_id": "RP-0049"
+    },
+    {
+      "id": "TASK-0135",
+      "title": "TS-H1.1c.2h Baseline-check existing evidence artifacts and capture blocker proof",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0134",
+        "mission-control/evidence/pipeline-run/checks/2026-03-10T16-30-00Z-template-check.json",
+        "mission-control/evidence/pipeline-run/checks/2026-03-10T16-30-00Z-preflight-check.json"
+      ],
+      "description": "Run completeness checker on current artifacts to verify remaining gap is credentialed execution output only.",
+      "comments": [
+        {
+          "id": "done-0135-20260310-1630",
+          "author": "sentinel",
+          "text": "Executed baseline checks; current artifacts fail expectedly due to absent live credentialed 201/400 evidence. Results committed under mission-control/evidence/pipeline-run/checks/.",
+          "created_at": "2026-03-10T16:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-10T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0049-board-progress-sweep-midday-2026-03-10.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-10T16:30:00Z",
+      "updated_at": "2026-03-10T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0049"
     }
   ]
 }
