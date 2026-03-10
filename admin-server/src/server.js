@@ -30,6 +30,8 @@ const DASHBOARD_SIGNALS_FILE = path.join(ROOT, 'dashboard', 'data', 'signals.jso
 const DASHBOARD_TEAM_FILE = path.join(ROOT, 'dashboard', 'data', 'team.json');
 const DASHBOARD_CONTACT_PATHS_FILE = path.join(ROOT, 'dashboard', 'data', 'contact_paths.json');
 const DASHBOARD_DECISION_ARCH_FILE = path.join(ROOT, 'dashboard', 'data', 'decision_architecture.json');
+const DASHBOARD_ACTORS_FILE = path.join(ROOT, 'dashboard', 'data', 'actors.json');
+const DASHBOARD_ACTORS_REVIEW_FILE = path.join(ROOT, 'dashboard', 'data', 'actors_import_review.json');
 const BEACON_QUEUE_FILE = path.join(ROOT, 'mission-control', 'beacon', 'beacons.json');
 const BEACON_QUEUE_SCHEMA_FILE = path.join(ROOT, 'mission-control', 'beacon', 'beacons.schema.json');
 const DASHBOARD_DECKSPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'deckspecs.v2.json');
@@ -647,6 +649,8 @@ function dashboardNav(active = '') {
 
       <div class="oc-nav-group-label">Origination</div>
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
+      <a class="nav-link ${is('actors')}" href="/dashboard/actors" title="Actors"><i data-lucide="contact-round" class="nav-icon"></i><span class="nav-label">Actors</span></a>
+      <a class="nav-link ${is('actors-import-review')}" href="/dashboard/actors/import-review" title="Actors Import Review"><i data-lucide="list-checks" class="nav-icon"></i><span class="nav-label">Actors Import Review</span></a>
       <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
       <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
 
@@ -1099,6 +1103,85 @@ app.post('/api/actors', requireRole('architect','editor'), async (req, res) => {
   await writeJson(DASHBOARD_ACTORS_FILE, actors);
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'actor.create', entity_type: 'actor', entity_id: actor_id, meta: { name, actor_type } });
   res.redirect('/dashboard/actors');
+});
+
+app.get('/dashboard/actors/import-review', requireAnyAuth, async (req, res) => {
+  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
+  const review = await readJson(DASHBOARD_ACTORS_REVIEW_FILE, []);
+  const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
+  const rows = [...review].sort((a, b) => String(a.status || 'pending').localeCompare(String(b.status || 'pending')) || String(a.source_row_hash || '').localeCompare(String(b.source_row_hash || '')));
+  const status = req.query.status ? String(req.query.status) : 'pending';
+  const filtered = status === 'all' ? rows : rows.filter((r) => String(r.status || 'pending') === status);
+  const options = actors.map((a) => `<option value="${escapeHtml(String(a.actor_id || ''))}">${escapeHtml(String(a.name || a.actor_id || ''))}</option>`).join('');
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Actors Import Review')}</head><body><div class="app-shell">${dashboardNav('actors-import-review')}${pageHeader('Actors Import Review', '', 'Approve or merge flagged actor rows before picker publish')}<div class="card mb-3"><div class="card-body d-flex gap-2"><a class="btn btn-sm ${status==='pending'?'btn-primary':'btn-outline-primary'}" href="/dashboard/actors/import-review?status=pending">Pending</a><a class="btn btn-sm ${status==='approved'?'btn-primary':'btn-outline-primary'}" href="/dashboard/actors/import-review?status=approved">Approved</a><a class="btn btn-sm ${status==='merged'?'btn-primary':'btn-outline-primary'}" href="/dashboard/actors/import-review?status=merged">Merged</a><a class="btn btn-sm ${status==='rejected'?'btn-primary':'btn-outline-primary'}" href="/dashboard/actors/import-review?status=rejected">Rejected</a><a class="btn btn-sm ${status==='all'?'btn-primary':'btn-outline-primary'}" href="/dashboard/actors/import-review?status=all">All</a></div></div><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Hash</th><th>Candidate</th><th>Issues</th><th>Status</th><th>Action</th></tr></thead><tbody>${filtered.map((r) => {
+    const c = r.candidate || {};
+    const issues = Array.isArray(r.issues) ? r.issues : [];
+    const candidateName = c.name_display || [c.first_name, c.last_name].filter(Boolean).join(' ') || 'Unnamed';
+    const org = c.organization_primary || r?.source?.company || '';
+    const issueHtml = issues.length ? issues.map((x)=>`<span class="badge text-bg-warning me-1">${escapeHtml(String(x))}</span>`).join('') : '<span class="text-muted">none</span>';
+    const actionHtml = !canEdit || String(r.status||'pending') !== 'pending' ? '<span class="text-muted">—</span>' : `<form method="post" action="/api/actors/import-review/${encodeURIComponent(String(r.source_row_hash||''))}/approve" class="d-inline"><button class="btn btn-sm btn-success">Approve</button></form> <form method="post" action="/api/actors/import-review/${encodeURIComponent(String(r.source_row_hash||''))}/merge" class="d-inline"><input list="actorsList" name="target_actor_id" class="form-control form-control-sm d-inline" style="width:180px" placeholder="actor_id" required /><button class="btn btn-sm btn-outline-primary ms-1">Merge</button></form> <form method="post" action="/api/actors/import-review/${encodeURIComponent(String(r.source_row_hash||''))}/reject" class="d-inline"><button class="btn btn-sm btn-outline-danger">Reject</button></form>`;
+    return `<tr><td class="mono">${escapeHtml(String(r.source_row_hash || ''))}</td><td><div><strong>${escapeHtml(candidateName)}</strong></div><div class="small text-muted">${escapeHtml(String(org))} · ${escapeHtml(String(c.country_normalized || r?.source?.country || ''))}</div></td><td>${issueHtml}</td><td>${escapeHtml(String(r.status || 'pending'))}</td><td>${actionHtml}</td></tr>`;
+  }).join('') || '<tr><td colspan="5" class="text-muted">No rows</td></tr>'}</tbody></table><datalist id="actorsList">${options}</datalist></div></div></body></html>`);
+});
+
+app.post('/api/actors/import-review/:hash/approve', requireRole('architect','editor'), async (req, res) => {
+  const hash = String(req.params.hash || '');
+  const review = await readJson(DASHBOARD_ACTORS_REVIEW_FILE, []);
+  const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
+  const row = review.find((r) => String(r.source_row_hash || '') === hash);
+  if (!row) return res.status(404).send('review row not found');
+  const c = row.candidate || {};
+  if (!c.actor_id) return res.status(400).send('candidate missing actor_id');
+  if (!actors.some((a) => String(a.actor_id || '') === String(c.actor_id))) {
+    actors.push({
+      actor_id: c.actor_id,
+      name: c.name_display || [c.first_name, c.last_name].filter(Boolean).join(' ').trim(),
+      actor_type: c.actor_type || 'other',
+      country: c.country_normalized || '',
+      designation: c.designation || '',
+      organization_primary: c.organization_primary || '',
+      relationship_source: c.relationship_source || 'shiv_sun_group',
+      relationship_strength: c.relationship_strength || 'first_degree',
+      source_row_hash: c.source_row_hash || hash,
+      created_at: nowIso()
+    });
+  }
+  row.status = 'approved';
+  row.reviewed_at = nowIso();
+  row.reviewed_by = getUserLabel(req);
+  await writeJson(DASHBOARD_ACTORS_FILE, actors);
+  await writeJson(DASHBOARD_ACTORS_REVIEW_FILE, review);
+  res.redirect('/dashboard/actors/import-review?status=pending');
+});
+
+app.post('/api/actors/import-review/:hash/merge', requireRole('architect','editor'), async (req, res) => {
+  const hash = String(req.params.hash || '');
+  const target_actor_id = String(req.body.target_actor_id || '').trim();
+  if (!target_actor_id) return res.status(400).send('target_actor_id required');
+  const review = await readJson(DASHBOARD_ACTORS_REVIEW_FILE, []);
+  const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
+  if (!actors.some((a) => String(a.actor_id || '') === target_actor_id)) return res.status(400).send('target actor not found');
+  const row = review.find((r) => String(r.source_row_hash || '') === hash);
+  if (!row) return res.status(404).send('review row not found');
+  row.status = 'merged';
+  row.merged_to_actor_id = target_actor_id;
+  row.reviewed_at = nowIso();
+  row.reviewed_by = getUserLabel(req);
+  await writeJson(DASHBOARD_ACTORS_REVIEW_FILE, review);
+  res.redirect('/dashboard/actors/import-review?status=pending');
+});
+
+app.post('/api/actors/import-review/:hash/reject', requireRole('architect','editor'), async (req, res) => {
+  const hash = String(req.params.hash || '');
+  const review = await readJson(DASHBOARD_ACTORS_REVIEW_FILE, []);
+  const row = review.find((r) => String(r.source_row_hash || '') === hash);
+  if (!row) return res.status(404).send('review row not found');
+  row.status = 'rejected';
+  row.reviewed_at = nowIso();
+  row.reviewed_by = getUserLabel(req);
+  await writeJson(DASHBOARD_ACTORS_REVIEW_FILE, review);
+  res.redirect('/dashboard/actors/import-review?status=pending');
 });
 
 app.get('/dashboard/platform-pressure-v2', requireAnyAuth, async (req, res) => {

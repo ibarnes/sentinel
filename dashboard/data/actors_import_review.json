@@ -1,0 +1,2690 @@
+[
+  {
+    "source_row_hash": "3e92de03f4e96952",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Carlos",
+      "last_name": "Alberto Sicupira",
+      "designation": "Partner / Major Shareholder",
+      "company": "AB InBev; 3G Capital",
+      "country": "Brazil"
+    },
+    "candidate": {
+      "actor_id": "carlos-alberto-sicupira-ab-inbev",
+      "name_display": "Carlos Alberto Sicupira",
+      "first_name": "Carlos",
+      "last_name": "Alberto Sicupira",
+      "organization_primary": "AB InBev",
+      "designation": "Partner / Major Shareholder",
+      "country_normalized": "Brazil",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "3e92de03f4e96952",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "fbaf140546ca5760",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Luciano",
+      "last_name": "Huck",
+      "designation": "TV Host & Entrepreneur; Founder; Presenter of “Domingão com Huck” on TV Globol",
+      "company": "Globo TV / Joá Investments / Instituto Criar",
+      "country": "Brazil"
+    },
+    "candidate": {
+      "actor_id": "luciano-huck-globo-tv",
+      "name_display": "Luciano Huck",
+      "first_name": "Luciano",
+      "last_name": "Huck",
+      "organization_primary": "Globo TV",
+      "designation": "TV Host & Entrepreneur; Founder; Presenter of “Domingão com Huck” on TV Globol",
+      "country_normalized": "Brazil",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "fbaf140546ca5760",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "460bea0024f1eee8",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Juliano",
+      "last_name": "Itabaiana",
+      "designation": "Presidente",
+      "company": "Villa verde s/a",
+      "country": "Brazil"
+    },
+    "candidate": {
+      "actor_id": "juliano-itabaiana-villa-verde-s",
+      "name_display": "Juliano Itabaiana",
+      "first_name": "Juliano",
+      "last_name": "Itabaiana",
+      "organization_primary": "Villa verde s",
+      "designation": "Presidente",
+      "country_normalized": "Brazil",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "460bea0024f1eee8",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "236f838a437f03c8",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Pedro",
+      "last_name": "Moreira Salles",
+      "designation": "Chairman of Itaú Unibanco; co-president of Cambuhy; major stakeholder in CBMM",
+      "company": "Itaú Unibanco; CBMM; Cambuhy",
+      "country": "Brazil"
+    },
+    "candidate": {
+      "actor_id": "pedro-moreira-salles-itau-unibanco",
+      "name_display": "Pedro Moreira Salles",
+      "first_name": "Pedro",
+      "last_name": "Moreira Salles",
+      "organization_primary": "Itaú Unibanco",
+      "designation": "Chairman of Itaú Unibanco; co-president of Cambuhy; major stakeholder in CBMM",
+      "country_normalized": "Brazil",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "236f838a437f03c8",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "37f66fb7d4dc286f",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Joao",
+      "last_name": "Moreira Salles",
+      "designation": "Founder & Documentary Filmmaker / Investment Manager",
+      "company": "Videofilmes / BW Gestão de Investimentos",
+      "country": "Brazil"
+    },
+    "candidate": {
+      "actor_id": "joao-moreira-salles-videofilmes",
+      "name_display": "Joao Moreira Salles",
+      "first_name": "Joao",
+      "last_name": "Moreira Salles",
+      "organization_primary": "Videofilmes",
+      "designation": "Founder & Documentary Filmmaker / Investment Manager",
+      "country_normalized": "Brazil",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "37f66fb7d4dc286f",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "9a8649c2ae80d973",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Walther",
+      "last_name": "Moreira Salles Junior",
+      "designation": "Heir & Filmmaker",
+      "company": "Itaú Unibanco / CBMM (family holdings)",
+      "country": "Brazil"
+    },
+    "candidate": {
+      "actor_id": "walther-moreira-salles-junior-itau-unibanco",
+      "name_display": "Walther Moreira Salles Junior",
+      "first_name": "Walther",
+      "last_name": "Moreira Salles Junior",
+      "organization_primary": "Itaú Unibanco",
+      "designation": "Heir & Filmmaker",
+      "country_normalized": "Brazil",
+      "actor_type": "family_office",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "9a8649c2ae80d973",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "64f003c47b36f716",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Jacob",
+      "last_name": "Safra",
+      "designation": "Chairman",
+      "company": "J. Safra Sarasin, Safra National Bank of New York",
+      "country": "Brazil"
+    },
+    "candidate": {
+      "actor_id": "jacob-safra-j-safra-sarasin",
+      "name_display": "Jacob Safra",
+      "first_name": "Jacob",
+      "last_name": "Safra",
+      "organization_primary": "J. Safra Sarasin",
+      "designation": "Chairman",
+      "country_normalized": "Brazil",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "64f003c47b36f716",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "be1cdb48c04948c2",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Eduardo",
+      "last_name": "Saverin",
+      "designation": "Co-Founder, Venture Capitalist (Forbes)",
+      "company": "Meta Platforms / B Capital",
+      "country": "Brazil"
+    },
+    "candidate": {
+      "actor_id": "eduardo-saverin-meta-platforms",
+      "name_display": "Eduardo Saverin",
+      "first_name": "Eduardo",
+      "last_name": "Saverin",
+      "organization_primary": "Meta Platforms",
+      "designation": "Co-Founder, Venture Capitalist (Forbes)",
+      "country_normalized": "Brazil",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "be1cdb48c04948c2",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "ba5fe75fb24f07a6",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Wirastuty",
+      "last_name": "Fangiono",
+      "designation": "Major Shareholder & Director",
+      "company": "First Resources Ltd / PT FAP Agri Tbk",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "wirastuty-fangiono-first-resources-ltd",
+      "name_display": "Wirastuty Fangiono",
+      "first_name": "Wirastuty",
+      "last_name": "Fangiono",
+      "organization_primary": "First Resources Ltd",
+      "designation": "Major Shareholder & Director",
+      "country_normalized": "Indonesia",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "ba5fe75fb24f07a6",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "e2e98973a9c8783d",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Robert Budi",
+      "last_name": "Hartono",
+      "designation": "Owner & Major Shareholder",
+      "company": "Djarum / Bank Central Asia",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "robert-budi-hartono-djarum",
+      "name_display": "Robert Budi Hartono",
+      "first_name": "Robert Budi",
+      "last_name": "Hartono",
+      "organization_primary": "Djarum",
+      "designation": "Owner & Major Shareholder",
+      "country_normalized": "Indonesia",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "e2e98973a9c8783d",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "a48a7ad4b4b8e7b7",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Michael",
+      "last_name": "Hartono",
+      "designation": "Co-Owner & Major Shareholder",
+      "company": "Djarum / Bank Central Asia",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "michael-hartono-djarum",
+      "name_display": "Michael Hartono",
+      "first_name": "Michael",
+      "last_name": "Hartono",
+      "organization_primary": "Djarum",
+      "designation": "Co-Owner & Major Shareholder",
+      "country_normalized": "Indonesia",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "a48a7ad4b4b8e7b7",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "846f5c2ef9478450",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Dewi",
+      "last_name": "Kam",
+      "designation": "Major Shareholder",
+      "company": "PT Bayan Resources / PT Sumbergas Sakti Prima",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "dewi-kam-pt-bayan-resources",
+      "name_display": "Dewi Kam",
+      "first_name": "Dewi",
+      "last_name": "Kam",
+      "organization_primary": "PT Bayan Resources",
+      "designation": "Major Shareholder",
+      "country_normalized": "Indonesia",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "846f5c2ef9478450",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "279ed24f386b0a3f",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Kartini",
+      "last_name": "Muljadi",
+      "designation": "Senior Partner & Major Shareholder",
+      "company": "Kartini Muljadi & Rekan / Tempo Scan Pacific",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "kartini-muljadi-kartini-muljadi-rekan",
+      "name_display": "Kartini Muljadi",
+      "first_name": "Kartini",
+      "last_name": "Muljadi",
+      "organization_primary": "Kartini Muljadi & Rekan",
+      "designation": "Senior Partner & Major Shareholder",
+      "country_normalized": "Indonesia",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "279ed24f386b0a3f",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "58e8a357c62c5b94",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Marty",
+      "last_name": "Natalegawa",
+      "designation": "Academic & Advisory Roles",
+      "company": "Academia / International Organizations",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "marty-natalegawa-academia",
+      "name_display": "Marty Natalegawa",
+      "first_name": "Marty",
+      "last_name": "Natalegawa",
+      "organization_primary": "Academia",
+      "designation": "Academic & Advisory Roles",
+      "country_normalized": "Indonesia",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "58e8a357c62c5b94",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "6bed0ad38b1f6992",
+    "status": "pending",
+    "issues": [
+      "multiline_company_cell"
+    ],
+    "source": {
+      "first_name": "Hilmi",
+      "last_name": "Panigoro",
+      "designation": "President Director",
+      "company": "PT MedcoEnergi",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "hilmi-panigoro-pt-medcoenergi",
+      "name_display": "Hilmi Panigoro",
+      "first_name": "Hilmi",
+      "last_name": "Panigoro",
+      "organization_primary": "PT MedcoEnergi",
+      "designation": "President Director",
+      "country_normalized": "Indonesia",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "6bed0ad38b1f6992",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "96c77f66260c498c",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Theodore",
+      "last_name": "Rachmat",
+      "designation": "Founder; Vice President Commissioner",
+      "company": "Triputra Group / Alamtri Resources Indonesia",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "theodore-rachmat-triputra-group",
+      "name_display": "Theodore Rachmat",
+      "first_name": "Theodore",
+      "last_name": "Rachmat",
+      "organization_primary": "Triputra Group",
+      "designation": "Founder; Vice President Commissioner",
+      "country_normalized": "Indonesia",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "96c77f66260c498c",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "9f158d59d6900049",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Alexander",
+      "last_name": "Ramlie",
+      "designation": "Senior Executive & Board Roles",
+      "company": "Rajawali Corpora / Formerly Freeport Indonesia",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "alexander-ramlie-rajawali-corpora",
+      "name_display": "Alexander Ramlie",
+      "first_name": "Alexander",
+      "last_name": "Ramlie",
+      "organization_primary": "Rajawali Corpora",
+      "designation": "Senior Executive & Board Roles",
+      "country_normalized": "Indonesia",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "9f158d59d6900049",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "c8592350fca4abad",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Dato' Sri",
+      "last_name": "Tahir",
+      "designation": "Founder; Member of Presidential Advisory Council",
+      "company": "Mayapada Group / Presidential Advisory Council",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "dato-sri-tahir-mayapada-group",
+      "name_display": "Dato' Sri Tahir",
+      "first_name": "Dato' Sri",
+      "last_name": "Tahir",
+      "organization_primary": "Mayapada Group",
+      "designation": "Founder; Member of Presidential Advisory Council",
+      "country_normalized": "Indonesia",
+      "actor_type": "regulator",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "c8592350fca4abad",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "4a5165a054007c87",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Hermanto",
+      "last_name": "Tanoko",
+      "designation": "Founder & Chairman",
+      "company": "Tanrise Property / Avia Avian",
+      "country": "Indonesia"
+    },
+    "candidate": {
+      "actor_id": "hermanto-tanoko-tanrise-property",
+      "name_display": "Hermanto Tanoko",
+      "first_name": "Hermanto",
+      "last_name": "Tanoko",
+      "organization_primary": "Tanrise Property",
+      "designation": "Founder & Chairman",
+      "country_normalized": "Indonesia",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "4a5165a054007c87",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "007d84b875af9593",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Chang",
+      "last_name": "Byung-gyu",
+      "designation": "Founder & Chairman",
+      "company": "Krafton, Inc.",
+      "country": "South Korea"
+    },
+    "candidate": {
+      "actor_id": "chang-byung-gyu-krafton",
+      "name_display": "Chang Byung-gyu",
+      "first_name": "Chang",
+      "last_name": "Byung-gyu",
+      "organization_primary": "Krafton",
+      "designation": "Founder & Chairman",
+      "country_normalized": "South Korea",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "007d84b875af9593",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "50f52bea977ab1d5",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Chung",
+      "last_name": "Mong-joon",
+      "designation": "Honorary Vice Chairman; Chairman of Asan Foundation",
+      "company": "Hyundai Heavy Industries / Asan Foundation",
+      "country": "South Korea"
+    },
+    "candidate": {
+      "actor_id": "chung-mong-joon-hyundai-heavy-industries",
+      "name_display": "Chung Mong-joon",
+      "first_name": "Chung",
+      "last_name": "Mong-joon",
+      "organization_primary": "Hyundai Heavy Industries",
+      "designation": "Honorary Vice Chairman; Chairman of Asan Foundation",
+      "country_normalized": "South Korea",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "50f52bea977ab1d5",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "5da166b87b54942f",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Lee",
+      "last_name": "Seo-hyun",
+      "designation": "Chairwoman, Samsung Welfare Foundation; Executive at Samsung C&T (fashion division)",
+      "company": "Samsung C&T / Samsung Welfare Foundation",
+      "country": "South Korea"
+    },
+    "candidate": {
+      "actor_id": "lee-seo-hyun-samsung-c-t",
+      "name_display": "Lee Seo-hyun",
+      "first_name": "Lee",
+      "last_name": "Seo-hyun",
+      "organization_primary": "Samsung C&T",
+      "designation": "Chairwoman, Samsung Welfare Foundation; Executive at Samsung C&T (fashion division)",
+      "country_normalized": "South Korea",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "5da166b87b54942f",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "6d01fb79546e1405",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Kim",
+      "last_name": "Sung-Joo",
+      "designation": "Founder, Chairwoman & Chief Visionary Officer",
+      "company": "Sungjoo Group / MCM Holding AG",
+      "country": "South Korea"
+    },
+    "candidate": {
+      "actor_id": "kim-sung-joo-sungjoo-group",
+      "name_display": "Kim Sung-Joo",
+      "first_name": "Kim",
+      "last_name": "Sung-Joo",
+      "organization_primary": "Sungjoo Group",
+      "designation": "Founder, Chairwoman & Chief Visionary Officer",
+      "country_normalized": "South Korea",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "6d01fb79546e1405",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "4ba3b9c7707385d7",
+    "status": "pending",
+    "issues": [
+      "country_typo_variant"
+    ],
+    "source": {
+      "first_name": "Linh",
+      "last_name": "Thai",
+      "designation": "Founder and CEO",
+      "company": "Rita Phil",
+      "country": "Veitnam"
+    },
+    "candidate": {
+      "actor_id": "linh-thai-rita-phil",
+      "name_display": "Linh Thai",
+      "first_name": "Linh",
+      "last_name": "Thai",
+      "organization_primary": "Rita Phil",
+      "designation": "Founder and CEO",
+      "country_normalized": "Vietnam",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "4ba3b9c7707385d7",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "7b155ec967644e62",
+    "status": "pending",
+    "issues": [
+      "country_typo_variant"
+    ],
+    "source": {
+      "first_name": "Vinh-Tuan",
+      "last_name": "Ngo",
+      "designation": "MD - Head of Investment Banking",
+      "company": "Viet Capital Securities",
+      "country": "Veitnam"
+    },
+    "candidate": {
+      "actor_id": "vinh-tuan-ngo-viet-capital-securities",
+      "name_display": "Vinh-Tuan Ngo",
+      "first_name": "Vinh-Tuan",
+      "last_name": "Ngo",
+      "organization_primary": "Viet Capital Securities",
+      "designation": "MD - Head of Investment Banking",
+      "country_normalized": "Vietnam",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "7b155ec967644e62",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "58e8dd493c9ecbe5",
+    "status": "pending",
+    "issues": [
+      "country_typo_variant"
+    ],
+    "source": {
+      "first_name": "Khoi",
+      "last_name": "Louis",
+      "designation": "Deputy CEO",
+      "company": "Vietnam Prosperity Bank",
+      "country": "Veitnam"
+    },
+    "candidate": {
+      "actor_id": "khoi-louis-vietnam-prosperity-bank",
+      "name_display": "Khoi Louis",
+      "first_name": "Khoi",
+      "last_name": "Louis",
+      "organization_primary": "Vietnam Prosperity Bank",
+      "designation": "Deputy CEO",
+      "country_normalized": "Vietnam",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "58e8dd493c9ecbe5",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "c686fd769636285c",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Pham Nhat",
+      "last_name": "Vuong",
+      "designation": "Founder & Chairman",
+      "company": "Vingroup / VinFast",
+      "country": "Vietnam"
+    },
+    "candidate": {
+      "actor_id": "pham-nhat-vuong-vingroup",
+      "name_display": "Pham Nhat Vuong",
+      "first_name": "Pham Nhat",
+      "last_name": "Vuong",
+      "organization_primary": "Vingroup",
+      "designation": "Founder & Chairman",
+      "country_normalized": "Vietnam",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "c686fd769636285c",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "db1e73c51acdcd2b",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Nguyen Thi Phuong",
+      "last_name": "Thao",
+      "designation": "President & CEO / Chairwoman",
+      "company": "VietJet Air / Sovico Group / HDBank",
+      "country": "Vietnam"
+    },
+    "candidate": {
+      "actor_id": "nguyen-thi-phuong-thao-vietjet-air",
+      "name_display": "Nguyen Thi Phuong Thao",
+      "first_name": "Nguyen Thi Phuong",
+      "last_name": "Thao",
+      "organization_primary": "VietJet Air",
+      "designation": "President & CEO / Chairwoman",
+      "country_normalized": "Vietnam",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "db1e73c51acdcd2b",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "ecd55337656356fb",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Manuel",
+      "last_name": "Villar",
+      "designation": "Chairman of the Board",
+      "company": "Vista Land & Lifescapes, Inc.",
+      "country": "Philippines"
+    },
+    "candidate": {
+      "actor_id": "manuel-villar-vista-land-lifescapes",
+      "name_display": "Manuel Villar",
+      "first_name": "Manuel",
+      "last_name": "Villar",
+      "organization_primary": "Vista Land & Lifescapes",
+      "designation": "Chairman of the Board",
+      "country_normalized": "Philippines",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "ecd55337656356fb",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "83d7cee9f9ec94fc",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Enrique",
+      "last_name": "Razon Jr.",
+      "designation": "Chairman & President",
+      "company": "International Container Terminal Services, Inc. (ICTSI)",
+      "country": "Philippines"
+    },
+    "candidate": {
+      "actor_id": "enrique-razon-jr-international-container-terminal-services",
+      "name_display": "Enrique Razon Jr.",
+      "first_name": "Enrique",
+      "last_name": "Razon Jr.",
+      "organization_primary": "International Container Terminal Services",
+      "designation": "Chairman & President",
+      "country_normalized": "Philippines",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "83d7cee9f9ec94fc",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "7a1390a4899a6c46",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Lucio",
+      "last_name": "Tan",
+      "designation": "Founder & Chairman",
+      "company": "LT Group, Inc.",
+      "country": "Philippines"
+    },
+    "candidate": {
+      "actor_id": "lucio-tan-lt-group",
+      "name_display": "Lucio Tan",
+      "first_name": "Lucio",
+      "last_name": "Tan",
+      "organization_primary": "LT Group",
+      "designation": "Founder & Chairman",
+      "country_normalized": "Philippines",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "7a1390a4899a6c46",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "22a3bb6bb43bd9e9",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Henry",
+      "last_name": "Sy, Jr.",
+      "designation": "Chairman of the Board",
+      "company": "SM Prime Holdings, Inc.",
+      "country": "Philippines"
+    },
+    "candidate": {
+      "actor_id": "henry-sy-jr-sm-prime-holdings",
+      "name_display": "Henry Sy, Jr.",
+      "first_name": "Henry",
+      "last_name": "Sy, Jr.",
+      "organization_primary": "SM Prime Holdings",
+      "designation": "Chairman of the Board",
+      "country_normalized": "Philippines",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "22a3bb6bb43bd9e9",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "390c5c71302bf997",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Hans",
+      "last_name": "Sy",
+      "designation": "Executive Committee Chairman",
+      "company": "SM Prime Holdings, Inc.",
+      "country": "Philippines"
+    },
+    "candidate": {
+      "actor_id": "hans-sy-sm-prime-holdings",
+      "name_display": "Hans Sy",
+      "first_name": "Hans",
+      "last_name": "Sy",
+      "organization_primary": "SM Prime Holdings",
+      "designation": "Executive Committee Chairman",
+      "country_normalized": "Philippines",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "390c5c71302bf997",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "8b983908f66b533b",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Teresita",
+      "last_name": "Sy-Coson",
+      "designation": "Chairperson of the Board",
+      "company": "BDO Unibank, Inc.",
+      "country": "Philippines"
+    },
+    "candidate": {
+      "actor_id": "teresita-sy-coson-bdo-unibank",
+      "name_display": "Teresita Sy-Coson",
+      "first_name": "Teresita",
+      "last_name": "Sy-Coson",
+      "organization_primary": "BDO Unibank",
+      "designation": "Chairperson of the Board",
+      "country_normalized": "Philippines",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "8b983908f66b533b",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "999ffb508df83b79",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Andrew",
+      "last_name": "Tan",
+      "designation": "Chairman",
+      "company": "Alliance Global Group, Inc. (AGI)",
+      "country": "Philippines"
+    },
+    "candidate": {
+      "actor_id": "andrew-tan-alliance-global-group",
+      "name_display": "Andrew Tan",
+      "first_name": "Andrew",
+      "last_name": "Tan",
+      "organization_primary": "Alliance Global Group",
+      "designation": "Chairman",
+      "country_normalized": "Philippines",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "999ffb508df83b79",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "63ad3564b1e70346",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Lucio",
+      "last_name": "Co",
+      "designation": "Chairman",
+      "company": "Cosco Capital, Inc.",
+      "country": "Philippines"
+    },
+    "candidate": {
+      "actor_id": "lucio-co-cosco-capital",
+      "name_display": "Lucio Co",
+      "first_name": "Lucio",
+      "last_name": "Co",
+      "organization_primary": "Cosco Capital",
+      "designation": "Chairman",
+      "country_normalized": "Philippines",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "63ad3564b1e70346",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "9967e5a1fd0aec2a",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Susan",
+      "last_name": "Co",
+      "designation": "Chairperson",
+      "company": "Puregold Price Club, Inc.",
+      "country": "Philippines"
+    },
+    "candidate": {
+      "actor_id": "susan-co-puregold-price-club",
+      "name_display": "Susan Co",
+      "first_name": "Susan",
+      "last_name": "Co",
+      "organization_primary": "Puregold Price Club",
+      "designation": "Chairperson",
+      "country_normalized": "Philippines",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "9967e5a1fd0aec2a",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "a7b23dae0fbf725f",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Eusebio",
+      "last_name": "Tanco",
+      "designation": "Chairman of the Board",
+      "company": "STI Education Systems Holdings, Inc.",
+      "country": "Philippines"
+    },
+    "candidate": {
+      "actor_id": "eusebio-tanco-sti-education-systems-holdings",
+      "name_display": "Eusebio Tanco",
+      "first_name": "Eusebio",
+      "last_name": "Tanco",
+      "organization_primary": "STI Education Systems Holdings",
+      "designation": "Chairman of the Board",
+      "country_normalized": "Philippines",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "a7b23dae0fbf725f",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "6bb3c58b441b4422",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Roberto",
+      "last_name": "Angelini Rossi",
+      "designation": "Chairman",
+      "company": "Empresas Copec S.A. / AntarChile S.A.",
+      "country": "Chile"
+    },
+    "candidate": {
+      "actor_id": "roberto-angelini-rossi-empresas-copec-s-a",
+      "name_display": "Roberto Angelini Rossi",
+      "first_name": "Roberto",
+      "last_name": "Angelini Rossi",
+      "organization_primary": "Empresas Copec S.A.",
+      "designation": "Chairman",
+      "country_normalized": "Chile",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "6bb3c58b441b4422",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "e6a84566fec9b3a7",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Karen Virginia",
+      "last_name": "Beckmann Legoretta",
+      "designation": "Board Member",
+      "company": "Becle, S.A.B. de C.V. (José Cuervo)",
+      "country": "Mexico"
+    },
+    "candidate": {
+      "actor_id": "karen-virginia-beckmann-legoretta-becle",
+      "name_display": "Karen Virginia Beckmann Legoretta",
+      "first_name": "Karen Virginia",
+      "last_name": "Beckmann Legoretta",
+      "organization_primary": "Becle",
+      "designation": "Board Member",
+      "country_normalized": "Mexico",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "e6a84566fec9b3a7",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "7c43aa89c2f541d0",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Juan Domingo",
+      "last_name": "Beckmann Legorreta",
+      "designation": "Chairman & Chief Executive Officer",
+      "company": "Becle, S.A.B. de C.V. (José Cuervo)",
+      "country": "Mexico"
+    },
+    "candidate": {
+      "actor_id": "juan-domingo-beckmann-legorreta-becle",
+      "name_display": "Juan Domingo Beckmann Legorreta",
+      "first_name": "Juan Domingo",
+      "last_name": "Beckmann Legorreta",
+      "organization_primary": "Becle",
+      "designation": "Chairman & Chief Executive Officer",
+      "country_normalized": "Mexico",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "7c43aa89c2f541d0",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "1ae09afa751e7925",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Carlos",
+      "last_name": "FernÃ¡ndez Gonzalez",
+      "designation": "Vice Chairman & CEO",
+      "company": "Grupo Modelo, S.A.",
+      "country": "Mexico"
+    },
+    "candidate": {
+      "actor_id": "carlos-ferna-ndez-gonzalez-grupo-modelo",
+      "name_display": "Carlos FernÃ¡ndez Gonzalez",
+      "first_name": "Carlos",
+      "last_name": "FernÃ¡ndez Gonzalez",
+      "organization_primary": "Grupo Modelo",
+      "designation": "Vice Chairman & CEO",
+      "country_normalized": "Mexico",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "1ae09afa751e7925",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "92df4839d8829dc2",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Ari",
+      "last_name": "Kahan",
+      "designation": "President",
+      "company": "Kahan Automotriz, S.A. DE C.V.",
+      "country": "Mexico"
+    },
+    "candidate": {
+      "actor_id": "ari-kahan-kahan-automotriz",
+      "name_display": "Ari Kahan",
+      "first_name": "Ari",
+      "last_name": "Kahan",
+      "organization_primary": "Kahan Automotriz",
+      "designation": "President",
+      "country_normalized": "Mexico",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "92df4839d8829dc2",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "5113ed09986dabe8",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Semahat Sevim",
+      "last_name": "Arsel",
+      "designation": "Board Member; Chair",
+      "company": "Koç Holding / Vehbi Koç Foundation (VKV)",
+      "country": "Turkey"
+    },
+    "candidate": {
+      "actor_id": "semahat-sevim-arsel-koc-holding",
+      "name_display": "Semahat Sevim Arsel",
+      "first_name": "Semahat Sevim",
+      "last_name": "Arsel",
+      "organization_primary": "Koç Holding",
+      "designation": "Board Member; Chair",
+      "country_normalized": "Turkey",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "5113ed09986dabe8",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "3a85dbb0a95d75a5",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Ibrahim",
+      "last_name": "Erdemoglu",
+      "designation": "Executive Chairman; Chairman",
+      "company": "SASA Polyester / Erdemoğlu Holding",
+      "country": "Turkey"
+    },
+    "candidate": {
+      "actor_id": "ibrahim-erdemoglu-sasa-polyester",
+      "name_display": "Ibrahim Erdemoglu",
+      "first_name": "Ibrahim",
+      "last_name": "Erdemoglu",
+      "organization_primary": "SASA Polyester",
+      "designation": "Executive Chairman; Chairman",
+      "country_normalized": "Turkey",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "3a85dbb0a95d75a5",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "e9bf0b00a18e8bbc",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Saban Cemil",
+      "last_name": "Kazanci",
+      "designation": "Chairman; Chairman & CEO",
+      "company": "Kazancı Holding / Aksa Enerji",
+      "country": "Turkey"
+    },
+    "candidate": {
+      "actor_id": "saban-cemil-kazanci-kazanc-holding",
+      "name_display": "Saban Cemil Kazanci",
+      "first_name": "Saban Cemil",
+      "last_name": "Kazanci",
+      "organization_primary": "Kazancı Holding",
+      "designation": "Chairman; Chairman & CEO",
+      "country_normalized": "Turkey",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "e9bf0b00a18e8bbc",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "b9aff9343540e863",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Murat",
+      "last_name": "Ulker",
+      "designation": "Board Member; Chairman",
+      "company": "Yıldız Holding / pladis / GODIVA",
+      "country": "Turkey"
+    },
+    "candidate": {
+      "actor_id": "murat-ulker-y-ld-z-holding",
+      "name_display": "Murat Ulker",
+      "first_name": "Murat",
+      "last_name": "Ulker",
+      "organization_primary": "Yıldız Holding",
+      "designation": "Board Member; Chairman",
+      "country_normalized": "Turkey",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "b9aff9343540e863",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "05fac93c1ff63c5a",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Murat",
+      "last_name": "Vargi",
+      "designation": "Founder & Honorary Chairman; Co-founder",
+      "company": "MV Holding / Turkcell",
+      "country": "Turkey"
+    },
+    "candidate": {
+      "actor_id": "murat-vargi-mv-holding",
+      "name_display": "Murat Vargi",
+      "first_name": "Murat",
+      "last_name": "Vargi",
+      "organization_primary": "MV Holding",
+      "designation": "Founder & Honorary Chairman; Co-founder",
+      "country_normalized": "Turkey",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "05fac93c1ff63c5a",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "26baf9d3300eae87",
+    "status": "pending",
+    "issues": [
+      "missing_country"
+    ],
+    "source": {
+      "first_name": "Kenges",
+      "last_name": "Rakishev",
+      "designation": "Board of Directors",
+      "company": "ERZ.KZ",
+      "country": ""
+    },
+    "candidate": {
+      "actor_id": "kenges-rakishev-erz-kz",
+      "name_display": "Kenges Rakishev",
+      "first_name": "Kenges",
+      "last_name": "Rakishev",
+      "organization_primary": "ERZ.KZ",
+      "designation": "Board of Directors",
+      "country_normalized": "",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "26baf9d3300eae87",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "33d534b7d59d779d",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Davron Munavarovich",
+      "last_name": "Rustamkulov",
+      "designation": "Managing Director",
+      "company": "Central Asia Partnerships, LLP",
+      "country": "Kazakhstan"
+    },
+    "candidate": {
+      "actor_id": "davron-munavarovich-rustamkulov-central-asia-partnerships",
+      "name_display": "Davron Munavarovich Rustamkulov",
+      "first_name": "Davron Munavarovich",
+      "last_name": "Rustamkulov",
+      "organization_primary": "Central Asia Partnerships",
+      "designation": "Managing Director",
+      "country_normalized": "Kazakhstan",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "33d534b7d59d779d",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "0f7deb157e4d7b49",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Bulat",
+      "last_name": "Utemuratov",
+      "designation": "Chairman",
+      "company": "Verny Capital, ATFBank Joint Stock Company",
+      "country": "Kazakhstan"
+    },
+    "candidate": {
+      "actor_id": "bulat-utemuratov-verny-capital",
+      "name_display": "Bulat Utemuratov",
+      "first_name": "Bulat",
+      "last_name": "Utemuratov",
+      "organization_primary": "Verny Capital",
+      "designation": "Chairman",
+      "country_normalized": "Kazakhstan",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "0f7deb157e4d7b49",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "a087286cd968fe09",
+    "status": "pending",
+    "issues": [
+      "missing_country"
+    ],
+    "source": {
+      "first_name": "Olim",
+      "last_name": "Chodiev",
+      "designation": "CEO / head",
+      "company": "Support Level",
+      "country": ""
+    },
+    "candidate": {
+      "actor_id": "olim-chodiev-support-level",
+      "name_display": "Olim Chodiev",
+      "first_name": "Olim",
+      "last_name": "Chodiev",
+      "organization_primary": "Support Level",
+      "designation": "CEO / head",
+      "country_normalized": "",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "a087286cd968fe09",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "c6e20665c36d8708",
+    "status": "pending",
+    "issues": [
+      "missing_country"
+    ],
+    "source": {
+      "first_name": "Bakhtiyor",
+      "last_name": "Fazilov",
+      "designation": "Chairman",
+      "company": "Eriell Group and Enter Engineering",
+      "country": ""
+    },
+    "candidate": {
+      "actor_id": "bakhtiyor-fazilov-eriell-group-and-enter-engineering",
+      "name_display": "Bakhtiyor Fazilov",
+      "first_name": "Bakhtiyor",
+      "last_name": "Fazilov",
+      "organization_primary": "Eriell Group and Enter Engineering",
+      "designation": "Chairman",
+      "country_normalized": "",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "c6e20665c36d8708",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "9724484326ece834",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Syed Mokhtar",
+      "last_name": "AlBukhary",
+      "designation": "Controlling shareholder (via private vehicles)",
+      "company": "MMC Corporation Berhad / DRB-HICOM",
+      "country": "Malaysia"
+    },
+    "candidate": {
+      "actor_id": "syed-mokhtar-albukhary-mmc-corporation-berhad",
+      "name_display": "Syed Mokhtar AlBukhary",
+      "first_name": "Syed Mokhtar",
+      "last_name": "AlBukhary",
+      "organization_primary": "MMC Corporation Berhad",
+      "designation": "Controlling shareholder (via private vehicles)",
+      "country_normalized": "Malaysia",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "9724484326ece834",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "e25af7167f8154c1",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Colin",
+      "last_name": "Coleman",
+      "designation": "Member of the Board of Advisors",
+      "company": "Mercury Public Affairs, LLC",
+      "country": "South Africa"
+    },
+    "candidate": {
+      "actor_id": "colin-coleman-mercury-public-affairs",
+      "name_display": "Colin Coleman",
+      "first_name": "Colin",
+      "last_name": "Coleman",
+      "organization_primary": "Mercury Public Affairs",
+      "designation": "Member of the Board of Advisors",
+      "country_normalized": "South Africa",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "e25af7167f8154c1",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "80e9a28c75720c35",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Senator",
+      "last_name": "Daggash",
+      "designation": "Nigerian Government / Private Sector",
+      "company": "Former Senator & Minister; active in advisory/private roles",
+      "country": "South Africa"
+    },
+    "candidate": {
+      "actor_id": "senator-daggash-former-senator-minister",
+      "name_display": "Senator Daggash",
+      "first_name": "Senator",
+      "last_name": "Daggash",
+      "organization_primary": "Former Senator & Minister",
+      "designation": "Nigerian Government / Private Sector",
+      "country_normalized": "South Africa",
+      "actor_type": "regulator",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "80e9a28c75720c35",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "2425d0898834374b",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Rick",
+      "last_name": "Menell",
+      "designation": "Board and Management Roles",
+      "company": "Mining, Engineering and Finance Companies",
+      "country": "South Africa"
+    },
+    "candidate": {
+      "actor_id": "rick-menell-mining",
+      "name_display": "Rick Menell",
+      "first_name": "Rick",
+      "last_name": "Menell",
+      "organization_primary": "Mining",
+      "designation": "Board and Management Roles",
+      "country_normalized": "South Africa",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "2425d0898834374b",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "ff12e025d86df679",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Patrice & Precious",
+      "last_name": "Motsepe",
+      "designation": "Founder & Executive Chairman; President of CAF",
+      "company": "African Rainbow Minerals / Confederation of African Football",
+      "country": "South Africa"
+    },
+    "candidate": {
+      "actor_id": "patrice-precious-motsepe-african-rainbow-minerals",
+      "name_display": "Patrice & Precious Motsepe",
+      "first_name": "Patrice & Precious",
+      "last_name": "Motsepe",
+      "organization_primary": "African Rainbow Minerals",
+      "designation": "Founder & Executive Chairman; President of CAF",
+      "country_normalized": "South Africa",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "ff12e025d86df679",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "27bb455299b1d00d",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Christoffel",
+      "last_name": "Wiese",
+      "designation": "Investor & Former Chairman; active in private investments",
+      "company": "Shoprite / Pepkor / Investments",
+      "country": "South Africa"
+    },
+    "candidate": {
+      "actor_id": "christoffel-wiese-shoprite",
+      "name_display": "Christoffel Wiese",
+      "first_name": "Christoffel",
+      "last_name": "Wiese",
+      "organization_primary": "Shoprite",
+      "designation": "Investor & Former Chairman; active in private investments",
+      "country_normalized": "South Africa",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "27bb455299b1d00d",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "f2c9d1645b12fcb5",
+    "status": "pending",
+    "issues": [
+      "duplicate_person_org_combo"
+    ],
+    "source": {
+      "first_name": "Jacko",
+      "last_name": "Maree",
+      "designation": "Deputy Chairman / Board Member",
+      "company": "Standard Bank Group",
+      "country": "South Africa"
+    },
+    "candidate": {
+      "actor_id": "jacko-maree-standard-bank-group-2",
+      "name_display": "Jacko Maree",
+      "first_name": "Jacko",
+      "last_name": "Maree",
+      "organization_primary": "Standard Bank Group",
+      "designation": "Deputy Chairman / Board Member",
+      "country_normalized": "South Africa",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "f2c9d1645b12fcb5",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "c2ca549c0534ea24",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Ronald",
+      "last_name": "Chagoury Jr",
+      "designation": "Business Development Lead; Project Representative",
+      "company": "The Chagoury Group / Eko Atlantic",
+      "country": "Nigeria"
+    },
+    "candidate": {
+      "actor_id": "ronald-chagoury-jr-the-chagoury-group",
+      "name_display": "Ronald Chagoury Jr",
+      "first_name": "Ronald",
+      "last_name": "Chagoury Jr",
+      "organization_primary": "The Chagoury Group",
+      "designation": "Business Development Lead; Project Representative",
+      "country_normalized": "Nigeria",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "c2ca549c0534ea24",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "96ffa0db313b5344",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Col Paul",
+      "last_name": "Obi",
+      "designation": "Former Administrator",
+      "company": "Bayelsa State, Nigeria",
+      "country": "Nigeria"
+    },
+    "candidate": {
+      "actor_id": "col-paul-obi-bayelsa-state",
+      "name_display": "Col Paul Obi",
+      "first_name": "Col Paul",
+      "last_name": "Obi",
+      "organization_primary": "Bayelsa State",
+      "designation": "Former Administrator",
+      "country_normalized": "Nigeria",
+      "actor_type": "regulator",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "96ffa0db313b5344",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "7fbe02dd79398279",
+    "status": "pending",
+    "issues": [
+      "multiline_company_cell"
+    ],
+    "source": {
+      "first_name": "Rewa",
+      "last_name": "Udoji",
+      "designation": "Director Founder",
+      "company": "Chapel Hill Denham Cranstoun Corporation",
+      "country": "Nigeria"
+    },
+    "candidate": {
+      "actor_id": "rewa-udoji-chapel-hill-denham-cranstoun-corporation",
+      "name_display": "Rewa Udoji",
+      "first_name": "Rewa",
+      "last_name": "Udoji",
+      "organization_primary": "Chapel Hill Denham Cranstoun Corporation",
+      "designation": "Director Founder",
+      "country_normalized": "Nigeria",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "7fbe02dd79398279",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "2fe7439a51ee6d2a",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Dominika",
+      "last_name": "Kulczyk",
+      "designation": "Chairwoman & Board Member",
+      "company": "Kulczyk Holding / Polenergia SA",
+      "country": "Poland"
+    },
+    "candidate": {
+      "actor_id": "dominika-kulczyk-kulczyk-holding",
+      "name_display": "Dominika Kulczyk",
+      "first_name": "Dominika",
+      "last_name": "Kulczyk",
+      "organization_primary": "Kulczyk Holding",
+      "designation": "Chairwoman & Board Member",
+      "country_normalized": "Poland",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "2fe7439a51ee6d2a",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "b275cba18db9ecd1",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Sebastian",
+      "last_name": "Kulczyk",
+      "designation": "Founder / CEO",
+      "company": "Manta Ray VC / Kulczyk Investments",
+      "country": "Poland"
+    },
+    "candidate": {
+      "actor_id": "sebastian-kulczyk-manta-ray-vc",
+      "name_display": "Sebastian Kulczyk",
+      "first_name": "Sebastian",
+      "last_name": "Kulczyk",
+      "organization_primary": "Manta Ray VC",
+      "designation": "Founder / CEO",
+      "country_normalized": "Poland",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "b275cba18db9ecd1",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "55cdfd8fd1f9b7bc",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Zygmunt",
+      "last_name": "Solorz",
+      "designation": "Founder & Major Owner",
+      "company": "Polsat / Cyfrowy Polsat Group",
+      "country": "Poland"
+    },
+    "candidate": {
+      "actor_id": "zygmunt-solorz-polsat",
+      "name_display": "Zygmunt Solorz",
+      "first_name": "Zygmunt",
+      "last_name": "Solorz",
+      "organization_primary": "Polsat",
+      "designation": "Founder & Major Owner",
+      "country_normalized": "Poland",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "55cdfd8fd1f9b7bc",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "997494d9a15b2ce5",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Michal",
+      "last_name": "Solowow",
+      "designation": "Owner / Main Shareholder",
+      "company": "Synthos, Cersanit, Barlinek (and others)",
+      "country": "Poland"
+    },
+    "candidate": {
+      "actor_id": "michal-solowow-synthos",
+      "name_display": "Michal Solowow",
+      "first_name": "Michal",
+      "last_name": "Solowow",
+      "organization_primary": "Synthos",
+      "designation": "Owner / Main Shareholder",
+      "country_normalized": "Poland",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "997494d9a15b2ce5",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "30a62f140a170a38",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Jerzy",
+      "last_name": "Starak",
+      "designation": "Owner",
+      "company": "Polpharma / Polpharma Biologics",
+      "country": "Poland"
+    },
+    "candidate": {
+      "actor_id": "jerzy-starak-polpharma",
+      "name_display": "Jerzy Starak",
+      "first_name": "Jerzy",
+      "last_name": "Starak",
+      "organization_primary": "Polpharma",
+      "designation": "Owner",
+      "country_normalized": "Poland",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "30a62f140a170a38",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "10fa7a875161e6e5",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Abdullah",
+      "last_name": "Al Othaim",
+      "designation": "Chairman",
+      "company": "Al Othaim Holding / Abdullah Al Othaim Markets",
+      "country": "Saudi Arabia"
+    },
+    "candidate": {
+      "actor_id": "abdullah-al-othaim-al-othaim-holding",
+      "name_display": "Abdullah Al Othaim",
+      "first_name": "Abdullah",
+      "last_name": "Al Othaim",
+      "organization_primary": "Al Othaim Holding",
+      "designation": "Chairman",
+      "country_normalized": "Saudi Arabia",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "10fa7a875161e6e5",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "dc94bb8a90e1b70c",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Khalid Abdul Rahman Saleh",
+      "last_name": "Al Rajhi",
+      "designation": "Board Member / Family Investor",
+      "company": "Al Rajhi Bank / Al Rajhi Family Office",
+      "country": "Saudi Arabia"
+    },
+    "candidate": {
+      "actor_id": "khalid-abdul-rahman-saleh-al-rajhi-al-rajhi-bank",
+      "name_display": "Khalid Abdul Rahman Saleh Al Rajhi",
+      "first_name": "Khalid Abdul Rahman Saleh",
+      "last_name": "Al Rajhi",
+      "organization_primary": "Al Rajhi Bank",
+      "designation": "Board Member / Family Investor",
+      "country_normalized": "Saudi Arabia",
+      "actor_type": "family_office",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "dc94bb8a90e1b70c",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "f2d892ca5773cfd1",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Haitham",
+      "last_name": "Al-Ohali",
+      "designation": "Vice Minister",
+      "company": "Ministry of Communications & IT, Saudi Arabia",
+      "country": "Saudi Arabia"
+    },
+    "candidate": {
+      "actor_id": "haitham-al-ohali-ministry-of-communications-it",
+      "name_display": "Haitham Al-Ohali",
+      "first_name": "Haitham",
+      "last_name": "Al-Ohali",
+      "organization_primary": "Ministry of Communications & IT",
+      "designation": "Vice Minister",
+      "country_normalized": "Saudi Arabia",
+      "actor_type": "regulator",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "f2d892ca5773cfd1",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "c9ce84acacdf8bc3",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Ammar Soliman",
+      "last_name": "Fakeeh",
+      "designation": "Chairman",
+      "company": "Dr. Soliman Fakeeh Hospital / Fakeeh Care Group",
+      "country": "Saudi Arabia"
+    },
+    "candidate": {
+      "actor_id": "ammar-soliman-fakeeh-dr-soliman-fakeeh-hospital",
+      "name_display": "Ammar Soliman Fakeeh",
+      "first_name": "Ammar Soliman",
+      "last_name": "Fakeeh",
+      "organization_primary": "Dr. Soliman Fakeeh Hospital",
+      "designation": "Chairman",
+      "country_normalized": "Saudi Arabia",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "c9ce84acacdf8bc3",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "f0d27baeb3e0be79",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Mazen Soliman",
+      "last_name": "Fakeeh",
+      "designation": "President & CEO",
+      "company": "Dr. Soliman Fakeeh Hospital / Fakeeh Care Group",
+      "country": "Saudi Arabia"
+    },
+    "candidate": {
+      "actor_id": "mazen-soliman-fakeeh-dr-soliman-fakeeh-hospital",
+      "name_display": "Mazen Soliman Fakeeh",
+      "first_name": "Mazen Soliman",
+      "last_name": "Fakeeh",
+      "organization_primary": "Dr. Soliman Fakeeh Hospital",
+      "designation": "President & CEO",
+      "country_normalized": "Saudi Arabia",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "f0d27baeb3e0be79",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "16f5b2f5622e63ef",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Yousuf Mohammad",
+      "last_name": "Jamjoom",
+      "designation": "Chairman",
+      "company": "Jamjoom Pharma / Jamjoom Group",
+      "country": "Saudi Arabia"
+    },
+    "candidate": {
+      "actor_id": "yousuf-mohammad-jamjoom-jamjoom-pharma",
+      "name_display": "Yousuf Mohammad Jamjoom",
+      "first_name": "Yousuf Mohammad",
+      "last_name": "Jamjoom",
+      "organization_primary": "Jamjoom Pharma",
+      "designation": "Chairman",
+      "country_normalized": "Saudi Arabia",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "16f5b2f5622e63ef",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "7201bfc9a7c8c0b8",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Fabián",
+      "last_name": "Alejandro de Paul",
+      "designation": "Director / Board Member",
+      "company": "Banco Macro S.A.; Operating Partner at Pampa Capital",
+      "country": "Argentina"
+    },
+    "candidate": {
+      "actor_id": "fabian-alejandro-de-paul-banco-macro-s-a",
+      "name_display": "Fabián Alejandro de Paul",
+      "first_name": "Fabián",
+      "last_name": "Alejandro de Paul",
+      "organization_primary": "Banco Macro S.A.",
+      "designation": "Director / Board Member",
+      "country_normalized": "Argentina",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "7201bfc9a7c8c0b8",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "da5fb7094522621b",
+    "status": "pending",
+    "issues": [
+      "missing_country"
+    ],
+    "source": {
+      "first_name": "Pablo",
+      "last_name": "Borboroglu",
+      "designation": "Co-founder and co-chair",
+      "company": "IUCN Species Survival Commission (SSC) Penguin Specialist Group",
+      "country": ""
+    },
+    "candidate": {
+      "actor_id": "pablo-borboroglu-iucn-species-survival-commission-ssc-penguin-specialist-group",
+      "name_display": "Pablo Borboroglu",
+      "first_name": "Pablo",
+      "last_name": "Borboroglu",
+      "organization_primary": "IUCN Species Survival Commission (SSC) Penguin Specialist Group",
+      "designation": "Co-founder and co-chair",
+      "country_normalized": "",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "da5fb7094522621b",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "975d8fa45831d42e",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Alejandro",
+      "last_name": "Bulgheroni",
+      "designation": "President & Owner",
+      "company": "Pan American Energy / Bridas Corp",
+      "country": "Argentina"
+    },
+    "candidate": {
+      "actor_id": "alejandro-bulgheroni-pan-american-energy",
+      "name_display": "Alejandro Bulgheroni",
+      "first_name": "Alejandro",
+      "last_name": "Bulgheroni",
+      "organization_primary": "Pan American Energy",
+      "designation": "President & Owner",
+      "country_normalized": "Argentina",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "975d8fa45831d42e",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "feb321eb91c8d385",
+    "status": "pending",
+    "issues": [
+      "missing_country"
+    ],
+    "source": {
+      "first_name": "Wences",
+      "last_name": "Casares",
+      "designation": "Entrepreneur and former CEO",
+      "company": "Xapo",
+      "country": ""
+    },
+    "candidate": {
+      "actor_id": "wences-casares-xapo",
+      "name_display": "Wences Casares",
+      "first_name": "Wences",
+      "last_name": "Casares",
+      "organization_primary": "Xapo",
+      "designation": "Entrepreneur and former CEO",
+      "country_normalized": "",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "feb321eb91c8d385",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "389baac60e20d347",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Eduardo",
+      "last_name": "Costantini",
+      "designation": "Founder & Chairman",
+      "company": "Consultatio / Real Estate / Art Institutions",
+      "country": "Argentina"
+    },
+    "candidate": {
+      "actor_id": "eduardo-costantini-consultatio",
+      "name_display": "Eduardo Costantini",
+      "first_name": "Eduardo",
+      "last_name": "Costantini",
+      "organization_primary": "Consultatio",
+      "designation": "Founder & Chairman",
+      "country_normalized": "Argentina",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "389baac60e20d347",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "1bf5fcc9860663c0",
+    "status": "pending",
+    "issues": [
+      "missing_country"
+    ],
+    "source": {
+      "first_name": "Leo",
+      "last_name": "Martellotto",
+      "designation": "Chief Development Officer",
+      "company": "JA Worldwide - Harvard Alumnus (PLDA)",
+      "country": ""
+    },
+    "candidate": {
+      "actor_id": "leo-martellotto-ja-worldwide-harvard-alumnus-plda",
+      "name_display": "Leo Martellotto",
+      "first_name": "Leo",
+      "last_name": "Martellotto",
+      "organization_primary": "JA Worldwide - Harvard Alumnus (PLDA)",
+      "designation": "Chief Development Officer",
+      "country_normalized": "",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "1bf5fcc9860663c0",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "79b66cb6b2d2a45b",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Beatriz",
+      "last_name": "Davila de Santo Domingo",
+      "designation": "Family principal & philanthropist",
+      "company": "Santo Domingo Group / Fundación Santo Domingo",
+      "country": "Colombia"
+    },
+    "candidate": {
+      "actor_id": "beatriz-davila-de-santo-domingo-santo-domingo-group",
+      "name_display": "Beatriz Davila de Santo Domingo",
+      "first_name": "Beatriz",
+      "last_name": "Davila de Santo Domingo",
+      "organization_primary": "Santo Domingo Group",
+      "designation": "Family principal & philanthropist",
+      "country_normalized": "Colombia",
+      "actor_type": "sovereign",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "79b66cb6b2d2a45b",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "9e2cb7eea6744a06",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Hassan",
+      "last_name": "Abdou",
+      "designation": "Non-Executive Director",
+      "company": "Orascom Investment Holding; Orascom Financial Holding; La Mancha Services",
+      "country": "Egypt"
+    },
+    "candidate": {
+      "actor_id": "hassan-abdou-orascom-investment-holding",
+      "name_display": "Hassan Abdou",
+      "first_name": "Hassan",
+      "last_name": "Abdou",
+      "organization_primary": "Orascom Investment Holding",
+      "designation": "Non-Executive Director",
+      "country_normalized": "Egypt",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "9e2cb7eea6744a06",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "937bf7081914e5e9",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Tamer",
+      "last_name": "El Mahdi",
+      "designation": "Founder and CEO",
+      "company": "Trading Globe, Ltd",
+      "country": "Egypt"
+    },
+    "candidate": {
+      "actor_id": "tamer-el-mahdi-trading-globe",
+      "name_display": "Tamer El Mahdi",
+      "first_name": "Tamer",
+      "last_name": "El Mahdi",
+      "organization_primary": "Trading Globe",
+      "designation": "Founder and CEO",
+      "country_normalized": "Egypt",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "937bf7081914e5e9",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "466d68e9bea76760",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Yasser",
+      "last_name": "El-Mallawany",
+      "designation": "Vice Chairman of the Board",
+      "company": "EFG Hermes Holding / EFG Holding S.A.E.",
+      "country": "Egypt"
+    },
+    "candidate": {
+      "actor_id": "yasser-el-mallawany-efg-hermes-holding",
+      "name_display": "Yasser El-Mallawany",
+      "first_name": "Yasser",
+      "last_name": "El-Mallawany",
+      "organization_primary": "EFG Hermes Holding",
+      "designation": "Vice Chairman of the Board",
+      "country_normalized": "Egypt",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "466d68e9bea76760",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "c4880cf7fa9ae2b7",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Mohamed",
+      "last_name": "Mansour",
+      "designation": "Chairman; Founder & Chairman (Man Capital)",
+      "company": "Mansour Group / Man Capital",
+      "country": "Egypt"
+    },
+    "candidate": {
+      "actor_id": "mohamed-mansour-mansour-group",
+      "name_display": "Mohamed Mansour",
+      "first_name": "Mohamed",
+      "last_name": "Mansour",
+      "organization_primary": "Mansour Group",
+      "designation": "Chairman; Founder & Chairman (Man Capital)",
+      "country_normalized": "Egypt",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "c4880cf7fa9ae2b7",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "b1d1960fc37df26e",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Yasseen",
+      "last_name": "Mansour",
+      "designation": "Chairman; Board Member / Co-owner",
+      "company": "Palm Hills Developments / Mansour Group",
+      "country": "Egypt"
+    },
+    "candidate": {
+      "actor_id": "yasseen-mansour-palm-hills-developments",
+      "name_display": "Yasseen Mansour",
+      "first_name": "Yasseen",
+      "last_name": "Mansour",
+      "organization_primary": "Palm Hills Developments",
+      "designation": "Chairman; Board Member / Co-owner",
+      "country_normalized": "Egypt",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "b1d1960fc37df26e",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "5594df670cef895d",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Nassef",
+      "last_name": "Sawiris",
+      "designation": "Executive Chairman (OCI N.V.); Chairman (Orascom Construction); Co-owner & Chairman (Aston Villa)",
+      "company": "OCI N.V. / Orascom Construction PLC / Aston Villa (NSWE)",
+      "country": "Egypt"
+    },
+    "candidate": {
+      "actor_id": "nassef-sawiris-oci-n-v",
+      "name_display": "Nassef Sawiris",
+      "first_name": "Nassef",
+      "last_name": "Sawiris",
+      "organization_primary": "OCI N.V.",
+      "designation": "Executive Chairman (OCI N.V.); Chairman (Orascom Construction); Co-owner & Chairman (Aston Villa)",
+      "country_normalized": "Egypt",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "5594df670cef895d",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "49818704a89fbb39",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Naguib and Onsi",
+      "last_name": "Sawiris",
+      "designation": "Chairman; Chairman (gold-mining investment company)",
+      "company": "Orascom Investment Holding / La Mancha Holding",
+      "country": "Egypt"
+    },
+    "candidate": {
+      "actor_id": "naguib-and-onsi-sawiris-orascom-investment-holding",
+      "name_display": "Naguib and Onsi Sawiris",
+      "first_name": "Naguib and Onsi",
+      "last_name": "Sawiris",
+      "organization_primary": "Orascom Investment Holding",
+      "designation": "Chairman; Chairman (gold-mining investment company)",
+      "country_normalized": "Egypt",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "49818704a89fbb39",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "2c5d9447d709cb20",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Shahid",
+      "last_name": "Khan",
+      "designation": "Owner & Executive Chairman",
+      "company": "Flex-N-Gate; Jacksonville Jaguars (NFL); Fulham FC (EPL)",
+      "country": "Pakistan"
+    },
+    "candidate": {
+      "actor_id": "shahid-khan-flex-n-gate",
+      "name_display": "Shahid Khan",
+      "first_name": "Shahid",
+      "last_name": "Khan",
+      "organization_primary": "Flex-N-Gate",
+      "designation": "Owner & Executive Chairman",
+      "country_normalized": "Pakistan",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "2c5d9447d709cb20",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "4cf7f53f4f9fb772",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Mian Muhammad",
+      "last_name": "Mansha",
+      "designation": "Chairman",
+      "company": "Nishat Group; MCB Bank; DG Khan Cement; Adamjee Insurance",
+      "country": "Pakistan"
+    },
+    "candidate": {
+      "actor_id": "mian-muhammad-mansha-nishat-group",
+      "name_display": "Mian Muhammad Mansha",
+      "first_name": "Mian Muhammad",
+      "last_name": "Mansha",
+      "organization_primary": "Nishat Group",
+      "designation": "Chairman",
+      "country_normalized": "Pakistan",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "4cf7f53f4f9fb772",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "bb954978374866b6",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Majjid",
+      "last_name": "Bashir",
+      "designation": "Chairman & Senior Partner",
+      "company": "ACM Group (legal, business advisory)",
+      "country": "Pakistan"
+    },
+    "candidate": {
+      "actor_id": "majjid-bashir-acm-group-legal",
+      "name_display": "Majjid Bashir",
+      "first_name": "Majjid",
+      "last_name": "Bashir",
+      "organization_primary": "ACM Group (legal",
+      "designation": "Chairman & Senior Partner",
+      "country_normalized": "Pakistan",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "bb954978374866b6",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "d7d25b63d3887639",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Anwar Saifullah",
+      "last_name": "Khan",
+      "designation": "Businessman; Ex-Federal Minister",
+      "company": "Saif Group; former Pakistani politician (PPP/PML-Q)",
+      "country": "Pakistan"
+    },
+    "candidate": {
+      "actor_id": "anwar-saifullah-khan-saif-group",
+      "name_display": "Anwar Saifullah Khan",
+      "first_name": "Anwar Saifullah",
+      "last_name": "Khan",
+      "organization_primary": "Saif Group",
+      "designation": "Businessman; Ex-Federal Minister",
+      "country_normalized": "Pakistan",
+      "actor_type": "regulator",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "d7d25b63d3887639",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "4416efcf8ccafb2d",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Jahangir",
+      "last_name": "Siddiqui",
+      "designation": "Founder & Chairman",
+      "company": "JS Group; JS Bank",
+      "country": "Pakistan"
+    },
+    "candidate": {
+      "actor_id": "jahangir-siddiqui-js-group",
+      "name_display": "Jahangir Siddiqui",
+      "first_name": "Jahangir",
+      "last_name": "Siddiqui",
+      "organization_primary": "JS Group",
+      "designation": "Founder & Chairman",
+      "country_normalized": "Pakistan",
+      "actor_type": "corporate",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "4416efcf8ccafb2d",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "1e57e4de773284a6",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Cho",
+      "last_name": "Jyh-jer",
+      "designation": "Chairman",
+      "company": "Standard Foods / Wei Chuan Foods",
+      "country": "Taiwan"
+    },
+    "candidate": {
+      "actor_id": "cho-jyh-jer-standard-foods",
+      "name_display": "Cho Jyh-jer",
+      "first_name": "Cho",
+      "last_name": "Jyh-jer",
+      "organization_primary": "Standard Foods",
+      "designation": "Chairman",
+      "country_normalized": "Taiwan",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "1e57e4de773284a6",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "f4a075e019244882",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "Andre",
+      "last_name": "Koo",
+      "designation": "Investor, Founder of K8 Capital",
+      "company": "Koo Family Holdings / K8 Capital",
+      "country": "Taiwan"
+    },
+    "candidate": {
+      "actor_id": "andre-koo-koo-family-holdings",
+      "name_display": "Andre Koo",
+      "first_name": "Andre",
+      "last_name": "Koo",
+      "organization_primary": "Koo Family Holdings",
+      "designation": "Investor, Founder of K8 Capital",
+      "country_normalized": "Taiwan",
+      "actor_type": "family_office",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "f4a075e019244882",
+      "needs_review": true
+    }
+  },
+  {
+    "source_row_hash": "9a3c2accb511f8b9",
+    "status": "pending",
+    "issues": [
+      "multi_entity_company_field"
+    ],
+    "source": {
+      "first_name": "T.Y.",
+      "last_name": "Tsai",
+      "designation": "Shareholder & Family Investor",
+      "company": "Cathay Life Insurance / Cathay Financial family",
+      "country": "Taiwan"
+    },
+    "candidate": {
+      "actor_id": "t-y-tsai-cathay-life-insurance",
+      "name_display": "T.Y. Tsai",
+      "first_name": "T.Y.",
+      "last_name": "Tsai",
+      "organization_primary": "Cathay Life Insurance",
+      "designation": "Shareholder & Family Investor",
+      "country_normalized": "Taiwan",
+      "actor_type": "other",
+      "relationship_source": "shiv_sun_group",
+      "relationship_strength": "first_degree",
+      "source_row_hash": "9a3c2accb511f8b9",
+      "needs_review": true
+    }
+  }
+]
