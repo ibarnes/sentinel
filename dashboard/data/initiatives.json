@@ -113,7 +113,8 @@
             "mapped_entity_ref": "CBN",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Central banking authority responsible for regulating banking operations, financial institutions, payment systems, and monetary policy."
           },
           {
             "role_id": "telecom_regulator_primary",
@@ -192,7 +193,8 @@
             "mapped_entity_ref": "Quick Microfinance Bank",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Licensed financial institution role operating banking core infrastructure and the regulatory interface for platform financial services."
           },
           {
             "role_id": "payment_processors",
@@ -243,7 +245,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Manages transportation and distribution operations required to support fuel delivery, merchant supply chains, and platform logistics infrastructure."
           },
           {
             "role_id": "merchant_network_operator",
@@ -270,7 +273,8 @@
             "mapped_entity_ref": "USG",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Defines structural architecture of the circulation platform, including capital alignment, governance structure, and system-level coordination before large-scale deployment."
           },
           {
             "role_id": "platform_governance_designer",
@@ -282,7 +286,8 @@
             "mapped_entity_ref": "USG",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Designs the governance framework defining roles, decision authority, and coordination logic across participating institutions."
           },
           {
             "role_id": "fid_structuring_lead",
@@ -294,7 +299,8 @@
             "mapped_entity_ref": "USG",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Defines the structural commitments and sequencing required before major capital deployment or system expansion occurs."
           },
           {
             "role_id": "regulatory_pathway_advisor",
@@ -332,7 +338,8 @@
             "mapped_entity_ref": "Deloitte / Slalom / Quocoon",
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Integrates banking systems, telecom infrastructure, payment platforms, and digital services into a unified operational technology environment."
           }
         ],
         "capital": [
@@ -411,7 +418,8 @@
             "mapped_entity_ref": "ADQ / MUBADALA",
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides large-scale sovereign investment capital that may participate in financing platform infrastructure and expansion."
           },
           {
             "role_id": "infra_funds",
@@ -423,7 +431,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Institutional investment funds specializing in large-scale infrastructure assets that may participate as long-term investors in platform expansion."
           },
           {
             "role_id": "family_office_infra_capital",
@@ -489,7 +498,7 @@
             "is_critical_role": false,
             "owner": "",
             "due": "",
-            "role_definition": "Represents device manufacturers, distributors, and service ecosystems that determine user access to mobile-first financial services and digital platform participation."
+            "role_definition": "Represents manufacturers, distributors, and software platforms that provide mobile devices used by consumers and merchants to access digital financial services."
           },
           {
             "role_id": "cloud_infrastructure_provider",
@@ -501,7 +510,8 @@
             "mapped_entity_ref": "AWS",
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides scalable cloud computing infrastructure used to host the financial platform, process transactions, and manage data securely."
           },
           {
             "role_id": "ai_compute_provider",
@@ -513,7 +523,8 @@
             "mapped_entity_ref": "NVIDIA",
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Supplies compute hardware and AI infrastructure that supports advanced analytics, fraud detection, and optimization of financial platform operations."
           },
           {
             "role_id": "satellite_connectivity_provider",
@@ -525,7 +536,8 @@
             "mapped_entity_ref": "SpaceX",
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides satellite-based internet connectivity that enables platform access in areas where terrestrial network coverage is limited."
           }
         ]
       }
@@ -542,7 +554,8 @@
           "mapped_entity_ref": "CBN",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Central banking authority responsible for regulating banking operations, financial institutions, payment systems, and monetary policy."
         },
         {
           "role_id": "telecom_regulator_primary",
@@ -621,7 +634,8 @@
           "mapped_entity_ref": "Quick Microfinance Bank",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Licensed financial institution role operating banking core infrastructure and the regulatory interface for platform financial services."
         },
         {
           "role_id": "payment_processors",
@@ -672,7 +686,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Manages transportation and distribution operations required to support fuel delivery, merchant supply chains, and platform logistics infrastructure."
         },
         {
           "role_id": "merchant_network_operator",
@@ -699,7 +714,8 @@
           "mapped_entity_ref": "USG",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Defines structural architecture of the circulation platform, including capital alignment, governance structure, and system-level coordination before large-scale deployment."
         },
         {
           "role_id": "platform_governance_designer",
@@ -711,7 +727,8 @@
           "mapped_entity_ref": "USG",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Designs the governance framework defining roles, decision authority, and coordination logic across participating institutions."
         },
         {
           "role_id": "fid_structuring_lead",
@@ -723,7 +740,8 @@
           "mapped_entity_ref": "USG",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Defines the structural commitments and sequencing required before major capital deployment or system expansion occurs."
         },
         {
           "role_id": "regulatory_pathway_advisor",
@@ -761,7 +779,8 @@
           "mapped_entity_ref": "Deloitte / Slalom / Quocoon",
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Integrates banking systems, telecom infrastructure, payment platforms, and digital services into a unified operational technology environment."
         }
       ],
       "capital": [
@@ -840,7 +859,8 @@
           "mapped_entity_ref": "ADQ / MUBADALA",
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides large-scale sovereign investment capital that may participate in financing platform infrastructure and expansion."
         },
         {
           "role_id": "infra_funds",
@@ -852,7 +872,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Institutional investment funds specializing in large-scale infrastructure assets that may participate as long-term investors in platform expansion."
         },
         {
           "role_id": "family_office_infra_capital",
@@ -918,7 +939,7 @@
           "is_critical_role": false,
           "owner": "",
           "due": "",
-          "role_definition": "Represents device manufacturers, distributors, and service ecosystems that determine user access to mobile-first financial services and digital platform participation."
+          "role_definition": "Represents manufacturers, distributors, and software platforms that provide mobile devices used by consumers and merchants to access digital financial services."
         },
         {
           "role_id": "cloud_infrastructure_provider",
@@ -930,7 +951,8 @@
           "mapped_entity_ref": "AWS",
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides scalable cloud computing infrastructure used to host the financial platform, process transactions, and manage data securely."
         },
         {
           "role_id": "ai_compute_provider",
@@ -942,7 +964,8 @@
           "mapped_entity_ref": "NVIDIA",
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Supplies compute hardware and AI infrastructure that supports advanced analytics, fraud detection, and optimization of financial platform operations."
         },
         {
           "role_id": "satellite_connectivity_provider",
@@ -954,11 +977,12 @@
           "mapped_entity_ref": "SpaceX",
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides satellite-based internet connectivity that enables platform access in areas where terrestrial network coverage is limited."
         }
       ]
     },
-    "updated_at": "2026-03-10T15:47:00Z"
+    "updated_at": "2026-03-10T15:48:00Z"
   },
   {
     "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -3534,19 +3558,6 @@
         ],
         "capital": [
           {
-            "role_id": "anchor_equity",
-            "role_label": "Anchor Equity / Platform Investor",
-            "layer": "capital",
-            "status": "missing",
-            "notes": "",
-            "mapped_entity_type": null,
-            "mapped_entity_ref": null,
-            "is_critical_role": true,
-            "owner": "",
-            "due": "",
-            "role_definition": "Provides the cornerstone equity capital that anchors the digital health platform and signals credibility to other institutional investors. Participates in governance and major capital deployment decisions across the platform."
-          },
-          {
             "role_id": "development_finance_partner",
             "role_label": "Development Finance Partner",
             "layer": "capital",
@@ -3584,6 +3595,19 @@
             "owner": "",
             "due": "",
             "role_definition": "Designs financing structures that combine public funding, development finance, and private capital to support multi-market expansion."
+          },
+          {
+            "role_id": "anchor_equity",
+            "role_label": "Anchor Equity / Platform Investor",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "",
+            "mapped_entity_type": null,
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "role_definition": "Provides the cornerstone equity capital that anchors the digital health platform and signals credibility to other institutional investors. Participates in governance and major capital deployment decisions across the platform."
           }
         ],
         "delivery": [
@@ -3859,19 +3883,6 @@
       ],
       "capital": [
         {
-          "role_id": "anchor_equity",
-          "role_label": "Anchor Equity / Platform Investor",
-          "layer": "capital",
-          "status": "missing",
-          "notes": "",
-          "mapped_entity_type": null,
-          "mapped_entity_ref": null,
-          "is_critical_role": true,
-          "owner": "",
-          "due": "",
-          "role_definition": "Provides the cornerstone equity capital that anchors the digital health platform and signals credibility to other institutional investors. Participates in governance and major capital deployment decisions across the platform."
-        },
-        {
           "role_id": "development_finance_partner",
           "role_label": "Development Finance Partner",
           "layer": "capital",
@@ -3909,6 +3920,19 @@
           "owner": "",
           "due": "",
           "role_definition": "Designs financing structures that combine public funding, development finance, and private capital to support multi-market expansion."
+        },
+        {
+          "role_id": "anchor_equity",
+          "role_label": "Anchor Equity / Platform Investor",
+          "layer": "capital",
+          "status": "missing",
+          "notes": "",
+          "mapped_entity_type": null,
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "role_definition": "Provides the cornerstone equity capital that anchors the digital health platform and signals credibility to other institutional investors. Participates in governance and major capital deployment decisions across the platform."
         }
       ],
       "delivery": [
@@ -3992,6 +4016,6 @@
         }
       ]
     },
-    "updated_at": "2026-03-10T15:32:00Z"
+    "updated_at": "2026-03-10T22:59:45.044Z"
   }
 ]
