@@ -6,6 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** Isaac
 - **Pronouns:** _(optional)_
 - **Timezone:** America/New_York
+- **Email:** isaac@unifiedstategroup.com
 - **Notes:**
   - Running on a public EC2 instance.
   - Prefers Structured + Safe operating mode.
