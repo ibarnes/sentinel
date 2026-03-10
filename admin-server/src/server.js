@@ -4619,6 +4619,7 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
 
         <div class="oc-nav-group-label">Origination</div>
         <a class="nav-link" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
+        <a class="nav-link" href="/dashboard/actors" title="Actors"><i data-lucide="contact-round" class="nav-icon"></i><span class="nav-label">Actors</span></a>
         <a class="nav-link" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
         <a class="nav-link" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
 
