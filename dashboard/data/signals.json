@@ -1574,5 +1574,33 @@
       }
     ],
     "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-10-ZM-COPPER-INVESTOR-COURTSHIP-001",
+    "title": "Zambia courting global investors to triple copper output by 2031",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "High",
+    "verification_status": "pending_full_source_validation",
+    "observed_at": "2026-03-10T21:47:00Z",
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "summary": "Isaac-provided Reuters Africa post indicates Zambia is courting global investors, including US investors, aiming to more than triple copper output to 3 million metric tons by 2031, signaling accelerating demand for capital, offtake structures, logistics corridors, and processing infrastructure.",
+    "flow": "zambia copper output expansion target -> global investor courtship -> mine + logistics + power + processing capex demand -> commodity corridor platform opportunities",
+    "verification_note": "Reuters social post suggests credible lead and cites an on-record mines minister statement; keep Monitor until full Reuters article text and at least one additional corroborating source are captured.",
+    "sources": [
+      {
+        "label": "Isaac-provided Reuters Africa screenshot (X post, 2026-03-10)",
+        "url": "internal://isaac/telegram/2026-03-10-zambia-copper-investor-courtship"
+      }
+    ],
+    "provenance": "provided_by_isaac"
   }
 ]
