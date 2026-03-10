@@ -3002,11 +3002,17 @@
           "author": "sentinel",
           "text": "Decomposition gate applied: split TASK-0103 into TASK-0110 (preflight evidence scaffold) and TASK-0111 (credentialed execution + attach evidence).",
           "created_at": "2026-03-07T11:40:00Z"
+        },
+        {
+          "id": "progress-0103-20260310-0630",
+          "author": "sentinel",
+          "text": "Recovery sweep normalization: credential boundary persists; prepared apply-ready transition patchset (TASK-0130/RP-0047) for immediate post-credential status replay.",
+          "created_at": "2026-03-10T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-07T11:40:00Z",
+      "updated_at": "2026-03-10T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3918,7 +3924,7 @@
     {
       "id": "TASK-0130",
       "title": "BRS-2026-03-10b Prepare apply-ready transition patchset for post-decision execution",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -3936,13 +3942,92 @@
         "mission-control/board/sweeps/2026-03-10T03-10-00Z-night-unblock-matrix.md"
       ],
       "description": "Precompute decision-dependent BOARD.json patch instructions so post-approval transitions can be applied in <30 minutes.\nAcceptance Criteria:\n- Includes approve/defer/hold transition instructions per target task.\n- Includes deterministic comment templates and follow-up date rule.\n- No Done transitions without approved RP evidence.",
-      "comments": [],
-      "request_approval": null,
+      "comments": [
+        {
+          "id": "done-0130-20260310-0630",
+          "author": "sentinel",
+          "text": "Executed in late-night recovery sweep: apply-ready transition patchset authored at mission-control/board/sweeps/2026-03-10T06-30-00Z-apply-ready-transition-patchset.md; queued for Isaac decision replay.",
+          "created_at": "2026-03-10T06:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-10T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0047-board-recovery-sweep-2026-03-10-0630.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
       "created_at": "2026-03-10T03:10:00Z",
-      "updated_at": "2026-03-10T03:10:00Z",
+      "updated_at": "2026-03-10T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
-      "parent_id": "TASK-0109"
+      "parent_id": "TASK-0109",
+      "review_packet_id": "RP-0047"
+    },
+    {
+      "id": "TASK-0131",
+      "title": "BRS-2026-03-10c Normalize stalled-chain status semantics + blocker annotations",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0130",
+        "mission-control/board/sweeps/2026-03-10T06-30-00Z-apply-ready-transition-patchset.md"
+      ],
+      "description": "Normalize credential-bound stalled-chain semantics so blocked work is explicitly annotated and replay-ready for post-credential closure. Acceptance: blocker annotation template applied and chain transition logic documented.",
+      "comments": [
+        {
+          "id": "done-0131-20260310-0630",
+          "author": "sentinel",
+          "text": "Executed during sweep: status-semantics normalization captured in patchset C; credential-bound blocker annotation template prepared.",
+          "created_at": "2026-03-10T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-10T06:30:00Z",
+      "updated_at": "2026-03-10T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0047"
+    },
+    {
+      "id": "TASK-0132",
+      "title": "BRS-2026-03-10d Prepare post-credential closure comment macros for TASK-0103 chain",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "TASK-0095",
+        "TASK-0043",
+        "mission-control/board/sweeps/2026-03-10T06-30-00Z-apply-ready-transition-patchset.md"
+      ],
+      "description": "Prepare deterministic comment macros for success/failure credential outcomes and corresponding board transitions across parent chain. Acceptance: macros cover 201+400 success and failure branches with follow-up date rule.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-10T06:30:00Z",
+      "updated_at": "2026-03-10T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0097"
     }
   ]
 }
