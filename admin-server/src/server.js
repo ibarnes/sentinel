@@ -650,7 +650,6 @@ function dashboardNav(active = '') {
       <div class="oc-nav-group-label">Origination</div>
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
       <a class="nav-link ${is('actors')}" href="/dashboard/actors" title="Actors"><i data-lucide="contact-round" class="nav-icon"></i><span class="nav-label">Actors</span></a>
-      <a class="nav-link ${is('actors-import-review')}" href="/dashboard/actors/import-review" title="Actors Import Review"><i data-lucide="list-checks" class="nav-icon"></i><span class="nav-label">Actors Import Review</span></a>
       <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
       <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
 
@@ -665,6 +664,7 @@ function dashboardNav(active = '') {
 
       <div class="oc-nav-group-label">Ops</div>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos" title="UOS"><i data-lucide="book-open" class="nav-icon"></i><span class="nav-label">UOS</span></a>
+      <a class="nav-link ${is('actors-import-review')}" href="/dashboard/actors/import-review" title="Actors Import Review"><i data-lucide="list-checks" class="nav-icon"></i><span class="nav-label">Actors Import Review</span></a>
       <a class="nav-link ${is('team')}" href="/dashboard/team" title="Team"><i data-lucide="users" class="nav-icon"></i><span class="nav-label">Team</span></a>
     </div>
     <div class="oc-nav-footer">
@@ -4645,6 +4645,7 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
 
         <div class="oc-nav-group-label">Ops</div>
         <a class="nav-link" href="/dashboard/uos" title="UOS"><i data-lucide="book-open" class="nav-icon"></i><span class="nav-label">UOS</span></a>
+        <a class="nav-link" href="/dashboard/actors/import-review" title="Actors Import Review"><i data-lucide="list-checks" class="nav-icon"></i><span class="nav-label">Actors Import Review</span></a>
         <a class="nav-link" href="/dashboard/team" title="Team"><i data-lucide="users" class="nav-icon"></i><span class="nav-label">Team</span></a>
       </div>
       <div class="small text-muted oc-nav-user">${escapeHtml(u.username)} (${escapeHtml(u.role)})</div>
