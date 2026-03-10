@@ -3315,7 +3315,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Represents the national public health authority responsible for aligning the digital health platform with healthcare policy, public health priorities, and government health programs."
           },
           {
             "role_id": "national_digital_ict_ministry",
@@ -3327,7 +3328,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Government authority responsible for digital infrastructure, connectivity policy, and national digital transformation initiatives that enable deployment of digital health platforms."
           },
           {
             "role_id": "health_regulator",
@@ -3339,7 +3341,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Regulates healthcare delivery standards, clinical data handling, and medical technology compliance to ensure the platform meets healthcare regulations."
           },
           {
             "role_id": "data_protection_authority",
@@ -3351,7 +3354,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Ensures patient data privacy and security compliance by enforcing data protection laws governing collection, storage, and use of personal health information."
           },
           {
             "role_id": "cross_border_health_data_policy_forum",
@@ -3363,7 +3367,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Regional body that aligns cross-border policies governing exchange of health data across participating countries."
           }
         ],
         "asset": [
@@ -3377,7 +3382,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Healthcare organization that owns and operates hospital facilities and serves as primary deployment environment for the platform."
           },
           {
             "role_id": "clinical_platform_operator",
@@ -3389,7 +3395,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Operates the deployed digital health platform, ensuring uptime, performance, and reliable service delivery for providers and patients."
           },
           {
             "role_id": "national_hie_counterpart",
@@ -3401,7 +3408,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Organization responsible for enabling secure exchange of patient records and clinical data between providers and health systems."
           },
           {
             "role_id": "country_data_residency_governance_owner",
@@ -3413,7 +3421,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Responsible for managing where health data is stored and ensuring hosting environments comply with data residency and security requirements."
           }
         ],
         "development": [
@@ -3427,7 +3436,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Leads design of platform architecture, defining system functionality, product roadmap, and technical requirements that guide deployment."
           },
           {
             "role_id": "systems_integrator",
@@ -3439,7 +3449,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Designs and implements technical integration of healthcare systems across hospitals, telehealth services, data platforms, and cloud infrastructure."
           },
           {
             "role_id": "clinical_workflow_transformation_lead",
@@ -3451,7 +3462,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Designs and guides transformation of hospital workflows so clinicians can effectively use digital systems for diagnosis, patient management, and care coordination."
           },
           {
             "role_id": "cybersecurity_privacy_lead",
@@ -3463,7 +3475,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Ensures the platform is built with secure architecture and embedded privacy protections that safeguard sensitive patient data across all components."
           },
           {
             "role_id": "interoperability_lead",
@@ -3475,7 +3488,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Defines standards and technical frameworks that allow clinical systems, data platforms, and providers to exchange information seamlessly."
           }
         ],
         "capital": [
@@ -3489,7 +3503,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides the cornerstone equity capital that anchors the digital health platform and signals credibility to other institutional investors. Participates in governance and major capital deployment decisions across the platform."
           },
           {
             "role_id": "development_finance_partner",
@@ -3501,7 +3516,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Development finance institution role providing catalytic capital, guarantees, or blended-finance mechanisms for large-scale health infrastructure deployment."
           },
           {
             "role_id": "care_delivery_payor_anchor",
@@ -3513,7 +3529,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Large provider network or payor entity that anchors deployment by committing to use the system across care operations and patient populations."
           },
           {
             "role_id": "blended_finance_structurer",
@@ -3525,7 +3542,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Designs financing structures that combine public funding, development finance, and private capital to support multi-market expansion."
           }
         ],
         "delivery": [
@@ -3551,7 +3569,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides electronic health record software and interoperability solutions enabling digital storage and exchange of patient records."
           },
           {
             "role_id": "telehealth_front_door_vendor_stack",
@@ -3563,7 +3582,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides telehealth and digital front-door components that support patient access, triage, scheduling, and virtual care workflows."
           },
           {
             "role_id": "identity_consent_trust_provider",
@@ -3616,7 +3636,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Represents the national public health authority responsible for aligning the digital health platform with healthcare policy, public health priorities, and government health programs."
         },
         {
           "role_id": "national_digital_ict_ministry",
@@ -3628,7 +3649,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Government authority responsible for digital infrastructure, connectivity policy, and national digital transformation initiatives that enable deployment of digital health platforms."
         },
         {
           "role_id": "health_regulator",
@@ -3640,7 +3662,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Regulates healthcare delivery standards, clinical data handling, and medical technology compliance to ensure the platform meets healthcare regulations."
         },
         {
           "role_id": "data_protection_authority",
@@ -3652,7 +3675,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Ensures patient data privacy and security compliance by enforcing data protection laws governing collection, storage, and use of personal health information."
         },
         {
           "role_id": "cross_border_health_data_policy_forum",
@@ -3664,7 +3688,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Regional body that aligns cross-border policies governing exchange of health data across participating countries."
         }
       ],
       "asset": [
@@ -3678,7 +3703,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Healthcare organization that owns and operates hospital facilities and serves as primary deployment environment for the platform."
         },
         {
           "role_id": "clinical_platform_operator",
@@ -3690,7 +3716,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Operates the deployed digital health platform, ensuring uptime, performance, and reliable service delivery for providers and patients."
         },
         {
           "role_id": "national_hie_counterpart",
@@ -3702,7 +3729,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Organization responsible for enabling secure exchange of patient records and clinical data between providers and health systems."
         },
         {
           "role_id": "country_data_residency_governance_owner",
@@ -3714,7 +3742,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Responsible for managing where health data is stored and ensuring hosting environments comply with data residency and security requirements."
         }
       ],
       "development": [
@@ -3728,7 +3757,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Leads design of platform architecture, defining system functionality, product roadmap, and technical requirements that guide deployment."
         },
         {
           "role_id": "systems_integrator",
@@ -3740,7 +3770,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Designs and implements technical integration of healthcare systems across hospitals, telehealth services, data platforms, and cloud infrastructure."
         },
         {
           "role_id": "clinical_workflow_transformation_lead",
@@ -3752,7 +3783,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Designs and guides transformation of hospital workflows so clinicians can effectively use digital systems for diagnosis, patient management, and care coordination."
         },
         {
           "role_id": "cybersecurity_privacy_lead",
@@ -3764,7 +3796,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Ensures the platform is built with secure architecture and embedded privacy protections that safeguard sensitive patient data across all components."
         },
         {
           "role_id": "interoperability_lead",
@@ -3776,7 +3809,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Defines standards and technical frameworks that allow clinical systems, data platforms, and providers to exchange information seamlessly."
         }
       ],
       "capital": [
@@ -3790,7 +3824,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides the cornerstone equity capital that anchors the digital health platform and signals credibility to other institutional investors. Participates in governance and major capital deployment decisions across the platform."
         },
         {
           "role_id": "development_finance_partner",
@@ -3802,7 +3837,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Development finance institution role providing catalytic capital, guarantees, or blended-finance mechanisms for large-scale health infrastructure deployment."
         },
         {
           "role_id": "care_delivery_payor_anchor",
@@ -3814,7 +3850,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Large provider network or payor entity that anchors deployment by committing to use the system across care operations and patient populations."
         },
         {
           "role_id": "blended_finance_structurer",
@@ -3826,7 +3863,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Designs financing structures that combine public funding, development finance, and private capital to support multi-market expansion."
         }
       ],
       "delivery": [
@@ -3852,7 +3890,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides electronic health record software and interoperability solutions enabling digital storage and exchange of patient records."
         },
         {
           "role_id": "telehealth_front_door_vendor_stack",
@@ -3864,7 +3903,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides telehealth and digital front-door components that support patient access, triage, scheduling, and virtual care workflows."
         },
         {
           "role_id": "identity_consent_trust_provider",
@@ -3904,6 +3944,6 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T22:28:00Z"
+    "updated_at": "2026-03-10T15:31:00Z"
   }
 ]
