@@ -54,5 +54,12 @@
     "title": "Founder",
     "role": "Architect",
     "status": "active"
+  },
+  {
+    "name": "Richelle Maylad",
+    "email": "Richelle@unifiedstategroup.com",
+    "title": "Title TBD",
+    "status": "active",
+    "role": "Coordinator"
   }
 ]
