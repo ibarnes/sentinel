@@ -1081,6 +1081,117 @@ function resolvePlatformPressureRefs(rows = [], { buyers = [], initiatives = [],
   });
 }
 
+app.get('/dashboard/platform-pressure-v2', requireAnyAuth, async (req, res) => {
+  const sourceRows = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const rows = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRows), { buyers, initiatives, signals });
+
+  const qSector = String(req.query.sector || '').trim();
+  const qRegion = String(req.query.region || '').trim();
+  const qRange = String(req.query.time_range || '90d').trim();
+
+  const filtered = rows.filter((r) => {
+    if (qSector && String(r.sector || '').toLowerCase() !== qSector.toLowerCase()) return false;
+    if (qRegion && String(r.region || '').toLowerCase() !== qRegion.toLowerCase()) return false;
+    return true;
+  });
+
+  const avgPpi = filtered.length ? Math.round(filtered.reduce((s, r) => s + Number(r.ppi || 0), 0) / filtered.length) : 0;
+  const primaryConstraint = filtered.sort((a,b)=>Number(b.ppi||0)-Number(a.ppi||0))[0]?.buyerPath || 'No primary constraint detected';
+  const platformOpportunity = filtered.sort((a,b)=>Number((b.delta90d||0))-Number((a.delta90d||0)))[0]?.sector || 'No dominant sector';
+
+  const sectorCard = (key, title, metrics) => {
+    const rowsS = filtered.filter((r) => String(r.sector || '').toLowerCase().includes(key));
+    const ppi = rowsS.length ? Math.round(rowsS.reduce((s, r) => s + Number(r.ppi || 0), 0) / rowsS.length) : 0;
+    const sub = metrics.join(' • ');
+    return `<a class="card text-decoration-none" href="/dashboard/platform-pressure-v2/sector/${encodeURIComponent(key)}"><div class="card-body"><div class="d-flex justify-content-between"><strong>${escapeHtml(title)}</strong><span class="badge text-bg-light border">${ppi}</span></div><div class="small text-muted text-truncate" style="max-width:100%">${escapeHtml(sub)}</div></div></a>`;
+  };
+
+  const buyerBuckets = {
+    family_offices: buyers.filter((b)=>String(b.buyer_class||'').toLowerCase().includes('family')),
+    sovereign_funds: buyers.filter((b)=>String(b.buyer_class||'').toLowerCase().includes('sovereign')),
+    strategic_platforms: buyers.filter((b)=>String(b.buyer_class||'').toLowerCase().includes('strategic'))
+  };
+
+  const buyerCard = (id, title, metrics) => `<a class="card text-decoration-none" href="/dashboard/platform-pressure-v2/buyers/${encodeURIComponent(id)}"><div class="card-body"><div class="d-flex justify-content-between"><strong>${escapeHtml(title)}</strong><span class="badge text-bg-light border">${buyerBuckets[id]?.length || 0}</span></div><div class="small text-muted">${escapeHtml(metrics.join(' • '))}</div></div></a>`;
+
+  const sectorsHtml = [
+    sectorCard('energy', 'Energy Infrastructure', ['demand_growth','capital_inflow','constraint_score']),
+    sectorCard('finance', 'Digital Finance', ['regulatory_alignment','adoption_rate','platform_score']),
+    sectorCard('data', 'AI Data Centers', ['gpu_demand','power_constraints','capital_activity']),
+    sectorCard('logistics', 'Logistics Corridors', ['trade_flow','infrastructure_gap','capital_interest']),
+    sectorCard('water', 'Water Infrastructure', ['supply_risk','urban_demand','investment_activity'])
+  ].join('');
+
+  const buyersHtml = [
+    buyerCard('family_offices','Global Family Offices',['capital_availability','platform_interest','deal_velocity']),
+    buyerCard('sovereign_funds','Sovereign Wealth Funds',['capital_scale','strategic_alignment','deployment_speed']),
+    buyerCard('strategic_platforms','Strategic Platforms',['technology_alignment','capital_partnership','execution_capability'])
+  ].join('');
+
+  const sectors = [...new Set(rows.map((r)=>String(r.sector||'').trim()).filter(Boolean))].sort();
+  const regions = [...new Set(rows.map((r)=>String(r.region||'').trim()).filter(Boolean))].sort();
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure v2')}</head><body><div class="app-shell">
+    ${dashboardNav('platform-pressure')}
+    ${pageHeader('Platform Pressure v2', '', 'Clean progressive signal interpretation surface')}
+
+    <div class="card mb-3"><div class="card-body py-2">
+      <form class="row g-2" method="get" action="/dashboard/platform-pressure-v2">
+        <div class="col-12 col-md-4"><select class="form-select form-select-sm" name="time_range"><option value="30d" ${qRange==='30d'?'selected':''}>30d</option><option value="90d" ${qRange==='90d'?'selected':''}>90d</option><option value="180d" ${qRange==='180d'?'selected':''}>180d</option></select></div>
+        <div class="col-12 col-md-4"><select class="form-select form-select-sm" name="region"><option value="">Region (All)</option>${regions.map((x)=>`<option value="${escapeHtml(x)}" ${x===qRegion?'selected':''}>${escapeHtml(x)}</option>`).join('')}</select></div>
+        <div class="col-12 col-md-4"><select class="form-select form-select-sm" name="sector"><option value="">Sector (All)</option>${sectors.map((x)=>`<option value="${escapeHtml(x)}" ${x===qSector?'selected':''}>${escapeHtml(x)}</option>`).join('')}</select></div>
+      </form>
+    </div></div>
+
+    <div class="row g-2 mb-3">
+      <div class="col-12 col-md-4"><a class="card text-decoration-none" href="/dashboard/platform-pressure"><div class="card-body"><div class="small text-muted">Pressure Score</div><div class="display-6">${avgPpi}</div></div></a></div>
+      <div class="col-12 col-md-4"><a class="card text-decoration-none" href="/dashboard/platform-pressure"><div class="card-body"><div class="small text-muted">Primary Constraint</div><div class="fw-semibold text-truncate">${escapeHtml(primaryConstraint)}</div></div></a></div>
+      <div class="col-12 col-md-4"><a class="card text-decoration-none" href="/dashboard/initiatives"><div class="card-body"><div class="small text-muted">Platform Opportunity</div><div class="fw-semibold text-truncate">${escapeHtml(platformOpportunity)}</div></div></a></div>
+    </div>
+
+    <div class="mb-3"><div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Signals</h6></div>
+      <div class="row g-2">
+        <div class="col-12 col-md-6"><a class="card text-decoration-none" href="/dashboard/signals?class=Capital"><div class="card-body"><strong>Capital Signals</strong><div class="small text-muted">capital_flows • investment_announcements • sovereign_activity</div></div></a></div>
+        <div class="col-12 col-md-6"><a class="card text-decoration-none" href="/dashboard/signals?class=Politics"><div class="card-body"><strong>Political Signals</strong><div class="small text-muted">regulation_changes • national_policy • infrastructure_programs</div></div></a></div>
+        <div class="col-12 col-md-6"><a class="card text-decoration-none" href="/dashboard/signals?class=Technology"><div class="card-body"><strong>Technology Signals</strong><div class="small text-muted">breakthroughs • deployment_scaling • infrastructure_requirements</div></div></a></div>
+        <div class="col-12 col-md-6"><a class="card text-decoration-none" href="/dashboard/signals?class=Market"><div class="card-body"><strong>Market Signals</strong><div class="small text-muted">commodity_prices • demand_growth • supply_constraints</div></div></a></div>
+      </div>
+    </div>
+
+    <div class="mb-3"><h6 class="mb-2">Sector Opportunities</h6><div class="row g-2">${sectorsHtml}</div></div>
+    <div class="mb-3"><h6 class="mb-2">Buyer Alignment</h6><div class="row g-2">${buyersHtml}</div></div>
+
+    <div class="mb-3"><h6 class="mb-2">Actions</h6><div class="row g-2">
+      <div class="col-12 col-md-4"><a class="card text-decoration-none" href="/dashboard/signals"><div class="card-body">View Full Signal Stream</div></a></div>
+      <div class="col-12 col-md-4"><a class="card text-decoration-none" href="/dashboard/capital-map"><div class="card-body">View Capital Systems Map</div></a></div>
+      <div class="col-12 col-md-4"><a class="card text-decoration-none" href="/dashboard/initiatives"><div class="card-body">View Platform Opportunities</div></a></div>
+    </div></div>
+  </div>
+  <script>document.querySelectorAll('form select').forEach(el=>el.addEventListener('change',()=>el.form.submit()));</script>
+  </body></html>`);
+});
+
+app.get('/dashboard/platform-pressure-v2/sector/:sector', requireAnyAuth, async (req, res) => {
+  const key = String(req.params.sector || '').toLowerCase();
+  const sourceRows = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const rows = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRows), { buyers, initiatives, signals });
+  const hit = rows.filter((r)=>String(r.sector||'').toLowerCase().includes(key));
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Sector Detail')}</head><body><div class="app-shell">${dashboardNav('platform-pressure')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/platform-pressure-v2">← Platform Pressure v2</a><h3 class="mb-2 text-capitalize">${escapeHtml(key)} — Sector Detail</h3><div class="card"><div class="card-body"><div class="small text-muted mb-2">Signals, pressure rows, and buyer path for this sector</div><ul class="mb-0">${hit.map((r)=>`<li><strong>${escapeHtml(r.sector || '')}</strong> — PPI ${escapeHtml(String(r.ppi||0))} — ${escapeHtml(r.buyerPath || '')}</li>`).join('') || '<li class="text-muted">No sector rows.</li>'}</ul></div></div></div></body></html>`);
+});
+
+app.get('/dashboard/platform-pressure-v2/buyers/:bucket', requireAnyAuth, async (req, res) => {
+  const bucket = String(req.params.bucket || '');
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const filt = bucket==='family_offices' ? buyers.filter((b)=>String(b.buyer_class||'').toLowerCase().includes('family')) : bucket==='sovereign_funds' ? buyers.filter((b)=>String(b.buyer_class||'').toLowerCase().includes('sovereign')) : buyers.filter((b)=>String(b.buyer_class||'').toLowerCase().includes('strategic'));
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Buyer Profiles')}</head><body><div class="app-shell">${dashboardNav('platform-pressure')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/platform-pressure-v2">← Platform Pressure v2</a><h3 class="mb-2">Buyer Profiles — ${escapeHtml(bucket)}</h3><div class="card"><div class="card-body"><ul class="mb-0">${filt.map((b)=>`<li><strong>${escapeHtml(b.buyer_id || '')}</strong> — ${escapeHtml(b.name || '')}</li>`).join('') || '<li class="text-muted">No buyers in this bucket.</li>'}</ul></div></div></div></body></html>`);
+});
+
 app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   const sourceRows = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
