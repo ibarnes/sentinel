@@ -125,7 +125,8 @@
             "mapped_entity_ref": "NCC",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Regulates telecommunications infrastructure and licensing, ensuring that network operators comply with communication policies and connectivity standards."
           },
           {
             "role_id": "national_identity_authority",
@@ -137,7 +138,8 @@
             "mapped_entity_ref": "NIMC",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Maintains a national identity system and provides identity verification services required for account creation, compliance, and secure digital transactions."
           },
           {
             "role_id": "data_protection_regulator",
@@ -149,7 +151,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Enforces data privacy and protection laws governing the collection, storage, and use of personal and financial data within the platform."
           },
           {
             "role_id": "fiu_aml_counterpart",
@@ -161,7 +164,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Oversees anti-money laundering compliance, transaction monitoring, and financial intelligence requirements to ensure platform operation within financial crime prevention regulations."
           },
           {
             "role_id": "finance_ministry_counterpart",
@@ -173,7 +177,8 @@
             "mapped_entity_ref": "FMF Nigeria",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Represents the fiscal authority responsible for coordinating financial infrastructure initiatives and alignment with national economic and financial policy."
           }
         ],
         "asset": [
@@ -199,7 +204,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provide technical integration with payment processing systems enabling transaction authorization, settlement, and financial clearing between banks, wallets, and merchants."
           },
           {
             "role_id": "mobile_money_integrations",
@@ -211,7 +217,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Connect the platform with mobile wallet systems and digital payment services used by individuals and businesses for everyday financial transactions."
           },
           {
             "role_id": "fuel_distribution_network",
@@ -223,7 +230,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Manages the logistics and supply chain that delivers fuel to station networks, enabling reliable operation of the energy distribution component."
           },
           {
             "role_id": "logistics_operator",
@@ -247,7 +255,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Coordinates and manages the merchant network that accepts digital payments and participates in the platform financial-circulation ecosystem."
           }
         ],
         "development": [
@@ -297,7 +306,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides guidance for navigating financial, telecommunications, and data-governance regulations so the platform complies with applicable legal frameworks."
           },
           {
             "role_id": "cross_actor_alignment_pm",
@@ -309,7 +319,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Coordinates collaboration across public agencies, financial institutions, telecom operators, and platform partners to keep stakeholders aligned during development."
           },
           {
             "role_id": "system_integrator",
@@ -335,7 +346,8 @@
             "mapped_entity_ref": "NSIA",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides sovereign/public investment participation and strategic capital backing that anchors financial credibility and long-term investment confidence."
           },
           {
             "role_id": "development_finance_partner_1",
@@ -347,7 +359,8 @@
             "mapped_entity_ref": "AFC",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides development-finance capital and institutional support to accelerate infrastructure deployment and financial inclusion initiatives."
           },
           {
             "role_id": "development_finance_partner_2",
@@ -359,7 +372,8 @@
             "mapped_entity_ref": "DFC",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides financing, guarantees, and investment support for infrastructure and financial system expansion aligned with development objectives."
           },
           {
             "role_id": "development_finance_partner_3",
@@ -371,7 +385,8 @@
             "mapped_entity_ref": "WORLDBANK",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Supplies financial support, policy coordination, and institutional backing for infrastructure programs that improve economic development and financial access."
           },
           {
             "role_id": "development_finance_partner_4",
@@ -383,7 +398,8 @@
             "mapped_entity_ref": "AfDB",
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provides regional development financing and technical support to scale infrastructure initiatives across regional markets."
           },
           {
             "role_id": "gulf_sovereign_capital_pool",
@@ -433,7 +449,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Provide mobile network infrastructure that enables digital payments, wallet transactions, and real-time connectivity between users, merchants, and platform systems."
           },
           {
             "role_id": "agent_banking_network",
@@ -445,7 +462,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Operate distributed networks of physical banking agents that provide cash-in, cash-out, and financial access services for individuals and businesses without direct access to traditional bank branches."
           },
           {
             "role_id": "fuel_station_node_network",
@@ -457,7 +475,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": true,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Operates a broad network of fuel stations that serve as physical redemption points and distribution nodes for digital financial services embedded in the platform."
           },
           {
             "role_id": "mobile_device_ecosystem",
@@ -469,7 +488,8 @@
             "mapped_entity_ref": null,
             "is_critical_role": false,
             "owner": "",
-            "due": ""
+            "due": "",
+            "role_definition": "Represents device manufacturers, distributors, and service ecosystems that determine user access to mobile-first financial services and digital platform participation."
           },
           {
             "role_id": "cloud_infrastructure_provider",
@@ -534,7 +554,8 @@
           "mapped_entity_ref": "NCC",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Regulates telecommunications infrastructure and licensing, ensuring that network operators comply with communication policies and connectivity standards."
         },
         {
           "role_id": "national_identity_authority",
@@ -546,7 +567,8 @@
           "mapped_entity_ref": "NIMC",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Maintains a national identity system and provides identity verification services required for account creation, compliance, and secure digital transactions."
         },
         {
           "role_id": "data_protection_regulator",
@@ -558,7 +580,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Enforces data privacy and protection laws governing the collection, storage, and use of personal and financial data within the platform."
         },
         {
           "role_id": "fiu_aml_counterpart",
@@ -570,7 +593,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Oversees anti-money laundering compliance, transaction monitoring, and financial intelligence requirements to ensure platform operation within financial crime prevention regulations."
         },
         {
           "role_id": "finance_ministry_counterpart",
@@ -582,7 +606,8 @@
           "mapped_entity_ref": "FMF Nigeria",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Represents the fiscal authority responsible for coordinating financial infrastructure initiatives and alignment with national economic and financial policy."
         }
       ],
       "asset": [
@@ -608,7 +633,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provide technical integration with payment processing systems enabling transaction authorization, settlement, and financial clearing between banks, wallets, and merchants."
         },
         {
           "role_id": "mobile_money_integrations",
@@ -620,7 +646,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Connect the platform with mobile wallet systems and digital payment services used by individuals and businesses for everyday financial transactions."
         },
         {
           "role_id": "fuel_distribution_network",
@@ -632,7 +659,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Manages the logistics and supply chain that delivers fuel to station networks, enabling reliable operation of the energy distribution component."
         },
         {
           "role_id": "logistics_operator",
@@ -656,7 +684,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Coordinates and manages the merchant network that accepts digital payments and participates in the platform financial-circulation ecosystem."
         }
       ],
       "development": [
@@ -706,7 +735,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides guidance for navigating financial, telecommunications, and data-governance regulations so the platform complies with applicable legal frameworks."
         },
         {
           "role_id": "cross_actor_alignment_pm",
@@ -718,7 +748,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Coordinates collaboration across public agencies, financial institutions, telecom operators, and platform partners to keep stakeholders aligned during development."
         },
         {
           "role_id": "system_integrator",
@@ -744,7 +775,8 @@
           "mapped_entity_ref": "NSIA",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides sovereign/public investment participation and strategic capital backing that anchors financial credibility and long-term investment confidence."
         },
         {
           "role_id": "development_finance_partner_1",
@@ -756,7 +788,8 @@
           "mapped_entity_ref": "AFC",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides development-finance capital and institutional support to accelerate infrastructure deployment and financial inclusion initiatives."
         },
         {
           "role_id": "development_finance_partner_2",
@@ -768,7 +801,8 @@
           "mapped_entity_ref": "DFC",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides financing, guarantees, and investment support for infrastructure and financial system expansion aligned with development objectives."
         },
         {
           "role_id": "development_finance_partner_3",
@@ -780,7 +814,8 @@
           "mapped_entity_ref": "WORLDBANK",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Supplies financial support, policy coordination, and institutional backing for infrastructure programs that improve economic development and financial access."
         },
         {
           "role_id": "development_finance_partner_4",
@@ -792,7 +827,8 @@
           "mapped_entity_ref": "AfDB",
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provides regional development financing and technical support to scale infrastructure initiatives across regional markets."
         },
         {
           "role_id": "gulf_sovereign_capital_pool",
@@ -842,7 +878,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Provide mobile network infrastructure that enables digital payments, wallet transactions, and real-time connectivity between users, merchants, and platform systems."
         },
         {
           "role_id": "agent_banking_network",
@@ -854,7 +891,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Operate distributed networks of physical banking agents that provide cash-in, cash-out, and financial access services for individuals and businesses without direct access to traditional bank branches."
         },
         {
           "role_id": "fuel_station_node_network",
@@ -866,7 +904,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": true,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Operates a broad network of fuel stations that serve as physical redemption points and distribution nodes for digital financial services embedded in the platform."
         },
         {
           "role_id": "mobile_device_ecosystem",
@@ -878,7 +917,8 @@
           "mapped_entity_ref": null,
           "is_critical_role": false,
           "owner": "",
-          "due": ""
+          "due": "",
+          "role_definition": "Represents device manufacturers, distributors, and service ecosystems that determine user access to mobile-first financial services and digital platform participation."
         },
         {
           "role_id": "cloud_infrastructure_provider",
@@ -918,7 +958,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T22:29:00Z"
+    "updated_at": "2026-03-10T15:47:00Z"
   },
   {
     "initiative_id": "INIT-AP-AI-FACTORY-001",
