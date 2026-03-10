@@ -15,6 +15,7 @@
   - On-record executive statement tied to a dated event
   - Anything below threshold => Monitor — no posture change
 - Signal provenance rule (2026-03-07): every signal must be flagged as either `provided_by_isaac` or `discovered_by_system` (and never presented as self-discovered if Isaac provided it).
+- Signal-pressure freshness rule (2026-03-09): before heartbeat signal-delta checks, run `node mission-control/signal-pressure/run-if-stale.mjs`; only evaluate alert criteria on fresh/refreshed `pressure-delta.json`.
 
 # Current Projects
 - USG (Unified State Group)
@@ -126,6 +127,24 @@
 - Daily log distilled and folded into this snapshot.
 - Durable changes captured: Workflow C queue timestamp rollover + TASK-0044/RP-0043 status progression.
 - No new operating-rule or scoring-policy changes.
+
+# Project Status Snapshot (2026-03-10)
+- Workflow C queue discipline continued:
+  - 03:00 UTC queue event recorded for `mission-control/workflow-c/queue/2026-03-10.json`; `execute_immediately=false`.
+- Workflow operations executed on schedule (2026-03-09 cycle):
+  - Workflow A output generated (`workflow-a-v3_1-2026-03-09T10-31-37-146Z.json`).
+  - Workflow B review packet generated (`RP-0045-workflow-b-top-target-queue-2026-03-09.md`).
+  - Morning Brief published (`briefs/2026-03-09-morning-brief.md`).
+- Signal-pressure monitor reliability hardening completed:
+  - Added stale-check runner `mission-control/signal-pressure/run-if-stale.mjs`.
+  - Heartbeat flow now enforces freshness before signal-delta alerting.
+- Isaac expectation captured (durable): cron + heartbeat must detect/report new signals daily; no silent stale-monitor behavior.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-10)
+- Daily log distilled and folded into this snapshot.
+- Durable changes captured: Workflow A/B + Morning Brief run completion, signal-pressure freshness guardrail, and explicit daily detection/reporting expectation.
+- No new scoring-policy changes.
 
 # Communication Operating Rule (2026-03-01)
 - Proactive update protocol is mandatory during active build windows:
