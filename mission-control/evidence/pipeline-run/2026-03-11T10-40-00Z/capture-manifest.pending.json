@@ -1,0 +1,24 @@
+{
+  "status": "pending_credentialed_execution",
+  "generated_at": "2026-03-11T10:40:00Z",
+  "task_chain": [
+    "TASK-0111",
+    "TASK-0103",
+    "TASK-0097"
+  ],
+  "expected_files": [
+    "manifest.json",
+    "smoke.log",
+    "valid-response.json",
+    "invalid-response.json",
+    "evidence-report.md"
+  ],
+  "acceptance_checks": [
+    "valid-response includes HTTP 201",
+    "valid-response includes runId",
+    "valid-response includes status started|running",
+    "invalid-response includes HTTP 400",
+    "invalid-response includes deterministic validation payload"
+  ],
+  "blocker": "credentialed session cookie required"
+}
