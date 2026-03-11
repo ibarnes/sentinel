@@ -3049,11 +3049,17 @@
           "author": "sentinel",
           "text": "Morning decomposition gate: added TASK-0139/TASK-0140 to reduce credential-window friction and pre-stage closure artifacts.",
           "created_at": "2026-03-11T10:40:00Z"
+        },
+        {
+          "id": "decomp-0103-20260311-1630",
+          "author": "sentinel",
+          "text": "Midday decomposition gate: added TASK-0141/TASK-0142 to make post-credential chain closure deterministic and <30 min.",
+          "created_at": "2026-03-11T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-11T10:40:00Z",
+      "updated_at": "2026-03-11T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4435,6 +4441,92 @@
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
       "review_packet_id": "RP-0052"
+    },
+    {
+      "id": "TASK-0141",
+      "title": "TS-H1.1c.2m Create one-command credentialed evidence closeout runner",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-closeout.sh",
+        "mission-control/review-packets/RP-0053-board-progress-sweep-midday-2026-03-11.md"
+      ],
+      "description": "Implement a one-command runner that executes evidence report and prints deterministic closure actions for PASS/BLOCKED branches.\nAcceptance Criteria:\n- Script accepts evidence_dir argument.\n- Invokes pipeline-run-evidence-report.mjs successfully.\n- Emits explicit branch-safe next actions.",
+      "comments": [
+        {
+          "id": "done-0141-20260311-1630",
+          "author": "sentinel",
+          "text": "Implemented scripts/pipeline-run-closeout.sh and set executable permissions.",
+          "created_at": "2026-03-11T16:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-11T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0053-board-progress-sweep-midday-2026-03-11.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-11T16:30:00Z",
+      "updated_at": "2026-03-11T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0053"
+    },
+    {
+      "id": "TASK-0142",
+      "title": "TS-H1.1c.2n Publish deterministic PASS/BLOCKED transition checklist for smoke chain",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/2026-03-11T16-30-00Z-closeout-checklist.md",
+        "mission-control/review-packets/RP-0053-board-progress-sweep-midday-2026-03-11.md"
+      ],
+      "description": "Publish checklist mapping evidence-report outcome to board transition actions across TASK-0111, TASK-0103, and TASK-0097.\nAcceptance Criteria:\n- PASS branch includes exact transition order and governance guardrail.\n- BLOCKED branch includes retry protocol and evidence gap capture.\n- Checklist path linked to parent chain.",
+      "comments": [
+        {
+          "id": "done-0142-20260311-1630",
+          "author": "sentinel",
+          "text": "Published closeout checklist at mission-control/evidence/pipeline-run/2026-03-11T16-30-00Z-closeout-checklist.md.",
+          "created_at": "2026-03-11T16:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-11T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0053-board-progress-sweep-midday-2026-03-11.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-11T16:30:00Z",
+      "updated_at": "2026-03-11T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0053"
     }
   ]
 }
