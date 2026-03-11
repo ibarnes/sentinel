@@ -1602,5 +1602,88 @@
       }
     ],
     "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-11-NG-STABLECOIN-TASKFORCE-001",
+    "title": "Nigeria forms multi-agency stablecoin task force (CBN + Finance) for integration framework",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_first_party_circular",
+    "observed_at": "2026-03-11T12:43:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "summary": "Isaac-provided sources indicate Nigerian regulators formed a multi-agency task force to study stablecoin integration, signaling movement from informal adoption toward regulated financial-rail incorporation.",
+    "flow": "task force formation -> regulatory perimeter design -> bank/stablecoin interoperability requirements -> settlement-rail infrastructure buildout",
+    "verification_note": "Treat as Monitor until first-party CBN/Finance publication is captured or two Tier-1 outlets provide attributed confirmation.",
+    "sources": [
+      {
+        "label": "Isaac source bundle: CoinGeek + Ledger Insights + CryptoRank references",
+        "url": "internal://isaac/telegram/2026-03-11-stablecoin-taskforce-sources"
+      }
+    ],
+    "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-11-NG-STABLECOIN-ADOPTION-SCALE-001",
+    "title": "Nigeria stablecoin usage scale suggests de-facto parallel dollar settlement behavior",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "source_pack_user_provided_pending_primary_capture",
+    "observed_at": "2026-03-11T12:43:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "summary": "User-provided evidence pack cites ~$22B annual stablecoin flow in Nigeria and large share of SSA digital-asset volume, indicating practical dependence on stablecoins for FX hedge, trade settlement, and remittances.",
+    "flow": "naira volatility + FX scarcity + remittance friction -> stablecoin payment preference -> growth of wallet-based settlement layer -> pressure for regulated on/off-ramp infrastructure",
+    "verification_note": "Keep Monitor until original underlying reports and methodology artifacts are archived in-source.",
+    "sources": [
+      {
+        "label": "Isaac source bundle: BusinessDay / Reuters / Forbes Africa / Plasma references",
+        "url": "internal://isaac/telegram/2026-03-11-stablecoin-adoption-evidence-pack"
+      }
+    ],
+    "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-11-NG-STABLECOIN-COMMODITY-TRADE-RAIL-001",
+    "title": "Stablecoins emerging as settlement infrastructure for commodity-linked cross-border trade",
+    "signal_class": "Platform Pressure",
+    "status": "Active / Forming",
+    "confidence": "Medium",
+    "verification_status": "thesis_signal_requires_transaction-level_validation",
+    "observed_at": "2026-03-11T12:43:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "summary": "Strategic synthesis from user-provided source pack: stablecoins are increasingly functioning as programmable settlement rails for import/export and commodity-adjacent trade flows where traditional FX rails are constrained.",
+    "flow": "trade participants use stablecoin settlement -> lower payment latency/cost -> rising transaction share outside legacy correspondent rails -> state push for compliant integration and oversight",
+    "verification_note": "Treat as forming strategic pattern; validate with transaction data from regulated Nigerian institutions and trade-corridor counterparties.",
+    "sources": [
+      {
+        "label": "Isaac strategic synthesis note (2026-03-11)",
+        "url": "internal://isaac/telegram/2026-03-11-stablecoin-commodity-rail-thesis"
+      }
+    ],
+    "provenance": "provided_by_isaac"
   }
 ]

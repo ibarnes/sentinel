@@ -217,8 +217,8 @@
       "structuralAmbiguity": 3,
       "mandateFeasibility": 3
     },
-    "delta30d": 1,
-    "delta90d": 3,
+    "delta30d": 2,
+    "delta90d": 4,
     "likelyBuyerClass": "Strategic Industrial Sponsor",
     "buyerRationale": "Strategics can contract throughput and lock downstream integration.",
     "fidBoundaryType": "Throughput + logistics reliability",
@@ -246,12 +246,22 @@
     ],
     "signals": [
       {
+        "id": "sc4",
+        "date": "2026-03-10",
+        "type": "capital_formation",
+        "title": "Zambia investor courtship to scale copper output",
+        "summary": "Zambia signaled active investor outreach targeting major output expansion by 2031.",
+        "sourceCategory": "User-provided Reuters screenshot lead",
+        "impact": "positive",
+        "confidence": "medium"
+      },
+      {
         "id": "sc1",
         "date": "2026-03-01",
         "type": "regional_program",
         "title": "Cross-border corridor rehabilitation package",
         "summary": "Program scoped to reduce ore evacuation delays.",
-        "sourceCategory": "Regional communiqu\u00e9",
+        "sourceCategory": "Regional communiqué",
         "impact": "positive",
         "confidence": "medium"
       },
@@ -276,9 +286,9 @@
         "confidence": "medium"
       }
     ],
-    "velocityNote": "Incremental positive movement with unresolved concession friction.",
+    "velocityNote": "Investor-courtship signal suggests acceleration from resource narrative toward capital formation.",
     "analystNotes": "Buyer path is emerging but FID boundary still partly undefined.",
-    "lastUpdated": "2026-03-05",
+    "lastUpdated": "2026-03-11",
     "buyerPath": "Strategic Industrial Sponsor",
     "usgRelevance": "Track",
     "nextIntelligenceAction": "Watch for ECA financing moves",
@@ -592,22 +602,22 @@
     "sector": "Digital Financial Rails",
     "region": "Pan-Africa",
     "theater": "Africa",
-    "thesisSummary": "Cross-border payment interoperability pressure is compounding with sovereign digital identity and settlement agendas.",
-    "whyItMatters": "Financial rails can reduce friction for trade, remittance, and industrial supply chains.",
+    "thesisSummary": "Cross-border payment interoperability pressure is now converging with stablecoin integration and sovereign oversight agendas, especially in Nigeria.",
+    "whyItMatters": "Whoever controls compliant on/off-ramps and programmable settlement rails can influence commodity trade throughput, remittance cost, and FX-access resilience.",
     "scores": {
-      "capitalReality": 3,
-      "fidDefinability": 3,
-      "multiActorDependency": 4,
-      "structuralAmbiguity": 3,
-      "mandateFeasibility": 3
+      "capitalReality": 4,
+      "fidDefinability": 4,
+      "multiActorDependency": 5,
+      "structuralAmbiguity": 4,
+      "mandateFeasibility": 4
     },
-    "delta30d": 1,
-    "delta90d": 2,
+    "delta30d": 3,
+    "delta90d": 6,
     "likelyBuyerClass": "Hyperscaler / Tech Platform",
     "buyerRationale": "Tech platforms can provide scalable rails once policy and compliance interfaces stabilize.",
     "fidBoundaryType": "Regulatory interoperability boundary",
-    "mainStructuralBottleneck": "Cross-jurisdiction compliance harmonization.",
-    "mandateFeasibilityNote": "Needs shared regulatory perimeter and clear liability stack.",
+    "mainStructuralBottleneck": "Regulated interoperability between stablecoin networks, commercial banks, and sovereign compliance controls.",
+    "mandateFeasibilityNote": "Feasible where government task-force outcomes can be translated into auditable bank-integrated rails.",
     "actors": [
       {
         "id": "df1",
@@ -630,42 +640,42 @@
     ],
     "signals": [
       {
-        "id": "sdf1",
-        "date": "2026-03-02",
+        "id": "sdf4",
+        "date": "2026-03-11",
         "type": "policy_alignment",
-        "title": "Interoperability framework consultation",
-        "summary": "Regulators released consultation paper for cross-border settlement standards.",
-        "sourceCategory": "Regulatory bulletin",
-        "impact": "neutral",
-        "confidence": "high"
-      },
-      {
-        "id": "sdf2",
-        "date": "2026-02-19",
-        "type": "industrial_announcement",
-        "title": "Switch integration roadmap",
-        "summary": "Major switch operator published staged integration plan.",
-        "sourceCategory": "Operator release",
+        "title": "Nigeria multi-agency stablecoin task force",
+        "summary": "CBN + Ministry of Finance coordination indicates movement toward formal integration framework.",
+        "sourceCategory": "User-provided policy reporting",
         "impact": "positive",
         "confidence": "medium"
       },
       {
-        "id": "sdf3",
-        "date": "2026-02-08",
-        "type": "actor_coordination",
-        "title": "Bank consortium implementation group",
-        "summary": "Consortium formed but mandate scope still narrow.",
-        "sourceCategory": "Industry association",
-        "impact": "neutral",
+        "id": "sdf5",
+        "date": "2026-03-11",
+        "type": "market_adoption",
+        "title": "Nigeria stablecoin usage scale and payment preference",
+        "summary": "Source pack indicates high usage for FX hedge, settlement, and remittance pathways.",
+        "sourceCategory": "User-provided market synthesis",
+        "impact": "positive",
+        "confidence": "medium"
+      },
+      {
+        "id": "sdf6",
+        "date": "2026-03-11",
+        "type": "trade_infrastructure",
+        "title": "Stablecoin commodity-trade rail thesis",
+        "summary": "Stablecoins increasingly function as programmable settlement rails for cross-border trade under constrained banking FX channels.",
+        "sourceCategory": "Strategic synthesis",
+        "impact": "positive",
         "confidence": "medium"
       }
     ],
-    "velocityNote": "Steady but not breakout; policy convergence remains pacing item.",
-    "analystNotes": "Capital is visible but structure is only partially converged.",
-    "lastUpdated": "2026-03-05",
-    "buyerPath": "Hyperscaler",
-    "usgRelevance": "Track",
-    "nextIntelligenceAction": "Track sovereign strategy updates",
+    "velocityNote": "Breakout likely: policy attention has shifted from whether stablecoins exist to how they are integrated and supervised.",
+    "analystNotes": "Nigeria now looks like a lead market for hybrid bank + stablecoin settlement architecture in Africa.",
+    "lastUpdated": "2026-03-11",
+    "buyerPath": "Mixed / Multi-actor",
+    "usgRelevance": "Mandate Window",
+    "nextIntelligenceAction": "Secure first-party CBN/Finance artifacts and identify top 3 regulated integration counterparties.",
     "linkRefs": {
       "buyerIds": [
         "BUYER_CLASS::HYPERSCALER___TECH_P"
@@ -674,9 +684,9 @@
         "INIT_SECTOR::pps-digital-financial-rails"
       ],
       "signalIds": [
-        "sdf1",
-        "sdf2",
-        "sdf3"
+        "SIG-2026-03-11-NG-STABLECOIN-TASKFORCE-001",
+        "SIG-2026-03-11-NG-STABLECOIN-ADOPTION-SCALE-001",
+        "SIG-2026-03-11-NG-STABLECOIN-COMMODITY-TRADE-RAIL-001"
       ]
     }
   },
