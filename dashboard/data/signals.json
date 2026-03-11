@@ -1624,8 +1624,16 @@
     "verification_note": "Treat as Monitor until first-party CBN/Finance publication is captured or two Tier-1 outlets provide attributed confirmation.",
     "sources": [
       {
-        "label": "Isaac source bundle: CoinGeek + Ledger Insights + CryptoRank references",
-        "url": "internal://isaac/telegram/2026-03-11-stablecoin-taskforce-sources"
+        "label": "CoinGeek — Nigeria forms task force to study stablecoin adoption",
+        "url": "https://coingeek.com/nigeria-forms-task-force-to-study-stablecoin-adoption/"
+      },
+      {
+        "label": "Ledger Insights — Nigeria central bank stablecoin working group",
+        "url": "https://www.ledgerinsights.com/nigerias-central-bank-forms-stablecoin-working-group/"
+      },
+      {
+        "label": "CryptoRank — Nigeria to form stablecoin committee (CBN)",
+        "url": "https://cryptorank.io/news/feed/af578-nigeria-to-form-stablecoin-committee-cbn"
       }
     ],
     "provenance": "provided_by_isaac"
@@ -1651,8 +1659,24 @@
     "verification_note": "Keep Monitor until original underlying reports and methodology artifacts are archived in-source.",
     "sources": [
       {
-        "label": "Isaac source bundle: BusinessDay / Reuters / Forbes Africa / Plasma references",
-        "url": "internal://isaac/telegram/2026-03-11-stablecoin-adoption-evidence-pack"
+        "label": "Plasma — Nigeria Stablecoins",
+        "url": "https://www.plasma.to/learn/nigeria-stablecoins"
+      },
+      {
+        "label": "BusinessDay — Stablecoins gain ground in Nigeria/South Africa",
+        "url": "https://businessday.ng/technology/article/stablecoins-gain-ground-in-nigeria-south-africa-as-businesses-seek-fx-hedge/"
+      },
+      {
+        "label": "Reuters — Stablecoin demand survey in African economies",
+        "url": "https://www.reuters.com/world/africa/biggest-african-economies-lead-stablecoin-demand-growth-study-shows-2026-02-18/"
+      },
+      {
+        "label": "Forbes Africa — Nigeria/South Africa stablecoin adoption",
+        "url": "https://www.forbesafrica.com/current-affairs/2025/08/21/nigeria-and-south-africa-lead-stablecoin-adoption-as-transactions-surge-across-africa/"
+      },
+      {
+        "label": "Mariblock — Nigeria $22B stablecoin transactions summary",
+        "url": "https://www.mariblock.com/stories/nigeria-leads-stablecoin-adoption-with-22-billion-in-transactions"
       }
     ],
     "provenance": "provided_by_isaac"
@@ -1680,8 +1704,16 @@
     "verification_note": "Treat as forming strategic pattern; validate with transaction data from regulated Nigerian institutions and trade-corridor counterparties.",
     "sources": [
       {
-        "label": "Isaac strategic synthesis note (2026-03-11)",
-        "url": "internal://isaac/telegram/2026-03-11-stablecoin-commodity-rail-thesis"
+        "label": "Plasma — emerging-market settlement rails context",
+        "url": "https://www.plasma.to/learn/nigeria-stablecoins"
+      },
+      {
+        "label": "BusinessDay — corporate FX hedge and settlement usage context",
+        "url": "https://businessday.ng/technology/article/stablecoins-gain-ground-in-nigeria-south-africa-as-businesses-seek-fx-hedge/"
+      },
+      {
+        "label": "Reuters — adoption pressure and usage growth context",
+        "url": "https://www.reuters.com/world/africa/biggest-african-economies-lead-stablecoin-demand-growth-study-shows-2026-02-18/"
       }
     ],
     "provenance": "provided_by_isaac"
