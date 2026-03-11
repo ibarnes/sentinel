@@ -1,6 +1,6 @@
 {
-  "buyerAccessGraphSignature": "8a4a6c8da255a525919138977cedeb01da8884454b0f0390f82e7a8a1542a230",
-  "updatedAtUtc": "2026-03-09T00:01:00Z",
+  "buyerAccessGraphSignature": "07c7b400f4097eaffc60462187a175b66c1ad31bda66537f94edb488f99625c5",
+  "updatedAtUtc": "2026-03-11T04:21:00Z",
   "issues": [
     {
       "type": "missing_decision_arch",
@@ -25,10 +25,6 @@
         {
           "buyer_id": "DFC",
           "person": "Conor Coleman"
-        },
-        {
-          "buyer_id": "TAFF",
-          "person": "Tariq Al Futtaim"
         }
       ]
     },
