@@ -1088,19 +1088,76 @@ function resolvePlatformPressureRefs(rows = [], { buyers = [], initiatives = [],
 app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
-  const sorted = [...actors].sort((a,b)=>{
-    const aName = `${String(a.last_name || '').trim()} ${String(a.first_name || '').trim()} ${String(a.name || a.name_display || a.actor_id || '').trim()}`.trim();
-    const bName = `${String(b.last_name || '').trim()} ${String(b.first_name || '').trim()} ${String(b.name || b.name_display || b.actor_id || '').trim()}`.trim();
-    return aName.localeCompare(bName);
+
+  const q = String(req.query.q || '').trim().toLowerCase();
+  const countryFilter = String(req.query.country || '').trim();
+  const typeFilter = String(req.query.actor_type || '').trim();
+  const ownerFilter = String(req.query.owner || '').trim();
+  const page = Math.max(1, Number(req.query.page || 1));
+  const pageSize = Math.min(200, Math.max(10, Number(req.query.pageSize || 50)));
+
+  const normalized = actors.map((a) => {
+    const full = String(a.name_display || a.name || '').trim();
+    const first = String(a.first_name || '').trim() || full.split(/\s+/).slice(0, -1).join(' ');
+    const last = String(a.last_name || '').trim() || full.split(/\s+/).slice(-1).join(' ');
+    const designation = String(a.designation || '').trim();
+    const company = String(a.organization_primary || a.company || '').trim();
+    const country = String(a.country_normalized || a.country || '').trim();
+    const actor_type = String(a.actor_type || '').trim();
+    const owner = String(a.owner || '').trim();
+    return { ...a, first, last, designation, company, country, actor_type, owner };
   });
-  res.type('html').send(`<!doctype html><html><head>${uiHead('Actors')}</head><body><div class="app-shell">${dashboardNav('actors')}${pageHeader('Actors','', 'Canonical actor registry for picker-based mapping')} ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Actor</strong></summary><div class="card-body"><form method="post" action="/api/actors" class="row g-2"><div class="col-md-4"><label class="form-label">Actor ID *</label><input class="form-control" name="actor_id" required /></div><div class="col-md-4"><label class="form-label">Name *</label><input class="form-control" name="name" required /></div><div class="col-md-4"><label class="form-label">Type</label><select class="form-select" name="actor_type"><option>family_office</option><option>sovereign</option><option>organization</option><option>operator</option><option>regulator</option><option>team</option><option>other</option></select></div><div class="col-12"><button class="btn btn-sm btn-primary">Save Actor</button></div></form></div></details>` : ''}<div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>First Name</th><th>Last Name</th><th>Designation</th><th>Company</th><th>Country</th></tr></thead><tbody>${sorted.map((a)=>{
-    const first = String(a.first_name || '').trim() || String(a.name_display || a.name || '').trim().split(/\s+/).slice(0, -1).join(' ');
-    const last = String(a.last_name || '').trim() || String(a.name_display || a.name || '').trim().split(/\s+/).slice(-1).join(' ');
-    const designation = String(a.designation || '').trim() || '—';
-    const company = String(a.organization_primary || a.company || '').trim() || '—';
-    const country = String(a.country_normalized || a.country || '').trim() || '—';
-    return `<tr><td>${escapeHtml(first)}</td><td>${escapeHtml(last)}</td><td>${escapeHtml(designation)}</td><td>${escapeHtml(company)}</td><td>${escapeHtml(country)}</td></tr>`;
-  }).join('') || '<tr><td colspan="5" class="text-muted">No actors yet.</td></tr>'}</tbody></table></div></div></body></html>`);
+
+  const countries = [...new Set(normalized.map((a) => a.country).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  const actorTypes = [...new Set(normalized.map((a) => a.actor_type).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  const owners = [...new Set(normalized.map((a) => a.owner).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+
+  const filtered = normalized.filter((a) => {
+    if (q) {
+      const hay = `${a.first} ${a.last} ${a.designation} ${a.company} ${a.country} ${a.actor_type} ${a.owner}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    if (countryFilter && a.country !== countryFilter) return false;
+    if (typeFilter && a.actor_type !== typeFilter) return false;
+    if (ownerFilter && a.owner !== ownerFilter) return false;
+    return true;
+  }).sort((a, b) => `${a.last} ${a.first}`.trim().localeCompare(`${b.last} ${b.first}`.trim()));
+
+  const total = filtered.length;
+  const totalPages = Math.max(1, Math.ceil(total / pageSize));
+  const currentPage = Math.min(page, totalPages);
+  const start = (currentPage - 1) * pageSize;
+  const rows = filtered.slice(start, start + pageSize);
+
+  const qp = (p) => {
+    const params = new URLSearchParams();
+    if (q) params.set('q', q);
+    if (countryFilter) params.set('country', countryFilter);
+    if (typeFilter) params.set('actor_type', typeFilter);
+    if (ownerFilter) params.set('owner', ownerFilter);
+    params.set('pageSize', String(pageSize));
+    params.set('page', String(p));
+    return `/dashboard/actors?${params.toString()}`;
+  };
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Actors')}</head><body><div class="app-shell">${dashboardNav('actors')}${pageHeader('Actors','', 'Canonical actor registry for picker-based mapping')} ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Actor</strong></summary><div class="card-body"><form method="post" action="/api/actors" class="row g-2"><div class="col-md-4"><label class="form-label">Actor ID *</label><input class="form-control" name="actor_id" required /></div><div class="col-md-4"><label class="form-label">Name *</label><input class="form-control" name="name" required /></div><div class="col-md-4"><label class="form-label">Type</label><select class="form-select" name="actor_type"><option>family_office</option><option>sovereign</option><option>organization</option><option>operator</option><option>regulator</option><option>team</option><option>other</option></select></div><div class="col-12"><button class="btn btn-sm btn-primary">Save Actor</button></div></form></div></details>` : ''}
+  <div class="card mb-3"><div class="card-body"><form class="row g-2" method="get" action="/dashboard/actors">
+    <div class="col-md-4"><label class="form-label">Search</label><input class="form-control" name="q" value="${escapeHtml(q)}" placeholder="name, company, designation" /></div>
+    <div class="col-md-2"><label class="form-label">Country</label><select class="form-select" name="country"><option value="">All</option>${countries.map((c)=>`<option value="${escapeHtml(c)}" ${countryFilter===c?'selected':''}>${escapeHtml(c)}</option>`).join('')}</select></div>
+    <div class="col-md-2"><label class="form-label">Type</label><select class="form-select" name="actor_type"><option value="">All</option>${actorTypes.map((t)=>`<option value="${escapeHtml(t)}" ${typeFilter===t?'selected':''}>${escapeHtml(t)}</option>`).join('')}</select></div>
+    <div class="col-md-2"><label class="form-label">Owner</label><select class="form-select" name="owner"><option value="">All</option>${owners.map((o)=>`<option value="${escapeHtml(o)}" ${ownerFilter===o?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select></div>
+    <div class="col-md-2"><label class="form-label">Page Size</label><select class="form-select" name="pageSize">${[25,50,100,200].map((n)=>`<option value="${n}" ${pageSize===n?'selected':''}>${n}</option>`).join('')}</select></div>
+    <div class="col-12 d-flex gap-2"><button class="btn btn-primary btn-sm" type="submit">Apply</button><a class="btn btn-outline-secondary btn-sm" href="/dashboard/actors">Reset</a><span class="small text-muted ms-auto">Showing ${rows.length} of ${total}</span></div>
+  </form></div></div>
+  <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>First Name</th><th>Last Name</th><th>Designation</th><th>Company</th><th>Country</th></tr></thead><tbody>${rows.map((a)=>`<tr><td>${escapeHtml(a.first || '—')}</td><td>${escapeHtml(a.last || '—')}</td><td>${escapeHtml(a.designation || '—')}</td><td>${escapeHtml(a.company || '—')}</td><td>${escapeHtml(a.country || '—')}</td></tr>`).join('') || '<tr><td colspan="5" class="text-muted">No actors match current filters.</td></tr>'}</tbody></table></div>
+  <div class="d-flex justify-content-between align-items-center mt-2">
+    <div class="small text-muted">Page ${currentPage} of ${totalPages}</div>
+    <div class="btn-group">
+      <a class="btn btn-sm btn-outline-secondary ${currentPage<=1?'disabled':''}" href="${currentPage<=1?'#':qp(currentPage-1)}">Prev</a>
+      <a class="btn btn-sm btn-outline-secondary ${currentPage>=totalPages?'disabled':''}" href="${currentPage>=totalPages?'#':qp(currentPage+1)}">Next</a>
+    </div>
+  </div>
+  </div></body></html>`);
 });
 
 app.post('/api/actors', requireRole('architect','editor'), async (req, res) => {
