@@ -4421,7 +4421,7 @@ async function listReviewPackets(limit = 50) {
       linked_task: front.linked_task || '',
       created_at: front.created_at || '',
       created_by: front.created_by || '',
-      status: front.status || (m ? 'Draft' : 'Legacy'),
+      status: front.status || (m ? 'Draft' : 'Ready for Review'),
       recommended_action: front.recommended_action || '',
       compact,
       path: rel(full),
