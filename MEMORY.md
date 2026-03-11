@@ -146,6 +146,22 @@
 - Durable changes captured: Workflow A/B + Morning Brief run completion, signal-pressure freshness guardrail, and explicit daily detection/reporting expectation.
 - No new scoring-policy changes.
 
+# Project Status Snapshot (2026-03-11)
+- Board Build Window (03:10 UTC) advanced credentialed smoke chain via decomposition-gated artifact work:
+  - `TASK-0136` Ready for Review: deterministic evidence bundle wrapper (`scripts/pipeline-run-smoke-capture.sh`).
+  - `TASK-0137` Ready for Review: evidence completeness report generator (`scripts/pipeline-run-evidence-report.mjs`) + baseline blocked report (`mission-control/evidence/pipeline-run/2026-03-11T03-10-00Z/evidence-report.md`).
+  - Review packet created: `mission-control/review-packets/RP-0050-board-build-window-night-2026-03-11.md`.
+- Governance status unchanged: no Done transitions; parent chain remains blocked only on credentialed live execution (`TASK-0111`).
+- Heartbeat state at 03:21 UTC:
+  - Buyer access graph remains degraded for top-ranked buyers (TAFF high-influence path gap unresolved; top-10 coverage/metadata drift still present).
+  - Signal-pressure check remained fresh and continued to surface qualifying high-impact delta (verified Nigeria CBN AML automation signal).
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-11)
+- Daily log distilled into durable project snapshot.
+- Durable changes captured: TASK-0136/TASK-0137 artifact automation + RP-0050 and persistent credentialed-execution blocker status.
+- No operating-rule or scoring-policy changes.
+
 # Communication Operating Rule (2026-03-01)
 - Proactive update protocol is mandatory during active build windows:
   - Send status at least every 30 minutes.
