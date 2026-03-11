@@ -15,6 +15,7 @@
   - On-record executive statement tied to a dated event
   - Anything below threshold => Monitor — no posture change
 - Signal provenance rule (2026-03-07): every signal must be flagged as either `provided_by_isaac` or `discovered_by_system` (and never presented as self-discovered if Isaac provided it).
+- Source URL inclusion rule (2026-03-11): when Isaac provides public source URLs for a signal, include those URLs verbatim in `dashboard/data/signals.json` `sources[]` by default (internal:// references may be added as secondary context, not replacements).
 - Signal-pressure freshness rule (2026-03-09): before heartbeat signal-delta checks, run `node mission-control/signal-pressure/run-if-stale.mjs`; only evaluate alert criteria on fresh/refreshed `pressure-delta.json`.
 
 # Current Projects
