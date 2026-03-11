@@ -7,6 +7,8 @@ Execute authenticated smoke verification for `POST /api/presentation-studio/deck
 - Valid authenticated session cookie for team/admin context.
 - Target deck is known **or** can be resolved from selectors.
 - `scripts/pipeline-run-smoke.sh` is present and executable.
+- `scripts/pipeline-run-smoke-capture.sh` is present and executable.
+- `scripts/pipeline-run-evidence-report.mjs` is available to generate review-ready report markdown.
 
 ## Required Environment Variables
 - `BASE_URL` (example: `http://localhost:8787`)
@@ -22,29 +24,27 @@ Use these only when `DECK_ID` is not known:
 ## Command Sequence
 ```bash
 cd /home/ec2-user/.openclaw/workspace
-mkdir -p mission-control/evidence/pipeline-run
-STAMP=$(date -u +%Y-%m-%dT%H-%M-%SZ)
-
 BASE_URL="http://localhost:8787" \
 COOKIE="connect.sid=<session-cookie>" \
 DECK_ID="<deck-id>" \
-bash scripts/pipeline-run-smoke.sh \
-| tee "mission-control/evidence/pipeline-run/${STAMP}-auth-smoke.log"
+bash scripts/pipeline-run-smoke-capture.sh
+
+# Optional: render checklist report from the captured bundle
+node scripts/pipeline-run-evidence-report.mjs "mission-control/evidence/pipeline-run/<STAMP>"
 ```
 
 ## Command Sequence (auto-resolve deck)
 ```bash
 cd /home/ec2-user/.openclaw/workspace
-mkdir -p mission-control/evidence/pipeline-run
-STAMP=$(date -u +%Y-%m-%dT%H-%M-%SZ)
-
 BASE_URL="http://localhost:8787" \
 COOKIE="connect.sid=<session-cookie>" \
 INITIATIVE_ID="USG" \
 DECK_TYPE="buyer-mandate-mirror" \
 BUYER_ID="PIF" \
-bash scripts/pipeline-run-smoke.sh \
-| tee "mission-control/evidence/pipeline-run/${STAMP}-auth-smoke.log"
+bash scripts/pipeline-run-smoke-capture.sh
+
+# Optional checklist report
+node scripts/pipeline-run-evidence-report.mjs "mission-control/evidence/pipeline-run/<STAMP>"
 ```
 
 ## Expected Results
