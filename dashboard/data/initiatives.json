@@ -4028,10 +4028,10 @@
     "infrastructure_category": "Economic",
     "type": "initiative",
     "theme": "Tradable physical labor capacity",
-    "thesis": "Humanoid and non-humanoid robot fleets can become financeable, leasable, and eventually tradable units of physical labor capacity. USG designs governance, capital stack, and market structure.",
-    "summary": "Platform to finance, standardize, deploy, lease, and govern automated labor fleets in constrained high-value environments.",
-    "initiative_question": "Can USG become governance architect of a market where automated labor capacity is financed, deployed, leased, and eventually traded like institutional asset classes?",
-    "north_star_outcome": "Establish first institutional platform treating automated labor capacity as financeable infrastructure and secure a credible pilot.",
+    "thesis": "Humanoid and non-humanoid robot fleets can become financeable, leasable, and eventually tradable units of physical labor capacity. USG's role is not to manufacture robots, but to architect the governance, capital stack, deployment model, and institutional market structure that turns automated labor into an infrastructure asset class.",
+    "summary": "A platform to finance, standardize, deploy, lease, and govern automated labor fleets for nations, ports, logistics networks, industrial operators, and infrastructure owners. The platform converts robot work into measurable labor capacity contracts, beginning with pilot deployments in constrained, high-value environments such as ports, warehouses, industrial inspection, and infrastructure maintenance.",
+    "initiative_question": "Can USG become the governance architect of a new infrastructure market where automated labor capacity is financed, deployed, leased, and eventually traded like other institutional asset classes?",
+    "north_star_outcome": "Establish the first institutional platform that treats automated physical labor capacity as a financeable infrastructure layer and secures a pilot deployment with a credible buyer, supplier pathway, and fleet financing structure.",
     "linked_buyers": [],
     "linked_signals": [],
     "linked_beacons": [],
@@ -4732,6 +4732,40 @@
       "Do not position this as a robot manufacturer.",
       "Anchor first executable version in a measurable pilot.",
       "Use institutional and practical language, not speculative framing."
-    ]
+    ],
+    "short_name": "Automated Labor Infrastructure",
+    "why_now": [
+      "Labor shortages are rising across logistics, construction, healthcare support, industrial maintenance, and public infrastructure.",
+      "AI, robotics, batteries, and industrial autonomy are converging fast enough to make robot fleet deployment commercially plausible within the medium term.",
+      "Nations increasingly need productivity growth without relying solely on immigration or population growth.",
+      "Capital markets understand leasing models for aircraft, vessels, data centers, and equipment, creating a familiar financing path for robot fleets.",
+      "The largest long-term value will likely sit in fleet ownership, deployment, orchestration, maintenance, and standards rather than in hardware manufacturing alone."
+    ],
+    "smallest_executable_version": {
+      "name": "Automated Labor Pilot",
+      "description": "Deploy and govern a pilot fleet of automated labor units in a constrained, high-value environment with measurable output, uptime, safety, and unit economics.",
+      "example_use_cases": [
+        "Port logistics support",
+        "Warehouse movement and picking",
+        "Industrial inspection",
+        "Infrastructure maintenance",
+        "Security and perimeter patrol"
+      ],
+      "target_scope": {
+        "fleet_size_range": "25-100 units",
+        "contract_term": "12-36 months",
+        "buyer_type": "Port operator, logistics operator, industrial infrastructure owner, or sovereign-linked operator",
+        "commercial_model": "Lease or labor-capacity service agreement"
+      },
+      "success_metrics": [
+        "Buyer agrees to pilot scope and deployment environment",
+        "Supplier path is validated",
+        "Safety and regulatory pathway is identified",
+        "Unit economics are measurable",
+        "Fleet uptime and task completion are auditable",
+        "Capital structure for scale is sketchable"
+      ]
+    },
+    "macro_gravity_summary": "# Initiative Description\nA platform to finance, standardize, deploy, lease, and govern automated labor fleets for nations, ports, logistics networks, industrial operators, and infrastructure owners. The platform converts robot work into measurable labor capacity contracts, beginning with pilot deployments in constrained, high-value environments such as ports, warehouses, industrial inspection, and infrastructure maintenance.\n\n## Thesis\nHumanoid and non-humanoid robot fleets can become financeable, leasable, and eventually tradable units of physical labor capacity. USG's role is not to manufacture robots, but to architect the governance, capital stack, deployment model, and institutional market structure that turns automated labor into an infrastructure asset class.\n\n## Smallest Executable Version\nAutomated Labor Pilot: Deploy and govern a pilot fleet of automated labor units in a constrained, high-value environment with measurable output, uptime, safety, and unit economics."
   }
 ]
