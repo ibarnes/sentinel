@@ -3014,5 +3014,155 @@
       "INIT-AI-OPT-B",
       "INIT-NG-FIN-ENERGY-SPINE"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-12-REPLIT-RAISE-400M-9B-001",
+    "title": "Replit raises $400M at a $9B valuation",
+    "signal_class": "Capital Reality",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified_multi_source_reporting",
+    "observed_at": "2026-03-12T19:37:00Z",
+    "summary": "Replit announced a $400M Series D at a $9B valuation, signaling accelerating capital concentration around AI-native software creation platforms as emerging infrastructure control points.",
+    "flow": "late-stage capital acceleration -> interface-layer platform consolidation -> enterprise workflow capture across build/deploy/govern layers",
+    "sources": [
+      {
+        "publisher": "MarketWatch",
+        "url": "https://www.marketwatch.com/story/replit-raises-400m-at-9b-valuation-569f18d6"
+      },
+      {
+        "publisher": "Replit Blog",
+        "url": "https://blog.replit.com/replit-raises-400-million-dollars"
+      },
+      {
+        "publisher": "TechCrunch",
+        "url": "https://techcrunch.com/2026/03/11/replit-snags-9b-valuation-6-months-after-hitting-3b/"
+      },
+      {
+        "publisher": "Reuters",
+        "url": "https://www.reuters.com/business/ai-software-developer-replit-raises-250-million-3-billion-valuation-2025-09-10/"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "AI software production stack",
+    "actor_refs": [
+      "ACTOR:replit",
+      "ACTOR:georgian_partners",
+      "ACTOR:coatue",
+      "ACTOR:andreessen_horowitz",
+      "ACTOR:accenture_ventures",
+      "ACTOR:okta_ventures",
+      "ACTOR:databricks_ventures",
+      "ACTOR:cursor",
+      "ACTOR:openai",
+      "ACTOR:anthropic",
+      "ACTOR:github_copilot"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:replit",
+        "role": "issuer_platform",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:georgian_partners",
+        "role": "lead_capital_provider",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:accenture_ventures",
+        "role": "strategic_distribution_actor",
+        "influence": "medium"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "market_access",
+      "architecture"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "evidence": {
+      "capital_raised_usd": 400000000,
+      "post_money_valuation_usd": 9000000000,
+      "previous_known_valuation_usd": 3000000000,
+      "valuation_change_multiple": 3,
+      "round": "Series D",
+      "lead_investor": "Georgian Partners",
+      "participating_investors": [
+        "G Squared",
+        "Prysm Capital",
+        "Coatue",
+        "Andreessen Horowitz",
+        "Craft Ventures",
+        "Y Combinator",
+        "Accenture Ventures",
+        "Okta Ventures",
+        "Databricks Ventures"
+      ],
+      "strategic_claims": [
+        "Replit says it is targeting $1B in ARR by the end of 2026"
+      ]
+    },
+    "pattern_summary": "Capital is rewarding interface-layer AI software production platforms that capture user intent and workflow control.",
+    "model_update": {
+      "previous_model": "AI coding tools were mainly developer productivity products.",
+      "updated_model": "AI coding platforms are becoming full-stack software production environments spanning ideation, build, deploy, and enterprise workflow integration.",
+      "implications": [
+        "Model providers may not capture all value; interface platforms can become primary control layers.",
+        "Natural-language-to-production software pathways are becoming strategic infrastructure.",
+        "Enterprise software creation is shifting toward AI-mediated platform assembly."
+      ]
+    },
+    "predictions": [
+      {
+        "prediction": "More capital will flow into AI coding and app-generation platforms over next 6-12 months.",
+        "probability": 0.88
+      },
+      {
+        "prediction": "Market consolidates around a handful of dominant interface-layer platforms.",
+        "probability": 0.76
+      },
+      {
+        "prediction": "Enterprise adoption broadens from developer productivity to internal tool/workflow automation.",
+        "probability": 0.81
+      },
+      {
+        "prediction": "Strategic partnerships/M&A emerge around identity, deployment, data, governance.",
+        "probability": 0.72
+      },
+      {
+        "prediction": "Pricing power improves for leaders converting growth into enterprise contracts.",
+        "probability": 0.79
+      }
+    ],
+    "usg_relevance": {
+      "relevance_score": 0.72,
+      "why_relevant": [
+        "Signals where capital is concentrating in AI infrastructure layers.",
+        "Highlights control points in future software production.",
+        "Useful for mapping buyers/partners around governed AI application environments."
+      ],
+      "possible_usg_angles": [
+        "Track AI software production as infrastructure, not just SaaS.",
+        "Map enterprise and sovereign demand for governed AI app environments.",
+        "Monitor these platforms as deployment surfaces for regulated sectors."
+      ]
+    },
+    "tags": [
+      "AI",
+      "developer-tools",
+      "vibe-coding",
+      "application-infrastructure",
+      "venture-capital",
+      "Replit"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-AI-OPT-B"
+    ]
   }
 ]
