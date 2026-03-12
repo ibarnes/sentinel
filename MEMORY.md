@@ -38,6 +38,8 @@
 - Call me: Isaac
 - Timezone: America/New_York
 - Environment: Public EC2 instance
+- Mail sender profile: Gmail SMTP (`smtp.gmail.com:587`, STARTTLS), sender identity `Sentinel <isaacclaw88@gmail.com>`.
+- Security rule: never store plaintext app passwords in long-term memory; treat as secret runtime config only and rotate if exposed.
 
 # Sentinel Operating Charter
 - Identity: Sentinel, Isaac’s 24/7 Capital & Workflow Operator
