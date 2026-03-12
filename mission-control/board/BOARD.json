@@ -3009,7 +3009,13 @@
         "TASK-0147",
         "mission-control/review-packets/RP-0056-board-execution-sweep-morning-2026-03-12.md",
         "mission-control/evidence/pipeline-run/2026-03-12T10-40-00Z-credential-exec-pack.md",
-        "mission-control/evidence/pipeline-run/2026-03-12T10-40-00Z-post-exec-board-replay-template.md"
+        "mission-control/evidence/pipeline-run/2026-03-12T10-40-00Z-post-exec-board-replay-template.md",
+        "TASK-0148",
+        "TASK-0149",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "scripts/pipeline-run-credentialed-once.sh",
+        "mission-control/evidence/pipeline-run/2026-03-12T16-30-00Z-preflight.md",
+        "mission-control/review-packets/RP-0058-board-progress-sweep-midday-2026-03-12.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3072,11 +3078,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep: added/executed atomic children TASK-0146 (credential execution pack) and TASK-0147 (post-exec replay template) to compress credential-window latency.",
           "created_at": "2026-03-12T10:40:00Z"
+        },
+        {
+          "id": "decomp-0103-20260312-1630",
+          "author": "sentinel",
+          "text": "Midday sweep: added/executed TASK-0148 (preflight checker) and TASK-0149 (one-command credentialed runner) to compress live credential window execution.",
+          "created_at": "2026-03-12T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-12T10:40:00Z",
+      "updated_at": "2026-03-12T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4764,6 +4776,91 @@
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
       "review_packet_id": "RP-0056"
+    },
+    {
+      "id": "TASK-0148",
+      "title": "TS-H1.1c.2s Add credential preflight checker and capture blocked/pass state artifact",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-progress-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "mission-control/evidence/pipeline-run/2026-03-12T16-30-00Z-preflight.md"
+      ],
+      "description": "Create preflight checker for BASE_URL and TEAM_SESSION_COOKIE and generate markdown status artifact before credentialed run.\nAcceptance Criteria:\n- Script exits cleanly and writes preflight report.\n- Report indicates PASS/BLOCKED deterministically based on env vars.\n- Artifact path linked to blocker chain.",
+      "comments": [
+        {
+          "id": "done-0148-20260312-1630",
+          "author": "sentinel",
+          "text": "Implemented scripts/pipeline-run-credential-preflight.sh and captured mission-control/evidence/pipeline-run/2026-03-12T16-30-00Z-preflight.md.",
+          "created_at": "2026-03-12T16:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-12T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0058-board-progress-sweep-midday-2026-03-12.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-12T16:30:00Z",
+      "updated_at": "2026-03-12T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0058"
+    },
+    {
+      "id": "TASK-0149",
+      "title": "TS-H1.1c.2t Add one-command credentialed smoke runner wrapper",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-progress-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credentialed-once.sh"
+      ],
+      "description": "Create one-command wrapper that runs smoke capture, evidence report, and transition plan generation once credentials are present.\nAcceptance Criteria:\n- Fails fast if required env vars missing.\n- Runs existing capture/report/planner tools in deterministic order.\n- Prints output evidence directory for rapid board replay.",
+      "comments": [
+        {
+          "id": "done-0149-20260312-1630",
+          "author": "sentinel",
+          "text": "Implemented scripts/pipeline-run-credentialed-once.sh for one-pass credentialed execution.",
+          "created_at": "2026-03-12T16:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-12T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0058-board-progress-sweep-midday-2026-03-12.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-12T16:30:00Z",
+      "updated_at": "2026-03-12T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0058"
     }
   ]
 }
