@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-03-12T03:10:37.878Z",
+  "evidence_dir": "mission-control/evidence/pipeline-run/2026-03-11T10-40-00Z",
+  "status": "BLOCKED",
+  "missing_files": [
+    "manifest.json",
+    "smoke.log",
+    "valid-response.json",
+    "invalid-response.json"
+  ],
+  "checks": [],
+  "transitions": [
+    {
+      "task": "TASK-0111",
+      "action": "remain Backlog/In Progress",
+      "comment": "Await credentialed run output."
+    },
+    {
+      "task": "TASK-0103",
+      "action": "remain In Progress",
+      "comment": "Execution blocked pending credential and evidence artifacts."
+    },
+    {
+      "task": "TASK-0097",
+      "action": "remain In Progress",
+      "comment": "Live smoke evidence still incomplete."
+    }
+  ],
+  "next_action": "Run scripts/pipeline-run-smoke-capture.sh in credentialed window, then re-run this planner."
+}

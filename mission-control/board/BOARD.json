@@ -3055,11 +3055,17 @@
           "author": "sentinel",
           "text": "Midday decomposition gate: added TASK-0141/TASK-0142 to make post-credential chain closure deterministic and <30 min.",
           "created_at": "2026-03-11T16:30:00Z"
+        },
+        {
+          "id": "decomp-0103-20260312-0310",
+          "author": "sentinel",
+          "text": "Night build window decomposition: added TASK-0143/0144 to automate evidence-to-transition planning before credentialed execution.",
+          "created_at": "2026-03-12T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-11T16:30:00Z",
+      "updated_at": "2026-03-12T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4527,6 +4533,92 @@
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
       "review_packet_id": "RP-0053"
+    },
+    {
+      "id": "TASK-0143",
+      "title": "TS-H1.1c.2o Implement evidence-driven board transition planner",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-transition-plan.mjs",
+        "mission-control/evidence/pipeline-run/2026-03-12T03-10-00Z-transition-plan.json"
+      ],
+      "description": "Create script that reads an evidence bundle and emits PASS/BLOCKED transition recommendations for chain tasks.\nAcceptance Criteria:\n- Accepts --dir and --out args.\n- Outputs status plus task transition list.\n- Handles missing artifacts deterministically.",
+      "comments": [
+        {
+          "id": "done-0143-20260312-0310",
+          "author": "sentinel",
+          "text": "Implemented scripts/pipeline-run-transition-plan.mjs and generated mission-control/evidence/pipeline-run/2026-03-12T03-10-00Z-transition-plan.json.",
+          "created_at": "2026-03-12T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-12T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0054-board-build-window-night-2026-03-12.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-12T03:10:00Z",
+      "updated_at": "2026-03-12T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0054"
+    },
+    {
+      "id": "TASK-0144",
+      "title": "TS-H1.1c.2p Generate operator-ready transition action card from planner output",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/2026-03-12T03-10-00Z-transition-plan.json",
+        "mission-control/evidence/pipeline-run/2026-03-12T03-10-00Z-transition-actions.md"
+      ],
+      "description": "Generate concise markdown action card from transition planner output for immediate operator replay.\nAcceptance Criteria:\n- Includes status, suggested task actions, missing files, and next action.\n- Stored under mission-control/evidence/pipeline-run/.\n- Linked back to parent chain.",
+      "comments": [
+        {
+          "id": "done-0144-20260312-0310",
+          "author": "sentinel",
+          "text": "Generated action card at mission-control/evidence/pipeline-run/2026-03-12T03-10-00Z-transition-actions.md.",
+          "created_at": "2026-03-12T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-12T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0054-board-build-window-night-2026-03-12.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-12T03:10:00Z",
+      "updated_at": "2026-03-12T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0054"
     }
   ]
 }
