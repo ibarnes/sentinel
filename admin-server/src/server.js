@@ -1512,7 +1512,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         <th class="pp-hide-md">USG Relevance</th>
         <th><button data-sort="delta90d" class="btn btn-sm btn-ghost p-0">90D Δ</button></th>
         <th>Buyer Class</th>
-        <th class="pp-wide-col">Next Intelligence Action</th>
+        <th class="pp-wide-col">Recommended Motion</th>
+        <th class="pp-wide-col">Decision Confidence</th>
         <th><button data-sort="lastUpdated" class="btn btn-sm btn-ghost p-0">Updated</button></th>
       </tr></thead>
       <tbody id="pp-table"></tbody>
@@ -1675,7 +1676,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         if (state.stuckReason && !reasons.includes(state.stuckReason)) return false;
 
         if (!q) return true;
-        const blob = [r.sector,r.thesisSummary,r.analystNotes,r.mainStructuralBottleneck,r.whyItMatters,r.nextIntelligenceAction,r.buyerPath,r.usgRelevance,(r.actors||[]).map(a=>a.name).join(' ')].join(' ').toLowerCase();
+        const blob = [r.sector,r.thesisSummary,r.analystNotes,r.mainStructuralBottleneck,r.whyItMatters,r.nextIntelligenceAction,r.recommended_motion,r.pattern_summary,r.buyerPath,r.usgRelevance,(r.actors||[]).map(a=>a.name).join(' ')].join(' ').toLowerCase();
         return blob.includes(q);
       });
     }
@@ -1741,7 +1742,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     function renderTable(list){
       if (!list.length) {
-        els.table.innerHTML = '<tr><td colspan="10"><div class="pp-empty">No sectors match current filters. Reset filters or lower minimum PPI.</div></td></tr>';
+        els.table.innerHTML = '<tr><td colspan="11"><div class="pp-empty">No sectors match current filters. Reset filters or lower minimum PPI.</div></td></tr>';
         return;
       }
       els.table.innerHTML = list.map(r => '<tr data-id="'+esc(r.id)+'" style="cursor:pointer">'+
@@ -1753,7 +1754,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         '<td class="pp-hide-md"><span class="pp-rel">'+esc(r.usgRelevance || 'Track')+'</span></td>'+
         '<td>'+delta(r.delta90d)+'</td>'+
         '<td><span class="badge text-bg-light border">'+esc(r.likelyBuyerClass)+'</span></td>'+
-        '<td class="pp-wide-col small text-muted">'+esc(r.nextIntelligenceAction || 'Validate FID boundary')+'</td>'+
+        '<td class="pp-wide-col small text-muted">'+esc(r.recommended_motion || r.nextIntelligenceAction || 'monitor')+'</td>'+
+        '<td class="pp-wide-col"><span class="pp-status">'+esc(r.decision_confidence || 'medium')+'</span></td>'+
         '<td class="mono small">'+esc(r.lastUpdated)+'</td></tr>').join('');
       els.table.querySelectorAll('tr[data-id]').forEach(tr => tr.addEventListener('click', () => openDetail(tr.dataset.id)));
     }
@@ -2029,7 +2031,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       drawerBody.innerHTML =
         '<div class="mb-3"><div class="pp-kicker">Sector Priority</div><h5 class="mb-1">'+esc(r.sector)+'</h5><div class="small text-muted mb-2">'+esc(r.region)+'</div><div class="small">'+esc(r.whyItMatters)+'</div></div>'+
         '<div class="card mb-3"><div class="card-body py-2"><div class="row g-2"><div class="col-6"><div class="pp-kicker">Pressure Strength</div><div><span class="pp-ppi">'+r.ppi+'/25</span> <span class="ms-2 pp-status">'+esc(r.status)+'</span></div></div><div class="col-6"><div class="pp-kicker">Likely Buyer</div><div class="small"><strong>'+esc(r.likelyBuyerClass)+'</strong><div class="text-muted">'+esc(r.buyerRationale)+'</div></div></div><div class="col-6"><div class="pp-kicker">FID Boundary</div><div class="small">'+esc(r.fidBoundaryType)+'</div></div><div class="col-6"><div class="pp-kicker">Primary Blocker</div><div class="small">'+esc(r.mainStructuralBottleneck)+'</div></div></div></div></div>'+
-        '<div class="card mb-3"><div class="card-body py-2"><h6 class="mb-2">Origination Readiness</h6><div class="row g-2 small"><div class="col-6"><strong>Is capital real?</strong><div>'+esc(rr.cap)+'</div></div><div class="col-6"><strong>Is FID definable?</strong><div>'+esc(rr.fid)+'</div></div><div class="col-6"><strong>Is buyer above execution?</strong><div>'+esc(rr.buyer)+'</div></div><div class="col-6"><strong>Is mandate feasibility emerging?</strong><div>'+esc(rr.mand)+'</div></div><div class="col-12"><strong>USG relevance:</strong> <span class="pp-rel">'+esc(r.usgRelevance || 'Track')+'</span> · <strong>Buyer path:</strong> '+esc(r.buyerPath || 'Mixed / Multi-actor')+'</div><div class="col-12 text-muted">'+esc(rr.uplift)+'</div><div class="col-12"><strong>Next Intelligence Action:</strong> '+esc(r.nextIntelligenceAction || 'Validate FID boundary')+'</div></div></div></div>'+
+        '<div class="card mb-3"><div class="card-body py-2"><h6 class="mb-2">Origination Readiness</h6><div class="row g-2 small"><div class="col-6"><strong>Is capital real?</strong><div>'+esc(rr.cap)+'</div></div><div class="col-6"><strong>Is FID definable?</strong><div>'+esc(rr.fid)+'</div></div><div class="col-6"><strong>Is buyer above execution?</strong><div>'+esc(rr.buyer)+'</div></div><div class="col-6"><strong>Is mandate feasibility emerging?</strong><div>'+esc(rr.mand)+'</div></div><div class="col-12"><strong>USG relevance:</strong> <span class="pp-rel">'+esc(r.usgRelevance || 'Track')+'</span> · <strong>Buyer path:</strong> '+esc(r.buyerPath || 'Mixed / Multi-actor')+'</div><div class="col-12 text-muted">'+esc(rr.uplift)+'</div><div class="col-12"><strong>Recommended Motion:</strong> '+esc(r.recommended_motion || r.nextIntelligenceAction || 'monitor')+' · <strong>Decision Confidence:</strong> '+esc(r.decision_confidence || 'medium')+'</div><div class="col-12"><strong>Pattern Summary:</strong> '+esc(r.pattern_summary || 'Pattern forming across signals and actors.')+'</div><div class="col-12"><strong>Missing Actor Roles:</strong> '+esc((r.missing_actor_roles || []).join(', ') || '—')+'</div><div class="col-12"><strong>Required Next Evidence:</strong> '+esc((r.required_next_evidence || []).join(' | ') || '—')+'</div></div></div></div>+
         '<div class="mb-3"><h6 class="mb-2">Why this score?</h6><div class="small text-muted">'+esc(scoreInterpretation(r))+'</div></div>'+
         '<div class="mb-3"><h6 class="mb-2">PPI Breakdown</h6>'+scoreBar('Capital Reality', r.scores.capitalReality)+scoreBar('FID Definability', r.scores.fidDefinability)+scoreBar('Multi-Actor Dependency', r.scores.multiActorDependency)+scoreBar('Structural Ambiguity', r.scores.structuralAmbiguity)+scoreBar('Mandate Feasibility', r.scores.mandateFeasibility)+'<div class="pp-legend">Weighted config score: '+esc(r.weightedPpi)+'</div></div>'+
         '<div class="mb-3"><h6 class="mb-2">Signals Feed</h6>'+
@@ -2364,7 +2366,7 @@ app.get('/dashboard/signals', async (req, res) => {
     const cls = v === 'Verified' ? 'success' : (v === 'Actioned' ? 'primary' : 'secondary');
     return `<span class="badge text-bg-${cls}">${escapeHtml(v)}</span>`;
   };
-  const signalRowsJson = JSON.stringify(sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><a class="text-decoration-none" href="/dashboard/signal/${encodeURIComponent(String(s.signal_id || ''))}"><strong>${escapeHtml(s.title || '')}</strong></a><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${(s.buyer_ids || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td></tr>`)).replace(/</g, '\\u003c');
+  const signalRowsJson = JSON.stringify(sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><a class="text-decoration-none" href="/dashboard/signal/${encodeURIComponent(String(s.signal_id || ''))}"><strong>${escapeHtml(s.title || '')}</strong></a><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td><span class="badge text-bg-light border">${escapeHtml(String(s.model_step || '1_collect_signals'))}</span></td><td class="small">${escapeHtml(String(s.system_id || s.system_guess || '—'))}</td><td><span class="badge text-bg-light border">${escapeHtml(String(s.evidence_strength || 'medium'))}</span></td><td><span class="badge text-bg-${s.blocks_hypothesis ? 'danger' : (s.advances_hypothesis ? 'success' : 'secondary')}">${s.blocks_hypothesis ? 'Blocks' : (s.advances_hypothesis ? 'Advances' : 'Neutral')}</span></td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${(s.buyer_ids || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td></tr>`)).replace(/</g, '\\u003c');
   const signalCardsJson = JSON.stringify(sorted.map((s) => `<a class="list-group-item list-group-item-action" href="/dashboard/signal/${encodeURIComponent(String(s.signal_id || ''))}"><div class="d-flex justify-content-between align-items-start gap-2"><div class="fw-semibold">${escapeHtml(s.title || '')}</div><div class="small text-muted mono">${escapeHtml(String(s.observed_at || '').slice(0,10))}</div></div><div class="small text-muted text-truncate" style="max-width:100%">${escapeHtml(s.summary || '')}</div><div class="d-flex gap-1 mt-1">${statusBadge(s.status)}<span class="badge text-bg-light border">${escapeHtml(s.confidence || '')}</span></div></a>`)).replace(/</g, '\\u003c');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signals')}</head><body><div class="app-shell">
     ${dashboardNav('signals')}
@@ -2384,7 +2386,7 @@ app.get('/dashboard/signals', async (req, res) => {
       <div id="signalsMobileList" class="list-group mb-3"></div>
       <div id="signalsMobileEnd" class="text-center small text-muted py-2"></div>
     </div>
-    <div class="table-responsive d-none d-md-block"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Signal Class</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody id="signalsTbody"></tbody></table></div>
+    <div class="table-responsive d-none d-md-block"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Class</th><th>Step</th><th>System</th><th>Evidence</th><th>Hypothesis</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody id="signalsTbody"></tbody></table></div>
     <div id="signalsEnd" class="text-center small text-muted py-3 d-none d-md-block"></div>
     <div id="signalsSentinel" class="d-none d-md-block" style="height:1px"></div>
   </div>

@@ -20,7 +20,20 @@
         "url": "internal://chat/2026-02-26"
       }
     ],
-    "signal_class": "Capital Reality"
+    "signal_class": "Capital Reality",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-02-27-NG-001",
@@ -44,7 +57,20 @@
         "url": "internal://chat/2026-02-27"
       }
     ],
-    "signal_class": "Structural Ambiguity"
+    "signal_class": "Structural Ambiguity",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-02-27-NG-002",
@@ -69,7 +95,19 @@
         "url": "internal://chat/2026-02-27"
       }
     ],
-    "signal_class": "Platform Pressure"
+    "signal_class": "Platform Pressure",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-02-27-GULF-001",
@@ -94,7 +132,20 @@
         "url": "internal://chat/2026-02-27"
       }
     ],
-    "signal_class": "Capital Reality"
+    "signal_class": "Capital Reality",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-02-27-AFDB-001",
@@ -116,7 +167,19 @@
         "url": "internal://chat/2026-02-27"
       }
     ],
-    "signal_class": "FID Definability"
+    "signal_class": "FID Definability",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-02-27-USNG-001",
@@ -139,7 +202,19 @@
         "url": "internal://chat/2026-02-27"
       }
     ],
-    "signal_class": "Ecosystem / Theater"
+    "signal_class": "Ecosystem / Theater",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-02-27-FISCAL-001",
@@ -162,7 +237,19 @@
         "url": "internal://chat/2026-02-27"
       }
     ],
-    "signal_class": "Structural Ambiguity"
+    "signal_class": "Structural Ambiguity",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-02-27-PIF-STRAT-001",
@@ -185,7 +272,18 @@
         "url": "internal://chat/2026-02-27-pif-strategy"
       }
     ],
-    "signal_class": "Ecosystem / Theater"
+    "signal_class": "Ecosystem / Theater",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-01-PIF-ALUMINUM-001",
@@ -208,7 +306,18 @@
         "url": "https://www.pif.gov.sa/en/news-and-insights/press-releases/2026/pif-and-red-sea-aluminium-holdings-sign-initial-terms-to-develop-an-advanced-integrated-aluminum-complex-in-saudi-arabia/"
       }
     ],
-    "signal_class": "Capital Reality"
+    "signal_class": "Capital Reality",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-01-PIF-VENDOR-GATE-001",
@@ -232,7 +341,18 @@
         "url": "https://www.pif.gov.sa/en/vendor-gate/"
       }
     ],
-    "signal_class": "Sponsor Altitude"
+    "signal_class": "Sponsor Altitude",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "narrative"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-01-DANGOTE-SINOMA-001",
@@ -259,7 +379,19 @@
         "label": "User-provided X post text (Dangote Group account context)",
         "url": "https://x.com/dangotegroup/status/2027419467332931602?s=46"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "construction"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-NDAA-001",
@@ -283,7 +415,20 @@
         "label": "User-provided strategic summary (FY26 NDAA/DFC)",
         "url": "internal://chat/2026-03-02-dfc-ndaa"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-SONGWE-001",
@@ -305,7 +450,18 @@
         "label": "User-provided DFC live platform candidate analysis",
         "url": "internal://chat/2026-03-02-dfc-candidates"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-KATPAR-001",
@@ -327,7 +483,19 @@
         "label": "User-provided DFC live platform candidate analysis",
         "url": "internal://chat/2026-03-02-dfc-candidates"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-BANIO-001",
@@ -349,7 +517,19 @@
         "label": "User-provided DFC live platform candidate analysis",
         "url": "internal://chat/2026-03-02-dfc-candidates"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-ORION-001",
@@ -371,7 +551,19 @@
         "label": "User-provided DFC live platform candidate analysis",
         "url": "internal://chat/2026-03-02-dfc-candidates"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-AI-FRICTION-001",
@@ -393,7 +585,18 @@
         "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
         "url": "internal://chat/2026-03-02-ai-spillover"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "Unknown System",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-AI-FRICTION-002",
@@ -415,7 +618,18 @@
         "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
         "url": "internal://chat/2026-03-02-ai-spillover"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "Unknown System",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-AI-FRICTION-003",
@@ -437,7 +651,19 @@
         "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
         "url": "internal://chat/2026-03-02-ai-spillover"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "Unknown System",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-AI-FRICTION-004",
@@ -460,7 +686,19 @@
         "label": "Internal strategy mapping: Gulf AI compute spillover friction zones",
         "url": "internal://chat/2026-03-02-ai-spillover"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "Unknown System",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-NG-GRID-PLAN-001",
@@ -489,7 +727,19 @@
         "label": "Business Insider Africa report",
         "url": "https://africa.businessinsider.com/local/markets/nigeria-touts-a-dollar25-billion-plan-to-end-its-electricity-problems/n1z4237"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-NG-LIVE-FINENERGY-001",
@@ -524,7 +774,19 @@
       }
     ],
     "internal_weight_tier": "Tier 1",
-    "execution_capability_proof": "Very Strong"
+    "execution_capability_proof": "Very Strong",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-NYC-OFFICE-001",
@@ -554,7 +816,19 @@
       "deal execution",
       "talent recruitment",
       "bank/institutional relationship depth"
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-RW-INIR-SMR-001",
@@ -579,7 +853,19 @@
         "label": "RAEB/RISA official update: Rwanda Hosts Pre-INIR Mission",
         "url": "https://raeb.prod.risa.rw/updates/news-detail/rwanda-hosts-pre-inir-mission-to-strengthen-nuclear-energy-readiness"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture",
+      "construction"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-NG-FX-RESERVES-001",
@@ -610,7 +896,18 @@
         "label": "Business Insider Africa report",
         "url": "https://africa.businessinsider.com/local/markets/nigerias-net-reserves-surge-772-to-dollar348bn-as-fx-reforms-boost-buffers/w2gxc0c"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-NG-FIN-ENERGY-SPINE",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-US-CLARITY-ACT-001",
@@ -638,7 +935,19 @@
         "label": "User-provided CLARITY Act summary text",
         "url": "internal://chat/2026-03-03-clarity-act-summary"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-IN-LT-NVIDIA-AI-FACTORY-001",
@@ -665,7 +974,19 @@
         "label": "L&T official press release",
         "url": "https://www.larsentoubro.com/pressreleases/2026/2026-02-18-lt-teaming-with-nvidia-to-build-india-s-largest-gigawatt-scale-ai-factory"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture",
+      "construction"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-PIF-PROCUREMENT-CYCLE-001",
@@ -688,7 +1009,19 @@
         "label": "Daily Buyer Intelligence Brief (user-provided)",
         "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture",
+      "construction"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-IFC-AFDB-GRID-CLIMATE-001",
@@ -712,7 +1045,19 @@
         "label": "Daily Buyer Intelligence Brief (user-provided)",
         "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-NSIA-HEALTH-IMPACT-001",
@@ -735,7 +1080,19 @@
         "label": "Daily Buyer Intelligence Brief (user-provided)",
         "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-ADFD-AGRI-AI-001",
@@ -758,7 +1115,18 @@
         "label": "Daily Buyer Intelligence Brief (user-provided)",
         "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-SFD-HEALTH-FOOD-001",
@@ -781,7 +1149,19 @@
         "label": "Daily Buyer Intelligence Brief (user-provided)",
         "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-DFC-CRITICAL-MINERALS-001",
@@ -804,7 +1184,19 @@
         "label": "Daily Buyer Intelligence Brief (user-provided)",
         "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-COX-CHARTER-INTEGRATION-001",
@@ -827,7 +1219,18 @@
         "label": "Daily Buyer Intelligence Brief (user-provided)",
         "url": "internal://chat/2026-03-03-daily-buyer-intel-brief"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-ET-AI-UNIPOD-001",
@@ -857,7 +1260,19 @@
         "label": "DIG Watch update",
         "url": "https://dig.watch/updates/new-ai-innovation-hub-aims-to-position-ethiopia-as-regional-leader"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture",
+      "construction"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-NG-US-CRUDE-CONCENTRATION-001",
@@ -884,7 +1299,18 @@
         "label": "Business Insider Africa report",
         "url": "https://africa.businessinsider.com/local/markets/half-of-africas-oil-to-the-us-comes-from-one-country-as-the-us-cuts-african-oil/tx5zxk0"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-NG-FIN-ENERGY-SPINE",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-03-DANGOTE-INDUSTRIAL-STACK-001",
@@ -920,7 +1346,18 @@
         "label": "Dangote official statement on domestic supply capacity",
         "url": "https://www.dangote.com/dangote-refinery-affirms-capacity-to-supply-75m-litres-of-pms-25m-litres-of-diesel-20m-litres-of-jet-fuel-daily/"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-NG-FIN-ENERGY-SPINE",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-05-MACRO-OIL85-001",
@@ -950,7 +1387,18 @@
         "label": "User-provided secondary narrative excerpt",
         "url": "internal://chat/2026-03-05-oil-spike-nigeria"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-05-NG-IFC-PPP-001",
@@ -977,7 +1425,21 @@
         "label": "IFC official press release",
         "url": "https://www.ifc.org/en/pressroom/2026/nigeria-and-ifc-sign-agreement-to-boost-infrastructure-development-through-public-"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture",
+      "construction"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-05-AMZN-RATEPAYER-PLEDGE-001",
@@ -1003,7 +1465,19 @@
         "label": "Amazon policy/news post",
         "url": "https://www.aboutamazon.com/news/policy-news-views/amazon-data-centers-power-costs-white-house-pledge"
       }
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-05-DFC-MARITIME-BACKSTOP-001",
@@ -1043,7 +1517,18 @@
       "$20B Facility",
       "Maritime Reinsurance",
       "War-Risk Backstop"
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-05-IN-AP-AI-FACTORY-001",
@@ -1076,7 +1561,20 @@
       "Hyperscaler Anchor",
       "Sovereign + EPC Alignment",
       "Platform Origination"
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-AP-AI-FACTORY-001",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-05-DANGOTE-EXPORT-001",
@@ -1109,7 +1607,18 @@
       "Phase-Gated Activation",
       "Domestic-First Sequencing",
       "Future Export Valve"
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-06-IFC-FY26-BUDGET-001",
@@ -1141,7 +1650,19 @@
       "Digital Connectivity",
       "MSME",
       "Advisory"
-    ]
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-07-USG-INFRA-CYCLE-001",
@@ -1180,7 +1701,19 @@
       "Pre-FID Architecture",
       "Signal Bundle"
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-08-NG-NSW-TRADE-STACK-001",
@@ -1214,7 +1747,19 @@
       "Governance Design",
       "Pre-FID Coordination"
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-NG-FIN-ENERGY-SPINE",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-08-DMCC-TEA-CENTRE-OPS-001",
@@ -1246,7 +1791,18 @@
       "Trade Infrastructure",
       "Dubai Connectivity"
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-08-US-RATEPAYER-PLEDGE-MULTI-001",
@@ -1285,7 +1841,19 @@
       "Hyperscaler Commitments",
       "Signal Bundle"
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-08-US-TECHFORCE-001",
@@ -1316,7 +1884,20 @@
       "Talent Capacity",
       "Execution Infrastructure"
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "architecture",
+      "construction"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-09-SA-HUMAIN-AIINFRA-001",
@@ -1345,7 +1926,18 @@
       }
     ],
     "provenance": "provided_by_isaac",
-    "updated_at": "2026-03-09T15:55:00Z"
+    "updated_at": "2026-03-09T15:55:00Z",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-09-UAE-TRUDOC-FUNDING-001",
@@ -1371,7 +1963,19 @@
       }
     ],
     "provenance": "provided_by_isaac",
-    "updated_at": "2026-03-09T15:55:00Z"
+    "updated_at": "2026-03-09T15:55:00Z",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-09-SG-AI-WORKFORCE-001",
@@ -1398,7 +2002,18 @@
       }
     ],
     "provenance": "provided_by_isaac",
-    "updated_at": "2026-03-09T15:55:00Z"
+    "updated_at": "2026-03-09T15:55:00Z",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-09-ZA-MANGANESE-NGQURA-001",
@@ -1425,7 +2040,19 @@
       }
     ],
     "provenance": "provided_by_isaac",
-    "updated_at": "2026-03-09T15:55:00Z"
+    "updated_at": "2026-03-09T15:55:00Z",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-10-CN-15FYP-INDUSTRIAL-SYSTEM-001",
@@ -1458,7 +2085,18 @@
         "url": "internal://isaac/telegram/2026-03-10-new-signal-china-15fyp"
       }
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-10-US-DRC-HEALTH-INFRA-BILATERAL-001",
@@ -1487,7 +2125,19 @@
         "url": "internal://isaac/telegram/2026-03-10-us-drc-health-partnership"
       }
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-10-US-AFRICA-BILATERAL-HEALTH-WAVE-001",
@@ -1517,7 +2167,19 @@
         "url": "internal://isaac/telegram/2026-03-10-bilateral-health-wave"
       }
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-10-AFR-HEALTH-TO-DIGITAL-STATE-SEQUENCE-001",
@@ -1546,7 +2208,19 @@
         "url": "internal://isaac/telegram/2026-03-10-health-digital-state-sequence"
       }
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-10-NG-CBN-AML-AUTOMATION-001",
@@ -1573,7 +2247,20 @@
         "url": "internal://isaac/telegram/2026-03-10-cbn-aml-automation-screenshot"
       }
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "low",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-10-ZM-COPPER-INVESTOR-COURTSHIP-001",
@@ -1601,7 +2288,19 @@
         "url": "internal://isaac/telegram/2026-03-10-zambia-copper-investor-courtship"
       }
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-11-NG-STABLECOIN-TASKFORCE-001",
@@ -1636,7 +2335,20 @@
         "url": "https://cryptorank.io/news/feed/af578-nigeria-to-form-stablecoin-committee-cbn"
       }
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-11-NG-STABLECOIN-ADOPTION-SCALE-001",
@@ -1679,7 +2391,18 @@
         "url": "https://www.mariblock.com/stories/nigeria-leads-stablecoin-adoption-with-22-billion-in-transactions"
       }
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-11-NG-STABLECOIN-COMMODITY-TRADE-RAIL-001",
@@ -1716,7 +2439,18 @@
         "url": "https://www.reuters.com/world/africa/biggest-african-economies-lead-stablecoin-demand-growth-study-shows-2026-02-18/"
       }
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "architecture"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   },
   {
     "signal_id": "SIG-2026-03-12-US-GULF-INDUSTRIAL-STACK-001",
@@ -1749,6 +2483,81 @@
         "url": "https://www.whitehouse.gov/articles/2026/03/president-trumps-economic-agenda-drives-industrial-boom-in-louisiana/"
       }
     ],
-    "provenance": "provided_by_isaac"
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture",
+      "construction"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-12-US-ADV-ENERGY-STARTUP-RACE-001",
+    "title": "Advanced energy startup capital race signals AI-era power infrastructure competition",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "observed_at": "2026-03-12T13:28:00Z",
+    "summary": "Inc coverage indicates a large-scale competition among advanced energy startups (incl. advanced nuclear pathways), reinforcing energy-as-bottleneck dynamics for AI/compute growth.",
+    "buyer_ids": [
+      "ADQ",
+      "MUBADALA",
+      "PIF",
+      "QIA"
+    ],
+    "sources": [
+      {
+        "label": "Inc — These startups are in a $900 billion fight to be the future of energy",
+        "url": "https://www.inc.com/chloe-aiello/these-startups-are-in-a-900-billion-fight-to-be-the-future-of-energy/91252410"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "AI Infrastructure",
+    "actor_refs": [
+      "ACTOR:advanced_energy_startups",
+      "ACTOR:hyperscalers",
+      "ACTOR:utilities",
+      "ACTOR:regulators",
+      "BUYER:PIF",
+      "BUYER:QIA"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:advanced_energy_startups",
+        "role": "technology_supplier",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:hyperscalers",
+        "role": "anchor_demand",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:utilities",
+        "role": "operator",
+        "influence": "high"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "initiative_ids": [
+      "USG",
+      "INIT-AP-AI-FACTORY-001"
+    ]
   }
 ]

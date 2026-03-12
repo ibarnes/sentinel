@@ -102,7 +102,28 @@
         "s2",
         "s3"
       ]
-    }
+    },
+    "pattern_summary": "Power corridor and tenancy discussions moved from exploratory to pre-term-sheet.",
+    "model_update": {
+      "pressure": "rising",
+      "momentum": "high",
+      "acceleration": "positive",
+      "lifecycle_progression": "Power + tenancy certainty",
+      "actor_alignment": "strong",
+      "constraints": [
+        "Grid interconnection and export-control compliant supply chain sequencing."
+      ]
+    },
+    "recommended_motion": "shape_mandate",
+    "decision_confidence": "medium",
+    "missing_actor_roles": [
+      "anchor_buyer",
+      "operator"
+    ],
+    "required_next_evidence": [
+      "Named actor commitment",
+      "Source-validated signal confirmation"
+    ]
   },
   {
     "id": "pps-manganese",
@@ -201,7 +222,28 @@
         "sm2",
         "sm3"
       ]
-    }
+    },
+    "pattern_summary": "Narrative has shifted from extraction to conversion economics.",
+    "model_update": {
+      "pressure": "rising",
+      "momentum": "high",
+      "acceleration": "positive",
+      "lifecycle_progression": "Ore-to-alloy offtake stack",
+      "actor_alignment": "emerging",
+      "constraints": [
+        "Coordinated power reliability and downstream offtake certainty."
+      ]
+    },
+    "recommended_motion": "monitor",
+    "decision_confidence": "medium",
+    "missing_actor_roles": [
+      "anchor_buyer",
+      "operator"
+    ],
+    "required_next_evidence": [
+      "Named actor commitment",
+      "Source-validated signal confirmation"
+    ]
   },
   {
     "id": "pps-copper",
@@ -304,7 +346,28 @@
         "sc2",
         "sc3"
       ]
-    }
+    },
+    "pattern_summary": "Investor-courtship signal suggests acceleration from resource narrative toward capital formation.",
+    "model_update": {
+      "pressure": "rising",
+      "momentum": "high",
+      "acceleration": "positive",
+      "lifecycle_progression": "Throughput + logistics reliability",
+      "actor_alignment": "emerging",
+      "constraints": [
+        "Rail-port bottlenecks and tariff uncertainty."
+      ]
+    },
+    "recommended_motion": "monitor",
+    "decision_confidence": "medium",
+    "missing_actor_roles": [
+      "anchor_buyer",
+      "operator"
+    ],
+    "required_next_evidence": [
+      "Named actor commitment",
+      "Source-validated signal confirmation"
+    ]
   },
   {
     "id": "pps-battery-materials",
@@ -397,7 +460,28 @@
         "sb2",
         "sb3"
       ]
-    }
+    },
+    "pattern_summary": "Signal density is rising; execution discipline still thin.",
+    "model_update": {
+      "pressure": "rising",
+      "momentum": "high",
+      "acceleration": "positive",
+      "lifecycle_progression": "Feedstock + refining qualification",
+      "actor_alignment": "emerging",
+      "constraints": [
+        "Technology qualification and long-term offtake bankability."
+      ]
+    },
+    "recommended_motion": "monitor",
+    "decision_confidence": "medium",
+    "missing_actor_roles": [
+      "anchor_buyer",
+      "operator"
+    ],
+    "required_next_evidence": [
+      "Named actor commitment",
+      "Source-validated signal confirmation"
+    ]
   },
   {
     "id": "pps-industrial-power-corridors",
@@ -496,7 +580,28 @@
         "sip2",
         "sip3"
       ]
-    }
+    },
+    "pattern_summary": "Acceleration is clear; conversion risk remains regulatory.",
+    "model_update": {
+      "pressure": "rising",
+      "momentum": "high",
+      "acceleration": "positive",
+      "lifecycle_progression": "Load-backed transmission package",
+      "actor_alignment": "strong",
+      "constraints": [
+        "Tariff certainty across jurisdictions."
+      ]
+    },
+    "recommended_motion": "shape_mandate",
+    "decision_confidence": "medium",
+    "missing_actor_roles": [
+      "anchor_buyer",
+      "operator"
+    ],
+    "required_next_evidence": [
+      "Named actor commitment",
+      "Source-validated signal confirmation"
+    ]
   },
   {
     "id": "pps-logistics-corridors",
@@ -595,7 +700,28 @@
         "sl2",
         "sl3"
       ]
-    }
+    },
+    "pattern_summary": "Fastest acceleration in the current set; mandate path is tightening.",
+    "model_update": {
+      "pressure": "rising",
+      "momentum": "high",
+      "acceleration": "positive",
+      "lifecycle_progression": "Concession + throughput guarantee",
+      "actor_alignment": "strong",
+      "constraints": [
+        "Sovereign interface governance across corridor nodes."
+      ]
+    },
+    "recommended_motion": "shape_mandate",
+    "decision_confidence": "medium",
+    "missing_actor_roles": [
+      "anchor_buyer",
+      "operator"
+    ],
+    "required_next_evidence": [
+      "Named actor commitment",
+      "Source-validated signal confirmation"
+    ]
   },
   {
     "id": "pps-digital-financial-rails",
@@ -688,7 +814,28 @@
         "SIG-2026-03-11-NG-STABLECOIN-ADOPTION-SCALE-001",
         "SIG-2026-03-11-NG-STABLECOIN-COMMODITY-TRADE-RAIL-001"
       ]
-    }
+    },
+    "pattern_summary": "Breakout likely: policy attention has shifted from whether stablecoins exist to how they are integrated and supervised.",
+    "model_update": {
+      "pressure": "rising",
+      "momentum": "high",
+      "acceleration": "positive",
+      "lifecycle_progression": "Regulatory interoperability boundary",
+      "actor_alignment": "strong",
+      "constraints": [
+        "Regulated interoperability between stablecoin networks, commercial banks, and sovereign compliance controls."
+      ]
+    },
+    "recommended_motion": "shape_mandate",
+    "decision_confidence": "medium",
+    "missing_actor_roles": [
+      "anchor_buyer",
+      "operator"
+    ],
+    "required_next_evidence": [
+      "Named actor commitment",
+      "Source-validated signal confirmation"
+    ]
   },
   {
     "id": "pps-water-infrastructure",
@@ -787,7 +934,28 @@
         "sw2",
         "sw3"
       ]
-    }
+    },
+    "pattern_summary": "Acceleration is healthy and execution boundaries are becoming clearer.",
+    "model_update": {
+      "pressure": "rising",
+      "momentum": "high",
+      "acceleration": "positive",
+      "lifecycle_progression": "Take-or-pay water offtake",
+      "actor_alignment": "emerging",
+      "constraints": [
+        "Tariff reform and creditworthy municipal offtake."
+      ]
+    },
+    "recommended_motion": "monitor",
+    "decision_confidence": "medium",
+    "missing_actor_roles": [
+      "anchor_buyer",
+      "operator"
+    ],
+    "required_next_evidence": [
+      "Named actor commitment",
+      "Source-validated signal confirmation"
+    ]
   },
   {
     "id": "pps-food-security-infrastructure",
@@ -880,7 +1048,28 @@
         "sf2",
         "sf3"
       ]
-    }
+    },
+    "pattern_summary": "Moderate acceleration with persistent demand fragmentation.",
+    "model_update": {
+      "pressure": "stable",
+      "momentum": "medium",
+      "acceleration": "positive",
+      "lifecycle_progression": "Demand-backed storage + logistics stack",
+      "actor_alignment": "emerging",
+      "constraints": [
+        "Fragmented offtaker credit and weak aggregation."
+      ]
+    },
+    "recommended_motion": "monitor",
+    "decision_confidence": "medium",
+    "missing_actor_roles": [
+      "anchor_buyer",
+      "operator"
+    ],
+    "required_next_evidence": [
+      "Named actor commitment",
+      "Source-validated signal confirmation"
+    ]
   },
   {
     "id": "pps-industrial-zones",
@@ -979,6 +1168,27 @@
         "siz2",
         "siz3"
       ]
-    }
+    },
+    "pattern_summary": "Pressure is sustained; execution path is increasingly explicit.",
+    "model_update": {
+      "pressure": "rising",
+      "momentum": "high",
+      "acceleration": "positive",
+      "lifecycle_progression": "Anchor tenant + utilities lock-in",
+      "actor_alignment": "strong",
+      "constraints": [
+        "Sequencing of land, utilities, and tenant commitments."
+      ]
+    },
+    "recommended_motion": "shape_mandate",
+    "decision_confidence": "medium",
+    "missing_actor_roles": [
+      "anchor_buyer",
+      "operator"
+    ],
+    "required_next_evidence": [
+      "Named actor commitment",
+      "Source-validated signal confirmation"
+    ]
   }
 ]
