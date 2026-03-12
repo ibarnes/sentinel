@@ -13,6 +13,28 @@ import nodemailer from 'nodemailer';
 import revealRoutes from './reveal/routes/revealRoutes.js';
 import { ensureRevealStorage } from './reveal/storage/revealStorage.js';
 
+function loadEnvFile(filePath) {
+  try {
+    if (!fssync.existsSync(filePath)) return;
+    const raw = fssync.readFileSync(filePath, 'utf8');
+    for (const line of raw.split(/\r?\n/)) {
+      const t = line.trim();
+      if (!t || t.startsWith('#')) continue;
+      const idx = t.indexOf('=');
+      if (idx <= 0) continue;
+      const key = t.slice(0, idx).trim();
+      let val = t.slice(idx + 1).trim();
+      if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+        val = val.slice(1, -1);
+      }
+      if (!(key in process.env)) process.env[key] = val;
+    }
+  } catch {}
+}
+
+const ENV_FILE = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '.env');
+loadEnvFile(ENV_FILE);
+
 const app = express();
 app.set('trust proxy', 1);
 
