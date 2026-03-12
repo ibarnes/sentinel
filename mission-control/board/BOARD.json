@@ -3004,7 +3004,12 @@
         "TASK-0135",
         "TASK-0136",
         "TASK-0137",
-        "mission-control/review-packets/RP-0050-board-build-window-night-2026-03-11.md"
+        "mission-control/review-packets/RP-0050-board-build-window-night-2026-03-11.md",
+        "TASK-0146",
+        "TASK-0147",
+        "mission-control/review-packets/RP-0056-board-execution-sweep-morning-2026-03-12.md",
+        "mission-control/evidence/pipeline-run/2026-03-12T10-40-00Z-credential-exec-pack.md",
+        "mission-control/evidence/pipeline-run/2026-03-12T10-40-00Z-post-exec-board-replay-template.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3061,11 +3066,17 @@
           "author": "sentinel",
           "text": "Night build window decomposition: added TASK-0143/0144 to automate evidence-to-transition planning before credentialed execution.",
           "created_at": "2026-03-12T03:10:00Z"
+        },
+        {
+          "id": "decomp-0103-20260312-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep: added/executed atomic children TASK-0146 (credential execution pack) and TASK-0147 (post-exec replay template) to compress credential-window latency.",
+          "created_at": "2026-03-12T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-12T03:10:00Z",
+      "updated_at": "2026-03-12T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4668,6 +4679,91 @@
       "updated_by": "sentinel",
       "parent_id": "TASK-0107",
       "review_packet_id": "RP-0055"
+    },
+    {
+      "id": "TASK-0146",
+      "title": "TS-H1.1c.2q Publish one-pass credentialed smoke execution pack",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "morning-execution-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/2026-03-12T10-40-00Z-credential-exec-pack.md"
+      ],
+      "description": "Create an operator-ready command pack that runs credentialed smoke capture, evidence report, and transition plan generation in one execution window.\nAcceptance Criteria:\n- Includes preconditions and command sequence.\n- Defines required artifact set and pass/fail criteria.\n- Linked to TASK-0103 blocker chain.",
+      "comments": [
+        {
+          "id": "done-0146-20260312-1040",
+          "author": "sentinel",
+          "text": "Created credential execution pack at mission-control/evidence/pipeline-run/2026-03-12T10-40-00Z-credential-exec-pack.md.",
+          "created_at": "2026-03-12T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-12T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0056-board-execution-sweep-morning-2026-03-12.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-12T10:40:00Z",
+      "updated_at": "2026-03-12T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0056"
+    },
+    {
+      "id": "TASK-0147",
+      "title": "TS-H1.1c.2r Publish post-exec board replay template for blocker chain",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "morning-execution-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "mission-control/evidence/pipeline-run/2026-03-12T10-40-00Z-post-exec-board-replay-template.md"
+      ],
+      "description": "Create deterministic board comment/replay template so post-credential updates can be executed in minutes.\nAcceptance Criteria:\n- Includes comment templates for TASK-0111/TASK-0103/TASK-0097.\n- Includes deterministic transition order.\n- Linked to parent blocker chain.",
+      "comments": [
+        {
+          "id": "done-0147-20260312-1040",
+          "author": "sentinel",
+          "text": "Created replay template at mission-control/evidence/pipeline-run/2026-03-12T10-40-00Z-post-exec-board-replay-template.md.",
+          "created_at": "2026-03-12T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-12T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0056-board-execution-sweep-morning-2026-03-12.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-12T10:40:00Z",
+      "updated_at": "2026-03-12T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0056"
     }
   ]
 }
