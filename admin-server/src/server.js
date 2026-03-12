@@ -1630,7 +1630,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       operator: { name:'Operator', desc:'Operators, lessees, utility/asset operations activation.', phase:'Late' },
       market_access: { name:'Market Access', desc:'Offtake, export agreements, and customer commitments.', phase:'Late' }
     };
-    const layerLabel = (id) => (layerMeta[id]?.name || String(id||'').replaceAll('_',' '));
+    const layerLabel = (id) => (layerMeta[id]?.name || String(id||'').split('_').join(' '));
     const phasePlain = (p) => p === 'early' ? 'early-stage signals' : (p === 'mid' ? 'forming-stage signals' : 'execution-stage signals');
     const blockerLabel = (s) => ({
       'Capital Without Architecture': 'Capital present, but no clear structure',
@@ -1728,7 +1728,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       const motionLead = Object.entries(topMotions).sort((a,b)=>b[1]-a[1])[0];
       const topGaps = rowsWithPhysics.flatMap((x) => (((x.p||{}).recommendedUSGDrivers||{}).missing || []).slice(0,2))
         .reduce((a,m)=>{a[m]=(a[m]||0)+1;return a;},{});
-      const gapLead = Object.entries(topGaps).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>k.replaceAll('_',' '));
+      const gapLead = Object.entries(topGaps).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>String(k).split('_').join(' '));
 
       els.usgWindow.innerHTML =
         '<div class="row g-2">' +
@@ -2025,7 +2025,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       const rr = originationReadiness(r);
       const actorGroups = {};
       (r.actors || []).forEach(a => { const g = a.category || 'other'; if(!actorGroups[g]) actorGroups[g]=[]; actorGroups[g].push(a); });
-      const actorHtml = Object.entries(actorGroups).map(([k,v]) => '<div class="mb-2"><div class="pp-kicker">'+esc(k.replaceAll('_',' / '))+'</div><ul class="small mb-1">'+v.map(a => '<li><strong>'+esc(a.name)+'</strong> — '+esc(a.role||'')+'</li>').join('')+'</ul></div>').join('');
+      const actorHtml = Object.entries(actorGroups).map(([k,v]) => '<div class="mb-2"><div class="pp-kicker">'+esc(String(k).split('_').join(' / '))+'</div><ul class="small mb-1">'+v.map(a => '<li><strong>'+esc(a.name)+'</strong> — '+esc(a.role||'')+'</li>').join('')+'</ul></div>').join('');
       const signals = (r.signals||[]).slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));
 
       drawerBody.innerHTML =
