@@ -2649,5 +2649,118 @@
     "evidence_strength": "high",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-US-ECONOMIC-DEFENSE-UNIT-2026-03-001",
+    "title": "Pentagon recruiting Wall Street bankers for Economic Defense Unit",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "unconfirmed_but_credible_reporting",
+    "observed_at": "2026-03-11T00:00:00Z",
+    "summary": "Reporting indicates the Pentagon is exploring a ~30-person investment-banking-style unit to deploy up to ~$200B over three years into defense and strategic industry deals, using temporary secondments from major Wall Street firms.",
+    "flow": "state security priorities + financial engineering talent -> hybrid public-private capital deployment mechanism -> accelerated strategic industry financing and supply-chain shaping",
+    "buyer_ids": [
+      "DFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-AI-OPT-B",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "sources": [
+      {
+        "publisher": "Semafor",
+        "label": "Pentagon headhunting Goldman/JPMorgan bankers for economic defense unit",
+        "url": "https://www.semafor.com/article/03/11/2026/pentagon-headhunting-goldman-jpmorgan-bankers-for-economic-defense-unit"
+      },
+      {
+        "publisher": "Reuters",
+        "label": "Pentagon headhunting bankers for economic defense unit (via Semafor)",
+        "url": "https://www.reuters.com/business/finance/pentagon-headhunting-goldman-jpmorgan-bankers-economic-defense-unit-semafor-2026-03-11/"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "National Security Capital Mobilization",
+    "actor_refs": [
+      "ACTOR:us_department_of_defense",
+      "ACTOR:us_executive_branch",
+      "ACTOR:goldman_sachs",
+      "ACTOR:morgan_stanley",
+      "ACTOR:jpmorgan_chase",
+      "ACTOR:bank_of_america",
+      "ACTOR:private_equity",
+      "ACTOR:defense_contractors",
+      "ACTOR:strategic_technology_companies",
+      "ACTOR:china"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:us_department_of_defense",
+        "role": "system_orchestrator",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:goldman_sachs",
+        "role": "target_recruiting_pool",
+        "influence": "medium"
+      },
+      {
+        "actor_ref": "ACTOR:defense_contractors",
+        "role": "industrial_platform_operator",
+        "influence": "high"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "financial_structuring"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "pattern_summary": "State-backed capital coordination via embedded private finance talent for strategic sectors.",
+    "model_update": {
+      "previous_model": "US relies primarily on private markets to allocate capital for strategic industries.",
+      "updated_model": "US moving toward hybrid state-private capital coordination for national security sectors.",
+      "key_variables": [
+        "defense industrial base funding",
+        "AI infrastructure investment",
+        "strategic manufacturing reshoring",
+        "private capital participation in defense ecosystems"
+      ]
+    },
+    "platform_pressure": {
+      "pressure_type": "capital_alignment",
+      "pressure_direction": "increase",
+      "affected_sectors": [
+        "AI infrastructure",
+        "semiconductors",
+        "defense technology",
+        "energy systems",
+        "critical minerals",
+        "industrial manufacturing"
+      ]
+    },
+    "probability_estimate": 0.65,
+    "time_horizon": "1-3 years",
+    "expected_outcomes": [
+      "creation of government embedded investment teams",
+      "increased public-private deal structuring in defense industries",
+      "growth of strategic industrial financing vehicles",
+      "closer coordination between government and major financial institutions"
+    ],
+    "recommended_motion": {
+      "monitoring_actions": [
+        "track Pentagon hiring announcements",
+        "watch for legislative authorization or budget allocations",
+        "monitor defense investment funds or industrial financing programs",
+        "observe partnerships between government and Wall Street banks"
+      ],
+      "decision_confidence": "medium"
+    }
   }
 ]
