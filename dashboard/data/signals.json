@@ -2559,5 +2559,95 @@
       "USG",
       "INIT-AP-AI-FACTORY-001"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-RW-NUCLEAR-SMR-PROGRAM-001",
+    "title": "Rwanda Nuclear Infrastructure Program ($6B SMR pathway, target first operation ~2030)",
+    "signal_class": "Platform Pressure",
+    "status": "Pre-FID Strategic Planning",
+    "confidence": "High",
+    "verification_status": "multi_source_reported",
+    "observed_at": "2026-03-12T17:21:00Z",
+    "summary": "Rwanda announced plans to invest up to $6B in nuclear power infrastructure using SMRs, aiming to expand baseload power for industrialization, digital infrastructure growth, and long-term economic transformation.",
+    "flow": "state-level nuclear infrastructure planning -> financing/regulatory pathway formation -> baseload expansion -> industrial + digital platform capacity growth",
+    "buyer_ids": [
+      "AFDB",
+      "WORLDBANK",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "sources": [
+      {
+        "title": "Rwanda plans up to $6 billion investment in nuclear power",
+        "label": "Sightline U3O8",
+        "url": "https://sightlineu3o8.com/2026/03/rwanda-plans-up-to-6billion-investment-in-nuclear-power-as-kagame-targets-high-income-economy-by-2050/"
+      },
+      {
+        "title": "At Paris Summit Kagame seeks financing for Rwanda nuclear plans",
+        "label": "KT Press",
+        "url": "https://www.ktpress.rw/2026/03/at-paris-summit-kagame-seeks-international-financing-for-rwandas-nuclear-plans/"
+      },
+      {
+        "title": "Rwanda making progress on nuclear energy programme",
+        "label": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/rwanda-making-significant-progress-on-nuclear-energy-programme"
+      },
+      {
+        "title": "Nuclear Energy Summit – Kagame remarks",
+        "label": "YouTube",
+        "url": "https://www.youtube.com/watch?v=2lN9bmfzRwY"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "Industrial Power Corridors",
+    "actor_refs": [
+      "ACTOR:rwanda_government",
+      "ACTOR:rwanda_atomic_energy_board",
+      "ACTOR:rwanda_energy_group",
+      "ACTOR:iaea",
+      "ACTOR:nuscale_power",
+      "ACTOR:rolls_royce_smr",
+      "ACTOR:rosatom",
+      "ACTOR:westinghouse",
+      "BUYER:AFDB",
+      "BUYER:WORLDBANK",
+      "BUYER:DFC"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:rwanda_government",
+        "role": "political_sponsor",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:rwanda_atomic_energy_board",
+        "role": "regulator",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:rwanda_energy_group",
+        "role": "operator",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "BUYER:AFDB",
+        "role": "development_finance",
+        "influence": "medium"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture",
+      "financial_structuring"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
