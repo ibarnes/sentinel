@@ -181,3 +181,19 @@
   - :00 start task
   - :25 outcome + blocker check
   - :30 begin next task
+
+# Project Status Snapshot (2026-03-12)
+- Board sweep cadence sustained across recovery/execution/progress/build windows with decomposition gate enforced.
+- Added Ready-for-Review tranche and closure-enablement artifacts:
+  - `TASK-0138` + `RP-0051` (oldest RFR tranche decision packet).
+  - `TASK-0139`/`TASK-0140` + `RP-0052` (credentialed handoff + pending manifest scaffold).
+  - `TASK-0141`/`TASK-0142` + `RP-0053` (closeout runner + PASS/BLOCKED checklist).
+  - `TASK-0143`/`TASK-0144` + `RP-0054` (evidence-driven transition planner + action card).
+- Net effect: post-credential closure path is now deterministic and artifact-driven; final blocker remains credentialed live execution (`TASK-0111`).
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-12)
+- Daily log created at `memory/2026-03-12.md` and distilled into durable snapshot.
+- Durable changes captured: additional automation artifacts for credentialed-smoke chain closure and transition replay.
+- No operating-rule or scoring-policy changes.
