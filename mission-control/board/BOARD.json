@@ -3184,7 +3184,9 @@
         "TASK-0108",
         "TASK-0109",
         "mission-control/review-packets/RP-0038-board-recovery-sweep-2026-03-07.md",
-        "TASK-0114"
+        "TASK-0114",
+        "TASK-0145",
+        "mission-control/review-packets/RP-0055-board-recovery-sweep-2026-03-12-0630.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3211,11 +3213,17 @@
           "author": "sentinel",
           "text": "Late-night decomposition gate: added TASK-0138 to package oldest 12 RFR items into tranche-D decision packet (RP-0051).",
           "created_at": "2026-03-11T06:30:00Z"
+        },
+        {
+          "id": "decomp-0107-20260312-0630",
+          "author": "sentinel",
+          "text": "Late-night decomposition gate: added/executed TASK-0145 to package oldest 12 Ready-for-Review items into tranche-E decision packet (RP-0055).",
+          "created_at": "2026-03-12T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-11T06:30:00Z",
+      "updated_at": "2026-03-12T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4619,6 +4627,47 @@
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
       "review_packet_id": "RP-0054"
+    },
+    {
+      "id": "TASK-0145",
+      "title": "BRS-2026-03-12a Build oldest-RFR tranche-E decision microbatch",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/review-packets/RP-0055-board-recovery-sweep-2026-03-12-0630.md"
+      ],
+      "description": "Create a 12-item oldest Ready-for-Review decision microbatch with approve/defer recommendation and queue-age leverage note.\nAcceptance Criteria:\n- Exactly 12 oldest RFR tasks listed with age.\n- Includes approve/defer recommendation and transition leverage sequencing.\n- Packet committed and linked to parent task.",
+      "comments": [
+        {
+          "id": "done-0145-20260312-0630",
+          "author": "sentinel",
+          "text": "Executed during late-night recovery sweep; tranche-E packet created at mission-control/review-packets/RP-0055-board-recovery-sweep-2026-03-12-0630.md.",
+          "created_at": "2026-03-12T06:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-12T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0055-board-recovery-sweep-2026-03-12-0630.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-12T06:30:00Z",
+      "updated_at": "2026-03-12T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107",
+      "review_packet_id": "RP-0055"
     }
   ]
 }
