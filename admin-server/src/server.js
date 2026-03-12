@@ -1410,7 +1410,10 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
   const signalPhysics = await readJson(path.join(ROOT, 'dashboard/data/signal_physics_snapshot.json'), { initiatives: [], ontologyLayers: [] });
   const rows = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRows), { buyers, initiatives, signals });
-  const payload = JSON.stringify({ rows, weights: PLATFORM_PRESSURE_WEIGHTS, signalPhysics }).replace(/</g, '\\u003c');
+  const payload = JSON.stringify({ rows, weights: PLATFORM_PRESSURE_WEIGHTS, signalPhysics })
+    .replace(/</g, '\\u003c')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029');
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}
   <style>
