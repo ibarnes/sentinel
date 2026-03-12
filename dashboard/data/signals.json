@@ -2762,5 +2762,126 @@
       ],
       "decision_confidence": "medium"
     }
+  },
+  {
+    "signal_id": "SIG-2026-03-12-NGA-IMPORT-CONCENTRATION",
+    "title": "Nigeria import market dominated by China, US, Netherlands in Q4 2025",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "High",
+    "verification_status": "reported_with_official_statistics_reference",
+    "observed_at": "2026-03-12T17:58:00Z",
+    "summary": "Nairametrics reports (citing Nigeria NBS Q4 2025 foreign trade stats) that import flows are highly concentrated among top supplier nations, reinforcing structural dependency on external industrial and energy-linked supply networks.",
+    "flow": "import concentration among few external suppliers -> corridor and settlement leverage concentrates outside domestic stack -> pressure to build logistics/financing/industrial capacity layers",
+    "sources": [
+      {
+        "publisher": "Nairametrics",
+        "label": "China, US, Netherlands dominate Nigeria’s N17.25 trillion import market in Q4 2025",
+        "url": "https://nairametrics.com/2026/03/12/china-us-netherlands-dominate-nigerias-n17-25-trillion-import-market-in-q4-2025/",
+        "underlying_data_source": "Nigeria National Bureau of Statistics (Foreign Trade Statistics Q4 2025)"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "Global Commodity Trade / Nigeria Supply Dependency",
+    "actor_refs": [
+      "ACTOR:nigeria_national_bureau_of_statistics",
+      "ACTOR:china",
+      "ACTOR:united_states",
+      "ACTOR:netherlands",
+      "ACTOR:india"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:nigeria_national_bureau_of_statistics",
+        "role": "data_authority",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:china",
+        "role": "primary_export_supplier",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:united_states",
+        "role": "major_export_supplier",
+        "influence": "medium"
+      },
+      {
+        "actor_ref": "ACTOR:netherlands",
+        "role": "trade_gateway",
+        "influence": "medium"
+      },
+      {
+        "actor_ref": "ACTOR:india",
+        "role": "industrial_supplier",
+        "influence": "medium"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "demand",
+      "market_access",
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "key_data_points": {
+      "total_imports_q4_2025_naira": 17250000000000,
+      "top_10_import_sources_naira": 13010000000000,
+      "top_10_import_share_percent": 75.41,
+      "china_import_value_naira": 5390000000000,
+      "us_import_value_naira": 1610000000000,
+      "netherlands_import_value_naira": 1520000000000,
+      "india_import_value_naira": 1120000000000
+    },
+    "systems_involved": [
+      "Global Commodity Trade",
+      "Industrial Supply Chains",
+      "Energy Supply Chains",
+      "Maritime Logistics",
+      "International Settlement Systems"
+    ],
+    "pattern_summary": "Nigeria import flows remain concentrated among a few supplier nations, indicating structural dependence on external industrial and energy supply chains.",
+    "model_update": {
+      "pressure": "High dependency on foreign supply chains for industrial inputs and energy products.",
+      "momentum": "Continued concentration of trade flows toward dominant supplier nations.",
+      "acceleration": "Growing demand for industrial inputs and energy infrastructure increases import reliance.",
+      "constraints": [
+        "Limited domestic manufacturing capacity",
+        "Energy supply limitations",
+        "Logistics and port infrastructure constraints"
+      ]
+    },
+    "prediction": {
+      "probability_high": [
+        "External powers continue dominating Nigeria import supply chains.",
+        "Trade corridors into Nigeria become increasingly strategic economic infrastructure."
+      ],
+      "probability_medium": [
+        "Nigeria prioritizes domestic manufacturing and industrial policy to reduce dependency."
+      ],
+      "probability_low": [
+        "Rapid diversification of import partners in the near term."
+      ]
+    },
+    "strategic_implications": [
+      "Control over trade logistics, financing, and settlement layers around Nigeria imports provides leverage.",
+      "Trade corridor platforms linking supplier nations to Nigerian industrial demand may become strategic infrastructure assets.",
+      "Ports, logistics, settlement rails, and commodity financing layers become high-value coordination points."
+    ],
+    "tags": [
+      "Nigeria Trade",
+      "Global Supply Chains",
+      "Import Dependency",
+      "Trade Infrastructure",
+      "Africa Industrialization"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "USG"
+    ]
   }
 ]
