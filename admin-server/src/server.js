@@ -122,6 +122,19 @@ function uiHead(title) {
     --tr-fast: 180ms ease;
   }
 
+  html[data-theme="light"] {
+    --bg: #f4f7fb;
+    --surface: #ffffff;
+    --surface-elevated: #ffffff;
+    --border: #d6deea;
+    --text: #0f1726;
+    --text-muted: #5f6d83;
+    --accent: #2f6fe4;
+    --accent-soft: rgba(47, 111, 228, 0.14);
+    --shadow-sm: 0 8px 18px rgba(15, 23, 38, 0.08);
+    --shadow-lg: 0 16px 30px rgba(15, 23, 38, 0.12);
+  }
+
   html, body { background: var(--bg); color: var(--text); font-family: Inter, "Segoe UI", Roboto, sans-serif; }
   body { min-height: 100vh; }
   body.nav-drawer-open { overflow: hidden; }
@@ -509,8 +522,27 @@ function uiHead(title) {
 <script>
 (function(){
   const COLLAPSE_KEY = 'oc.nav.desktop.collapsed';
+  const THEME_KEY = 'oc.theme.mode';
+
+  function applyTheme(theme){
+    const t = theme === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    const btn = document.getElementById('theme-toggle-btn');
+    if (btn) {
+      btn.textContent = t === 'dark' ? '☀️ Light' : '🌙 Dark';
+      btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+  }
+
+  window.__toggleTheme = function(){
+    const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(THEME_KEY, next);
+    applyTheme(next);
+  };
 
   function setupNavDrawer(){
+
     const mobile = window.matchMedia('(max-width: 1023px)').matches;
     const desktop = !mobile;
     document.querySelectorAll('.app-shell').forEach((shell)=>{
@@ -608,8 +640,11 @@ function uiHead(title) {
     }
   }
 
+  const persistedTheme = localStorage.getItem(THEME_KEY) || 'dark';
+  applyTheme(persistedTheme);
+
   window.addEventListener('resize', () => { setupNavDrawer(); refreshLucide(); });
-  window.addEventListener('DOMContentLoaded', () => { setupNavDrawer(); refreshLucide(); });
+  window.addEventListener('DOMContentLoaded', () => { applyTheme(localStorage.getItem(THEME_KEY) || persistedTheme); setupNavDrawer(); refreshLucide(); });
 })();
 </script>`;
 }
@@ -674,12 +709,13 @@ function dashboardNav(active = '') {
 }
 
 function pageHeader(title, actions = '', meta = '') {
+  const themeToggle = `<button id="theme-toggle-btn" type="button" class="btn btn-sm btn-outline-secondary" onclick="window.__toggleTheme && window.__toggleTheme()">☀️ Light</button>`;
   return `<div class="panel-header">
     <div>
       <h1 class="page-title">${title}</h1>
       ${meta ? `<div class="small text-muted mt-1">${meta}</div>` : ''}
     </div>
-    ${actions ? `<div class="panel-actions">${actions}</div>` : ''}
+    <div class="panel-actions d-flex gap-2">${actions || ''}${themeToggle}</div>
   </div>`;
 }
 
