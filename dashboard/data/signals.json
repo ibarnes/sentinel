@@ -2883,5 +2883,106 @@
       "INIT-2026-03-05-COMMODITY-CORRIDOR",
       "USG"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-12-AFR-AI-STACK-COMPETITION-001",
+    "title": "US–China AI stack competition intensifies across Africa (talent + tools + infrastructure)",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified_user_supplied_article_summary",
+    "observed_at": "2026-03-12T18:53:00Z",
+    "summary": "Business Insider Africa reporting indicates Africa is emerging as a core AI competition zone: Microsoft training commitments, MTN distribution, cloud/data-center investments, and growing DeepSeek adoption due to cost/flexibility dynamics.",
+    "flow": "AI talent programs + tool distribution + compute infrastructure buildout -> ecosystem lock-in competition (US stack vs China stack vs local sovereign stack) -> long-run control over digital economy rails",
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "Global AI Infrastructure Competition",
+    "actor_refs": [
+      "ACTOR:microsoft",
+      "ACTOR:mtn_group",
+      "ACTOR:deepseek",
+      "ACTOR:african_governments",
+      "ACTOR:openai",
+      "ACTOR:google",
+      "ACTOR:anthropic",
+      "ACTOR:huawei"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:microsoft",
+        "role": "platform_sponsor",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:mtn_group",
+        "role": "distribution_operator",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:deepseek",
+        "role": "model_competitor",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:african_governments",
+        "role": "sovereign_stack_shaper",
+        "influence": "high"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "demand",
+      "governance",
+      "architecture",
+      "market_access"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "pattern_summary": "AI ecosystem competition is converging across model access, compute footprint, and workforce development in African markets.",
+    "model_update": {
+      "pressure": "High and rising competition for ecosystem control.",
+      "momentum": "Accelerating via simultaneous training, distribution, and infrastructure investment.",
+      "acceleration": "Positive; multiple major actors scaling at once.",
+      "constraints": [
+        "Energy reliability",
+        "Local cloud capacity",
+        "Policy coordination",
+        "Talent retention"
+      ]
+    },
+    "prediction": {
+      "probability_high": [
+        "Three-stack competition (US, China, local sovereign) persists over next 5-10 years."
+      ],
+      "probability_medium": [
+        "Local sovereign stacks secure selective autonomy in high-priority sectors."
+      ],
+      "probability_low": [
+        "Single external ecosystem achieves continent-wide dominance quickly."
+      ]
+    },
+    "strategic_implications": [
+      "Control of identity, payments, data, and compute layers determines durable AI-economy leverage.",
+      "Partnership points with telecom operators and government digital programs become strategic chokepoints."
+    ],
+    "sources": [
+      {
+        "publisher": "Business Insider Africa",
+        "title": "China’s DeepSeek gives US tech giants a run for their money as Microsoft and others expand AI push in Africa",
+        "url": ""
+      }
+    ],
+    "buyer_ids": [
+      "ADQ",
+      "MUBADALA",
+      "PIF",
+      "QIA"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-AI-OPT-B",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ]
   }
 ]
