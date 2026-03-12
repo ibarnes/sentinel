@@ -1614,7 +1614,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       'INIT_SECTOR::PPS-INDUSTRIAL-ZONES': 'INIT-AI-OPT-D'
     };
 
-    const esc = (s) => String(s ?? '').replace(/[&<>]/g, (c)=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+    const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, (c)=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
     const delta = (n) => { const v = Number(n||0); if(v>0) return '<span class="badge text-bg-success">+'+v+'</span>'; if(v<0) return '<span class="badge text-bg-secondary">'+v+'</span>'; return '<span class="badge text-bg-dark">0</span>'; };
     const nextRel = (r) => relevanceOrder[Math.min(relevanceOrder.length-1, relevanceOrder.indexOf(r.usgRelevance || 'Track') + 1)] || 'Track';
     const layerMeta = {
@@ -1634,7 +1634,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       operator: { name:'Operator', desc:'Operators, lessees, utility/asset operations activation.', phase:'Late' },
       market_access: { name:'Market Access', desc:'Offtake, export agreements, and customer commitments.', phase:'Late' }
     };
-    const layerLabel = (id) => (layerMeta[id]?.name || String(id||'').split('_').join(' '));
+    const layerLabel = (id) => (((layerMeta[id] || {}).name) || String(id||'').split('_').join(' '));
     const phasePlain = (p) => p === 'early' ? 'early-stage signals' : (p === 'mid' ? 'forming-stage signals' : 'execution-stage signals');
     const blockerLabel = (s) => ({
       'Capital Without Architecture': 'Capital present, but no clear structure',
@@ -1909,8 +1909,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         }).join('');
         const phaseLabel = 'early ' + Math.round((phaseMix.early||0)*100) + '% · mid ' + Math.round((phaseMix.mid||0)*100) + '% · late ' + Math.round((phaseMix.late||0)*100) + '%';
         const ranked = stuckReasonRanked(p);
-        const primary = ranked[0]?.reason || 'None';
-        const secondary = ranked[1]?.reason || 'None';
+        const primary = ((ranked[0] || {}).reason) || 'None';
+        const secondary = ((ranked[1] || {}).reason) || 'None';
 
         return '<div class="lem-row">' +
           '<div class="lem-row-head js-lem-toggle" role="button" tabindex="0" aria-expanded="false">' +
@@ -2046,7 +2046,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         '<div class="mb-2"><button id="pp-network-toggle" class="btn btn-sm btn-outline-secondary">Toggle Network View</button></div><div id="pp-network" style="display:none;height:260px;border:1px solid var(--border);border-radius:10px"></div>'+
         '<div class="pp-kicker mt-3">Integration refs</div><pre class="small" style="white-space:pre-wrap">'+esc(JSON.stringify(r.linkRefs || {}, null, 2))+'</pre>';
 
-      drawerBody.querySelector('#pp-network-toggle')?.addEventListener('click', () => {
+      const ppNetworkToggle = drawerBody.querySelector('#pp-network-toggle');
+      if (ppNetworkToggle) ppNetworkToggle.addEventListener('click', () => {
         const box = drawerBody.querySelector('#pp-network'); if (!box) return;
         const show = box.style.display === 'none'; box.style.display = show ? 'block' : 'none';
         if (show && window.cytoscape) {
@@ -2077,7 +2078,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     }
 
     renderLayerLegend();
-    els.lemLegendToggle?.addEventListener('click', () => {
+    if (els.lemLegendToggle) els.lemLegendToggle.addEventListener('click', () => {
       if (!els.lemLegend) return;
       const open = els.lemLegend.classList.toggle('d-none');
       els.lemLegendToggle.textContent = open ? 'Show Stage Legend' : 'Hide Stage Legend';
@@ -2085,7 +2086,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     populateFilters(); renderAll();
     ['change','keyup'].forEach(evt => [els.fSector,els.fRegion,els.fStatus,els.fBuyer,els.fFid,els.fMinPpi,els.fSearch].forEach(el => el.addEventListener(evt, renderAll)));
-    document.getElementById('f-reset')?.addEventListener('click', () => {
+    const fResetBtn = document.getElementById('f-reset');
+    if (fResetBtn) fResetBtn.addEventListener('click', () => {
       els.fSector.value=''; els.fRegion.value=''; els.fStatus.value=''; els.fBuyer.value=''; els.fFid.value=''; els.fMinPpi.value='0'; els.fSearch.value='';
       state.ontologyLayer=''; state.missingLayer=''; state.buyerFocus=''; state.phaseFocus=''; state.stuckReason='';
       renderAll();
