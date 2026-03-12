@@ -1717,5 +1717,38 @@
       }
     ],
     "provenance": "provided_by_isaac"
+  },
+  {
+    "signal_id": "SIG-2026-03-12-US-GULF-INDUSTRIAL-STACK-001",
+    "title": "U.S. Gulf Coast industrial stack consolidation (energy + steel + critical minerals + AI infrastructure)",
+    "signal_class": "Platform Pressure",
+    "status": "Active / Forming",
+    "confidence": "Medium",
+    "verification_status": "first_party_policy_article_plus_mixed_secondary_claims",
+    "observed_at": "2026-03-12T12:39:00Z",
+    "buyer_ids": [
+      "ADQ",
+      "MUBADALA",
+      "PIF",
+      "QIA",
+      "AFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-AP-AI-FACTORY-001",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "summary": "Isaac-provided analysis frames Louisiana as a visible node in a broader U.S. industrial strategy integrating reshoring, energy expansion, supply-chain security, and AI infrastructure buildout. Structural implication: capital concentration around energy, compute, materials, and logistics corridors.",
+    "flow": "policy-led industrial coordination -> Gulf Coast energy/materials/logistics capacity expansion -> tighter coupling of energy and AI compute buildout -> global corridor and sovereign co-investment pressure shifts",
+    "verification_note": "White House source confirms policy framing; project-level claims should remain under ongoing source-by-source validation before any hard posture upgrade.",
+    "sources": [
+      {
+        "label": "White House article — President Trump’s Economic Agenda Drives “Industrial Boom” in Louisiana",
+        "url": "https://www.whitehouse.gov/articles/2026/03/president-trumps-economic-agenda-drives-industrial-boom-in-louisiana/"
+      }
+    ],
+    "provenance": "provided_by_isaac"
   }
 ]
