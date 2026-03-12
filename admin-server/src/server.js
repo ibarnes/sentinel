@@ -2366,8 +2366,7 @@ app.get('/dashboard/signals', async (req, res) => {
     const cls = v === 'Verified' ? 'success' : (v === 'Actioned' ? 'primary' : 'secondary');
     return `<span class="badge text-bg-${cls}">${escapeHtml(v)}</span>`;
   };
-  const signalRowsJson = JSON.stringify(sorted.map((s) => `<tr><td class="mono small">${escapeHtml(String(s.observed_at || '').slice(0,10))}</td><td><a class="text-decoration-none" href="/dashboard/signal/${encodeURIComponent(String(s.signal_id || ''))}"><strong>${escapeHtml(s.title || '')}</strong></a><div class="small text-muted">${escapeHtml(s.summary || '')}</div></td><td>${escapeHtml(s.signal_class || '—')}</td><td><span class="badge text-bg-light border">${escapeHtml(String(s.model_step || '1_collect_signals'))}</span></td><td class="small">${escapeHtml(String(s.system_id || s.system_guess || '—'))}</td><td><span class="badge text-bg-light border">${escapeHtml(String(s.evidence_strength || 'medium'))}</span></td><td><span class="badge text-bg-${s.blocks_hypothesis ? 'danger' : (s.advances_hypothesis ? 'success' : 'secondary')}">${s.blocks_hypothesis ? 'Blocks' : (s.advances_hypothesis ? 'Advances' : 'Neutral')}</span></td><td>${statusBadge(s.status)}</td><td>${escapeHtml(s.confidence || '')}</td><td>${(s.buyer_ids || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td></tr>`)).replace(/</g, '\\u003c');
-  const signalCardsJson = JSON.stringify(sorted.map((s) => `<a class="list-group-item list-group-item-action" href="/dashboard/signal/${encodeURIComponent(String(s.signal_id || ''))}"><div class="d-flex justify-content-between align-items-start gap-2"><div class="fw-semibold">${escapeHtml(s.title || '')}</div><div class="small text-muted mono">${escapeHtml(String(s.observed_at || '').slice(0,10))}</div></div><div class="small text-muted text-truncate" style="max-width:100%">${escapeHtml(s.summary || '')}</div><div class="d-flex gap-1 mt-1">${statusBadge(s.status)}<span class="badge text-bg-light border">${escapeHtml(s.confidence || '')}</span></div></a>`)).replace(/</g, '\\u003c');
+  const signalCardsJson = JSON.stringify(sorted.map((s) => `<a class="card mb-3 text-decoration-none" href="/dashboard/signal/${encodeURIComponent(String(s.signal_id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1 text-body">${escapeHtml(s.title || '')}</h6><div class="small text-muted">${escapeHtml(s.signal_class || '—')} • ${escapeHtml(String(s.system_id || s.system_guess || 'Unknown System'))}</div></div><div class="small text-muted mono">${escapeHtml(String(s.observed_at || '').slice(0,10))}</div></div><div class="small mt-2 text-body">${escapeHtml(s.summary || '—')}</div><div class="small mt-2"><strong>Hypothesis:</strong> ${escapeHtml(s.blocks_hypothesis ? 'Blocking' : (s.advances_hypothesis ? 'Advancing' : 'Neutral'))}</div><div class="small mt-1"><strong>Status:</strong> ${statusBadge(s.status)} <span class="badge text-bg-light border ms-1">${escapeHtml(String(s.evidence_strength || 'medium'))} evidence</span></div><div class="small mt-1"><strong>Confidence:</strong> ${escapeHtml(s.confidence || '—')}</div><div class="small mt-1"><strong>Linked Buyers:</strong> ${(s.buyer_ids || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</div></div></a>`)).replace(/</g, '\\u003c');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signals')}</head><body><div class="app-shell">
     ${dashboardNav('signals')}
     ${pageHeader('Signal Register', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/capital-map">View Capital Map</a>', 'Pressure surface tracking over time')}
@@ -2382,69 +2381,34 @@ app.get('/dashboard/signals', async (req, res) => {
       <div class="col-md-2 d-flex align-items-end"><button class="btn btn-outline-primary">Apply</button></div>
     </form>
     ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Signal</strong></summary><div class="card-body"><form method="post" action="/api/signals" class="row g-2"><div class="col-md-4"><label class="form-label">Title *</label><input class="form-control" name="title" required /></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select" name="status"><option>Monitor</option><option>Verified</option><option>Actioned</option></select></div><div class="col-md-2"><label class="form-label">Confidence</label><select class="form-select" name="confidence"><option>High</option><option>Medium</option><option>Low</option></select></div><div class="col-md-4"><label class="form-label">Signal Class *</label><select class="form-select" name="signal_class" required>${classes.map((c)=>`<option>${c}</option>`).join('')}</select></div><div class="col-md-4"><label class="form-label">Buyer IDs (comma)</label><input class="form-control" name="buyer_ids" placeholder="PIF, AFC" /></div><div class="col-md-8"><label class="form-label">Summary</label><input class="form-control" name="summary" /></div><div class="col-12"><button class="btn btn-sm btn-primary">Save Signal</button></div></form></div></details>` : ''}
-    <div class="d-block d-md-none">
-      <div id="signalsMobileList" class="list-group mb-3"></div>
-      <div id="signalsMobileEnd" class="text-center small text-muted py-2"></div>
-    </div>
-    <div class="table-responsive d-none d-md-block"><table class="table table-sm align-middle"><thead><tr><th>Date</th><th>Signal</th><th>Class</th><th>Step</th><th>System</th><th>Evidence</th><th>Hypothesis</th><th>Status</th><th>Confidence</th><th>Linked Buyers</th></tr></thead><tbody id="signalsTbody"></tbody></table></div>
-    <div id="signalsEnd" class="text-center small text-muted py-3 d-none d-md-block"></div>
-    <div id="signalsSentinel" class="d-none d-md-block" style="height:1px"></div>
+    <div id="signalsCardList"></div>
+    <div id="signalsEnd" class="text-center small text-muted py-2"></div>
   </div>
   <script>
     (() => {
-      const rows = ${signalRowsJson};
       const cards = ${signalCardsJson};
-      const mobileList = document.getElementById('signalsMobileList');
-      const mobileEnd = document.getElementById('signalsMobileEnd');
-      if (mobileList) {
-        mobileList.innerHTML = cards.join('');
-        if (mobileEnd) mobileEnd.textContent = cards.length ? 'End of signals' : 'No signals yet';
-      }
-
-      const tbody = document.getElementById('signalsTbody');
-      const sentinel = document.getElementById('signalsSentinel');
+      const list = document.getElementById('signalsCardList');
       const end = document.getElementById('signalsEnd');
-      if (!tbody || !sentinel || !end) return;
+      if (list) list.innerHTML = cards.join('');
+      if (end) end.textContent = cards.length ? 'End of signals' : 'No signals yet';
 
-      const pageSize = 20;
-      let idx = 0;
-      function initTooltips(scope) {
-        (scope || document).querySelectorAll('.buyer-tip').forEach((el) => {
-          if (el.dataset.tipBound === '1') return;
-          el.dataset.tipBound = '1';
-          el.addEventListener('click', () => {
-            const full = el.getAttribute('data-fullname') || el.getAttribute('title') || '';
-            if (!full) return;
-            const existing = el.parentElement.querySelector('.buyer-tip-inline');
-            if (existing) existing.remove();
-            const tag = document.createElement('span');
-            tag.className = 'buyer-tip-inline ms-1 small text-info';
-            tag.textContent = full;
-            el.insertAdjacentElement('afterend', tag);
-            setTimeout(() => tag.remove(), 2200);
-          });
+      (list || document).querySelectorAll('.buyer-tip').forEach((el) => {
+        if (el.dataset.tipBound === '1') return;
+        el.dataset.tipBound = '1';
+        el.addEventListener('click', (evt) => {
+          evt.preventDefault();
+          evt.stopPropagation();
+          const full = el.getAttribute('data-fullname') || el.getAttribute('title') || '';
+          if (!full) return;
+          const existing = el.parentElement.querySelector('.buyer-tip-inline');
+          if (existing) existing.remove();
+          const tag = document.createElement('span');
+          tag.className = 'buyer-tip-inline ms-1 small text-info';
+          tag.textContent = full;
+          el.insertAdjacentElement('afterend', tag);
+          setTimeout(() => tag.remove(), 2200);
         });
-      }
-      function renderNext() {
-        if (idx >= rows.length) {
-          end.textContent = rows.length ? 'End of signals' : 'No signals yet';
-          return false;
-        }
-        const slice = rows.slice(idx, idx + pageSize).join('');
-        tbody.insertAdjacentHTML('beforeend', slice);
-        initTooltips(tbody);
-        idx += pageSize;
-        end.textContent = idx < rows.length ? ('Loaded ' + Math.min(idx, rows.length) + ' of ' + rows.length) : 'End of signals';
-        return idx < rows.length;
-      }
-
-      renderNext();
-      const io = new IntersectionObserver((entries) => {
-        if (!entries.some(e => e.isIntersecting)) return;
-        const hasMore = renderNext();
-        if (!hasMore) io.disconnect();
-      }, { rootMargin: '300px 0px' });
-      io.observe(sentinel);
+      });
     })();
   </script>
   </body></html>`);
