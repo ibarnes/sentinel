@@ -304,7 +304,7 @@
     {
       "id": "TASK-0014",
       "title": "TS-A1.1 Create DeckSpec v2 schema + defaults",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -328,14 +328,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-02-28T23:56:00Z",
+      "updated_at": "2026-03-12T20:48:24.810Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0015",
       "title": "TS-A1.2 Implement deck resolver by selectors",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -359,7 +359,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-02-29T00:00:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -470,7 +470,7 @@
     {
       "id": "TASK-0020",
       "title": "TS-B1.1 Implement GET/POST /api/presentation-studio/decks",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -500,7 +500,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-03-05T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0018"
@@ -508,7 +508,7 @@
     {
       "id": "TASK-0021",
       "title": "TS-B1.2 Implement PATCH /api/presentation-studio/decks/{deckId}",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -538,7 +538,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-03-05T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0018"
@@ -570,7 +570,7 @@
     {
       "id": "TASK-0023",
       "title": "TS-B2.1 Implement slide list/get endpoints",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -600,7 +600,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-03-06T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0030"
@@ -608,7 +608,7 @@
     {
       "id": "TASK-0024",
       "title": "TS-B2.2 Implement slide create/update/delete endpoints",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -642,7 +642,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-03-07T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0037"
@@ -650,7 +650,7 @@
     {
       "id": "TASK-0025",
       "title": "US-B3 As a user, I can fetch templates and savepoints via API",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -675,14 +675,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-03-08T16:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0026",
       "title": "TS-B3.1 Implement template list/detail endpoints",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -721,7 +721,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-03-08T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0040"
@@ -729,7 +729,7 @@
     {
       "id": "TASK-0027",
       "title": "TS-B3.2 Implement savepoint list/create/restore endpoints",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -768,7 +768,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:48:00Z",
-      "updated_at": "2026-03-08T16:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0042"
@@ -1162,7 +1162,7 @@
     {
       "id": "TASK-0044",
       "title": "TS-H1.2 Persist per-stage status transitions",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1201,7 +1201,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-27T23:24:00Z",
-      "updated_at": "2026-03-09T03:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0043"
@@ -1271,7 +1271,7 @@
     {
       "id": "TASK-0047",
       "title": "TS-A2.1a.1 Define legacy layout -> templateId mapping table",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1296,14 +1296,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-01T01:33:00Z",
-      "updated_at": "2026-03-01T01:36:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0048",
       "title": "TS-A2.1a.2 Implement fallback resolver for missing/unknown layouts",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1328,14 +1328,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-01T01:33:00Z",
-      "updated_at": "2026-03-01T01:39:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0049",
       "title": "TS-A2.1a.3 Wire mapper integration path + smoke test",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1360,14 +1360,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-01T01:33:00Z",
-      "updated_at": "2026-03-01T01:43:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0050",
       "title": "TS-A2.1b.1 Define SlideSpec v2 slot schema + mapper contract",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1392,14 +1392,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-01T01:44:00Z",
-      "updated_at": "2026-03-01T02:37:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0051",
       "title": "TS-A2.1b.2 Implement legacy title/bullets/imagePrompt -> slots mapper",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1424,14 +1424,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-01T01:44:00Z",
-      "updated_at": "2026-03-01T23:02:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0052",
       "title": "TS-A2.1b.3 Persist slot normalization + add smoke verify endpoint",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1456,7 +1456,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-01T01:44:00Z",
-      "updated_at": "2026-03-01T23:02:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -1798,7 +1798,7 @@
     {
       "id": "TASK-0067",
       "title": "TS-SBP1.1 Create Beacon Doctrine spec + examples",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1821,14 +1821,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T16:56:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0068",
       "title": "TS-SBP1.2 Implement lint guardrails for Rule A/Rule B",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -1853,7 +1853,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T17:31:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -1997,7 +1997,7 @@
     {
       "id": "TASK-0074",
       "title": "TS-SBP3.1 Draft beacon #1: FID stalls despite approved capital",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2020,14 +2020,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T20:06:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0075",
       "title": "TS-SBP3.2 Draft beacon #2: downside absorber ambiguity",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2050,14 +2050,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T20:18:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0076",
       "title": "TS-SBP3.3 Draft beacon #3: sequencing failure before FID",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2080,14 +2080,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T20:35:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0077",
       "title": "TS-SBP3.4 Draft beacon #4: promote timing as architecture signal",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2110,14 +2110,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T16:14:00Z",
-      "updated_at": "2026-03-02T20:51:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0078",
       "title": "TS-SBP2.1a Create beacon queue schema and storage file",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -2141,14 +2141,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T18:21:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0079",
       "title": "TS-SBP2.1b Add beacon create endpoint + validation",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -2172,14 +2172,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T18:41:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0080",
       "title": "TS-SBP2.1c Enforce required signal/initiative/mandate linkage",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -2203,14 +2203,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T18:52:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0081",
       "title": "TS-SBP2.3a Add beacon status transition endpoint",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2234,14 +2234,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:02:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0082",
       "title": "TS-SBP2.3b Enforce architect-only approval + audit events",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2266,14 +2266,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:20:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0083",
       "title": "TS-SBP1.2-L1 Add banned soft-term dictionary",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2297,14 +2297,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:36:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0084",
       "title": "TS-SBP1.2-L2 Add required hard-term checker",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2328,14 +2328,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:44:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0085",
       "title": "TS-SBP1.2-L3 Add lint fixtures for soft/hard-term enforcement",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2359,14 +2359,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:47:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0086",
       "title": "TS-SBP2.2a Build weekly beacon board template",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2390,14 +2390,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:53:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0087",
       "title": "TS-SBP2.2b Add cadence runbook documentation",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2421,7 +2421,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-02T17:39:00Z",
-      "updated_at": "2026-03-02T19:58:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2538,7 +2538,7 @@
     {
       "id": "TASK-0093",
       "title": "TS-H1.1a Define /pipeline/run validation contract (request/response + error codes)",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -2563,14 +2563,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-03-05T07:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0094",
       "title": "TS-H1.1b Implement runId + run-record persistence helper",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -2602,7 +2602,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-03-05T11:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0021"
@@ -2655,7 +2655,7 @@
     {
       "id": "TASK-0096",
       "title": "TS-H1.1c.1 Add reusable authenticated smoke harness script for /pipeline/run",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -2688,7 +2688,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-05T17:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0026"
@@ -2776,7 +2776,7 @@
     {
       "id": "TASK-0098",
       "title": "BRS-2026-03-06 Recover stale Ready for Review queue via triage bundles",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2821,7 +2821,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-06T07:30:00Z",
-      "updated_at": "2026-03-06T17:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0036"
@@ -2829,7 +2829,7 @@
     {
       "id": "TASK-0099",
       "title": "BRS-2026-03-06a Build stalled-item triage report + decision matrix",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2853,14 +2853,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-06T07:30:00Z",
-      "updated_at": "2026-03-06T07:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0100",
       "title": "BRS-2026-03-06b Prepare Approval Bundle A (oldest Ready for Review set)",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2891,7 +2891,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-06T07:30:00Z",
-      "updated_at": "2026-03-06T11:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0032"
@@ -2899,7 +2899,7 @@
     {
       "id": "TASK-0101",
       "title": "BRS-2026-03-06c Prepare Approval Bundle B (recent Ready for Review + dependency chain)",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -2932,7 +2932,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-06T07:30:00Z",
-      "updated_at": "2026-03-06T11:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0033"
@@ -2940,7 +2940,7 @@
     {
       "id": "TASK-0102",
       "title": "TS-H1.1c.2a Prepare authenticated smoke execution handoff pack",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -2974,7 +2974,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-06T17:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0036"
@@ -3095,7 +3095,7 @@
     {
       "id": "TASK-0104",
       "title": "TS-B2.2a Decompose slide mutation API contract + payload shapes",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -3121,7 +3121,7 @@
         }
       ],
       "created_at": "2026-03-07T04:10:00Z",
-      "updated_at": "2026-03-07T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "request_approval": null
@@ -3129,7 +3129,7 @@
     {
       "id": "TASK-0105",
       "title": "TS-B2.2b Implement POST/PATCH /presentation-studio/decks/:deckId/slides",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -3153,7 +3153,7 @@
         }
       ],
       "created_at": "2026-03-07T04:10:00Z",
-      "updated_at": "2026-03-07T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "request_approval": null
@@ -3161,7 +3161,7 @@
     {
       "id": "TASK-0106",
       "title": "TS-B2.2c Implement DELETE /presentation-studio/decks/:deckId/slides/:slideId + smoke checks",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -3185,7 +3185,7 @@
         }
       ],
       "created_at": "2026-03-07T04:10:00Z",
-      "updated_at": "2026-03-07T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "request_approval": null
@@ -3253,7 +3253,7 @@
     {
       "id": "TASK-0108",
       "title": "BRS-2026-03-07a Build stalled-item tranche-C approval packet",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -3278,7 +3278,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-07T07:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3333,7 +3333,7 @@
     {
       "id": "TASK-0110",
       "title": "TS-H1.1c.2b.i Prepare pipeline-run evidence scaffold + capture template",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -3360,7 +3360,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-07T11:40:00Z",
-      "updated_at": "2026-03-07T11:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3393,7 +3393,7 @@
     {
       "id": "TASK-0112",
       "title": "BRS-2026-03-07b.i Build tranche-C decision capture ledger",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -3418,7 +3418,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-07T11:40:00Z",
-      "updated_at": "2026-03-07T11:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3450,7 +3450,7 @@
     {
       "id": "TASK-0114",
       "title": "BRS-2026-03-07b.iii Precompute tranche-C board transition plan",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -3476,14 +3476,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-07T17:30:00Z",
-      "updated_at": "2026-03-07T17:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0115",
       "title": "TS-B3.1a Define template API response contract + acceptance matrix",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -3508,14 +3508,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-08T04:10:00Z",
-      "updated_at": "2026-03-08T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0116",
       "title": "TS-B3.1b Implement template list/detail endpoints from template manifests",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -3541,14 +3541,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-08T04:10:00Z",
-      "updated_at": "2026-03-08T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0117",
       "title": "TS-B3.1c Run syntax smoke + publish review packet for template endpoints",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -3575,14 +3575,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-08T04:10:00Z",
-      "updated_at": "2026-03-08T04:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0118",
       "title": "BRS-2026-03-08a Prepare tranche-C approval microbatch (top-5 leverage)",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -3608,7 +3608,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-08T07:30:00Z",
-      "updated_at": "2026-03-08T07:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3618,12 +3618,12 @@
       "priority": "P0",
       "request_approval": null,
       "created_at": "2026-03-08T10:40:00Z",
-      "updated_at": "2026-03-08T10:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "id": "TASK-0119",
       "title": "TS-B3.2a Define savepoint API contract + snapshot shape",
-      "status": "Ready for Review",
+      "status": "Done",
       "tags": [
         "task",
         "epic:EP-B",
@@ -3652,12 +3652,12 @@
       "priority": "P0",
       "request_approval": null,
       "created_at": "2026-03-08T10:40:00Z",
-      "updated_at": "2026-03-08T10:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.814Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "id": "TASK-0120",
       "title": "TS-B3.2b Implement savepoint store + list/create endpoints",
-      "status": "Ready for Review",
+      "status": "Done",
       "tags": [
         "task",
         "epic:EP-B",
@@ -3693,12 +3693,12 @@
         "approved_at": null
       },
       "created_at": "2026-03-08T10:40:00Z",
-      "updated_at": "2026-03-08T10:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "id": "TASK-0121",
       "title": "TS-B3.2c Implement restore endpoint + smoke + review packet",
-      "status": "Ready for Review",
+      "status": "Done",
       "tags": [
         "task",
         "epic:EP-B",
@@ -3725,7 +3725,7 @@
     {
       "id": "TASK-0122",
       "title": "TS-H1.2a Define per-stage state model + transition rules",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -3750,14 +3750,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-09T03:10:00Z",
-      "updated_at": "2026-03-09T03:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0123",
       "title": "TS-H1.2b Persist stage transitions + run-level status derivation",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -3783,14 +3783,14 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-09T03:10:00Z",
-      "updated_at": "2026-03-09T03:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0124",
       "title": "TS-H1.2c Add stage transition/read endpoints + syntax smoke + RP",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -3816,7 +3816,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-09T03:10:00Z",
-      "updated_at": "2026-03-09T03:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3859,7 +3859,7 @@
     {
       "id": "TASK-0126",
       "title": "TS-H1.1c.2d Prepare credentialed execution request packet for Isaac",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -3887,7 +3887,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-09T06:30:00Z",
-      "updated_at": "2026-03-09T06:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0097"
@@ -3895,7 +3895,7 @@
     {
       "id": "TASK-0127",
       "title": "TS-H1.1c.2e Add selector-based deck auto-resolve to pipeline smoke script",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -3924,7 +3924,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-09T10:40:00Z",
-      "updated_at": "2026-03-09T10:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0097",
@@ -3933,7 +3933,7 @@
     {
       "id": "TASK-0128",
       "title": "TS-H1.1c.2f Refresh credentialed smoke runbook with timestamped evidence flow",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -3962,7 +3962,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-09T10:40:00Z",
-      "updated_at": "2026-03-09T10:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0097",
@@ -3971,7 +3971,7 @@
     {
       "id": "TASK-0129",
       "title": "BRS-2026-03-10a Build night unblock matrix + decision microbatch",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -4005,7 +4005,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-10T03:10:00Z",
-      "updated_at": "2026-03-10T03:12:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0097",
@@ -4014,7 +4014,7 @@
     {
       "id": "TASK-0130",
       "title": "BRS-2026-03-10b Prepare apply-ready transition patchset for post-decision execution",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -4049,7 +4049,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-10T03:10:00Z",
-      "updated_at": "2026-03-10T06:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0109",
@@ -4058,7 +4058,7 @@
     {
       "id": "TASK-0131",
       "title": "BRS-2026-03-10c Normalize stalled-chain status semantics + blocker annotations",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -4084,7 +4084,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-10T06:30:00Z",
-      "updated_at": "2026-03-10T06:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4093,7 +4093,7 @@
     {
       "id": "TASK-0132",
       "title": "BRS-2026-03-10d Prepare post-credential closure comment macros for TASK-0103 chain",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -4128,7 +4128,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-10T06:30:00Z",
-      "updated_at": "2026-03-10T10:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0097",
@@ -4137,7 +4137,7 @@
     {
       "id": "TASK-0133",
       "title": "BRS-2026-03-10e Build deterministic post-credential transition replay checklist",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -4171,7 +4171,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-10T10:40:00Z",
-      "updated_at": "2026-03-10T15:38:23.925Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "isaac",
       "parent_id": "TASK-0103",
@@ -4180,7 +4180,7 @@
     {
       "id": "TASK-0134",
       "title": "TS-H1.1c.2g Add automated evidence completeness checker for credentialed smoke",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4214,7 +4214,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-10T16:30:00Z",
-      "updated_at": "2026-03-10T16:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4223,7 +4223,7 @@
     {
       "id": "TASK-0135",
       "title": "TS-H1.1c.2h Baseline-check existing evidence artifacts and capture blocker proof",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4258,7 +4258,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-10T16:30:00Z",
-      "updated_at": "2026-03-10T16:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4267,7 +4267,7 @@
     {
       "id": "TASK-0136",
       "title": "TS-H1.1c.2i Build deterministic evidence bundle capture wrapper",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4301,7 +4301,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-11T03:10:00Z",
-      "updated_at": "2026-03-11T03:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4310,7 +4310,7 @@
     {
       "id": "TASK-0137",
       "title": "TS-H1.1c.2j Generate evidence completeness report from captured bundle",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4345,7 +4345,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-11T03:10:00Z",
-      "updated_at": "2026-03-11T03:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4354,7 +4354,7 @@
     {
       "id": "TASK-0138",
       "title": "BRS-2026-03-11a Package oldest Ready-for-Review tranche-D (12 items) for decision",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -4387,7 +4387,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-11T06:30:00Z",
-      "updated_at": "2026-03-11T06:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0107",
@@ -4396,7 +4396,7 @@
     {
       "id": "TASK-0139",
       "title": "TS-H1.1c.2k Create credentialed smoke one-pass operator handoff packet",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4430,7 +4430,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-11T10:40:00Z",
-      "updated_at": "2026-03-11T10:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4439,7 +4439,7 @@
     {
       "id": "TASK-0140",
       "title": "TS-H1.1c.2l Pre-stage credentialed evidence bundle manifest scaffold",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4473,7 +4473,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-11T10:40:00Z",
-      "updated_at": "2026-03-11T10:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4482,7 +4482,7 @@
     {
       "id": "TASK-0141",
       "title": "TS-H1.1c.2m Create one-command credentialed evidence closeout runner",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4516,7 +4516,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-11T16:30:00Z",
-      "updated_at": "2026-03-11T16:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4525,7 +4525,7 @@
     {
       "id": "TASK-0142",
       "title": "TS-H1.1c.2n Publish deterministic PASS/BLOCKED transition checklist for smoke chain",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4559,7 +4559,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-11T16:30:00Z",
-      "updated_at": "2026-03-11T16:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4568,7 +4568,7 @@
     {
       "id": "TASK-0143",
       "title": "TS-H1.1c.2o Implement evidence-driven board transition planner",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4602,7 +4602,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-12T03:10:00Z",
-      "updated_at": "2026-03-12T03:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4611,7 +4611,7 @@
     {
       "id": "TASK-0144",
       "title": "TS-H1.1c.2p Generate operator-ready transition action card from planner output",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4645,7 +4645,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-12T03:10:00Z",
-      "updated_at": "2026-03-12T03:10:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4654,7 +4654,7 @@
     {
       "id": "TASK-0145",
       "title": "BRS-2026-03-12a Build oldest-RFR tranche-E decision microbatch",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -4686,7 +4686,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-12T06:30:00Z",
-      "updated_at": "2026-03-12T06:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0107",
@@ -4695,7 +4695,7 @@
     {
       "id": "TASK-0146",
       "title": "TS-H1.1c.2q Publish one-pass credentialed smoke execution pack",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4728,7 +4728,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-12T10:40:00Z",
-      "updated_at": "2026-03-12T10:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4737,7 +4737,7 @@
     {
       "id": "TASK-0147",
       "title": "TS-H1.1c.2r Publish post-exec board replay template for blocker chain",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4771,7 +4771,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-12T10:40:00Z",
-      "updated_at": "2026-03-12T10:40:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4780,7 +4780,7 @@
     {
       "id": "TASK-0148",
       "title": "TS-H1.1c.2s Add credential preflight checker and capture blocked/pass state artifact",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4814,7 +4814,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-12T16:30:00Z",
-      "updated_at": "2026-03-12T16:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
@@ -4823,7 +4823,7 @@
     {
       "id": "TASK-0149",
       "title": "TS-H1.1c.2t Add one-command credentialed smoke runner wrapper",
-      "status": "Ready for Review",
+      "status": "Done",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -4856,7 +4856,7 @@
         "approved_at": null
       },
       "created_at": "2026-03-12T16:30:00Z",
-      "updated_at": "2026-03-12T16:30:00Z",
+      "updated_at": "2026-03-12T20:48:24.815Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
