@@ -1414,6 +1414,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     .replace(/</g, '\\u003c')
     .replace(/\u2028/g, '\\u2028')
     .replace(/\u2029/g, '\\u2029');
+  const serverRowsHtml = rows.map((r) => `<tr><td><div class="pp-sector">${escapeHtml(r.sector || '')}</div><div class="pp-sub">${escapeHtml(r.theater || '')}</div></td><td>${escapeHtml(r.region || '')}</td><td><span class="pp-ppi">${escapeHtml(String(r.ppi || 0))}/25</span></td><td><span class="pp-status">${escapeHtml(r.status || '')}</span></td><td class="pp-hide-md small">${escapeHtml(r.buyerPath || 'Mixed / Multi-actor')}</td><td class="pp-hide-md"><span class="pp-rel">${escapeHtml(r.usgRelevance || 'Track')}</span></td><td>${escapeHtml(String(r.delta90d || 0))}</td><td><span class="badge text-bg-light border">${escapeHtml(r.likelyBuyerClass || '')}</span></td><td class="pp-wide-col small text-muted">${escapeHtml(r.recommended_motion || r.nextIntelligenceAction || 'monitor')}</td><td class="pp-wide-col"><span class="pp-status">${escapeHtml(r.decision_confidence || 'medium')}</span></td><td class="mono small">${escapeHtml(r.lastUpdated || '')}</td></tr>`).join('') || '<tr><td colspan="11"><div class="pp-empty">No sectors found.</div></td></tr>';
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}
   <style>
@@ -1519,7 +1520,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         <th class="pp-wide-col">Decision Confidence</th>
         <th><button data-sort="lastUpdated" class="btn btn-sm btn-ghost p-0">Updated</button></th>
       </tr></thead>
-      <tbody id="pp-table"></tbody>
+      <tbody id="pp-table">${serverRowsHtml}</tbody>
     </table></div></div>
 
     <div class="card mb-3"><div class="card-body">
