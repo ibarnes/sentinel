@@ -1245,7 +1245,7 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
     <div class="col-md-2"><label class="form-label">Country</label><select class="form-select" name="country"><option value="">All</option>${countries.map((c)=>`<option value="${escapeHtml(c)}" ${countryFilter===c?'selected':''}>${escapeHtml(c)}</option>`).join('')}</select></div>
     <div class="col-md-2"><label class="form-label">Type</label><select class="form-select" name="actor_type"><option value="">All</option>${actorTypes.map((t)=>`<option value="${escapeHtml(t)}" ${typeFilter===t?'selected':''}>${escapeHtml(t)}</option>`).join('')}</select></div>
     <div class="col-md-2"><label class="form-label">Owner</label><select class="form-select" name="owner"><option value="">All</option>${owners.map((o)=>`<option value="${escapeHtml(o)}" ${ownerFilter===o?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select></div>
-    <div class="col-md-2"><label class="form-label">Page Size</label><select class="form-select" name="pageSize" onchange="this.form.submit()">${[25,50,100,200].map((n)=>`<option value="${n}" ${pageSize===n?'selected':''}>${n}</option>`).join('')}</select></div>
+    <div class="col-md-2"><label class="form-label">Page Size</label><select class="form-select" name="pageSize">${[25,50,100,200].map((n)=>`<option value="${n}" ${pageSize===n?'selected':''}>${n}</option>`).join('')}</select></div>
     <div class="col-12 d-flex gap-2"><button class="btn btn-primary btn-sm" type="submit">Apply</button><a class="btn btn-outline-secondary btn-sm" href="/dashboard/actors">Reset</a><span class="small text-muted ms-auto">Showing ${rows.length} of ${total}</span></div>
   </form></div></div>
   <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th><a href="${sortHref('first')}">First Name${sortMark('first')}</a></th><th><a href="${sortHref('last')}">Last Name${sortMark('last')}</a></th><th><a href="${sortHref('designation')}">Designation${sortMark('designation')}</a></th><th><a href="${sortHref('company')}">Company${sortMark('company')}</a></th><th><a href="${sortHref('country')}">Country${sortMark('country')}</a></th></tr></thead><tbody>${rows.map((a)=>`<tr><td>${escapeHtml(a.first || '—')}</td><td>${escapeHtml(a.last || '—')}</td><td>${escapeHtml(a.designation || '—')}</td><td>${escapeHtml(a.company || '—')}</td><td>${escapeHtml(a.country || '—')}</td></tr>`).join('') || '<tr><td colspan="5" class="text-muted">No actors match current filters.</td></tr>'}</tbody></table></div>
@@ -1463,40 +1463,6 @@ app.get('/dashboard/platform-pressure-v2/buyers/:bucket', requireAnyAuth, async 
 });
 
 app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
-  const sourceRowsLite = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
-  const buyersLite = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
-  const initiativesLite = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
-  const signalsLite = await readJson(DASHBOARD_SIGNALS_FILE, []);
-  const rowsLite = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRowsLite), { buyers: buyersLite, initiatives: initiativesLite, signals: signalsLite });
-  const byPpiLite = [...rowsLite].sort((a,b)=>Number(b.ppi||0)-Number(a.ppi||0));
-  const rowsHtmlLite = byPpiLite.map((r)=>`<tr><td><strong>${escapeHtml(r.sector||'')}</strong></td><td>${escapeHtml(r.region||'')}</td><td>${escapeHtml(String(r.ppi||0))}</td><td>${escapeHtml(String(r.status||''))}</td><td>${escapeHtml(String(r.buyerPath||''))}</td><td>${escapeHtml(String(r.usgRelevance||''))}</td><td>${escapeHtml(String(r.delta90d||0))}</td><td>${escapeHtml(String(r.likelyBuyerClass||''))}</td><td>${escapeHtml(String(r.recommended_motion || r.nextIntelligenceAction || 'monitor'))}</td><td>${escapeHtml(String(r.decision_confidence || 'medium'))}</td><td class="mono small">${escapeHtml(String(r.lastUpdated||''))}</td></tr>`).join('') || '<tr><td colspan="11" class="text-muted">No sectors found.</td></tr>';
-  return res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}</head><body><div class="app-shell">${dashboardNav('platform-pressure')}${pageHeader('Platform Pressure','', 'Core platform-formation operating view')}<div class="alert alert-secondary py-2 small mb-3">Server data loaded: <strong>${rowsLite.length}</strong> platform sectors.</div>
-
-<div class="row g-3 mb-3">
-  <div class="col-12 col-lg-6"><div class="card"><div class="card-body"><h6 class="mb-2">Market Environment Snapshot</h6><div class="small text-muted">Top sector: <strong>${escapeHtml((byPpiLite[0]||{}).sector || '—')}</strong> · Avg PPI: <strong>${rowsLite.length ? (rowsLite.reduce((s,r)=>s+Number(r.ppi||0),0)/rowsLite.length).toFixed(1) : '0.0'}</strong></div></div></div></div>
-  <div class="col-12 col-lg-6"><div class="card"><div class="card-body"><h6 class="mb-2">Recommended USG Move</h6><div class="small text-muted">${escapeHtml(String((byPpiLite[0]||{}).recommended_motion || (byPpiLite[0]||{}).nextIntelligenceAction || 'monitor'))}</div></div></div></div>
-</div>
-
-<div class="card mb-3"><div class="card-body"><h6 class="mb-2">Platform Signal Map (Core Model)</h6><div class="small text-muted">Signal-to-platform chain active. Detailed interactive map is temporarily disabled while parser stability is being rebuilt.</div></div></div>
-
-<div class="row g-3 mb-3">
-  <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">System Dynamics Metrics</h6><ul class="small mb-0"><li>Mandate Window count: <strong>${rowsLite.filter(r=>String(r.usgRelevance||'').includes('Mandate')).length}</strong></li><li>Platform Formation count: <strong>${rowsLite.filter(r=>String(r.status||'').includes('Platform Formation')).length}</strong></li><li>High momentum sectors (90D Δ > 0): <strong>${rowsLite.filter(r=>Number(r.delta90d||0)>0).length}</strong></li></ul></div></div></div>
-  <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Buyer Alignment</h6><div class="small text-muted">Top buyer classes: ${escapeHtml(Array.from(new Set(byPpiLite.map(r=>String(r.likelyBuyerClass||'')).filter(Boolean))).slice(0,4).join(' • ') || '—')}</div></div></div></div>
-</div>
-
-<div class="row g-3 mb-3">
-  <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Constraints and Diagnostics</h6><div class="small text-muted">Primary bottlenecks: ${escapeHtml(Array.from(new Set(byPpiLite.map(r=>String(r.mainStructuralBottleneck||'')).filter(Boolean))).slice(0,3).join(' | ') || 'Not specified')}</div></div></div></div>
-  <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Mandate-Proximate Watchlist</h6><div class="small text-muted">${byPpiLite.filter(r=>String(r.usgRelevance||'').includes('Mandate')).slice(0,5).map(r=>escapeHtml(r.sector||'')).join(' • ') || 'No sectors in mandate window yet.'}</div></div></div></div>
-</div>
-
-<div class="card mb-3"><div class="card-body"><h6 class="mb-2">Buyer Class Heatmap</h6><div class="small text-muted">${escapeHtml(Array.from(new Set(byPpiLite.map(r=>String(r.likelyBuyerClass||'')).filter(Boolean))).join(' • ') || 'No buyer classes tagged')}</div></div></div>
-
-<div class="card"><div class="card-body"><h6 class="mb-2">Sector Intelligence Table</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Sector</th><th>Region</th><th>PPI</th><th>Status</th><th>Buyer Path</th><th>USG Relevance</th><th>90D Δ</th><th>Buyer Class</th><th>Recommended Motion</th><th>Decision Confidence</th><th>Updated</th></tr></thead><tbody>${rowsHtmlLite}</tbody></table></div></div></div>
-
-</div></body></html>`);
-  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-  res.set('Pragma', 'no-cache');
-  res.set('Expires', '0');
   const sourceRows = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
@@ -1561,7 +1527,6 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       </div>
     </div>
 
-    <div class="alert alert-secondary py-2 small mb-3">Server data loaded: <strong>${rows.length}</strong> platform sectors.</div>
     <div id="pp-summary" class="row g-2 mb-3"></div>
 
     <div class="card mb-3"><div class="card-body">
@@ -1640,7 +1605,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   </div>
 
   <script id="pp-data" type="application/json">${payload}</script>
-  <script type="application/json" id="pp-deprecated-js">
+  <script>
     (function installTempErrorLogger(){
       try {
         const key = 'pp_error_log_v1';
@@ -2193,25 +2158,6 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     });
     document.querySelectorAll('button[data-sort]').forEach(btn => btn.addEventListener('click', () => { const k = btn.getAttribute('data-sort'); if(state.sortBy===k) state.sortDir = state.sortDir==='asc'?'desc':'asc'; else {state.sortBy=k; state.sortDir='desc';} renderAll(); }));
   </script>
-  <script>
-    (function(){
-      try {
-        var dataEl = document.getElementById('pp-data');
-        var data = {};
-        try { data = JSON.parse((dataEl && dataEl.textContent) || '{}'); } catch (e) { console.error('pp-data-parse-failed', e); }
-        var gen = document.getElementById('lem-generated-at');
-        if (gen) gen.textContent = 'Loaded ' + String(((data.rows||[]).length || 0)) + ' sectors';
-        var errBox = document.getElementById('pp-js-errors');
-        var errPre = document.getElementById('pp-js-errors-pre');
-        if (errBox && errPre) {
-          errBox.style.display = 'block';
-          errPre.textContent = '(compat mode active) Dynamic script disabled to avoid parser crash; server-rendered data is shown.';
-        }
-      } catch (e) {
-        try { console.error(e); } catch {}
-      }
-    })();
-  </script>
   </body></html>`);
 });
 
@@ -2490,13 +2436,7 @@ app.get('/dashboard/signals', async (req, res) => {
     const cls = v === 'Verified' ? 'success' : (v === 'Actioned' ? 'primary' : 'secondary');
     return `<span class="badge text-bg-${cls}">${escapeHtml(v)}</span>`;
   };
-  const signalCardsJson = JSON.stringify(sorted.map((s) => {
-    const countries = Array.isArray(s.geography)
-      ? s.geography
-      : (Array.isArray(s.countries) ? s.countries : (s.country ? [s.country] : []));
-    const countriesText = countries.length ? countries.join(' • ') : '—';
-    return `<a class="card mb-3 text-decoration-none" style="color:inherit" href="/dashboard/signal/${encodeURIComponent(String(s.signal_id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="color:var(--text-primary);font-size:1.4rem;line-height:1.2">${escapeHtml(s.title || '')}</h6><div class="small" style="color:var(--text-muted)">${escapeHtml(s.signal_class || '—')} • ${escapeHtml(String(s.system_id || s.system_guess || 'Unknown System'))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(String(s.observed_at || '').slice(0,10))}</div></div><div class="small mt-2" style="color:var(--text-primary)">${escapeHtml(s.summary || '—')}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Countries:</strong> ${escapeHtml(countriesText)}</div><div class="small mt-2" style="color:var(--text-primary)"><strong>Hypothesis:</strong> ${escapeHtml(s.blocks_hypothesis ? 'Blocking' : (s.advances_hypothesis ? 'Advancing' : 'Neutral'))}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Status:</strong> ${statusBadge(s.status)} <span class="badge text-bg-light border ms-1">${escapeHtml(String(s.evidence_strength || 'medium'))} evidence</span></div><div class="small mt-1" style="color:var(--text-primary)"><strong>Confidence:</strong> ${escapeHtml(s.confidence || '—')}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Linked Buyers:</strong> ${(s.buyer_ids || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</div></div></a>`;
-  })).replace(/</g, '\\u003c');
+  const signalCardsJson = JSON.stringify(sorted.map((s) => `<a class="card mb-3 text-decoration-none" style="color:inherit" href="/dashboard/signal/${encodeURIComponent(String(s.signal_id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="color:var(--text-primary);font-size:1.4rem;line-height:1.2">${escapeHtml(s.title || '')}</h6><div class="small" style="color:var(--text-muted)">${escapeHtml(s.signal_class || '—')} • ${escapeHtml(String(s.system_id || s.system_guess || 'Unknown System'))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(String(s.observed_at || '').slice(0,10))}</div></div><div class="small mt-2" style="color:var(--text-primary)">${escapeHtml(s.summary || '—')}</div><div class="small mt-2" style="color:var(--text-primary)"><strong>Hypothesis:</strong> ${escapeHtml(s.blocks_hypothesis ? 'Blocking' : (s.advances_hypothesis ? 'Advancing' : 'Neutral'))}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Status:</strong> ${statusBadge(s.status)} <span class="badge text-bg-light border ms-1">${escapeHtml(String(s.evidence_strength || 'medium'))} evidence</span></div><div class="small mt-1" style="color:var(--text-primary)"><strong>Confidence:</strong> ${escapeHtml(s.confidence || '—')}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Linked Buyers:</strong> ${(s.buyer_ids || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</div></div></a>`)).replace(/</g, '\\u003c');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signals')}</head><body><div class="app-shell">
     ${dashboardNav('signals')}
     ${pageHeader('Signal Register', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/capital-map">View Capital Map</a>', 'Pressure surface tracking over time')}
