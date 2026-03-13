@@ -200,3 +200,20 @@
 - Daily log created at `memory/2026-03-12.md` and distilled into durable snapshot.
 - Durable changes captured: additional automation artifacts for credentialed-smoke chain closure and transition replay.
 - No operating-rule or scoring-policy changes.
+
+# Project Status Snapshot (2026-03-13)
+- Board sweep cadence continued with decomposition-gated execution across recovery/execution/progress/build windows.
+- New artifact tranche added to the credentialed blocker chain:
+  - `TASK-0145` + `RP-0055` (oldest RFR tranche-E decision packet).
+  - `TASK-0146`/`TASK-0147` + `RP-0056` (credential execution pack + post-exec replay template).
+  - `TASK-0148`/`TASK-0149` + `RP-0058` (credential preflight checker + one-command credentialed runner wrapper).
+  - `TASK-0150`/`TASK-0151` + `RP-0059` (credential-window operator card + blocker-chain closure matrix).
+- Morning operations confirmed: 2026-03-12 brief published (`mission-control/briefs/2026-03-12-morning-brief.md`) and Workflow C queue rolled (`mission-control/workflow-c/queue/2026-03-13.json`, `execute_immediately=false`).
+- Net effect: closure workflow is now highly deterministic and operator-ready; hard blocker still credentialed live execution for `TASK-0111`.
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-13)
+- Daily log created at `memory/2026-03-13.md` and distilled into durable snapshot.
+- Durable changes captured: expanded blocker-chain automation/runbooks and queued workflow continuity.
+- No new operating-rule or scoring-policy changes.
