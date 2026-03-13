@@ -1605,7 +1605,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   </div>
 
   <script id="pp-data" type="application/json">${payload}</script>
-  <script>
+  <script type="application/json" id="pp-deprecated-js">
     (function installTempErrorLogger(){
       try {
         const key = 'pp_error_log_v1';
@@ -2157,6 +2157,25 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       renderAll();
     });
     document.querySelectorAll('button[data-sort]').forEach(btn => btn.addEventListener('click', () => { const k = btn.getAttribute('data-sort'); if(state.sortBy===k) state.sortDir = state.sortDir==='asc'?'desc':'asc'; else {state.sortBy=k; state.sortDir='desc';} renderAll(); }));
+  </script>
+  <script>
+    (function(){
+      try {
+        var dataEl = document.getElementById('pp-data');
+        var data = {};
+        try { data = JSON.parse((dataEl && dataEl.textContent) || '{}'); } catch (e) { console.error('pp-data-parse-failed', e); }
+        var gen = document.getElementById('lem-generated-at');
+        if (gen) gen.textContent = 'Loaded ' + String(((data.rows||[]).length || 0)) + ' sectors';
+        var errBox = document.getElementById('pp-js-errors');
+        var errPre = document.getElementById('pp-js-errors-pre');
+        if (errBox && errPre) {
+          errBox.style.display = 'block';
+          errPre.textContent = '(compat mode active) Dynamic script disabled to avoid parser crash; server-rendered data is shown.';
+        }
+      } catch (e) {
+        try { console.error(e); } catch {}
+      }
+    })();
   </script>
   </body></html>`);
 });
