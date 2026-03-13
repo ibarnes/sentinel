@@ -3164,5 +3164,104 @@
       "USG",
       "INIT-AI-OPT-B"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-13-BLACKSTONE-DATACENTER-VEHICLE",
+    "title": "Blackstone preparing publicly traded vehicle to acquire AI data centers",
+    "signal_class": "Capital Reality",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified_multi_source",
+    "observed_at": "2026-03-13T12:51:00Z",
+    "summary": "Blackstone is reportedly preparing a publicly traded investment vehicle focused on stabilized data center acquisitions, widening public-market participation in AI infrastructure cash-flow assets.",
+    "flow": "private data center accumulation -> public vehicle packaging -> broader capital access to AI compute assets -> faster infrastructure capitalization cycle",
+    "sources": [
+      {
+        "source_name": "Investing.com",
+        "url": "https://www.investing.com/news/stock-market-news/blackstone-plans-public-vehicle-to-buy-ai-data-centers--bloomberg-93CH-4532602",
+        "verification_status": "verified"
+      },
+      {
+        "source_name": "CRE Daily",
+        "url": "https://credaily.com/briefs/ai-data-centers-drive-blackstone-s-new-public-venture/",
+        "verification_status": "verified"
+      },
+      {
+        "source_name": "CoStar",
+        "url": "https://www.costar.com/article/405148397/blackstone-to-launch-publicly-traded-company-for-data-center-acquisitions",
+        "verification_status": "verified"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "Global AI Infrastructure Capitalization",
+    "actor_refs": [
+      "ACTOR:blackstone",
+      "ACTOR:qts_data_centers",
+      "ACTOR:public_market_investors",
+      "ACTOR:hyperscalers"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:blackstone",
+        "role": "capital_allocator",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:qts_data_centers",
+        "role": "platform_asset_base",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:public_market_investors",
+        "role": "liquidity_source",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:hyperscalers",
+        "role": "infrastructure_demand",
+        "influence": "high"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "financial_structuring",
+      "market_access"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "pattern_summary": "Private digital infrastructure is being financialized into public market vehicles for AI compute exposure.",
+    "model_update": {
+      "pressure": "Rapid increase in AI compute demand",
+      "momentum": "Institutional capital moving aggressively into data center assets",
+      "constraints": [
+        "power availability",
+        "land and permitting",
+        "construction timelines",
+        "grid capacity"
+      ]
+    },
+    "prediction": {
+      "probability": 0.78,
+      "prediction_statement": "Public markets will increasingly finance AI infrastructure, creating a class of publicly traded AI infrastructure platforms akin to energy/telecom REIT analogs."
+    },
+    "strategic_implications": [
+      "Data centers are consolidating as a core infrastructure asset class.",
+      "AI compute capacity is becoming a tradable infrastructure exposure.",
+      "Public market access may accelerate global data center buildout and repricing."
+    ],
+    "tags": [
+      "ai_infrastructure",
+      "data_centers",
+      "blackstone",
+      "capital_markets",
+      "digital_infrastructure"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-AI-OPT-B"
+    ]
   }
 ]
