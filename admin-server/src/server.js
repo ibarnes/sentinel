@@ -1470,7 +1470,30 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   const rowsLite = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRowsLite), { buyers: buyersLite, initiatives: initiativesLite, signals: signalsLite });
   const byPpiLite = [...rowsLite].sort((a,b)=>Number(b.ppi||0)-Number(a.ppi||0));
   const rowsHtmlLite = byPpiLite.map((r)=>`<tr><td><strong>${escapeHtml(r.sector||'')}</strong></td><td>${escapeHtml(r.region||'')}</td><td>${escapeHtml(String(r.ppi||0))}</td><td>${escapeHtml(String(r.status||''))}</td><td>${escapeHtml(String(r.buyerPath||''))}</td><td>${escapeHtml(String(r.usgRelevance||''))}</td><td>${escapeHtml(String(r.delta90d||0))}</td><td>${escapeHtml(String(r.likelyBuyerClass||''))}</td><td>${escapeHtml(String(r.recommended_motion || r.nextIntelligenceAction || 'monitor'))}</td><td>${escapeHtml(String(r.decision_confidence || 'medium'))}</td><td class="mono small">${escapeHtml(String(r.lastUpdated||''))}</td></tr>`).join('') || '<tr><td colspan="11" class="text-muted">No sectors found.</td></tr>';
-  return res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}</head><body><div class="app-shell">${dashboardNav('platform-pressure')}${pageHeader('Platform Pressure','', 'Stable v1 view')}<div class="alert alert-secondary py-2 small mb-3">Server data loaded: <strong>${rowsLite.length}</strong> platform sectors.</div><div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Sector</th><th>Region</th><th>PPI</th><th>Status</th><th>Buyer Path</th><th>USG Relevance</th><th>90D Δ</th><th>Buyer Class</th><th>Recommended Motion</th><th>Decision Confidence</th><th>Updated</th></tr></thead><tbody>${rowsHtmlLite}</tbody></table></div></div></div></body></html>`);
+  return res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}</head><body><div class="app-shell">${dashboardNav('platform-pressure')}${pageHeader('Platform Pressure','', 'Core platform-formation operating view')}<div class="alert alert-secondary py-2 small mb-3">Server data loaded: <strong>${rowsLite.length}</strong> platform sectors.</div>
+
+<div class="row g-3 mb-3">
+  <div class="col-12 col-lg-6"><div class="card"><div class="card-body"><h6 class="mb-2">Market Environment Snapshot</h6><div class="small text-muted">Top sector: <strong>${escapeHtml((byPpiLite[0]||{}).sector || '—')}</strong> · Avg PPI: <strong>${rowsLite.length ? (rowsLite.reduce((s,r)=>s+Number(r.ppi||0),0)/rowsLite.length).toFixed(1) : '0.0'}</strong></div></div></div></div>
+  <div class="col-12 col-lg-6"><div class="card"><div class="card-body"><h6 class="mb-2">Recommended USG Move</h6><div class="small text-muted">${escapeHtml(String((byPpiLite[0]||{}).recommended_motion || (byPpiLite[0]||{}).nextIntelligenceAction || 'monitor'))}</div></div></div></div>
+</div>
+
+<div class="card mb-3"><div class="card-body"><h6 class="mb-2">Platform Signal Map (Core Model)</h6><div class="small text-muted">Signal-to-platform chain active. Detailed interactive map is temporarily disabled while parser stability is being rebuilt.</div></div></div>
+
+<div class="row g-3 mb-3">
+  <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">System Dynamics Metrics</h6><ul class="small mb-0"><li>Mandate Window count: <strong>${rowsLite.filter(r=>String(r.usgRelevance||'').includes('Mandate')).length}</strong></li><li>Platform Formation count: <strong>${rowsLite.filter(r=>String(r.status||'').includes('Platform Formation')).length}</strong></li><li>High momentum sectors (90D Δ > 0): <strong>${rowsLite.filter(r=>Number(r.delta90d||0)>0).length}</strong></li></ul></div></div></div>
+  <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Buyer Alignment</h6><div class="small text-muted">Top buyer classes: ${escapeHtml(Array.from(new Set(byPpiLite.map(r=>String(r.likelyBuyerClass||'')).filter(Boolean))).slice(0,4).join(' • ') || '—')}</div></div></div></div>
+</div>
+
+<div class="row g-3 mb-3">
+  <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Constraints and Diagnostics</h6><div class="small text-muted">Primary bottlenecks: ${escapeHtml(Array.from(new Set(byPpiLite.map(r=>String(r.mainStructuralBottleneck||'')).filter(Boolean))).slice(0,3).join(' | ') || 'Not specified')}</div></div></div></div>
+  <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Mandate-Proximate Watchlist</h6><div class="small text-muted">${byPpiLite.filter(r=>String(r.usgRelevance||'').includes('Mandate')).slice(0,5).map(r=>escapeHtml(r.sector||'')).join(' • ') || 'No sectors in mandate window yet.'}</div></div></div></div>
+</div>
+
+<div class="card mb-3"><div class="card-body"><h6 class="mb-2">Buyer Class Heatmap</h6><div class="small text-muted">${escapeHtml(Array.from(new Set(byPpiLite.map(r=>String(r.likelyBuyerClass||'')).filter(Boolean))).join(' • ') || 'No buyer classes tagged')}</div></div></div>
+
+<div class="card"><div class="card-body"><h6 class="mb-2">Sector Intelligence Table</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Sector</th><th>Region</th><th>PPI</th><th>Status</th><th>Buyer Path</th><th>USG Relevance</th><th>90D Δ</th><th>Buyer Class</th><th>Recommended Motion</th><th>Decision Confidence</th><th>Updated</th></tr></thead><tbody>${rowsHtmlLite}</tbody></table></div></div></div>
+
+</div></body></html>`);
   res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   res.set('Pragma', 'no-cache');
   res.set('Expires', '0');
