@@ -1151,11 +1151,17 @@
           "author": "sentinel",
           "text": "Recovery sweep decomposition: split stalled TASK-0043 into TASK-0093, TASK-0094, TASK-0095 (30–90 min slices with acceptance criteria).",
           "created_at": "2026-03-05T07:30:00Z"
+        },
+        {
+          "id": "recovery-20260313-0630-blocker-annotation",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep: task remains structurally complete except live-smoke evidence dependency. Blocked-by chain normalized: TASK-0043 -> TASK-0095 -> TASK-0097 -> TASK-0103 -> TASK-0111 (credentialed execution window). Next action on credential window: run scripts/pipeline-run-smoke-capture.sh and attach mission-control/evidence/pipeline-run/<timestamp>/evidence-report.md before transition request.",
+          "created_at": "2026-03-13T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-27T23:24:00Z",
-      "updated_at": "2026-03-05T07:30:00Z",
+      "updated_at": "2026-03-13T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2644,11 +2650,17 @@
           "at": "2026-03-06T07:30:00Z",
           "by": "sentinel",
           "text": "Recovery sweep confirms dependency on TASK-0097 live authenticated smoke evidence before Ready for Review transition."
+        },
+        {
+          "id": "recovery-20260313-0630-blocker-annotation",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep: endpoint wiring complete; only live authenticated smoke evidence remains. Blocked-by chain normalized: TASK-0095 -> TASK-0097 -> TASK-0103 -> TASK-0111. Next action: execute credentialed one-pass wrapper and attach evidence bundle + report, then request Ready-for-Review transition with RP-0060 context.",
+          "created_at": "2026-03-13T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-03-06T07:30:00Z",
+      "updated_at": "2026-03-13T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3253,11 +3265,17 @@
           "author": "sentinel",
           "text": "Late-night decomposition gate: added/executed TASK-0145 to package oldest 12 Ready-for-Review items into tranche-E decision packet (RP-0055).",
           "created_at": "2026-03-12T06:30:00Z"
+        },
+        {
+          "id": "decomp-0107-20260313-0630",
+          "author": "sentinel",
+          "text": "Late-night decomposition gate: added/executed TASK-0152 to normalize stale In Progress blocker annotations and operator-ready next actions for TASK-0043/TASK-0095.",
+          "created_at": "2026-03-13T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-12T06:30:00Z",
+      "updated_at": "2026-03-13T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4959,6 +4977,41 @@
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
       "review_packet_id": "RP-0059"
+    },
+    {
+      "id": "TASK-0152",
+      "title": "BRS-2026-03-13a Normalize stale In Progress blocker annotations + owner-ready next actions",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery"
+      ],
+      "linked_refs": [
+        "TASK-0043",
+        "TASK-0095",
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Apply deterministic blocker annotations/comments to stale In Progress tasks so each has explicit dependency, unblock trigger, and next action command for the next credential window.\nAcceptance Criteria:\n- TASK-0043 and TASK-0095 include explicit blocker-chain comment referencing TASK-0097/TASK-0103.\n- Comments include one concrete next action and evidence path expectation.\n- Sweep artifact records normalization output for operator handoff.",
+      "comments": [
+        {
+          "id": "done-0152-20260313-0630",
+          "author": "sentinel",
+          "text": "Normalized blocker annotations on TASK-0043 and TASK-0095 with explicit dependency chain + next-action command path for credential window execution.",
+          "created_at": "2026-03-13T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-13T06:30:00Z",
+      "updated_at": "2026-03-13T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
