@@ -1603,6 +1603,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     </div>
   </div>
 
+  <script id="pp-data" type="application/json">${payload}</script>
   <script>
     (function installTempErrorLogger(){
       try {
@@ -1636,8 +1637,10 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       } catch {}
     })();
 
-    const platformData = ${payload};
-    let rows = [...platformData.rows];
+    const ppDataEl = document.getElementById('pp-data');
+    let platformData = { rows: [], weights: {}, signalPhysics: { initiatives: [], ontologyLayers: [] } };
+    try { platformData = JSON.parse((ppDataEl && ppDataEl.textContent) || '{}'); } catch (e) { console.error('pp-data-parse-failed', e); }
+    let rows = [...(platformData.rows || [])];
     const signalPhysics = platformData.signalPhysics || { initiatives: [], ontologyLayers: [] };
     const physicsByInitiative = new Map((signalPhysics.initiatives || []).map((x) => [String(x.initiative_id || ''), x]));
     const ontologyOrder = (signalPhysics.ontologyLayers || []).sort((a,b)=>Number(a.order||0)-Number(b.order||0));
