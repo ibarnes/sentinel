@@ -1463,6 +1463,7 @@ app.get('/dashboard/platform-pressure-v2/buyers/:bucket', requireAnyAuth, async 
 });
 
 app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
+  return res.redirect('/dashboard/platform-pressure-v2');
   res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   res.set('Pragma', 'no-cache');
   res.set('Expires', '0');
