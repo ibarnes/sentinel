@@ -3518,5 +3518,114 @@
       "INIT-NG-FIN-ENERGY-SPINE",
       "USG"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-01-30-NG-BRIDGE-SPV-49PCT-001",
+    "title": "Nigeria to hold 49% stake in World Bank-backed nationwide fibre SPV (Project BRIDGE)",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "reported_with_financing_agreement_reference",
+    "observed_at": "2026-03-13T23:30:00Z",
+    "summary": "TechCabal reports that Nigeria will hold a minority 49% stake in a majority privately managed project company for a 90,000km fibre rollout under the World Bank-backed BRIDGE program, with milestone-linked disbursement and phased deployment targets.",
+    "flow": "IDA financing + SPV structure with minority state equity -> private operational control + milestone-linked deployment -> accelerated national broadband backbone expansion",
+    "sources": [
+      {
+        "publisher": "TechCabal",
+        "url": "https://techcabal.com/2026/01/30/nigeria-to-hold-a-minority-share-in-2-billion-nationwide-fibre-rollout/",
+        "verification_status": "verified"
+      },
+      {
+        "publisher": "World Bank financing agreement reference",
+        "url": "http://documents.worldbank.org/curated/en/099012026134023499",
+        "verification_status": "referenced_in_article"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "Nigeria Digital Infrastructure Capitalization",
+    "actor_refs": [
+      "ACTOR:federal_government_nigeria",
+      "ACTOR:world_bank_ida",
+      "ACTOR:mofi",
+      "ACTOR:ministry_communications_nigeria",
+      "ACTOR:bridge_spv"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:federal_government_nigeria",
+        "role": "minority_equity_holder",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:world_bank_ida",
+        "role": "concessional_funder",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:mofi",
+        "role": "state_investment_representative",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:bridge_spv",
+        "role": "delivery_vehicle",
+        "influence": "high"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "financial_structuring",
+      "construction"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "key_data_points": {
+      "rollout_fiber_km": 90000,
+      "government_equity_percent": 49,
+      "ida_credit_usd": 500000000,
+      "first_tranche_usd": 150000000,
+      "tranche_milestones_km": [
+        5000,
+        20000,
+        40000
+      ],
+      "initial_phase_km": 30000,
+      "target_lgas": 774
+    },
+    "pattern_summary": "Nigeria is operationalizing broadband expansion through a blended public-private SPV model with explicit milestone-gated concessional financing.",
+    "model_update": {
+      "pressure": "Execution pressure now tied to milestone achievement rather than headline approval only.",
+      "momentum": "Improving; transaction advisory process nearing completion and SPV formation sequencing defined.",
+      "constraints": [
+        "SPV setup timing",
+        "procurement quality",
+        "milestone execution discipline",
+        "inter-agency coordination"
+      ]
+    },
+    "strategic_implications": [
+      "SPV governance design is now a primary determinant of rollout speed and quality.",
+      "Milestone-linked financing structure creates measurable deployment accountability.",
+      "Model could become template for additional digital corridor infrastructure programs."
+    ],
+    "tags": [
+      "nigeria",
+      "bridge",
+      "broadband",
+      "spv",
+      "world-bank",
+      "digital-infrastructure"
+    ],
+    "buyer_ids": [
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "USG"
+    ]
   }
 ]
