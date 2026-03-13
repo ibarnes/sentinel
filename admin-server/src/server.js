@@ -1612,7 +1612,8 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         const push = (entry) => {
           try {
             const logs = JSON.parse(localStorage.getItem(key) || '[]');
-            logs.push({ t: new Date().toISOString(), ...entry });
+            const merged = Object.assign({ t: new Date().toISOString() }, entry || {});
+            logs.push(merged);
             localStorage.setItem(key, JSON.stringify(logs.slice(-30)));
           } catch {}
         };
@@ -1641,7 +1642,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     const ppDataEl = document.getElementById('pp-data');
     let platformData = { rows: [], weights: {}, signalPhysics: { initiatives: [], ontologyLayers: [] } };
     try { platformData = JSON.parse((ppDataEl && ppDataEl.textContent) || '{}'); } catch (e) { console.error('pp-data-parse-failed', e); }
-    let rows = [...(platformData.rows || [])];
+    let rows = Array.isArray(platformData.rows) ? platformData.rows.slice() : [];
     const signalPhysics = platformData.signalPhysics || { initiatives: [], ontologyLayers: [] };
     const physicsByInitiative = new Map((signalPhysics.initiatives || []).map((x) => [String(x.initiative_id || ''), x]));
     const ontologyOrder = (signalPhysics.ontologyLayers || []).sort((a,b)=>Number(a.order||0)-Number(b.order||0));
@@ -1710,7 +1711,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     }[String(s||'')] || String(s||''));
 
     function populateFilters(){
-      const uniq = (arr) => [...new Set(arr.filter(Boolean))].sort();
+      const uniq = (arr) => Array.from(new Set((arr || []).filter(Boolean))).sort();
       const inject = (el, vals, label) => { el.innerHTML = '<option value="">'+label+' (All)</option>' + vals.map(v => '<option>'+esc(v)+'</option>').join(''); };
       inject(els.fSector, uniq(rows.map(r => r.sector)), 'Sector');
       inject(els.fRegion, uniq(rows.map(r => r.region)), 'Region');
@@ -1751,7 +1752,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     function sortRows(list){
       const dir = state.sortDir === 'asc' ? 1 : -1;
       const key = state.sortBy;
-      return [...list].sort((a,b) => {
+      return (list || []).slice().sort((a,b) => {
         const av = a[key], bv = b[key];
         if (typeof av === 'number' && typeof bv === 'number') return (av-bv)*dir;
         return String(av||'').localeCompare(String(bv||''))*dir;
@@ -1882,7 +1883,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         return sectorInitiativeAlias[key] || id;
       });
       // Keep explicit mapping first; only then fallback.
-      return [...new Set([...ids, 'USG', 'GLOBAL'])];
+      return Array.from(new Set((ids || []).concat(['USG', 'GLOBAL'])));
     }
 
     function layerGapDiagnostics(p){
