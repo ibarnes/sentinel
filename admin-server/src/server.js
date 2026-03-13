@@ -1463,7 +1463,14 @@ app.get('/dashboard/platform-pressure-v2/buyers/:bucket', requireAnyAuth, async 
 });
 
 app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
-  return res.redirect('/dashboard/platform-pressure-v2');
+  const sourceRowsLite = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
+  const buyersLite = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const initiativesLite = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const signalsLite = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const rowsLite = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRowsLite), { buyers: buyersLite, initiatives: initiativesLite, signals: signalsLite });
+  const byPpiLite = [...rowsLite].sort((a,b)=>Number(b.ppi||0)-Number(a.ppi||0));
+  const rowsHtmlLite = byPpiLite.map((r)=>`<tr><td><strong>${escapeHtml(r.sector||'')}</strong></td><td>${escapeHtml(r.region||'')}</td><td>${escapeHtml(String(r.ppi||0))}</td><td>${escapeHtml(String(r.status||''))}</td><td>${escapeHtml(String(r.buyerPath||''))}</td><td>${escapeHtml(String(r.usgRelevance||''))}</td><td>${escapeHtml(String(r.delta90d||0))}</td><td>${escapeHtml(String(r.likelyBuyerClass||''))}</td><td>${escapeHtml(String(r.recommended_motion || r.nextIntelligenceAction || 'monitor'))}</td><td>${escapeHtml(String(r.decision_confidence || 'medium'))}</td><td class="mono small">${escapeHtml(String(r.lastUpdated||''))}</td></tr>`).join('') || '<tr><td colspan="11" class="text-muted">No sectors found.</td></tr>';
+  return res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}</head><body><div class="app-shell">${dashboardNav('platform-pressure')}${pageHeader('Platform Pressure','', 'Stable v1 view')}<div class="alert alert-secondary py-2 small mb-3">Server data loaded: <strong>${rowsLite.length}</strong> platform sectors.</div><div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Sector</th><th>Region</th><th>PPI</th><th>Status</th><th>Buyer Path</th><th>USG Relevance</th><th>90D Δ</th><th>Buyer Class</th><th>Recommended Motion</th><th>Decision Confidence</th><th>Updated</th></tr></thead><tbody>${rowsHtmlLite}</tbody></table></div></div></div></body></html>`);
   res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   res.set('Pragma', 'no-cache');
   res.set('Expires', '0');
