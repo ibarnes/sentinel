@@ -1463,6 +1463,9 @@ app.get('/dashboard/platform-pressure-v2/buyers/:bucket', requireAnyAuth, async 
 });
 
 app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
   const sourceRows = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
@@ -1527,6 +1530,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       </div>
     </div>
 
+    <div class="alert alert-secondary py-2 small mb-3">Server data loaded: <strong>${rows.length}</strong> platform sectors.</div>
     <div id="pp-summary" class="row g-2 mb-3"></div>
 
     <div class="card mb-3"><div class="card-body">
