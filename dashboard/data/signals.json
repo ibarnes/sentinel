@@ -3263,5 +3263,164 @@
       "USG",
       "INIT-AI-OPT-B"
     ]
+  },
+  {
+    "signal_id": "SIG-USVI-DISASTER-RECOVERY-2026-001",
+    "title": "US Virgin Islands $18B–$25B disaster recovery infrastructure program",
+    "signal_class": "Platform Pressure",
+    "status": "Early Deployment",
+    "confidence": "High",
+    "verification_status": "multi_source_program_reporting",
+    "observed_at": "2026-03-13T16:34:00Z",
+    "summary": "USVI disaster recovery capital pool remains large with significant undeployed funding and multi-year infrastructure program activity across utilities, transport, vertical construction, and resilience systems.",
+    "flow": "federal disaster funding allocation -> program management mobilization -> phased infrastructure deployment -> secondary energy/logistics platform formation potential",
+    "sources": [
+      {
+        "url": "https://www.usviodr.com",
+        "source_name": "USVI Office of Disaster Recovery"
+      },
+      {
+        "url": "https://www.usviodr.com/irmaandmariafunding/",
+        "source_name": "USVI ODR funding overview"
+      },
+      {
+        "url": "https://www.usviodr.com/usvi-office-of-disaster-recovery-publishes-2025-annual-recovery-progress-report/",
+        "source_name": "USVI ODR 2025 progress report"
+      },
+      {
+        "url": "https://www.enr.com/articles/60608-jacobs-wins-137m-pm-award-to-rebuild-hurricane-damage-in-us-virgin-islands",
+        "source_name": "ENR"
+      },
+      {
+        "url": "https://stthomassource.com/content/2025/05/29/territory-spends-3-8-billion-of-23-9-billion-in-recovery-funds-officials-say/",
+        "source_name": "St. Thomas Source"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "Caribbean Disaster Recovery Infrastructure Cycle",
+    "actor_refs": [
+      "ACTOR:usvi_odr",
+      "ACTOR:government_usvi",
+      "ACTOR:hud",
+      "ACTOR:fema",
+      "ACTOR:jacobs_engineering",
+      "ACTOR:kiewit",
+      "ACTOR:khvi_jv",
+      "ACTOR:port_hamilton_refining"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:usvi_odr",
+        "role": "program_owner",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:hud",
+        "role": "federal_funder",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:fema",
+        "role": "federal_funder",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:jacobs_engineering",
+        "role": "program_manager",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:kiewit",
+        "role": "prime_contractor",
+        "influence": "medium"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "financial_structuring",
+      "construction"
+    ],
+    "evidence_type": "first_party",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "capital_pool": {
+      "estimated_total": 25000000000,
+      "reported_program_slice": 18000000000,
+      "awarded_estimate": 6000000000,
+      "remaining_estimate": 12000000000
+    },
+    "funding_sources": [
+      "HUD CDBG-DR",
+      "FEMA Public Assistance",
+      "FEMA Hazard Mitigation",
+      "Federal Highway Emergency Relief"
+    ],
+    "primary_program": {
+      "name": "Rebuild USVI",
+      "scope": "Territory-wide infrastructure rebuilding and resilience program",
+      "estimated_value": 14000000000,
+      "projects_expected": 30,
+      "timeline": "2025-2035"
+    },
+    "systems_involved": [
+      "Electric grid infrastructure",
+      "Water systems",
+      "Wastewater infrastructure",
+      "Road networks",
+      "Drainage systems",
+      "Vertical construction",
+      "Industrial energy infrastructure"
+    ],
+    "delivery_model": {
+      "method": "Progressive Design-Build",
+      "implication": "Complex multi-actor delivery requiring strong coordination and sequencing."
+    },
+    "pattern_summary": "Large disaster-recovery capital pools deploy in multi-year waves and create secondary platform opportunities once core utility/transport layers stabilize.",
+    "model_update": {
+      "pressure": "High infrastructure capital waiting for coordinated deployment",
+      "momentum": "Moderate; program management and contractor mobilization underway",
+      "constraints": [
+        "Multi-agency coordination",
+        "Project sequencing",
+        "Regulatory/procurement complexity",
+        "Island logistics constraints"
+      ]
+    },
+    "prediction": {
+      "short_term": [
+        "Utility and road reconstruction awards continue",
+        "Subcontractor ecosystem expands",
+        "Program pace accelerates through 2027"
+      ],
+      "mid_term": [
+        "Vertical construction expansion",
+        "Energy infrastructure upgrades",
+        "Port/logistics investments linked to refinery dynamics"
+      ],
+      "long_term": [
+        "USVI may emerge as Caribbean energy/logistics node",
+        "Secondary infrastructure platforms form around resilience systems"
+      ]
+    },
+    "dashboard_fields": {
+      "signal_strength": "High",
+      "capital_scale": "Nation-scale infrastructure funding",
+      "initiative_ready": false,
+      "next_detection_step": "Identify platforms blocked by governance/capital-structure ambiguity before FID"
+    },
+    "tags": [
+      "disaster_recovery",
+      "caribbean",
+      "infrastructure",
+      "resilience",
+      "energy",
+      "logistics"
+    ],
+    "initiative_ids": [
+      "USG"
+    ]
   }
 ]
