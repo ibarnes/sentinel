@@ -3422,5 +3422,101 @@
     "initiative_ids": [
       "USG"
     ]
+  },
+  {
+    "signal_id": "SIG-2025-10-07-NG-WB-BRIDGE-HESP-001",
+    "title": "World Bank approves Nigeria digital infrastructure + health security financing ($750M)",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "first_party_source",
+    "observed_at": "2026-03-13T23:29:00Z",
+    "summary": "World Bank approved $500M concessional financing for Nigeria BRIDGE digital infrastructure project and $250M for HeSP Nigeria Phase II, signaling accelerated public-private digital backbone buildout and health-security system strengthening.",
+    "flow": "multilateral concessional financing -> SPV-based broadband backbone expansion + health security capability build -> improved connectivity, surveillance, and service delivery -> stronger digital/health platform capacity",
+    "sources": [
+      {
+        "publisher": "World Bank",
+        "url": "https://www.worldbank.org/en/news/press-release/2025/10/07/world-bank-approves-new-financing-to-enhance-nigeria-digital-infrastructure-and-health-security",
+        "verification_status": "verified"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "Nigeria Digital Infrastructure and Health Security Buildout",
+    "actor_refs": [
+      "ACTOR:world_bank",
+      "ACTOR:federal_government_nigeria",
+      "ACTOR:bridge_spv",
+      "ACTOR:ncdc",
+      "ACTOR:ecowas_waho"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:world_bank",
+        "role": "multilateral_funder",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:bridge_spv",
+        "role": "infrastructure_operator_vehicle",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:ncdc",
+        "role": "health_security_coordinator",
+        "influence": "high"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture",
+      "construction"
+    ],
+    "evidence_type": "first_party",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "key_data_points": {
+      "wb_bridge_financing_usd": 500000000,
+      "bridge_total_project_cost_usd": 1600000000,
+      "hesp_nigeria_financing_usd": 250000000,
+      "planned_fiber_km_new": 90000,
+      "national_backbone_km_before": 35000,
+      "national_backbone_km_after": 125000,
+      "public_schools_targeted": 38800,
+      "health_facilities_targeted": 16900,
+      "lga_offices_targeted": 3400
+    },
+    "pattern_summary": "Nigeria is using concessional capital + private-operating SPV design to accelerate backbone digital infrastructure while coupling it with health-security systems resilience.",
+    "model_update": {
+      "pressure": "High and constructive deployment pressure in digital backbone and public-health resilience layers.",
+      "momentum": "Positive; financing approved with defined delivery model and quantified rollout scope.",
+      "constraints": [
+        "Execution capacity",
+        "procurement governance",
+        "SPV performance discipline",
+        "cross-agency coordination"
+      ]
+    },
+    "strategic_implications": [
+      "Digital rails and health-security capability are being financed as foundational national platform layers.",
+      "SPV-led privately operated infrastructure model could become template for additional corridor-scale deployments."
+    ],
+    "tags": [
+      "nigeria",
+      "world-bank",
+      "digital-infrastructure",
+      "health-security",
+      "broadband",
+      "platform-formation"
+    ],
+    "buyer_ids": [
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "USG"
+    ]
   }
 ]
