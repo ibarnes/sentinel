@@ -596,7 +596,8 @@ function uiHead(title) {
       if(!title){
         title = document.createElement('div');
         title.className = 'oc-mobile-title';
-        title.textContent = (nav.querySelector('.oc-nav-title')?.textContent || 'Navigation').trim();
+        const navTitleEl = nav.querySelector('.oc-nav-title');
+        title.textContent = ((navTitleEl ? navTitleEl.textContent : '') || 'Navigation').trim();
         topbar.appendChild(title);
       }
 
