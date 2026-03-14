@@ -217,3 +217,20 @@
 - Daily log created at `memory/2026-03-13.md` and distilled into durable snapshot.
 - Durable changes captured: expanded blocker-chain automation/runbooks and queued workflow continuity.
 - No new operating-rule or scoring-policy changes.
+
+# Project Status Snapshot (2026-03-14)
+- Build/recovery cadence sustained with decomposition-gated execution on the credentialed smoke blocker chain.
+- Additional operator-readiness tranche delivered:
+  - `TASK-0155` + `RP-0061` (oldest Ready-for-Review tranche-F decision packet).
+  - `TASK-0156` (credential-window env template artifact).
+  - `TASK-0157`/`TASK-0158` + `RP-0062` (sweep-time preflight evidence + credential-window launch checklist with deterministic replay order).
+  - `TASK-0159`/`TASK-0160` queued for next credential window (one-pass live run + post-PASS board replay transitions).
+- Signal-pressure monitoring remained guardrail-compliant and surfaced new verified WORLDBANK/Nigeria digital-infrastructure deltas (Project BRIDGE signals).
+- Net effect: closure path is fully operator-scripted; final hard blocker remains credentialed live execution (`TASK-0111`).
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-14)
+- Daily log created at `memory/2026-03-14.md` and distilled into durable snapshot.
+- Durable changes captured: tranche-F decision packeting, added credential-window launch artifacts, and queued post-credential replay subtasks.
+- No new operating-rule or scoring-policy changes.
