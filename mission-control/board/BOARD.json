@@ -3044,7 +3044,12 @@
         "mission-control/evidence/pipeline-run/2026-03-13T10-40-00Z-preflight.md",
         "mission-control/evidence/pipeline-run/2026-03-13T10-40-00Z-credentialed-runner-dryrun.md",
         "TASK-0156",
-        "mission-control/evidence/pipeline-run/2026-03-13T16-30-00Z-credential-window-env-template.md"
+        "mission-control/evidence/pipeline-run/2026-03-13T16-30-00Z-credential-window-env-template.md",
+        "TASK-0157",
+        "TASK-0158",
+        "TASK-0159",
+        "TASK-0160",
+        "mission-control/review-packets/RP-0062-board-build-window-night-2026-03-14.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3131,11 +3136,17 @@
           "author": "sentinel",
           "text": "Midday sweep advanced atomic child TASK-0156 (credential-window env template + artifact checklist) to reduce execution friction in next credential window.",
           "created_at": "2026-03-13T16:30:00Z"
+        },
+        {
+          "id": "progress-0103-20260314-0310",
+          "author": "sentinel",
+          "text": "Night build window executed atomic children TASK-0157/TASK-0158 (fresh preflight evidence + credential-window launch checklist). Queued TASK-0159/TASK-0160 for next live credential window.",
+          "created_at": "2026-03-14T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-13T16:30:00Z",
+      "updated_at": "2026-03-14T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -5203,6 +5214,141 @@
       "request_approval": null,
       "created_at": "2026-03-13T16:30:00Z",
       "updated_at": "2026-03-13T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0157",
+      "title": "TS-H1.1c.2z Capture sweep-time credential preflight artifact (night window)",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "mission-control/evidence/pipeline-run/preflight-2026-03-14T03-10-22Z.md"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "Generate fresh preflight artifact during night window to prove current credential state before execution.\nAcceptance Criteria:\n- Preflight markdown artifact exists for this sweep.\n- Artifact explicitly states PASS/BLOCKED.\n- Path linked to parent blocker chain.",
+      "comments": [
+        {
+          "id": "done-0157-20260314-0310",
+          "author": "sentinel",
+          "text": "Generated sweep-time preflight artifact at mission-control/evidence/pipeline-run/preflight-2026-03-14T03-10-22Z.md (BLOCKED: missing env credentials).",
+          "created_at": "2026-03-14T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-14T03:10:00Z",
+      "updated_at": "2026-03-14T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0158",
+      "title": "TS-H1.1c.2aa Publish credential-window launch checklist with replay order",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/2026-03-14T03-10-00Z-credential-window-launch-checklist.md",
+        "mission-control/review-packets/RP-0062-board-build-window-night-2026-03-14.md"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "Publish one-page launch checklist for next credential window with deterministic pass criteria and board replay order.\nAcceptance Criteria:\n- Includes preconditions and command sequence.\n- Includes PASS/BLOCKED branch behavior.\n- Includes exact replay order for blocker chain tasks.",
+      "comments": [
+        {
+          "id": "done-0158-20260314-0310",
+          "author": "sentinel",
+          "text": "Published launch checklist at mission-control/evidence/pipeline-run/2026-03-14T03-10-00Z-credential-window-launch-checklist.md.",
+          "created_at": "2026-03-14T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-14T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0062-board-build-window-night-2026-03-14.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-14T03:10:00Z",
+      "updated_at": "2026-03-14T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0062"
+    },
+    {
+      "id": "TASK-0159",
+      "title": "TS-H1.1c.2ab Execute one-pass credentialed wrapper with live credentials",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "queued-next-window"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0111",
+        "scripts/pipeline-run-credentialed-once.sh"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "Run one-pass credentialed wrapper during next credential window and capture full evidence bundle.\nAcceptance Criteria:\n- 201 valid path evidence captured.\n- 400 invalid path evidence captured.\n- Evidence report PASS and transition plan generated.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-14T03:10:00Z",
+      "updated_at": "2026-03-14T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0160",
+      "title": "TS-H1.1c.2ac Apply post-PASS board replay transitions for blocker chain",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "queued-next-window"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "TASK-0095",
+        "TASK-0043",
+        "mission-control/evidence/pipeline-run/2026-03-14T03-10-00Z-credential-window-launch-checklist.md"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "After PASS evidence, apply deterministic transitions to move blocker chain into Ready for Review with artifact links.\nAcceptance Criteria:\n- Transition comments added for each chain task.\n- No Done transitions without approved RP.\n- RFR requests reference evidence bundle paths.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-14T03:10:00Z",
+      "updated_at": "2026-03-14T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
