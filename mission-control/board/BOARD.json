@@ -3053,7 +3053,12 @@
         "TASK-0162",
         "TASK-0163",
         "mission-control/evidence/pipeline-run/preflight-2026-03-14T10-40-00Z.md",
-        "mission-control/evidence/pipeline-run/2026-03-14T10-40-00Z-credentialed-wrapper-dryrun.md"
+        "mission-control/evidence/pipeline-run/2026-03-14T10-40-00Z-credentialed-wrapper-dryrun.md",
+        "TASK-0164",
+        "TASK-0165",
+        "scripts/pipeline-run-credential-env-check.sh",
+        "mission-control/evidence/pipeline-run/2026-03-14T16-30-00Z-credential-env-check.md",
+        "mission-control/evidence/pipeline-run/2026-03-14T16-30-00Z-live-window-capture-template.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3152,11 +3157,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep: executed atomic children TASK-0162/TASK-0163 (fresh preflight + one-command wrapper fail-fast evidence). Credentialed live execution (TASK-0111/TASK-0159) remains the sole blocker.",
           "created_at": "2026-03-14T10:40:00Z"
+        },
+        {
+          "id": "progress-0103-20260314-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep: executed atomic children TASK-0164/TASK-0165 (env sanity checker + live-window capture template). Live credential execution remains queued in TASK-0159; post-PASS replay remains TASK-0160.",
+          "created_at": "2026-03-14T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-14T10:40:00Z",
+      "updated_at": "2026-03-14T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -5476,6 +5487,77 @@
       "request_approval": null,
       "created_at": "2026-03-14T10:40:00Z",
       "updated_at": "2026-03-14T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0164",
+      "title": "TS-H1.1c.2af Add credential env sanity checker and capture sweep-time status artifact",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-progress-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credential-env-check.sh",
+        "mission-control/evidence/pipeline-run/2026-03-14T16-30-00Z-credential-env-check.md"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "Add deterministic environment sanity checker for credential windows and capture current PASS/BLOCKED state artifact.\nAcceptance Criteria:\n- Script verifies required env vars and emits redacted sanity metadata.\n- Sweep-time markdown artifact created.\n- Artifact linked to blocker chain.",
+      "comments": [
+        {
+          "id": "done-0164-20260314-1630",
+          "author": "sentinel",
+          "text": "Implemented credential env sanity checker script and captured sweep-time artifact at mission-control/evidence/pipeline-run/2026-03-14T16-30-00Z-credential-env-check.md (BLOCKED: missing credential env).",
+          "created_at": "2026-03-14T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-14T16:30:00Z",
+      "updated_at": "2026-03-14T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0165",
+      "title": "TS-H1.1c.2ag Publish live credential-window capture template for one-pass execution replay",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-progress-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0159",
+        "TASK-0160",
+        "mission-control/evidence/pipeline-run/2026-03-14T16-30-00Z-live-window-capture-template.md"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "Publish deterministic capture template for live credential window to reduce operator latency and replay ambiguity.\nAcceptance Criteria:\n- Includes preconditions, execution command, required artifacts, and replay order.\n- Explicitly preserves governance constraints.\n- Linked into blocker chain.",
+      "comments": [
+        {
+          "id": "done-0165-20260314-1630",
+          "author": "sentinel",
+          "text": "Published live-window capture template at mission-control/evidence/pipeline-run/2026-03-14T16-30-00Z-live-window-capture-template.md for next TASK-0159 credential window.",
+          "created_at": "2026-03-14T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-14T16:30:00Z",
+      "updated_at": "2026-03-14T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
