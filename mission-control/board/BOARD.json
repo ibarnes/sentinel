@@ -3289,7 +3289,11 @@
         "TASK-0114",
         "TASK-0145",
         "mission-control/review-packets/RP-0055-board-recovery-sweep-2026-03-12-0630.md",
-        "TASK-0155"
+        "TASK-0155",
+        "TASK-0166",
+        "TASK-0167",
+        "mission-control/review-packets/RP-0066-board-build-window-night-2026-03-15.md",
+        "mission-control/board/approval-queue/2026-03-15T03-10-00Z-tranche-h-approval-card.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3340,11 +3344,17 @@
           "author": "sentinel",
           "created_at": "2026-03-14T06:30:00Z",
           "text": "Late-night decomposition gate: added/executed TASK-0161 to package oldest Ready-for-Review tranche-G decision packet (RP-0063)."
+        },
+        {
+          "id": "decomp-0107-20260315-0310",
+          "author": "sentinel",
+          "text": "Night build window decomposition gate: added/executed TASK-0166 (tranche-H decision packet) and TASK-0167 (approval routing card) for remaining RFR queue.",
+          "created_at": "2026-03-15T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-14T06:30:00Z",
+      "updated_at": "2026-03-15T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -5558,6 +5568,74 @@
       "request_approval": null,
       "created_at": "2026-03-14T16:30:00Z",
       "updated_at": "2026-03-14T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0166",
+      "title": "BRS-2026-03-15 Package Ready-for-Review tranche-H decision packet (TASK-0150/TASK-0151)",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0150",
+        "TASK-0151",
+        "mission-control/review-packets/RP-0066-board-build-window-night-2026-03-15.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Create a concise decision packet for the oldest current RFR items with explicit Approve/Hold asks and execution effect.\nAcceptance Criteria:\n- Packet includes both RFR tasks and artifact paths.\n- Contains explicit decision format.\n- Notes governance guardrail and post-approval sequence.",
+      "comments": [
+        {
+          "id": "done-0166-20260315-0310",
+          "author": "sentinel",
+          "text": "Published tranche-H decision packet RP-0066 for TASK-0150/TASK-0151.",
+          "created_at": "2026-03-15T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-15T03:10:00Z",
+      "updated_at": "2026-03-15T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0167",
+      "title": "BRS-2026-03-15 Publish tranche-H approval card for low-latency Isaac decision routing",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/approval-queue/2026-03-15T03-10-00Z-tranche-h-approval-card.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Create a compact approval card listing pending Approve/Hold asks and execution effect for the current RFR tranche.\nAcceptance Criteria:\n- Includes pending task IDs and approve/hold asks.\n- Includes effect of approval on credential window chain.\n- Includes governance guardrail.",
+      "comments": [
+        {
+          "id": "done-0167-20260315-0310",
+          "author": "sentinel",
+          "text": "Published tranche-H approval card for TASK-0150/TASK-0151 decision routing.",
+          "created_at": "2026-03-15T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-15T03:10:00Z",
+      "updated_at": "2026-03-15T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
