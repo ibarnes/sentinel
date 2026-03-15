@@ -234,3 +234,20 @@
 - Daily log created at `memory/2026-03-14.md` and distilled into durable snapshot.
 - Durable changes captured: tranche-F decision packeting, added credential-window launch artifacts, and queued post-credential replay subtasks.
 - No new operating-rule or scoring-policy changes.
+
+# Project Status Snapshot (2026-03-15)
+- Board cadence continued across execution/progress/build windows with decomposition gate preserved.
+- New atomic credential-chain artifacts executed and committed:
+  - `TASK-0162`/`TASK-0163` + `RP-0064` (fresh preflight + wrapper dry-run fail-fast evidence; commit `0d13516`).
+  - `TASK-0164`/`TASK-0165` + `RP-0065` (credential env sanity checker + live-window capture template; commit `5053f08`).
+  - `TASK-0166`/`TASK-0167` + `RP-0066` (tranche-H decision packet + approval routing card for remaining RFR items; commit `3f73ebb`).
+- Heartbeat monitoring remained freshness-compliant; buyer-access graph still surfaced structural gaps (top-buyer decision-architecture/path coverage drift) requiring continued remediation.
+- Net effect: operator readiness and approval-routing are tightened; hard blocker remains credentialed live execution (`TASK-0111` / `TASK-0159`).
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-15)
+- Daily log created at `memory/2026-03-15.md` and distilled into durable snapshot.
+- Durable changes captured: TASK-0162 through TASK-0167 execution, RP-0064/0065/0066 publication, and tranche-H approval routing artifacts.
+- No new operating-rule changes.
+- No scoring-policy changes.
