@@ -3350,11 +3350,17 @@
           "author": "sentinel",
           "text": "Night build window decomposition gate: added/executed TASK-0166 (tranche-H decision packet) and TASK-0167 (approval routing card) for remaining RFR queue.",
           "created_at": "2026-03-15T03:10:00Z"
+        },
+        {
+          "id": "decomp-0107-20260315-0630",
+          "author": "sentinel",
+          "text": "Late-night decomposition gate: added/executed TASK-0168 to publish tranche-I decision packet (RP-0067) for stale Ready-for-Review items.",
+          "created_at": "2026-03-15T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-15T03:10:00Z",
+      "updated_at": "2026-03-15T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -5638,6 +5644,47 @@
       "updated_at": "2026-03-15T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0168",
+      "title": "BRS-2026-03-15a Build oldest-RFR tranche-I decision packet",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/review-packets/RP-0067-board-recovery-sweep-2026-03-15-0630.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Create a decision packet for current oldest Ready-for-Review items with explicit Approve/Hold asks and unblock leverage notes.\nAcceptance Criteria:\n- Includes current oldest RFR set with recommendation framing.\n- Includes explicit Isaac decision prompt.\n- Packet committed and linked to parent recovery task.",
+      "comments": [
+        {
+          "id": "done-0168-20260315-0630",
+          "author": "sentinel",
+          "text": "Executed late-night sweep tranche-I packet at mission-control/review-packets/RP-0067-board-recovery-sweep-2026-03-15-0630.md.",
+          "created_at": "2026-03-15T06:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-15T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0067-board-recovery-sweep-2026-03-15-0630.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-15T06:30:00Z",
+      "updated_at": "2026-03-15T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0067"
     }
   ]
 }
