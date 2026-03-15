@@ -1478,65 +1478,151 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   res.set('Pragma', 'no-cache');
   res.set('Expires', '0');
-
   const sourceRows = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const signalPhysics = await readJson(path.join(ROOT, 'dashboard/data/signal_physics_snapshot.json'), { initiatives: [], ontologyLayers: [] });
   const rows = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRows), { buyers, initiatives, signals });
-  const byPpi = rows.slice().sort((a,b)=>Number(b.ppi||0)-Number(a.ppi||0));
-  const top = byPpi[0] || null;
-  const avgPpi = rows.length ? (rows.reduce((sum, r) => sum + Number(r.ppi || 0), 0) / rows.length).toFixed(1) : '0.0';
-  const mandateRows = byPpi.filter((r) => String(r.usgRelevance || '').includes('Mandate')).slice(0,5);
-  const uniqueBuyerClasses = Array.from(new Set(byPpi.map((r)=>String(r.likelyBuyerClass||'').trim()).filter(Boolean)));
+  const payload = JSON.stringify({ rows, weights: PLATFORM_PRESSURE_WEIGHTS, signalPhysics })
+    .replace(/</g, '\\u003c')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029');
+  const serverRowsHtml = rows.map((r) => `<tr><td><div class="pp-sector">${escapeHtml(r.sector || '')}</div><div class="pp-sub">${escapeHtml(r.theater || '')}</div></td><td>${escapeHtml(r.region || '')}</td><td><span class="pp-ppi">${escapeHtml(String(r.ppi || 0))}/25</span></td><td><span class="pp-status">${escapeHtml(r.status || '')}</span></td><td class="pp-hide-md small">${escapeHtml(r.buyerPath || 'Mixed / Multi-actor')}</td><td class="pp-hide-md"><span class="pp-rel">${escapeHtml(r.usgRelevance || 'Track')}</span></td><td>${escapeHtml(String(r.delta90d || 0))}</td><td><span class="badge text-bg-light border">${escapeHtml(r.likelyBuyerClass || '')}</span></td><td class="pp-wide-col small text-muted">${escapeHtml(r.recommended_motion || r.nextIntelligenceAction || 'monitor')}</td><td class="pp-wide-col"><span class="pp-status">${escapeHtml(r.decision_confidence || 'medium')}</span></td><td class="mono small">${escapeHtml(r.lastUpdated || '')}</td></tr>`).join('') || '<tr><td colspan="11"><div class="pp-empty">No sectors found.</div></td></tr>';
 
-  const rowsHtml = byPpi.map((r)=>`<tr>
-    <td><strong>${escapeHtml(r.sector || '')}</strong><div class="small text-muted">${escapeHtml(r.theater || '')}</div></td>
-    <td>${escapeHtml(r.region || '')}</td>
-    <td>${escapeHtml(String(r.ppi || 0))}</td>
-    <td>${escapeHtml(String(r.status || ''))}</td>
-    <td>${escapeHtml(String(r.buyerPath || ''))}</td>
-    <td>${escapeHtml(String(r.usgRelevance || ''))}</td>
-    <td>${escapeHtml(String(r.delta90d || 0))}</td>
-    <td>${escapeHtml(String(r.likelyBuyerClass || ''))}</td>
-    <td>${escapeHtml(String(r.recommended_motion || r.nextIntelligenceAction || 'monitor'))}</td>
-    <td>${escapeHtml(String(r.decision_confidence || 'medium'))}</td>
-    <td class="mono small">${escapeHtml(String(r.lastUpdated || ''))}</td>
-  </tr>`).join('') || '<tr><td colspan="11" class="text-muted">No sectors found.</td></tr>';
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}
+  <style>
+    .pp-table thead th { font-size:.69rem; }
+    .pp-table td { padding:.52rem .58rem; }
+    .pp-table tbody tr { border-left: 2px solid transparent; }
+    .pp-table tbody tr:hover { border-left-color: rgba(79,140,255,.5); }
+    .pp-sector { font-weight: 620; letter-spacing:-.01em; }
+    .pp-sub { color: var(--text-muted); font-size:.75rem; }
+    .pp-ppi { font-weight:700; font-size:.93rem; padding:.2rem .48rem; border:1px solid rgba(79,140,255,.35); border-radius:999px; color:#dbe8ff; background:rgba(79,140,255,.15); }
+    .pp-status,.pp-rel { font-size:.72rem; padding:.18rem .42rem; border-radius:999px; border:1px solid var(--border); color:#d7deeb; background:rgba(255,255,255,.03); }
+    .pp-kicker { color: var(--text-muted); font-size:.72rem; text-transform: uppercase; letter-spacing:.06em; }
+    .pp-signal-row { border:1px solid var(--border); border-radius:10px; padding:.55rem .65rem; background:rgba(255,255,255,.02); }
+    .pp-empty { border:1px dashed var(--border); border-radius:12px; padding:18px; color:var(--text-muted); text-align:center; }
+    .pp-heat-row { border-bottom:1px solid rgba(255,255,255,.06); padding:.45rem 0; }
+    .pp-heat-row:last-child { border-bottom:0; }
+    .pp-legend { font-size:.74rem; color:var(--text-muted); }
+    .lem-heat { display:grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap:6px; width:100%; }
+    .lem-cell { width:100%; aspect-ratio:1/1; border-radius: 6px; border: 1px solid rgba(255,255,255,.08); padding:0; touch-action: manipulation; -webkit-tap-highlight-color: rgba(79,140,255,.25); color:#dbe6ff; font-size:.62rem; line-height:1; font-weight:700; display:flex; align-items:center; justify-content:center; }
+    .lem-cell.off { background: rgba(255,255,255,.05); color:#9da8ba; }
+    .lem-cell.on { background: linear-gradient(180deg, #5f97ff 0%, #376fe0 100%); }
+    .lem-legend-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:6px; }
+    .lem-tooltip { border:1px solid var(--border); border-radius:8px; padding:6px 8px; background:rgba(255,255,255,.02); min-height:40px; }
+    @media (max-width: 1100px){ .lem-heat { grid-template-columns: repeat(8, minmax(0,1fr)); } }
+    .lem-strip { display:grid; grid-template-columns: repeat(3, 1fr); gap:6px; }
+    .lem-strip .tile { border:1px solid var(--border); border-radius:10px; padding:8px; background:rgba(255,255,255,.02); }
+    .lem-row { border:1px solid var(--border); border-radius:12px; background:rgba(255,255,255,.015); overflow:hidden; }
+    .lem-row-head { padding:10px; display:flex; justify-content:space-between; align-items:flex-start; gap:8px; cursor:pointer; }
+    .lem-row-body { padding:0 10px 10px; }
+    .lem-layer-tag { font-size:.68rem; border:1px solid var(--border); padding:.12rem .35rem; border-radius:999px; color:#dbe2ee; background:rgba(255,255,255,.03); }
+    .lem-phase-bar { height:8px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden; }
+    .lem-phase-fill { height:100%; background:linear-gradient(90deg,#3d7cff,#63a0ff); }
+    @media (max-width: 1360px){ .pp-wide-col{ display:none; } }
+    @media (max-width: 1050px){ .pp-hide-md{ display:none; } }
+    @media (max-width: 980px){ .pp-table td,.pp-table th{ padding:.48rem .4rem; } }
+  </style>
+  </head><body><div class="app-shell">
+    ${dashboardNav('platform-pressure')}
+    ${pageHeader('Platform Pressure', '', 'Internal operating radar for pre-obvious infrastructure platform formation')}
 
-  const bootstrap = JSON.stringify({ count: rows.length, generatedAt: nowIso() }).replace(/</g, '\u003c');
-
-  res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}</head><body>
-    <div class="app-shell">
-      ${dashboardNav('platform-pressure')}
-      ${pageHeader('Platform Pressure','', 'Core platform-formation operating view')}
-
-      <div id="pp-error" class="alert alert-danger py-2 small mb-3" style="display:none"></div>
-      <div class="alert alert-secondary py-2 small mb-3">Server data loaded: <strong>${rows.length}</strong> platform sectors.</div>
-
-      <div class="row g-3 mb-3">
-        <div class="col-12 col-lg-6"><div class="card"><div class="card-body"><h6 class="mb-2">Market Environment Snapshot</h6><div class="small text-muted">Top sector: <strong>${escapeHtml(top ? top.sector : '—')}</strong> · Avg PPI: <strong>${escapeHtml(avgPpi)}</strong></div></div></div></div>
-        <div class="col-12 col-lg-6"><div class="card"><div class="card-body"><h6 class="mb-2">Recommended USG Move</h6><div class="small text-muted">${escapeHtml(String((top||{}).recommended_motion || (top||{}).nextIntelligenceAction || 'monitor'))}</div></div></div></div>
+    <div id="pp-js-errors" class="card mb-3" style="display:block;border-color:#8b2d2d">
+      <div class="card-body py-2">
+        <div class="d-flex justify-content-between align-items-center">
+          <strong style="color:#ffb4b4">Temporary JS Error Logger</strong>
+          <div>
+            <button class="btn btn-sm btn-outline-secondary" onclick="window.__ppShowErrors && window.__ppShowErrors()">Show Errors</button>
+            <button class="btn btn-sm btn-outline-secondary" onclick="localStorage.removeItem('pp_error_log_v1'); window.__ppShowErrors && window.__ppShowErrors()">Clear</button>
+          </div>
+        </div>
+        <pre id="pp-js-errors-pre" class="small mb-0 mt-2" style="white-space:pre-wrap;max-height:180px;overflow:auto"></pre>
       </div>
-
-      <div class="card mb-3"><div class="card-body"><h6 class="mb-2">Platform Signal Map (Core Model)</h6><div id="pp-map-summary" class="small text-muted">Loading model summary…</div></div></div>
-
-      <div class="row g-3 mb-3">
-        <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">System Dynamics Metrics</h6><ul id="pp-metrics" class="small mb-0"><li>Loading…</li></ul></div></div></div>
-        <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Buyer Alignment</h6><div id="pp-buyer-alignment" class="small text-muted">${escapeHtml(uniqueBuyerClasses.slice(0,4).join(' • ') || '—')}</div></div></div></div>
-      </div>
-
-      <div class="row g-3 mb-3">
-        <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Constraints and Diagnostics</h6><div id="pp-constraints" class="small text-muted">Loading…</div></div></div></div>
-        <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Mandate-Proximate Watchlist</h6><div id="pp-watchlist" class="small text-muted">${mandateRows.map((r)=>escapeHtml(r.sector)).join(' • ') || 'No sectors in mandate window yet.'}</div></div></div></div>
-      </div>
-
-      <div class="card mb-3"><div class="card-body"><h6 class="mb-2">Buyer Class Heatmap</h6><div id="pp-heatmap" class="small text-muted">Loading…</div></div></div>
-
-      <div class="card"><div class="card-body"><h6 class="mb-2">Sector Intelligence Table</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Sector</th><th>Region</th><th>PPI</th><th>Status</th><th>Buyer Path</th><th>USG Relevance</th><th>90D Δ</th><th>Buyer Class</th><th>Recommended Motion</th><th>Decision Confidence</th><th>Updated</th></tr></thead><tbody id="pp-table-body">${rowsHtml}</tbody></table></div></div></div>
     </div>
-    <script id="pp-bootstrap" type="application/json">${bootstrap}</script>
-    <script defer src="/public/js/platform-pressure-v1.js?v=2"></script>
+
+    <div id="pp-summary" class="row g-2 mb-3"></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="mb-0">USG Opportunity Window</h6>
+        <span class="pp-legend">Decision-and-motion view</span>
+      </div>
+      <div id="pp-usg-window" class="small"></div>
+    </div></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="mb-0">Platform Signal Map</h6>
+        <span class="pp-legend" id="lem-generated-at">No snapshot loaded</span>
+      </div>
+      <div class="pp-legend mb-2">Signals across the infrastructure lifecycle</div>
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="pp-legend">Lifecycle stages (click to filter) · Blue = active signals · Gray = missing stage</span>
+        <button id="lem-legend-toggle" type="button" class="btn btn-sm btn-outline-secondary py-0 px-2">Show Stage Legend</button>
+      </div>
+      <div id="lem-legend" class="small d-none mb-2"></div>
+      <div id="lem-panel" class="vstack gap-2 small"></div>
+    </div></div>
+
+    <div class="card mb-3"><div class="card-body py-2">
+      <div class="row g-2 align-items-center">
+        <div class="col-12 col-md-2"><select id="f-sector" class="form-select form-select-sm"><option value="">Sector (All)</option></select></div>
+        <div class="col-12 col-md-2"><select id="f-region" class="form-select form-select-sm"><option value="">Region (All)</option></select></div>
+        <div class="col-12 col-md-2"><select id="f-status" class="form-select form-select-sm"><option value="">Status (All)</option><option>Noise</option><option>Early Pressure</option><option>Platform Formation</option><option>Mandate Proximate</option></select></div>
+        <div class="col-12 col-md-2"><select id="f-buyer" class="form-select form-select-sm"><option value="">Buyer Class (All)</option></select></div>
+        <div class="col-12 col-md-2"><select id="f-fid" class="form-select form-select-sm"><option value="">FID Boundary (All)</option></select></div>
+        <div class="col-6 col-md-1"><input id="f-min-ppi" type="number" class="form-control form-control-sm" min="0" max="25" value="0" placeholder="Min PPI"/></div>
+        <div class="col-6 col-md-1"><button id="f-reset" class="btn btn-sm btn-outline-secondary w-100">Reset</button></div>
+      </div>
+      <div class="row g-2 mt-1"><div class="col-12"><input id="f-search" class="form-control form-control-sm" placeholder="Search sector, notes, actors, bottlenecks"/></div></div>
+      <div id="pp-active-filter" class="pp-legend mt-2"></div>
+    </div></div>
+
+    <div class="card mb-3"><div class="table-responsive"><table class="table table-sm align-middle pp-table">
+      <thead><tr>
+        <th><button data-sort="sector" class="btn btn-sm btn-ghost p-0">Sector</button></th>
+        <th><button data-sort="region" class="btn btn-sm btn-ghost p-0">Region</button></th>
+        <th><button data-sort="ppi" class="btn btn-sm btn-ghost p-0">PPI</button></th>
+        <th>Status</th>
+        <th class="pp-hide-md">Buyer Path</th>
+        <th class="pp-hide-md">USG Relevance</th>
+        <th><button data-sort="delta90d" class="btn btn-sm btn-ghost p-0">90D Δ</button></th>
+        <th>Buyer Class</th>
+        <th class="pp-wide-col">Recommended Motion</th>
+        <th class="pp-wide-col">Decision Confidence</th>
+        <th><button data-sort="lastUpdated" class="btn btn-sm btn-ghost p-0">Updated</button></th>
+      </tr></thead>
+      <tbody id="pp-table">${serverRowsHtml}</tbody>
+    </table></div></div>
+
+    <div class="card mb-3"><div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Top mandate-proximate sectors by buyer class</h6><span class="pp-legend">PPI ≥ 20 or (PPI ≥ 15 and 90D Δ ≥ +4)</span></div>
+      <div id="pp-top-by-buyer" class="small"></div>
+    </div></div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Buyer Class Heatmap</h6><span class="pp-legend">Where buyer classes are clustering now</span></div>
+        <div id="pp-heatmap" class="small"></div>
+      </div></div></div>
+      <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
+        <h6 class="mb-2">Mandate-Proximate Watchlist</h6>
+        <div id="pp-watchlist" class="small"></div>
+      </div></div></div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="pp-drawer" style="width:min(740px,98vw)">
+      <div class="offcanvas-header"><h5 class="offcanvas-title">Platform Detail</h5><button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button></div>
+      <div class="offcanvas-body" id="pp-drawer-body"></div>
+    </div>
+  </div>
+
+  <script id="pp-data" type="application/json">${payload}</script>
+  <div id="pp-failure" class="alert alert-danger py-2 small mb-3" style="display:none"></div>
+  <script id="pp-data" type="application/json">${payload}</script>
+  <script defer src="/public/js/platform-pressure-v1-hardened.js?v=1"></script>
   </body></html>`);
 });
 
