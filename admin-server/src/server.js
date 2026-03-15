@@ -1462,702 +1462,81 @@ app.get('/dashboard/platform-pressure-v2/buyers/:bucket', requireAnyAuth, async 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyer Profiles')}</head><body><div class="app-shell">${dashboardNav('platform-pressure')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/platform-pressure-v2">← Platform Pressure v2</a><h3 class="mb-2">Buyer Profiles — ${escapeHtml(bucket)}</h3><div class="card"><div class="card-body"><ul class="mb-0">${filt.map((b)=>`<li><strong>${escapeHtml(b.buyer_id || '')}</strong> — ${escapeHtml(b.name || '')}</li>`).join('') || '<li class="text-muted">No buyers in this bucket.</li>'}</ul></div></div></div></body></html>`);
 });
 
-app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
+app.get('/api/platform-pressure-data', requireAnyAuth, async (_req, res) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
   const sourceRows = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
-  const signalPhysics = await readJson(path.join(ROOT, 'dashboard/data/signal_physics_snapshot.json'), { initiatives: [], ontologyLayers: [] });
   const rows = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRows), { buyers, initiatives, signals });
-  const payload = JSON.stringify({ rows, weights: PLATFORM_PRESSURE_WEIGHTS, signalPhysics })
-    .replace(/</g, '\\u003c')
-    .replace(/\u2028/g, '\\u2028')
-    .replace(/\u2029/g, '\\u2029');
-  const serverRowsHtml = rows.map((r) => `<tr><td><div class="pp-sector">${escapeHtml(r.sector || '')}</div><div class="pp-sub">${escapeHtml(r.theater || '')}</div></td><td>${escapeHtml(r.region || '')}</td><td><span class="pp-ppi">${escapeHtml(String(r.ppi || 0))}/25</span></td><td><span class="pp-status">${escapeHtml(r.status || '')}</span></td><td class="pp-hide-md small">${escapeHtml(r.buyerPath || 'Mixed / Multi-actor')}</td><td class="pp-hide-md"><span class="pp-rel">${escapeHtml(r.usgRelevance || 'Track')}</span></td><td>${escapeHtml(String(r.delta90d || 0))}</td><td><span class="badge text-bg-light border">${escapeHtml(r.likelyBuyerClass || '')}</span></td><td class="pp-wide-col small text-muted">${escapeHtml(r.recommended_motion || r.nextIntelligenceAction || 'monitor')}</td><td class="pp-wide-col"><span class="pp-status">${escapeHtml(r.decision_confidence || 'medium')}</span></td><td class="mono small">${escapeHtml(r.lastUpdated || '')}</td></tr>`).join('') || '<tr><td colspan="11"><div class="pp-empty">No sectors found.</div></td></tr>';
+  res.json({ rows, generatedAt: nowIso() });
+});
 
-  res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}
-  <style>
-    .pp-table thead th { font-size:.69rem; }
-    .pp-table td { padding:.52rem .58rem; }
-    .pp-table tbody tr { border-left: 2px solid transparent; }
-    .pp-table tbody tr:hover { border-left-color: rgba(79,140,255,.5); }
-    .pp-sector { font-weight: 620; letter-spacing:-.01em; }
-    .pp-sub { color: var(--text-muted); font-size:.75rem; }
-    .pp-ppi { font-weight:700; font-size:.93rem; padding:.2rem .48rem; border:1px solid rgba(79,140,255,.35); border-radius:999px; color:#dbe8ff; background:rgba(79,140,255,.15); }
-    .pp-status,.pp-rel { font-size:.72rem; padding:.18rem .42rem; border-radius:999px; border:1px solid var(--border); color:#d7deeb; background:rgba(255,255,255,.03); }
-    .pp-kicker { color: var(--text-muted); font-size:.72rem; text-transform: uppercase; letter-spacing:.06em; }
-    .pp-signal-row { border:1px solid var(--border); border-radius:10px; padding:.55rem .65rem; background:rgba(255,255,255,.02); }
-    .pp-empty { border:1px dashed var(--border); border-radius:12px; padding:18px; color:var(--text-muted); text-align:center; }
-    .pp-heat-row { border-bottom:1px solid rgba(255,255,255,.06); padding:.45rem 0; }
-    .pp-heat-row:last-child { border-bottom:0; }
-    .pp-legend { font-size:.74rem; color:var(--text-muted); }
-    .lem-heat { display:grid; grid-template-columns: repeat(15, minmax(0, 1fr)); gap:6px; width:100%; }
-    .lem-cell { width:100%; aspect-ratio:1/1; border-radius: 6px; border: 1px solid rgba(255,255,255,.08); padding:0; touch-action: manipulation; -webkit-tap-highlight-color: rgba(79,140,255,.25); color:#dbe6ff; font-size:.62rem; line-height:1; font-weight:700; display:flex; align-items:center; justify-content:center; }
-    .lem-cell.off { background: rgba(255,255,255,.05); color:#9da8ba; }
-    .lem-cell.on { background: linear-gradient(180deg, #5f97ff 0%, #376fe0 100%); }
-    .lem-legend-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:6px; }
-    .lem-tooltip { border:1px solid var(--border); border-radius:8px; padding:6px 8px; background:rgba(255,255,255,.02); min-height:40px; }
-    @media (max-width: 1100px){ .lem-heat { grid-template-columns: repeat(8, minmax(0,1fr)); } }
-    .lem-strip { display:grid; grid-template-columns: repeat(3, 1fr); gap:6px; }
-    .lem-strip .tile { border:1px solid var(--border); border-radius:10px; padding:8px; background:rgba(255,255,255,.02); }
-    .lem-row { border:1px solid var(--border); border-radius:12px; background:rgba(255,255,255,.015); overflow:hidden; }
-    .lem-row-head { padding:10px; display:flex; justify-content:space-between; align-items:flex-start; gap:8px; cursor:pointer; }
-    .lem-row-body { padding:0 10px 10px; }
-    .lem-layer-tag { font-size:.68rem; border:1px solid var(--border); padding:.12rem .35rem; border-radius:999px; color:#dbe2ee; background:rgba(255,255,255,.03); }
-    .lem-phase-bar { height:8px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden; }
-    .lem-phase-fill { height:100%; background:linear-gradient(90deg,#3d7cff,#63a0ff); }
-    @media (max-width: 1360px){ .pp-wide-col{ display:none; } }
-    @media (max-width: 1050px){ .pp-hide-md{ display:none; } }
-    @media (max-width: 980px){ .pp-table td,.pp-table th{ padding:.48rem .4rem; } }
-  </style>
-  </head><body><div class="app-shell">
-    ${dashboardNav('platform-pressure')}
-    ${pageHeader('Platform Pressure', '', 'Internal operating radar for pre-obvious infrastructure platform formation')}
+app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
 
-    <div id="pp-js-errors" class="card mb-3" style="display:block;border-color:#8b2d2d">
-      <div class="card-body py-2">
-        <div class="d-flex justify-content-between align-items-center">
-          <strong style="color:#ffb4b4">Temporary JS Error Logger</strong>
-          <div>
-            <button class="btn btn-sm btn-outline-secondary" onclick="window.__ppShowErrors && window.__ppShowErrors()">Show Errors</button>
-            <button class="btn btn-sm btn-outline-secondary" onclick="localStorage.removeItem('pp_error_log_v1'); window.__ppShowErrors && window.__ppShowErrors()">Clear</button>
-          </div>
-        </div>
-        <pre id="pp-js-errors-pre" class="small mb-0 mt-2" style="white-space:pre-wrap;max-height:180px;overflow:auto"></pre>
+  const sourceRows = await readJson(DASHBOARD_PLATFORM_PRESSURE_FILE, []);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const rows = resolvePlatformPressureRefs(normalizePlatformPressureRows(sourceRows), { buyers, initiatives, signals });
+  const byPpi = rows.slice().sort((a,b)=>Number(b.ppi||0)-Number(a.ppi||0));
+  const top = byPpi[0] || null;
+  const avgPpi = rows.length ? (rows.reduce((sum, r) => sum + Number(r.ppi || 0), 0) / rows.length).toFixed(1) : '0.0';
+  const mandateRows = byPpi.filter((r) => String(r.usgRelevance || '').includes('Mandate')).slice(0,5);
+  const uniqueBuyerClasses = Array.from(new Set(byPpi.map((r)=>String(r.likelyBuyerClass||'').trim()).filter(Boolean)));
+
+  const rowsHtml = byPpi.map((r)=>`<tr>
+    <td><strong>${escapeHtml(r.sector || '')}</strong><div class="small text-muted">${escapeHtml(r.theater || '')}</div></td>
+    <td>${escapeHtml(r.region || '')}</td>
+    <td>${escapeHtml(String(r.ppi || 0))}</td>
+    <td>${escapeHtml(String(r.status || ''))}</td>
+    <td>${escapeHtml(String(r.buyerPath || ''))}</td>
+    <td>${escapeHtml(String(r.usgRelevance || ''))}</td>
+    <td>${escapeHtml(String(r.delta90d || 0))}</td>
+    <td>${escapeHtml(String(r.likelyBuyerClass || ''))}</td>
+    <td>${escapeHtml(String(r.recommended_motion || r.nextIntelligenceAction || 'monitor'))}</td>
+    <td>${escapeHtml(String(r.decision_confidence || 'medium'))}</td>
+    <td class="mono small">${escapeHtml(String(r.lastUpdated || ''))}</td>
+  </tr>`).join('') || '<tr><td colspan="11" class="text-muted">No sectors found.</td></tr>';
+
+  const bootstrap = JSON.stringify({ count: rows.length, generatedAt: nowIso() }).replace(/</g, '\u003c');
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Platform Pressure')}</head><body>
+    <div class="app-shell">
+      ${dashboardNav('platform-pressure')}
+      ${pageHeader('Platform Pressure','', 'Core platform-formation operating view')}
+
+      <div id="pp-error" class="alert alert-danger py-2 small mb-3" style="display:none"></div>
+      <div class="alert alert-secondary py-2 small mb-3">Server data loaded: <strong>${rows.length}</strong> platform sectors.</div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-lg-6"><div class="card"><div class="card-body"><h6 class="mb-2">Market Environment Snapshot</h6><div class="small text-muted">Top sector: <strong>${escapeHtml(top ? top.sector : '—')}</strong> · Avg PPI: <strong>${escapeHtml(avgPpi)}</strong></div></div></div></div>
+        <div class="col-12 col-lg-6"><div class="card"><div class="card-body"><h6 class="mb-2">Recommended USG Move</h6><div class="small text-muted">${escapeHtml(String((top||{}).recommended_motion || (top||{}).nextIntelligenceAction || 'monitor'))}</div></div></div></div>
       </div>
+
+      <div class="card mb-3"><div class="card-body"><h6 class="mb-2">Platform Signal Map (Core Model)</h6><div id="pp-map-summary" class="small text-muted">Loading model summary…</div></div></div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">System Dynamics Metrics</h6><ul id="pp-metrics" class="small mb-0"><li>Loading…</li></ul></div></div></div>
+        <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Buyer Alignment</h6><div id="pp-buyer-alignment" class="small text-muted">${escapeHtml(uniqueBuyerClasses.slice(0,4).join(' • ') || '—')}</div></div></div></div>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Constraints and Diagnostics</h6><div id="pp-constraints" class="small text-muted">Loading…</div></div></div></div>
+        <div class="col-12 col-md-6"><div class="card h-100"><div class="card-body"><h6 class="mb-2">Mandate-Proximate Watchlist</h6><div id="pp-watchlist" class="small text-muted">${mandateRows.map((r)=>escapeHtml(r.sector)).join(' • ') || 'No sectors in mandate window yet.'}</div></div></div></div>
+      </div>
+
+      <div class="card mb-3"><div class="card-body"><h6 class="mb-2">Buyer Class Heatmap</h6><div id="pp-heatmap" class="small text-muted">Loading…</div></div></div>
+
+      <div class="card"><div class="card-body"><h6 class="mb-2">Sector Intelligence Table</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Sector</th><th>Region</th><th>PPI</th><th>Status</th><th>Buyer Path</th><th>USG Relevance</th><th>90D Δ</th><th>Buyer Class</th><th>Recommended Motion</th><th>Decision Confidence</th><th>Updated</th></tr></thead><tbody id="pp-table-body">${rowsHtml}</tbody></table></div></div></div>
     </div>
-
-    <div id="pp-summary" class="row g-2 mb-3"></div>
-
-    <div class="card mb-3"><div class="card-body">
-      <div class="d-flex justify-content-between align-items-center mb-2">
-        <h6 class="mb-0">USG Opportunity Window</h6>
-        <span class="pp-legend">Decision-and-motion view</span>
-      </div>
-      <div id="pp-usg-window" class="small"></div>
-    </div></div>
-
-    <div class="card mb-3"><div class="card-body">
-      <div class="d-flex justify-content-between align-items-center mb-2">
-        <h6 class="mb-0">Platform Signal Map</h6>
-        <span class="pp-legend" id="lem-generated-at">No snapshot loaded</span>
-      </div>
-      <div class="pp-legend mb-2">Signals across the infrastructure lifecycle</div>
-      <div class="d-flex justify-content-between align-items-center mb-2">
-        <span class="pp-legend">Lifecycle stages (click to filter) · Blue = active signals · Gray = missing stage</span>
-        <button id="lem-legend-toggle" type="button" class="btn btn-sm btn-outline-secondary py-0 px-2">Show Stage Legend</button>
-      </div>
-      <div id="lem-legend" class="small d-none mb-2"></div>
-      <div id="lem-panel" class="vstack gap-2 small"></div>
-    </div></div>
-
-    <div class="card mb-3"><div class="card-body py-2">
-      <div class="row g-2 align-items-center">
-        <div class="col-12 col-md-2"><select id="f-sector" class="form-select form-select-sm"><option value="">Sector (All)</option></select></div>
-        <div class="col-12 col-md-2"><select id="f-region" class="form-select form-select-sm"><option value="">Region (All)</option></select></div>
-        <div class="col-12 col-md-2"><select id="f-status" class="form-select form-select-sm"><option value="">Status (All)</option><option>Noise</option><option>Early Pressure</option><option>Platform Formation</option><option>Mandate Proximate</option></select></div>
-        <div class="col-12 col-md-2"><select id="f-buyer" class="form-select form-select-sm"><option value="">Buyer Class (All)</option></select></div>
-        <div class="col-12 col-md-2"><select id="f-fid" class="form-select form-select-sm"><option value="">FID Boundary (All)</option></select></div>
-        <div class="col-6 col-md-1"><input id="f-min-ppi" type="number" class="form-control form-control-sm" min="0" max="25" value="0" placeholder="Min PPI"/></div>
-        <div class="col-6 col-md-1"><button id="f-reset" class="btn btn-sm btn-outline-secondary w-100">Reset</button></div>
-      </div>
-      <div class="row g-2 mt-1"><div class="col-12"><input id="f-search" class="form-control form-control-sm" placeholder="Search sector, notes, actors, bottlenecks"/></div></div>
-      <div id="pp-active-filter" class="pp-legend mt-2"></div>
-    </div></div>
-
-    <div class="card mb-3"><div class="table-responsive"><table class="table table-sm align-middle pp-table">
-      <thead><tr>
-        <th><button data-sort="sector" class="btn btn-sm btn-ghost p-0">Sector</button></th>
-        <th><button data-sort="region" class="btn btn-sm btn-ghost p-0">Region</button></th>
-        <th><button data-sort="ppi" class="btn btn-sm btn-ghost p-0">PPI</button></th>
-        <th>Status</th>
-        <th class="pp-hide-md">Buyer Path</th>
-        <th class="pp-hide-md">USG Relevance</th>
-        <th><button data-sort="delta90d" class="btn btn-sm btn-ghost p-0">90D Δ</button></th>
-        <th>Buyer Class</th>
-        <th class="pp-wide-col">Recommended Motion</th>
-        <th class="pp-wide-col">Decision Confidence</th>
-        <th><button data-sort="lastUpdated" class="btn btn-sm btn-ghost p-0">Updated</button></th>
-      </tr></thead>
-      <tbody id="pp-table">${serverRowsHtml}</tbody>
-    </table></div></div>
-
-    <div class="card mb-3"><div class="card-body">
-      <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Top mandate-proximate sectors by buyer class</h6><span class="pp-legend">PPI ≥ 20 or (PPI ≥ 15 and 90D Δ ≥ +4)</span></div>
-      <div id="pp-top-by-buyer" class="small"></div>
-    </div></div>
-
-    <div class="row g-3 mb-3">
-      <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
-        <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Buyer Class Heatmap</h6><span class="pp-legend">Where buyer classes are clustering now</span></div>
-        <div id="pp-heatmap" class="small"></div>
-      </div></div></div>
-      <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
-        <h6 class="mb-2">Mandate-Proximate Watchlist</h6>
-        <div id="pp-watchlist" class="small"></div>
-      </div></div></div>
-    </div>
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="pp-drawer" style="width:min(740px,98vw)">
-      <div class="offcanvas-header"><h5 class="offcanvas-title">Platform Detail</h5><button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button></div>
-      <div class="offcanvas-body" id="pp-drawer-body"></div>
-    </div>
-  </div>
-
-  <script id="pp-data" type="application/json">${payload}</script>
-  <script>
-    (function installTempErrorLogger(){
-      try {
-        const key = 'pp_error_log_v1';
-        const push = (entry) => {
-          try {
-            const logs = JSON.parse(localStorage.getItem(key) || '[]');
-            const merged = Object.assign({ t: new Date().toISOString() }, entry || {});
-            logs.push(merged);
-            localStorage.setItem(key, JSON.stringify(logs.slice(-30)));
-          } catch {}
-        };
-        window.addEventListener('error', (e) => {
-          push({ type:'error', message: e.message, source: e.filename, line: e.lineno, col: e.colno });
-          const box = document.getElementById('pp-js-errors');
-          if (box) box.style.display = 'block';
-        });
-        window.addEventListener('unhandledrejection', (e) => {
-          push({ type:'unhandledrejection', message: String((e.reason && (e.reason.stack || e.reason.message)) || e.reason || 'unknown') });
-          const box = document.getElementById('pp-js-errors');
-          if (box) box.style.display = 'block';
-        });
-        window.__ppShowErrors = function(){
-          const logs = JSON.parse(localStorage.getItem(key) || '[]');
-          const pre = document.getElementById('pp-js-errors-pre');
-          const box = document.getElementById('pp-js-errors');
-          if (pre) pre.textContent = logs.map(x => '[' + x.t + '] ' + x.type + ': ' + (x.message || '') + (x.source ? (' @ ' + x.source + ':' + (x.line||0) + ':' + (x.col||0)) : '')).join('\\n') || '(no browser errors captured)';
-          if (box) box.style.display = 'block';
-          return logs;
-        };
-        setTimeout(() => { try { window.__ppShowErrors && window.__ppShowErrors(); } catch {} }, 0);
-      } catch {}
-    })();
-
-    const ppDataEl = document.getElementById('pp-data');
-    let platformData = { rows: [], weights: {}, signalPhysics: { initiatives: [], ontologyLayers: [] } };
-    try { platformData = JSON.parse((ppDataEl && ppDataEl.textContent) || '{}'); } catch (e) { console.error('pp-data-parse-failed', e); }
-    let rows = Array.isArray(platformData.rows) ? platformData.rows.slice() : [];
-    const signalPhysics = platformData.signalPhysics || { initiatives: [], ontologyLayers: [] };
-    const physicsByInitiative = new Map((signalPhysics.initiatives || []).map((x) => [String(x.initiative_id || ''), x]));
-    const ontologyOrder = (signalPhysics.ontologyLayers || []).sort((a,b)=>Number(a.order||0)-Number(b.order||0));
-    const els = {
-      table: document.getElementById('pp-table'), summary: document.getElementById('pp-summary'), usgWindow: document.getElementById('pp-usg-window'), heatmap: document.getElementById('pp-heatmap'), topByBuyer: document.getElementById('pp-top-by-buyer'),
-      watchlist: document.getElementById('pp-watchlist'), filterLabel: document.getElementById('pp-active-filter'), lemPanel: document.getElementById('lem-panel'), lemGeneratedAt: document.getElementById('lem-generated-at'), lemLegend: document.getElementById('lem-legend'), lemLegendToggle: document.getElementById('lem-legend-toggle'),
-      fSector: document.getElementById('f-sector'), fRegion: document.getElementById('f-region'), fStatus: document.getElementById('f-status'), fBuyer: document.getElementById('f-buyer'),
-      fFid: document.getElementById('f-fid'), fMinPpi: document.getElementById('f-min-ppi'), fSearch: document.getElementById('f-search')
-    };
-    const drawer = window.bootstrap ? new bootstrap.Offcanvas(document.getElementById('pp-drawer')) : null;
-    const drawerBody = document.getElementById('pp-drawer-body');
-    const state = {
-      sortBy: 'ppi',
-      sortDir: 'desc',
-      ontologyLayer: '',
-      missingLayer: '',
-      buyerFocus: '',
-      phaseFocus: '',
-      stuckReason: ''
-    };
-    const focusClasses = ['Sovereign Wealth Fund','DFI / MDB','Hyperscaler / Tech Platform','Strategic Industrial Sponsor'];
-    const relevanceOrder = ['Observe','Track','Engage Soon','Mandate Window'];
-    const sectorInitiativeAlias = {
-      'INIT_SECTOR::PPS-AI-INFRASTRUCTURE': 'INIT-AI-OPT-B',
-      'INIT_SECTOR::PPS-MANGANESE': 'INIT-2026-03-05-COMMODITY-CORRIDOR',
-      'INIT_SECTOR::PPS-COPPER': 'INIT-653305',
-      'INIT_SECTOR::PPS-BATTERY-MATERIALS': 'INIT-653305',
-      'INIT_SECTOR::PPS-INDUSTRIAL-POWER-CORRIDORS': 'INIT-001',
-      'INIT_SECTOR::PPS-LOGISTICS-CORRIDORS': 'INIT-2026-03-05-COMMODITY-CORRIDOR',
-      'INIT_SECTOR::PPS-DIGITAL-FINANCIAL-RAILS': 'INIT-NG-FIN-ENERGY-SPINE',
-      'INIT_SECTOR::PPS-WATER-INFRASTRUCTURE': 'INIT-653305',
-      'INIT_SECTOR::PPS-FOOD-SECURITY-INFRASTRUCTURE': 'INIT-653305',
-      'INIT_SECTOR::PPS-INDUSTRIAL-ZONES': 'INIT-AI-OPT-D'
-    };
-
-    const esc = (s) => String(s == null ? '' : s).replace(/[&<>]/g, (c)=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
-    const delta = (n) => { const v = Number(n||0); if(v>0) return '<span class="badge text-bg-success">+'+v+'</span>'; if(v<0) return '<span class="badge text-bg-secondary">'+v+'</span>'; return '<span class="badge text-bg-dark">0</span>'; };
-    const nextRel = (r) => relevanceOrder[Math.min(relevanceOrder.length-1, relevanceOrder.indexOf(r.usgRelevance || 'Track') + 1)] || 'Track';
-    const layerMeta = {
-      demand: { name:'Demand', desc:'AI/energy/industrial demand growth and pressure signals.', phase:'Early' },
-      narrative_legitimacy: { name:'Narrative / Legitimacy', desc:'Policy narratives, strategic framing, and national programs.', phase:'Early' },
-      data_intelligence: { name:'Data / Intelligence', desc:'Studies, forecasts, research, and analytical justification.', phase:'Early' },
-      governance: { name:'Governance', desc:'Regulatory frameworks, PPP laws, ministries, cross-border agreements.', phase:'Early/Mid' },
-      capital_allocation: { name:'Capital Allocation', desc:'SWF/DFI mandates, facilities, and deployment posture.', phase:'Mid' },
-      resource: { name:'Resource', desc:'Land, concessions, feedstock, minerals, and input rights.', phase:'Mid' },
-      platform_architecture: { name:'Platform Architecture', desc:'Corridor/cluster/system design and sequencing.', phase:'Mid' },
-      financial_structuring: { name:'Financial Structuring', desc:'SPVs, blended finance, capital stack, project finance.', phase:'Mid' },
-      connectivity: { name:'Connectivity', desc:'Fiber, ports, rail, logistics corridors, integration links.', phase:'Mid' },
-      energy: { name:'Energy', desc:'Generation, grid, PPAs, fuel security, power reliability.', phase:'Mid' },
-      compute_digital: { name:'Compute / Digital', desc:'Data centers, AI compute, cloud, telecom digital layer.', phase:'Mid' },
-      industrial_production: { name:'Industrial Production', desc:'Factories, processing plants, industrial manufacturing.', phase:'Late' },
-      construction: { name:'Construction', desc:'EPC awards, groundbreaking, engineering mobilization.', phase:'Late' },
-      operator: { name:'Operator', desc:'Operators, lessees, utility/asset operations activation.', phase:'Late' },
-      market_access: { name:'Market Access', desc:'Offtake, export agreements, and customer commitments.', phase:'Late' }
-    };
-    const layerLabel = (id) => (((layerMeta[id] || {}).name) || String(id||'').split('_').join(' '));
-    const phasePlain = (p) => p === 'early' ? 'early-stage signals' : (p === 'mid' ? 'forming-stage signals' : 'execution-stage signals');
-    const blockerLabel = (s) => ({
-      'Capital Without Architecture': 'Capital present, but no clear structure',
-      'Late Signal / No Early Coherence': 'Late activity without early support',
-      'Narrative Without Mandate': 'Story exists, but no mandate yet',
-      'Demand Without Operator Path': 'Demand exists, but no operator path'
-    }[String(s||'')] || String(s||'none'));
-    const stageLabel = (s) => ({
-      'Monitor':'Watch', 'Shaping':'Taking shape', 'Platform Formation':'Platform forming', 'Capital Alignment':'Capital aligning', 'Pre-FID':'Near execution', 'Execution':'In execution'
-    }[String(s||'')] || String(s||''));
-
-    function populateFilters(){
-      const uniq = (arr) => Array.from(new Set((arr || []).filter(Boolean))).sort();
-      const inject = (el, vals, label) => { el.innerHTML = '<option value="">'+label+' (All)</option>' + vals.map(v => '<option>'+esc(v)+'</option>').join(''); };
-      inject(els.fSector, uniq(rows.map(r => r.sector)), 'Sector');
-      inject(els.fRegion, uniq(rows.map(r => r.region)), 'Region');
-      inject(els.fBuyer, uniq(rows.map(r => r.likelyBuyerClass)), 'Buyer Class');
-      inject(els.fFid, uniq(rows.map(r => r.fidBoundaryType)), 'FID Boundary');
-    }
-
-    function getFiltered(){
-      const q = String(els.fSearch.value || '').trim().toLowerCase();
-      const minPpi = Number(els.fMinPpi.value || 0);
-      return rows.filter(r => {
-        if (els.fSector.value && r.sector !== els.fSector.value) return false;
-        if (els.fRegion.value && r.region !== els.fRegion.value) return false;
-        if (els.fStatus.value && r.status !== els.fStatus.value) return false;
-        if (els.fBuyer.value && r.likelyBuyerClass !== els.fBuyer.value) return false;
-        if (els.fFid.value && r.fidBoundaryType !== els.fFid.value) return false;
-        if (r.ppi < minPpi) return false;
-
-        const pId = linkedInitiativeIds(r).find((id) => physicsByInitiative.has(id));
-        const p = pId ? physicsByInitiative.get(pId) : null;
-        const activeLayers = new Set((((p || {}).ontology || {}).activeLayers || []));
-        const buyerIds = ((p || {}).buyerAlignment || []).map((b) => String(b.buyer_id || ''));
-
-        if (state.ontologyLayer && !activeLayers.has(state.ontologyLayer)) return false;
-        if (state.missingLayer && activeLayers.has(state.missingLayer)) return false;
-        if (state.buyerFocus && !buyerIds.includes(state.buyerFocus)) return false;
-        if (state.phaseFocus && Number(((p || {}).phaseMix || {})[state.phaseFocus] || 0) <= 0) return false;
-
-        const reasons = p ? stuckReasonRanked(p).map((x) => x.reason) : [];
-        if (state.stuckReason && !reasons.includes(state.stuckReason)) return false;
-
-        if (!q) return true;
-        const blob = [r.sector,r.thesisSummary,r.analystNotes,r.mainStructuralBottleneck,r.whyItMatters,r.nextIntelligenceAction,r.recommended_motion,r.pattern_summary,r.buyerPath,r.usgRelevance,(r.actors||[]).map(a=>a.name).join(' ')].join(' ').toLowerCase();
-        return blob.includes(q);
-      });
-    }
-
-    function sortRows(list){
-      const dir = state.sortDir === 'asc' ? 1 : -1;
-      const key = state.sortBy;
-      return (list || []).slice().sort((a,b) => {
-        const av = a[key], bv = b[key];
-        if (typeof av === 'number' && typeof bv === 'number') return (av-bv)*dir;
-        return String(av||'').localeCompare(String(bv||''))*dir;
-      });
-    }
-
-    function renderSummary(list){
-      const total = list.length;
-      const mandate = list.filter(r => r.ppi >= 20).length;
-      const highest = list.slice().sort((a,b)=>b.ppi-a.ppi)[0];
-      const mover = list.slice().sort((a,b)=>b.delta90d-a.delta90d)[0];
-      const buyers = new Set(list.map(r => r.likelyBuyerClass)).size;
-      const cards = [
-        ['Total sectors tracked', total, 'Filtered universe'],
-        ['Mandate-Proximate sectors', mandate, 'PPI ≥ 20'],
-        ['Highest PPI sector', highest ? (highest.sector+' ('+highest.ppi+')') : '—', 'Strength'],
-        ['Fastest 90-day mover', mover ? (mover.sector+' (+'+mover.delta90d+')') : '—', 'Velocity'],
-        ['Buyer classes active', buyers, 'Current spread']
-      ];
-      els.summary.innerHTML = cards.map(c => '<div class="col-12 col-md-6 col-xl"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">'+esc(c[0])+'</div><div class="metric-value" style="font-size:1.05rem">'+esc(c[1])+'</div><div class="small text-muted mono">'+esc(c[2])+'</div></div></div></div>').join('');
-    }
-
-    function renderUSGWindow(list){
-      if (!els.usgWindow) return;
-      const rowsWithPhysics = list.map((r) => {
-        const pid = linkedInitiativeIds(r).find((id) => physicsByInitiative.has(id));
-        const p = pid ? physicsByInitiative.get(pid) : null;
-        return { r, p };
-      }).filter((x) => x.p);
-
-      if (!rowsWithPhysics.length) {
-        els.usgWindow.innerHTML = '<div class="pp-empty">No initiative-physics mapping available for current filter set.</div>';
-        return;
-      }
-
-      const accelerating = rowsWithPhysics.filter((x) => Number(x.p.momentum || 0) > 0.2).length;
-      const highPressure = rowsWithPhysics.filter((x) => Number(x.p.pressure || 0) >= 15).length;
-      const topMotions = rowsWithPhysics
-        .map((x) => x.p.recommendedUSGMotion || 'Monitor only')
-        .reduce((a,m)=>{a[m]=(a[m]||0)+1;return a;},{});
-      const motionLead = Object.entries(topMotions).sort((a,b)=>b[1]-a[1])[0];
-      const topGaps = rowsWithPhysics.flatMap((x) => (((x.p||{}).recommendedUSGDrivers||{}).missing || []).slice(0,2))
-        .reduce((a,m)=>{a[m]=(a[m]||0)+1;return a;},{});
-      const gapLead = Object.entries(topGaps).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k])=>String(k).split('_').join(' '));
-
-      els.usgWindow.innerHTML =
-        '<div class="row g-2">' +
-          '<div class="col-12 col-md-3"><div class="border rounded p-2"><div class="pp-kicker">Initiatives in scope</div><div class="mono">'+rowsWithPhysics.length+'</div></div></div>' +
-          '<div class="col-12 col-md-3"><div class="border rounded p-2"><div class="pp-kicker">Accelerating</div><div class="mono">'+accelerating+'</div></div></div>' +
-          '<div class="col-12 col-md-3"><div class="border rounded p-2"><div class="pp-kicker">High pressure</div><div class="mono">'+highPressure+'</div></div></div>' +
-          '<div class="col-12 col-md-3"><div class="border rounded p-2"><div class="pp-kicker">Leading motion</div><div class="mono">'+esc((motionLead && motionLead[0]) || 'Monitor only')+'</div></div></div>' +
-        '</div>' +
-        '<div class="mt-2 text-muted">Missing key stages: '+esc(gapLead.join(' · ') || 'none')+'</div>';
-    }
-
-    function renderTable(list){
-      if (!list.length) {
-        els.table.innerHTML = '<tr><td colspan="11"><div class="pp-empty">No sectors match current filters. Reset filters or lower minimum PPI.</div></td></tr>';
-        return;
-      }
-      els.table.innerHTML = list.map(r => '<tr data-id="'+esc(r.id)+'" style="cursor:pointer">'+
-        '<td><div class="pp-sector">'+esc(r.sector)+'</div><div class="pp-sub">'+esc(r.theater||'')+'</div></td>'+
-        '<td>'+esc(r.region)+'</td>'+
-        '<td><span class="pp-ppi">'+esc(r.ppi)+'/25</span></td>'+
-        '<td><span class="pp-status">'+esc(r.status)+'</span></td>'+
-        '<td class="pp-hide-md small">'+esc(r.buyerPath || 'Mixed / Multi-actor')+'</td>'+
-        '<td class="pp-hide-md"><span class="pp-rel">'+esc(r.usgRelevance || 'Track')+'</span></td>'+
-        '<td>'+delta(r.delta90d)+'</td>'+
-        '<td><span class="badge text-bg-light border">'+esc(r.likelyBuyerClass)+'</span></td>'+
-        '<td class="pp-wide-col small text-muted">'+esc(r.recommended_motion || r.nextIntelligenceAction || 'monitor')+'</td>'+
-        '<td class="pp-wide-col"><span class="pp-status">'+esc(r.decision_confidence || 'medium')+'</span></td>'+
-        '<td class="mono small">'+esc(r.lastUpdated)+'</td></tr>').join('');
-      els.table.querySelectorAll('tr[data-id]').forEach(tr => tr.addEventListener('click', () => openDetail(tr.dataset.id)));
-    }
-
-    function renderTopByBuyer(list){
-      const watch = list.filter(r => r.ppi >= 20 || (r.ppi >= 15 && r.delta90d >= 4));
-      if (!watch.length) { els.topByBuyer.innerHTML = '<div class="pp-empty">No sectors currently meet mandate-proximate criteria.</div>'; return; }
-      const groups = {};
-      watch.forEach(r => { const k=r.likelyBuyerClass || 'Unspecified'; if(!groups[k]) groups[k]=[]; groups[k].push(r); });
-      const ordered = Object.entries(groups).sort((a,b)=>b[1].length-a[1].length);
-      els.topByBuyer.innerHTML = ordered.map(([k,v]) => {
-        const top = v.sort((a,b)=>b.ppi-a.ppi).slice(0,3);
-        return '<div class="mb-2"><div class="pp-kicker">'+esc(k)+'</div>'+top.map(r => '<div class="d-flex justify-content-between border rounded px-2 py-1 mb-1"><span>'+esc(r.sector)+'</span><span class="pp-legend">PPI '+r.ppi+' · 90D '+(r.delta90d>0?'+':'')+r.delta90d+'</span></div>').join('')+'</div>';
-      }).join('');
-    }
-
-    function renderHeatmap(list){
-      if (!list.length) { els.heatmap.innerHTML = '<div class="pp-empty">No distribution available for current filter set.</div>'; return; }
-      const grouped = {};
-      list.forEach(r => {
-        const k = r.likelyBuyerClass || 'Unspecified';
-        if(!grouped[k]) grouped[k] = {count:0, ppi:0, high:0, sectors:[]};
-        grouped[k].count += 1; grouped[k].ppi += Number(r.ppi||0); if (r.ppi >= 20) grouped[k].high += 1; grouped[k].sectors.push(r.sector);
-      });
-      const order = Object.entries(grouped).sort((a,b) => {
-        const af = focusClasses.includes(a[0]) ? 1 : 0; const bf = focusClasses.includes(b[0]) ? 1 : 0;
-        if (bf !== af) return bf - af;
-        return b[1].count - a[1].count;
-      });
-      els.heatmap.innerHTML = order.map(([k,v]) => {
-        const avg = Number((v.ppi / Math.max(1,v.count)).toFixed(1));
-        const w = Math.min(100, (avg / 25) * 100);
-        return '<div class="pp-heat-row"><div class="d-flex justify-content-between"><strong>'+esc(k)+'</strong><span class="pp-legend">'+v.count+' sectors · Avg '+avg+' · M-prox '+v.high+'</span></div>'+
-          '<div class="progress" style="height:7px;background:rgba(255,255,255,.05)"><div class="progress-bar" style="width:'+w+'%;background:#4f8cff"></div></div>'+
-          '<div class="pp-legend">'+esc(v.sectors.slice(0,4).join(', ')) + (v.sectors.length>4?'...':'') + '</div></div>';
-      }).join('');
-    }
-
-    function renderWatchlist(list){
-      const watch = list.filter(r => r.ppi >= 20 || (r.ppi >= 15 && r.delta90d >= 4)).sort((a,b)=>b.ppi-a.ppi);
-      if (!watch.length) { els.watchlist.innerHTML = '<div class="pp-empty">No sectors currently satisfy watchlist thresholds.</div>'; return; }
-      els.watchlist.innerHTML = watch.map(r => '<div class="card mb-2"><div class="card-body py-2">'+
-        '<div class="d-flex justify-content-between align-items-center"><strong>'+esc(r.sector)+'</strong><span class="pp-ppi">'+r.ppi+'/25</span></div>'+
-        '<div class="pp-sub">'+esc(r.region)+' · '+esc(r.likelyBuyerClass)+'</div>'+
-        '<div class="small mt-1">'+esc(r.mandateFeasibilityNote || 'Buyer path is emerging')+'</div></div></div>').join('');
-    }
-
-    function scoreBar(label, v){
-      const width = Math.min(100, (Number(v||0)/5)*100);
-      return '<div class="mb-2"><div class="d-flex justify-content-between"><span class="small">'+esc(label)+'</span><span class="small mono">'+v+'/5</span></div><div class="progress" style="height:7px;background:rgba(255,255,255,.05)"><div class="progress-bar" style="width:'+width+'%;background:#4f8cff"></div></div></div>';
-    }
-
-    function linkedInitiativeIds(r){
-      const rawIds = ((r.linkRefs || {}).initiativeIds || []).map(x => String(x || '').trim()).filter(Boolean);
-      const ids = rawIds.map((id) => {
-        const key = id.toUpperCase();
-        return sectorInitiativeAlias[key] || id;
-      });
-      // Keep explicit mapping first; only then fallback.
-      return Array.from(new Set((ids || []).concat(['USG', 'GLOBAL'])));
-    }
-
-    function layerGapDiagnostics(p){
-      const active = new Set((((p||{}).ontology||{}).activeLayers || []));
-      const has = (x) => active.has(x);
-      const msgs = [];
-      if ((has('demand') || has('compute_digital')) && has('narrative_legitimacy') && !has('governance')) msgs.push('High demand/narrative/compute signals; weak governance layer.');
-      if (has('capital_allocation') && (!has('energy') || !has('connectivity'))) msgs.push('Capital signals present; energy/connectivity layers weak.');
-      if ((has('operator') || has('construction')) && !has('platform_architecture')) msgs.push('Late-stage operator/construction signals appearing before architecture coherence.');
-      if (has('platform_architecture') && !has('financial_structuring')) msgs.push('Architecture is forming; financial structuring layer remains underdeveloped.');
-      return msgs;
-    }
-
-    function stuckReasonRanked(p){
-      const active = new Set((((p||{}).ontology||{}).activeLayers || []));
-      const has = (x) => active.has(x);
-      const candidates = [];
-      const add = (reason, score) => candidates.push({ reason, score });
-
-      if ((has('demand') || has('compute_digital')) && !has('operator')) add('Demand Without Operator Path', 0.92);
-      if (!has('governance') && (has('narrative_legitimacy') || has('capital_allocation'))) add('Governance Gap', 0.95);
-      if (!has('financial_structuring') && (has('capital_allocation') || has('platform_architecture'))) add('Structuring Gap', 0.9);
-      if (!has('energy') && (has('compute_digital') || has('industrial_production'))) add('Energy Constraint', 0.85);
-      if (!has('connectivity') && (has('platform_architecture') || has('market_access'))) add('Connectivity Gap', 0.78);
-      if (has('capital_allocation') && !has('platform_architecture')) add('Capital Without Architecture', 0.88);
-      if ((has('operator') || has('construction')) && !(has('demand') && has('narrative_legitimacy') && has('platform_architecture'))) add('Late Signal / No Early Coherence', 0.8);
-      if (has('narrative_legitimacy') && !has('capital_allocation')) add('Narrative Without Mandate', 0.76);
-
-      return candidates.sort((a,b)=>b.score-a.score).slice(0,2);
-    }
-
-    function stuckBadge(reason){
-      const raw = String(reason || 'none');
-      return '<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-stuck-reason" data-stuck-reason="'+esc(raw)+'">'+esc(blockerLabel(raw))+'</button>';
-    }
-
-    function bindTap(el, fn){
-      if (!el) return;
-      let touched = false;
-      el.addEventListener('touchend', (e) => { touched = true; e.preventDefault(); fn(); }, { passive:false });
-      el.addEventListener('click', (e) => { if (touched) { touched = false; return; } e.preventDefault(); fn(); });
-    }
-
-    function renderLayerLegend(){
-      if (!els.lemLegend) return;
-      els.lemLegend.innerHTML = '<div class="pp-legend mb-1">Infrastructure Lifecycle stages</div><div class="lem-legend-grid">' + ontologyOrder.map((l) => {
-        const meta = layerMeta[l.id] || {};
-        return '<div class="border rounded p-2"><strong>' + Number(l.order || 0) + '. ' + esc(meta.name || l.id) + '</strong><div class="text-muted small">' + esc(meta.desc || '') + '</div></div>';
-      }).join('') + '</div>';
-    }
-
-    function renderLayerEmissionsMap(list){
-      if (!els.lemPanel) return;
-      const rowsWithPhysics = list.map((r) => {
-        const pid = linkedInitiativeIds(r).find((id) => physicsByInitiative.has(id));
-        const p = pid ? physicsByInitiative.get(pid) : null;
-        return { row: r, initiativeId: pid || linkedInitiativeIds(r)[0], p };
-      }).filter((x) => x.p);
-
-      if (!rowsWithPhysics.length) {
-        els.lemPanel.innerHTML = '<div class="pp-empty">Signal physics snapshot is missing or initiative links are not mapped yet.</div>';
-        if (els.lemGeneratedAt) els.lemGeneratedAt.textContent = 'No snapshot loaded';
-        return;
-      }
-
-      if (els.lemGeneratedAt) els.lemGeneratedAt.textContent = 'Snapshot: ' + esc(String(signalPhysics.generatedAt || '').replace('T',' ').slice(0,19));
-
-      const top = rowsWithPhysics
-        .sort((a,b) => Number((b.p || {}).pressure || 0) - Number((a.p || {}).pressure || 0))
-        .slice(0, 8);
-
-      els.lemPanel.innerHTML = top.map(({row:r, initiativeId, p}) => {
-        const active = new Set((((p||{}).ontology||{}).activeLayers || []));
-        const missing = ontologyOrder.filter((l) => !active.has(l.id)).map((l) => l.id).slice(0, 4);
-        const phaseMix = (p.phaseMix || { early:0, mid:0, late:0 });
-        const phaseProgress = Math.round(Number(((p.ontology || {}).progression || 0) * 100));
-        const buyers = (p.buyerAlignment || []).slice(0,4).map((b) => b.buyer_id).join(' · ') || 'No buyer alignment yet';
-        const gaps = layerGapDiagnostics(p);
-
-        const heat = ontologyOrder.map((l) => {
-          const on = active.has(l.id);
-          const cls = on ? 'on' : 'off';
-          const kind = on ? 'emit' : 'missing';
-          const meta = layerMeta[l.id] || {};
-          const tip = (meta.name || l.id) + ' — ' + (meta.desc || '') + ' Timing: ' + (meta.phase || phasePlain(l.phase) || 'n/a');
-          return '<button class="lem-cell '+cls+' js-layer-cell" data-layer-kind="'+kind+'" data-layer-id="'+esc(l.id)+'" title="'+esc(tip)+'" aria-label="'+esc(tip)+'">'+Number(l.order || 0)+'</button>';
-        }).join('');
-        const phaseLabel = 'early ' + Math.round((phaseMix.early||0)*100) + '% · mid ' + Math.round((phaseMix.mid||0)*100) + '% · late ' + Math.round((phaseMix.late||0)*100) + '%';
-        const ranked = stuckReasonRanked(p);
-        const primary = ((ranked[0] || {}).reason) || 'None';
-        const secondary = ((ranked[1] || {}).reason) || 'None';
-
-        return '<div class="lem-row">' +
-          '<div class="lem-row-head js-lem-toggle" role="button" tabindex="0" aria-expanded="false">' +
-            '<div><strong>' + esc(r.sector) + '</strong><div class="pp-sub">Initiative ' + esc(initiativeId) + ' · current stage ' + esc(stageLabel(p.state || 'Monitor')) + '</div></div>' +
-            '<div class="small text-end"><span class="pp-ppi">P ' + Number(p.pressure || 0).toFixed(1) + '</span><div class="pp-legend">Tap to expand</div></div>' +
-          '</div>' +
-          '<div class="lem-row-body d-none">' +
-            '<div class="lem-heat mt-2">' + heat + '</div>' +
-            '<div class="mt-1"><span class="pp-kicker">Click stages to filter</span> <span class="pp-legend">Blue = active signals · Gray = missing stage</span></div>' +
-            '<div class="lem-tooltip mt-1 js-layer-tooltip">Tap or hover a square to view stage meaning.</div>' +
-            '<div class="mt-2"><div class="d-flex justify-content-between pp-legend"><span>Stage progress</span><span>' + phaseProgress + '%</span></div><div class="lem-phase-bar"><div class="lem-phase-fill" style="width:' + phaseProgress + '%"></div></div><div class="pp-legend">Signal timing mix: ' + esc(phaseLabel) + '</div><div class="pp-legend">Early = early-stage signals · Mid = forming-stage signals · Late = execution-stage signals</div><div class="d-flex gap-1 mt-1"><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="early">early</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="mid">mid</button><button class="btn btn-sm btn-outline-secondary py-0 px-2 js-phase" data-phase="late">late</button></div></div>' +
-            '<div class="lem-strip mt-2">' +
-              '<div class="tile"><div class="pp-kicker">Opportunity Strength</div><div class="mono">' + Number(p.pressure||0).toFixed(2) + '</div><div class="pp-legend">How strong the opportunity looks right now</div></div>' +
-              '<div class="tile"><div class="pp-kicker">Change Speed</div><div class="mono">' + (Number(p.momentum||0)>=0?'+':'') + Number(p.momentum||0).toFixed(3) + '</div><div class="pp-legend">How fast it is improving or weakening</div></div>' +
-              '<div class="tile"><div class="pp-kicker">Change Trend</div><div class="mono">' + (Number(p.acceleration||0)>=0?'+':'') + Number(p.acceleration||0).toFixed(3) + '</div><div class="pp-legend">Whether that change is speeding up or slowing down</div></div>' +
-            '</div>' +
-            '<div class="mt-2"><span class="pp-kicker">Best buyer matches</span><div class="small">' + ((p.buyerAlignment || []).slice(0,4).map((b)=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-buyer-focus" data-buyer="'+esc(b.buyer_id)+'">'+esc(b.buyer_id)+'</button>').join('') || 'No buyer matches yet') + '</div></div>' +
-            '<div class="mt-2"><span class="pp-kicker">Recommended USG Move</span><div class="small"><span class="badge text-bg-primary">' + esc(p.recommendedUSGMotion || 'Monitor only') + '</span> <span class="pp-legend">Confidence level ' + Math.round(Number(p.recommendedUSGMotionConfidence || 0.5) * 100) + '%</span><div class="text-muted small mt-1"><strong>Why this move:</strong> ' + esc(p.recommendedUSGMotionRationale || 'No rationale generated.') + '</div><div class="pp-legend mt-1">Main blocker: ' + esc(blockerLabel((((p.recommendedUSGDrivers||{}).stuck||{}).primary || 'none')) ) + ' · Second blocker: ' + esc(blockerLabel((((p.recommendedUSGDrivers||{}).stuck||{}).secondary || 'none'))) + '</div><div class="pp-legend">What may slow this down: ' + esc((((p.recommendedUSGDrivers||{}).counterevidence||[]).slice(0,2).join(' | ') || 'none')) + '</div></div></div>' +
-            '<div class="mt-2"><span class="pp-kicker">Missing key stages</span><div class="small">' + (missing.length ? missing.map(x=>'<button class="btn btn-sm btn-outline-secondary py-0 px-2 me-1 mb-1 js-missing-layer" data-layer-id="'+esc(x)+'">'+esc(layerLabel(x))+'</button>').join('') : 'None') + '</div></div>' +
-            '<div class="mt-2"><span class="pp-kicker">Blocker tags</span><div class="small">Main blocker: ' + stuckBadge(primary) + ' Second blocker: ' + stuckBadge(secondary) + '</div></div>' +
-            '<div class="mt-2"><span class="pp-kicker">What\\'s Missing</span><div class="small text-muted">' + (gaps.length ? gaps.map(esc).join(' ') : 'No major missing stages right now.') + '</div></div>' +
-          '</div>' +
-        '</div>';
-      }).join('');
-
-      els.lemPanel.querySelectorAll('.js-lem-toggle').forEach((head) => {
-        const row = head.closest('.lem-row');
-        const body = row ? row.querySelector('.lem-row-body') : null;
-        const toggle = () => {
-          if (!body) return;
-          const hidden = body.classList.toggle('d-none');
-          head.setAttribute('aria-expanded', String(!hidden));
-          const note = head.querySelector('.pp-legend');
-          if (note) note.textContent = hidden ? 'Tap to expand' : 'Tap to collapse';
-        };
-        bindTap(head, toggle);
-        head.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
-      });
-
-      els.lemPanel.querySelectorAll('.js-layer-cell').forEach((btn) => {
-        const updateTooltip = () => {
-          const id = String(btn.dataset.layerId || '');
-          const meta = layerMeta[id] || {};
-          const row = btn.closest('.lem-row');
-          const tip = row ? row.querySelector('.js-layer-tooltip') : null;
-          if (tip) tip.textContent = (meta.name || id) + ' — ' + (meta.desc || '') + ' Timing: ' + (meta.phase || 'n/a');
-        };
-        btn.addEventListener('mouseenter', updateTooltip);
-        btn.addEventListener('focus', updateTooltip);
-        btn.addEventListener('touchstart', updateTooltip, { passive: true });
-        bindTap(btn, () => {
-          const id = String(btn.dataset.layerId || '');
-          if (btn.dataset.layerKind === 'emit') {
-            state.ontologyLayer = state.ontologyLayer === id ? '' : id;
-            state.missingLayer = '';
-          } else {
-            state.missingLayer = state.missingLayer === id ? '' : id;
-            state.ontologyLayer = '';
-          }
-          renderAll();
-        });
-      });
-
-      els.lemPanel.querySelectorAll('.js-missing-layer').forEach((btn) => bindTap(btn, () => {
-        const id = String(btn.dataset.layerId || '');
-        state.missingLayer = state.missingLayer === id ? '' : id;
-        state.ontologyLayer = '';
-        renderAll();
-      }));
-
-      els.lemPanel.querySelectorAll('.js-buyer-focus').forEach((btn) => bindTap(btn, () => {
-        const b = String(btn.dataset.buyer || '');
-        state.buyerFocus = state.buyerFocus === b ? '' : b;
-        renderAll();
-      }));
-
-      els.lemPanel.querySelectorAll('.js-phase').forEach((btn) => bindTap(btn, () => {
-        const p = String(btn.dataset.phase || '');
-        state.phaseFocus = state.phaseFocus === p ? '' : p;
-        renderAll();
-      }));
-
-      els.lemPanel.querySelectorAll('.js-stuck-reason').forEach((btn) => bindTap(btn, () => {
-        const reason = String(btn.dataset.stuckReason || '');
-        state.stuckReason = state.stuckReason === reason ? '' : reason;
-        renderAll();
-      }));
-    }
-
-    function scoreInterpretation(r){
-      const hi=[], lo=[];
-      const map = {
-        capitalReality: 'capital is real', fidDefinability: 'FID boundary is clear', multiActorDependency: 'coordination pressure is high',
-        structuralAmbiguity: 'structural ambiguity is elevated', mandateFeasibility: 'mandate feasibility is emerging'
-      };
-      Object.entries(r.scores||{}).forEach(([k,v]) => { if (Number(v)>=4) hi.push(map[k]); if (Number(v)<=2) lo.push(map[k]); });
-      const a = hi.length ? 'Strength: ' + hi.join('; ') + '.' : 'Strength: no score bucket is in breakout range yet.';
-      const b = lo.length ? 'Constraint: ' + lo.join('; ') + '.' : 'Constraint: no bucket is currently in red-band weakness.';
-      return a + ' ' + b;
-    }
-
-    function originationReadiness(r){
-      const cap = r.scores.capitalReality >= 4 ? 'Yes' : 'Not yet';
-      const fid = r.scores.fidDefinability >= 4 ? 'Yes' : 'Partial';
-      const buyer = ['Sovereign / DFI','Strategic Industrial Sponsor','Hyperscaler'].includes(r.buyerPath || '') ? 'Likely' : 'Mixed';
-      const mand = r.scores.mandateFeasibility >= 4 ? 'Yes' : 'Emerging';
-      const next = nextRel(r.usgRelevance || 'Track');
-      return {
-        cap, fid, buyer, mand,
-        uplift: 'To move from '+(r.usgRelevance||'Track')+' to '+next+', we need one new verifiable signal that de-risks '+(r.mainStructuralBottleneck || 'the core FID blocker')+'.'
-      };
-    }
-
-    function openDetail(id){
-      const r = rows.find(x => x.id === id); if (!r) return;
-      const rr = originationReadiness(r);
-      const actorGroups = {};
-      (r.actors || []).forEach(a => { const g = a.category || 'other'; if(!actorGroups[g]) actorGroups[g]=[]; actorGroups[g].push(a); });
-      const actorHtml = Object.entries(actorGroups).map(([k,v]) => '<div class="mb-2"><div class="pp-kicker">'+esc(String(k).split('_').join(' / '))+'</div><ul class="small mb-1">'+v.map(a => '<li><strong>'+esc(a.name)+'</strong> — '+esc(a.role||'')+'</li>').join('')+'</ul></div>').join('');
-      const signals = (r.signals||[]).slice().sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));
-
-      drawerBody.innerHTML =
-        '<div class="mb-3"><div class="pp-kicker">Sector Priority</div><h5 class="mb-1">'+esc(r.sector)+'</h5><div class="small text-muted mb-2">'+esc(r.region)+'</div><div class="small">'+esc(r.whyItMatters)+'</div></div>'+
-        '<div class="card mb-3"><div class="card-body py-2"><div class="row g-2"><div class="col-6"><div class="pp-kicker">Pressure Strength</div><div><span class="pp-ppi">'+r.ppi+'/25</span> <span class="ms-2 pp-status">'+esc(r.status)+'</span></div></div><div class="col-6"><div class="pp-kicker">Likely Buyer</div><div class="small"><strong>'+esc(r.likelyBuyerClass)+'</strong><div class="text-muted">'+esc(r.buyerRationale)+'</div></div></div><div class="col-6"><div class="pp-kicker">FID Boundary</div><div class="small">'+esc(r.fidBoundaryType)+'</div></div><div class="col-6"><div class="pp-kicker">Primary Blocker</div><div class="small">'+esc(r.mainStructuralBottleneck)+'</div></div></div></div></div>'+
-        '<div class="card mb-3"><div class="card-body py-2"><h6 class="mb-2">Origination Readiness</h6><div class="row g-2 small"><div class="col-6"><strong>Is capital real?</strong><div>'+esc(rr.cap)+'</div></div><div class="col-6"><strong>Is FID definable?</strong><div>'+esc(rr.fid)+'</div></div><div class="col-6"><strong>Is buyer above execution?</strong><div>'+esc(rr.buyer)+'</div></div><div class="col-6"><strong>Is mandate feasibility emerging?</strong><div>'+esc(rr.mand)+'</div></div><div class="col-12"><strong>USG relevance:</strong> <span class="pp-rel">'+esc(r.usgRelevance || 'Track')+'</span> · <strong>Buyer path:</strong> '+esc(r.buyerPath || 'Mixed / Multi-actor')+'</div><div class="col-12 text-muted">'+esc(rr.uplift)+'</div><div class="col-12"><strong>Recommended Motion:</strong> '+esc(r.recommended_motion || r.nextIntelligenceAction || 'monitor')+' · <strong>Decision Confidence:</strong> '+esc(r.decision_confidence || 'medium')+'</div><div class="col-12"><strong>Pattern Summary:</strong> '+esc(r.pattern_summary || 'Pattern forming across signals and actors.')+'</div><div class="col-12"><strong>Missing Actor Roles:</strong> '+esc((r.missing_actor_roles || []).join(', ') || '—')+'</div><div class="col-12"><strong>Required Next Evidence:</strong> '+esc((r.required_next_evidence || []).join(' | ') || '—')+'</div></div></div></div>+
-        '<div class="mb-3"><h6 class="mb-2">Why this score?</h6><div class="small text-muted">'+esc(scoreInterpretation(r))+'</div></div>'+
-        '<div class="mb-3"><h6 class="mb-2">PPI Breakdown</h6>'+scoreBar('Capital Reality', r.scores.capitalReality)+scoreBar('FID Definability', r.scores.fidDefinability)+scoreBar('Multi-Actor Dependency', r.scores.multiActorDependency)+scoreBar('Structural Ambiguity', r.scores.structuralAmbiguity)+scoreBar('Mandate Feasibility', r.scores.mandateFeasibility)+'<div class="pp-legend">Weighted config score: '+esc(r.weightedPpi)+'</div></div>'+
-        '<div class="mb-3"><h6 class="mb-2">Signals Feed</h6>'+
-          (signals.map(s => '<div class="pp-signal-row mb-2"><div class="d-flex justify-content-between"><strong>'+esc(s.type||'signal')+'</strong><span class="mono pp-legend">'+esc(s.date||'')+'</span></div><div class="small">'+esc(s.title||'')+'</div><div class="small text-muted">'+esc(s.summary||'No summary.')+'</div></div>').join('') || '<div class="pp-empty">No signals logged for this sector.</div>')+
-        '</div>'+
-        '<div class="mb-3"><h6 class="mb-2">Key Actors</h6>' + (actorHtml || '<div class="pp-empty">No mapped actors.</div>') + '</div>'+
-        '<div class="mb-3"><h6 class="mb-1">Analyst Notes</h6><div class="small" style="white-space:pre-wrap">'+esc(r.analystNotes || 'No analyst notes yet.')+'</div></div>'+
-        '<div class="mb-2"><button id="pp-network-toggle" class="btn btn-sm btn-outline-secondary">Toggle Network View</button></div><div id="pp-network" style="display:none;height:260px;border:1px solid var(--border);border-radius:10px"></div>'+
-        '<div class="pp-kicker mt-3">Integration refs</div><pre class="small" style="white-space:pre-wrap">'+esc(JSON.stringify(r.linkRefs || {}, null, 2))+'</pre>';
-
-      const ppNetworkToggle = drawerBody.querySelector('#pp-network-toggle');
-      if (ppNetworkToggle) ppNetworkToggle.addEventListener('click', () => {
-        const box = drawerBody.querySelector('#pp-network'); if (!box) return;
-        const show = box.style.display === 'none'; box.style.display = show ? 'block' : 'none';
-        if (show && window.cytoscape) {
-          const nodes = [{ data: { id:'sector', label:r.sector } }, { data: { id:'buyer', label:r.likelyBuyerClass } }, { data:{ id:'fid', label:r.fidBoundaryType } }]
-            .concat((r.actors||[]).map((a,i)=>({ data:{ id:'a'+i, label:a.name } })));
-          const edges = [{ data:{ source:'sector', target:'buyer' } }, { data:{ source:'sector', target:'fid' } }]
-            .concat((r.actors||[]).map((a,i)=>({ data:{ source:'sector', target:'a'+i } })));
-          window.cytoscape({ container: box, elements:{nodes,edges}, style:[{selector:'node',style:{'background-color':'#4f8cff','label':'data(label)','font-size':10,'color':'#d9e3f2','text-wrap':'wrap','text-max-width':120}},{selector:'edge',style:{'line-color':'#5f6b7d','width':1.2,'curve-style':'bezier'}}], layout:{name:'cose',animate:false,padding:12} });
-        }
-      });
-
-      if (drawer) drawer.show();
-    }
-
-    function renderAll(){
-      const filtered = sortRows(getFiltered());
-      renderSummary(filtered); renderUSGWindow(filtered); renderTable(filtered); renderTopByBuyer(filtered); renderHeatmap(filtered); renderWatchlist(filtered); renderLayerEmissionsMap(filtered);
-      const tags = [els.fSector.value, els.fRegion.value, els.fStatus.value, els.fBuyer.value, els.fFid.value].filter(Boolean);
-      if (state.ontologyLayer) tags.push('Active stage: ' + layerLabel(state.ontologyLayer));
-      if (state.missingLayer) tags.push('Missing stage: ' + layerLabel(state.missingLayer));
-      if (state.buyerFocus) tags.push('Buyer match: ' + state.buyerFocus);
-      if (state.phaseFocus) tags.push('Stage timing: ' + state.phaseFocus + ' (' + phasePlain(state.phaseFocus) + ')');
-      if (state.stuckReason) tags.push('Blocker tag: ' + blockerLabel(state.stuckReason));
-      const minLabel = Number(els.fMinPpi.value || 0) > 0 ? ('Min PPI ' + Number(els.fMinPpi.value || 0)) : '';
-      if (minLabel) tags.push(minLabel);
-      if (els.fSearch.value.trim()) tags.push('Search active');
-      els.filterLabel.textContent = tags.length ? ('Active filters: ' + tags.join(' · ')) : 'No active filters';
-    }
-
-    renderLayerLegend();
-    if (els.lemLegendToggle) els.lemLegendToggle.addEventListener('click', () => {
-      if (!els.lemLegend) return;
-      const open = els.lemLegend.classList.toggle('d-none');
-      els.lemLegendToggle.textContent = open ? 'Show Stage Legend' : 'Hide Stage Legend';
-    });
-
-    populateFilters(); renderAll();
-    ['change','keyup'].forEach(evt => [els.fSector,els.fRegion,els.fStatus,els.fBuyer,els.fFid,els.fMinPpi,els.fSearch].forEach(el => el.addEventListener(evt, renderAll)));
-    const fResetBtn = document.getElementById('f-reset');
-    if (fResetBtn) fResetBtn.addEventListener('click', () => {
-      els.fSector.value=''; els.fRegion.value=''; els.fStatus.value=''; els.fBuyer.value=''; els.fFid.value=''; els.fMinPpi.value='0'; els.fSearch.value='';
-      state.ontologyLayer=''; state.missingLayer=''; state.buyerFocus=''; state.phaseFocus=''; state.stuckReason='';
-      renderAll();
-    });
-    document.querySelectorAll('button[data-sort]').forEach(btn => btn.addEventListener('click', () => { const k = btn.getAttribute('data-sort'); if(state.sortBy===k) state.sortDir = state.sortDir==='asc'?'desc':'asc'; else {state.sortBy=k; state.sortDir='desc';} renderAll(); }));
-  </script>
+    <script id="pp-bootstrap" type="application/json">${bootstrap}</script>
+    <script defer src="/public/js/platform-pressure-v1.js?v=2"></script>
   </body></html>`);
 });
 
