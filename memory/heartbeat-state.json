@@ -1,6 +1,6 @@
 {
-  "buyerAccessGraphSignature": "f5355ee0764542fd86cba22b96e4018f1e46b518fd7bba79c45889902b38ff6c",
-  "updatedAtUtc": "2026-03-12T16:21:00Z",
+  "buyerAccessGraphSignature": "f4baa2e6bb1f70e6b406f44a592f70718ff6657d98689a3bb1c7a49820559d3a",
+  "updatedAtUtc": "2026-03-15T04:22:24.827Z",
   "issues": [
     {
       "type": "missing_decision_arch",
@@ -25,17 +25,6 @@
         {
           "buyer_id": "DFC",
           "person": "Conor Coleman"
-        }
-      ]
-    },
-    {
-      "type": "stale_paths",
-      "items": [
-        {
-          "buyer_id": "NSIA",
-          "path_id": "PATH-NSIA-001",
-          "status": "Warming",
-          "days": 15.7
         }
       ]
     },
