@@ -3305,6 +3305,12 @@
         "title": "Federal Policy Changes Are Needed to Accelerate Rebuilding Infrastructure in the U.S. Virgin Islands",
         "url": "https://www.rand.org/pubs/research_briefs/RBA3081-1.html",
         "verification_status": "policy_research_brief"
+      },
+      {
+        "publisher": "RAND",
+        "title": "Rebuilding Infrastructure in the U.S. Virgin Islands: Exploring Options to Accelerate the Recovery Supply Chain and Sustain Economic Gains",
+        "url": "https://www.rand.org/pubs/research_reports/RRA3081-1.html",
+        "verification_status": "policy_research_report"
       }
     ],
     "provenance": "provided_by_isaac",
@@ -3398,7 +3404,9 @@
         "Project sequencing",
         "Regulatory/procurement complexity",
         "Island logistics constraints",
-        "Government management/fiscal/workforce capacity limits"
+        "Government management/fiscal/workforce capacity limits",
+        "FEMA policy limits on upfront staffing funding",
+        "Long-term sustainment costs likely exceed recovery-generated tax revenue"
       ]
     },
     "prediction": {
