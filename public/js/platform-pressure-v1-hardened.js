@@ -245,17 +245,17 @@
         var actorCtx = safeArray((phys || {}).buyerAlignment).slice(0,2).map(function (b) { return (b && b.buyer_id ? b.buyer_id : '') + ': capital_provider'; }).join(' • ') || 'capital_provider / operator / sponsor';
 
         decisionCards.push('<div class="card"><div class="card-body py-2">'+
-          '<div><strong>'+esc(k)+'</strong></div>'+
-          '<div class="small text-muted">Top aligned sector: '+esc(r0.sector || '—')+' · PPI '+esc(r0.ppi || 0)+' · Stage '+esc((phys || {}).state || r0.status || '—')+'</div>'+
-          '<div class="small mt-1">Signal timing mix: Early '+esc(fmtPct(phaseMix.early))+' · Mid '+esc(fmtPct(phaseMix.mid))+' · Late '+esc(fmtPct(phaseMix.late))+'</div>'+
-          '<div class="small mt-1"><strong>Main blocker:</strong> '+esc(blocker1)+'</div>'+
-          '<div class="small mt-1"><strong>Secondary blocker:</strong> '+esc(blocker2)+'</div>'+
-          '<div class="small mt-1"><strong>Missing key stages:</strong> '+esc(missing.join(', ') || 'None')+'</div>'+
-          '<div class="small mt-1"><strong>Actor role context:</strong> '+esc(actorCtx)+'</div>'+
-          '<div class="small mt-1"><strong>Recommended USG Move:</strong> '+esc(move)+' · <strong>Confidence:</strong> '+esc(conf)+'</div>'+
-          '<div class="small mt-1"><strong>Why this move:</strong> '+esc(why)+'</div>'+
-          '<div class="small mt-1"><strong>What may slow this down:</strong> '+esc(constraintsB.join(' | ') || '—')+'</div>'+
-          '<div class="small mt-1"><strong>Required next evidence:</strong> '+esc(requiredEvidence)+'</div>'+
+          '<div class="d-flex justify-content-between align-items-start gap-2">'+
+            '<div><strong>'+esc(k)+'</strong><div class="small text-muted">Sector: '+esc(r0.sector || '—')+' · Stage: '+esc((phys || {}).state || r0.status || '—')+'</div></div>'+
+            '<span class="badge text-bg-primary">'+esc(move)+'</span>'+
+          '</div>'+
+          '<div class="small mt-1"><strong>Confidence:</strong> '+esc(conf)+'</div>'+
+          '<div class="small mt-1">• <strong>Main blocker:</strong> '+esc(blocker1)+'</div>'+
+          '<div class="small mt-1">• <strong>Secondary blocker:</strong> '+esc(blocker2)+'</div>'+
+          '<div class="small mt-1">• <strong>Missing stages:</strong> '+esc(missing.join(', ') || 'None')+'</div>'+
+          '<div class="small mt-1">• <strong>Required condition to advance:</strong> '+esc(requiredEvidence)+'</div>'+
+          '<div class="small mt-1">• <strong>Signal timing:</strong> E '+esc(fmtPct(phaseMix.early))+' / M '+esc(fmtPct(phaseMix.mid))+' / L '+esc(fmtPct(phaseMix.late))+'</div>'+
+          '<div class="small mt-1">• <strong>Actor context:</strong> '+esc(actorCtx)+'</div>'+
         '</div></div>');
 
         heatLines.push('<div class="pp-heat-row"><strong>'+esc(k)+':</strong> Active in '+esc(active.slice(0,4).join(', ') || 'early discovery')+' · Missing '+esc(missing.slice(0,3).join(', ') || 'none')+'</div>');

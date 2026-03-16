@@ -1627,7 +1627,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
   <div id="pp-failure" class="alert alert-danger py-2 small mb-3" style="display:none"></div>
   <script id="pp-data" type="application/json">${payload}</script>
-  <script defer src="/public/js/platform-pressure-v1-hardened.js?v=7"></script>
+  <script defer src="/public/js/platform-pressure-v1-hardened.js?v=8"></script>
   </body></html>`);
 });
 
