@@ -225,17 +225,51 @@
         if (cls && classes.indexOf(cls) < 0) classes.push(cls);
         if (cls && (!topByBuyer[cls] || num(rows[i].ppi) > num(topByBuyer[cls].ppi))) topByBuyer[cls] = rows[i];
       }
-      setText('pp-heatmap', classes.length ? classes.join(' • ') : 'No buyer classes tagged');
 
-      var topHtml = [];
+      var decisionCards = [];
+      var heatLines = [];
       for (var k in topByBuyer) {
         if (!Object.prototype.hasOwnProperty.call(topByBuyer, k)) continue;
-        topHtml.push('<div class="pp-heat-row"><strong>'+esc(k)+':</strong> '+esc(topByBuyer[k].sector)+' (PPI '+esc(topByBuyer[k].ppi)+')</div>');
-      }
-      setHtml('pp-top-by-buyer', topHtml.join('') || '<div class="text-muted">No buyer-class rows available.</div>');
+        var r0 = topByBuyer[k] || {};
+        var phys = getPhysicsForRow(r0) || {};
+        var active = safeArray((((phys || {}).ontology || {}).activeLayers));
+        var missing = getOntologyLayers().filter(function (l) { return active.indexOf(l) < 0; }).slice(0,4);
+        var phaseMix = (phys || {}).phaseMix || {};
+        var constraintsB = safeArray(((r0 || {}).model_update || {}).constraints);
+        var blocker1 = String(r0.mainStructuralBottleneck || constraintsB[0] || '—');
+        var blocker2 = String(constraintsB[1] || '—');
+        var move = String((phys || {}).recommendedUSGMotion || r0.recommended_motion || r0.nextIntelligenceAction || 'monitor');
+        var conf = String((phys || {}).recommendedUSGMotionConfidence || r0.decision_confidence || 'medium');
+        var why = String((phys || {}).recommendedUSGMotionRationale || r0.whyItMatters || '—');
+        var requiredEvidence = String((safeArray(r0.required_next_evidence).join(' | ')) || 'Anchor condition / policy or offtake proof required');
+        var actorCtx = safeArray((phys || {}).buyerAlignment).slice(0,2).map(function (b) { return (b && b.buyer_id ? b.buyer_id : '') + ': capital_provider'; }).join(' • ') || 'capital_provider / operator / sponsor';
 
-      var watch = rows.filter(function (r) { return String(r.usgRelevance || '').indexOf('Mandate') >= 0; }).slice(0, 6).map(function (r) { return r.sector; });
-      setText('pp-watchlist', watch.length ? watch.join(' • ') : 'No sectors in mandate window yet.');
+        decisionCards.push('<div class="card"><div class="card-body py-2">'+
+          '<div><strong>'+esc(k)+'</strong></div>'+
+          '<div class="small text-muted">Top aligned sector: '+esc(r0.sector || '—')+' · PPI '+esc(r0.ppi || 0)+' · Stage '+esc((phys || {}).state || r0.status || '—')+'</div>'+
+          '<div class="small mt-1">Signal timing mix: Early '+esc(fmtPct(phaseMix.early))+' · Mid '+esc(fmtPct(phaseMix.mid))+' · Late '+esc(fmtPct(phaseMix.late))+'</div>'+
+          '<div class="small mt-1"><strong>Main blocker:</strong> '+esc(blocker1)+'</div>'+
+          '<div class="small mt-1"><strong>Secondary blocker:</strong> '+esc(blocker2)+'</div>'+
+          '<div class="small mt-1"><strong>Missing key stages:</strong> '+esc(missing.join(', ') || 'None')+'</div>'+
+          '<div class="small mt-1"><strong>Actor role context:</strong> '+esc(actorCtx)+'</div>'+
+          '<div class="small mt-1"><strong>Recommended USG Move:</strong> '+esc(move)+' · <strong>Confidence:</strong> '+esc(conf)+'</div>'+
+          '<div class="small mt-1"><strong>Why this move:</strong> '+esc(why)+'</div>'+
+          '<div class="small mt-1"><strong>What may slow this down:</strong> '+esc(constraintsB.join(' | ') || '—')+'</div>'+
+          '<div class="small mt-1"><strong>Required next evidence:</strong> '+esc(requiredEvidence)+'</div>'+
+        '</div></div>');
+
+        heatLines.push('<div class="pp-heat-row"><strong>'+esc(k)+':</strong> Active in '+esc(active.slice(0,4).join(', ') || 'early discovery')+' · Missing '+esc(missing.slice(0,3).join(', ') || 'none')+'</div>');
+      }
+      setHtml('pp-buyer-decision-layer', decisionCards.join('') || '<div class="text-muted">No buyer-class pairings available.</div>');
+      setHtml('pp-heatmap', heatLines.join('') || '<div class="text-muted">No buyer classes tagged.</div>');
+
+      var watchRows = rows.filter(function (r) { return String(r.usgRelevance || '').indexOf('Mandate') >= 0; }).slice(0, 6);
+      var watchHtml = watchRows.map(function (r) {
+        var phys = getPhysicsForRow(r) || {};
+        var constraintsW = safeArray(((r || {}).model_update || {}).constraints);
+        return '<div class="mb-2"><strong>'+esc(r.sector || '—')+'</strong><div class="small text-muted">Stage: '+esc((phys || {}).state || r.status || '—')+'</div><div class="small">Main blocker: '+esc(String(r.mainStructuralBottleneck || constraintsW[0] || '—'))+'</div><div class="small">Required condition: '+esc((safeArray(r.required_next_evidence).join(' | ')) || 'Anchor commitment / approval path')+'</div><div class="small">Recommended move: '+esc(String(r.recommended_motion || r.nextIntelligenceAction || 'monitor'))+'</div></div>';
+      }).join('');
+      setHtml('pp-watchlist', watchHtml || 'No sectors in mandate window yet.');
 
       var constraints = [];
       for (var j = 0; j < rows.length; j++) {

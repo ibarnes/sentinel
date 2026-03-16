@@ -1604,18 +1604,18 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     </table></div></div>
 
     <div class="card mb-3"><div class="card-body">
-      <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Top mandate-proximate sectors by buyer class</h6><span class="pp-legend">PPI ≥ 20 or (PPI ≥ 15 and 90D Δ ≥ +4)</span></div>
-      <div id="pp-top-by-buyer" class="small">${escapeHtml(Array.from(new Set(rows.map(r=>String(r.likelyBuyerClass||'').trim()).filter(Boolean))).slice(0,4).join(' • ') || 'No buyer classes tagged')}</div>
+      <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Buyer Decision Layer</h6><span class="pp-legend">Buyer alignment, blockers, evidence, and motion</span></div>
+      <div id="pp-buyer-decision-layer" class="vstack gap-2 small">Loading buyer decision cards…</div>
     </div></div>
 
     <div class="row g-3 mb-3">
       <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
-        <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Buyer Class Heatmap</h6><span class="pp-legend">Where buyer classes are clustering now</span></div>
-        <div id="pp-heatmap" class="small">${escapeHtml(Array.from(new Set(rows.map(r=>String(r.likelyBuyerClass||'').trim()).filter(Boolean))).join(' • ') || 'No buyer classes tagged')}</div>
+        <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Buyer Class Heatmap (Lifecycle Context)</h6><span class="pp-legend">Active stages by buyer class</span></div>
+        <div id="pp-heatmap" class="small">Loading…</div>
       </div></div></div>
       <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
         <h6 class="mb-2">Mandate-Proximate Watchlist</h6>
-        <div id="pp-watchlist" class="small">${rows.filter(r=>String(r.usgRelevance||'').includes('Mandate')).slice(0,6).map(r=>escapeHtml(r.sector||'')).join(' • ') || 'No sectors in mandate window yet.'}</div>
+        <div id="pp-watchlist" class="small">Loading…</div>
       </div></div></div>
     </div>
 
@@ -1627,7 +1627,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
   <div id="pp-failure" class="alert alert-danger py-2 small mb-3" style="display:none"></div>
   <script id="pp-data" type="application/json">${payload}</script>
-  <script defer src="/public/js/platform-pressure-v1-hardened.js?v=6"></script>
+  <script defer src="/public/js/platform-pressure-v1-hardened.js?v=7"></script>
   </body></html>`);
 });
 
