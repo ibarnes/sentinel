@@ -125,7 +125,7 @@ function uiHead(title) {
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script defer src="https://unpkg.com/lucide@latest"></script>
-<script defer src="/dashboard/vendor/cytoscape.min.js"></script>
+<script defer src="/public/vendor/cytoscape.min.js"></script>
 <style>
   :root {
     --bg: #0f1115;
