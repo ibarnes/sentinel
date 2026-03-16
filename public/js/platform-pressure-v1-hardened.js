@@ -43,6 +43,17 @@
 
     setText('pp-map-summary', 'Model data loaded: ' + list.length + ' sectors tracked');
 
+    var mapRows = list.slice().sort(function(a,b){ return num(b && b.ppi) - num(a && a.ppi); }).slice(0,8);
+    var mapHtml = mapRows.map(function (r) {
+      return '<div class="lem-row">' +
+        '<div class="lem-row-head">' +
+          '<div><strong>' + esc((r && r.sector) || '—') + '</strong><div class="pp-legend">' + esc((r && r.region) || '') + ' · ' + esc((r && r.status) || '') + '</div></div>' +
+          '<div class="lem-layer-tag">PPI ' + esc(String((r && r.ppi) || 0)) + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+    setHtml('lem-panel', mapHtml || '<div class="text-muted">No lifecycle rows available.</div>');
+
     setHtml('pp-usg-window', '<div class="small text-muted">Data refreshed from API. Use this as decision-and-motion view.</div>');
 
     var topByBuyer = {};
