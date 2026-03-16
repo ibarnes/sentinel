@@ -1542,20 +1542,24 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
       </div>
     </div>
 
-    <div id="pp-summary" class="row g-2 mb-3"></div>
+    <div id="pp-summary" class="row g-2 mb-3">
+      <div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Total sectors tracked</div><div class="metric-value">${escapeHtml(String(rows.length))}</div></div></div></div>
+      <div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Mandate-Proximate sectors</div><div class="metric-value">${escapeHtml(String(rows.filter(r=>String(r.usgRelevance||'').includes('Mandate')).length))}</div></div></div></div>
+      <div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Average PPI</div><div class="metric-value">${escapeHtml(rows.length ? (rows.reduce((s,r)=>s+Number(r.ppi||0),0)/rows.length).toFixed(1) : '0.0')}</div></div></div></div>
+    </div>
 
     <div class="card mb-3"><div class="card-body">
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h6 class="mb-0">USG Opportunity Window</h6>
         <span class="pp-legend">Decision-and-motion view</span>
       </div>
-      <div id="pp-usg-window" class="small"></div>
+      <div id="pp-usg-window" class="small">${escapeHtml(String((rows[0]||{}).recommended_motion || (rows[0]||{}).nextIntelligenceAction || 'monitor'))}</div>
     </div></div>
 
     <div class="card mb-3"><div class="card-body">
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h6 class="mb-0">Platform Signal Map</h6>
-        <span class="pp-legend" id="lem-generated-at">No snapshot loaded</span>
+        <span class="pp-legend" id="lem-generated-at">${escapeHtml(String((signalPhysics && signalPhysics.generated_at) || nowIso()).slice(0,19).replace('T',' '))}</span>
       </div>
       <div class="pp-legend mb-2">Signals across the infrastructure lifecycle</div>
       <div class="d-flex justify-content-between align-items-center mb-2">
@@ -1563,7 +1567,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         <button id="lem-legend-toggle" type="button" class="btn btn-sm btn-outline-secondary py-0 px-2">Show Stage Legend</button>
       </div>
       <div id="lem-legend" class="small d-none mb-2"></div>
-      <div id="lem-panel" class="vstack gap-2 small"></div>
+      <div id="lem-panel" class="vstack gap-2 small"><div class="text-muted">Lifecycle signal map loading…</div></div>
     </div></div>
 
     <div class="card mb-3"><div class="card-body py-2">
@@ -1599,17 +1603,17 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
     <div class="card mb-3"><div class="card-body">
       <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Top mandate-proximate sectors by buyer class</h6><span class="pp-legend">PPI ≥ 20 or (PPI ≥ 15 and 90D Δ ≥ +4)</span></div>
-      <div id="pp-top-by-buyer" class="small"></div>
+      <div id="pp-top-by-buyer" class="small">${escapeHtml(Array.from(new Set(rows.map(r=>String(r.likelyBuyerClass||'').trim()).filter(Boolean))).slice(0,4).join(' • ') || 'No buyer classes tagged')}</div>
     </div></div>
 
     <div class="row g-3 mb-3">
       <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Buyer Class Heatmap</h6><span class="pp-legend">Where buyer classes are clustering now</span></div>
-        <div id="pp-heatmap" class="small"></div>
+        <div id="pp-heatmap" class="small">${escapeHtml(Array.from(new Set(rows.map(r=>String(r.likelyBuyerClass||'').trim()).filter(Boolean))).join(' • ') || 'No buyer classes tagged')}</div>
       </div></div></div>
       <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
         <h6 class="mb-2">Mandate-Proximate Watchlist</h6>
-        <div id="pp-watchlist" class="small"></div>
+        <div id="pp-watchlist" class="small">${rows.filter(r=>String(r.usgRelevance||'').includes('Mandate')).slice(0,6).map(r=>escapeHtml(r.sector||'')).join(' • ') || 'No sectors in mandate window yet.'}</div>
       </div></div></div>
     </div>
 
@@ -1619,7 +1623,6 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     </div>
   </div>
 
-  <script id="pp-data" type="application/json">${payload}</script>
   <div id="pp-failure" class="alert alert-danger py-2 small mb-3" style="display:none"></div>
   <script id="pp-data" type="application/json">${payload}</script>
   <script defer src="/public/js/platform-pressure-v1-hardened.js?v=1"></script>
