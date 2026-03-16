@@ -3299,6 +3299,12 @@
         "publisher": "Jacobs (press release)",
         "url": "https://www.jacobs.com/newsroom/press-release/jacobs-awarded-program-management-contract-rebuild-us-virgin-islands",
         "verification_status": "first_party_corporate"
+      },
+      {
+        "publisher": "RAND",
+        "title": "Federal Policy Changes Are Needed to Accelerate Rebuilding Infrastructure in the U.S. Virgin Islands",
+        "url": "https://www.rand.org/pubs/research_briefs/RBA3081-1.html",
+        "verification_status": "policy_research_brief"
       }
     ],
     "provenance": "provided_by_isaac",
@@ -3383,15 +3389,16 @@
       "method": "Progressive Design-Build",
       "implication": "Complex multi-actor delivery requiring strong coordination and sequencing."
     },
-    "pattern_summary": "Large disaster-recovery capital pools deploy in multi-year waves and create secondary platform opportunities once core utility/transport layers stabilize.",
+    "pattern_summary": "USVI recovery pace is structurally constrained by management, fiscal, workforce, and supply-chain capacity gaps; acceleration depends on policy flexibility and upfront capacity funding.",
     "model_update": {
       "pressure": "High infrastructure capital waiting for coordinated deployment",
-      "momentum": "Moderate to high — PMO contracting and execution layer confirmed by contractor release",
+      "momentum": "Moderate — execution support improving, but RAND indicates systemic capacity bottlenecks still slow spend and delivery.",
       "constraints": [
         "Multi-agency coordination",
         "Project sequencing",
         "Regulatory/procurement complexity",
-        "Island logistics constraints"
+        "Island logistics constraints",
+        "Government management/fiscal/workforce capacity limits"
       ]
     },
     "prediction": {
