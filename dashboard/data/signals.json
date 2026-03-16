@@ -3270,7 +3270,7 @@
     "signal_class": "Platform Pressure",
     "status": "Early Deployment",
     "confidence": "High",
-    "verification_status": "multi_source_program_reporting",
+    "verification_status": "multi_source_with_first_party_corporate",
     "observed_at": "2026-03-13T16:34:00Z",
     "summary": "USVI disaster recovery capital pool remains large with significant undeployed funding and multi-year infrastructure program activity across utilities, transport, vertical construction, and resilience systems.",
     "flow": "federal disaster funding allocation -> program management mobilization -> phased infrastructure deployment -> secondary energy/logistics platform formation potential",
@@ -3294,6 +3294,11 @@
       {
         "url": "https://stthomassource.com/content/2025/05/29/territory-spends-3-8-billion-of-23-9-billion-in-recovery-funds-officials-say/",
         "source_name": "St. Thomas Source"
+      },
+      {
+        "publisher": "Jacobs (press release)",
+        "url": "https://www.jacobs.com/newsroom/press-release/jacobs-awarded-program-management-contract-rebuild-us-virgin-islands",
+        "verification_status": "first_party_corporate"
       }
     ],
     "provenance": "provided_by_isaac",
@@ -3381,7 +3386,7 @@
     "pattern_summary": "Large disaster-recovery capital pools deploy in multi-year waves and create secondary platform opportunities once core utility/transport layers stabilize.",
     "model_update": {
       "pressure": "High infrastructure capital waiting for coordinated deployment",
-      "momentum": "Moderate; program management and contractor mobilization underway",
+      "momentum": "Moderate to high — PMO contracting and execution layer confirmed by contractor release",
       "constraints": [
         "Multi-agency coordination",
         "Project sequencing",
