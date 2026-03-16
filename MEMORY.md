@@ -251,3 +251,18 @@
 - Durable changes captured: TASK-0162 through TASK-0167 execution, RP-0064/0065/0066 publication, and tranche-H approval routing artifacts.
 - No new operating-rule changes.
 - No scoring-policy changes.
+
+# Project Status Snapshot (2026-03-16)
+- Board progress + build windows continued with decomposition gate and artifact-first execution.
+- New atomic outputs executed and committed:
+  - `TASK-0171`/`TASK-0172` + `RP-0069` (midday preflight + wrapper dry-run fail-fast evidence; commit `6bdb528`).
+  - `TASK-0173`/`TASK-0174` + `RP-0070` (tranche-J decision packet + approval routing card; commit `285b723`).
+- Net effect: approval routing for stale RFR queue advanced (tranche-J), while credentialed blocker chain remains gated on live runtime credentials for `TASK-0159` before `TASK-0160` replay.
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-16)
+- Daily log created at `memory/2026-03-16.md` and distilled into durable snapshot.
+- Durable changes captured: RP-0069 and RP-0070 tranche/credential-chain artifact updates plus latest commit references.
+- No new operating-rule changes.
+- No scoring-policy changes.
