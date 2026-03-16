@@ -3627,5 +3627,88 @@
       "INIT-NG-FIN-ENERGY-SPINE",
       "USG"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-16-DRC-GOLD-REFINERY-KALEMIE-001",
+    "title": "DRC inaugurates first gold refinery in Kalemie (reported 500–600kg monthly output)",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "social_post_summary_pending_primary_confirmation",
+    "observed_at": "2026-03-16T04:26:00Z",
+    "summary": "Business Insider Africa social post claims DRC opened its first gold refinery in Kalemie with reported 500–600kg monthly processing capacity, aimed at local value addition, pricing transparency, and stronger sector oversight.",
+    "flow": "domestic refining capacity launch -> in-country gold value capture + oversight narrative -> potential formalization of artisanal-to-bullion chain -> commodity platform leverage shift",
+    "sources": [
+      {
+        "publisher": "Business Insider Africa (Instagram post screenshot)",
+        "url": "internal://isaac/telegram/2026-03-16-drc-gold-refinery-instagram",
+        "verification_status": "unverified_social_excerpt"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "African Mineral Value-Chain Localization",
+    "actor_refs": [
+      "ACTOR:drc_government",
+      "ACTOR:drc_gold_refinery_sa",
+      "ACTOR:artisanal_miners_drc"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:drc_government",
+        "role": "policy_sponsor",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:drc_gold_refinery_sa",
+        "role": "processing_operator",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:artisanal_miners_drc",
+        "role": "feedstock_supply_base",
+        "influence": "medium"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "industrial_production",
+      "market_access"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "key_data_points": {
+      "reported_monthly_output_kg_low": 500,
+      "reported_monthly_output_kg_high": 600,
+      "location": "Kalemie, DRC"
+    },
+    "pattern_summary": "Resource states continue pushing downstream processing to retain commodity value and improve state visibility across extraction chains.",
+    "model_update": {
+      "pressure": "Rising pressure for in-country mineral processing and traceable value-chain control.",
+      "momentum": "Early but material if refinery operation continuity is confirmed.",
+      "constraints": [
+        "Feedstock consistency",
+        "compliance/traceability standards",
+        "power/logistics reliability"
+      ]
+    },
+    "strategic_implications": [
+      "Local refining could shift leverage from export-of-raw to processing-linked economics.",
+      "Creates potential entry point for structured offtake, finance, and traceability platforms."
+    ],
+    "tags": [
+      "drc",
+      "gold",
+      "refining",
+      "minerals",
+      "value-chain-localization",
+      "africa-industrialization"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "USG"
+    ]
   }
 ]
