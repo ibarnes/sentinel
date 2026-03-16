@@ -3730,5 +3730,193 @@
       "INIT-2026-03-05-COMMODITY-CORRIDOR",
       "USG"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-16-GULF-SWF-DEPLOYMENT-REVIEW-001",
+    "title": "Gulf governments reviewing sovereign wealth deployment cadence amid regional risk",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "analyst_signal_pending_named_primary_sources",
+    "observed_at": "2026-03-16T22:48:00Z",
+    "summary": "Several Gulf governments are reportedly reassessing SWF deployment speed and priorities under geopolitical stress, including potential delays/reprioritization in global commitments.",
+    "flow": "geopolitical risk elevation -> sovereign allocation review -> slower cross-border deployment cadence -> delayed closes for Gulf-dependent infrastructure pipelines",
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "Global Infrastructure Capital Allocation",
+    "actor_refs": [
+      "BUYER:PIF",
+      "BUYER:QIA",
+      "ACTOR:gulf_governments",
+      "ACTOR:global_infrastructure_sponsors"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "BUYER:PIF",
+        "role": "sovereign_capital_allocator",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "BUYER:QIA",
+        "role": "sovereign_capital_allocator",
+        "influence": "high"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "capital_allocation",
+      "financial_structuring",
+      "market_access"
+    ],
+    "evidence_type": "internal_analysis",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "pattern_summary": "Sovereign capital remains available but reprioritized toward strategic domestic-diversification and security-aligned infrastructure themes.",
+    "model_update": {
+      "pressure": "Higher selectivity and slower decision velocity for non-priority cross-border allocations.",
+      "momentum": "Mixed; headline capital depth remains high, deployment cadence risk elevated.",
+      "constraints": [
+        "geopolitical risk premium",
+        "allocation committee reprioritization"
+      ]
+    },
+    "strategic_implications": [
+      "Gulf-capital-dependent fundraising cycles may lengthen.",
+      "Projects framed as strategic infrastructure (energy/logistics/AI) likely retain relative priority."
+    ],
+    "tags": [
+      "gulf",
+      "swf",
+      "capital-allocation",
+      "geopolitics",
+      "infrastructure-finance"
+    ],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-16-WAFR-PRIVATE-PORT-FINANCE-001",
+    "title": "West Africa deep-sea port confirms private-capital-led financing model ($1.4B)",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "analyst_signal_pending_project_source_docs",
+    "observed_at": "2026-03-16T22:48:00Z",
+    "summary": "A $1.4B deep-sea port development reportedly confirmed fully private financing with government minority strategic stake and Afreximbank participation, reinforcing concession-led delivery patterns.",
+    "flow": "fiscal constraint at state level -> private developer/concession financing stack -> DFI-backed logistics infrastructure execution",
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "Emerging Market Logistics Corridor Financing",
+    "actor_refs": [
+      "ACTOR:afreximbank",
+      "ACTOR:private_developer_equity",
+      "ACTOR:host_government"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:afreximbank",
+        "role": "development_finance_anchor",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:private_developer_equity",
+        "role": "project_capital_sponsor",
+        "influence": "high"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "capital_allocation",
+      "financial_structuring",
+      "construction"
+    ],
+    "evidence_type": "internal_analysis",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "pattern_summary": "Concession frameworks plus DFI-anchored private stacks are becoming default for large logistics assets in fiscally constrained markets.",
+    "model_update": {
+      "pressure": "High pressure toward private-led infrastructure delivery structures.",
+      "momentum": "Positive; financing architecture clarity improves project bankability.",
+      "constraints": [
+        "concession governance quality",
+        "execution capacity",
+        "currency risk"
+      ]
+    },
+    "strategic_implications": [
+      "Sponsors with structuring + development capability gain advantage in emerging-market logistics projects."
+    ],
+    "tags": [
+      "west-africa",
+      "ports",
+      "concessions",
+      "private-capital",
+      "afreximbank"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "USG"
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-16-INDIA-INFRA-BOND-CHANNEL-REOPEN-001",
+    "title": "India infra bond channel reopens via major lender issuance after 16-month pause",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "analyst_signal_pending_primary_market_filings",
+    "observed_at": "2026-03-16T22:48:00Z",
+    "summary": "India’s largest lender reportedly preparing up to $1.1B infrastructure bond issuance, indicating renewed domestic institutional appetite for long-duration infrastructure debt.",
+    "flow": "bank issuance restart -> institutional demand (insurers/pensions) -> stronger domestic long-tenor infrastructure debt capacity",
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "Domestic Infrastructure Debt Channel Reactivation",
+    "actor_refs": [
+      "ACTOR:india_largest_lender",
+      "ACTOR:state_insurers",
+      "ACTOR:pension_funds"
+    ],
+    "actor_roles": [
+      {
+        "actor_ref": "ACTOR:india_largest_lender",
+        "role": "debt_channel_originator",
+        "influence": "high"
+      },
+      {
+        "actor_ref": "ACTOR:state_insurers",
+        "role": "long_duration_capital_provider",
+        "influence": "high"
+      }
+    ],
+    "lifecycle_stage_refs": [
+      "capital_allocation",
+      "financial_structuring"
+    ],
+    "evidence_type": "internal_analysis",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "pattern_summary": "Domestic savings channels are re-opening for infrastructure finance, reducing sole dependence on external capital pools.",
+    "model_update": {
+      "pressure": "Constructive pressure for domestic debt-funded infrastructure expansion.",
+      "momentum": "Re-accelerating in long-tenor debt markets.",
+      "constraints": [
+        "rate sensitivity",
+        "credit underwriting discipline"
+      ]
+    },
+    "strategic_implications": [
+      "Developers may access improved local long-tenor debt for energy and transport assets."
+    ],
+    "tags": [
+      "india",
+      "infrastructure-bonds",
+      "domestic-capital",
+      "long-tenor-debt"
+    ],
+    "initiative_ids": [
+      "USG"
+    ]
   }
 ]
