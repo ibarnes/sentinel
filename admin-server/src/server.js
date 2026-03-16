@@ -1543,9 +1543,11 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     </div>
 
     <div id="pp-summary" class="row g-2 mb-3">
-      <div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Total sectors tracked</div><div class="metric-value">${escapeHtml(String(rows.length))}</div></div></div></div>
-      <div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Mandate-Proximate sectors</div><div class="metric-value">${escapeHtml(String(rows.filter(r=>String(r.usgRelevance||'').includes('Mandate')).length))}</div></div></div></div>
-      <div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Average PPI</div><div class="metric-value">${escapeHtml(rows.length ? (rows.reduce((s,r)=>s+Number(r.ppi||0),0)/rows.length).toFixed(1) : '0.0')}</div></div></div></div>
+      <div class="col-12 col-md-2"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Total sectors</div><div class="metric-value">${escapeHtml(String(rows.length))}</div></div></div></div>
+      <div class="col-12 col-md-2"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Mandate-proximate</div><div class="metric-value">${escapeHtml(String(rows.filter(r=>String(r.usgRelevance||'').includes('Mandate')).length))}</div></div></div></div>
+      <div class="col-12 col-md-2"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Average PPI</div><div class="metric-value">${escapeHtml(rows.length ? (rows.reduce((s,r)=>s+Number(r.ppi||0),0)/rows.length).toFixed(1) : '0.0')}</div></div></div></div>
+      <div class="col-12 col-md-2"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Momentum</div><div class="metric-value">${escapeHtml(String(rows.filter(r=>Number(r.delta90d||0)>0).length))}</div></div></div></div>
+      <div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Opportunity window</div><div class="metric-value" style="font-size:1rem">${escapeHtml(String((rows.sort((a,b)=>Number(b.ppi||0)-Number(a.ppi||0))[0]||{}).sector || '—'))}</div></div></div></div>
     </div>
 
     <div class="card mb-3"><div class="card-body">
@@ -1553,7 +1555,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
         <h6 class="mb-0">USG Opportunity Window</h6>
         <span class="pp-legend">Decision-and-motion view</span>
       </div>
-      <div id="pp-usg-window" class="small">${escapeHtml(String((rows[0]||{}).recommended_motion || (rows[0]||{}).nextIntelligenceAction || 'monitor'))}</div>
+      <div id="pp-usg-window" class="small">Loading…</div>
     </div></div>
 
     <div class="card mb-3"><div class="card-body">
@@ -1625,7 +1627,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
 
   <div id="pp-failure" class="alert alert-danger py-2 small mb-3" style="display:none"></div>
   <script id="pp-data" type="application/json">${payload}</script>
-  <script defer src="/public/js/platform-pressure-v1-hardened.js?v=2"></script>
+  <script defer src="/public/js/platform-pressure-v1-hardened.js?v=3"></script>
   </body></html>`);
 });
 

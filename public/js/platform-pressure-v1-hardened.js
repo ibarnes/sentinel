@@ -62,16 +62,29 @@
       var avg = rows.length ? (rows.reduce(function (s, r) { return s + num(r.ppi); }, 0) / rows.length).toFixed(1) : '0.0';
       var mandate = rows.filter(function (r) { return String(r.usgRelevance || '').indexOf('Mandate') >= 0; }).length;
       var movers = rows.filter(function (r) { return num(r.delta90d) > 0; }).length;
+      var total = rows.length;
+      var top = rows.slice().sort(function (a,b) { return num(b.ppi)-num(a.ppi); })[0] || {};
       var html = '' +
-        '<div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Mandate-Proximate sectors</div><div class="metric-value">'+esc(mandate)+'</div></div></div></div>' +
-        '<div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Average PPI</div><div class="metric-value">'+esc(avg)+'</div></div></div></div>' +
-        '<div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">High momentum sectors</div><div class="metric-value">'+esc(movers)+'</div></div></div></div>';
+        '<div class="col-12 col-md-2"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Total sectors</div><div class="metric-value">'+esc(total)+'</div></div></div></div>' +
+        '<div class="col-12 col-md-2"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Mandate-proximate</div><div class="metric-value">'+esc(mandate)+'</div></div></div></div>' +
+        '<div class="col-12 col-md-2"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Average PPI</div><div class="metric-value">'+esc(avg)+'</div></div></div></div>' +
+        '<div class="col-12 col-md-2"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Momentum</div><div class="metric-value">'+esc(movers)+'</div></div></div></div>' +
+        '<div class="col-12 col-md-4"><div class="card metric-card"><div class="card-body py-2"><div class="metric-label">Opportunity window</div><div class="metric-value" style="font-size:1rem">'+esc(top.sector || '—')+'</div></div></div></div>';
       var target = byId('pp-summary');
       if (target) target.innerHTML = html;
 
-      var top = rows.slice().sort(function (a,b) { return num(b.ppi)-num(a.ppi); })[0] || {};
       var usg = byId('pp-usg-window');
-      if (usg) usg.innerHTML = '<div class="small text-muted">' + esc(top.recommended_motion || top.nextIntelligenceAction || 'monitor') + '</div>';
+      if (usg) {
+        var group = String(top.region || 'Global');
+        var move = String(top.recommended_motion || top.nextIntelligenceAction || 'monitor');
+        var physTop = getPhysicsForRow(top) || {};
+        var layers = getOntologyLayers();
+        var active = safeArray((((physTop || {}).ontology || {}).activeLayers));
+        var missing = layers.filter(function (l) { return active.indexOf(l) < 0; }).slice(0,4);
+        usg.innerHTML = '<div><strong>Sector grouping:</strong> '+esc(group)+'</div>'+
+          '<div><strong>Leading motion:</strong> '+esc(move)+'</div>'+
+          '<div><strong>Missing key stages:</strong> '+esc(missing.join(', ') || 'None')+'</div>';
+      }
     } catch (e) {
       showError('summary strip failed: ' + (e && e.message ? e.message : String(e)));
     }
@@ -112,15 +125,16 @@
             '<div class="small text-muted mt-1">Signal timing mix — Early: '+esc(fmtPct(phaseMix.early))+' · Mid: '+esc(fmtPct(phaseMix.mid))+' · Late: '+esc(fmtPct(phaseMix.late))+'</div>'+
           '</summary>'+
           '<div class="card-body pt-0">'+
-            '<div class="small"><strong>Change Speed:</strong> '+esc(String((phys || {}).momentum || '—'))+' · <strong>Change Trend:</strong> '+esc(String((phys || {}).trajectory || r.velocityNote || '—'))+'</div>'+
+            '<div class="small"><strong>Opportunity Strength:</strong> '+esc(String(r.ppi || 0))+'/25</div>'+
+            '<div class="small mt-1"><strong>Change Speed:</strong> '+esc(String((phys || {}).momentum || '—'))+' · <strong>Change Trend:</strong> '+esc(String((phys || {}).trajectory || r.velocityNote || '—'))+'</div>'+
             '<div class="small mt-1"><strong>Best buyer matches:</strong> '+esc(buyerMatches)+'</div>'+
             '<div class="small mt-1"><strong>Recommended USG move:</strong> '+esc(String((phys || {}).recommendedUSGMotion || r.recommended_motion || r.nextIntelligenceAction || 'monitor'))+'</div>'+
             '<div class="small mt-1"><strong>Confidence level:</strong> '+esc(String((phys || {}).recommendedUSGMotionConfidence || r.decision_confidence || 'medium'))+'</div>'+
             '<div class="small mt-1"><strong>Why this move:</strong> '+esc(String((phys || {}).recommendedUSGMotionRationale || r.whyItMatters || '—'))+'</div>'+
             '<div class="small mt-1"><strong>Main blocker:</strong> '+esc(mainBlocker)+'</div>'+
-            '<div class="small mt-1"><strong>Second blocker:</strong> '+esc(secondBlocker)+'</div>'+
+            '<div class="small mt-1"><strong>Secondary blocker:</strong> '+esc(secondBlocker)+'</div>'+
             '<div class="small mt-1"><strong>Missing key stages:</strong> '+esc(missingLayers.slice(0,6).join(', ') || 'None')+'</div>'+
-            '<div class="small mt-1"><strong>What may slow this down:</strong> '+esc(slowdown)+'</div>'+
+            '<div class="small mt-1"><strong>Counterevidence / what may slow this down:</strong> '+esc(slowdown)+'</div>'+
           '</div>'+
         '</details>';
       }).join('');
