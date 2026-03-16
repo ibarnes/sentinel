@@ -1,6 +1,7 @@
 (function () {
   function byId(id) { return document.getElementById(id); }
   function setText(id, text) { var el = byId(id); if (el) el.textContent = text; }
+  function setHtml(id, html) { var el = byId(id); if (el) el.innerHTML = html; }
   function esc(v) { return String(v == null ? '' : v).replace(/[&<>]/g, function (c) { return ({ '&':'&amp;','<':'&lt;','>':'&gt;' })[c]; }); }
   function num(v) { var n = Number(v); return isNaN(n) ? 0 : n; }
   function fmtPct(v) { return (num(v) * 100).toFixed(0) + '%'; }
