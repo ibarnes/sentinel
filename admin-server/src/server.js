@@ -1529,7 +1529,7 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
     ${dashboardNav('platform-pressure')}
     ${pageHeader('Platform Pressure', '', 'Internal operating radar for pre-obvious infrastructure platform formation')}
 
-    <div id="pp-js-errors" class="card mb-3" style="display:block;border-color:#8b2d2d">
+    <div id="pp-js-errors" class="card mb-3" style="display:none;border-color:#8b2d2d">
       <div class="card-body py-2">
         <div class="d-flex justify-content-between align-items-center">
           <strong style="color:#ffb4b4">Temporary JS Error Logger</strong>
