@@ -19,11 +19,13 @@
     if (byId('pp-v1-hardened-style')) return;
     var st = document.createElement('style');
     st.id = 'pp-v1-hardened-style';
-    st.textContent = '.pp-initiative-card{border:1px solid var(--border); box-shadow: var(--shadow-sm);}'+
-      '.pp-stage-map{display:flex; flex-wrap:wrap; gap:8px;}'+
-      '.pp-stage-cell{min-width:34px; height:34px; border-radius:8px; border:1px solid var(--border); background:var(--surface-elevated); color:var(--text); font-size:12px; font-weight:600;}'+
-      '.pp-stage-active{background:rgba(79,140,255,0.85); border-color:rgba(79,140,255,1); color:#fff;}'+
-      '.pp-stage-missing{opacity:0.85;}';
+    st.textContent = '.pp-initiative-card{border:1px solid var(--border); box-shadow: var(--shadow-sm); margin-bottom:14px;}'+
+      '.pp-initiative-card .card-body{padding:16px 18px;}'+
+      '.pp-stage-map{display:flex; flex-wrap:nowrap; gap:10px; overflow-x:auto; padding-bottom:4px;}'+
+      '.pp-stage-cell{min-width:40px; width:40px; height:40px; border-radius:6px; border:1px solid var(--border); background:var(--surface-elevated); color:var(--text); font-size:13px; font-weight:700; line-height:1;}'+
+      '.pp-stage-active{background:rgba(79,140,255,0.92); border-color:rgba(79,140,255,1); color:#fff; box-shadow:inset 0 0 0 1px rgba(255,255,255,0.2);}'+
+      '.pp-stage-missing{opacity:0.9; background:rgba(120,130,150,0.14);}'+
+      '.pp-diagnostic-stack{border-top:1px solid var(--border); padding-top:10px;}';
     document.head.appendChild(st);
   }
 
@@ -137,9 +139,18 @@
             '<div class="pp-stage-map mt-3">'+stageCells+'</div>'+
             '<div class="progress mt-2" style="height:10px"><div class="progress-bar" style="width:'+esc((progress*100).toFixed(0))+'%"></div></div>'+
             '<div class="small text-muted mt-2">Signal timing mix — Early: '+esc(fmtPct(phaseMix.early))+' · Mid: '+esc(fmtPct(phaseMix.mid))+' · Late: '+esc(fmtPct(phaseMix.late))+'</div>'+
-            '<div class="row g-2 mt-2">'+
-              '<div class="col-12 col-md-6"><div class="small"><strong>Opportunity Strength:</strong> '+esc(String(r.ppi || 0))+'/25</div><div class="small mt-1"><strong>Change Speed:</strong> '+esc(String((phys || {}).momentum || '—'))+'</div><div class="small mt-1"><strong>Change Trend:</strong> '+esc(String((phys || {}).trajectory || r.velocityNote || '—'))+'</div><div class="small mt-1"><strong>Best buyer matches:</strong> '+esc(buyerMatches)+'</div><div class="small mt-1"><strong>Recommended USG move:</strong> '+esc(String((phys || {}).recommendedUSGMotion || r.recommended_motion || r.nextIntelligenceAction || 'monitor'))+'</div><div class="small mt-1"><strong>Confidence level:</strong> '+esc(String((phys || {}).recommendedUSGMotionConfidence || r.decision_confidence || 'medium'))+'</div></div>'+
-              '<div class="col-12 col-md-6"><div class="small"><strong>Why this move:</strong> '+esc(String((phys || {}).recommendedUSGMotionRationale || r.whyItMatters || '—'))+'</div><div class="small mt-1"><strong>Main blocker:</strong> '+esc(mainBlocker)+'</div><div class="small mt-1"><strong>Second blocker:</strong> '+esc(secondBlocker)+'</div><div class="small mt-1"><strong>Missing key stages:</strong> '+esc(missingLayers.slice(0,8).join(', ') || 'None')+'</div><div class="small mt-1"><strong>What may slow this down / counterevidence:</strong> '+esc(slowdown)+'</div></div>'+
+            '<div class="mt-2 pp-diagnostic-stack">'+
+              '<div class="small mt-1"><strong>Opportunity Strength:</strong> '+esc(String(r.ppi || 0))+'/25</div>'+
+              '<div class="small mt-1"><strong>Change Speed:</strong> '+esc(String((phys || {}).momentum || '—'))+'</div>'+
+              '<div class="small mt-1"><strong>Change Trend:</strong> '+esc(String((phys || {}).trajectory || r.velocityNote || '—'))+'</div>'+
+              '<div class="small mt-1"><strong>Best buyer matches:</strong> '+esc(buyerMatches)+'</div>'+
+              '<div class="small mt-1"><strong>Recommended USG move:</strong> '+esc(String((phys || {}).recommendedUSGMotion || r.recommended_motion || r.nextIntelligenceAction || 'monitor'))+'</div>'+
+              '<div class="small mt-1"><strong>Confidence level:</strong> '+esc(String((phys || {}).recommendedUSGMotionConfidence || r.decision_confidence || 'medium'))+'</div>'+
+              '<div class="small mt-1"><strong>Why this move:</strong> '+esc(String((phys || {}).recommendedUSGMotionRationale || r.whyItMatters || '—'))+'</div>'+
+              '<div class="small mt-1"><strong>Main blocker:</strong> '+esc(mainBlocker)+'</div>'+
+              '<div class="small mt-1"><strong>Secondary blocker:</strong> '+esc(secondBlocker)+'</div>'+
+              '<div class="small mt-1"><strong>Missing key stages:</strong> '+esc(missingLayers.slice(0,8).join(', ') || 'None')+'</div>'+
+              '<div class="small mt-1"><strong>What may slow this down / counterevidence:</strong> '+esc(slowdown)+'</div>'+
             '</div>'+
           '</div>'+
         '</div>';
