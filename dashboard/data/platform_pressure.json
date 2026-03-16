@@ -13,8 +13,8 @@
       "structuralAmbiguity": 4,
       "mandateFeasibility": 4
     },
-    "delta30d": 3,
-    "delta90d": 6,
+    "delta30d": 4,
+    "delta90d": 8,
     "likelyBuyerClass": "Sovereign Wealth Fund",
     "buyerRationale": "Sovereigns can underwrite strategic compute sovereignty with long duration capital.",
     "fidBoundaryType": "Power + tenancy certainty",
@@ -86,7 +86,7 @@
     ],
     "velocityNote": "Power corridor and tenancy discussions moved from exploratory to pre-term-sheet.",
     "analystNotes": "System pressure is increasing; buyer path is emerging through sovereign-led platform capital.",
-    "lastUpdated": "2026-03-06",
+    "lastUpdated": "2026-03-16",
     "buyerPath": "Hyperscaler",
     "usgRelevance": "Mandate Window",
     "nextIntelligenceAction": "Monitor industrial anchor announcements",
@@ -98,12 +98,16 @@
         "INIT_SECTOR::pps-ai-infrastructure"
       ],
       "signalIds": [
+        "SIG-2026-03-12-REPLIT-RAISE-400M-9B-001",
+        "SIG-2026-03-12-US-ADV-ENERGY-STARTUP-RACE-001",
+        "SIG-2026-03-12-AFR-AI-STACK-COMPETITION-001",
+        "SIG-2026-03-13-BLACKSTONE-DATACENTER-VEHICLE",
         "s1",
         "s2",
         "s3"
       ]
     },
-    "pattern_summary": "Power corridor and tenancy discussions moved from exploratory to pre-term-sheet.",
+    "pattern_summary": "Power corridor and tenancy discussions moved from exploratory to pre-term-sheet. Public and private capital are converging around AI compute, software-production, and distribution control layers.",
     "model_update": {
       "pressure": "rising",
       "momentum": "high",
@@ -114,7 +118,7 @@
         "Grid interconnection and export-control compliant supply chain sequencing."
       ]
     },
-    "recommended_motion": "shape_mandate",
+    "recommended_motion": "develop_architecture",
     "decision_confidence": "medium",
     "missing_actor_roles": [
       "anchor_buyer",
@@ -259,8 +263,8 @@
       "structuralAmbiguity": 3,
       "mandateFeasibility": 3
     },
-    "delta30d": 2,
-    "delta90d": 4,
+    "delta30d": 3,
+    "delta90d": 5,
     "likelyBuyerClass": "Strategic Industrial Sponsor",
     "buyerRationale": "Strategics can contract throughput and lock downstream integration.",
     "fidBoundaryType": "Throughput + logistics reliability",
@@ -330,7 +334,7 @@
     ],
     "velocityNote": "Investor-courtship signal suggests acceleration from resource narrative toward capital formation.",
     "analystNotes": "Buyer path is emerging but FID boundary still partly undefined.",
-    "lastUpdated": "2026-03-11",
+    "lastUpdated": "2026-03-16",
     "buyerPath": "Strategic Industrial Sponsor",
     "usgRelevance": "Track",
     "nextIntelligenceAction": "Watch for ECA financing moves",
@@ -342,12 +346,13 @@
         "INIT_SECTOR::pps-copper"
       ],
       "signalIds": [
+        "SIG-2026-03-16-DRC-GOLD-REFINERY-KALEMIE-001",
         "sc1",
         "sc2",
         "sc3"
       ]
     },
-    "pattern_summary": "Investor-courtship signal suggests acceleration from resource narrative toward capital formation.",
+    "pattern_summary": "Investor-courtship signal suggests acceleration from resource narrative toward capital formation. Value-chain localization signals now include in-country refining pushes beyond raw export models.",
     "model_update": {
       "pressure": "rising",
       "momentum": "high",
@@ -498,7 +503,7 @@
       "mandateFeasibility": 4
     },
     "delta30d": 3,
-    "delta90d": 5,
+    "delta90d": 6,
     "likelyBuyerClass": "Utility / Infra Operator",
     "buyerRationale": "Operators can own execution interface between generation assets and industrial demand clusters.",
     "fidBoundaryType": "Load-backed transmission package",
@@ -564,7 +569,7 @@
     ],
     "velocityNote": "Acceleration is clear; conversion risk remains regulatory.",
     "analystNotes": "Buyer path is emerging with definable FID boundary.",
-    "lastUpdated": "2026-03-06",
+    "lastUpdated": "2026-03-16",
     "buyerPath": "Sovereign / DFI",
     "usgRelevance": "Mandate Window",
     "nextIntelligenceAction": "Track sovereign strategy updates",
@@ -576,12 +581,15 @@
         "INIT_SECTOR::pps-industrial-power-corridors"
       ],
       "signalIds": [
+        "SIG-2026-03-RW-NUCLEAR-SMR-PROGRAM-001",
+        "SIG-USVI-DISASTER-RECOVERY-2026-001",
+        "SIG-2025-10-07-NG-WB-BRIDGE-HESP-001",
         "sip1",
         "sip2",
         "sip3"
       ]
     },
-    "pattern_summary": "Acceleration is clear; conversion risk remains regulatory.",
+    "pattern_summary": "Acceleration is clear; conversion risk remains regulatory. Public financing and program-management structures are accelerating grid/power-adjacent infrastructure deployment.",
     "model_update": {
       "pressure": "rising",
       "momentum": "high",
@@ -684,7 +692,7 @@
     ],
     "velocityNote": "Fastest acceleration in the current set; mandate path is tightening.",
     "analystNotes": "System pressure is increasing and now close to executable mandate structures.",
-    "lastUpdated": "2026-03-06",
+    "lastUpdated": "2026-03-16",
     "buyerPath": "Sovereign / DFI",
     "usgRelevance": "Mandate Window",
     "nextIntelligenceAction": "Watch for ECA financing moves",
@@ -696,12 +704,14 @@
         "INIT_SECTOR::pps-logistics-corridors"
       ],
       "signalIds": [
+        "SIG-2026-03-12-NGA-IMPORT-CONCENTRATION",
+        "SIG-USVI-DISASTER-RECOVERY-2026-001",
         "sl1",
         "sl2",
         "sl3"
       ]
     },
-    "pattern_summary": "Fastest acceleration in the current set; mandate path is tightening.",
+    "pattern_summary": "Fastest acceleration in the current set; mandate path is tightening. Trade and disaster-recovery corridors are concentrating execution demand into logistics and port-linked systems.",
     "model_update": {
       "pressure": "rising",
       "momentum": "high",
@@ -712,7 +722,7 @@
         "Sovereign interface governance across corridor nodes."
       ]
     },
-    "recommended_motion": "shape_mandate",
+    "recommended_motion": "advance_outreach",
     "decision_confidence": "medium",
     "missing_actor_roles": [
       "anchor_buyer",
@@ -737,8 +747,8 @@
       "structuralAmbiguity": 4,
       "mandateFeasibility": 4
     },
-    "delta30d": 3,
-    "delta90d": 6,
+    "delta30d": 4,
+    "delta90d": 8,
     "likelyBuyerClass": "Hyperscaler / Tech Platform",
     "buyerRationale": "Tech platforms can provide scalable rails once policy and compliance interfaces stabilize.",
     "fidBoundaryType": "Regulatory interoperability boundary",
@@ -798,7 +808,7 @@
     ],
     "velocityNote": "Breakout likely: policy attention has shifted from whether stablecoins exist to how they are integrated and supervised.",
     "analystNotes": "Nigeria now looks like a lead market for hybrid bank + stablecoin settlement architecture in Africa.",
-    "lastUpdated": "2026-03-11",
+    "lastUpdated": "2026-03-16",
     "buyerPath": "Mixed / Multi-actor",
     "usgRelevance": "Mandate Window",
     "nextIntelligenceAction": "Secure first-party CBN/Finance artifacts and identify top 3 regulated integration counterparties.",
@@ -810,6 +820,8 @@
         "INIT_SECTOR::pps-digital-financial-rails"
       ],
       "signalIds": [
+        "SIG-2026-01-30-NG-BRIDGE-SPV-49PCT-001",
+        "SIG-2025-10-07-NG-WB-BRIDGE-HESP-001",
         "SIG-2026-03-11-NG-STABLECOIN-TASKFORCE-001",
         "SIG-2026-03-11-NG-STABLECOIN-ADOPTION-SCALE-001",
         "SIG-2026-03-11-NG-STABLECOIN-COMMODITY-TRADE-RAIL-001"
@@ -826,7 +838,7 @@
         "Regulated interoperability between stablecoin networks, commercial banks, and sovereign compliance controls."
       ]
     },
-    "recommended_motion": "shape_mandate",
+    "recommended_motion": "build_governance",
     "decision_confidence": "medium",
     "missing_actor_roles": [
       "anchor_buyer",
