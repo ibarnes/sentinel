@@ -3866,6 +3866,13 @@
     "initiative_ids": [
       "INIT-2026-03-05-COMMODITY-CORRIDOR",
       "USG"
+    ],
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "IFC",
+      "DFC",
+      "WORLDBANK"
     ]
   },
   {
