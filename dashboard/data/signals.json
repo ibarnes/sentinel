@@ -3933,6 +3933,15 @@
     ],
     "initiative_ids": [
       "USG"
+    ],
+    "buyer_ids": [
+      "TEMASEK",
+      "GIC",
+      "QIA",
+      "MUBADALA",
+      "PIF",
+      "IFC",
+      "ADB"
     ]
   },
   {
