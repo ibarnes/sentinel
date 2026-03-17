@@ -1915,7 +1915,7 @@ app.get('/dashboard/signals', async (req, res) => {
   })).replace(/</g, '\\u003c');
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signals')}</head><body><div class="app-shell">
     ${dashboardNav('signals')}
-    ${pageHeader('Signal Register', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/capital-map">View Capital Map</a>', 'Pressure surface tracking over time')}
+    ${pageHeader('Signal Register', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/signals/export.json">Get JSON</a>', 'Pressure surface tracking over time')}
     <form method="get" action="/dashboard/signals" class="row g-2 mb-3">
       <div class="col-md-4">
         <label class="form-label">Filter by Signal Class</label>
