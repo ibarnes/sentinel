@@ -3991,6 +3991,15 @@
     "blocks_hypothesis": false,
     "initiative_ids": [
       "USG"
+    ],
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "WORLDBANK",
+      "DFC",
+      "IFC",
+      "NSIA",
+      "FMF-NG"
     ]
   }
 ]
