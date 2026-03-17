@@ -1,6 +1,6 @@
 {
-  "buyerAccessGraphSignature": "08f66289a7db26e355f94ada650f56624ba0cf2e1633a84ea74976a355a8fa53",
-  "updatedAtUtc": "2026-03-17T05:32:00Z",
+  "buyerAccessGraphSignature": "8b522bbc288e1e1522fe579f1fd81976262b768c733e1ee9a4e3ee33c713ce79",
+  "updatedAtUtc": "2026-03-17T15:33:00Z",
   "issues": [
     {
       "type": "missing_decision_arch",
@@ -11,8 +11,7 @@
         "AFC",
         "MUBADALA",
         "WORLDBANK",
-        "QIA",
-        "AfDB"
+        "QIA"
       ]
     },
     {
@@ -41,12 +40,25 @@
         {
           "buyer_id": "TAFF",
           "person": "Tariq Al Futtaim"
+        },
+        {
+          "buyer_id": "USVI-RECOVERY-AUTHORITY",
+          "person": "HUD / FEMA oversight bodies"
         }
       ]
     },
     {
       "type": "metadata_drift",
       "items": [
+        {
+          "buyer_id": "USVI-RECOVERY-AUTHORITY",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
         {
           "buyer_id": "TAFF",
           "missing": [
@@ -121,15 +133,6 @@
         },
         {
           "buyer_id": "QIA",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "AfDB",
           "missing": [
             "hq",
             "region",
