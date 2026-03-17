@@ -1,6 +1,6 @@
 {
-  "buyerAccessGraphSignature": "f4baa2e6bb1f70e6b406f44a592f70718ff6657d98689a3bb1c7a49820559d3a",
-  "updatedAtUtc": "2026-03-15T04:22:24.827Z",
+  "buyerAccessGraphSignature": "08f66289a7db26e355f94ada650f56624ba0cf2e1633a84ea74976a355a8fa53",
+  "updatedAtUtc": "2026-03-17T05:32:00Z",
   "issues": [
     {
       "type": "missing_decision_arch",
@@ -16,6 +16,18 @@
       ]
     },
     {
+      "type": "stale_paths",
+      "items": [
+        {
+          "path_id": "PATH-NSIA-001",
+          "buyer_id": "NSIA",
+          "status": "Warming",
+          "last_touch_at": "2026-02-25",
+          "updated_at": null
+        }
+      ]
+    },
+    {
       "type": "high_influence_no_path",
       "items": [
         {
@@ -25,6 +37,10 @@
         {
           "buyer_id": "DFC",
           "person": "Conor Coleman"
+        },
+        {
+          "buyer_id": "TAFF",
+          "person": "Tariq Al Futtaim"
         }
       ]
     },
