@@ -3262,6 +3262,16 @@
     "initiative_ids": [
       "USG",
       "INIT-AI-OPT-B"
+    ],
+    "buyer_ids": [
+      "PIF",
+      "MUBADALA",
+      "QIA",
+      "ADQ",
+      "TEMASEK",
+      "GIC",
+      "IFC",
+      "DFC"
     ]
   },
   {
