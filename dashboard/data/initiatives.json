@@ -1941,7 +1941,7 @@
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
-    "name": "Gulf–Africa Trade Corridor Platform",
+    "name": "Gulf\u2013Africa Trade Corridor Platform",
     "status": "Pre-FID / Formation",
     "gate_stage": "Gate 1",
     "gate_updated_at": "2026-03-05T20:13:00Z",
@@ -1956,7 +1956,7 @@
       "PARTNER-UAE-LOGISTICS",
       "PARTNER-GLOBAL-TRADING-HOUSES"
     ],
-    "macro_gravity_summary": "The stabilization of Dangote refinery and other African supply nodes creates a window to architect a Gulf–Africa trade corridor. A UAE-based platform can aggregate Gulf demand, coordinate logistics, and route refined products and other commodities from African supply anchors to global markets.",
+    "macro_gravity_summary": "The stabilization of Dangote refinery and other African supply nodes creates a window to architect a Gulf\u2013Africa trade corridor. A UAE-based platform can aggregate Gulf demand, coordinate logistics, and route refined products and other commodities from African supply anchors to global markets.",
     "structural_role": "USG designs phase-gated commitment architecture: domestic-priority compatibility now, export-valve activation criteria next, and global distribution scale once allocation thresholds are met.",
     "fid_event_definition": "Formal corridor SPV/JV execution triggered by sustained export allocation, anchored sponsor commitments, approved trade-finance lines, and contracted multi-year offtake under UAE operating structure.",
     "phase_label": "Phase-2 export corridor once African supply nodes reach stable export allocation.",
@@ -4773,5 +4773,226 @@
       ]
     },
     "macro_gravity_summary": "**Initiative Description**\nA platform to finance, standardize, deploy, lease, and govern automated labor fleets for nations, ports, logistics networks, industrial operators, and infrastructure owners. The platform converts robot work into measurable labor capacity contracts, beginning with pilot deployments in constrained, high-value environments such as ports, warehouses, industrial inspection, and infrastructure maintenance.\n\n**Thesis**\nHumanoid and non-humanoid robot fleets can become financeable, leasable, and eventually tradable units of physical labor capacity. USG's role is not to manufacture robots, but to architect the governance, capital stack, deployment model, and institutional market structure that turns automated labor into an infrastructure asset class.\n\n**Smallest Executable Version**\nAutomated Labor Pilot: Deploy and govern a pilot fleet of automated labor units in a constrained, high-value environment with measurable output, uptime, safety, and unit economics."
+  },
+  {
+    "initiative_id": "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
+    "name": "USVI Recovery Capital Deployment Architecture",
+    "status": "Pre-Gate 0 / Constraint Discovery",
+    "gate_stage": "Gate 0",
+    "gate_updated_at": "2026-03-17T16:07:00Z",
+    "infrastructure_category": "Disaster Recovery Infrastructure",
+    "description": "A structured architecture to align federal recovery funding, territorial authorities, and private execution capacity in the U.S. Virgin Islands. The initiative focuses on resolving fragmentation across ODR, VIHFA, and federal program constraints to enable clean, signable capital deployment pathways for recovery programs.",
+    "thesis": "The primary bottleneck in USVI recovery is not capital availability or construction capacity. It is the lack of a unified, governable deployment architecture that aligns program authority, compliance constraints, and execution pathways. USG\u2019s role is to architect that system so capital can move safely and predictably.",
+    "smallest_executable_version": "Validated capital deployment pathway from federal funding source through territorial authority (ODR / VIHFA) to a qualified execution partner, with clearly defined release conditions, compliance triggers, and governance structure.",
+    "linked_buyers": [
+      "USVI-RECOVERY-AUTHORITY"
+    ],
+    "decks": [],
+    "actor_alignment": {
+      "overall_alignment": 22,
+      "weakest_layer": "political",
+      "layers": {
+        "political": {
+          "alignment": 15,
+          "roles": [
+            {
+              "role": "Program Authority Lead (ODR)",
+              "status": "identified",
+              "mapped_entity": "Office of Disaster Recovery (USVI)",
+              "critical": true
+            },
+            {
+              "role": "Housing & Finance Authority Lead (VIHFA)",
+              "status": "identified",
+              "mapped_entity": "Virgin Islands Housing Finance Authority",
+              "critical": true
+            },
+            {
+              "role": "Federal Program Authority (HUD / CDBG-DR)",
+              "status": "missing",
+              "mapped_entity": null,
+              "critical": true
+            },
+            {
+              "role": "Territorial Executive Sponsor",
+              "status": "missing",
+              "mapped_entity": null,
+              "critical": false
+            }
+          ]
+        },
+        "asset": {
+          "alignment": 25,
+          "roles": [
+            {
+              "role": "Program Authority Buyer (Combined ODR + VIHFA)",
+              "status": "identified",
+              "mapped_entity": "USVI Recovery Program Authority (ODR + VIHFA)",
+              "critical": true
+            },
+            {
+              "role": "Execution Layer (Developers / Contractors)",
+              "status": "unmapped",
+              "mapped_entity": null,
+              "critical": false
+            }
+          ]
+        },
+        "development": {
+          "alignment": 70,
+          "roles": [
+            {
+              "role": "Platform Architecture Lead",
+              "status": "committed",
+              "mapped_entity": "USG",
+              "critical": true
+            },
+            {
+              "role": "Capital Deployment Model Designer",
+              "status": "engaged",
+              "mapped_entity": "USG",
+              "critical": true
+            },
+            {
+              "role": "Governance & Compliance Architecture Designer",
+              "status": "identified",
+              "mapped_entity": "USG",
+              "critical": true
+            }
+          ]
+        },
+        "capital": {
+          "alignment": 30,
+          "roles": [
+            {
+              "role": "Federal Recovery Funding Source",
+              "status": "identified",
+              "mapped_entity": "HUD CDBG-DR / Disaster Recovery Allocations",
+              "critical": true
+            },
+            {
+              "role": "Private Co-Capital Partner",
+              "status": "missing",
+              "mapped_entity": null,
+              "critical": false
+            }
+          ]
+        },
+        "delivery": {
+          "alignment": 10,
+          "roles": [
+            {
+              "role": "Program Delivery Integrator",
+              "status": "unmapped",
+              "mapped_entity": null,
+              "critical": false
+            },
+            {
+              "role": "Construction / Infrastructure Execution",
+              "status": "unmapped",
+              "mapped_entity": null,
+              "critical": false
+            }
+          ]
+        }
+      }
+    },
+    "primary_constraint": {
+      "name": "Program-Level Authority Alignment Across ODR, VIHFA, and Federal Recovery Constraints",
+      "why_it_matters": "Capital is allocated but cannot deploy cleanly due to fragmented authority, overlapping compliance requirements, and unclear release conditions across territorial and federal layers.",
+      "next_action": "Validate authority boundaries and decision rights across ODR, VIHFA, and federal program oversight to define a unified deployment pathway.",
+      "owner": null,
+      "due": null
+    },
+    "actor_roles_table": [
+      {
+        "priority": "P0",
+        "layer": "political",
+        "role": "Program Authority Lead (ODR)",
+        "status": "identified",
+        "mapped_entity": "Office of Disaster Recovery (USVI)",
+        "critical": true
+      },
+      {
+        "priority": "P0",
+        "layer": "political",
+        "role": "Housing & Finance Authority Lead (VIHFA)",
+        "status": "identified",
+        "mapped_entity": "Virgin Islands Housing Finance Authority",
+        "critical": true
+      },
+      {
+        "priority": "P0",
+        "layer": "political",
+        "role": "Federal Program Authority (HUD / CDBG-DR)",
+        "status": "missing",
+        "mapped_entity": null,
+        "critical": true
+      },
+      {
+        "priority": "P1",
+        "layer": "asset",
+        "role": "Program Authority Buyer (Combined ODR + VIHFA)",
+        "status": "identified",
+        "mapped_entity": "USVI Recovery Program Authority (ODR + VIHFA)",
+        "critical": true
+      },
+      {
+        "priority": "P1",
+        "layer": "development",
+        "role": "Platform Architecture Lead",
+        "status": "committed",
+        "mapped_entity": "USG",
+        "critical": true
+      },
+      {
+        "priority": "P1",
+        "layer": "development",
+        "role": "Capital Deployment Model Designer",
+        "status": "engaged",
+        "mapped_entity": "USG",
+        "critical": true
+      },
+      {
+        "priority": "P1",
+        "layer": "development",
+        "role": "Governance & Compliance Architecture Designer",
+        "status": "identified",
+        "mapped_entity": "USG",
+        "critical": true
+      },
+      {
+        "priority": "P1",
+        "layer": "capital",
+        "role": "Federal Recovery Funding Source",
+        "status": "identified",
+        "mapped_entity": "HUD CDBG-DR / Disaster Recovery Allocations",
+        "critical": true
+      },
+      {
+        "priority": "P2",
+        "layer": "capital",
+        "role": "Private Co-Capital Partner",
+        "status": "missing",
+        "mapped_entity": null,
+        "critical": false
+      },
+      {
+        "priority": "P2",
+        "layer": "asset",
+        "role": "Execution Layer (Developers / Contractors)",
+        "status": "unmapped",
+        "mapped_entity": null,
+        "critical": false
+      },
+      {
+        "priority": "P3",
+        "layer": "delivery",
+        "role": "Program Delivery Integrator",
+        "status": "unmapped",
+        "mapped_entity": null,
+        "critical": false
+      }
+    ]
   }
 ]

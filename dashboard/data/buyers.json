@@ -2850,7 +2850,8 @@
     "website": "https://www.usviodr.com",
     "mandate_summary": "Coordinate and deploy federal disaster recovery capital across the territory while maintaining compliance, schedule discipline, and long-term resilience outcomes.",
     "initiatives": [
-      "INIT-USVI-WORKFORCE-DEPLOYMENT-PLATFORM"
+      "INIT-USVI-WORKFORCE-DEPLOYMENT-PLATFORM",
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
     "signal_status": "Active",
     "confidence": "High",
