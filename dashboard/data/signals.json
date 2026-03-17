@@ -4043,5 +4043,65 @@
       "NSIA",
       "FMF-NG"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-17-NG-UAE-DEFENSE-SAT-MFG-001",
+    "title": "UAE-Nigeria MoU for up to $200M in defense technology, satellite systems, and advanced manufacturing",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "announced_not_deployed",
+    "observed_at": "2026-03-17T15:14:00Z",
+    "summary": "Elmirate Investment LLC and Nigus International Investment Limited reportedly signed a strategic MoU tied to up to $200M planned investment across defense technology, satellite systems, cybersecurity, and advanced manufacturing in Nigeria; execution pathway remains unproven.",
+    "flow": "strategic MoU announcement + planned capital commitment -> sovereign capability buildout intent -> multi-agency coordination and procurement complexity -> pre-execution governance and capital-sequencing gap",
+    "verification_note": "Announcement and directional scope are credible across multiple reports, but deployed capital, implementation vehicle, and government procurement pathway are not yet confirmed.",
+    "sources": [
+      {
+        "label": "Isaac-provided signal dossier (public-reporting synthesis)",
+        "url": "internal://isaac/telegram/2026-03-17-ng-uae-defense-satellite-mfg"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "uae",
+      "defense-industrial-base",
+      "satellite-infrastructure",
+      "advanced-manufacturing",
+      "pre-fid",
+      "gulf-to-africa-capital"
+    ],
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "TAFF",
+      "ADQ",
+      "MUBADALA",
+      "AFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "dashboard_fields": {
+      "signal_strength": 0.81,
+      "urgency": 0.73,
+      "usg_priority": 0.85,
+      "time_horizon": "6_to_24_months",
+      "decision_posture": "track_actively_but_do_not_anchor_strategy_on_execution_until_follow_on_proof_appears"
+    }
   }
 ]
