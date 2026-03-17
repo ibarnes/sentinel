@@ -17,6 +17,7 @@
 - Signal provenance rule (2026-03-07): every signal must be flagged as either `provided_by_isaac` or `discovered_by_system` (and never presented as self-discovered if Isaac provided it).
 - Source URL inclusion rule (2026-03-11): when Isaac provides public source URLs for a signal, include those URLs verbatim in `dashboard/data/signals.json` `sources[]` by default (internal:// references may be added as secondary context, not replacements).
 - USG Signal Model canonical chain (2026-03-12): `collect signals -> identify system -> map actors -> map lifecycle stage -> recognize patterns -> update model -> predict & decide`. Keep wording simple/consistent and integrate this chain into signals + platform-pressure workflow outputs.
+- Platform Pressure UX operating rules (2026-03-16): treat `/dashboard/platform-pressure` as a high-density operator control surface (mission-control style), with Platform Signal Map as dominant center, initiative cards as full diagnostic panels (lifecycle map + blockers + buyer alignment + recommended USG motion visible by default), and section-level graceful degradation only (never flatten to generic summary dashboard patterns).
 - Signal-pressure freshness rule (2026-03-09): before heartbeat signal-delta checks, run `node mission-control/signal-pressure/run-if-stale.mjs`; only evaluate alert criteria on fresh/refreshed `pressure-delta.json`.
 
 # Current Projects
@@ -264,5 +265,21 @@
 # Nightly Memory Maintenance (2026-03-16)
 - Daily log created at `memory/2026-03-16.md` and distilled into durable snapshot.
 - Durable changes captured: RP-0069 and RP-0070 tranche/credential-chain artifact updates plus latest commit references.
+- No new operating-rule changes.
+- No scoring-policy changes.
+
+# Project Status Snapshot (2026-03-17)
+- Heartbeat buyer-access check detected a new structural gap in top-buyer graph quality:
+  - TAFF now has a High-influence person (`Tariq Al Futtaim`) with no mapped contact path.
+- Existing access-graph pressure remains unresolved:
+  - Top-10 decision-architecture coverage gaps persist (PIF, TEMASEK, ADQ, AFC, MUBADALA, WORLDBANK, QIA, AfDB).
+  - Buyer metadata drift remains across top-ranked buyers (missing `hq`, `region`, `buyer_role`, `buyer_class` fields).
+- Signal-pressure monitor freshness check passed (`status=fresh`), with no new qualifying delta (`new_high_impact_count=0`).
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-17)
+- `memory/2026-03-16.md` reviewed and distilled.
+- Durable updates captured: new TAFF high-influence/no-path gap and continued buyer-graph coverage/metadata drift.
 - No new operating-rule changes.
 - No scoring-policy changes.
