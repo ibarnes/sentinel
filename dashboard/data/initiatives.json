@@ -4887,6 +4887,26 @@
         "status": "unmapped",
         "mapped_entity": null,
         "critical": false
+      },
+      {
+        "priority": "P3",
+        "layer": "development",
+        "role": "Deal Origination Intermediary",
+        "status": "engaged",
+        "mapped_entity": "Malcolm E Wilson \u2014 U.S. Realty Partners",
+        "critical": false,
+        "owner": "",
+        "due": ""
+      },
+      {
+        "priority": "P3",
+        "layer": "development",
+        "role": "Local Market Access & Project Intelligence Lead",
+        "status": "engaged",
+        "mapped_entity": "Mark Newson \u2014 Capital Projects Consulting Group",
+        "critical": false,
+        "owner": "",
+        "due": ""
       }
     ],
     "actor_alignment_layers": {
@@ -4989,6 +5009,30 @@
           "owner": "",
           "due": "",
           "priority_tier": "P1",
+          "notes": ""
+        },
+        {
+          "role_id": "deal_origination_intermediary",
+          "role_label": "Deal Origination Intermediary",
+          "layer": "development",
+          "status": "engaged",
+          "mapped_entity_ref": "Malcolm E Wilson \u2014 U.S. Realty Partners",
+          "is_critical_role": false,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P3",
+          "notes": ""
+        },
+        {
+          "role_id": "local_market_access_project_intelligence_lead",
+          "role_label": "Local Market Access & Project Intelligence Lead",
+          "layer": "development",
+          "status": "engaged",
+          "mapped_entity_ref": "Mark Newson \u2014 Capital Projects Consulting Group",
+          "is_critical_role": false,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P3",
           "notes": ""
         }
       ],
