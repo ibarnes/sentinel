@@ -4993,6 +4993,150 @@
         "mapped_entity": null,
         "critical": false
       }
-    ]
+    ],
+    "actor_alignment_layers": {
+      "political": [
+        {
+          "role_id": "program_authority_lead__odr",
+          "role_label": "Program Authority Lead (ODR)",
+          "layer": "political",
+          "status": "identified",
+          "mapped_entity_ref": "Office of Disaster Recovery (USVI)",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P0",
+          "notes": ""
+        },
+        {
+          "role_id": "housing___finance_authority_lead__vihfa",
+          "role_label": "Housing & Finance Authority Lead (VIHFA)",
+          "layer": "political",
+          "status": "identified",
+          "mapped_entity_ref": "Virgin Islands Housing Finance Authority",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P0",
+          "notes": ""
+        },
+        {
+          "role_id": "federal_program_authority__hud___cdbg_dr",
+          "role_label": "Federal Program Authority (HUD / CDBG-DR)",
+          "layer": "political",
+          "status": "missing",
+          "mapped_entity_ref": null,
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P0",
+          "notes": ""
+        }
+      ],
+      "asset": [
+        {
+          "role_id": "program_authority_buyer__combined_odr___vihfa",
+          "role_label": "Program Authority Buyer (Combined ODR + VIHFA)",
+          "layer": "asset",
+          "status": "identified",
+          "mapped_entity_ref": "USVI Recovery Program Authority (ODR + VIHFA)",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P1",
+          "notes": ""
+        },
+        {
+          "role_id": "execution_layer__developers___contractors",
+          "role_label": "Execution Layer (Developers / Contractors)",
+          "layer": "asset",
+          "status": "unmapped",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P2",
+          "notes": ""
+        }
+      ],
+      "development": [
+        {
+          "role_id": "platform_architecture_lead",
+          "role_label": "Platform Architecture Lead",
+          "layer": "development",
+          "status": "committed",
+          "mapped_entity_ref": "USG",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P1",
+          "notes": ""
+        },
+        {
+          "role_id": "capital_deployment_model_designer",
+          "role_label": "Capital Deployment Model Designer",
+          "layer": "development",
+          "status": "engaged",
+          "mapped_entity_ref": "USG",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P1",
+          "notes": ""
+        },
+        {
+          "role_id": "governance___compliance_architecture_designer",
+          "role_label": "Governance & Compliance Architecture Designer",
+          "layer": "development",
+          "status": "identified",
+          "mapped_entity_ref": "USG",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P1",
+          "notes": ""
+        }
+      ],
+      "capital": [
+        {
+          "role_id": "federal_recovery_funding_source",
+          "role_label": "Federal Recovery Funding Source",
+          "layer": "capital",
+          "status": "identified",
+          "mapped_entity_ref": "HUD CDBG-DR / Disaster Recovery Allocations",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P1",
+          "notes": ""
+        },
+        {
+          "role_id": "private_co_capital_partner",
+          "role_label": "Private Co-Capital Partner",
+          "layer": "capital",
+          "status": "missing",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P2",
+          "notes": ""
+        }
+      ],
+      "delivery": [
+        {
+          "role_id": "program_delivery_integrator",
+          "role_label": "Program Delivery Integrator",
+          "layer": "delivery",
+          "status": "unmapped",
+          "mapped_entity_ref": null,
+          "is_critical_role": false,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P3",
+          "notes": ""
+        }
+      ]
+    }
   }
 ]
