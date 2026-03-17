@@ -4789,26 +4789,26 @@
     ],
     "decks": [],
     "actor_alignment": {
-      "overall_alignment": 22,
+      "overall_alignment": 18,
       "weakest_layer": "political",
       "layers": {
         "political": {
           "alignment": 15,
           "roles": [
             {
-              "role": "Program Authority Lead (ODR)",
+              "role": "Program Authority Lead",
               "status": "identified",
               "mapped_entity": "Office of Disaster Recovery (USVI)",
               "critical": true
             },
             {
-              "role": "Housing & Finance Authority Lead (VIHFA)",
+              "role": "Housing & Finance Authority Lead",
               "status": "identified",
               "mapped_entity": "Virgin Islands Housing Finance Authority",
               "critical": true
             },
             {
-              "role": "Federal Program Authority (HUD / CDBG-DR)",
+              "role": "Federal Program Authority",
               "status": "missing",
               "mapped_entity": null,
               "critical": true
@@ -4822,24 +4822,24 @@
           ]
         },
         "asset": {
-          "alignment": 25,
+          "alignment": 20,
           "roles": [
             {
-              "role": "Program Authority Buyer (Combined ODR + VIHFA)",
+              "role": "Program Authority Buyer",
               "status": "identified",
               "mapped_entity": "USVI Recovery Program Authority (ODR + VIHFA)",
               "critical": true
             },
             {
-              "role": "Execution Layer (Developers / Contractors)",
-              "status": "unmapped",
+              "role": "Program-Level Asset Owner",
+              "status": "missing",
               "mapped_entity": null,
-              "critical": false
+              "critical": true
             }
           ]
         },
         "development": {
-          "alignment": 70,
+          "alignment": 65,
           "roles": [
             {
               "role": "Platform Architecture Lead",
@@ -4862,16 +4862,16 @@
           ]
         },
         "capital": {
-          "alignment": 30,
+          "alignment": 25,
           "roles": [
             {
-              "role": "Federal Recovery Funding Source",
+              "role": "Primary Funding Source",
               "status": "identified",
               "mapped_entity": "HUD CDBG-DR / Disaster Recovery Allocations",
               "critical": true
             },
             {
-              "role": "Private Co-Capital Partner",
+              "role": "Co-Capital Partner",
               "status": "missing",
               "mapped_entity": null,
               "critical": false
@@ -4879,7 +4879,7 @@
           ]
         },
         "delivery": {
-          "alignment": 10,
+          "alignment": 5,
           "roles": [
             {
               "role": "Program Delivery Integrator",
@@ -4888,7 +4888,7 @@
               "critical": false
             },
             {
-              "role": "Construction / Infrastructure Execution",
+              "role": "Execution Provider",
               "status": "unmapped",
               "mapped_entity": null,
               "critical": false
