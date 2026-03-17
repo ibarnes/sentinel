@@ -4781,7 +4781,7 @@
     "gate_stage": "Gate 0",
     "gate_updated_at": "2026-03-17T16:07:00Z",
     "infrastructure_category": "Disaster Recovery Infrastructure",
-    "description": "A structured architecture to align federal recovery funding, territorial authorities, and private execution capacity in the U.S. Virgin Islands. The initiative focuses on resolving fragmentation across ODR, VIHFA, and federal program constraints to enable clean, signable capital deployment pathways for recovery programs.",
+    "description": "Define the workforce deployment structure required to enable the USVI disaster recovery program to mobilize labor at scale and deploy remaining federal capital without execution bottlenecks.",
     "thesis": "The primary bottleneck in USVI recovery is not capital availability or construction capacity. It is the lack of a unified, governable deployment architecture that aligns program authority, compliance constraints, and execution pathways. USG\u2019s role is to architect that system so capital can move safely and predictably.",
     "smallest_executable_version": "Validated capital deployment pathway from federal funding source through territorial authority (ODR / VIHFA) to a qualified execution partner, with clearly defined release conditions, compliance triggers, and governance structure.",
     "linked_buyers": [
