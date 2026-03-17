@@ -3793,6 +3793,15 @@
     ],
     "initiative_ids": [
       "USG"
+    ],
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "ADQ",
+      "MUBADALA",
+      "GIC",
+      "SFD",
+      "ADFD"
     ]
   },
   {
