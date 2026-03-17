@@ -2783,11 +2783,16 @@
           "author": "sentinel",
           "text": "Sweep refresh: blocker evidence updated with 2026-03-13T10-40-00Z preflight + dry-run artifacts; awaiting credentialed run window for TASK-0111.",
           "created_at": "2026-03-13T10:40:00Z"
+        },
+        {
+          "author": "sentinel",
+          "message": "Decomposition child TASK-0177 executed: credentialed handoff bundle published for one-pass live-smoke execution.",
+          "created_at": "2026-03-17T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-13T10:40:00Z",
+      "updated_at": "2026-03-17T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -6010,6 +6015,40 @@
       "request_approval": null,
       "created_at": "2026-03-17T03:10:00Z",
       "updated_at": "2026-03-17T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0177",
+      "title": "TS-H1.1c.2al Publish credentialed live-smoke handoff bundle (commands + evidence gate)",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep",
+        "parent:TASK-0097"
+      ],
+      "linked_refs": [
+        "parent_task:TASK-0097",
+        "mission-control/runbooks/2026-03-17-credentialed-live-smoke-handoff.md",
+        "mission-control/review-packets/RP-0072-board-recovery-sweep-2026-03-17-0630.md"
+      ],
+      "description": "30–90 min unblock subtask. Acceptance: (1) deterministic one-pass command sequence for credentialed operator, (2) PASS/BLOCKED evidence checklist, (3) explicit post-PASS board transition gate for TASK-0097.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "message": "Decomposition child executed during 2026-03-17 06:30 UTC recovery sweep to reduce operator friction on credentialed live smoke.",
+          "created_at": "2026-03-17T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-17T06:30:00Z",
+      "updated_at": "2026-03-17T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
