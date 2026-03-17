@@ -52,5 +52,35 @@
     "title": "Strategic influence / structuring counsel",
     "influence": "Medium",
     "notes": "Trusted legal and structuring influence."
+  },
+  {
+    "buyer_id": "USVI-RECOVERY-AUTHORITY",
+    "person": "Adrienne L. Williams-Octalien",
+    "title": "Director",
+    "lane": "Deployment execution, schedule pressure, bottleneck removal",
+    "influence": "High",
+    "engagement_use": "Test whether workforce/housing is recognized as structural issue requiring defined architecture before movement.",
+    "source_url": "https://www.usviodr.com/wp-content/uploads/2026/01/FINAL2_2025_ODR-Annual-Report.rtp_.digital.pdf",
+    "updated_at": "2026-03-17"
+  },
+  {
+    "buyer_id": "USVI-RECOVERY-AUTHORITY",
+    "person": "Eugene Jones Jr.",
+    "title": "Executive Director",
+    "lane": "Housing capital allocation, CDBG-DR funding, HUD-linked recovery mechanisms",
+    "influence": "High",
+    "engagement_use": "Test whether workforce housing is treated as capital deployment dependency.",
+    "source_url": "https://www.usviodr.com/wp-content/uploads/2026/01/FINAL2_2025_ODR-Annual-Report.rtp_.digital.pdf",
+    "updated_at": "2026-03-17"
+  },
+  {
+    "buyer_id": "USVI-RECOVERY-AUTHORITY",
+    "person": "HUD / FEMA oversight bodies",
+    "title": "Federal funding authority",
+    "lane": "Approvals, compliance, policy shifts, funding continuity",
+    "influence": "High",
+    "engagement_use": "Constraint layer for pressure mapping and downside exposure.",
+    "source_url": "https://www.usviodr.com/wp-content/uploads/2026/01/FINAL2_2025_ODR-Annual-Report.rtp_.digital.pdf",
+    "updated_at": "2026-03-17"
   }
 ]

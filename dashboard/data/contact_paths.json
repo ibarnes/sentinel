@@ -89,5 +89,53 @@
     "influence_score": 3.2,
     "best_ask": "Strategic platform alignment with UAE digital economy initiatives.",
     "updated_at": "2026-03-05T20:48:00Z"
+  },
+  {
+    "path_id": "PATH-USVI-ODR-001",
+    "buyer_id": "USVI-RECOVERY-AUTHORITY",
+    "contact": "Adrienne L. Williams-Octalien",
+    "role": "Director, USVI Office of Disaster Recovery",
+    "access_type": "Direct program-authority channel",
+    "status": "Ready",
+    "access_score": 7,
+    "credibility_score": 9,
+    "relevance_score": 10,
+    "freshness_days": 30,
+    "influence_score": 9.0,
+    "best_ask": "Clarify ownership of workforce deployment risk and whether defined structure is required before additional capital can move.",
+    "evidence_note": "ODR coordinates >$24B recovery funding and flags labor/workforce housing constraints.",
+    "updated_at": "2026-03-17T15:03:00Z"
+  },
+  {
+    "path_id": "PATH-USVI-VIHFA-001",
+    "buyer_id": "USVI-RECOVERY-AUTHORITY",
+    "contact": "Eugene Jones Jr.",
+    "role": "Executive Director, Virgin Islands Housing Finance Authority",
+    "access_type": "Direct housing-capital channel",
+    "status": "Ready",
+    "access_score": 6,
+    "credibility_score": 9,
+    "relevance_score": 10,
+    "freshness_days": 30,
+    "influence_score": 8.0,
+    "best_ask": "Determine whether workforce housing is a deployment prerequisite requiring pre-execution structure.",
+    "evidence_note": "VIHFA administers housing-related CDBG-DR/CDBG-MIT funding.",
+    "updated_at": "2026-03-17T15:03:00Z"
+  },
+  {
+    "path_id": "PATH-USVI-FED-001",
+    "buyer_id": "USVI-RECOVERY-AUTHORITY",
+    "contact": "HUD / FEMA oversight layer",
+    "role": "Federal funding authority",
+    "access_type": "Indirect via ODR/VIHFA",
+    "status": "Warming",
+    "access_score": 2,
+    "credibility_score": 8,
+    "relevance_score": 8,
+    "freshness_days": 30,
+    "influence_score": 10.0,
+    "best_ask": "Map oversight pressure, clawback risk, and policy constraints affecting workforce-related deployment bottlenecks.",
+    "evidence_note": "Federal layer sets rules/approvals while local authorities carry disbursement pressure.",
+    "updated_at": "2026-03-17T15:03:00Z"
   }
 ]
