@@ -1960,6 +1960,11 @@ app.get('/dashboard/signals', async (req, res) => {
   </body></html>`);
 });
 
+app.get('/dashboard/signals/export.json', async (_req, res) => {
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  res.type('application/json').send(JSON.stringify(signals, null, 2));
+});
+
 app.get('/dashboard/signal/:id', async (req, res) => {
   const id = String(req.params.id || '');
   const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
