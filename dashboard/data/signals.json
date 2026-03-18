@@ -4227,5 +4227,65 @@
       "pressure_score": 8.9,
       "usg_relevance_score": 9.1
     }
+  },
+  {
+    "signal_id": "SIG-2026-03-18-AFRICA-MINERALS-US-ENTRY-001",
+    "title": "US-backed acquisition of Chemaf mining assets in DRC",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "partially_verified",
+    "observed_at": "2026-03-18T12:30:00Z",
+    "summary": "A US-backed buyer (Virtus Minerals) is reportedly acquiring Chemaf copper/cobalt assets in DRC, signaling incremental Western re-entry into strategic upstream battery-minerals positions amid China concentration pressure.",
+    "flow": "EV and storage demand growth -> concern over Chinese concentration in battery minerals -> opportunistic Western upstream acquisitions -> fragmented competitive rebalancing -> need for scaled corridor governance/capital architecture",
+    "verification_note": "Partially verified from reported media coverage (Bloomberg + Business Insider Africa references) pending broader primary disclosure depth.",
+    "sources": [
+      {
+        "label": "Bloomberg (reported)",
+        "url": "internal://isaac/signal/AFRICA_MINERALS_US_ENTRY_001/bloomberg"
+      },
+      {
+        "label": "Business Insider Africa (reported)",
+        "url": "internal://isaac/signal/AFRICA_MINERALS_US_ENTRY_001/businessinsiderafrica"
+      }
+    ],
+    "tags": [
+      "drc",
+      "copper",
+      "cobalt",
+      "critical-minerals",
+      "geopolitical-resource-shift",
+      "ev-supply-chain",
+      "pre-fid-architecture"
+    ],
+    "provenance": "provided_by_isaac",
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "DFC",
+      "IFC",
+      "WORLDBANK",
+      "ADQ",
+      "MUBADALA"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "deal_value_usd": 30000000,
+      "signal_strength": 0.72,
+      "confidence_score": 0.68
+    }
   }
 ]
