@@ -5752,5 +5752,67 @@
       "Project-site and production-capacity linkage",
       "Contract enforceability terms and start-date milestones"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-18-LAGOS-AMUWO-ODOFIN-132KV-OUTAGE-RISK-001",
+    "title": "Lagos Amuwo-Odofin 132kV maintenance reportedly risks multi-month outage window",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T20:41:00Z",
+    "summary": "A reported statement attributed to Ikeja Electric indicates Amuwo-Odofin (Lagos) could face up to a four-month blackout tied to TCN 132kV substation maintenance/rehabilitation, underscoring grid reliability and execution fragility.",
+    "flow": "aging grid assets + maintenance backlog -> prolonged localized outage risk -> economic/service disruption -> rising pressure for reliability-focused capital and execution governance",
+    "verification_note": "Captured from user-provided image and secondary outlet framing; classify as reported until direct utility/TCN bulletin is attached.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Nairametrics/Ikeja Electric outage claim)",
+        "url": "internal://isaac/telegram/media/2026-03-18-amuwo-odofin-132kv-outage"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "lagos",
+      "grid-reliability",
+      "transmission",
+      "132kv",
+      "outage-risk",
+      "execution-constraint"
+    ],
+    "geography": [
+      "Nigeria",
+      "Lagos State"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "AfDB",
+      "WORLDBANK",
+      "DFC",
+      "IFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "delivery",
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "watch_items": [
+      "Direct TCN maintenance notice with timeline",
+      "Ikeja Electric feeder-level load-transfer plan",
+      "Any revised outage-duration guidance",
+      "Evidence of mitigation capex or temporary supply arrangements"
+    ]
   }
 ]
