@@ -4691,5 +4691,219 @@
       "United States"
     ],
     "country": "United States"
+  },
+  {
+    "signal_id": "SIG-2026-03-18-DEEP-FISSION-BOREHOLE-001",
+    "title": "Deep Fission begins drilling first data-acquisition well for borehole SMR pilot",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T14:01:00Z",
+    "summary": "Deep Fission started drilling a ~6,000-ft data-acquisition well in Parsons, Kansas as part of three-well subsurface characterization for its underground SMR pilot.",
+    "flow": "advanced nuclear deployment pressure -> borehole pilot site characterization -> subsurface data for engineering/regulatory pathway -> potential accelerated small-footprint reactor demonstration",
+    "verification_note": "Reported via World Nuclear News; directional infrastructure signal, early-stage execution evidence.",
+    "sources": [
+      {
+        "label": "World Nuclear News",
+        "url": "https://www.world-nuclear-news.org/articles/deep-fission-begins-drilling-first-data-acquisition-well"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nuclear",
+      "smr",
+      "borehole-reactor",
+      "kansas",
+      "pilot-development",
+      "energy-infrastructure"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "ADQ",
+      "MUBADALA",
+      "TEMASEK",
+      "GIC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "development",
+      "governance",
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-US-DOD-ECONOMIC-DEFENSE-UNIT-001",
+    "title": "Pentagon reportedly recruiting top-bank dealmakers for Economic Defense Unit",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T14:01:00Z",
+    "summary": "Reuters reports Semafor claims the Pentagon is building a ~30-person finance team to deploy up to $200B over three years into defense deals, targeting talent from major Wall Street banks.",
+    "flow": "national-security industrial pressure -> state-led capital mobilization capability build -> public-private deal origination acceleration -> strategic-sector financing competition",
+    "verification_note": "Second-order reported signal (Reuters citing Semafor; Reuters unable to independently verify full details).",
+    "sources": [
+      {
+        "label": "Reuters",
+        "url": "https://www.reuters.com/business/finance/pentagon-headhunting-goldman-jpmorgan-bankers-economic-defense-unit-semafor-2026-03-11/"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "united-states",
+      "defense-finance",
+      "state-capital",
+      "wall-street-talent",
+      "economic-defense"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "DFC",
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "GIC",
+      "TEMASEK"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "architecture"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-MANTIS-SPACE-POWER-CONSTELLATION-001",
+    "title": "Mantis Space exits stealth with $10M seed for in-orbit power constellation",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T14:01:00Z",
+    "summary": "Mantis Space announced $10M seed funding plus New Mexico incentives to develop a constellation designed to beam power to satellites and reduce orbital power constraints.",
+    "flow": "space-economy performance pressure -> orbital power bottleneck recognition -> early-stage private capital deployment into power-in-space infrastructure",
+    "verification_note": "Reported by SpaceNews; startup-stage signal with early financing and site-support evidence.",
+    "sources": [
+      {
+        "label": "SpaceNews",
+        "url": "https://spacenews.com/mantis-space-emerges-from-stealth-with-10-million-for-solar-power-constellation/"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "space-infrastructure",
+      "orbital-power",
+      "seed-financing",
+      "new-mexico",
+      "satellite-operations"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK",
+      "GIC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "development",
+      "capital",
+      "delivery"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-FT-SPACE-GEOECONOMIC-COMPETITION-001",
+    "title": "China and Russia are capturing the global space sector (FT analysis)",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T14:01:00Z",
+    "summary": "FT analysis indicates China and Russia are expanding influence in the global space sector, especially via partnerships with less-developed countries, implying shifting strategic control over space infrastructure relationships.",
+    "flow": "geopolitical competition in space -> partnership capture in emerging markets -> long-cycle infrastructure influence shift",
+    "verification_note": "Source title/snippet captured via search due paywall access limits; needs full-text corroboration for deeper extraction.",
+    "sources": [
+      {
+        "label": "Financial Times",
+        "url": "https://www.ft.com/content/5b35fcb0-d51b-4cc7-a5ae-ffa883bd933f"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "space-sector",
+      "geopolitics",
+      "china",
+      "russia",
+      "emerging-markets",
+      "strategic-infrastructure"
+    ],
+    "geography": [
+      "Global"
+    ],
+    "country": "Global",
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK",
+      "GIC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
