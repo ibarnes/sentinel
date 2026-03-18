@@ -4103,5 +4103,70 @@
       "time_horizon": "6_to_24_months",
       "decision_posture": "track_actively_but_do_not_anchor_strategy_on_execution_until_follow_on_proof_appears"
     }
+  },
+  {
+    "signal_id": "SIG-NGA-POWER-LIQUIDITY-2026-03-18-001",
+    "title": "Nigerian Power Generation Liquidity Breakdown",
+    "signal_class": "Platform Pressure",
+    "status": "Active",
+    "confidence": "High",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T12:07:00Z",
+    "summary": "Nigeria's electricity constraint is increasingly a liquidity and settlement architecture failure: generators are producing into a payment chain that cannot settle quickly or sufficiently, driving outages and investability decline.",
+    "flow": "power delivered -> weak tariff/collection/subsidy transfer -> receivables accumulation at GenCos -> inability to maintain assets/pay gas -> rising outages and offline plants -> systemic liquidity stress",
+    "verification_note": "High-confidence reported signal from dated source with attributed industry/system references; still below fully verified until corroborated by additional primary disclosures.",
+    "sources": [
+      {
+        "label": "BusinessDay NG - Cash crunch drives Nigerian power producers out of business",
+        "url": "https://businessday.ng/energy/article/cash-crunch-drives-nigerian-power-producers-out-of-business/"
+      }
+    ],
+    "tags": [
+      "nigeria",
+      "power-sector",
+      "liquidity",
+      "settlement-failure",
+      "gencos",
+      "gas-to-power",
+      "financial-architecture"
+    ],
+    "provenance": "provided_by_isaac",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "DFC",
+      "WORLDBANK",
+      "AfDB"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "debt_owed_to_generators_ngn": 6800000000000,
+      "debt_growth_per_month_ngn": 200000000000,
+      "plants_not_supplying_power": 16,
+      "total_plants_reported": 33,
+      "reported_output_mw": 3705,
+      "share_of_power_from_gas_fired_plants": 0.7
+    },
+    "recommended_next_questions": [
+      "Who owes GenCos across the chain, and what share is collectible vs policy arrears?",
+      "What is the current end-user-to-GenCo settlement waterfall and where is leakage concentrated?",
+      "What portion of arrears is tariff shortfall vs collection inefficiency vs subsidy arrears?",
+      "What debt-resolution vehicle exists and why is it not arresting monthly accumulation?",
+      "Which authority can redesign payment-chain rules fastest without full-sector reform?"
+    ]
   }
 ]
