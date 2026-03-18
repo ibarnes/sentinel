@@ -283,3 +283,20 @@
 - Durable updates captured: new TAFF high-influence/no-path gap and continued buyer-graph coverage/metadata drift.
 - No new operating-rule changes.
 - No scoring-policy changes.
+
+# Project Status Snapshot (2026-03-18)
+- Board build window sustained decomposition-gated execution and artifact-first governance.
+- New stale-RFR reduction tranche delivered:
+  - `TASK-0182` + `RP-0075` (tranche-L decision digest for oldest Ready-for-Review set).
+  - `TASK-0183` (tranche-L approval routing card).
+- Credentialed blocker chain remains unchanged:
+  - Live one-pass execution still pending in `TASK-0159` (requires `BASE_URL` + `TEAM_SESSION_COOKIE`).
+  - Post-PASS replay remains queued in `TASK-0160`.
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-18)
+- Daily log created at `memory/2026-03-18.md` and distilled into durable snapshot.
+- Durable changes captured: tranche-L decision/routing artifacts and unchanged credentialed blocker status.
+- No new operating-rule changes.
+- No scoring-policy changes.
