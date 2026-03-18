@@ -5814,5 +5814,118 @@
       "Any revised outage-duration guidance",
       "Evidence of mitigation capex or temporary supply arrangements"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-18-BYD-FORD-GLOBAL-VOLUME-SHIFT-001",
+    "title": "BYD reportedly overtakes Ford in annual vehicle sales volume",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T20:44:00Z",
+    "summary": "Social/news capture indicates BYD sold about 4.6M vehicles in 2025 versus Ford around 4.4M, signaling continued auto-industrial share shift toward Chinese EV/hybrid scale platforms.",
+    "flow": "EV/hybrid manufacturing scale-up in China -> legacy OEM share compression -> industrial/battery/export power rebalancing",
+    "verification_note": "Captured from user-provided image referencing Bloomberg-style reporting; treat as reported until primary filings or direct Bloomberg article text is attached.",
+    "sources": [
+      {
+        "label": "User-provided image capture (BYD vs Ford sales claim)",
+        "url": "internal://isaac/telegram/media/2026-03-18-byd-ford-volume"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "automotive",
+      "ev",
+      "china",
+      "byd",
+      "ford",
+      "industrial-shift",
+      "reported"
+    ],
+    "geography": [
+      "Global",
+      "China",
+      "United States"
+    ],
+    "country": "Global",
+    "buyer_ids": [
+      "TEMASEK",
+      "GIC",
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "IFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery",
+      "architecture"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-ALERZO-LIQUIDATION-DEBT-STRESS-001",
+    "title": "Nigerian B2B commerce operator Alerzo reportedly liquidates assets amid debt stress",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T20:45:00Z",
+    "summary": "Image-captured reporting indicates Alerzo is liquidating delivery assets amid alleged multi-billion-naira debt pressure and legal enforcement, highlighting credit fragility in SME distribution rails.",
+    "flow": "working-capital strain -> legal/credit enforcement -> logistics asset unwind -> reduced distribution resilience in informal/SME commerce channels",
+    "verification_note": "Derived from social repost/news image context (Nairametrics framing); classify as reported pending primary court/company filings.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Alerzo debt/liquidation claim)",
+        "url": "internal://isaac/telegram/media/2026-03-18-alerzo-debt-liquidation"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "alerzo",
+      "fintech",
+      "sme-commerce",
+      "debt-stress",
+      "asset-liquidation",
+      "reported"
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "IFC",
+      "DFC",
+      "WORLDBANK",
+      "AfDB"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery",
+      "governance"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
