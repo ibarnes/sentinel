@@ -1150,7 +1150,7 @@
         {
           "id": "decomp-20260305-0730",
           "author": "sentinel",
-          "text": "Recovery sweep decomposition: split stalled TASK-0043 into TASK-0093, TASK-0094, TASK-0095 (30–90 min slices with acceptance criteria).",
+          "text": "Recovery sweep decomposition: split stalled TASK-0043 into TASK-0093, TASK-0094, TASK-0095 (30\u201390 min slices with acceptance criteria).",
           "created_at": "2026-03-05T07:30:00Z"
         },
         {
@@ -1475,7 +1475,7 @@
     },
     {
       "id": "TASK-0053",
-      "title": "INIT-AI-OPT-A — Scope memo",
+      "title": "INIT-AI-OPT-A \u2014 Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1499,7 +1499,7 @@
     },
     {
       "id": "TASK-0054",
-      "title": "INIT-AI-OPT-A — Buyer mapping",
+      "title": "INIT-AI-OPT-A \u2014 Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1523,7 +1523,7 @@
     },
     {
       "id": "TASK-0055",
-      "title": "INIT-AI-OPT-A — Mandate pathway draft",
+      "title": "INIT-AI-OPT-A \u2014 Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1547,7 +1547,7 @@
     },
     {
       "id": "TASK-0056",
-      "title": "INIT-AI-OPT-B — Scope memo",
+      "title": "INIT-AI-OPT-B \u2014 Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1571,7 +1571,7 @@
     },
     {
       "id": "TASK-0057",
-      "title": "INIT-AI-OPT-B — Buyer mapping",
+      "title": "INIT-AI-OPT-B \u2014 Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1595,7 +1595,7 @@
     },
     {
       "id": "TASK-0058",
-      "title": "INIT-AI-OPT-B — Mandate pathway draft",
+      "title": "INIT-AI-OPT-B \u2014 Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1619,7 +1619,7 @@
     },
     {
       "id": "TASK-0059",
-      "title": "INIT-AI-OPT-C — Scope memo",
+      "title": "INIT-AI-OPT-C \u2014 Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1643,7 +1643,7 @@
     },
     {
       "id": "TASK-0060",
-      "title": "INIT-AI-OPT-C — Buyer mapping",
+      "title": "INIT-AI-OPT-C \u2014 Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1667,7 +1667,7 @@
     },
     {
       "id": "TASK-0061",
-      "title": "INIT-AI-OPT-C — Mandate pathway draft",
+      "title": "INIT-AI-OPT-C \u2014 Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1691,7 +1691,7 @@
     },
     {
       "id": "TASK-0062",
-      "title": "INIT-AI-OPT-D — Scope memo",
+      "title": "INIT-AI-OPT-D \u2014 Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1715,7 +1715,7 @@
     },
     {
       "id": "TASK-0063",
-      "title": "INIT-AI-OPT-D — Buyer mapping",
+      "title": "INIT-AI-OPT-D \u2014 Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1739,7 +1739,7 @@
     },
     {
       "id": "TASK-0064",
-      "title": "INIT-AI-OPT-D — Mandate pathway draft",
+      "title": "INIT-AI-OPT-D \u2014 Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1763,7 +1763,7 @@
     },
     {
       "id": "TASK-0065",
-      "title": "EP-SBP Sponsor-Level Presence (Beacon — passive gravity)",
+      "title": "EP-SBP Sponsor-Level Presence (Beacon \u2014 passive gravity)",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2440,7 +2440,7 @@
     },
     {
       "id": "TASK-0088",
-      "title": "Beacon Weekly — Monday signal selection",
+      "title": "Beacon Weekly \u2014 Monday signal selection",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2462,7 +2462,7 @@
     },
     {
       "id": "TASK-0089",
-      "title": "Beacon Weekly — Tuesday draft",
+      "title": "Beacon Weekly \u2014 Tuesday draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2484,7 +2484,7 @@
     },
     {
       "id": "TASK-0090",
-      "title": "Beacon Weekly — Wednesday hardening",
+      "title": "Beacon Weekly \u2014 Wednesday hardening",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2506,7 +2506,7 @@
     },
     {
       "id": "TASK-0091",
-      "title": "Beacon Weekly — Thursday approval",
+      "title": "Beacon Weekly \u2014 Thursday approval",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2528,7 +2528,7 @@
     },
     {
       "id": "TASK-0092",
-      "title": "Beacon Weekly — Friday publish/hold",
+      "title": "Beacon Weekly \u2014 Friday publish/hold",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2820,11 +2820,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep 2026-03-18T10:40Z: executed atomic children TASK-0185/TASK-0186 (fresh preflight + wrapper dry-run fail-fast evidence). Credentialed live execution remains queued in TASK-0159; post-PASS replay remains TASK-0160.",
           "created_at": "2026-03-18T10:40:00Z"
+        },
+        {
+          "id": "progress-task-0097-20260318-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-03-18T16:30Z: advanced TASK-0187/TASK-0188 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0077). Live credential execution still pending TASK-0159.",
+          "created_at": "2026-03-18T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-18T10:40:00Z",
+      "updated_at": "2026-03-18T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2847,7 +2853,7 @@
         "TASK-0101",
         "mission-control/review-packets/RP-0031-board-recovery-sweep-2026-03-06.md"
       ],
-      "description": "Oversized stalled-work recovery item: Ready for Review queue aged >24h has accumulated and requires decomposition into approval-ready bundles.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with explicit acceptance criteria.\n- At least one unblock child executed in this sweep.\n- Recovery plan recorded with stalled list and Isaac decision gate.",
+      "description": "Oversized stalled-work recovery item: Ready for Review queue aged >24h has accumulated and requires decomposition into approval-ready bundles.\nAcceptance Criteria:\n- Decomposed into 30\u201390 minute child tasks with explicit acceptance criteria.\n- At least one unblock child executed in this sweep.\n- Recovery plan recorded with stalled list and Isaac decision gate.",
       "comments": [
         {
           "at": "2026-03-06T07:30:00Z",
@@ -2928,7 +2934,7 @@
       "linked_refs": [
         "TASK-0098"
       ],
-      "description": "Create an approval bundle for the oldest Ready for Review tasks (target 8–12 items) with one-line approve/defer rationale per item.\nAcceptance Criteria:\n- Bundle groups items by theme.\n- Each item has approve/defer recommendation with risk note.\n- Output packaged as review packet.",
+      "description": "Create an approval bundle for the oldest Ready for Review tasks (target 8\u201312 items) with one-line approve/defer rationale per item.\nAcceptance Criteria:\n- Bundle groups items by theme.\n- Each item has approve/defer recommendation with risk note.\n- Output packaged as review packet.",
       "comments": [
         {
           "id": "done-task-0100-20260306-1140",
@@ -3240,11 +3246,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep 2026-03-18T10:40Z: TASK-0185/TASK-0186 completed and linked to RP-0076; blocker state unchanged pending live credentials for TASK-0159/TASK-0111.",
           "created_at": "2026-03-18T10:40:00Z"
+        },
+        {
+          "id": "progress-task-0103-20260318-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-03-18T16:30Z: advanced TASK-0187/TASK-0188 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0077). Live credential execution still pending TASK-0159.",
+          "created_at": "2026-03-18T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-18T10:40:00Z",
+      "updated_at": "2026-03-18T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3376,7 +3388,7 @@
         "mission-control/review-packets/RP-0070-board-build-window-night-2026-03-16.md",
         "mission-control/board/approval-queue/2026-03-16T03-10-00Z-tranche-j-approval-card.md"
       ],
-      "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
+      "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30\u201390 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
         {
           "id": "decomp-0107-20260307-0730",
@@ -3455,11 +3467,17 @@
           "author": "sentinel",
           "text": "Night build window 2026-03-18T03:10Z: decomposition-gated tranche-L artifacts completed (TASK-0182/RP-0075 and TASK-0183 approval card). Awaiting approval decisions for oldest RFR set.",
           "created_at": "2026-03-18T03:10:00Z"
+        },
+        {
+          "id": "progress-0107-20260318-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-03-18T16:30Z: continued P0 blocker-chain stream and advanced TASK-0187/TASK-0188 to Ready for Review (RP-0077); approval queue age pressure unchanged pending Isaac decisions.",
+          "created_at": "2026-03-18T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-18T03:10:00Z",
+      "updated_at": "2026-03-18T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3480,7 +3498,7 @@
         "TASK-0107",
         "mission-control/review-packets/RP-0038-board-recovery-sweep-2026-03-07.md"
       ],
-      "description": "Create tranche-C approval packet for remaining high-age Ready for Review items with approve/defer recommendation and unblock leverage ordering.\nAcceptance Criteria:\n- Packet lists current stalled counts by rule.\n- Includes 8–12 RFR items not yet bundled in A/B with one-line recommendation and risk note.\n- Includes Isaac decision needed next.",
+      "description": "Create tranche-C approval packet for remaining high-age Ready for Review items with approve/defer recommendation and unblock leverage ordering.\nAcceptance Criteria:\n- Packet lists current stalled counts by rule.\n- Includes 8\u201312 RFR items not yet bundled in A/B with one-line recommendation and risk note.\n- Includes Isaac decision needed next.",
       "comments": [
         {
           "id": "done-0108-20260307-0730",
@@ -3810,7 +3828,7 @@
         "TASK-0109",
         "mission-control/board/tranche-c-microbatch-2026-03-08.md"
       ],
-      "description": "Create a 30–60 minute microbatch decision slate with 5 highest-leverage Ready for Review approvals to accelerate tranche-C closure.\nAcceptance Criteria:\n- Contains exactly 5 items with approve/defer rationale framing.\n- Maps each item to expected unblock effect.\n- Includes explicit decision prompt for Isaac.",
+      "description": "Create a 30\u201360 minute microbatch decision slate with 5 highest-leverage Ready for Review approvals to accelerate tranche-C closure.\nAcceptance Criteria:\n- Contains exactly 5 items with approve/defer rationale framing.\n- Maps each item to expected unblock effect.\n- Includes explicit decision prompt for Isaac.",
       "comments": [
         {
           "id": "done-0118-20260308-0730",
@@ -4200,7 +4218,7 @@
         "TASK-0103",
         "mission-control/board/sweeps/2026-03-10T03-10-00Z-night-unblock-matrix.md"
       ],
-      "description": "Produce a night unblock artifact with decomposition, decision microbatch, and explicit next-slot sequence for highest leverage blocked chain.\nAcceptance Criteria:\n- Artifact includes blocker chain and ordered decision asks.\n- Includes governance constraints (no Done without approved RP).\n- Identifies next queued 30–90 minute subtasks.",
+      "description": "Produce a night unblock artifact with decomposition, decision microbatch, and explicit next-slot sequence for highest leverage blocked chain.\nAcceptance Criteria:\n- Artifact includes blocker chain and ordered decision asks.\n- Includes governance constraints (no Done without approved RP).\n- Identifies next queued 30\u201390 minute subtasks.",
       "comments": [
         {
           "id": "done-0129-20260310-0310",
@@ -4582,7 +4600,7 @@
         "mission-control/review-packets/RP-0051-board-recovery-sweep-2026-03-11-0630.md",
         "mission-control/board/sweeps/2026-03-11T06-30-00Z-late-night-recovery-sweep.md"
       ],
-      "description": "Create a 30–90 min decision packet for the 12 oldest Ready-for-Review tasks with approve/defer recommendation and unblock leverage note.\nAcceptance Criteria:\n- Exactly 12 oldest RFR items included.\n- Each item includes recommendation + rationale.\n- Packet path attached for immediate Isaac decision.",
+      "description": "Create a 30\u201390 min decision packet for the 12 oldest Ready-for-Review tasks with approve/defer recommendation and unblock leverage note.\nAcceptance Criteria:\n- Exactly 12 oldest RFR items included.\n- Each item includes recommendation + rationale.\n- Packet path attached for immediate Isaac decision.",
       "comments": [
         {
           "id": "done-0138-20260311-0630",
@@ -6094,7 +6112,7 @@
         "mission-control/runbooks/2026-03-17-credentialed-live-smoke-handoff.md",
         "mission-control/review-packets/RP-0072-board-recovery-sweep-2026-03-17-0630.md"
       ],
-      "description": "30–90 min unblock subtask. Acceptance: (1) deterministic one-pass command sequence for credentialed operator, (2) PASS/BLOCKED evidence checklist, (3) explicit post-PASS board transition gate for TASK-0097.",
+      "description": "30\u201390 min unblock subtask. Acceptance: (1) deterministic one-pass command sequence for credentialed operator, (2) PASS/BLOCKED evidence checklist, (3) explicit post-PASS board transition gate for TASK-0097.",
       "comments": [
         {
           "author": "sentinel",
@@ -6469,6 +6487,92 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0076"
+    },
+    {
+      "id": "TASK-0187",
+      "title": "TS-H1.1c.2as Capture sweep-time credential preflight artifact (midday progress sweep)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-progress-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "mission-control/evidence/pipeline-run/preflight-2026-03-18T16-30-35Z.md"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "Generate fresh preflight artifact during midday progress sweep to prove current credential state before live run.\nAcceptance Criteria:\n- Preflight markdown artifact exists for this sweep timestamp.\n- Artifact explicitly states PASS/BLOCKED.\n- Path linked to parent blocker chain.",
+      "comments": [
+        {
+          "id": "done-0187-20260318-1630",
+          "author": "sentinel",
+          "text": "Generated sweep-time preflight artifact at mission-control/evidence/pipeline-run/preflight-2026-03-18T16-30-35Z.md (BLOCKED: missing BASE_URL + TEAM_SESSION_COOKIE).",
+          "created_at": "2026-03-18T16:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-18T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0077-board-progress-sweep-midday-2026-03-18.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-18T16:30:00Z",
+      "updated_at": "2026-03-18T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0077"
+    },
+    {
+      "id": "TASK-0188",
+      "title": "TS-H1.1c.2at Run one-command credentialed wrapper dry-run and capture fail-fast evidence (midday)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-progress-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credentialed-once.sh",
+        "mission-control/evidence/pipeline-run/2026-03-18T16-30-00Z-credentialed-wrapper-dryrun.md"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "Execute wrapper in no-credential mode to verify deterministic fail-fast behavior and provide operator-proof artifact for the next credential window.\nAcceptance Criteria:\n- Wrapper exits with missing-env error.\n- Output captured in timestamped markdown artifact.\n- Artifact linked in blocker chain.",
+      "comments": [
+        {
+          "id": "done-0188-20260318-1630",
+          "author": "sentinel",
+          "text": "Captured fail-fast dry-run evidence at mission-control/evidence/pipeline-run/2026-03-18T16-30-00Z-credentialed-wrapper-dryrun.md (expected missing credential env error).",
+          "created_at": "2026-03-18T16:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-18T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0077-board-progress-sweep-midday-2026-03-18.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-18T16:30:00Z",
+      "updated_at": "2026-03-18T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0077"
     }
   ]
 }
