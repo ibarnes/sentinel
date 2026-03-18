@@ -3423,11 +3423,17 @@
           "author": "sentinel",
           "text": "Decomposition-gated tranche-K artifacts completed: TASK-0175 (RP-0071) and TASK-0176 (approval card). Awaiting approval decisions for oldest RFR set.",
           "created_at": "2026-03-17T03:10:00Z"
+        },
+        {
+          "id": "progress-0107-20260318-0310",
+          "author": "sentinel",
+          "text": "Night build window 2026-03-18T03:10Z: decomposition-gated tranche-L artifacts completed (TASK-0182/RP-0075 and TASK-0183 approval card). Awaiting approval decisions for oldest RFR set.",
+          "created_at": "2026-03-18T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-17T03:10:00Z",
+      "updated_at": "2026-03-18T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -6247,6 +6253,72 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0074"
+    },
+    {
+      "id": "TASK-0182",
+      "title": "BRS-2026-03-18 Package Ready-for-Review tranche-L decision digest (oldest set)",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/review-packets/RP-0075-board-build-window-night-2026-03-18.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Build tranche-L decision digest for oldest Ready-for-Review tasks with queue-age context and approve/hold recommendations.\nAcceptance Criteria:\n- Includes oldest RFR task set and queue age context.\n- Includes per-task recommendation + rationale.\n- Includes governance-safe decision syntax for Isaac.",
+      "comments": [
+        {
+          "id": "done-task-0182-20260318-0310",
+          "author": "sentinel",
+          "text": "Published RP-0075 tranche-L decision digest for stale RFR reduction.",
+          "created_at": "2026-03-18T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-18T03:10:00Z",
+      "updated_at": "2026-03-18T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0183",
+      "title": "BRS-2026-03-18 Publish tranche-L approval routing card",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/approval-queue/2026-03-18T03-10-00Z-tranche-l-approval-card.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Publish compact tranche-L approval card for low-latency decision routing.\nAcceptance Criteria:\n- Lists pending task IDs with Approve/Hold asks.\n- Includes one-line decision syntax.\n- States governance guardrail and blocker-chain effect.",
+      "comments": [
+        {
+          "id": "done-task-0183-20260318-0310",
+          "author": "sentinel",
+          "text": "Published tranche-L approval routing card in approval queue.",
+          "created_at": "2026-03-18T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-18T03:10:00Z",
+      "updated_at": "2026-03-18T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
