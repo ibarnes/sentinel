@@ -33,7 +33,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa"
   },
   {
     "signal_id": "SIG-2026-02-27-NG-001",
@@ -70,7 +74,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-02-27-NG-002",
@@ -107,7 +115,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-02-27-GULF-001",
@@ -145,7 +157,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa"
   },
   {
     "signal_id": "SIG-2026-02-27-AFDB-001",
@@ -179,7 +195,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa"
   },
   {
     "signal_id": "SIG-2026-02-27-USNG-001",
@@ -214,7 +234,12 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria",
+      "United States"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-02-27-FISCAL-001",
@@ -249,7 +274,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Global"
+    ],
+    "country": "Global"
   },
   {
     "signal_id": "SIG-2026-02-27-PIF-STRAT-001",
@@ -283,7 +312,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Saudi Arabia"
+    ],
+    "country": "Saudi Arabia"
   },
   {
     "signal_id": "SIG-2026-03-01-PIF-ALUMINUM-001",
@@ -317,7 +350,11 @@
     "evidence_type": "tier1_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Saudi Arabia"
+    ],
+    "country": "Saudi Arabia"
   },
   {
     "signal_id": "SIG-2026-03-01-PIF-VENDOR-GATE-001",
@@ -352,7 +389,11 @@
     "evidence_type": "tier1_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Saudi Arabia"
+    ],
+    "country": "Saudi Arabia"
   },
   {
     "signal_id": "SIG-2026-03-01-DANGOTE-SINOMA-001",
@@ -391,7 +432,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Global"
+    ],
+    "country": "Global"
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-NDAA-001",
@@ -428,7 +473,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-SONGWE-001",
@@ -461,7 +510,12 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States",
+      "Malawi"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-KATPAR-001",
@@ -495,7 +549,12 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States",
+      "Kazakhstan"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-BANIO-001",
@@ -529,7 +588,12 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States",
+      "Gabon"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-ORION-001",
@@ -563,7 +627,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-02-AI-FRICTION-001",
@@ -596,7 +664,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa"
   },
   {
     "signal_id": "SIG-2026-03-02-AI-FRICTION-002",
@@ -629,7 +701,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa"
   },
   {
     "signal_id": "SIG-2026-03-02-AI-FRICTION-003",
@@ -663,7 +739,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa"
   },
   {
     "signal_id": "SIG-2026-03-02-AI-FRICTION-004",
@@ -698,7 +778,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa"
   },
   {
     "signal_id": "SIG-2026-03-02-NG-GRID-PLAN-001",
@@ -739,7 +823,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-02-NG-LIVE-FINENERGY-001",
@@ -786,7 +874,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-02-DFC-NYC-OFFICE-001",
@@ -828,7 +920,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-03-RW-INIR-SMR-001",
@@ -865,7 +961,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Rwanda"
+    ],
+    "country": "Rwanda"
   },
   {
     "signal_id": "SIG-2026-03-03-NG-FX-RESERVES-001",
@@ -907,7 +1007,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-03-US-CLARITY-ACT-001",
@@ -947,7 +1051,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-03-IN-LT-NVIDIA-AI-FACTORY-001",
@@ -986,7 +1094,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "India"
+    ],
+    "country": "India"
   },
   {
     "signal_id": "SIG-2026-03-03-PIF-PROCUREMENT-CYCLE-001",
@@ -1021,7 +1133,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Saudi Arabia"
+    ],
+    "country": "Saudi Arabia"
   },
   {
     "signal_id": "SIG-2026-03-03-IFC-AFDB-GRID-CLIMATE-001",
@@ -1057,7 +1173,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-03-NSIA-HEALTH-IMPACT-001",
@@ -1092,7 +1212,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-03-ADFD-AGRI-AI-001",
@@ -1126,7 +1250,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United Arab Emirates"
+    ],
+    "country": "United Arab Emirates"
   },
   {
     "signal_id": "SIG-2026-03-03-SFD-HEALTH-FOOD-001",
@@ -1161,7 +1289,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Global"
+    ],
+    "country": "Global"
   },
   {
     "signal_id": "SIG-2026-03-03-DFC-CRITICAL-MINERALS-001",
@@ -1196,7 +1328,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-03-COX-CHARTER-INTEGRATION-001",
@@ -1230,7 +1366,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-03-ET-AI-UNIPOD-001",
@@ -1272,7 +1412,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Ethiopia"
+    ],
+    "country": "Ethiopia"
   },
   {
     "signal_id": "SIG-2026-03-03-NG-US-CRUDE-CONCENTRATION-001",
@@ -1310,7 +1454,12 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria",
+      "United States"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-03-DANGOTE-INDUSTRIAL-STACK-001",
@@ -1357,7 +1506,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Global"
+    ],
+    "country": "Global"
   },
   {
     "signal_id": "SIG-2026-03-05-MACRO-OIL85-001",
@@ -1398,7 +1551,11 @@
     "evidence_type": "tier1_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-05-NG-IFC-PPP-001",
@@ -1439,7 +1596,12 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria",
+      "United States"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-05-AMZN-RATEPAYER-PLEDGE-001",
@@ -1477,7 +1639,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-05-DFC-MARITIME-BACKSTOP-001",
@@ -1528,7 +1694,11 @@
     "evidence_type": "tier1_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-05-IN-AP-AI-FACTORY-001",
@@ -1574,7 +1744,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "India"
+    ],
+    "country": "India"
   },
   {
     "signal_id": "SIG-2026-03-05-DANGOTE-EXPORT-001",
@@ -1618,7 +1792,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United Arab Emirates"
+    ],
+    "country": "United Arab Emirates"
   },
   {
     "signal_id": "SIG-2026-03-06-IFC-FY26-BUDGET-001",
@@ -1662,7 +1840,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-07-USG-INFRA-CYCLE-001",
@@ -1713,7 +1895,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Global"
+    ],
+    "country": "Global"
   },
   {
     "signal_id": "SIG-2026-03-08-NG-NSW-TRADE-STACK-001",
@@ -1759,7 +1945,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-08-DMCC-TEA-CENTRE-OPS-001",
@@ -1802,7 +1992,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Global"
+    ],
+    "country": "Global"
   },
   {
     "signal_id": "SIG-2026-03-08-US-RATEPAYER-PLEDGE-MULTI-001",
@@ -1853,7 +2047,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-08-US-TECHFORCE-001",
@@ -1897,7 +2095,11 @@
     "evidence_type": "tier1_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-09-SA-HUMAIN-AIINFRA-001",
@@ -1937,7 +2139,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Saudi Arabia"
+    ],
+    "country": "Saudi Arabia"
   },
   {
     "signal_id": "SIG-2026-03-09-UAE-TRUDOC-FUNDING-001",
@@ -1975,7 +2181,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United Arab Emirates"
+    ],
+    "country": "United Arab Emirates"
   },
   {
     "signal_id": "SIG-2026-03-09-SG-AI-WORKFORCE-001",
@@ -2013,7 +2223,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Singapore"
+    ],
+    "country": "Singapore"
   },
   {
     "signal_id": "SIG-2026-03-09-ZA-MANGANESE-NGQURA-001",
@@ -2052,7 +2266,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa"
   },
   {
     "signal_id": "SIG-2026-03-10-CN-15FYP-INDUSTRIAL-SYSTEM-001",
@@ -2096,7 +2314,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Global"
+    ],
+    "country": "Global"
   },
   {
     "signal_id": "SIG-2026-03-10-US-DRC-HEALTH-INFRA-BILATERAL-001",
@@ -2137,7 +2359,12 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States",
+      "Democratic Republic of the Congo"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-10-US-AFRICA-BILATERAL-HEALTH-WAVE-001",
@@ -2179,7 +2406,15 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States",
+      "Democratic Republic of the Congo",
+      "Rwanda",
+      "Ethiopia",
+      "Kenya"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-10-AFR-HEALTH-TO-DIGITAL-STATE-SEQUENCE-001",
@@ -2220,7 +2455,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Global"
+    ],
+    "country": "Global"
   },
   {
     "signal_id": "SIG-2026-03-10-NG-CBN-AML-AUTOMATION-001",
@@ -2260,7 +2499,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "low",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-10-ZM-COPPER-INVESTOR-COURTSHIP-001",
@@ -2300,7 +2543,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-11-NG-STABLECOIN-TASKFORCE-001",
@@ -2348,7 +2595,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-11-NG-STABLECOIN-ADOPTION-SCALE-001",
@@ -2402,7 +2653,11 @@
     "evidence_type": "tier1_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-11-NG-STABLECOIN-COMMODITY-TRADE-RAIL-001",
@@ -2450,7 +2705,11 @@
     "evidence_type": "tier1_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-12-US-GULF-INDUSTRIAL-STACK-001",
@@ -2496,7 +2755,11 @@
     "evidence_type": "tier1_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-12-US-ADV-ENERGY-STARTUP-RACE-001",
@@ -2558,7 +2821,11 @@
     "initiative_ids": [
       "USG",
       "INIT-AP-AI-FACTORY-001"
-    ]
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-RW-NUCLEAR-SMR-PROGRAM-001",
@@ -2648,7 +2915,11 @@
     "evidence_type": "industry_media",
     "evidence_strength": "high",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "geography": [
+      "Rwanda"
+    ],
+    "country": "Rwanda"
   },
   {
     "signal_id": "SIG-US-ECONOMIC-DEFENSE-UNIT-2026-03-001",
@@ -2761,7 +3032,11 @@
         "observe partnerships between government and Wall Street banks"
       ],
       "decision_confidence": "medium"
-    }
+    },
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-12-NGA-IMPORT-CONCENTRATION",
@@ -2882,7 +3157,12 @@
       "INIT-NG-FIN-ENERGY-SPINE",
       "INIT-2026-03-05-COMMODITY-CORRIDOR",
       "USG"
-    ]
+    ],
+    "geography": [
+      "Nigeria",
+      "United States"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-12-AFR-AI-STACK-COMPETITION-001",
@@ -3013,7 +3293,11 @@
       "USG",
       "INIT-AI-OPT-B",
       "INIT-NG-FIN-ENERGY-SPINE"
-    ]
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-12-REPLIT-RAISE-400M-9B-001",
@@ -3163,7 +3447,11 @@
     "initiative_ids": [
       "USG",
       "INIT-AI-OPT-B"
-    ]
+    ],
+    "geography": [
+      "Global"
+    ],
+    "country": "Global"
   },
   {
     "signal_id": "SIG-2026-03-13-BLACKSTONE-DATACENTER-VEHICLE",
@@ -3272,7 +3560,11 @@
       "GIC",
       "IFC",
       "DFC"
-    ]
+    ],
+    "geography": [
+      "Global"
+    ],
+    "country": "Global"
   },
   {
     "signal_id": "SIG-USVI-DISASTER-RECOVERY-2026-001",
@@ -3451,7 +3743,12 @@
     ],
     "initiative_ids": [
       "USG"
-    ]
+    ],
+    "geography": [
+      "United States",
+      "U.S. Virgin Islands"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2025-10-07-NG-WB-BRIDGE-HESP-001",
@@ -3547,7 +3844,11 @@
     "initiative_ids": [
       "INIT-NG-FIN-ENERGY-SPINE",
       "USG"
-    ]
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-01-30-NG-BRIDGE-SPV-49PCT-001",
@@ -3656,7 +3957,11 @@
     "initiative_ids": [
       "INIT-NG-FIN-ENERGY-SPINE",
       "USG"
-    ]
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-16-DRC-GOLD-REFINERY-KALEMIE-001",
@@ -3746,7 +4051,11 @@
       "WORLDBANK",
       "DFC",
       "IFC"
-    ]
+    ],
+    "geography": [
+      "Democratic Republic of the Congo"
+    ],
+    "country": "Democratic Republic of the Congo"
   },
   {
     "signal_id": "SIG-2026-03-16-GULF-SWF-DEPLOYMENT-REVIEW-001",
@@ -3819,7 +4128,11 @@
       "GIC",
       "SFD",
       "ADFD"
-    ]
+    ],
+    "geography": [
+      "Gulf"
+    ],
+    "country": "Gulf"
   },
   {
     "signal_id": "SIG-2026-03-16-WAFR-PRIVATE-PORT-FINANCE-001",
@@ -3890,7 +4203,11 @@
       "IFC",
       "DFC",
       "WORLDBANK"
-    ]
+    ],
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa"
   },
   {
     "signal_id": "SIG-2026-03-16-INDIA-INFRA-BOND-CHANNEL-REOPEN-001",
@@ -3959,7 +4276,11 @@
       "PIF",
       "IFC",
       "ADB"
-    ]
+    ],
+    "geography": [
+      "India"
+    ],
+    "country": "India"
   },
   {
     "signal_id": "SIG-2026-03-17-AFR-FINTECH-BANK-PRESSURE-001",
@@ -4042,7 +4363,11 @@
       "IFC",
       "NSIA",
       "FMF-NG"
-    ]
+    ],
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa"
   },
   {
     "signal_id": "SIG-2026-03-17-NG-UAE-DEFENSE-SAT-MFG-001",
@@ -4102,7 +4427,12 @@
       "usg_priority": 0.85,
       "time_horizon": "6_to_24_months",
       "decision_posture": "track_actively_but_do_not_anchor_strategy_on_execution_until_follow_on_proof_appears"
-    }
+    },
+    "geography": [
+      "Nigeria",
+      "United Arab Emirates"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-NGA-POWER-LIQUIDITY-2026-03-18-001",
@@ -4167,7 +4497,11 @@
       "What portion of arrears is tariff shortfall vs collection inefficiency vs subsidy arrears?",
       "What debt-resolution vehicle exists and why is it not arresting monthly accumulation?",
       "Which authority can redesign payment-chain rules fastest without full-sector reform?"
-    ]
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   },
   {
     "signal_id": "SIG-2026-03-18-MASTERCARD-BVNK-001",
@@ -4226,7 +4560,11 @@
       "signal_strength": 9.2,
       "pressure_score": 8.9,
       "usg_relevance_score": 9.1
-    }
+    },
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-18-AFRICA-MINERALS-US-ENTRY-001",
@@ -4286,7 +4624,12 @@
       "deal_value_usd": 30000000,
       "signal_strength": 0.72,
       "confidence_score": 0.68
-    }
+    },
+    "geography": [
+      "United States",
+      "Democratic Republic of the Congo"
+    ],
+    "country": "United States"
   },
   {
     "signal_id": "SIG-2026-03-18-AI-INFRA-LABOR-BOTTLENECK-BLACKROCK-001",
@@ -4343,6 +4686,10 @@
       "verification_confidence": 0.94,
       "blackrock_initiative_usd": 100000000,
       "target_trainees": 50000
-    }
+    },
+    "geography": [
+      "United States"
+    ],
+    "country": "United States"
   }
 ]
