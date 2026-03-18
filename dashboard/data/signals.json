@@ -4963,5 +4963,317 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-SPACEX-STARLINK-DUAL-COAST-LAUNCH-001",
+    "title": "SpaceX executes back-to-back Starlink launches across both U.S. coasts",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:21:00Z",
+    "summary": "SpaceX completed two additional Starlink batch launches in two days from Vandenberg and Cape Canaveral, reinforcing cadence and launch-industrial throughput.",
+    "flow": "high-frequency launch cadence -> expanding LEO communications mesh -> increasing strategic value of reusable launch/logistics control",
+    "verification_note": "Source page partially extracted; headline-level event confirmation captured.",
+    "sources": [
+      {
+        "label": "Space.com",
+        "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-9-starlink-launch-group-17-31-b1071-vsfb-ocisly-group-10-48-b1095-ccsfs-jrti"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "spacex",
+      "starlink",
+      "launch-cadence",
+      "leo-infrastructure",
+      "space-logistics"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK",
+      "GIC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "delivery",
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-UKRAINE-HUMANOID-ROBOT-BATTLEFIELD-TEST-001",
+    "title": "Humanoid combat robots reportedly delivered to Ukraine for frontline testing",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:21:00Z",
+    "summary": "A U.S. startup reportedly deployed two Phantom MK-1 humanoid robots to Ukraine for reconnaissance evaluation, indicating early battlefield experimentation with humanoid systems.",
+    "flow": "wartime operational pressure -> rapid robotics experimentation loop -> potential shift in military labor models and procurement priorities",
+    "verification_note": "Interesting Engineering report citing company statements and secondary references; requires multi-source defense confirmation for higher certainty.",
+    "sources": [
+      {
+        "label": "Interesting Engineering",
+        "url": "https://interestingengineering.com/military/humanoid-soldier-robots-arrive-in-ukraine"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "ukraine",
+      "military-robotics",
+      "humanoid-systems",
+      "defense-innovation"
+    ],
+    "geography": [
+      "Ukraine"
+    ],
+    "country": "Ukraine",
+    "buyer_ids": [
+      "DFC",
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "development",
+      "delivery",
+      "governance"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-OPENAI-DOD-GUARDRAIL-SCRUTINY-001",
+    "title": "OpenAI defense arrangement faces Senate scrutiny on surveillance and kill-chain guardrails",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:21:00Z",
+    "summary": "CNBC reports lawmakers pressed OpenAI leadership on defense use constraints, highlighting tightening policy scrutiny around AI use in surveillance and force-application contexts.",
+    "flow": "defense AI adoption -> governance/constitutional scrutiny -> guardrail negotiation as deployment prerequisite",
+    "verification_note": "CNBC interview-based reporting; details tied to statements by named officials and public company posts.",
+    "sources": [
+      {
+        "label": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/12/sam-altman-faced-serious-questions-in-dc-meeting-openai-defense-work.html"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "openai",
+      "defense-ai",
+      "governance",
+      "surveillance",
+      "policy-risk"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "DFC",
+      "PIF",
+      "QIA",
+      "ADQ",
+      "MUBADALA",
+      "TEMASEK",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "architecture"
+    ],
+    "evidence_type": "business_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-PALANTIR-NVIDIA-SOVEREIGN-AI-DATACENTER-001",
+    "title": "Palantir and Nvidia partnership narrative points to turnkey sovereign AI datacenter stack",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:21:00Z",
+    "summary": "Yahoo-finance distribution indicates Palantir and Nvidia are pushing integrated sovereign AI datacenter solutions, reinforcing demand for deployable compute-plus-governance stacks.",
+    "flow": "sovereign AI demand -> need for pre-integrated compute/software stacks -> faster institutional deployment pathways",
+    "verification_note": "URL fetch failed; signal captured from searchable headline/snippet references and should be upgraded with primary release confirmation.",
+    "sources": [
+      {
+        "label": "Yahoo Finance",
+        "url": "https://finance.yahoo.com/news/palantir-nvidia-join-forces-tackle-170906646.html"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "sovereign-ai",
+      "palantir",
+      "nvidia",
+      "ai-datacenters",
+      "turnkey-infrastructure"
+    ],
+    "geography": [
+      "Global"
+    ],
+    "country": "Global",
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK",
+      "GIC",
+      "DFC",
+      "IFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery",
+      "architecture"
+    ],
+    "evidence_type": "secondary_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-ATOMS-ROBOTICS-INDUSTRIAL-EXPANSION-001",
+    "title": "Kalanick rebrands venture as Atoms and expands into robotics, mining, and transport",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:21:00Z",
+    "summary": "CNBC reports Travis Kalanick rebranded to Atoms and expanded scope into robotics-linked mining and transport systems, signaling cross-sector physical-world automation plays.",
+    "flow": "post-platform founder capital redeployment -> physical-world robotics integration across logistics/mining/transport -> new private coordination nodes",
+    "verification_note": "Based on CNBC and quoted company statements; strategic direction clear, execution specifics still emerging.",
+    "sources": [
+      {
+        "label": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/13/uber-ex-ceo-kalanick-rebrands-latest-venture-atoms-move-into-robotics.html"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "robotics",
+      "automation",
+      "mining",
+      "transport",
+      "atoms",
+      "kalanick"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "PIF",
+      "MUBADALA",
+      "QIA",
+      "ADQ",
+      "TEMASEK",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "development",
+      "delivery",
+      "capital"
+    ],
+    "evidence_type": "business_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-XAI-REBUILD-SPACEX-IPO-WINDOW-001",
+    "title": "xAI leadership churn and rebuild messaging emerges ahead of potential SpaceX IPO window",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:21:00Z",
+    "summary": "CNBC reports co-founder exits at xAI and Musk comments about rebuilding as SpaceX IPO expectations remain in focus, signaling execution-risk/valuation dynamics across linked AI-space capital narratives.",
+    "flow": "AI org instability signals -> governance/execution risk repricing -> crossover effects on broader Musk-linked strategic capital cycle",
+    "verification_note": "Reported by CNBC with references to public posts and media documents; IPO timing still contingent.",
+    "sources": [
+      {
+        "label": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/13/elon-musk-xai-co-founders-spacex-ipo.html"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "xai",
+      "spacex",
+      "ipo",
+      "leadership-risk",
+      "ai-capital-markets"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "business_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
