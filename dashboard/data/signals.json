@@ -4905,5 +4905,63 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-DANGOTE-CONTINENTAL-INDUSTRIAL-EXPANSION-001",
+    "title": "Africa\u2019s richest man signals continent-scale industrial expansion plans",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:19:00Z",
+    "summary": "Economist coverage indicates Aliko Dangote is scaling ambitions beyond refining into broader Africa industrial build-out (including steel, power, and ports), reinforcing a multi-sector platform formation signal.",
+    "flow": "post-refinery proof of execution -> expansion into adjacent heavy-industry layers -> integrated corridor effects across energy, logistics, and materials -> rising need for governance/capital sequencing architecture",
+    "verification_note": "Paywalled Economist source captured via title/snippet-level confirmation; directional claim corroborated by recent parallel public reporting on Dangote expansion themes.",
+    "sources": [
+      {
+        "label": "The Economist",
+        "url": "https://www.economist.com/middle-east-and-africa/2026/03/17/africas-richest-man-has-ambitious-plans-for-the-continent"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "africa",
+      "nigeria",
+      "dangote",
+      "industrial-expansion",
+      "steel",
+      "power",
+      "ports",
+      "platform-formation"
+    ],
+    "geography": [
+      "Nigeria",
+      "Africa"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "TAFF",
+      "AFC",
+      "AfDB",
+      "NSIA",
+      "FMF-NG",
+      "PIF",
+      "MUBADALA",
+      "ADQ"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture",
+      "delivery"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
