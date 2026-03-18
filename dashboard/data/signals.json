@@ -5632,5 +5632,63 @@
     ],
     "evidence_type": "tech_media",
     "evidence_strength": "medium"
+  },
+  {
+    "signal_id": "SIG-2026-03-18-UNICEF-VENTURE-FUND-BLOCKCHAIN-CALL-001",
+    "title": "UNICEF Venture Fund runs equity-free blockchain startup funding calls",
+    "signal_class": "Ecosystem / Theater",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified",
+    "observed_at": "2026-03-18T20:28:00Z",
+    "summary": "UNICEF Venture Fund publicly runs periodic calls offering up to $100,000 equity-free funding for early-stage startups (including blockchain-linked social-impact use cases). The captured round deadline was March 10, 2026 and is now closed.",
+    "flow": "multilateral innovation mandate -> periodic thematic startup calls -> small-ticket catalytic capital into emerging digital infrastructure solutions",
+    "verification_note": "Program existence verified from captured call content; this specific intake window is expired and tracked for institutional-pattern reference.",
+    "sources": [
+      {
+        "label": "User-provided image capture of UNICEF Venture Fund call",
+        "url": "internal://isaac/telegram/media/2026-03-18-unicef-venture-fund-call"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "unicef",
+      "venture-fund",
+      "equity-free-funding",
+      "blockchain",
+      "social-impact",
+      "institutional-program",
+      "expired-window"
+    ],
+    "geography": [
+      "Global"
+    ],
+    "country": "Global",
+    "buyer_ids": [
+      "WORLDBANK",
+      "IFC",
+      "AfDB",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "ecosystem"
+    ],
+    "evidence_type": "primary_image_capture",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "program_meta": {
+      "program_active_pattern": true,
+      "specific_window_status": "closed",
+      "captured_deadline": "2026-03-10",
+      "grant_ceiling_usd": 100000,
+      "equity_free": true
+    }
   }
 ]
