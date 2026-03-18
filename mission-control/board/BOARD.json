@@ -1142,7 +1142,8 @@
         "/api/presentation-studio/decks/{deckId}/pipeline/run",
         "TASK-0093",
         "TASK-0094",
-        "TASK-0095"
+        "TASK-0095",
+        "TASK-0184"
       ],
       "description": "Create atomic first slice: validate input + create persisted run record with started status.",
       "comments": [
@@ -1157,11 +1158,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep: task remains structurally complete except live-smoke evidence dependency. Blocked-by chain normalized: TASK-0043 -> TASK-0095 -> TASK-0097 -> TASK-0103 -> TASK-0111 (credentialed execution window). Next action on credential window: run scripts/pipeline-run-smoke-capture.sh and attach mission-control/evidence/pipeline-run/<timestamp>/evidence-report.md before transition request.",
           "created_at": "2026-03-13T06:30:00Z"
+        },
+        {
+          "id": "recovery-20260318-0630-task-0043",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0184 to publish credential-window trigger packet and tighten immediate next action for blocker-chain closure.",
+          "created_at": "2026-03-18T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-27T23:24:00Z",
-      "updated_at": "2026-03-13T06:30:00Z",
+      "updated_at": "2026-03-18T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2630,7 +2637,8 @@
       "linked_refs": [
         "TASK-0043",
         "TASK-0096",
-        "TASK-0097"
+        "TASK-0097",
+        "TASK-0184"
       ],
       "description": "Implement endpoint using validation + persistence helper and verify with smoke calls.\nAcceptance Criteria:\n- Valid request returns 201 with runId and started status.\n- Invalid request returns 400 with actionable error payload.\n- Audit event emitted for pipeline.run.created with runId/deckId metadata.",
       "comments": [
@@ -2656,11 +2664,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep: endpoint wiring complete; only live authenticated smoke evidence remains. Blocked-by chain normalized: TASK-0095 -> TASK-0097 -> TASK-0103 -> TASK-0111. Next action: execute credentialed one-pass wrapper and attach evidence bundle + report, then request Ready-for-Review transition with RP-0060 context.",
           "created_at": "2026-03-13T06:30:00Z"
+        },
+        {
+          "id": "recovery-20260318-0630-task-0095",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0184 to publish credential-window trigger packet and tighten immediate next action for blocker-chain closure.",
+          "created_at": "2026-03-18T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-03-13T06:30:00Z",
+      "updated_at": "2026-03-18T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -6317,6 +6331,44 @@
       "request_approval": null,
       "created_at": "2026-03-18T03:10:00Z",
       "updated_at": "2026-03-18T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0184",
+      "title": "TS-H1.1c.2al Publish credential-window trigger packet for TASK-0095/TASK-0043 closure",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "late-night-recovery"
+      ],
+      "linked_refs": [
+        "TASK-0095",
+        "TASK-0043",
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/2026-03-18T06-30-00Z-credential-window-trigger-packet.md",
+        "mission-control/review-packets/RP-0076-board-recovery-sweep-2026-03-18-0630.md"
+      ],
+      "parent_id": "TASK-0095",
+      "description": "Create an operator-ready trigger packet that converts current blocker state into one immediate credential-window execution action with explicit commands, evidence paths, and replay order.\nAcceptance Criteria:\n- Includes exact one-pass command sequence (preflight + credentialed wrapper).\n- Includes expected evidence outputs and PASS/BLOCKED interpretation.\n- Includes deterministic replay order for TASK-0097 -> TASK-0095 -> TASK-0043 after PASS.",
+      "comments": [
+        {
+          "id": "done-0184-20260318-0630",
+          "author": "sentinel",
+          "text": "Published credential-window trigger packet at mission-control/evidence/pipeline-run/2026-03-18T06-30-00Z-credential-window-trigger-packet.md and linked in RP-0076.",
+          "created_at": "2026-03-18T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-18T06:30:00Z",
+      "updated_at": "2026-03-18T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
