@@ -5275,5 +5275,362 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "provenance": "provided_by_isaac",
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "signal_id": "SIG-2026-03-18-GOLDEN-DOME-COST-UPREV-001",
+    "title": "Golden Dome estimate reportedly rises to $185B as space layer expands",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:22:00Z",
+    "summary": "Pentagon Golden Dome objective architecture estimate increased to $185B with added emphasis on space-based procurement and data-network buildout.",
+    "flow": "missile-defense pressure -> space-layer expansion -> larger federal capital commitment -> accelerated defense-space procurement pathways",
+    "verification_note": "Reported by SpaceNews with attributed remarks from program lead.",
+    "sources": [
+      {
+        "label": "SpaceNews",
+        "url": "https://spacenews.com/golden-dome-cost-estimate-rises-to-185-billion-as-pentagon-expands-space-layer/"
+      }
+    ],
+    "tags": [
+      "golden-dome",
+      "missile-defense",
+      "space-layer",
+      "us-defense-budget"
+    ],
+    "buyer_ids": [
+      "DFC",
+      "PIF",
+      "QIA",
+      "ADQ",
+      "MUBADALA",
+      "GIC",
+      "TEMASEK"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "architecture"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium"
+  },
+  {
+    "provenance": "provided_by_isaac",
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "signal_id": "SIG-2026-03-18-DRAPER-ARMD-SUPERSONIC-TEST-001",
+    "title": "AFRL/Ursa Major Draper liquid engine demonstrator reaches supersonic flight",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:22:00Z",
+    "summary": "The Affordable Rapid Missile Demonstrator powered by Ursa Major\u2019s Draper liquid engine reportedly achieved supersonic speed, supporting rapid missile industrialization narratives.",
+    "flow": "long-range strike demand -> throttleable/restartable propulsion maturation -> scalable missile production pathways",
+    "verification_note": "Reported by Interesting Engineering citing AFRL/Ursa Major milestone claims.",
+    "sources": [
+      {
+        "label": "Interesting Engineering",
+        "url": "https://interestingengineering.com/military/us-draper-liquid-rocket-engine-supersonic"
+      }
+    ],
+    "tags": [
+      "afrl",
+      "ursa-major",
+      "missile-tech",
+      "supersonic",
+      "propulsion"
+    ],
+    "buyer_ids": [
+      "DFC",
+      "PIF",
+      "QIA",
+      "ADQ",
+      "MUBADALA"
+    ],
+    "lifecycle_stage_refs": [
+      "development",
+      "delivery"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium"
+  },
+  {
+    "provenance": "provided_by_isaac",
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "signal_id": "SIG-2026-03-18-DAWN-AEROSPACE-FIRST-ROCKET-FLIGHT-001",
+    "title": "Dawn Aerospace suborbital spaceplane first rocket-powered flight highlighted",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:22:00Z",
+    "summary": "MSN video link indicates first rocket-powered flight highlight for Dawn Aerospace suborbital platform; details not fully extractable from source page.",
+    "flow": "suborbital reusable vehicle progress -> potential lower-cost high-frequency access layers",
+    "verification_note": "Low-depth capture due MSN extraction limitations; requires primary/source-operator confirmation for upgrade.",
+    "sources": [
+      {
+        "label": "MSN",
+        "url": "https://www.msn.com/en-us/travel/news/highlights-of-dawn-aerospace-s-suborbital-space-plane-s-first-rocket-powered-flight/vi-AA1YDag3"
+      }
+    ],
+    "tags": [
+      "dawn-aerospace",
+      "suborbital",
+      "spaceplane",
+      "test-flight"
+    ],
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK"
+    ],
+    "lifecycle_stage_refs": [
+      "development"
+    ],
+    "evidence_type": "secondary_media",
+    "evidence_strength": "low"
+  },
+  {
+    "provenance": "provided_by_isaac",
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "signal_id": "SIG-2026-03-18-USN-DIU-ANDURIL-CAMP-001",
+    "title": "US Navy and DIU select Anduril for CAMP autonomous maritime platform effort",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:22:00Z",
+    "summary": "Anduril selected for CAMP with planned long-duration Dive-XL demonstration, signaling continued DoD pull for autonomous undersea payload-range solutions.",
+    "flow": "undersea deterrence pressure -> autonomous maritime procurement -> faster commercial-defense integration",
+    "verification_note": "Reported by Naval Technology with program-level details and Anduril claims.",
+    "sources": [
+      {
+        "label": "Naval Technology",
+        "url": "https://www.naval-technology.com/news/us-navy-anduril-diu/"
+      }
+    ],
+    "tags": [
+      "anduril",
+      "us-navy",
+      "diu",
+      "camp",
+      "xl-auv",
+      "autonomous-maritime"
+    ],
+    "buyer_ids": [
+      "DFC",
+      "PIF",
+      "QIA",
+      "ADQ",
+      "MUBADALA"
+    ],
+    "lifecycle_stage_refs": [
+      "delivery",
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium"
+  },
+  {
+    "provenance": "provided_by_isaac",
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "signal_id": "SIG-2026-03-18-ANDURIL-EXOANALYTIC-ACQ-001",
+    "title": "Anduril acquires ExoAnalytic to deepen missile-tracking and space-domain stack",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:22:00Z",
+    "summary": "CNBC reports Anduril acquisition of ExoAnalytic Solutions to strengthen space tracking catalog and missile-defense relevance amid Golden Dome positioning.",
+    "flow": "space-domain awareness competition -> defense-tech consolidation -> improved targeting/tracking stack for large missile-defense programs",
+    "verification_note": "CNBC-reported transaction and strategic rationale.",
+    "sources": [
+      {
+        "label": "CNBC",
+        "url": "https://www.cnbc.com/2026/03/11/anduril-acquires-exoanalytic-solutions-i-trump-golden-dome.html"
+      }
+    ],
+    "tags": [
+      "anduril",
+      "exoanalytic",
+      "space-domain-awareness",
+      "m-and-a",
+      "golden-dome"
+    ],
+    "buyer_ids": [
+      "DFC",
+      "PIF",
+      "QIA",
+      "ADQ",
+      "MUBADALA",
+      "TEMASEK",
+      "GIC"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "business_media",
+    "evidence_strength": "medium"
+  },
+  {
+    "provenance": "provided_by_isaac",
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "signal_id": "SIG-2026-03-18-IMPULSE-SPACE-COLORADO-EXPANSION-001",
+    "title": "Impulse Space expands Colorado manufacturing and GNC operations",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:22:00Z",
+    "summary": "Impulse Space opened a 20,000 sq ft Colorado facility to scale hardware/GNC production for Mira and Helios transfer vehicles after prior growth financing.",
+    "flow": "in-space mobility demand -> U.S. regional manufacturing expansion -> transfer-vehicle industrial scale-up",
+    "verification_note": "Reported by SpaceNews with facility and capability details.",
+    "sources": [
+      {
+        "label": "SpaceNews",
+        "url": "https://spacenews.com/impulse-space-expands-colorado-presence/"
+      }
+    ],
+    "tags": [
+      "impulse-space",
+      "space-mobility",
+      "manufacturing-scale",
+      "colorado",
+      "gnc"
+    ],
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK",
+      "GIC"
+    ],
+    "lifecycle_stage_refs": [
+      "delivery",
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium"
+  },
+  {
+    "provenance": "provided_by_isaac",
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "signal_id": "SIG-2026-03-18-ANDURIL-SPACE-UNIT-DOUBLING-001",
+    "title": "Anduril reportedly doubles space unit size following ExoAnalytic integration",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T18:22:00Z",
+    "summary": "Ars Technica reports Anduril space unit expansion and full ExoAnalytic absorption, increasing GEO tracking and missile-defense data capability depth.",
+    "flow": "defense-space race -> talent/capability consolidation -> improved GEO catalog and targeting signal pipeline",
+    "verification_note": "Ars report aligns with transaction context; operational outcomes still to be validated over time.",
+    "sources": [
+      {
+        "label": "Ars Technica",
+        "url": "https://arstechnica.com/space/2026/03/anduril-the-autonomous-weapons-maker-doubles-the-size-of-its-space-unit/"
+      }
+    ],
+    "tags": [
+      "anduril",
+      "space-unit",
+      "exoanalytic",
+      "geo-tracking",
+      "defense-space"
+    ],
+    "buyer_ids": [
+      "DFC",
+      "PIF",
+      "QIA",
+      "ADQ",
+      "MUBADALA",
+      "TEMASEK",
+      "GIC"
+    ],
+    "lifecycle_stage_refs": [
+      "delivery",
+      "architecture",
+      "capital"
+    ],
+    "evidence_type": "tech_media",
+    "evidence_strength": "medium"
   }
 ]
