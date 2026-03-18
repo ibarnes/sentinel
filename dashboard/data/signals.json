@@ -4287,5 +4287,62 @@
       "signal_strength": 0.72,
       "confidence_score": 0.68
     }
+  },
+  {
+    "signal_id": "SIG-2026-03-18-AI-INFRA-LABOR-BOTTLENECK-BLACKROCK-001",
+    "title": "AI Infrastructure Labor Bottleneck",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified",
+    "observed_at": "2026-03-18T12:41:00Z",
+    "summary": "AI data-center buildout is increasingly constrained by skilled-trade labor shortages (electricians, HVAC, plumbers and related roles); BlackRock's $100M initiative targeting 50,000 Americans reinforces institutional recognition of the bottleneck.",
+    "flow": "AI demand and capital acceleration -> rapid data-center expansion pressure -> insufficient skilled-trade throughput -> commissioning/build delays -> workforce and labor-light execution models become strategic",
+    "verification_note": "High-confidence verified constraint signal based on primary BlackRock announcement plus corroborating industry reporting; labor is a major bottleneck but not the only one (also power/permitting/interconnection).",
+    "sources": [
+      {
+        "label": "Isaac-provided verified signal dossier (includes primary BlackRock references)",
+        "url": "internal://isaac/signal/sig_ai_infra_labor_bottleneck_blackrock_2026_03"
+      }
+    ],
+    "tags": [
+      "verified",
+      "ai-infrastructure",
+      "data-centers",
+      "labor-bottleneck",
+      "skilled-trades",
+      "execution-constraint",
+      "capital-deployment"
+    ],
+    "provenance": "provided_by_isaac",
+    "buyer_ids": [
+      "PIF",
+      "MUBADALA",
+      "QIA",
+      "ADQ",
+      "TEMASEK",
+      "GIC",
+      "DFC",
+      "IFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "development",
+      "delivery",
+      "capital"
+    ],
+    "evidence_type": "primary_plus_secondary",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "verification_confidence": 0.94,
+      "blackrock_initiative_usd": 100000000,
+      "target_trainees": 50000
+    }
   }
 ]
