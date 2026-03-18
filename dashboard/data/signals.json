@@ -5927,5 +5927,58 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-18-AFC-BOT-SOVEREIGN-SHAREHOLDER-001",
+    "title": "Bank of Tanzania joins AFC as sovereign equity shareholder",
+    "signal_class": "Capital Reality",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified",
+    "observed_at": "2026-03-18T22:04:00Z",
+    "summary": "AFC announced that the Bank of Tanzania made an equity investment, becoming a sovereign shareholder and reinforcing AFC's sovereign-backed capital base and diversification strategy.",
+    "flow": "African sovereign institution equity participation -> strengthened development-finance balance sheet -> improved long-term infrastructure capital mobilization capacity",
+    "verification_note": "Primary institutional source (AFC announcement) with named date, quotes, and strategic context.",
+    "sources": [
+      {
+        "label": "Africa Finance Corporation announcement",
+        "url": "https://www.africafc.org/news-and-insights/news/bank-of-tanzania-joins-africa-finance-corporation-as-equity-shareholder-strengthening-sovereign-support-and-shareholder-diversification"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "afc",
+      "tanzania",
+      "bank-of-tanzania",
+      "sovereign-shareholder",
+      "infrastructure-finance",
+      "capital-base"
+    ],
+    "geography": [
+      "Tanzania",
+      "Africa"
+    ],
+    "country": "Tanzania",
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "WORLDBANK",
+      "IFC",
+      "NSIA",
+      "FMF-NG"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "primary_institutional",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
