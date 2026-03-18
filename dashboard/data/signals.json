@@ -4168,5 +4168,64 @@
       "What debt-resolution vehicle exists and why is it not arresting monthly accumulation?",
       "Which authority can redesign payment-chain rules fastest without full-sector reform?"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-18-MASTERCARD-BVNK-001",
+    "title": "Mastercard acquires BVNK to deepen stablecoin payment infrastructure",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified",
+    "observed_at": "2026-03-18T12:29:00Z",
+    "summary": "Mastercard signed a definitive agreement to acquire BVNK, signaling that incumbent global payment networks are internalizing stablecoin infrastructure as core settlement and orchestration capability.",
+    "flow": "legacy payment rail pressure from faster programmable on-chain settlement -> incumbent strategic response -> acquisition of compliant stablecoin infrastructure -> accelerated institutional adoption pathway",
+    "verification_note": "Verified via official Mastercard disclosure plus independent financial reporting; one legacy screenshot metric likely stale ('85+' vs current '100+ participants').",
+    "sources": [
+      {
+        "label": "Mastercard official announcement (definitive agreement)",
+        "url": "internal://isaac/signal/sig_mastercard_bvnk_2026_03_18"
+      }
+    ],
+    "tags": [
+      "stablecoins",
+      "payments-infrastructure",
+      "m-and-a",
+      "cross-border-settlement",
+      "compliance-orchestration",
+      "institutional-adoption"
+    ],
+    "provenance": "provided_by_isaac",
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "ADQ",
+      "MUBADALA",
+      "TEMASEK",
+      "GIC",
+      "DFC",
+      "IFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "primary_plus_tier1",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "headline_value_usd": 1800000000,
+      "contingent_payments_usd": 300000000,
+      "expected_close_timing": "by end of 2026",
+      "signal_strength": 9.2,
+      "pressure_score": 8.9,
+      "usg_relevance_score": 9.1
+    }
   }
 ]
