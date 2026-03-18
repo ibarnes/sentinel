@@ -5690,5 +5690,67 @@
       "grant_ceiling_usd": 100000,
       "equity_free": true
     }
+  },
+  {
+    "signal_id": "SIG-2026-03-18-RELIANCE-SAMSUNG-GREEN-AMMONIA-OFFTAKE-001",
+    "title": "Reliance-Samsung C&T reported $3B green ammonia offtake framework",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-18T20:40:00Z",
+    "summary": "A reported India-South Korea framework indicates Reliance and Samsung C&T agreed a long-duration (~15-year) green ammonia supply structure, potentially starting in 2029, supporting offtake-led bankability in hydrogen export corridors.",
+    "flow": "industrial decarbonization demand -> long-tenor cross-border offtake commitments -> improved project bankability for upstream green ammonia/hydrogen assets",
+    "verification_note": "Captured from user-provided media/news-image context; classify as reported until primary disclosures or multi-source Tier-1 corroboration are attached.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Reliance-Samsung C&T ammonia deal claim)",
+        "url": "internal://isaac/telegram/media/2026-03-18-reliance-samsung-ammonia"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "india",
+      "south-korea",
+      "green-ammonia",
+      "offtake",
+      "hydrogen-corridor",
+      "cross-border-industrial-decarbonization",
+      "reported"
+    ],
+    "geography": [
+      "India",
+      "South Korea"
+    ],
+    "country": "India",
+    "buyer_ids": [
+      "TEMASEK",
+      "GIC",
+      "QIA",
+      "MUBADALA",
+      "PIF",
+      "IFC",
+      "ADB"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture",
+      "delivery"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "watch_items": [
+      "Primary press release from Reliance or Samsung C&T",
+      "Shipping/volume disclosure and pricing index basis",
+      "Project-site and production-capacity linkage",
+      "Contract enforceability terms and start-date milestones"
+    ]
   }
 ]
