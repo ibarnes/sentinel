@@ -6226,5 +6226,59 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-19-NIGERIA-LONDON-INFRA-PITCH-001",
+    "title": "Nigeria pitches infrastructure opportunities to global investors in London",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-19T19:30:00Z",
+    "summary": "Reported investor-roadshow activity in London signals active sovereign push to attract private/global capital into Nigerian infrastructure opportunities.",
+    "flow": "infrastructure financing need -> sovereign investor outreach in global capital hubs -> potential pipeline conversion if governance and execution confidence are credible",
+    "verification_note": "Captured from user-provided image/news context; classify as reported pending primary event documentation or official releases.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Nigeria investor pitch in London)",
+        "url": "internal://isaac/telegram/media/2026-03-19-nigeria-london-infra-pitch"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "infrastructure-finance",
+      "investor-roadshow",
+      "capital-attraction",
+      "london",
+      "reported"
+    ],
+    "geography": [
+      "Nigeria",
+      "United Kingdom"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "AfDB",
+      "WORLDBANK",
+      "IFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
