@@ -1,8 +1,8 @@
 [
   {
     "initiative_id": "INIT-001",
-    "name": "West Africa Energy Corridor",
-    "status": "Pre-FID",
+    "name": "[TEST] West Africa Energy Corridor",
+    "status": "Archived - Test Data",
     "macro_gravity_summary": "Power demand rises while grid reliability lags. Capital and governance must align to close the gap.",
     "linked_buyers": [
       "PIF",
@@ -14,18 +14,16 @@
         "PIF": "presentations/INIT-001/decks/buyer-alignment/PIF/index.html"
       }
     },
-    "gate_stage": "Gate 0",
+    "gate_stage": "Archived",
     "gate_updated_at": "2026-03-02T15:44:00Z",
     "infrastructure_category": "Energy",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
-    "next_required_state": "architecture_defined",
-    "critical_constraints": [
-      "Named accountable office not finalized"
-    ],
-    "primary_constraint": "Named accountable office not finalized",
-    "next_required_transition": "st_req_init_001_governance_commitment",
+    "next_required_state": "\u2014",
+    "critical_constraints": [],
+    "primary_constraint": "Test data (quarantined)",
+    "next_required_transition": "\u2014",
     "last_transition_id": "st_seed_2026_03_19_init_001",
     "last_transition_timestamp": "2026-03-19T16:00:00Z",
     "open_dependency_count": 1,
@@ -34,12 +32,15 @@
       "last_transition_id": "st_seed_2026_03_19_init_001",
       "cap_reason": "high blocker: named accountable office not finalized",
       "regression_impact_30d": 0
-    }
+    },
+    "is_test": true,
+    "active": false,
+    "portfolio_visibility": "hidden"
   },
   {
     "initiative_id": "INIT-653305",
-    "name": "MENA Cross-Border Infrastructure Activation Program",
-    "status": "Pre-FID",
+    "name": "[TEST] MENA Cross-Border Infrastructure Activation Program",
+    "status": "Archived - Test Data",
     "macro_gravity_summary": "A structured activation platform designed to convert regional pressure into deployable cross-border infrastructure. Focused on digital sovereignty, distributed energy resilience, and corridor integration. Built to align with Public Investment Fund mandate priorities by accelerating projects from concept to FID with clear governance, defined capital pathways, and early risk allocation.",
     "linked_buyers": [
       "PIF"
@@ -51,17 +52,15 @@
       }
     },
     "infrastructure_category": "Multi",
-    "gate_stage": "Gate 0",
+    "gate_stage": "Archived",
     "gate_updated_at": "2026-03-02T15:44:00Z",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
-    "next_required_state": "architecture_defined",
-    "critical_constraints": [
-      "Named accountable office not finalized"
-    ],
-    "primary_constraint": "Named accountable office not finalized",
-    "next_required_transition": "st_req_init_653305_governance_commitment",
+    "next_required_state": "\u2014",
+    "critical_constraints": [],
+    "primary_constraint": "Test data (quarantined)",
+    "next_required_transition": "\u2014",
     "last_transition_id": "st_seed_2026_03_19_init_653305",
     "last_transition_timestamp": "2026-03-19T16:00:00Z",
     "open_dependency_count": 1,
@@ -70,28 +69,29 @@
       "last_transition_id": "st_seed_2026_03_19_init_653305",
       "cap_reason": "high blocker: named accountable office not finalized",
       "regression_impact_30d": 0
-    }
+    },
+    "is_test": true,
+    "active": false,
+    "portfolio_visibility": "hidden"
   },
   {
     "initiative_id": "INIT-AI-OPT-A",
-    "name": "National AI Readiness Architecture",
-    "status": "Pre-FID",
+    "name": "[TEST] National AI Readiness Architecture",
+    "status": "Archived - Test Data",
     "linked_buyers": [
       "FMF-NG"
     ],
-    "gate_stage": "Gate 0",
+    "gate_stage": "Archived",
     "gate_updated_at": "2026-03-02T15:20:00Z",
     "infrastructure_category": "Economic",
     "primary_buyer_id": "FMF-NG",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
-    "next_required_state": "architecture_defined",
-    "critical_constraints": [
-      "Named accountable office not finalized"
-    ],
-    "primary_constraint": "Named accountable office not finalized",
-    "next_required_transition": "st_req_init_ai_opt_a_governance_commitment",
+    "next_required_state": "\u2014",
+    "critical_constraints": [],
+    "primary_constraint": "Test data (quarantined)",
+    "next_required_transition": "\u2014",
     "last_transition_id": "st_seed_2026_03_19_init_ai_opt_a",
     "last_transition_timestamp": "2026-03-19T16:00:00Z",
     "open_dependency_count": 1,
@@ -100,28 +100,29 @@
       "last_transition_id": "st_seed_2026_03_19_init_ai_opt_a",
       "cap_reason": "high blocker: named accountable office not finalized",
       "regression_impact_30d": 0
-    }
+    },
+    "is_test": true,
+    "active": false,
+    "portfolio_visibility": "hidden"
   },
   {
     "initiative_id": "INIT-AI-OPT-B",
-    "name": "Sector AI Infrastructure Platform",
-    "status": "Pre-FID",
+    "name": "[TEST] Sector AI Infrastructure Platform",
+    "status": "Archived - Test Data",
     "linked_buyers": [
       "DFC"
     ],
-    "gate_stage": "Gate 0",
+    "gate_stage": "Archived",
     "gate_updated_at": "2026-03-02T15:20:00Z",
     "infrastructure_category": "Digital",
     "primary_buyer_id": "DFC",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
-    "next_required_state": "architecture_defined",
-    "critical_constraints": [
-      "Named accountable office not finalized"
-    ],
-    "primary_constraint": "Named accountable office not finalized",
-    "next_required_transition": "st_req_init_ai_opt_b_governance_commitment",
+    "next_required_state": "\u2014",
+    "critical_constraints": [],
+    "primary_constraint": "Test data (quarantined)",
+    "next_required_transition": "\u2014",
     "last_transition_id": "st_seed_2026_03_19_init_ai_opt_b",
     "last_transition_timestamp": "2026-03-19T16:00:00Z",
     "open_dependency_count": 1,
@@ -130,28 +131,29 @@
       "last_transition_id": "st_seed_2026_03_19_init_ai_opt_b",
       "cap_reason": "high blocker: named accountable office not finalized",
       "regression_impact_30d": 0
-    }
+    },
+    "is_test": true,
+    "active": false,
+    "portfolio_visibility": "hidden"
   },
   {
     "initiative_id": "INIT-AI-OPT-C",
-    "name": "Gulf-Africa Digital Corridor Design",
-    "status": "Pre-FID",
+    "name": "[TEST] Gulf-Africa Digital Corridor Design",
+    "status": "Archived - Test Data",
     "linked_buyers": [
       "PIF"
     ],
-    "gate_stage": "Gate 0",
+    "gate_stage": "Archived",
     "gate_updated_at": "2026-03-02T15:20:00Z",
     "infrastructure_category": "Digital",
     "primary_buyer_id": "PIF",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
-    "next_required_state": "architecture_defined",
-    "critical_constraints": [
-      "Named accountable office not finalized"
-    ],
-    "primary_constraint": "Named accountable office not finalized",
-    "next_required_transition": "st_req_init_ai_opt_c_governance_commitment",
+    "next_required_state": "\u2014",
+    "critical_constraints": [],
+    "primary_constraint": "Test data (quarantined)",
+    "next_required_transition": "\u2014",
     "last_transition_id": "st_seed_2026_03_19_init_ai_opt_c",
     "last_transition_timestamp": "2026-03-19T16:00:00Z",
     "open_dependency_count": 1,
@@ -160,28 +162,29 @@
       "last_transition_id": "st_seed_2026_03_19_init_ai_opt_c",
       "cap_reason": "high blocker: named accountable office not finalized",
       "regression_impact_30d": 0
-    }
+    },
+    "is_test": true,
+    "active": false,
+    "portfolio_visibility": "hidden"
   },
   {
     "initiative_id": "INIT-AI-OPT-D",
-    "name": "Energy-Backed AI Industrial Zones",
-    "status": "Pre-FID",
+    "name": "[TEST] Energy-Backed AI Industrial Zones",
+    "status": "Archived - Test Data",
     "linked_buyers": [
       "AFC"
     ],
-    "gate_stage": "Gate 0",
+    "gate_stage": "Archived",
     "gate_updated_at": "2026-03-02T15:20:00Z",
     "infrastructure_category": "Energy",
     "primary_buyer_id": "AFC",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
-    "next_required_state": "architecture_defined",
-    "critical_constraints": [
-      "Named accountable office not finalized"
-    ],
-    "primary_constraint": "Named accountable office not finalized",
-    "next_required_transition": "st_req_init_ai_opt_d_governance_commitment",
+    "next_required_state": "\u2014",
+    "critical_constraints": [],
+    "primary_constraint": "Test data (quarantined)",
+    "next_required_transition": "\u2014",
     "last_transition_id": "st_seed_2026_03_19_init_ai_opt_d",
     "last_transition_timestamp": "2026-03-19T16:00:00Z",
     "open_dependency_count": 1,
@@ -190,7 +193,10 @@
       "last_transition_id": "st_seed_2026_03_19_init_ai_opt_d",
       "cap_reason": "high blocker: named accountable office not finalized",
       "regression_impact_30d": 0
-    }
+    },
+    "is_test": true,
+    "active": false,
+    "portfolio_visibility": "hidden"
   },
   {
     "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",

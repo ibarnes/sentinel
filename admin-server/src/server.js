@@ -1989,13 +1989,20 @@ app.get('/dashboard/signal/:id', async (req, res) => {
 app.get('/dashboard/state-transitions', async (req, res) => {
   const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
   const defs = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
-  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const initiativesRaw = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const showTest = String(req.query.show_test || '0') === '1';
+  const initiatives = showTest ? initiativesRaw : initiativesRaw.filter((i) => !i?.is_test);
+  const visibleInitiativeIds = new Set((initiatives || []).map((i) => String(i.initiative_id || '')));
   const constraints = await readJson(DASHBOARD_STATE_CONSTRAINTS_FILE, []);
 
   const initiativeFilter = String(req.query.initiative || '').trim();
+  const transitionsBase = (transitions || []).filter((t) => {
+    const ids = Array.isArray(t.initiative_ids) ? t.initiative_ids.map(String) : [];
+    return ids.some((id) => visibleInitiativeIds.has(id));
+  });
   const transitionsFiltered = initiativeFilter
-    ? (transitions || []).filter((t) => Array.isArray(t.initiative_ids) && t.initiative_ids.includes(initiativeFilter))
-    : (transitions || []);
+    ? transitionsBase.filter((t) => Array.isArray(t.initiative_ids) && t.initiative_ids.includes(initiativeFilter))
+    : transitionsBase;
   const sorted = [...transitionsFiltered].sort((a, b) => String(b.timestamp || b.created_at || '').localeCompare(String(a.timestamp || a.created_at || '')));
 
   const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || ''), i]));
@@ -2129,7 +2136,7 @@ app.get('/dashboard/state-transitions', async (req, res) => {
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('State Transitions')}</head><body><div class="app-shell">
     ${dashboardNav('state-transitions')}
-    ${pageHeader('State Transitions', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/state-transitions/export.json">Get JSON</a>', 'Evidence-backed progression engine')}
+    ${pageHeader('State Transitions', `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/state-transitions/export.json">Get JSON</a> <a class="btn btn-sm btn-outline-secondary" href="/dashboard/state-transitions?show_test=${showTest ? '0' : '1'}">${showTest ? 'Hide' : 'Show'} Tests</a>`, 'Evidence-backed progression engine')}
 
     <div class="row g-2 mb-3">
       <div class="col-12 col-md-3"><div class="border rounded p-2"><div class="small text-muted">Total Transitions</div><div><strong>${escapeHtml(String(sorted.length))}</strong></div></div></div>
@@ -2249,7 +2256,9 @@ app.get('/dashboard/team', async (_req, res) => {
 });
 
 app.get('/dashboard/initiatives', async (req, res) => {
-  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const initiativesRaw = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const showTest = String(req.query.show_test || '0') === '1';
+  const initiatives = showTest ? initiativesRaw : initiativesRaw.filter((i) => !i?.is_test);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const byId = Object.fromEntries(buyers.map(b => [b.buyer_id, b.name]));
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
@@ -2315,7 +2324,7 @@ app.get('/dashboard/initiatives', async (req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
     ${pageHeader('Initiatives', '', 'Gate 0–7 is the canonical initiative workflow')}
-    <form id="initiativesFilterForm" method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-2"><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div><div class="col-md-2"><select class="form-select" name="weakest_layer">${weakestLayerOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===weakestLayerFilter?'selected':''}>Weakest Layer: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-3"><select class="form-select" name="primary_constraint">${primaryConstraintOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===primaryConstraintFilter?'selected':''}>Primary Constraint: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-3"><select class="form-select" name="sort_by"><option value="updated_desc" ${sortBy==='updated_desc'?'selected':''}>Sort: Updated</option><option value="alignment_desc" ${sortBy==='alignment_desc'?'selected':''}>Sort: Alignment ↓</option><option value="alignment_asc" ${sortBy==='alignment_asc'?'selected':''}>Sort: Alignment ↑</option><option value="actor_gaps_desc" ${sortBy==='actor_gaps_desc'?'selected':''}>Sort: Actor Gaps ↓</option><option value="actor_gaps_asc" ${sortBy==='actor_gaps_asc'?'selected':''}>Sort: Actor Gaps ↑</option><option value="weakest_layer" ${sortBy==='weakest_layer'?'selected':''}>Sort: Weakest Layer</option><option value="primary_constraint" ${sortBy==='primary_constraint'?'selected':''}>Sort: Primary Constraint</option></select></div><div class="col-md-2"><a class="btn btn-outline-secondary w-100" href="/dashboard/initiatives">Reset</a></div></form>
+    <form id="initiativesFilterForm" method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-2"><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div><div class="col-md-2"><select class="form-select" name="weakest_layer">${weakestLayerOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===weakestLayerFilter?'selected':''}>Weakest Layer: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-3"><select class="form-select" name="primary_constraint">${primaryConstraintOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===primaryConstraintFilter?'selected':''}>Primary Constraint: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-3"><select class="form-select" name="sort_by"><option value="updated_desc" ${sortBy==='updated_desc'?'selected':''}>Sort: Updated</option><option value="alignment_desc" ${sortBy==='alignment_desc'?'selected':''}>Sort: Alignment ↓</option><option value="alignment_asc" ${sortBy==='alignment_asc'?'selected':''}>Sort: Alignment ↑</option><option value="actor_gaps_desc" ${sortBy==='actor_gaps_desc'?'selected':''}>Sort: Actor Gaps ↓</option><option value="actor_gaps_asc" ${sortBy==='actor_gaps_asc'?'selected':''}>Sort: Actor Gaps ↑</option><option value="weakest_layer" ${sortBy==='weakest_layer'?'selected':''}>Sort: Weakest Layer</option><option value="primary_constraint" ${sortBy==='primary_constraint'?'selected':''}>Sort: Primary Constraint</option></select></div><div class="col-md-2 d-flex gap-1"><a class="btn btn-outline-secondary w-50" href="/dashboard/initiatives">Reset</a><a class="btn btn-outline-secondary w-50" href="/dashboard/initiatives?show_test=${showTest ? '0' : '1'}">${showTest ? 'Hide' : 'Show'} Tests</a></div></form>
     <div class="card mb-3"><div class="card-body py-2"><div class="small text-muted mb-1">Actor Gap Analytics (all initiatives)</div><div class="d-flex flex-wrap gap-2">${LAYERS.map((l)=>`<span class="badge text-bg-light border">${escapeHtml(l)}: ${weakestCounts[l]}</span>`).join('')}</div></div></div>
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Name</th><th>Infrastructure Type</th><th>Gate Stage</th><th>Actor Gaps</th><th>Alignment %</th><th>Weakest Layer</th><th>Primary Constraint</th><th>Linked Buyers</th><th>Updated</th><th class="text-end">Actions</th></tr></thead><tbody>
       ${enriched.map(({initiative:i, align:a})=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.name || i.initiative_id || '')}</a><div class="small text-muted mono">${escapeHtml(i.initiative_id || '')}</div></td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="initiative-gate-form d-inline"><select name="gate_stage" class="form-select form-select-sm initiative-gate-select" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select></form>` : escapeHtml(inferGate(i))}</td><td>${a.missingRoles}</td><td><strong>${a.overall}%</strong></td><td class="text-capitalize">${escapeHtml(a.weakestLayer)}</td><td>${escapeHtml(a.primaryConstraint)}</td><td>${(i.linked_buyers || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td><td class="text-end">${canEdit ? `<details class="initiative-actions-menu d-inline-block text-start"><summary class="btn btn-sm btn-outline-secondary" aria-label="More actions">⋯</summary><div class="card p-1 mt-1" style="position:absolute;right:0;z-index:20;min-width:180px;"><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">View Initiative</a><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/delete" onsubmit="return confirm('Delete initiative ${escapeHtml(i.initiative_id)}? This cannot be undone.');"><button class="dropdown-item text-danger" type="submit">Delete</button></form></div></details>` : '—'}</td></tr>`).join('') || '<tr><td colspan="10">No initiatives</td></tr>'}

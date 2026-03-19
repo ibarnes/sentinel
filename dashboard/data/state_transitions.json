@@ -285,7 +285,9 @@
       "current_state": "constraint_discovery",
       "gate_stage": "Gate 0"
     },
-    "evidence_strength": "medium"
+    "evidence_strength": "medium",
+    "is_test": true,
+    "status": "archived_test"
   },
   {
     "id": "st_seed_2026_03_19_init_653305",
@@ -330,7 +332,9 @@
       "current_state": "constraint_discovery",
       "gate_stage": "Gate 0"
     },
-    "evidence_strength": "medium"
+    "evidence_strength": "medium",
+    "is_test": true,
+    "status": "archived_test"
   },
   {
     "id": "st_seed_2026_03_19_init_ai_opt_a",
@@ -375,7 +379,9 @@
       "current_state": "constraint_discovery",
       "gate_stage": "Gate 0"
     },
-    "evidence_strength": "medium"
+    "evidence_strength": "medium",
+    "is_test": true,
+    "status": "archived_test"
   },
   {
     "id": "st_seed_2026_03_19_init_ai_opt_b",
@@ -420,7 +426,9 @@
       "current_state": "constraint_discovery",
       "gate_stage": "Gate 0"
     },
-    "evidence_strength": "medium"
+    "evidence_strength": "medium",
+    "is_test": true,
+    "status": "archived_test"
   },
   {
     "id": "st_seed_2026_03_19_init_ai_opt_c",
@@ -465,7 +473,9 @@
       "current_state": "constraint_discovery",
       "gate_stage": "Gate 0"
     },
-    "evidence_strength": "medium"
+    "evidence_strength": "medium",
+    "is_test": true,
+    "status": "archived_test"
   },
   {
     "id": "st_seed_2026_03_19_init_ai_opt_d",
@@ -510,7 +520,9 @@
       "current_state": "constraint_discovery",
       "gate_stage": "Gate 0"
     },
-    "evidence_strength": "medium"
+    "evidence_strength": "medium",
+    "is_test": true,
+    "status": "archived_test"
   },
   {
     "id": "st_seed_2026_03_19_init_ng_fin_energy_spine",

@@ -68,7 +68,7 @@
     "name": "Named accountable office not finalized",
     "type": "governance",
     "severity": "high",
-    "status": "open",
+    "status": "resolved",
     "owner": "Isaac",
     "linked_transition_required": "st_req_init_001_governance_commitment",
     "blocking_states": [
@@ -82,7 +82,9 @@
       "st_seed_2026_03_19_init_001"
     ],
     "created_at": "2026-03-19T16:00:00Z",
-    "updated_at": "2026-03-19T16:00:00Z"
+    "updated_at": "2026-03-19T16:00:00Z",
+    "is_test": true,
+    "resolution_note": "Initiative quarantined as March 2 test data."
   },
   {
     "constraint_id": "c_seed_2026_03_19_init_653305_001",
@@ -90,7 +92,7 @@
     "name": "Named accountable office not finalized",
     "type": "governance",
     "severity": "high",
-    "status": "open",
+    "status": "resolved",
     "owner": "Isaac",
     "linked_transition_required": "st_req_init_653305_governance_commitment",
     "blocking_states": [
@@ -104,7 +106,9 @@
       "st_seed_2026_03_19_init_653305"
     ],
     "created_at": "2026-03-19T16:00:00Z",
-    "updated_at": "2026-03-19T16:00:00Z"
+    "updated_at": "2026-03-19T16:00:00Z",
+    "is_test": true,
+    "resolution_note": "Initiative quarantined as March 2 test data."
   },
   {
     "constraint_id": "c_seed_2026_03_19_init_ai_opt_a_001",
@@ -112,7 +116,7 @@
     "name": "Named accountable office not finalized",
     "type": "governance",
     "severity": "high",
-    "status": "open",
+    "status": "resolved",
     "owner": "Isaac",
     "linked_transition_required": "st_req_init_ai_opt_a_governance_commitment",
     "blocking_states": [
@@ -126,7 +130,9 @@
       "st_seed_2026_03_19_init_ai_opt_a"
     ],
     "created_at": "2026-03-19T16:00:00Z",
-    "updated_at": "2026-03-19T16:00:00Z"
+    "updated_at": "2026-03-19T16:00:00Z",
+    "is_test": true,
+    "resolution_note": "Initiative quarantined as March 2 test data."
   },
   {
     "constraint_id": "c_seed_2026_03_19_init_ai_opt_b_001",
@@ -134,7 +140,7 @@
     "name": "Named accountable office not finalized",
     "type": "governance",
     "severity": "high",
-    "status": "open",
+    "status": "resolved",
     "owner": "Isaac",
     "linked_transition_required": "st_req_init_ai_opt_b_governance_commitment",
     "blocking_states": [
@@ -148,7 +154,9 @@
       "st_seed_2026_03_19_init_ai_opt_b"
     ],
     "created_at": "2026-03-19T16:00:00Z",
-    "updated_at": "2026-03-19T16:00:00Z"
+    "updated_at": "2026-03-19T16:00:00Z",
+    "is_test": true,
+    "resolution_note": "Initiative quarantined as March 2 test data."
   },
   {
     "constraint_id": "c_seed_2026_03_19_init_ai_opt_c_001",
@@ -156,7 +164,7 @@
     "name": "Named accountable office not finalized",
     "type": "governance",
     "severity": "high",
-    "status": "open",
+    "status": "resolved",
     "owner": "Isaac",
     "linked_transition_required": "st_req_init_ai_opt_c_governance_commitment",
     "blocking_states": [
@@ -170,7 +178,9 @@
       "st_seed_2026_03_19_init_ai_opt_c"
     ],
     "created_at": "2026-03-19T16:00:00Z",
-    "updated_at": "2026-03-19T16:00:00Z"
+    "updated_at": "2026-03-19T16:00:00Z",
+    "is_test": true,
+    "resolution_note": "Initiative quarantined as March 2 test data."
   },
   {
     "constraint_id": "c_seed_2026_03_19_init_ai_opt_d_001",
@@ -178,7 +188,7 @@
     "name": "Named accountable office not finalized",
     "type": "governance",
     "severity": "high",
-    "status": "open",
+    "status": "resolved",
     "owner": "Isaac",
     "linked_transition_required": "st_req_init_ai_opt_d_governance_commitment",
     "blocking_states": [
@@ -192,7 +202,9 @@
       "st_seed_2026_03_19_init_ai_opt_d"
     ],
     "created_at": "2026-03-19T16:00:00Z",
-    "updated_at": "2026-03-19T16:00:00Z"
+    "updated_at": "2026-03-19T16:00:00Z",
+    "is_test": true,
+    "resolution_note": "Initiative quarantined as March 2 test data."
   },
   {
     "constraint_id": "c_seed_2026_03_19_init_ng_fin_energy_spine_001",
