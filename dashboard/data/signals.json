@@ -5980,5 +5980,251 @@
     "evidence_strength": "high",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-19-DANGOTE-DETERGENT-FEEDSTOCK-PLANT-001",
+    "title": "Dangote reportedly commissions detergent feedstock plant in Nigeria",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-19T18:22:00Z",
+    "summary": "Reported commissioning of a domestic detergent feedstock facility signals continued industrial vertical integration and import-substitution momentum in Nigeria.",
+    "flow": "consumer goods demand + FX/import pressure -> domestic upstream chemical/feedstock capacity -> reduced import dependence and stronger local value chain control",
+    "verification_note": "Derived from user-provided image/news capture; treat as reported pending primary company release link.",
+    "sources": [
+      {
+        "label": "User-provided image batch (Dangote feedstock claim)",
+        "url": "internal://isaac/telegram/media/2026-03-19-dangote-feedstock"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "dangote",
+      "industrialization",
+      "import-substitution",
+      "chemicals"
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "AfDB",
+      "WORLDBANK",
+      "IFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "delivery",
+      "capital"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-19-NG-FINTECH-REBUNDLING-TREND-001",
+    "title": "Nigeria fintechs reportedly rebundle into full-stack financial platforms",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-19T18:22:00Z",
+    "summary": "Image-captured reporting suggests Nigerian fintech operators are shifting from single-point products to integrated full-stack models, signaling infrastructure-layer competition and consolidation pressure.",
+    "flow": "fragmented fintech products -> margin/retention pressure -> full-stack platform rebundling -> higher infrastructure/control competition",
+    "verification_note": "Reported from user-provided media capture; classify as reported until primary operator disclosures are attached.",
+    "sources": [
+      {
+        "label": "User-provided image batch (Nigeria fintech rebundling claim)",
+        "url": "internal://isaac/telegram/media/2026-03-19-ng-fintech-rebundling"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "fintech",
+      "platformization",
+      "full-stack",
+      "financial-infrastructure"
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "IFC",
+      "DFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "architecture",
+      "capital"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-19-NG-BREWER-LOCAL-BARLEY-PUSH-001",
+    "title": "Major Nigerian brewer reportedly increases local barley sourcing",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-19T18:22:00Z",
+    "summary": "Reported local barley expansion by a major brewer indicates continued localization response to FX/import pressures and domestic agro-industrial capacity building.",
+    "flow": "FX/import stress -> local input substitution -> domestic agri-processing demand -> supply chain reconfiguration",
+    "verification_note": "Image-captured report; treat as reported until primary company guidance is linked.",
+    "sources": [
+      {
+        "label": "User-provided image batch (local barley sourcing claim)",
+        "url": "internal://isaac/telegram/media/2026-03-19-ng-local-barley"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "agri-industrial",
+      "local-content",
+      "fx-pressure",
+      "supply-chain"
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "AfDB",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "delivery",
+      "capital"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-19-ATLANTA-FIFA-PROTEST-GOVERNANCE-001",
+    "title": "Atlanta civic groups protest FIFA preparation governance and accountability",
+    "signal_class": "Ecosystem / Theater",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-19T18:22:00Z",
+    "summary": "Local civic protest activity around FIFA preparation in Atlanta signals public-governance pressure and execution legitimacy risk in major city-scale event infrastructure.",
+    "flow": "mega-event preparation -> community accountability pressure -> governance legitimacy risk -> potential execution friction",
+    "verification_note": "Captured from user-provided local media image; classify as reported.",
+    "sources": [
+      {
+        "label": "User-provided image batch (Atlanta FIFA protest claim)",
+        "url": "internal://isaac/telegram/media/2026-03-19-atlanta-fifa-protest"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "atlanta",
+      "local-watch",
+      "governance",
+      "fifa",
+      "civic-pressure"
+    ],
+    "geography": [
+      "United States",
+      "Georgia",
+      "Atlanta"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-19-ATLANTA-URBAN-MOBILITY-AUTONOMOUS-PODS-001",
+    "title": "Atlanta reportedly launches autonomous electric urban mobility pods",
+    "signal_class": "Ecosystem / Theater",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-19T18:22:00Z",
+    "summary": "Local rollout claims for autonomous electric pods in Atlanta indicate practical city-level testing of next-gen mobility operations relevant for headquarters-area situational monitoring.",
+    "flow": "city mobility modernization pressure -> autonomous pilot deployment -> regulatory + operations learning loop",
+    "verification_note": "Captured from user-provided local image report; classify as reported.",
+    "sources": [
+      {
+        "label": "User-provided image batch (Atlanta autonomous pods claim)",
+        "url": "internal://isaac/telegram/media/2026-03-19-atlanta-autonomous-pods"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "atlanta",
+      "local-watch",
+      "mobility",
+      "autonomous-transport",
+      "urban-infrastructure"
+    ],
+    "geography": [
+      "United States",
+      "Georgia",
+      "Atlanta"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "delivery"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]

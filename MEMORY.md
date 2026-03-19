@@ -314,3 +314,5 @@
 - Durable changes captured: Workflow C queue rollover continuity only.
 - No new operating-rule changes.
 - No scoring-policy changes.
+
+- HQ locality tracking rule (2026-03-19): Isaac is in Atlanta and HQ setup is underway there; include an Atlanta local-activity watch lane (governance, mobility, logistics, city execution signals) in addition to core USG strategic signals.
