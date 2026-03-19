@@ -1,0 +1,101 @@
+{
+  "version": "v1",
+  "states": {
+    "constraint_discovery": {
+      "order": 1,
+      "required_conditions": [
+        "core_constraint_defined",
+        "actors_identified",
+        "evidence_linked",
+        "initiative_exists"
+      ],
+      "blocks": [
+        "no_defined_bottleneck",
+        "no_linked_evidence",
+        "no_buyer_or_actor_path"
+      ],
+      "next_state": "architecture_defined",
+      "max_score_ceiling": 25
+    },
+    "architecture_defined": {
+      "order": 2,
+      "required_conditions": [
+        "thesis_documented",
+        "constraint_resolution_logic_documented",
+        "roles_mapped",
+        "dependencies_identified",
+        "transition_path_defined"
+      ],
+      "blocks": [
+        "architecture_conceptual_only",
+        "missing_dependency_map",
+        "missing_actor_alignment"
+      ],
+      "next_state": "governance_ready",
+      "max_score_ceiling": 45
+    },
+    "governance_ready": {
+      "order": 3,
+      "required_conditions": [
+        "decision_owner_assigned",
+        "governance_route_defined",
+        "approval_gates_defined",
+        "risks_assumptions_documented",
+        "review_inputs_present"
+      ],
+      "blocks": [
+        "no_decision_owner",
+        "no_governance_route",
+        "incomplete_review_materials"
+      ],
+      "next_state": "capital_ready",
+      "max_score_ceiling": 65
+    },
+    "capital_ready": {
+      "order": 4,
+      "required_conditions": [
+        "capital_stack_defined",
+        "commercial_model_documented",
+        "fundability_constraints_known",
+        "viability_or_strategic_evidence_present",
+        "commitment_path_identified"
+      ],
+      "blocks": [
+        "unclear_economic_model",
+        "critical_counterparties_unaligned",
+        "no_commitment_path"
+      ],
+      "next_state": "execution_ready",
+      "max_score_ceiling": 85
+    },
+    "execution_ready": {
+      "order": 5,
+      "required_conditions": [
+        "required_prior_transitions_completed",
+        "critical_constraints_resolved",
+        "scope_clear_for_execution",
+        "remaining_unknowns_not_decision_blocking",
+        "formal_handoff_package_ready"
+      ],
+      "blocks": [
+        "critical_dependency_unresolved",
+        "scope_ambiguity",
+        "unstable_governance_or_capital_assumptions"
+      ],
+      "next_state": null,
+      "max_score_ceiling": 100
+    }
+  },
+  "transition_types": [
+    "constraint_release",
+    "validation",
+    "commitment",
+    "regression"
+  ],
+  "provenance_values": [
+    "provided_by_isaac",
+    "discovered_by_system",
+    "imported_from_artifact",
+    "inferred_from_linked_objects"
+  ]
+}
