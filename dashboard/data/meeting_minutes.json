@@ -1,1 +1,64 @@
-[]
+[
+  {
+    "meeting_id": "MM-2026-03-19-USVI-MARK-MALCOLM-TELLY-001",
+    "date_time": "2026-03-19T12:21:00Z",
+    "title": "USVI initiative working meeting with Mark Newson, Malcolm Wilson, and Telly Renfroe",
+    "participants": [
+      "Isaac Barnes",
+      "Mark Newson",
+      "Malcolm Wilson",
+      "Telly Renfroe"
+    ],
+    "summary": "Meeting confirms severe USVI recovery execution bottlenecks despite large allocated capital. Participants reported approximately $24B initial funding context, with prior award flow issues and funds returned (~$900M) due to delivery and scope constraints. A major blocker is workforce accommodation and boots-on-ground capacity, with claims of 8,000 units backlog and ~11,000 accommodations needed. Mark Newson positioned as a high-access operator with direct government ties, scope optimization capability, and potential to facilitate low-cost land access for workforce camp deployment across three islands.",
+    "initiative_ids": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "buyer_ids": [
+      "USVI-RECOVERY-AUTHORITY"
+    ],
+    "signal_ids": [],
+    "decisions": [
+      "Prioritize workforce housing/man-camp architecture as a central unlock for disaster-recovery capital deployment.",
+      "Treat local financing and accommodation structure as a near-term entry wedge rather than broad developer execution framing.",
+      "Maintain active engagement channel with Mark through early April visit window."
+    ],
+    "risks": [
+      "Capital attrition risk: reported remainder could be lost if awards and delivery do not accelerate.",
+      "Execution risk: large contractors constrained and costs passed downstream to local subcontractors.",
+      "Labor/housing bottleneck risk: insufficient accommodation and manpower slows all major pacts.",
+      "Governance/scope risk: repeated rescoping and delayed infrastructure delivery across critical assets."
+    ],
+    "next_actions": [
+      {
+        "action": "Validate reported funding numbers and returned-funds timeline (including ~$900M reference) with primary program documents.",
+        "owner": "Isaac",
+        "due": "2026-03-26",
+        "status": "open"
+      },
+      {
+        "action": "Draft USVI workforce accommodation/man-camp deployment concept with transition path to permanent affordable housing.",
+        "owner": "Sentinel",
+        "due": "2026-03-25",
+        "status": "open"
+      },
+      {
+        "action": "Prepare land-use pathway brief based on claim of government-available acreage and potential $1 lease structure.",
+        "owner": "Sentinel",
+        "due": "2026-03-25",
+        "status": "open"
+      },
+      {
+        "action": "Set pre-brief packet for Mark before first week of April travel window.",
+        "owner": "Isaac",
+        "due": "2026-04-01",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting notes in Telegram"
+    },
+    "created_at": "2026-03-19T12:21:00Z",
+    "updated_at": "2026-03-19T12:21:00Z"
+  }
+]
