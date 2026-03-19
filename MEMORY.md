@@ -300,3 +300,15 @@
 - Durable changes captured: tranche-L decision/routing artifacts and unchanged credentialed blocker status.
 - No new operating-rule changes.
 - No scoring-policy changes.
+
+# Project Status Snapshot (2026-03-19)
+- Workflow C schedule discipline maintained:
+  - 03:00 UTC queue event recorded at `mission-control/workflow-c/queue/2026-03-19.json` with `execute_immediately=false`.
+- No new durable operating rules or governance changes recorded during this maintenance cycle.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-19)
+- Daily log reviewed from `memory/2026-03-19.md` and distilled into this snapshot.
+- Durable changes captured: Workflow C queue rollover continuity only.
+- No new operating-rule changes.
+- No scoring-policy changes.
