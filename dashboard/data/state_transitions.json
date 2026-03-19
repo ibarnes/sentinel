@@ -146,5 +146,100 @@
       "capital_release_risk": "elevated"
     },
     "evidence_strength": "medium"
+  },
+  {
+    "id": "st_2026_03_19_usvi_004",
+    "initiative_ids": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "governance_ready",
+    "to_state": "governance_ready",
+    "transition_type": "constraint_release",
+    "summary": "Potential site-access mechanism identified (government acreage and low-cost lease pathway concept) for workforce accommodation deployment.",
+    "state_before": {
+      "site_access_path": "unclear"
+    },
+    "state_after": {
+      "site_access_path": "identified_not_verified"
+    },
+    "constraints_resolved": [
+      "site-access pathway visibility gap"
+    ],
+    "constraints_remaining": [
+      "documentary land-rights verification pending",
+      "execution partner mobilization pending",
+      "capital stack still not finalized"
+    ],
+    "evidence": [
+      {
+        "type": "meeting_minutes",
+        "ref": "MM-2026-03-19-USVI-MARK-MALCOLM-TELLY-001",
+        "note": "Meeting notes cite government land availability and possible $1 lease facilitation."
+      }
+    ],
+    "confidence": 0.58,
+    "readiness_delta": 4,
+    "next_required_state": "capital_ready",
+    "depends_on_transition_ids": [
+      "st_2026_03_19_usvi_003"
+    ],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T15:00:30Z",
+    "actor": "isaac",
+    "provenance": "provided_by_isaac",
+    "state_snapshot": {
+      "site_access_path": "identified_not_verified",
+      "capital_logic": "partial",
+      "workforce_housing_gap": "critical"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_2026_03_19_usvi_005",
+    "initiative_ids": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "governance_ready",
+    "to_state": "governance_ready",
+    "transition_type": "commitment",
+    "summary": "Key operator engagement window committed for first week of April, creating a near-term commitment checkpoint for mandate progression.",
+    "state_before": {
+      "engagement_window": "open_ended"
+    },
+    "state_after": {
+      "engagement_window": "date_bound"
+    },
+    "constraints_resolved": [
+      "near-term engagement timing ambiguity"
+    ],
+    "constraints_remaining": [
+      "accountable office still unconfirmed",
+      "capital deployment terms undefined"
+    ],
+    "evidence": [
+      {
+        "type": "meeting_minutes",
+        "ref": "MM-2026-03-19-USVI-MARK-MALCOLM-TELLY-001",
+        "note": "Participant committed to first-week-of-April in-person window and interim phone/text support."
+      }
+    ],
+    "confidence": 0.71,
+    "readiness_delta": 3,
+    "next_required_state": "capital_ready",
+    "depends_on_transition_ids": [
+      "st_2026_03_19_usvi_004"
+    ],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T15:01:00Z",
+    "actor": "isaac",
+    "provenance": "provided_by_isaac",
+    "state_snapshot": {
+      "engagement_window": "date_bound",
+      "governance_route": "defined_not_final",
+      "decision_owner": "pending"
+    },
+    "evidence_strength": "medium"
   }
 ]

@@ -2061,10 +2061,10 @@ app.get('/dashboard/state-transitions', async (_req, res) => {
   const stateCountBadges = Object.entries(stateCounts).map(([k,v]) => `<span class="badge text-bg-light border me-1">${escapeHtml(k)}: ${escapeHtml(String(v))}</span>`).join('') || '<span class="text-muted">No initiative states</span>';
 
   const overviewHtml = overviewRows.length
-    ? `<div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Initiative</th><th>Current State</th><th>Readiness</th><th>Next Required State</th><th>Critical Blockers</th></tr></thead><tbody>${overviewRows.map((r)=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(r.initiative_id)}">${escapeHtml(r.name)}</a><div class="small text-muted mono">${escapeHtml(r.initiative_id)}</div></td><td><code>${escapeHtml(r.currentState)}</code></td><td>${escapeHtml(String(r.readiness))}</td><td>${escapeHtml(r.nextRequired || '—')}</td><td>${r.blockers.length ? r.blockers.map((b)=>`<span class="badge text-bg-warning-subtle text-dark border me-1">${escapeHtml(String(b))}</span>`).join('') : '<span class="text-muted">None</span>'}</td></tr>`).join('')}</tbody></table></div>`
+    ? `<div class="table-responsive"><table class="table table-sm align-middle" style="color:var(--text-primary)"><thead><tr><th>Initiative</th><th>Current State</th><th>Readiness</th><th>Next Required State</th><th>Critical Blockers</th></tr></thead><tbody>${overviewRows.map((r)=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(r.initiative_id)}">${escapeHtml(r.name)}</a><div class="small text-muted mono">${escapeHtml(r.initiative_id)}</div></td><td><code>${escapeHtml(r.currentState)}</code></td><td>${escapeHtml(String(r.readiness))}</td><td>${escapeHtml(r.nextRequired || '—')}</td><td>${r.blockers.length ? r.blockers.map((b)=>`<span class="badge border me-1" style="color:var(--text-primary);background:var(--accent-soft)">${escapeHtml(String(b))}</span>`).join('') : '<span class="text-muted">None</span>'}</td></tr>`).join('')}</tbody></table></div>`
     : '<div class="text-muted">No initiative state records yet.</div>';
 
-  const blockersGrouped = overviewRows.filter((r)=>r.blockers.length).map((r)=>`<div class="mb-2"><div><strong>${escapeHtml(r.name)}</strong> <span class="small text-muted mono">${escapeHtml(r.initiative_id)}</span></div><div class="small mt-1">${r.blockers.map((b)=>`<span class="badge text-bg-warning-subtle text-dark border me-1">${escapeHtml(String(b))}</span>`).join('')}</div></div>`).join('');
+  const blockersGrouped = overviewRows.filter((r)=>r.blockers.length).map((r)=>`<div class="mb-2"><div><strong>${escapeHtml(r.name)}</strong> <span class="small text-muted mono">${escapeHtml(r.initiative_id)}</span></div><div class="small mt-1">${r.blockers.map((b)=>`<span class="badge border me-1" style="color:var(--text-primary);background:var(--accent-soft)">${escapeHtml(String(b))}</span>`).join('')}</div></div>`).join('');
 
   const emptyPanel = `<div class="card"><div class="card-body"><h6>No state transitions yet</h6><div class="small text-muted mb-2">To create a valid transition, include all required fields:</div><ul class="small mb-0"><li>linked <code>initiative_ids</code></li><li><code>trigger_signal_ids</code></li><li><code>from_state</code> and <code>to_state</code></li><li>at least one <code>evidence</code> item</li><li><code>constraints_resolved</code> and <code>constraints_remaining</code></li><li><code>transition_type</code>, <code>confidence</code>, and <code>next_required_state</code></li></ul></div></div>`;
 
@@ -2082,9 +2082,9 @@ app.get('/dashboard/state-transitions', async (_req, res) => {
 
     <div class="card mb-3"><div class="card-body"><h6>Canonical States (v1)</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>State</th><th>Order</th><th>Next</th><th>Ceiling</th></tr></thead><tbody>${stateDefs}</tbody></table></div></div></div>
 
-    <div class="card mb-3"><div class="card-body"><h6>Current Initiative States</h6>${overviewHtml}</div></div>
+    <div class="card mb-3"><div class="card-body" style="color:var(--text-primary)"><h6>Current Initiative States</h6>${overviewHtml}</div></div>
 
-    <div class="card mb-3"><div class="card-body"><h6>Unresolved Constraints</h6>${blockersGrouped || '<div class="text-muted">No unresolved constraints recorded.</div>'}</div></div>
+    <div class="card mb-3"><div class="card-body" style="color:var(--text-primary)"><h6>Unresolved Constraints</h6>${blockersGrouped || '<div class="text-muted">No unresolved constraints recorded.</div>'}</div></div>
 
     <div class="card mb-3"><div class="card-body"><h6>Recent Transition Feed</h6></div></div>
     ${cards || emptyPanel}
