@@ -187,5 +187,72 @@
     },
     "created_at": "2026-03-19T22:45:00Z",
     "updated_at": "2026-03-19T22:45:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-03-19-ANGOLA-CABLES-001",
+    "date_time": "2026-03-19T22:45:00Z",
+    "title": "Angola Cables meeting",
+    "participants": [
+      "Wade",
+      "\u00c2ngelo Gama",
+      "Leo LaBranche",
+      "Richard Hoffman",
+      "Jose Assis",
+      "Jeremy Prinsen",
+      "Isaac Barnes"
+    ],
+    "summary": "Meeting positioned Angola Cables as a sovereign-controlled digital backbone asset with intercontinental routes (Africa-Brazil-Europe-US), hyperscaler/OTT relationships, and strategic leverage for data center and AI infrastructure deployment. Core operating takeaway: infrastructure availability exists, but participation and value capture are increasingly gated by sovereign approval, governance control, and scarce fiber-pair allocation timelines.",
+    "initiative_ids": [
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-AP-AI-FACTORY-001"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Treat Angola Cables as a potential control-point partner rather than only a vendor layer.",
+      "Prioritize governance-access strategy in parallel with commercial/fiber negotiations.",
+      "Advance diligence on near-term fiber reservation structure due to reported market scarcity."
+    ],
+    "risks": [
+      "Regulatory/sovereign gate risk: participation rights are state-mediated.",
+      "Commercial scarcity risk: active competition for fiber pairs may compress decision window.",
+      "Counterparty concentration risk around key relationship channels.",
+      "Short-term contract bridge risk if long-term structure is not locked in time."
+    ],
+    "next_actions": [
+      {
+        "action": "Validate route/control claims and commercial terms with primary Angola Cables documents (capacity, rights, pricing, term flexibility).",
+        "owner": "Sentinel",
+        "due": "2026-03-25",
+        "status": "open"
+      },
+      {
+        "action": "Prepare governance-access map for Angola telecom approval layer and decision rights for new entrants.",
+        "owner": "Isaac",
+        "due": "2026-03-26",
+        "status": "open"
+      },
+      {
+        "action": "Assess proposed ~US$15M down-payment reservation structure versus alternative entry mechanisms and risk controls.",
+        "owner": "Sentinel",
+        "due": "2026-03-25",
+        "status": "open"
+      },
+      {
+        "action": "Define shortlist of anchor tenant/partner profiles required to convert short-term fiber access into long-term strategic position.",
+        "owner": "Isaac",
+        "due": "2026-03-27",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct_pdf",
+      "notes": "User-provided PDF meeting minutes",
+      "files": [
+        "Angola_Cables_Meeting_Minutes_03-19---9abc02ea-9c07-4c70-85fa-24040b8e09f9.pdf"
+      ]
+    },
+    "created_at": "2026-03-19T22:45:00Z",
+    "updated_at": "2026-03-19T22:45:00Z"
   }
 ]
