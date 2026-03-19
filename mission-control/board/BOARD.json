@@ -3386,7 +3386,9 @@
         "TASK-0173",
         "TASK-0174",
         "mission-control/review-packets/RP-0070-board-build-window-night-2026-03-16.md",
-        "mission-control/board/approval-queue/2026-03-16T03-10-00Z-tranche-j-approval-card.md"
+        "mission-control/board/approval-queue/2026-03-16T03-10-00Z-tranche-j-approval-card.md",
+        "TASK-0191",
+        "mission-control/review-packets/RP-0079-board-recovery-sweep-2026-03-19-0630.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3473,11 +3475,17 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-03-18T16:30Z: continued P0 blocker-chain stream and advanced TASK-0187/TASK-0188 to Ready for Review (RP-0077); approval queue age pressure unchanged pending Isaac decisions.",
           "created_at": "2026-03-18T16:30:00Z"
+        },
+        {
+          "id": "decomp-0107-20260319-0630",
+          "author": "sentinel",
+          "created_at": "2026-03-19T06:30:00Z",
+          "text": "Late-night decomposition gate: added/executed TASK-0191 to publish tranche-N approval routing microbatch for stale Ready-for-Review queue (RP-0079)."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-18T16:30:00Z",
+      "updated_at": "2026-03-19T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -6633,6 +6641,48 @@
       "updated_at": "2026-03-19T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0191",
+      "title": "BRS-2026-03-19a Publish tranche-N approval routing microbatch for stale RFR queue",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/approval-queue/2026-03-19T06-30-00Z-tranche-n-approval-card.md",
+        "mission-control/review-packets/RP-0079-board-recovery-sweep-2026-03-19-0630.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Create a compact decision card covering the currently stale Ready-for-Review set (>24h) with approve/hold recommendations and leverage ordering.\nAcceptance Criteria:\n- Includes all stale RFR tasks at sweep time.\n- Gives approve/hold recommendation + unblock rationale per task.\n- Explicit Isaac decision prompt included.",
+      "comments": [
+        {
+          "id": "done-0191-20260319-0630",
+          "author": "sentinel",
+          "created_at": "2026-03-19T06:30:00Z",
+          "text": "Published tranche-N approval routing card for six stale Ready-for-Review tasks and linked to RP-0079."
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-19T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0079-board-recovery-sweep-2026-03-19-0630.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-19T06:30:00Z",
+      "updated_at": "2026-03-19T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0079"
     }
   ]
 }
