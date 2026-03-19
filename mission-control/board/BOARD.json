@@ -1150,7 +1150,7 @@
         {
           "id": "decomp-20260305-0730",
           "author": "sentinel",
-          "text": "Recovery sweep decomposition: split stalled TASK-0043 into TASK-0093, TASK-0094, TASK-0095 (30\u201390 min slices with acceptance criteria).",
+          "text": "Recovery sweep decomposition: split stalled TASK-0043 into TASK-0093, TASK-0094, TASK-0095 (30–90 min slices with acceptance criteria).",
           "created_at": "2026-03-05T07:30:00Z"
         },
         {
@@ -1475,7 +1475,7 @@
     },
     {
       "id": "TASK-0053",
-      "title": "INIT-AI-OPT-A \u2014 Scope memo",
+      "title": "INIT-AI-OPT-A — Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1499,7 +1499,7 @@
     },
     {
       "id": "TASK-0054",
-      "title": "INIT-AI-OPT-A \u2014 Buyer mapping",
+      "title": "INIT-AI-OPT-A — Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1523,7 +1523,7 @@
     },
     {
       "id": "TASK-0055",
-      "title": "INIT-AI-OPT-A \u2014 Mandate pathway draft",
+      "title": "INIT-AI-OPT-A — Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1547,7 +1547,7 @@
     },
     {
       "id": "TASK-0056",
-      "title": "INIT-AI-OPT-B \u2014 Scope memo",
+      "title": "INIT-AI-OPT-B — Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1571,7 +1571,7 @@
     },
     {
       "id": "TASK-0057",
-      "title": "INIT-AI-OPT-B \u2014 Buyer mapping",
+      "title": "INIT-AI-OPT-B — Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1595,7 +1595,7 @@
     },
     {
       "id": "TASK-0058",
-      "title": "INIT-AI-OPT-B \u2014 Mandate pathway draft",
+      "title": "INIT-AI-OPT-B — Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1619,7 +1619,7 @@
     },
     {
       "id": "TASK-0059",
-      "title": "INIT-AI-OPT-C \u2014 Scope memo",
+      "title": "INIT-AI-OPT-C — Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1643,7 +1643,7 @@
     },
     {
       "id": "TASK-0060",
-      "title": "INIT-AI-OPT-C \u2014 Buyer mapping",
+      "title": "INIT-AI-OPT-C — Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1667,7 +1667,7 @@
     },
     {
       "id": "TASK-0061",
-      "title": "INIT-AI-OPT-C \u2014 Mandate pathway draft",
+      "title": "INIT-AI-OPT-C — Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1691,7 +1691,7 @@
     },
     {
       "id": "TASK-0062",
-      "title": "INIT-AI-OPT-D \u2014 Scope memo",
+      "title": "INIT-AI-OPT-D — Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1715,7 +1715,7 @@
     },
     {
       "id": "TASK-0063",
-      "title": "INIT-AI-OPT-D \u2014 Buyer mapping",
+      "title": "INIT-AI-OPT-D — Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1739,7 +1739,7 @@
     },
     {
       "id": "TASK-0064",
-      "title": "INIT-AI-OPT-D \u2014 Mandate pathway draft",
+      "title": "INIT-AI-OPT-D — Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1763,7 +1763,7 @@
     },
     {
       "id": "TASK-0065",
-      "title": "EP-SBP Sponsor-Level Presence (Beacon \u2014 passive gravity)",
+      "title": "EP-SBP Sponsor-Level Presence (Beacon — passive gravity)",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2440,7 +2440,7 @@
     },
     {
       "id": "TASK-0088",
-      "title": "Beacon Weekly \u2014 Monday signal selection",
+      "title": "Beacon Weekly — Monday signal selection",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2462,7 +2462,7 @@
     },
     {
       "id": "TASK-0089",
-      "title": "Beacon Weekly \u2014 Tuesday draft",
+      "title": "Beacon Weekly — Tuesday draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2484,7 +2484,7 @@
     },
     {
       "id": "TASK-0090",
-      "title": "Beacon Weekly \u2014 Wednesday hardening",
+      "title": "Beacon Weekly — Wednesday hardening",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2506,7 +2506,7 @@
     },
     {
       "id": "TASK-0091",
-      "title": "Beacon Weekly \u2014 Thursday approval",
+      "title": "Beacon Weekly — Thursday approval",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2528,7 +2528,7 @@
     },
     {
       "id": "TASK-0092",
-      "title": "Beacon Weekly \u2014 Friday publish/hold",
+      "title": "Beacon Weekly — Friday publish/hold",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2853,7 +2853,7 @@
         "TASK-0101",
         "mission-control/review-packets/RP-0031-board-recovery-sweep-2026-03-06.md"
       ],
-      "description": "Oversized stalled-work recovery item: Ready for Review queue aged >24h has accumulated and requires decomposition into approval-ready bundles.\nAcceptance Criteria:\n- Decomposed into 30\u201390 minute child tasks with explicit acceptance criteria.\n- At least one unblock child executed in this sweep.\n- Recovery plan recorded with stalled list and Isaac decision gate.",
+      "description": "Oversized stalled-work recovery item: Ready for Review queue aged >24h has accumulated and requires decomposition into approval-ready bundles.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with explicit acceptance criteria.\n- At least one unblock child executed in this sweep.\n- Recovery plan recorded with stalled list and Isaac decision gate.",
       "comments": [
         {
           "at": "2026-03-06T07:30:00Z",
@@ -2934,7 +2934,7 @@
       "linked_refs": [
         "TASK-0098"
       ],
-      "description": "Create an approval bundle for the oldest Ready for Review tasks (target 8\u201312 items) with one-line approve/defer rationale per item.\nAcceptance Criteria:\n- Bundle groups items by theme.\n- Each item has approve/defer recommendation with risk note.\n- Output packaged as review packet.",
+      "description": "Create an approval bundle for the oldest Ready for Review tasks (target 8–12 items) with one-line approve/defer rationale per item.\nAcceptance Criteria:\n- Bundle groups items by theme.\n- Each item has approve/defer recommendation with risk note.\n- Output packaged as review packet.",
       "comments": [
         {
           "id": "done-task-0100-20260306-1140",
@@ -3388,7 +3388,7 @@
         "mission-control/review-packets/RP-0070-board-build-window-night-2026-03-16.md",
         "mission-control/board/approval-queue/2026-03-16T03-10-00Z-tranche-j-approval-card.md"
       ],
-      "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30\u201390 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
+      "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
         {
           "id": "decomp-0107-20260307-0730",
@@ -3498,7 +3498,7 @@
         "TASK-0107",
         "mission-control/review-packets/RP-0038-board-recovery-sweep-2026-03-07.md"
       ],
-      "description": "Create tranche-C approval packet for remaining high-age Ready for Review items with approve/defer recommendation and unblock leverage ordering.\nAcceptance Criteria:\n- Packet lists current stalled counts by rule.\n- Includes 8\u201312 RFR items not yet bundled in A/B with one-line recommendation and risk note.\n- Includes Isaac decision needed next.",
+      "description": "Create tranche-C approval packet for remaining high-age Ready for Review items with approve/defer recommendation and unblock leverage ordering.\nAcceptance Criteria:\n- Packet lists current stalled counts by rule.\n- Includes 8–12 RFR items not yet bundled in A/B with one-line recommendation and risk note.\n- Includes Isaac decision needed next.",
       "comments": [
         {
           "id": "done-0108-20260307-0730",
@@ -3828,7 +3828,7 @@
         "TASK-0109",
         "mission-control/board/tranche-c-microbatch-2026-03-08.md"
       ],
-      "description": "Create a 30\u201360 minute microbatch decision slate with 5 highest-leverage Ready for Review approvals to accelerate tranche-C closure.\nAcceptance Criteria:\n- Contains exactly 5 items with approve/defer rationale framing.\n- Maps each item to expected unblock effect.\n- Includes explicit decision prompt for Isaac.",
+      "description": "Create a 30–60 minute microbatch decision slate with 5 highest-leverage Ready for Review approvals to accelerate tranche-C closure.\nAcceptance Criteria:\n- Contains exactly 5 items with approve/defer rationale framing.\n- Maps each item to expected unblock effect.\n- Includes explicit decision prompt for Isaac.",
       "comments": [
         {
           "id": "done-0118-20260308-0730",
@@ -4218,7 +4218,7 @@
         "TASK-0103",
         "mission-control/board/sweeps/2026-03-10T03-10-00Z-night-unblock-matrix.md"
       ],
-      "description": "Produce a night unblock artifact with decomposition, decision microbatch, and explicit next-slot sequence for highest leverage blocked chain.\nAcceptance Criteria:\n- Artifact includes blocker chain and ordered decision asks.\n- Includes governance constraints (no Done without approved RP).\n- Identifies next queued 30\u201390 minute subtasks.",
+      "description": "Produce a night unblock artifact with decomposition, decision microbatch, and explicit next-slot sequence for highest leverage blocked chain.\nAcceptance Criteria:\n- Artifact includes blocker chain and ordered decision asks.\n- Includes governance constraints (no Done without approved RP).\n- Identifies next queued 30–90 minute subtasks.",
       "comments": [
         {
           "id": "done-0129-20260310-0310",
@@ -4600,7 +4600,7 @@
         "mission-control/review-packets/RP-0051-board-recovery-sweep-2026-03-11-0630.md",
         "mission-control/board/sweeps/2026-03-11T06-30-00Z-late-night-recovery-sweep.md"
       ],
-      "description": "Create a 30\u201390 min decision packet for the 12 oldest Ready-for-Review tasks with approve/defer recommendation and unblock leverage note.\nAcceptance Criteria:\n- Exactly 12 oldest RFR items included.\n- Each item includes recommendation + rationale.\n- Packet path attached for immediate Isaac decision.",
+      "description": "Create a 30–90 min decision packet for the 12 oldest Ready-for-Review tasks with approve/defer recommendation and unblock leverage note.\nAcceptance Criteria:\n- Exactly 12 oldest RFR items included.\n- Each item includes recommendation + rationale.\n- Packet path attached for immediate Isaac decision.",
       "comments": [
         {
           "id": "done-0138-20260311-0630",
@@ -6112,7 +6112,7 @@
         "mission-control/runbooks/2026-03-17-credentialed-live-smoke-handoff.md",
         "mission-control/review-packets/RP-0072-board-recovery-sweep-2026-03-17-0630.md"
       ],
-      "description": "30\u201390 min unblock subtask. Acceptance: (1) deterministic one-pass command sequence for credentialed operator, (2) PASS/BLOCKED evidence checklist, (3) explicit post-PASS board transition gate for TASK-0097.",
+      "description": "30–90 min unblock subtask. Acceptance: (1) deterministic one-pass command sequence for credentialed operator, (2) PASS/BLOCKED evidence checklist, (3) explicit post-PASS board transition gate for TASK-0097.",
       "comments": [
         {
           "author": "sentinel",
@@ -6573,6 +6573,66 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0077"
+    },
+    {
+      "id": "TASK-0189",
+      "title": "BRS-2026-03-19 Package Ready-for-Review tranche-M decision digest (oldest set)",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "board-recovery-sweep",
+        "governance",
+        "decomposition-gate"
+      ],
+      "linked_refs": [
+        "RP-0078",
+        "TASK-0113"
+      ],
+      "description": "Build tranche-M decision digest for oldest Ready-for-Review tasks with queue-age context and approve/hold recommendations.\nAcceptance Criteria:\n- Includes oldest RFR task set and queue-age context.\n- Includes per-task recommendation + rationale.\n- Includes governance-safe decision syntax for Isaac.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "at": "2026-03-19T03:10:00Z",
+          "text": "Completed via board build window sweep; digest embedded in RP-0078."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-19T03:10:00Z",
+      "updated_at": "2026-03-19T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0190",
+      "title": "BRS-2026-03-19 Publish tranche-M approval routing card",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "board-recovery-sweep",
+        "approval-routing",
+        "governance"
+      ],
+      "linked_refs": [
+        "RP-0078",
+        "mission-control/board/approval-queue/2026-03-19T03-10-00Z-tranche-m-approval-card.md"
+      ],
+      "description": "Publish compact tranche-M approval card for low-latency decision routing.\nAcceptance Criteria:\n- Lists pending task IDs with Approve/Hold asks.\n- Includes one-line decision syntax.\n- States governance guardrail and blocker-chain effect.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "at": "2026-03-19T03:10:00Z",
+          "text": "Completed approval routing card publication for tranche-M."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-19T03:10:00Z",
+      "updated_at": "2026-03-19T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
