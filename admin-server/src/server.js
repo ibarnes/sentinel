@@ -50,6 +50,9 @@ const DASHBOARD_CHANGELOG = path.join(ROOT, 'dashboard', 'state', 'changelog.md'
 const DASHBOARD_SNAPSHOTS = path.join(ROOT, 'dashboard', 'snapshots');
 const DASHBOARD_SIGNALS_FILE = path.join(ROOT, 'dashboard', 'data', 'signals.json');
 const DASHBOARD_MEETING_MINUTES_FILE = path.join(ROOT, 'dashboard', 'data', 'meeting_minutes.json');
+const DASHBOARD_STATE_TRANSITIONS_FILE = path.join(ROOT, 'dashboard', 'data', 'state_transitions.json');
+const DASHBOARD_STATE_DEFINITIONS_FILE = path.join(ROOT, 'dashboard', 'data', 'state_definitions.json');
+const DASHBOARD_STATE_CONSTRAINTS_FILE = path.join(ROOT, 'dashboard', 'data', 'state_constraints.json');
 const DASHBOARD_TEAM_FILE = path.join(ROOT, 'dashboard', 'data', 'team.json');
 const DASHBOARD_CONTACT_PATHS_FILE = path.join(ROOT, 'dashboard', 'data', 'contact_paths.json');
 const DASHBOARD_DECISION_ARCH_FILE = path.join(ROOT, 'dashboard', 'data', 'decision_architecture.json');
@@ -703,6 +706,7 @@ function dashboardNav(active = '') {
     <div class="oc-nav-links">
       <div class="oc-nav-group-label">Market Intelligence</div>
       <a class="nav-link ${is('signals')}" href="/dashboard/signals" title="Signals"><i data-lucide="radio" class="nav-icon"></i><span class="nav-label">Signals</span></a>
+      <a class="nav-link ${is('state-transitions')}" href="/dashboard/state-transitions" title="State Transitions"><i data-lucide="git-compare-arrows" class="nav-icon"></i><span class="nav-label">State</span></a>
       <a class="nav-link ${is('meetings')}" href="/dashboard/meetings" title="Meetings"><i data-lucide="notebook-text" class="nav-icon"></i><span class="nav-label">Meetings</span></a>
       <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platforms"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platforms</span></a>
       <a class="nav-link ${is('beacons')}" href="/dashboard/beacons" title="Beacons"><i data-lucide="satellite" class="nav-icon"></i><span class="nav-label">Beacons</span></a>
@@ -1980,6 +1984,46 @@ app.get('/dashboard/signal/:id', async (req, res) => {
     return `<span class="badge text-bg-${cls}">${escapeHtml(v)}</span>`;
   })();
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signal Detail')}</head><body><div class="app-shell">${dashboardNav('signals')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/signals">← Signals</a><h3 class="mb-1">${escapeHtml(s.title || '')}</h3><div class="d-flex gap-2 mb-2">${statusBadge}<span class="badge text-bg-light border">${escapeHtml(s.confidence || '')}</span><span class="badge text-bg-light border">${escapeHtml(s.signal_class || '—')}</span></div><div class="small text-muted mb-2 mono">Observed: ${escapeHtml(String(s.observed_at || '').slice(0,19).replace('T',' '))}</div><div class="card mb-3"><div class="card-body"><h6>Summary</h6><div>${escapeHtml(s.summary || '—')}</div></div></div><div class="card mb-3"><div class="card-body"><h6>Linked Buyers</h6><ul class="mb-0">${(s.buyer_ids || []).map((id)=>`<li><strong>${escapeHtml(id)}</strong>${byId[id] ? ` — ${escapeHtml(byId[id])}` : ''}</li>`).join('') || '<li class="text-muted">None</li>'}</ul></div></div><div class="card"><div class="card-body"><h6>Raw Signal</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(JSON.stringify(s, null, 2))}</pre></div></div></div></body></html>`);
+});
+
+app.get('/dashboard/state-transitions', async (_req, res) => {
+  const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
+  const defs = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
+  const sorted = [...transitions].sort((a, b) => String(b.timestamp || b.created_at || '').localeCompare(String(a.timestamp || a.created_at || '')));
+  const cards = sorted.map((t) => {
+    const dt = String(t.timestamp || t.created_at || '').slice(0, 19).replace('T', ' ');
+    const initiatives = (t.initiative_ids || []).join(', ') || '—';
+    const fromState = String(t.from_state || '—');
+    const toState = String(t.to_state || '—');
+    const ttype = String(t.transition_type || '—');
+    const conf = t.confidence == null ? '—' : String(t.confidence);
+    const evidenceCount = Array.isArray(t.evidence) ? t.evidence.length : 0;
+    return `<a class="card mb-3 text-decoration-none" style="color:inherit" href="/dashboard/state-transition/${encodeURIComponent(String(t.id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="font-size:1.1rem;color:var(--text-primary)">${escapeHtml(String(t.summary || t.id || 'State transition'))}</h6><div class="small text-muted mono">${escapeHtml(String(t.id || ''))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(dt || '—')}</div></div><div class="small mt-2" style="color:var(--text-primary)"><strong>${escapeHtml(fromState)}</strong> → <strong>${escapeHtml(toState)}</strong> · ${escapeHtml(ttype)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Initiatives:</strong> ${escapeHtml(initiatives)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Evidence:</strong> ${escapeHtml(String(evidenceCount))} · <strong>Confidence:</strong> ${escapeHtml(conf)}</div></div></a>`;
+  }).join('');
+
+  const stateDefs = Object.entries(defs?.states || {}).map(([k, v]) => `<tr><td><code>${escapeHtml(k)}</code></td><td>${escapeHtml(String(v?.order || '—'))}</td><td>${escapeHtml(String(v?.next_state || '—'))}</td><td>${escapeHtml(String(v?.max_score_ceiling ?? '—'))}</td></tr>`).join('') || '<tr><td colspan="4" class="text-muted">No state definitions</td></tr>';
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('State Transitions')}</head><body><div class="app-shell">
+    ${dashboardNav('state-transitions')}
+    ${pageHeader('State Transitions', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/state-transitions/export.json">Get JSON</a>', 'Evidence-backed progression engine')}
+    <div class="card mb-3"><div class="card-body"><h6>Canonical States (v1)</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>State</th><th>Order</th><th>Next</th><th>Ceiling</th></tr></thead><tbody>${stateDefs}</tbody></table></div></div></div>
+    ${cards || '<div class="alert alert-secondary">No state transitions yet.</div>'}
+  </div></body></html>`);
+});
+
+app.get('/dashboard/state-transitions/export.json', async (_req, res) => {
+  const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
+  res.type('application/json').send(JSON.stringify(transitions, null, 2));
+});
+
+app.get('/dashboard/state-transition/:id', async (req, res) => {
+  const id = String(req.params.id || '');
+  const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
+  const t = transitions.find((x) => String(x.id || '') === id);
+  if (!t) return res.status(404).type('html').send(`<!doctype html><html><head>${uiHead('Transition Not Found')}</head><body><div class="app-shell">${dashboardNav('state-transitions')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/state-transitions">← State Transitions</a><div class="alert alert-warning">Transition not found.</div></div></body></html>`);
+  const dt = String(t.timestamp || t.created_at || '').slice(0, 19).replace('T', ' ');
+  const li = (arr) => (Array.isArray(arr) && arr.length) ? arr.map((v)=>`<li>${escapeHtml(typeof v === 'string' ? v : JSON.stringify(v))}</li>`).join('') : '<li class="text-muted">None</li>';
+  res.type('html').send(`<!doctype html><html><head>${uiHead('State Transition Detail')}</head><body><div class="app-shell">${dashboardNav('state-transitions')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/state-transitions">← State Transitions</a><h3 class="mb-1">${escapeHtml(String(t.summary || t.id || 'State Transition'))}</h3><div class="small text-muted mono mb-3">${escapeHtml(String(t.id || ''))} · ${escapeHtml(dt || '—')}</div><div class="card mb-3"><div class="card-body"><div><strong>From:</strong> ${escapeHtml(String(t.from_state || '—'))}</div><div><strong>To:</strong> ${escapeHtml(String(t.to_state || '—'))}</div><div><strong>Type:</strong> ${escapeHtml(String(t.transition_type || '—'))}</div><div><strong>Confidence:</strong> ${escapeHtml(String(t.confidence ?? '—'))}</div><div><strong>Initiatives:</strong> ${escapeHtml((t.initiative_ids || []).join(', ') || '—')}</div><div><strong>Signals:</strong> ${escapeHtml((t.trigger_signal_ids || []).join(', ') || '—')}</div></div></div><div class="card mb-3"><div class="card-body"><h6>Constraints Resolved</h6><ul class="mb-0">${li(t.constraints_resolved)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Constraints Remaining</h6><ul class="mb-0">${li(t.constraints_remaining)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Evidence</h6><ul class="mb-0">${li(t.evidence)}</ul></div></div><div class="card"><div class="card-body"><h6>Raw JSON</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(JSON.stringify(t, null, 2))}</pre></div></div></div></body></html>`);
 });
 
 app.get('/dashboard/meetings', async (req, res) => {
@@ -3939,6 +3983,75 @@ function taskSortScore(t) {
   const p = { P0: 0, P1: 1, P2: 2, P3: 3 }[t.priority] ?? 99;
   const d = t.due_date ? new Date(t.due_date).getTime() : Number.MAX_SAFE_INTEGER;
   return [p, d, t.updated_at || ''];
+}
+
+function extractInitiativeIdsFromTask(task = {}) {
+  const refs = Array.isArray(task.linked_refs) ? task.linked_refs : [];
+  const found = new Set();
+  for (const r of refs) {
+    const s = String(r || '').trim();
+    if (!s) continue;
+    const m = s.match(/\b(INIT-[A-Z0-9-]+)\b/i);
+    if (m) found.add(m[1].toUpperCase());
+  }
+  const desc = String(task.description || '');
+  for (const m of desc.matchAll(/\b(INIT-[A-Z0-9-]+)\b/gi)) {
+    found.add(String(m[1]).toUpperCase());
+  }
+  return [...found];
+}
+
+function stateOrder(defs = {}) {
+  const states = defs?.states || {};
+  const map = {};
+  Object.entries(states).forEach(([k, v]) => {
+    map[k] = Number(v?.order || 0);
+  });
+  return map;
+}
+
+function evaluateBoardStateGate({ task, targetStatus, initiativesById, transitionsByInitiative, definitions }) {
+  const requiredStateByBoard = {
+    'Ready for Review': 'governance_ready',
+    'Done': 'execution_ready'
+  };
+  const requiredState = requiredStateByBoard[targetStatus];
+  if (!requiredState) return null;
+
+  const taskInitiatives = extractInitiativeIdsFromTask(task);
+  if (!taskInitiatives.length) return {
+    ok: false,
+    reason: 'missing initiative reference (add INIT-... in linked_refs)'
+  };
+
+  const order = stateOrder(definitions);
+  const reqOrd = Number(order[requiredState] || 0);
+
+  for (const iid of taskInitiatives) {
+    const initiative = initiativesById.get(iid);
+    if (!initiative) return { ok: false, reason: `initiative ${iid} not found` };
+    const currentState = String(initiative.current_state || initiative.state || '').trim();
+    const curOrd = Number(order[currentState] || 0);
+
+    const list = transitionsByInitiative.get(iid) || [];
+    const hasEvidenceTransition = list.some((t) => {
+      const toState = String(t.to_state || '').trim();
+      const evidence = Array.isArray(t.evidence) ? t.evidence : [];
+      return toState === requiredState && evidence.length > 0;
+    });
+
+    if (!hasEvidenceTransition) return { ok: false, reason: `${iid}: missing evidence-backed transition to ${requiredState}` };
+    if (curOrd < reqOrd) return { ok: false, reason: `${iid}: current_state=${currentState || 'unknown'} below ${requiredState}` };
+
+    const unresolved = Array.isArray(initiative.critical_constraints)
+      ? initiative.critical_constraints
+      : [];
+    if (targetStatus === 'Done' && unresolved.length > 0) {
+      return { ok: false, reason: `${iid}: unresolved critical constraints (${unresolved.length})` };
+    }
+  }
+
+  return { ok: true };
 }
 
 function limitAttempt(map, key, max = 8, windowMs = 15 * 60 * 1000) {
@@ -6054,6 +6167,26 @@ async function handleTaskMove(req, res, statusInput) {
       return res.status(400).json({ error: 'task cannot move to Done without approved RP' });
     }
 
+    if (status === 'Ready for Review' || status === 'Done') {
+      const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+      const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
+      const definitions = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
+      const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || '').toUpperCase(), i]));
+      const transitionsByInitiative = new Map();
+      for (const tr of (transitions || [])) {
+        for (const iidRaw of (tr.initiative_ids || [])) {
+          const iid = String(iidRaw || '').toUpperCase();
+          if (!iid) continue;
+          if (!transitionsByInitiative.has(iid)) transitionsByInitiative.set(iid, []);
+          transitionsByInitiative.get(iid).push(tr);
+        }
+      }
+      const gate = evaluateBoardStateGate({ task, targetStatus: status, initiativesById, transitionsByInitiative, definitions });
+      if (gate && gate.ok === false) {
+        return res.status(400).json({ error: `state gate blocked: ${gate.reason}` });
+      }
+    }
+
     const before = { status: task.status, review_packet_id: task.review_packet_id || null };
     task.status = status;
 
@@ -6160,6 +6293,26 @@ app.post('/api/tasks/:id/request-approval', requireRole('architect', 'editor'), 
     await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: effectiveRole(req) || 'editor', event_type: 'rp.ready_for_review', entity_type: 'review_packet', entity_id: task.review_packet_id, meta: { linked_task: task.id } });
   }
 
+  {
+    const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+    const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
+    const definitions = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
+    const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || '').toUpperCase(), i]));
+    const transitionsByInitiative = new Map();
+    for (const tr of (transitions || [])) {
+      for (const iidRaw of (tr.initiative_ids || [])) {
+        const iid = String(iidRaw || '').toUpperCase();
+        if (!iid) continue;
+        if (!transitionsByInitiative.has(iid)) transitionsByInitiative.set(iid, []);
+        transitionsByInitiative.get(iid).push(tr);
+      }
+    }
+    const gate = evaluateBoardStateGate({ task, targetStatus: 'Ready for Review', initiativesById, transitionsByInitiative, definitions });
+    if (gate && gate.ok === false) {
+      return res.status(400).json({ error: `state gate blocked: ${gate.reason}` });
+    }
+  }
+
   const before = { status: task.status, request_approval: task.request_approval || null, review_packet_id: task.review_packet_id || null };
   task.status = 'Ready for Review';
   task.request_approval = {
@@ -6189,6 +6342,26 @@ app.post('/api/tasks/:id/approve', requireAnyAuth, async (req, res) => {
     if (!task) return res.status(404).json({ error: 'not found' });
 
     if (!task.review_packet_id) return res.status(400).json({ error: 'task has no review packet' });
+
+    {
+      const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+      const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
+      const definitions = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
+      const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || '').toUpperCase(), i]));
+      const transitionsByInitiative = new Map();
+      for (const tr of (transitions || [])) {
+        for (const iidRaw of (tr.initiative_ids || [])) {
+          const iid = String(iidRaw || '').toUpperCase();
+          if (!iid) continue;
+          if (!transitionsByInitiative.has(iid)) transitionsByInitiative.set(iid, []);
+          transitionsByInitiative.get(iid).push(tr);
+        }
+      }
+      const gate = evaluateBoardStateGate({ task, targetStatus: 'Done', initiativesById, transitionsByInitiative, definitions });
+      if (gate && gate.ok === false) {
+        return res.status(400).json({ error: `state gate blocked: ${gate.reason}` });
+      }
+    }
 
     const before = { request_approval: task.request_approval || null, status: task.status };
     task.request_approval = {
