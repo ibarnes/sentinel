@@ -60,5 +60,70 @@
     },
     "created_at": "2026-03-19T12:21:00Z",
     "updated_at": "2026-03-19T12:21:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-03-14-REFOCUS-AFRIKA-001",
+    "date_time": "2026-03-14T00:00:00Z",
+    "title": "Refocus Afrika meeting",
+    "participants": [
+      "Isaac Barnes",
+      "Carnelious Jones (cjones@omoenergytech.com)",
+      "Sunshine Silas (sunshinesilas@gmail.com)",
+      "Malcolm Wilson (urbancrellc@gmail.com)"
+    ],
+    "summary": "Refocus Afrika presented itself as a long-running, high-access Africa operator with senior government relationships and private-deployment orientation. Discussion emphasized active pipelines in infrastructure, energy, transport, EV, and manufacturing across multiple countries, with Tanzania and southern Africa highlighted as immediate access lanes. Team indicated willingness to onboard USG and broker direct introductions to project owners and government stakeholders.",
+    "initiative_ids": [
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-653306",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Proceed with structured onboarding flow with Refocus Afrika for government/stakeholder introductions.",
+      "Prioritize Tanzania as an initial coordination lane due to claimed institutional access and active project flow.",
+      "Treat public-profile low visibility as a diligence variable; rely on document/evidence checks over announcements."
+    ],
+    "risks": [
+      "Verification risk: many claims are relationship-based and intentionally low-publicity.",
+      "Concentration risk: access model appears reliant on key individuals and political relationships.",
+      "Execution risk: multi-country pipeline breadth may outpace verifiable deployment evidence.",
+      "FX/convertibility risk remains material despite stated improvements in certain markets."
+    ],
+    "next_actions": [
+      {
+        "action": "Run structured diligence packet: verify flagship project references (Zimbabwe solar, Cyber City, Ethiopia EV/charging, rail and stadium claims).",
+        "owner": "Sentinel",
+        "due": "2026-03-22",
+        "status": "open"
+      },
+      {
+        "action": "Prepare onboarding brief and intro checklist for Refocus Afrika-led government/stakeholder meetings.",
+        "owner": "Isaac",
+        "due": "2026-03-25",
+        "status": "open"
+      },
+      {
+        "action": "Build Tanzania-first engagement map: ministries, project owners, and decision interfaces.",
+        "owner": "Sentinel",
+        "due": "2026-03-24",
+        "status": "open"
+      },
+      {
+        "action": "Define evidence threshold for private/no-press counterparties before mandate advancement.",
+        "owner": "Isaac",
+        "due": "2026-03-21",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting minutes + leadership page link",
+      "links": [
+        "https://refocusafrika.com/leadership-team/"
+      ]
+    },
+    "created_at": "2026-03-19T17:02:00Z",
+    "updated_at": "2026-03-19T17:02:00Z"
   }
 ]
