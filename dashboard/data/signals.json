@@ -6280,5 +6280,60 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-19-STARLINK-UAE-LAUNCH-001",
+    "title": "Starlink reportedly launches service in the United Arab Emirates",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-19T20:24:00Z",
+    "summary": "Reported launch of Starlink services in the UAE signals deeper space-enabled connectivity penetration in a major Gulf infrastructure and capital hub.",
+    "flow": "satellite broadband market expansion -> strategic connectivity layer deepening in Gulf -> potential spillover into enterprise, logistics, and cross-border corridor infrastructure models",
+    "verification_note": "Captured from user-provided image/news context; classify as reported pending primary regulator/operator release.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Starlink UAE launch claim)",
+        "url": "internal://isaac/telegram/media/2026-03-19-starlink-uae"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "uae",
+      "starlink",
+      "satellite-connectivity",
+      "digital-infrastructure",
+      "gulf",
+      "reported"
+    ],
+    "geography": [
+      "United Arab Emirates",
+      "Gulf"
+    ],
+    "country": "United Arab Emirates",
+    "buyer_ids": [
+      "ADQ",
+      "MUBADALA",
+      "TAFF",
+      "PIF",
+      "QIA",
+      "TEMASEK",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "delivery",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
