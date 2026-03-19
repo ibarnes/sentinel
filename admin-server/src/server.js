@@ -706,7 +706,7 @@ function dashboardNav(active = '') {
     <div class="oc-nav-links">
       <div class="oc-nav-group-label">Market Intelligence</div>
       <a class="nav-link ${is('signals')}" href="/dashboard/signals" title="Signals"><i data-lucide="radio" class="nav-icon"></i><span class="nav-label">Signals</span></a>
-      <a class="nav-link ${is('state-transitions')}" href="/dashboard/state-transitions" title="State Transitions"><i data-lucide="git-compare-arrows" class="nav-icon"></i><span class="nav-label">State</span></a>
+      <a class="nav-link ${is('state-transitions')}" href="/dashboard/state-transitions" title="State Transitions"><i data-lucide="git-compare-arrows" class="nav-icon"></i><span class="nav-label">State Transitions</span></a>
       <a class="nav-link ${is('meetings')}" href="/dashboard/meetings" title="Meetings"><i data-lucide="notebook-text" class="nav-icon"></i><span class="nav-label">Meetings</span></a>
       <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platforms"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platforms</span></a>
       <a class="nav-link ${is('beacons')}" href="/dashboard/beacons" title="Beacons"><i data-lucide="satellite" class="nav-icon"></i><span class="nav-label">Beacons</span></a>
