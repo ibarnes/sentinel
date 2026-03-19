@@ -1905,7 +1905,22 @@ app.get('/dashboard/signals', async (req, res) => {
   const byId = Object.fromEntries(buyers.map((b) => [b.buyer_id, b.name]));
   const classes = ['Capital Reality','FID Definability','Structural Ambiguity','Platform Pressure','Sponsor Altitude','Ecosystem / Theater'];
   const selectedClass = String(req.query.signal_class || 'All');
-  const filteredSignals = selectedClass === 'All' ? signals : signals.filter((s) => String(s.signal_class || '') === selectedClass);
+  const q = String(req.query.q || '').trim().toLowerCase();
+  const classFiltered = selectedClass === 'All' ? signals : signals.filter((s) => String(s.signal_class || '') === selectedClass);
+  const filteredSignals = q ? classFiltered.filter((s) => {
+    const hay = [
+      s.signal_id,
+      s.title,
+      s.summary,
+      s.signal_class,
+      s.status,
+      s.country,
+      ...(Array.isArray(s.geography) ? s.geography : []),
+      ...(Array.isArray(s.tags) ? s.tags : []),
+      ...(Array.isArray(s.buyer_ids) ? s.buyer_ids : [])
+    ].filter(Boolean).join(' ').toLowerCase();
+    return hay.includes(q);
+  }) : classFiltered;
   const sorted = [...filteredSignals].sort((a, b) => String(b.observed_at || '').localeCompare(String(a.observed_at || '')));
   const statusBadge = (s) => {
     const v = String(s || 'Monitor');
@@ -1930,7 +1945,11 @@ app.get('/dashboard/signals', async (req, res) => {
           ${classes.map((c)=>`<option ${selectedClass===c?'selected':''}>${c}</option>`).join('')}
         </select>
       </div>
-      <div class="col-md-2 d-flex align-items-end"><button class="btn btn-outline-primary">Apply</button></div>
+      <div class="col-md-4">
+        <label class="form-label">Keyword Search</label>
+        <input class="form-control" name="q" value="${escapeHtml(String(req.query.q || ''))}" placeholder="Search title, summary, country, tag, buyer…" />
+      </div>
+      <div class="col-md-4 d-flex align-items-end gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="/dashboard/signals">Reset</a></div>
     </form>
     ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Signal</strong></summary><div class="card-body"><form method="post" action="/api/signals" class="row g-2"><div class="col-md-4"><label class="form-label">Title *</label><input class="form-control" name="title" required /></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select" name="status"><option>Monitor</option><option>Verified</option><option>Actioned</option></select></div><div class="col-md-2"><label class="form-label">Confidence</label><select class="form-select" name="confidence"><option>High</option><option>Medium</option><option>Low</option></select></div><div class="col-md-4"><label class="form-label">Signal Class *</label><select class="form-select" name="signal_class" required>${classes.map((c)=>`<option>${c}</option>`).join('')}</select></div><div class="col-md-4"><label class="form-label">Buyer IDs (comma)</label><input class="form-control" name="buyer_ids" placeholder="PIF, AFC" /></div><div class="col-md-8"><label class="form-label">Summary</label><input class="form-control" name="summary" /></div><div class="col-12"><button class="btn btn-sm btn-primary">Save Signal</button></div></form></div></details>` : ''}
     <div id="signalsCardList"></div>
