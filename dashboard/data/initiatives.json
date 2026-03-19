@@ -16,7 +16,25 @@
     },
     "gate_stage": "Gate 0",
     "gate_updated_at": "2026-03-02T15:44:00Z",
-    "infrastructure_category": "Energy"
+    "infrastructure_category": "Energy",
+    "current_state": "constraint_discovery",
+    "readiness_score": 18,
+    "max_possible_score": 25,
+    "next_required_state": "architecture_defined",
+    "critical_constraints": [
+      "Named accountable office not finalized"
+    ],
+    "primary_constraint": "Named accountable office not finalized",
+    "next_required_transition": "st_req_init_001_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_001",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_001",
+      "cap_reason": "high blocker: named accountable office not finalized",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-653305",
@@ -34,7 +52,25 @@
     },
     "infrastructure_category": "Multi",
     "gate_stage": "Gate 0",
-    "gate_updated_at": "2026-03-02T15:44:00Z"
+    "gate_updated_at": "2026-03-02T15:44:00Z",
+    "current_state": "constraint_discovery",
+    "readiness_score": 18,
+    "max_possible_score": 25,
+    "next_required_state": "architecture_defined",
+    "critical_constraints": [
+      "Named accountable office not finalized"
+    ],
+    "primary_constraint": "Named accountable office not finalized",
+    "next_required_transition": "st_req_init_653305_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_653305",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_653305",
+      "cap_reason": "high blocker: named accountable office not finalized",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-AI-OPT-A",
@@ -46,7 +82,25 @@
     "gate_stage": "Gate 0",
     "gate_updated_at": "2026-03-02T15:20:00Z",
     "infrastructure_category": "Economic",
-    "primary_buyer_id": "FMF-NG"
+    "primary_buyer_id": "FMF-NG",
+    "current_state": "constraint_discovery",
+    "readiness_score": 18,
+    "max_possible_score": 25,
+    "next_required_state": "architecture_defined",
+    "critical_constraints": [
+      "Named accountable office not finalized"
+    ],
+    "primary_constraint": "Named accountable office not finalized",
+    "next_required_transition": "st_req_init_ai_opt_a_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_ai_opt_a",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_ai_opt_a",
+      "cap_reason": "high blocker: named accountable office not finalized",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-AI-OPT-B",
@@ -58,7 +112,25 @@
     "gate_stage": "Gate 0",
     "gate_updated_at": "2026-03-02T15:20:00Z",
     "infrastructure_category": "Digital",
-    "primary_buyer_id": "DFC"
+    "primary_buyer_id": "DFC",
+    "current_state": "constraint_discovery",
+    "readiness_score": 18,
+    "max_possible_score": 25,
+    "next_required_state": "architecture_defined",
+    "critical_constraints": [
+      "Named accountable office not finalized"
+    ],
+    "primary_constraint": "Named accountable office not finalized",
+    "next_required_transition": "st_req_init_ai_opt_b_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_ai_opt_b",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_ai_opt_b",
+      "cap_reason": "high blocker: named accountable office not finalized",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-AI-OPT-C",
@@ -70,7 +142,25 @@
     "gate_stage": "Gate 0",
     "gate_updated_at": "2026-03-02T15:20:00Z",
     "infrastructure_category": "Digital",
-    "primary_buyer_id": "PIF"
+    "primary_buyer_id": "PIF",
+    "current_state": "constraint_discovery",
+    "readiness_score": 18,
+    "max_possible_score": 25,
+    "next_required_state": "architecture_defined",
+    "critical_constraints": [
+      "Named accountable office not finalized"
+    ],
+    "primary_constraint": "Named accountable office not finalized",
+    "next_required_transition": "st_req_init_ai_opt_c_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_ai_opt_c",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_ai_opt_c",
+      "cap_reason": "high blocker: named accountable office not finalized",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-AI-OPT-D",
@@ -82,7 +172,25 @@
     "gate_stage": "Gate 0",
     "gate_updated_at": "2026-03-02T15:20:00Z",
     "infrastructure_category": "Energy",
-    "primary_buyer_id": "AFC"
+    "primary_buyer_id": "AFC",
+    "current_state": "constraint_discovery",
+    "readiness_score": 18,
+    "max_possible_score": 25,
+    "next_required_state": "architecture_defined",
+    "critical_constraints": [
+      "Named accountable office not finalized"
+    ],
+    "primary_constraint": "Named accountable office not finalized",
+    "next_required_transition": "st_req_init_ai_opt_d_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_ai_opt_d",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_ai_opt_d",
+      "cap_reason": "high blocker: named accountable office not finalized",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -982,7 +1090,25 @@
         }
       ]
     },
-    "updated_at": "2026-03-10T15:48:00Z"
+    "updated_at": "2026-03-10T15:48:00Z",
+    "current_state": "execution_ready",
+    "readiness_score": 90,
+    "max_possible_score": 100,
+    "next_required_state": "execution_ready",
+    "critical_constraints": [
+      "Scale execution risk monitoring required"
+    ],
+    "primary_constraint": "Scale execution risk monitoring required",
+    "next_required_transition": "st_req_init_ng_fin_energy_spine_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_ng_fin_energy_spine",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_ng_fin_energy_spine",
+      "cap_reason": "high blocker: scale execution risk monitoring required",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -1937,7 +2063,25 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T23:44:00Z"
+    "updated_at": "2026-03-09T23:44:00Z",
+    "current_state": "governance_ready",
+    "readiness_score": 54,
+    "max_possible_score": 65,
+    "next_required_state": "capital_ready",
+    "critical_constraints": [
+      "Capital stack definition not finalized"
+    ],
+    "primary_constraint": "Capital stack definition not finalized",
+    "next_required_transition": "st_req_init_ap_ai_factory_001_capital_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_ap_ai_factory_001",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_ap_ai_factory_001",
+      "cap_reason": "high blocker: capital stack definition not finalized",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -2667,7 +2811,25 @@
         }
       ]
     },
-    "updated_at": "2026-03-10T00:33:00Z"
+    "updated_at": "2026-03-10T00:33:00Z",
+    "current_state": "architecture_defined",
+    "readiness_score": 36,
+    "max_possible_score": 45,
+    "next_required_state": "governance_ready",
+    "critical_constraints": [
+      "Governance owner and approvals not fully locked"
+    ],
+    "primary_constraint": "Governance owner and approvals not fully locked",
+    "next_required_transition": "st_req_init_2026_03_05_commodity_corridor_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_2026_03_05_commodity_corridor",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_2026_03_05_commodity_corridor",
+      "cap_reason": "high blocker: governance owner and approvals not fully locked",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-GRAVITY-001",
@@ -3338,7 +3500,25 @@
         }
       ]
     },
-    "updated_at": "2026-03-10T00:26:00Z"
+    "updated_at": "2026-03-10T00:26:00Z",
+    "current_state": "constraint_discovery",
+    "readiness_score": 18,
+    "max_possible_score": 25,
+    "next_required_state": "architecture_defined",
+    "critical_constraints": [
+      "Named accountable office not finalized"
+    ],
+    "primary_constraint": "Named accountable office not finalized",
+    "next_required_transition": "st_req_init_gravity_001_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_gravity_001",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_gravity_001",
+      "cap_reason": "high blocker: named accountable office not finalized",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-653306",
@@ -4016,7 +4196,25 @@
         }
       ]
     },
-    "updated_at": "2026-03-10T22:59:45.044Z"
+    "updated_at": "2026-03-10T22:59:45.044Z",
+    "current_state": "architecture_defined",
+    "readiness_score": 36,
+    "max_possible_score": 45,
+    "next_required_state": "governance_ready",
+    "critical_constraints": [
+      "Governance owner and approvals not fully locked"
+    ],
+    "primary_constraint": "Governance owner and approvals not fully locked",
+    "next_required_transition": "st_req_init_653306_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_653306",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_653306",
+      "cap_reason": "high blocker: governance owner and approvals not fully locked",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
@@ -4772,7 +4970,25 @@
         "Capital structure for scale is sketchable"
       ]
     },
-    "macro_gravity_summary": "**Initiative Description**\nA platform to finance, standardize, deploy, lease, and govern automated labor fleets for nations, ports, logistics networks, industrial operators, and infrastructure owners. The platform converts robot work into measurable labor capacity contracts, beginning with pilot deployments in constrained, high-value environments such as ports, warehouses, industrial inspection, and infrastructure maintenance.\n\n**Thesis**\nHumanoid and non-humanoid robot fleets can become financeable, leasable, and eventually tradable units of physical labor capacity. USG's role is not to manufacture robots, but to architect the governance, capital stack, deployment model, and institutional market structure that turns automated labor into an infrastructure asset class.\n\n**Smallest Executable Version**\nAutomated Labor Pilot: Deploy and govern a pilot fleet of automated labor units in a constrained, high-value environment with measurable output, uptime, safety, and unit economics."
+    "macro_gravity_summary": "**Initiative Description**\nA platform to finance, standardize, deploy, lease, and govern automated labor fleets for nations, ports, logistics networks, industrial operators, and infrastructure owners. The platform converts robot work into measurable labor capacity contracts, beginning with pilot deployments in constrained, high-value environments such as ports, warehouses, industrial inspection, and infrastructure maintenance.\n\n**Thesis**\nHumanoid and non-humanoid robot fleets can become financeable, leasable, and eventually tradable units of physical labor capacity. USG's role is not to manufacture robots, but to architect the governance, capital stack, deployment model, and institutional market structure that turns automated labor into an infrastructure asset class.\n\n**Smallest Executable Version**\nAutomated Labor Pilot: Deploy and govern a pilot fleet of automated labor units in a constrained, high-value environment with measurable output, uptime, safety, and unit economics.",
+    "current_state": "constraint_discovery",
+    "readiness_score": 18,
+    "max_possible_score": 25,
+    "next_required_state": "architecture_defined",
+    "critical_constraints": [
+      "Named accountable office not finalized"
+    ],
+    "primary_constraint": "Named accountable office not finalized",
+    "next_required_transition": "st_req_init_2026_03_global_automated_labor_infras_governance_commitment",
+    "last_transition_id": "st_seed_2026_03_19_init_2026_03_global_automated_labor_infras",
+    "last_transition_timestamp": "2026-03-19T16:00:00Z",
+    "open_dependency_count": 1,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_03_19_init_2026_03_global_automated_labor_infras",
+      "cap_reason": "high blocker: named accountable office not finalized",
+      "regression_impact_30d": 0
+    }
   },
   {
     "initiative_id": "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",

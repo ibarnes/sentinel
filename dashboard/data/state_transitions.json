@@ -241,5 +241,545 @@
       "decision_owner": "pending"
     },
     "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_001",
+    "initiative_ids": [
+      "INIT-001"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "constraint_discovery",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-001 aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "constraint_discovery"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "constraint_discovery"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "architecture_defined",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:00Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "constraint_discovery",
+      "gate_stage": "Gate 0"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_653305",
+    "initiative_ids": [
+      "INIT-653305"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "constraint_discovery",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-653305 aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "constraint_discovery"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "constraint_discovery"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "architecture_defined",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:01Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "constraint_discovery",
+      "gate_stage": "Gate 0"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_ai_opt_a",
+    "initiative_ids": [
+      "INIT-AI-OPT-A"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "constraint_discovery",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-AI-OPT-A aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "constraint_discovery"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "constraint_discovery"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "architecture_defined",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:02Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "constraint_discovery",
+      "gate_stage": "Gate 0"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_ai_opt_b",
+    "initiative_ids": [
+      "INIT-AI-OPT-B"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "constraint_discovery",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-AI-OPT-B aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "constraint_discovery"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "constraint_discovery"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "architecture_defined",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:03Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "constraint_discovery",
+      "gate_stage": "Gate 0"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_ai_opt_c",
+    "initiative_ids": [
+      "INIT-AI-OPT-C"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "constraint_discovery",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-AI-OPT-C aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "constraint_discovery"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "constraint_discovery"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "architecture_defined",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:04Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "constraint_discovery",
+      "gate_stage": "Gate 0"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_ai_opt_d",
+    "initiative_ids": [
+      "INIT-AI-OPT-D"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "constraint_discovery",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-AI-OPT-D aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "constraint_discovery"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "constraint_discovery"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "architecture_defined",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:05Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "constraint_discovery",
+      "gate_stage": "Gate 0"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_ng_fin_energy_spine",
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "capital_ready",
+    "to_state": "execution_ready",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-NG-FIN-ENERGY-SPINE aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "capital_ready"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "execution_ready"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "execution_ready",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:06Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "execution_ready",
+      "gate_stage": "Gate 5"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_ap_ai_factory_001",
+    "initiative_ids": [
+      "INIT-AP-AI-FACTORY-001"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "architecture_defined",
+    "to_state": "governance_ready",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-AP-AI-FACTORY-001 aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "architecture_defined"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "governance_ready"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "capital_ready",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:07Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "governance_ready",
+      "gate_stage": "Gate 2"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_2026_03_05_commodity_corridor",
+    "initiative_ids": [
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "architecture_defined",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-2026-03-05-COMMODITY-CORRIDOR aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "constraint_discovery"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "architecture_defined"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "governance_ready",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:08Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "architecture_defined",
+      "gate_stage": "Gate 1"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_gravity_001",
+    "initiative_ids": [
+      "INIT-GRAVITY-001"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "constraint_discovery",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-GRAVITY-001 aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "constraint_discovery"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "constraint_discovery"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "architecture_defined",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:09Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "constraint_discovery",
+      "gate_stage": "Gate 0"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_653306",
+    "initiative_ids": [
+      "INIT-653306"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "architecture_defined",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-653306 aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "constraint_discovery"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "architecture_defined"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "governance_ready",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:10Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "architecture_defined",
+      "gate_stage": "Gate 1"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_seed_2026_03_19_init_2026_03_global_automated_labor_infras",
+    "initiative_ids": [
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "constraint_discovery",
+    "transition_type": "validation",
+    "summary": "Baseline state seeding for INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE aligned to current gate/status.",
+    "state_before": {
+      "baseline_seed": false,
+      "state": "constraint_discovery"
+    },
+    "state_after": {
+      "baseline_seed": true,
+      "state": "constraint_discovery"
+    },
+    "constraints_resolved": [
+      "state visibility gap"
+    ],
+    "constraints_remaining": [
+      "primary constraint requires owner confirmation"
+    ],
+    "evidence": [
+      {
+        "type": "system_seed",
+        "ref": "state_seed_pass_2026_03_19",
+        "note": "Baseline transition created to initialize portfolio state awareness."
+      }
+    ],
+    "confidence": 0.55,
+    "readiness_delta": 3,
+    "next_required_state": "architecture_defined",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T16:00:11Z",
+    "actor": "sentinel",
+    "provenance": "discovered_by_system",
+    "state_snapshot": {
+      "current_state": "constraint_discovery",
+      "gate_stage": "Gate 0"
+    },
+    "evidence_strength": "medium"
   }
 ]

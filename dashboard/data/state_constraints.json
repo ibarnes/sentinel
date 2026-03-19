@@ -61,5 +61,267 @@
     ],
     "created_at": "2026-03-19T15:02:00Z",
     "updated_at": "2026-03-19T15:02:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_001_001",
+    "initiative_id": "INIT-001",
+    "name": "Named accountable office not finalized",
+    "type": "governance",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_001_governance_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_001"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_653305_001",
+    "initiative_id": "INIT-653305",
+    "name": "Named accountable office not finalized",
+    "type": "governance",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_653305_governance_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_653305"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_ai_opt_a_001",
+    "initiative_id": "INIT-AI-OPT-A",
+    "name": "Named accountable office not finalized",
+    "type": "governance",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_ai_opt_a_governance_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_ai_opt_a"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_ai_opt_b_001",
+    "initiative_id": "INIT-AI-OPT-B",
+    "name": "Named accountable office not finalized",
+    "type": "governance",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_ai_opt_b_governance_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_ai_opt_b"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_ai_opt_c_001",
+    "initiative_id": "INIT-AI-OPT-C",
+    "name": "Named accountable office not finalized",
+    "type": "governance",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_ai_opt_c_governance_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_ai_opt_c"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_ai_opt_d_001",
+    "initiative_id": "INIT-AI-OPT-D",
+    "name": "Named accountable office not finalized",
+    "type": "governance",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_ai_opt_d_governance_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_ai_opt_d"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_ng_fin_energy_spine_001",
+    "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
+    "name": "Scale execution risk monitoring required",
+    "type": "delivery",
+    "severity": "medium",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_ng_fin_energy_spine_governance_commitment",
+    "blocking_states": [
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_ng_fin_energy_spine"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_ap_ai_factory_001_001",
+    "initiative_id": "INIT-AP-AI-FACTORY-001",
+    "name": "Capital stack definition not finalized",
+    "type": "capital",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_ap_ai_factory_001_capital_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_ap_ai_factory_001"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_2026_03_05_commodity_corridor_001",
+    "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "name": "Governance owner and approvals not fully locked",
+    "type": "governance",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_2026_03_05_commodity_corridor_governance_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_2026_03_05_commodity_corridor"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_gravity_001_001",
+    "initiative_id": "INIT-GRAVITY-001",
+    "name": "Named accountable office not finalized",
+    "type": "governance",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_gravity_001_governance_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_gravity_001"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_653306_001",
+    "initiative_id": "INIT-653306",
+    "name": "Governance owner and approvals not fully locked",
+    "type": "governance",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_653306_governance_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_653306"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_seed_2026_03_19_init_2026_03_global_automated_labor_infras_001",
+    "initiative_id": "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
+    "name": "Named accountable office not finalized",
+    "type": "governance",
+    "severity": "high",
+    "status": "open",
+    "owner": "Isaac",
+    "linked_transition_required": "st_req_init_2026_03_global_automated_labor_infras_governance_commitment",
+    "blocking_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "st_seed_2026_03_19_init_2026_03_global_automated_labor_infras"
+    ],
+    "created_at": "2026-03-19T16:00:00Z",
+    "updated_at": "2026-03-19T16:00:00Z"
   }
 ]
