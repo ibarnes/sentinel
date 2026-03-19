@@ -1,1 +1,150 @@
-[]
+[
+  {
+    "id": "st_2026_03_19_usvi_001",
+    "initiative_ids": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "architecture_defined",
+    "transition_type": "validation",
+    "summary": "USVI constraint set and workforce-deployment architecture path explicitly defined from operator meeting evidence.",
+    "state_before": {
+      "bottleneck_definition": "partial",
+      "workforce_deployment_path": "implicit"
+    },
+    "state_after": {
+      "bottleneck_definition": "explicit",
+      "workforce_deployment_path": "defined"
+    },
+    "constraints_resolved": [
+      "problem-framing ambiguity",
+      "primary bottleneck identification gap"
+    ],
+    "constraints_remaining": [
+      "federal authority owner not confirmed",
+      "capital stack still undeclared"
+    ],
+    "evidence": [
+      {
+        "type": "meeting_minutes",
+        "ref": "MM-2026-03-19-USVI-MARK-MALCOLM-TELLY-001",
+        "note": "Minutes confirmed core blocker is workforce deployment architecture and execution sequencing."
+      }
+    ],
+    "confidence": 0.84,
+    "readiness_delta": 14,
+    "next_required_state": "governance_ready",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T14:33:00Z",
+    "actor": "isaac",
+    "provenance": "provided_by_isaac",
+    "state_snapshot": {
+      "governance_route": "partial",
+      "capital_logic": "partial",
+      "workforce_housing_dependency": "high"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_2026_03_19_usvi_002",
+    "initiative_ids": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "architecture_defined",
+    "to_state": "governance_ready",
+    "transition_type": "validation",
+    "summary": "Governance lanes identified (ODR/VIHFA/federal oversight), but formal accountable office remains unconfirmed.",
+    "state_before": {
+      "governance_route": "unclear",
+      "decision_owner": "unassigned"
+    },
+    "state_after": {
+      "governance_route": "partially_defined",
+      "decision_owner": "not_finalized"
+    },
+    "constraints_resolved": [
+      "governance-lane visibility gap"
+    ],
+    "constraints_remaining": [
+      "single accountable office not consolidated",
+      "federal program authority confirmation pending"
+    ],
+    "evidence": [
+      {
+        "type": "meeting_minutes",
+        "ref": "MM-2026-03-19-USVI-MARK-MALCOLM-TELLY-001",
+        "note": "Discussion established authority lanes and engagement channels."
+      },
+      {
+        "type": "buyer_record",
+        "ref": "USVI-RECOVERY-AUTHORITY",
+        "note": "Buyer decision architecture includes ODR, VIHFA, HUD/FEMA oversight."
+      }
+    ],
+    "confidence": 0.66,
+    "readiness_delta": 8,
+    "next_required_state": "capital_ready",
+    "depends_on_transition_ids": [
+      "st_2026_03_19_usvi_001"
+    ],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T14:33:30Z",
+    "actor": "isaac",
+    "provenance": "provided_by_isaac",
+    "state_snapshot": {
+      "governance_route": "defined_not_final",
+      "decision_owner": "pending",
+      "capital_logic": "partial"
+    },
+    "evidence_strength": "medium"
+  },
+  {
+    "id": "st_2026_03_19_usvi_003",
+    "initiative_ids": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "governance_ready",
+    "to_state": "governance_ready",
+    "transition_type": "regression",
+    "summary": "Execution/capital certainty regressed due reported returned-funds pressure and manpower/accommodation deficits.",
+    "state_before": {
+      "deployment_confidence": "moderate"
+    },
+    "state_after": {
+      "deployment_confidence": "reduced"
+    },
+    "constraints_resolved": [],
+    "constraints_remaining": [
+      "workforce accommodation deficit",
+      "manpower shortage",
+      "award/obligation slippage risk"
+    ],
+    "evidence": [
+      {
+        "type": "meeting_minutes",
+        "ref": "MM-2026-03-19-USVI-MARK-MALCOLM-TELLY-001",
+        "note": "Notes cite returned funds and severe workforce housing gap."
+      }
+    ],
+    "confidence": 0.62,
+    "readiness_delta": -6,
+    "next_required_state": "capital_ready",
+    "depends_on_transition_ids": [
+      "st_2026_03_19_usvi_002"
+    ],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T14:34:00Z",
+    "actor": "isaac",
+    "provenance": "provided_by_isaac",
+    "state_snapshot": {
+      "deployment_confidence": "reduced",
+      "workforce_housing_gap": "critical",
+      "capital_release_risk": "elevated"
+    },
+    "evidence_strength": "medium"
+  }
+]

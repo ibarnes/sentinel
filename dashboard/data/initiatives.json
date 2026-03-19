@@ -5076,6 +5076,18 @@
           "notes": ""
         }
       ]
-    }
+    },
+    "current_state": "governance_ready",
+    "readiness_score": 24,
+    "max_possible_score": 65,
+    "next_required_state": "capital_ready",
+    "critical_constraints": [
+      "single accountable office not consolidated",
+      "workforce accommodation deficit",
+      "capital stack not finalized"
+    ],
+    "last_transition_id": "st_2026_03_19_usvi_003",
+    "last_transition_timestamp": "2026-03-19T14:34:00Z",
+    "open_dependency_count": 1
   }
 ]
