@@ -137,7 +137,6 @@
     ],
     "summary": "Discussion centered on Angola as a leading location for data center and sovereign AI infrastructure due to significant hydropower surplus, existing fiber/cable partnerships, and claimed readiness across land, power, and EPC execution. Wade indicated in-country operating access with government interfaces, while identifying capital stack closure and top-tier technology partnership as primary bottlenecks.",
     "initiative_ids": [
-      "INIT-2026-03-05-COMMODITY-CORRIDOR",
       "INIT-2026-03-ANGOLA-AI-CORRIDOR"
     ],
     "buyer_ids": [],
@@ -204,9 +203,7 @@
     ],
     "summary": "Meeting positioned Angola Cables as a sovereign-controlled digital backbone asset with intercontinental routes (Africa-Brazil-Europe-US), hyperscaler/OTT relationships, and strategic leverage for data center and AI infrastructure deployment. Core operating takeaway: infrastructure availability exists, but participation and value capture are increasingly gated by sovereign approval, governance control, and scarce fiber-pair allocation timelines.",
     "initiative_ids": [
-      "INIT-2026-03-05-COMMODITY-CORRIDOR",
-      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
-      "INIT-AP-AI-FACTORY-001"
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
     ],
     "buyer_ids": [],
     "signal_ids": [],
