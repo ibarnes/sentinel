@@ -21,13 +21,15 @@ Format for each initiative:
 
 `[Initiative Name]`
 - `State: [current state]`
-- `Constraint: [single biggest blocker]`
-- `Next Move: [next required transition]`
+- `Constraint: [single biggest blocker, in plain operator language]`
+- `Next Move: [single actionable move, in plain operator language]`
 
 Rules:
 - Exactly **one** constraint per initiative
 - Exactly **one** next move per initiative
 - No paragraphs or explanation text in this section
+- **Do not use system IDs/codes** in the email body for `Next Move` (e.g., avoid `st_req_*`)
+- Every line must be instantly understandable without translation
 
 ### 4) Required Actions block (always)
 `This Week — Required`
@@ -51,6 +53,14 @@ If no changes, omit this block.
 ## Message-Length Constraints
 - Keep to ~1 mobile screen
 - Include ~5–7 initiatives max
+
+## Constraint + Next Move Quality Standard (anti-gap rules)
+Before sending, validate each initiative line against these checks:
+1. **No translation required**: a human operator can understand constraint + next move in <5 seconds.
+2. **Constraint is concrete**: must describe a specific wall (missing owner, missing commitment, missing approval, missing capital definition, etc.), not abstract phrasing.
+3. **Next move is executable this week**: should be assignable, trackable, and finishable.
+4. **No system-language leakage**: do not expose internal IDs (`st_req_*`, object keys) in email body.
+5. **One-screen clarity**: if a line needs explanation, rewrite until it does not.
 
 ## Behavioral Intent
 This cadence must train:
