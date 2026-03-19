@@ -2135,11 +2135,11 @@ app.get('/dashboard/state-transitions', async (_req, res) => {
       <div class="col-12"><div class="border rounded p-2"><div class="small text-muted mb-1">Initiatives by Current State</div>${stateCountBadges}</div></div>
     </div>
 
-    <div class="card mb-3"><div class="card-body"><h6>Canonical States (v1)</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>State</th><th>Order</th><th>Next</th><th>Ceiling</th></tr></thead><tbody>${stateDefs}</tbody></table></div></div></div>
+    <details class="card mb-3"><summary class="card-header"><strong>Canonical States (v1)</strong></summary><div class="card-body"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>State</th><th>Order</th><th>Next</th><th>Ceiling</th></tr></thead><tbody>${stateDefs}</tbody></table></div></div></details>
 
-    <div class="card mb-3"><div class="card-body" style="color:var(--text-primary)"><h6>Current Initiative States</h6>${overviewHtml}</div></div>
+    <details class="card mb-3"><summary class="card-header"><strong>Current Initiative States</strong></summary><div class="card-body" style="color:var(--text-primary)">${overviewHtml}</div></details>
 
-    <div class="card mb-3"><div class="card-body" style="color:var(--text-primary)"><h6>Unresolved Constraints</h6>${blockersGrouped || '<div class="text-muted">No unresolved constraints recorded.</div>'}</div></div>
+    <details class="card mb-3"><summary class="card-header"><strong>Unresolved Constraints</strong></summary><div class="card-body" style="color:var(--text-primary)">${blockersGrouped || '<div class="text-muted">No unresolved constraints recorded.</div>'}</div></details>
 
     <div class="card mb-3"><div class="card-body"><h6>Recent Transition Feed</h6></div></div>
     ${cards || emptyPanel}
