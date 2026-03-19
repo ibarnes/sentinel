@@ -125,5 +125,67 @@
     },
     "created_at": "2026-03-19T17:02:00Z",
     "updated_at": "2026-03-19T17:02:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-03-17-WADE-CHERWAYKO-001",
+    "date_time": "2026-03-17T00:00:00Z",
+    "title": "Wade Cherwayko meeting",
+    "participants": [
+      "Isaac Barnes",
+      "Richard Hoffman",
+      "Wade Cherwayko"
+    ],
+    "summary": "Discussion centered on Angola as a leading location for data center and sovereign AI infrastructure due to significant hydropower surplus, existing fiber/cable partnerships, and claimed readiness across land, power, and EPC execution. Wade indicated in-country operating access with government interfaces, while identifying capital stack closure and top-tier technology partnership as primary bottlenecks.",
+    "initiative_ids": [
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Treat Angola as a priority validation lane for AI/data-center infrastructure feasibility.",
+      "Frame immediate diligence around prepayment-linked commitment structure (power, fiber, land).",
+      "Position Wade as potential on-ground coordination lead if counterparties are qualified."
+    ],
+    "risks": [
+      "Capital stack remains unresolved and may block conversion despite technical readiness claims.",
+      "Technology partner dependency is critical; no final anchor partner confirmed.",
+      "Commitment terms reportedly hinge on upfront prepayments, increasing execution risk if sequencing fails.",
+      "Reliance on MoUs/exclusivity terms requires legal and enforceability verification."
+    ],
+    "next_actions": [
+      {
+        "action": "Run structured diligence on Angola package: power agreement, land rights, fiber terms, EPC credentials, and exclusivity/MoU enforceability.",
+        "owner": "Sentinel",
+        "due": "2026-03-24",
+        "status": "open"
+      },
+      {
+        "action": "Map capital stack options and funding sequence against stated prepayment requirements ($87M power, ~$18M fiber, land commitment).",
+        "owner": "Isaac",
+        "due": "2026-03-25",
+        "status": "open"
+      },
+      {
+        "action": "Define target profile and outreach list for anchor technology partners to close partner-side bottleneck.",
+        "owner": "Sentinel",
+        "due": "2026-03-24",
+        "status": "open"
+      },
+      {
+        "action": "Clarify Wade's operating role, scope, and governance boundaries for government/partner coordination.",
+        "owner": "Isaac",
+        "due": "2026-03-22",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct_pdf",
+      "notes": "User-provided PDF meeting minutes",
+      "files": [
+        "Wade_Meeting---3b62e407-5057-478c-b503-8ac36bbd7f4e.pdf"
+      ]
+    },
+    "created_at": "2026-03-19T22:45:00Z",
+    "updated_at": "2026-03-19T22:45:00Z"
   }
 ]
