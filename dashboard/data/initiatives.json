@@ -5354,14 +5354,14 @@
           "roles": [
             {
               "role": "Sovereign Sponsor (Government of Angola)",
-              "status": "committed",
+              "status": "engaged",
               "mapped_entity": "Angolan Government",
               "critical": true
             },
             {
-              "role": "Regulatory Authority",
-              "status": "committed",
-              "mapped_entity": "Telecom + Energy Ministries",
+              "role": "Regulatory Authority (Energy + Telecom)",
+              "status": "engaged",
+              "mapped_entity": "Angolan Ministries",
               "critical": true
             }
           ]
@@ -5370,20 +5370,20 @@
           "alignment": 9,
           "roles": [
             {
-              "role": "Power Provider",
-              "status": "committed",
-              "mapped_entity": "Kwanza River Hydro Dams",
+              "role": "Power Provider (Hydro Dams)",
+              "status": "validated",
+              "mapped_entity": "Kwanza River Hydro System",
               "critical": true
             },
             {
-              "role": "Fiber Infrastructure Owner",
-              "status": "committed",
+              "role": "Fiber + Subsea Infrastructure Owner",
+              "status": "validated",
               "mapped_entity": "Angola Cables",
               "critical": true
             },
             {
-              "role": "Land / Free Zone",
-              "status": "committed",
+              "role": "Land / Free Zone Authority",
+              "status": "validated",
               "mapped_entity": "Angolan Government",
               "critical": true
             }
@@ -5393,7 +5393,7 @@
           "alignment": 7,
           "roles": [
             {
-              "role": "Master Planner / Smart City Design",
+              "role": "Master Planner / Smart City Designer",
               "status": "identified",
               "mapped_entity": "Foster + Partners",
               "critical": false
@@ -5410,22 +5410,22 @@
           "alignment": 2,
           "roles": [
             {
-              "role": "Equity Sponsor",
-              "status": "missing",
-              "mapped_entity": null,
-              "critical": true
-            },
-            {
-              "role": "Structured Capital Stack Lead",
+              "role": "Capital Stack Architect",
               "status": "missing",
               "mapped_entity": "USG",
               "critical": true
             },
             {
-              "role": "Strategic Financial Partner",
+              "role": "Equity / Strategic Capital Partner",
               "status": "identified",
               "mapped_entity": "AlphaWave / Sovereign AI Fund",
               "critical": false
+            },
+            {
+              "role": "Anchor Tenant (Hyperscaler / AI)",
+              "status": "identified",
+              "mapped_entity": "AWS / Google / NVIDIA-aligned",
+              "critical": true
             }
           ]
         },
@@ -5433,13 +5433,13 @@
           "alignment": 6,
           "roles": [
             {
-              "role": "Local Operator",
-              "status": "engaged",
+              "role": "Local Operator / Government Interface",
+              "status": "committed",
               "mapped_entity": "Wade",
               "critical": true
             },
             {
-              "role": "Platform Governor / Architect",
+              "role": "Platform Governor / Orchestrator",
               "status": "missing",
               "mapped_entity": "USG",
               "critical": true
@@ -5462,15 +5462,23 @@
         "priority": "P0",
         "layer": "capital",
         "role": "Anchor Tenant (Hyperscaler / AI)",
+        "status": "identified",
+        "mapped_entity": "AWS / Google / NVIDIA-aligned",
+        "critical": true
+      },
+      {
+        "priority": "P0",
+        "layer": "delivery",
+        "role": "Platform Governor / Orchestrator",
         "status": "missing",
-        "mapped_entity": null,
+        "mapped_entity": "USG",
         "critical": true
       },
       {
         "priority": "P0",
         "layer": "political",
         "role": "Sovereign Sponsor",
-        "status": "committed",
+        "status": "engaged",
         "mapped_entity": "Angolan Government",
         "critical": true
       },
@@ -5478,7 +5486,7 @@
         "priority": "P1",
         "layer": "asset",
         "role": "Fiber + Landing Operator",
-        "status": "committed",
+        "status": "validated",
         "mapped_entity": "Angola Cables",
         "critical": true
       },
@@ -5486,7 +5494,7 @@
         "priority": "P1",
         "layer": "delivery",
         "role": "Local Execution Lead",
-        "status": "engaged",
+        "status": "committed",
         "mapped_entity": "Wade",
         "critical": true
       },
@@ -5520,6 +5528,126 @@
     "open_dependency_count": 3,
     "last_transition_id": "st_2026_03_19_angola_ai_corridor_001",
     "last_transition_timestamp": "2026-03-19T22:53:00Z",
-    "gate_updated_at": "2026-03-19T22:53:00Z"
+    "gate_updated_at": "2026-03-19T22:53:00Z",
+    "actor_alignment_layers": {
+      "political": [
+        {
+          "role_id": "POL-001",
+          "role_label": "Sovereign Sponsor",
+          "layer": "political",
+          "status": "engaged",
+          "mapped_entity_ref": "Angolan Government",
+          "is_critical_role": true,
+          "owner": "Wade",
+          "due": "",
+          "priority_tier": "P0",
+          "notes": "Government aligned and supportive of national AI infrastructure vision"
+        },
+        {
+          "role_id": "POL-002",
+          "role_label": "Regulatory Authority",
+          "layer": "political",
+          "status": "engaged",
+          "mapped_entity_ref": "Energy + Telecom Ministries",
+          "is_critical_role": true,
+          "owner": "Wade",
+          "due": "",
+          "priority_tier": "P0",
+          "notes": "Controls approvals and telecom participation (e.g. Starlink restriction)"
+        }
+      ],
+      "asset": [
+        {
+          "role_id": "AST-001",
+          "role_label": "Power Provider",
+          "layer": "asset",
+          "status": "validated",
+          "mapped_entity_ref": "Kwanza Hydro Dams",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P0",
+          "notes": "10GW+ excess capacity; pricing risk exists via World Bank pressure"
+        },
+        {
+          "role_id": "AST-002",
+          "role_label": "Fiber + Subsea Control",
+          "layer": "asset",
+          "status": "validated",
+          "mapped_entity_ref": "Angola Cables",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P0",
+          "notes": "Controls full stack: fiber, landing, data centers"
+        }
+      ],
+      "development": [
+        {
+          "role_id": "DEV-001",
+          "role_label": "EPC Contractor",
+          "layer": "development",
+          "status": "identified",
+          "mapped_entity_ref": "Portuguese-led EPC",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P1",
+          "notes": "Execution partner exists but full scope not yet locked"
+        }
+      ],
+      "capital": [
+        {
+          "role_id": "CAP-001",
+          "role_label": "Capital Stack Architect",
+          "layer": "capital",
+          "status": "missing",
+          "mapped_entity_ref": "USG",
+          "is_critical_role": true,
+          "owner": "USG",
+          "due": "Immediate",
+          "priority_tier": "P0",
+          "notes": "Primary constraint; no structured capital model exists"
+        },
+        {
+          "role_id": "CAP-002",
+          "role_label": "Anchor Tenant",
+          "layer": "capital",
+          "status": "identified",
+          "mapped_entity_ref": "Hyperscalers / NVIDIA ecosystem",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P0",
+          "notes": "Demand exists but no binding commitment"
+        }
+      ],
+      "delivery": [
+        {
+          "role_id": "DEL-001",
+          "role_label": "Local Operator",
+          "layer": "delivery",
+          "status": "committed",
+          "mapped_entity_ref": "Wade",
+          "is_critical_role": true,
+          "owner": "Wade",
+          "due": "",
+          "priority_tier": "P0",
+          "notes": "On-ground execution + government interface"
+        },
+        {
+          "role_id": "DEL-002",
+          "role_label": "Platform Governor",
+          "layer": "delivery",
+          "status": "missing",
+          "mapped_entity_ref": "USG",
+          "is_critical_role": true,
+          "owner": "USG",
+          "due": "Immediate",
+          "priority_tier": "P0",
+          "notes": "Critical missing role; defines control of platform"
+        }
+      ]
+    }
   }
 ]
