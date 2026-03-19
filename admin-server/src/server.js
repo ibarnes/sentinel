@@ -1991,7 +1991,7 @@ app.get('/dashboard/meetings', async (req, res) => {
     const buyers = Array.isArray(m.buyer_ids) && m.buyer_ids.length ? m.buyer_ids.join(', ') : '—';
     const signals = Array.isArray(m.signal_ids) && m.signal_ids.length ? m.signal_ids.join(', ') : '—';
     const actions = Array.isArray(m.next_actions) ? m.next_actions.length : 0;
-    return `<div class="card mb-3"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="color:var(--text-primary);font-size:1.2rem">${escapeHtml(m.title || m.meeting_id || 'Untitled meeting')}</h6><div class="small text-muted mono">${escapeHtml(String(m.meeting_id || ''))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(dt || '—')}</div></div><div class="small mt-2" style="color:var(--text-primary)">${escapeHtml(m.summary || '—')}</div><div class="small mt-2" style="color:var(--text-primary)"><strong>Initiatives:</strong> ${escapeHtml(initiatives)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Buyers:</strong> ${escapeHtml(buyers)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Signals:</strong> ${escapeHtml(signals)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Action items:</strong> ${escapeHtml(String(actions))}</div></div></div>`;
+    return `<a class="card mb-3 text-decoration-none" style="color:inherit" href="/dashboard/meeting/${encodeURIComponent(String(m.meeting_id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="color:var(--text-primary);font-size:1.2rem">${escapeHtml(m.title || m.meeting_id || 'Untitled meeting')}</h6><div class="small text-muted mono">${escapeHtml(String(m.meeting_id || ''))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(dt || '—')}</div></div><div class="small mt-2" style="color:var(--text-primary)">${escapeHtml(m.summary || '—')}</div><div class="small mt-2" style="color:var(--text-primary)"><strong>Initiatives:</strong> ${escapeHtml(initiatives)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Buyers:</strong> ${escapeHtml(buyers)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Signals:</strong> ${escapeHtml(signals)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Action items:</strong> ${escapeHtml(String(actions))}</div></div></a>`;
   }).join('');
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Meeting Minutes')}</head><body><div class="app-shell">
@@ -2004,6 +2004,26 @@ app.get('/dashboard/meetings', async (req, res) => {
 app.get('/dashboard/meetings/export.json', async (_req, res) => {
   const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
   res.type('application/json').send(JSON.stringify(meetings, null, 2));
+});
+
+app.get('/dashboard/meeting/:id', async (req, res) => {
+  const id = String(req.params.id || '');
+  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  const m = meetings.find((x) => String(x.meeting_id || '') === id);
+  if (!m) {
+    return res.status(404).type('html').send(`<!doctype html><html><head>${uiHead('Meeting Not Found')}</head><body><div class="app-shell">${dashboardNav('meetings')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/meetings">← Meetings</a><div class="alert alert-warning">Meeting minutes not found.</div></div></body></html>`);
+  }
+
+  const dt = String(m.date_time || m.created_at || '').slice(0, 19).replace('T', ' ');
+  const li = (arr, cls='text-muted') => (Array.isArray(arr) && arr.length
+    ? arr.map((v) => `<li>${escapeHtml(String(v))}</li>`).join('')
+    : `<li class="${cls}">None</li>`);
+
+  const actions = (Array.isArray(m.next_actions) && m.next_actions.length)
+    ? m.next_actions.map((a) => `<tr><td>${escapeHtml(String(a.action || '—'))}</td><td>${escapeHtml(String(a.owner || '—'))}</td><td>${escapeHtml(String(a.due || '—'))}</td><td>${escapeHtml(String(a.status || 'open'))}</td></tr>`).join('')
+    : '<tr><td colspan="4" class="text-muted">No action items</td></tr>';
+
+  return res.type('html').send(`<!doctype html><html><head>${uiHead('Meeting Detail')}</head><body><div class="app-shell">${dashboardNav('meetings')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/meetings">← Meetings</a><h3 class="mb-1">${escapeHtml(m.title || m.meeting_id || 'Meeting')}</h3><div class="small text-muted mono mb-2">${escapeHtml(String(m.meeting_id || ''))}</div><div class="small text-muted mb-3">Date: ${escapeHtml(dt || '—')}</div><div class="card mb-3"><div class="card-body"><h6>Participants</h6><ul class="mb-0">${li(m.participants)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Summary</h6><div>${escapeHtml(m.summary || '—')}</div></div></div><div class="card mb-3"><div class="card-body"><h6>Decisions</h6><ul class="mb-0">${li(m.decisions)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Risks</h6><ul class="mb-0">${li(m.risks)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Next Actions</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead><tbody>${actions}</tbody></table></div></div></div><div class="card mb-3"><div class="card-body"><h6>Linked Objects</h6><div><strong>Initiatives:</strong> ${escapeHtml((m.initiative_ids || []).join(', ') || '—')}</div><div><strong>Buyers:</strong> ${escapeHtml((m.buyer_ids || []).join(', ') || '—')}</div><div><strong>Signals:</strong> ${escapeHtml((m.signal_ids || []).join(', ') || '—')}</div></div></div><div class="card"><div class="card-body"><h6>Raw JSON</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(JSON.stringify(m, null, 2))}</pre></div></div></div></body></html>`);
 });
 
 app.get('/dashboard/beacons', requireAnyAuth, async (req, res) => {
