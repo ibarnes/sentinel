@@ -793,5 +793,54 @@
       "gate_stage": "Gate 0"
     },
     "evidence_strength": "medium"
+  },
+  {
+    "id": "st_2026_03_19_angola_ai_corridor_001",
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "constraint_discovery",
+    "to_state": "constraint_discovery",
+    "transition_type": "validation",
+    "summary": "New initiative initialized from Wade and Angola Cables meetings; assets identified while capital/governance bottlenecks remain.",
+    "state_before": {
+      "initiative_exists": false
+    },
+    "state_after": {
+      "initiative_exists": true,
+      "asset_base_identified": true
+    },
+    "constraints_resolved": [
+      "initiative container created"
+    ],
+    "constraints_remaining": [
+      "capital stack + governance architecture",
+      "anchor tenant not secured"
+    ],
+    "evidence": [
+      {
+        "type": "meeting_minutes",
+        "ref": "MM-2026-03-17-WADE-CHERWAYKO-001"
+      },
+      {
+        "type": "meeting_minutes",
+        "ref": "MM-2026-03-19-ANGOLA-CABLES-001"
+      }
+    ],
+    "confidence": 0.74,
+    "readiness_delta": 5,
+    "next_required_state": "architecture_defined",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-19T22:53:00Z",
+    "actor": "isaac",
+    "provenance": "provided_by_isaac",
+    "state_snapshot": {
+      "current_state": "constraint_discovery",
+      "asset_alignment": "high",
+      "capital_alignment": "low"
+    },
+    "evidence_strength": "medium"
   }
 ]

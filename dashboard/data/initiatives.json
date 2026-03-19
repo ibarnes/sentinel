@@ -5312,5 +5312,214 @@
       "cap_reason": "critical blocker: capital stack not finalized",
       "regression_impact_30d": -6
     }
+  },
+  {
+    "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "name": "Angola Sovereign AI Energy & Compute Corridor",
+    "status": "active",
+    "gate_stage": "Gate 0",
+    "infrastructure_category": "Energy + Digital + Connectivity + Sovereign Infrastructure",
+    "description": "A sovereign-backed, multi-gigawatt AI infrastructure platform in Angola that converts excess hydroelectric power into globally connected compute capacity via direct subsea fiber links to Brazil and the United States, enabling hyperscale AI training, inference, and data routing across Africa and the Americas.",
+    "thesis": "Angola\u2019s stranded low-cost renewable energy combined with its unique control of transatlantic fiber and landing infrastructure creates a rare opportunity to establish a global AI compute corridor. By structuring governance, capital, and anchor demand, this platform can convert excess energy into USD-denominated digital exports and position Angola as a primary AI hub for Africa and beyond.",
+    "smallest_executable_version": "Secure fiber pair allocation (~$15M) and power prepayment (~$87M) contingent on governance structure and anchor tenant alignment, while formalizing USG as platform architect and initiating anchor tenant (hyperscaler/NVIDIA-aligned) engagement.",
+    "linked_buyers": [
+      "AWS",
+      "Google",
+      "Microsoft",
+      "Meta",
+      "Oracle",
+      "ByteDance",
+      "OpenAI",
+      "NVIDIA-aligned Sovereign AI Fund"
+    ],
+    "linked_signals": [
+      "10GW excess sovereign hydro capacity",
+      "Brazil data center at full capacity",
+      "AWS actively pursuing MONET fiber pair",
+      "Government prioritizing digital infrastructure",
+      "World Bank pressure on energy pricing",
+      "Angola Cables preference for USG over hyperscalers"
+    ],
+    "linked_meetings": [
+      "MM-2026-03-17-WADE-CHERWAYKO-001",
+      "MM-2026-03-19-ANGOLA-CABLES-001"
+    ],
+    "decks": [],
+    "actor_alignment": {
+      "overall_alignment": 6,
+      "weakest_layer": "capital",
+      "layers": {
+        "political": {
+          "alignment": 8,
+          "roles": [
+            {
+              "role": "Sovereign Sponsor (Government of Angola)",
+              "status": "committed",
+              "mapped_entity": "Angolan Government",
+              "critical": true
+            },
+            {
+              "role": "Regulatory Authority",
+              "status": "committed",
+              "mapped_entity": "Telecom + Energy Ministries",
+              "critical": true
+            }
+          ]
+        },
+        "asset": {
+          "alignment": 9,
+          "roles": [
+            {
+              "role": "Power Provider",
+              "status": "committed",
+              "mapped_entity": "Kwanza River Hydro Dams",
+              "critical": true
+            },
+            {
+              "role": "Fiber Infrastructure Owner",
+              "status": "committed",
+              "mapped_entity": "Angola Cables",
+              "critical": true
+            },
+            {
+              "role": "Land / Free Zone",
+              "status": "committed",
+              "mapped_entity": "Angolan Government",
+              "critical": true
+            }
+          ]
+        },
+        "development": {
+          "alignment": 7,
+          "roles": [
+            {
+              "role": "Master Planner / Smart City Design",
+              "status": "identified",
+              "mapped_entity": "Foster + Partners",
+              "critical": false
+            },
+            {
+              "role": "EPC Contractor",
+              "status": "identified",
+              "mapped_entity": "Portuguese-led Angolan EPC",
+              "critical": true
+            }
+          ]
+        },
+        "capital": {
+          "alignment": 2,
+          "roles": [
+            {
+              "role": "Equity Sponsor",
+              "status": "missing",
+              "mapped_entity": null,
+              "critical": true
+            },
+            {
+              "role": "Structured Capital Stack Lead",
+              "status": "missing",
+              "mapped_entity": "USG",
+              "critical": true
+            },
+            {
+              "role": "Strategic Financial Partner",
+              "status": "identified",
+              "mapped_entity": "AlphaWave / Sovereign AI Fund",
+              "critical": false
+            }
+          ]
+        },
+        "delivery": {
+          "alignment": 6,
+          "roles": [
+            {
+              "role": "Local Operator",
+              "status": "engaged",
+              "mapped_entity": "Wade",
+              "critical": true
+            },
+            {
+              "role": "Platform Governor / Architect",
+              "status": "missing",
+              "mapped_entity": "USG",
+              "critical": true
+            }
+          ]
+        }
+      }
+    },
+    "primary_constraint": "Capital Stack + Governance Architecture",
+    "actor_roles_table": [
+      {
+        "priority": "P0",
+        "layer": "capital",
+        "role": "Capital Stack Architect",
+        "status": "missing",
+        "mapped_entity": "USG",
+        "critical": true
+      },
+      {
+        "priority": "P0",
+        "layer": "capital",
+        "role": "Anchor Tenant (Hyperscaler / AI)",
+        "status": "missing",
+        "mapped_entity": null,
+        "critical": true
+      },
+      {
+        "priority": "P0",
+        "layer": "political",
+        "role": "Sovereign Sponsor",
+        "status": "committed",
+        "mapped_entity": "Angolan Government",
+        "critical": true
+      },
+      {
+        "priority": "P1",
+        "layer": "asset",
+        "role": "Fiber + Landing Operator",
+        "status": "committed",
+        "mapped_entity": "Angola Cables",
+        "critical": true
+      },
+      {
+        "priority": "P1",
+        "layer": "delivery",
+        "role": "Local Execution Lead",
+        "status": "engaged",
+        "mapped_entity": "Wade",
+        "critical": true
+      },
+      {
+        "priority": "P2",
+        "layer": "development",
+        "role": "Master Planner",
+        "status": "identified",
+        "mapped_entity": "Foster + Partners",
+        "critical": false
+      }
+    ],
+    "state_bootstrap": {
+      "current_state": "constraint_discovery",
+      "readiness_score": 55,
+      "max_possible_score": 100,
+      "next_required_state": "architecture_defined",
+      "primary_constraint": "Capital Stack + Governance Architecture",
+      "next_required_transition": "Define governance model, secure anchor tenant alignment, and design capital stack before capital deployment"
+    },
+    "current_state": "constraint_discovery",
+    "readiness_score": 55,
+    "max_possible_score": 100,
+    "next_required_state": "architecture_defined",
+    "next_required_transition": "Define governance model, secure anchor tenant alignment, and design capital stack before capital deployment",
+    "critical_constraints": [
+      "Capital stack architect not assigned",
+      "Anchor tenant not secured",
+      "Governance architecture not formalized"
+    ],
+    "open_dependency_count": 3,
+    "last_transition_id": "st_2026_03_19_angola_ai_corridor_001",
+    "last_transition_timestamp": "2026-03-19T22:53:00Z",
+    "gate_updated_at": "2026-03-19T22:53:00Z"
   }
 ]

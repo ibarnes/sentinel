@@ -335,5 +335,50 @@
     ],
     "created_at": "2026-03-19T16:00:00Z",
     "updated_at": "2026-03-19T16:00:00Z"
+  },
+  {
+    "constraint_id": "c_angola_ai_corridor_capital_stack_001",
+    "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "name": "Capital stack + governance architecture not finalized",
+    "type": "capital",
+    "severity": "critical",
+    "status": "open",
+    "owner": "USG",
+    "linked_transition_required": "Define governance model, secure anchor tenant alignment, and design capital stack before capital deployment",
+    "blocking_states": [
+      "architecture_defined",
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "MM-2026-03-17-WADE-CHERWAYKO-001",
+      "MM-2026-03-19-ANGOLA-CABLES-001"
+    ],
+    "created_at": "2026-03-19T22:53:00Z",
+    "updated_at": "2026-03-19T22:53:00Z"
+  },
+  {
+    "constraint_id": "c_angola_ai_corridor_anchor_tenant_001",
+    "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "name": "Anchor tenant not secured",
+    "type": "commercial",
+    "severity": "high",
+    "status": "open",
+    "owner": "USG",
+    "linked_transition_required": "Secure anchor tenant intent and deployment milestones",
+    "blocking_states": [
+      "capital_ready",
+      "execution_ready"
+    ],
+    "priority": "P0",
+    "is_critical_path": true,
+    "evidence_refs": [
+      "MM-2026-03-19-ANGOLA-CABLES-001"
+    ],
+    "created_at": "2026-03-19T22:53:00Z",
+    "updated_at": "2026-03-19T22:53:00Z"
   }
 ]
