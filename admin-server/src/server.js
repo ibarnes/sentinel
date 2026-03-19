@@ -1989,25 +1989,105 @@ app.get('/dashboard/signal/:id', async (req, res) => {
 app.get('/dashboard/state-transitions', async (_req, res) => {
   const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
   const defs = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const constraints = await readJson(DASHBOARD_STATE_CONSTRAINTS_FILE, []);
+
   const sorted = [...transitions].sort((a, b) => String(b.timestamp || b.created_at || '').localeCompare(String(a.timestamp || a.created_at || '')));
-  const cards = sorted.map((t) => {
+
+  const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || ''), i]));
+  const transByInitiative = new Map();
+  for (const t of sorted) {
+    for (const iid of (t.initiative_ids || [])) {
+      const key = String(iid || '');
+      if (!key) continue;
+      if (!transByInitiative.has(key)) transByInitiative.set(key, []);
+      transByInitiative.get(key).push(t);
+    }
+  }
+
+  const allInitiativeIds = new Set([...transByInitiative.keys(), ...[...initiativesById.keys()].filter((k) => String(initiativesById.get(k)?.current_state || '').trim())]);
+  const stateCounts = {};
+  let readinessSum = 0;
+  let readinessCount = 0;
+  let blockedCount = 0;
+  const overviewRows = [];
+
+  for (const iid of allInitiativeIds) {
+    const ini = initiativesById.get(iid) || {};
+    const currentState = String(ini.current_state || ini.state || 'constraint_discovery');
+    const readiness = Number(ini.readiness_score ?? 0);
+    const nextRequired = String(ini.next_required_state || defs?.states?.[currentState]?.next_state || '—');
+    const crit = Array.isArray(ini.critical_constraints) ? ini.critical_constraints : [];
+    const unresolvedFromTransitions = (transByInitiative.get(iid) || []).flatMap((t) => Array.isArray(t.constraints_remaining) ? t.constraints_remaining : []);
+    const unresolvedFromRegistry = (constraints || []).filter((c) => String(c.initiative_id || '') === iid && String(c.status || 'open') !== 'resolved').map((c) => c.name || c.constraint || 'constraint');
+    const unresolvedAll = [...new Set([...crit, ...unresolvedFromTransitions, ...unresolvedFromRegistry].filter(Boolean))];
+    const blocked = unresolvedAll.length > 0;
+
+    stateCounts[currentState] = (stateCounts[currentState] || 0) + 1;
+    if (!Number.isNaN(readiness)) {
+      readinessSum += readiness;
+      readinessCount += 1;
+    }
+    if (blocked) blockedCount += 1;
+
+    overviewRows.push({
+      initiative_id: iid,
+      name: String(ini.name || iid),
+      currentState,
+      readiness,
+      nextRequired,
+      blockers: unresolvedAll,
+      blocked
+    });
+  }
+
+  overviewRows.sort((a, b) => Number(b.readiness || 0) - Number(a.readiness || 0));
+
+  const cards = sorted.slice(0, 25).map((t) => {
     const dt = String(t.timestamp || t.created_at || '').slice(0, 19).replace('T', ' ');
-    const initiatives = (t.initiative_ids || []).join(', ') || '—';
+    const initiativesText = (t.initiative_ids || []).join(', ') || '—';
     const fromState = String(t.from_state || '—');
     const toState = String(t.to_state || '—');
     const ttype = String(t.transition_type || '—');
     const conf = t.confidence == null ? '—' : String(t.confidence);
     const evidenceCount = Array.isArray(t.evidence) ? t.evidence.length : 0;
-    return `<a class="card mb-3 text-decoration-none" style="color:inherit" href="/dashboard/state-transition/${encodeURIComponent(String(t.id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="font-size:1.1rem;color:var(--text-primary)">${escapeHtml(String(t.summary || t.id || 'State transition'))}</h6><div class="small text-muted mono">${escapeHtml(String(t.id || ''))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(dt || '—')}</div></div><div class="small mt-2" style="color:var(--text-primary)"><strong>${escapeHtml(fromState)}</strong> → <strong>${escapeHtml(toState)}</strong> · ${escapeHtml(ttype)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Initiatives:</strong> ${escapeHtml(initiatives)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Evidence:</strong> ${escapeHtml(String(evidenceCount))} · <strong>Confidence:</strong> ${escapeHtml(conf)}</div></div></a>`;
+    const evidenceStrength = String(t.evidence_strength || '—');
+    return `<a class="card mb-3 text-decoration-none" style="color:inherit" href="/dashboard/state-transition/${encodeURIComponent(String(t.id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="font-size:1.05rem;color:var(--text-primary)">${escapeHtml(String(t.summary || t.id || 'State transition'))}</h6><div class="small text-muted mono">${escapeHtml(String(t.id || ''))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(dt || '—')}</div></div><div class="small mt-2" style="color:var(--text-primary)"><strong>${escapeHtml(fromState)}</strong> → <strong>${escapeHtml(toState)}</strong> · ${escapeHtml(ttype)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Initiatives:</strong> ${escapeHtml(initiativesText)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Evidence:</strong> ${escapeHtml(String(evidenceCount))} (${escapeHtml(evidenceStrength)}) · <strong>Confidence:</strong> ${escapeHtml(conf)}</div></div></a>`;
   }).join('');
 
-  const stateDefs = Object.entries(defs?.states || {}).map(([k, v]) => `<tr><td><code>${escapeHtml(k)}</code></td><td>${escapeHtml(String(v?.order || '—'))}</td><td>${escapeHtml(String(v?.next_state || '—'))}</td><td>${escapeHtml(String(v?.max_score_ceiling ?? '—'))}</td></tr>`).join('') || '<tr><td colspan="4" class="text-muted">No state definitions</td></tr>';
+  const stateDefs = Object.entries(defs?.states || {}).sort((a,b)=>Number(a[1]?.order||0)-Number(b[1]?.order||0)).map(([k, v]) => `<tr><td><code>${escapeHtml(k)}</code></td><td>${escapeHtml(String(v?.order || '—'))}</td><td>${v?.next_state ? `<code>${escapeHtml(k)}</code> → <code>${escapeHtml(String(v.next_state))}</code>` : '—'}</td><td><span class="badge text-bg-light border">${escapeHtml(String(v?.max_score_ceiling ?? '—'))}</span></td></tr>`).join('') || '<tr><td colspan="4" class="text-muted">No state definitions</td></tr>';
+
+  const avgReadiness = readinessCount ? (readinessSum / readinessCount).toFixed(1) : '0.0';
+  const stateCountBadges = Object.entries(stateCounts).map(([k,v]) => `<span class="badge text-bg-light border me-1">${escapeHtml(k)}: ${escapeHtml(String(v))}</span>`).join('') || '<span class="text-muted">No initiative states</span>';
+
+  const overviewHtml = overviewRows.length
+    ? `<div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Initiative</th><th>Current State</th><th>Readiness</th><th>Next Required State</th><th>Critical Blockers</th></tr></thead><tbody>${overviewRows.map((r)=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(r.initiative_id)}">${escapeHtml(r.name)}</a><div class="small text-muted mono">${escapeHtml(r.initiative_id)}</div></td><td><code>${escapeHtml(r.currentState)}</code></td><td>${escapeHtml(String(r.readiness))}</td><td>${escapeHtml(r.nextRequired || '—')}</td><td>${r.blockers.length ? r.blockers.map((b)=>`<span class="badge text-bg-warning-subtle text-dark border me-1">${escapeHtml(String(b))}</span>`).join('') : '<span class="text-muted">None</span>'}</td></tr>`).join('')}</tbody></table></div>`
+    : '<div class="text-muted">No initiative state records yet.</div>';
+
+  const blockersGrouped = overviewRows.filter((r)=>r.blockers.length).map((r)=>`<div class="mb-2"><div><strong>${escapeHtml(r.name)}</strong> <span class="small text-muted mono">${escapeHtml(r.initiative_id)}</span></div><div class="small mt-1">${r.blockers.map((b)=>`<span class="badge text-bg-warning-subtle text-dark border me-1">${escapeHtml(String(b))}</span>`).join('')}</div></div>`).join('');
+
+  const emptyPanel = `<div class="card"><div class="card-body"><h6>No state transitions yet</h6><div class="small text-muted mb-2">To create a valid transition, include all required fields:</div><ul class="small mb-0"><li>linked <code>initiative_ids</code></li><li><code>trigger_signal_ids</code></li><li><code>from_state</code> and <code>to_state</code></li><li>at least one <code>evidence</code> item</li><li><code>constraints_resolved</code> and <code>constraints_remaining</code></li><li><code>transition_type</code>, <code>confidence</code>, and <code>next_required_state</code></li></ul></div></div>`;
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('State Transitions')}</head><body><div class="app-shell">
     ${dashboardNav('state-transitions')}
     ${pageHeader('State Transitions', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/state-transitions/export.json">Get JSON</a>', 'Evidence-backed progression engine')}
+
+    <div class="row g-2 mb-3">
+      <div class="col-12 col-md-3"><div class="border rounded p-2"><div class="small text-muted">Total Transitions</div><div><strong>${escapeHtml(String(sorted.length))}</strong></div></div></div>
+      <div class="col-12 col-md-3"><div class="border rounded p-2"><div class="small text-muted">Initiatives with Transitions</div><div><strong>${escapeHtml(String(transByInitiative.size))}</strong></div></div></div>
+      <div class="col-12 col-md-3"><div class="border rounded p-2"><div class="small text-muted">Blocked Initiatives</div><div><strong>${escapeHtml(String(blockedCount))}</strong></div></div></div>
+      <div class="col-12 col-md-3"><div class="border rounded p-2"><div class="small text-muted">Avg Readiness</div><div><strong>${escapeHtml(String(avgReadiness))}</strong></div></div></div>
+      <div class="col-12"><div class="border rounded p-2"><div class="small text-muted mb-1">Initiatives by Current State</div>${stateCountBadges}</div></div>
+    </div>
+
     <div class="card mb-3"><div class="card-body"><h6>Canonical States (v1)</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>State</th><th>Order</th><th>Next</th><th>Ceiling</th></tr></thead><tbody>${stateDefs}</tbody></table></div></div></div>
-    ${cards || '<div class="alert alert-secondary">No state transitions yet.</div>'}
+
+    <div class="card mb-3"><div class="card-body"><h6>Current Initiative States</h6>${overviewHtml}</div></div>
+
+    <div class="card mb-3"><div class="card-body"><h6>Unresolved Constraints</h6>${blockersGrouped || '<div class="text-muted">No unresolved constraints recorded.</div>'}</div></div>
+
+    <div class="card mb-3"><div class="card-body"><h6>Recent Transition Feed</h6></div></div>
+    ${cards || emptyPanel}
   </div></body></html>`);
 });
 
