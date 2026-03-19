@@ -4792,13 +4792,7 @@
       "overall_alignment": 18,
       "weakest_layer": "political"
     },
-    "primary_constraint": {
-      "name": "Program-Level Authority Alignment Across ODR, VIHFA, and Federal Recovery Constraints",
-      "why_it_matters": "Capital is allocated but cannot deploy cleanly due to fragmented authority, overlapping compliance requirements, and unclear release conditions across territorial and federal layers.",
-      "next_action": "Validate authority boundaries and decision rights across ODR, VIHFA, and federal program oversight to define a unified deployment pathway.",
-      "owner": null,
-      "due": null
-    },
+    "primary_constraint": "Capital stack not finalized",
     "actor_roles_table": [
       {
         "priority": "P0",
@@ -5088,6 +5082,13 @@
     ],
     "last_transition_id": "st_2026_03_19_usvi_005",
     "last_transition_timestamp": "2026-03-19T15:01:00Z",
-    "open_dependency_count": 1
+    "open_dependency_count": 1,
+    "next_required_transition": "st_req_usvi_capital_stack_commitment",
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_2026_03_19_usvi_005",
+      "cap_reason": "critical blocker: capital stack not finalized",
+      "regression_impact_30d": -6
+    }
   }
 ]

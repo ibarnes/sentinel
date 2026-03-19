@@ -2012,16 +2012,52 @@ app.get('/dashboard/state-transitions', async (_req, res) => {
   let blockedCount = 0;
   const overviewRows = [];
 
+  const sevBase = { critical: 100, high: 70, medium: 40, low: 15 };
+
   for (const iid of allInitiativeIds) {
     const ini = initiativesById.get(iid) || {};
     const currentState = String(ini.current_state || ini.state || 'constraint_discovery');
     const readiness = Number(ini.readiness_score ?? 0);
     const nextRequired = String(ini.next_required_state || defs?.states?.[currentState]?.next_state || '—');
     const crit = Array.isArray(ini.critical_constraints) ? ini.critical_constraints : [];
+
+    const constraintRows = (constraints || []).filter((c) => String(c.initiative_id || '') === iid && String(c.status || 'open') !== 'resolved');
     const unresolvedFromTransitions = (transByInitiative.get(iid) || []).flatMap((t) => Array.isArray(t.constraints_remaining) ? t.constraints_remaining : []);
-    const unresolvedFromRegistry = (constraints || []).filter((c) => String(c.initiative_id || '') === iid && String(c.status || 'open') !== 'resolved').map((c) => c.name || c.constraint || 'constraint');
-    const unresolvedAll = [...new Set([...crit, ...unresolvedFromTransitions, ...unresolvedFromRegistry].filter(Boolean))];
+
+    const structured = constraintRows.map((c) => {
+      const type = String(c.type || 'other');
+      const severity = String(c.severity || 'medium').toLowerCase();
+      const blocks = Array.isArray(c.blocking_states) ? c.blocking_states.map(String) : [];
+      const linked = String(c.linked_transition_required || '').trim();
+      const priority = String(c.priority || 'P2');
+      const isCriticalPath = Boolean(c.is_critical_path);
+      let score = Number(sevBase[severity] || 20);
+      if (blocks.includes(nextRequired)) score += 25;
+      if (priority === 'P0') score += 20;
+      if (isCriticalPath) score += 15;
+      if (String(c.status || '') === 'in_progress') score -= 20;
+      return {
+        id: String(c.constraint_id || ''),
+        name: String(c.name || c.constraint || 'constraint'),
+        type,
+        severity,
+        owner: String(c.owner || '—'),
+        linked_transition_required: linked,
+        blocking_states: blocks,
+        score
+      };
+    });
+
+    const fallback = [...new Set([...crit, ...unresolvedFromTransitions].filter(Boolean))].map((name) => ({
+      id: '', name: String(name), type: 'other', severity: 'medium', owner: '—', linked_transition_required: '', blocking_states: [], score: 40
+    }));
+
+    const allConstraints = [...structured, ...fallback];
+    const unresolvedAll = [...new Set(allConstraints.map((x) => x.name))];
     const blocked = unresolvedAll.length > 0;
+
+    const primary = [...allConstraints].sort((a, b) => Number(b.score || 0) - Number(a.score || 0))[0] || null;
+    const nextRequiredTransition = primary?.linked_transition_required || '—';
 
     stateCounts[currentState] = (stateCounts[currentState] || 0) + 1;
     if (!Number.isNaN(readiness)) {
@@ -2037,6 +2073,10 @@ app.get('/dashboard/state-transitions', async (_req, res) => {
       readiness,
       nextRequired,
       blockers: unresolvedAll,
+      blockerObjects: allConstraints,
+      primaryBlocker: primary,
+      nextRequiredTransition,
+      readinessExplain: ini.readiness_explain || null,
       blocked
     });
   }
@@ -2061,10 +2101,25 @@ app.get('/dashboard/state-transitions', async (_req, res) => {
   const stateCountBadges = Object.entries(stateCounts).map(([k,v]) => `<span class="badge text-bg-light border me-1">${escapeHtml(k)}: ${escapeHtml(String(v))}</span>`).join('') || '<span class="text-muted">No initiative states</span>';
 
   const overviewHtml = overviewRows.length
-    ? `<div class="table-responsive"><table class="table table-sm align-middle" style="color:var(--text-primary)"><thead><tr><th>Initiative</th><th>Current State</th><th>Readiness</th><th>Next Required State</th><th>Critical Blockers</th></tr></thead><tbody>${overviewRows.map((r)=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(r.initiative_id)}">${escapeHtml(r.name)}</a><div class="small text-muted mono">${escapeHtml(r.initiative_id)}</div></td><td><code>${escapeHtml(r.currentState)}</code></td><td>${escapeHtml(String(r.readiness))}</td><td>${escapeHtml(r.nextRequired || '—')}</td><td>${r.blockers.length ? r.blockers.map((b)=>`<span class="badge border me-1" style="color:var(--text-primary);background:var(--accent-soft)">${escapeHtml(String(b))}</span>`).join('') : '<span class="text-muted">None</span>'}</td></tr>`).join('')}</tbody></table></div>`
+    ? `<div class="table-responsive"><table class="table table-sm align-middle" style="color:var(--text-primary)"><thead><tr><th>Initiative</th><th>Current State</th><th>Readiness</th><th>Next Required State</th><th>Primary Constraint</th><th>Next Required Transition</th></tr></thead><tbody>${overviewRows.map((r)=>{
+      const rb = r.readinessExplain || {};
+      const readinessInfo = `<div>${escapeHtml(String(r.readiness))}</div>${rb.last_delta!=null?`<div class="small text-muted">Δ ${escapeHtml(String(rb.last_delta))}</div>`:''}${rb.cap_reason?`<div class="small text-muted">Cap: ${escapeHtml(String(rb.cap_reason))}</div>`:''}`;
+      const pb = r.primaryBlocker;
+      const sev = String(pb?.severity || '').toLowerCase();
+      const sevDot = sev === 'critical' ? '🔴' : sev === 'high' ? '🟠' : sev === 'medium' ? '🟡' : sev ? '🟢' : '';
+      const primary = pb ? `${sevDot} ${escapeHtml(pb.name)} <span class="small text-muted">(${escapeHtml(pb.type)} · ${escapeHtml(pb.owner||'—')})</span>` : '<span class="text-muted">None</span>';
+      return `<tr><td><a href="/dashboard/initiative/${encodeURIComponent(r.initiative_id)}">${escapeHtml(r.name)}</a><div class="small text-muted mono">${escapeHtml(r.initiative_id)}</div></td><td><code>${escapeHtml(r.currentState)}</code></td><td>${readinessInfo}</td><td>${escapeHtml(r.nextRequired || '—')}</td><td>${primary}</td><td>${escapeHtml(r.nextRequiredTransition || '—')}</td></tr>`;
+    }).join('')}</tbody></table></div>`
     : '<div class="text-muted">No initiative state records yet.</div>';
 
-  const blockersGrouped = overviewRows.filter((r)=>r.blockers.length).map((r)=>`<div class="mb-2"><div><strong>${escapeHtml(r.name)}</strong> <span class="small text-muted mono">${escapeHtml(r.initiative_id)}</span></div><div class="small mt-1">${r.blockers.map((b)=>`<span class="badge border me-1" style="color:var(--text-primary);background:var(--accent-soft)">${escapeHtml(String(b))}</span>`).join('')}</div></div>`).join('');
+  const blockersGrouped = overviewRows.filter((r)=>r.blockerObjects && r.blockerObjects.length).map((r)=>{
+    const ranked = [...(r.blockerObjects || [])].sort((a,b)=>Number(b.score||0)-Number(a.score||0));
+    return `<div class="mb-3"><div><strong>${escapeHtml(r.name)}</strong> <span class="small text-muted mono">${escapeHtml(r.initiative_id)}</span></div><div class="small mt-1">${ranked.map((b)=>{
+      const sev = String(b.severity || '').toLowerCase();
+      const sevDot = sev === 'critical' ? '🔴' : sev === 'high' ? '🟠' : sev === 'medium' ? '🟡' : '🟢';
+      return `<span class="badge border me-1" style="color:var(--text-primary);background:var(--accent-soft)">${sevDot} ${escapeHtml(String(b.name))} [${escapeHtml(String(b.type||'other'))}] (score:${escapeHtml(String(Math.round(Number(b.score||0))))})</span>`;
+    }).join('')}</div></div>`;
+  }).join('');
 
   const emptyPanel = `<div class="card"><div class="card-body"><h6>No state transitions yet</h6><div class="small text-muted mb-2">To create a valid transition, include all required fields:</div><ul class="small mb-0"><li>linked <code>initiative_ids</code></li><li><code>trigger_signal_ids</code></li><li><code>from_state</code> and <code>to_state</code></li><li>at least one <code>evidence</code> item</li><li><code>constraints_resolved</code> and <code>constraints_remaining</code></li><li><code>transition_type</code>, <code>confidence</code>, and <code>next_required_state</code></li></ul></div></div>`;
 
