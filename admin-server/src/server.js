@@ -49,6 +49,7 @@ const DASHBOARD_STATE_FILE = path.join(ROOT, 'dashboard', 'state', 'state.json')
 const DASHBOARD_CHANGELOG = path.join(ROOT, 'dashboard', 'state', 'changelog.md');
 const DASHBOARD_SNAPSHOTS = path.join(ROOT, 'dashboard', 'snapshots');
 const DASHBOARD_SIGNALS_FILE = path.join(ROOT, 'dashboard', 'data', 'signals.json');
+const DASHBOARD_MEETING_MINUTES_FILE = path.join(ROOT, 'dashboard', 'data', 'meeting_minutes.json');
 const DASHBOARD_TEAM_FILE = path.join(ROOT, 'dashboard', 'data', 'team.json');
 const DASHBOARD_CONTACT_PATHS_FILE = path.join(ROOT, 'dashboard', 'data', 'contact_paths.json');
 const DASHBOARD_DECISION_ARCH_FILE = path.join(ROOT, 'dashboard', 'data', 'decision_architecture.json');
@@ -702,6 +703,7 @@ function dashboardNav(active = '') {
     <div class="oc-nav-links">
       <div class="oc-nav-group-label">Market Intelligence</div>
       <a class="nav-link ${is('signals')}" href="/dashboard/signals" title="Signals"><i data-lucide="radio" class="nav-icon"></i><span class="nav-label">Signals</span></a>
+      <a class="nav-link ${is('meetings')}" href="/dashboard/meetings" title="Meetings"><i data-lucide="notebook-text" class="nav-icon"></i><span class="nav-label">Meetings</span></a>
       <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platforms"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platforms</span></a>
       <a class="nav-link ${is('beacons')}" href="/dashboard/beacons" title="Beacons"><i data-lucide="satellite" class="nav-icon"></i><span class="nav-label">Beacons</span></a>
 
@@ -1978,6 +1980,30 @@ app.get('/dashboard/signal/:id', async (req, res) => {
     return `<span class="badge text-bg-${cls}">${escapeHtml(v)}</span>`;
   })();
   res.type('html').send(`<!doctype html><html><head>${uiHead('Signal Detail')}</head><body><div class="app-shell">${dashboardNav('signals')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/signals">← Signals</a><h3 class="mb-1">${escapeHtml(s.title || '')}</h3><div class="d-flex gap-2 mb-2">${statusBadge}<span class="badge text-bg-light border">${escapeHtml(s.confidence || '')}</span><span class="badge text-bg-light border">${escapeHtml(s.signal_class || '—')}</span></div><div class="small text-muted mb-2 mono">Observed: ${escapeHtml(String(s.observed_at || '').slice(0,19).replace('T',' '))}</div><div class="card mb-3"><div class="card-body"><h6>Summary</h6><div>${escapeHtml(s.summary || '—')}</div></div></div><div class="card mb-3"><div class="card-body"><h6>Linked Buyers</h6><ul class="mb-0">${(s.buyer_ids || []).map((id)=>`<li><strong>${escapeHtml(id)}</strong>${byId[id] ? ` — ${escapeHtml(byId[id])}` : ''}</li>`).join('') || '<li class="text-muted">None</li>'}</ul></div></div><div class="card"><div class="card-body"><h6>Raw Signal</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(JSON.stringify(s, null, 2))}</pre></div></div></div></body></html>`);
+});
+
+app.get('/dashboard/meetings', async (req, res) => {
+  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  const sorted = [...meetings].sort((a, b) => String(b.date_time || b.created_at || '').localeCompare(String(a.date_time || a.created_at || '')));
+  const cards = sorted.map((m) => {
+    const dt = String(m.date_time || m.created_at || '').slice(0, 19).replace('T', ' ');
+    const initiatives = Array.isArray(m.initiative_ids) && m.initiative_ids.length ? m.initiative_ids.join(', ') : '—';
+    const buyers = Array.isArray(m.buyer_ids) && m.buyer_ids.length ? m.buyer_ids.join(', ') : '—';
+    const signals = Array.isArray(m.signal_ids) && m.signal_ids.length ? m.signal_ids.join(', ') : '—';
+    const actions = Array.isArray(m.next_actions) ? m.next_actions.length : 0;
+    return `<div class="card mb-3"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="color:var(--text-primary);font-size:1.2rem">${escapeHtml(m.title || m.meeting_id || 'Untitled meeting')}</h6><div class="small text-muted mono">${escapeHtml(String(m.meeting_id || ''))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(dt || '—')}</div></div><div class="small mt-2" style="color:var(--text-primary)">${escapeHtml(m.summary || '—')}</div><div class="small mt-2" style="color:var(--text-primary)"><strong>Initiatives:</strong> ${escapeHtml(initiatives)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Buyers:</strong> ${escapeHtml(buyers)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Signals:</strong> ${escapeHtml(signals)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Action items:</strong> ${escapeHtml(String(actions))}</div></div></div>`;
+  }).join('');
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Meeting Minutes')}</head><body><div class="app-shell">
+    ${dashboardNav('meetings')}
+    ${pageHeader('Meeting Minutes', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/meetings/export.json">Get JSON</a>', 'Meeting records linked to initiatives, buyers, and signals')}
+    ${cards || '<div class="alert alert-secondary">No meeting minutes yet.</div>'}
+  </div></body></html>`);
+});
+
+app.get('/dashboard/meetings/export.json', async (_req, res) => {
+  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  res.type('application/json').send(JSON.stringify(meetings, null, 2));
 });
 
 app.get('/dashboard/beacons', requireAnyAuth, async (req, res) => {
