@@ -5395,13 +5395,17 @@
               "role": "Sovereign Sponsor (Government of Angola)",
               "status": "engaged",
               "mapped_entity": "Angolan Government",
-              "critical": true
+              "critical": true,
+              "notes": "Sets sovereign mandate and political cover for corridor execution; validates strategic fit and authorizes cross-ministry alignment.",
+              "role_definition": "Sets sovereign mandate and political cover for corridor execution; validates strategic fit and authorizes cross-ministry alignment."
             },
             {
               "role": "Regulatory Authority (Energy + Telecom)",
               "status": "engaged",
               "mapped_entity": "Angolan Ministries",
-              "critical": true
+              "critical": true,
+              "notes": "Controls approvals, participation rights, and telecom/energy compliance boundaries for market entry and operations.",
+              "role_definition": "Controls approvals, participation rights, and telecom/energy compliance boundaries for market entry and operations."
             }
           ]
         },
@@ -5412,19 +5416,25 @@
               "role": "Power Provider (Hydro Dams)",
               "status": "validated",
               "mapped_entity": "Kwanza River Hydro System",
-              "critical": true
+              "critical": true,
+              "notes": "Supplies base-load renewable power required for AI/data-center economics and long-horizon capacity planning.",
+              "role_definition": "Supplies base-load renewable power required for AI/data-center economics and long-horizon capacity planning."
             },
             {
               "role": "Fiber + Subsea Infrastructure Owner",
               "status": "validated",
               "mapped_entity": "Angola Cables",
-              "critical": true
+              "critical": true,
+              "notes": "Controls international bandwidth paths, landing access, and routing leverage required for global compute export viability.",
+              "role_definition": "Controls international bandwidth paths, landing access, and routing leverage required for global compute export viability."
             },
             {
               "role": "Land / Free Zone Authority",
               "status": "validated",
               "mapped_entity": "Angolan Government",
-              "critical": true
+              "critical": true,
+              "notes": "Grants site access and land-use rights needed to secure physical footprint and development sequencing.",
+              "role_definition": "Grants site access and land-use rights needed to secure physical footprint and development sequencing."
             }
           ]
         },
@@ -5435,13 +5445,17 @@
               "role": "Master Planner / Smart City Designer",
               "status": "identified",
               "mapped_entity": "Foster + Partners",
-              "critical": false
+              "critical": false,
+              "notes": "Defines master-plan logic, zoning integration, and long-range expansion architecture for city-scale infrastructure coherence.",
+              "role_definition": "Defines master-plan logic, zoning integration, and long-range expansion architecture for city-scale infrastructure coherence."
             },
             {
               "role": "EPC Contractor",
               "status": "identified",
               "mapped_entity": "Portuguese-led Angolan EPC",
-              "critical": true
+              "critical": true,
+              "notes": "Converts approved architecture into build execution with schedule, cost, and engineering accountability.",
+              "role_definition": "Converts approved architecture into build execution with schedule, cost, and engineering accountability."
             }
           ]
         },
@@ -5452,19 +5466,25 @@
               "role": "Capital Stack Architect",
               "status": "missing",
               "mapped_entity": "USG",
-              "critical": true
+              "critical": true,
+              "notes": "Designs financing structure, risk allocation, and instrument sequencing to make the platform bankable and controllable.",
+              "role_definition": "Designs financing structure, risk allocation, and instrument sequencing to make the platform bankable and controllable."
             },
             {
               "role": "Equity / Strategic Capital Partner",
               "status": "identified",
               "mapped_entity": "AlphaWave / Sovereign AI Fund",
-              "critical": false
+              "critical": false,
+              "notes": "Provides strategic equity alignment and co-sponsorship optionality to anchor long-duration platform growth.",
+              "role_definition": "Provides strategic equity alignment and co-sponsorship optionality to anchor long-duration platform growth."
             },
             {
               "role": "Anchor Tenant (Hyperscaler / AI)",
               "status": "identified",
               "mapped_entity": "AWS / Google / NVIDIA-aligned",
-              "critical": true
+              "critical": true,
+              "notes": "Provides demand certainty and utilization baseline needed to de-risk capex and accelerate financing closure.",
+              "role_definition": "Provides demand certainty and utilization baseline needed to de-risk capex and accelerate financing closure."
             }
           ]
         },
@@ -5475,13 +5495,17 @@
               "role": "Local Operator / Government Interface",
               "status": "committed",
               "mapped_entity": "Wade",
-              "critical": true
+              "critical": true,
+              "notes": "Runs in-country coordination with ministries and stakeholders, translating policy intent into executable operating pathways.",
+              "role_definition": "Runs in-country coordination with ministries and stakeholders, translating policy intent into executable operating pathways."
             },
             {
               "role": "Platform Governor / Orchestrator",
               "status": "missing",
               "mapped_entity": "USG",
-              "critical": true
+              "critical": true,
+              "notes": "Owns system-level orchestration, decision cadence, and guardrails so execution remains aligned to mandate and value capture.",
+              "role_definition": "Owns system-level orchestration, decision cadence, and guardrails so execution remains aligned to mandate and value capture."
             }
           ]
         }
@@ -5495,7 +5519,9 @@
         "role": "Capital Stack Architect",
         "status": "missing",
         "mapped_entity": "USG",
-        "critical": true
+        "critical": true,
+        "notes": "Designs financing structure, risk allocation, and instrument sequencing to make the platform bankable and controllable.",
+        "role_definition": "Designs financing structure, risk allocation, and instrument sequencing to make the platform bankable and controllable."
       },
       {
         "priority": "P0",
@@ -5503,7 +5529,9 @@
         "role": "Anchor Tenant (Hyperscaler / AI)",
         "status": "identified",
         "mapped_entity": "AWS / Google / NVIDIA-aligned",
-        "critical": true
+        "critical": true,
+        "notes": "Provides demand certainty and utilization baseline needed to de-risk capex and accelerate financing closure.",
+        "role_definition": "Provides demand certainty and utilization baseline needed to de-risk capex and accelerate financing closure."
       },
       {
         "priority": "P0",
@@ -5511,7 +5539,9 @@
         "role": "Platform Governor / Orchestrator",
         "status": "missing",
         "mapped_entity": "USG",
-        "critical": true
+        "critical": true,
+        "notes": "Owns system-level orchestration, decision cadence, and guardrails so execution remains aligned to mandate and value capture.",
+        "role_definition": "Owns system-level orchestration, decision cadence, and guardrails so execution remains aligned to mandate and value capture."
       },
       {
         "priority": "P0",
@@ -5519,7 +5549,9 @@
         "role": "Sovereign Sponsor",
         "status": "engaged",
         "mapped_entity": "Angolan Government",
-        "critical": true
+        "critical": true,
+        "notes": "Acts as principal state counterpart to approve direction, protect legitimacy, and unlock cross-agency cooperation.",
+        "role_definition": "Acts as principal state counterpart to approve direction, protect legitimacy, and unlock cross-agency cooperation."
       },
       {
         "priority": "P1",
@@ -5527,7 +5559,9 @@
         "role": "Fiber + Landing Operator",
         "status": "validated",
         "mapped_entity": "Angola Cables",
-        "critical": true
+        "critical": true,
+        "notes": "Operates fiber and landing interfaces that determine connectivity quality, commercial terms, and access control.",
+        "role_definition": "Operates fiber and landing interfaces that determine connectivity quality, commercial terms, and access control."
       },
       {
         "priority": "P1",
@@ -5535,7 +5569,9 @@
         "role": "Local Execution Lead",
         "status": "committed",
         "mapped_entity": "Wade",
-        "critical": true
+        "critical": true,
+        "notes": "Leads day-to-day local execution choreography across government, operators, and delivery actors.",
+        "role_definition": "Leads day-to-day local execution choreography across government, operators, and delivery actors."
       },
       {
         "priority": "P2",
@@ -5543,7 +5579,9 @@
         "role": "Master Planner",
         "status": "identified",
         "mapped_entity": "Foster + Partners",
-        "critical": false
+        "critical": false,
+        "notes": "Maintains blueprint integrity and ensures staged build decisions remain consistent with target corridor outcomes.",
+        "role_definition": "Maintains blueprint integrity and ensures staged build decisions remain consistent with target corridor outcomes."
       }
     ],
     "state_bootstrap": {
@@ -5580,7 +5618,8 @@
           "owner": "Wade",
           "due": "",
           "priority_tier": "P0",
-          "notes": "Government aligned and supportive of national AI infrastructure vision"
+          "notes": "Government aligned and supportive of national AI infrastructure vision",
+          "role_definition": "Acts as principal state counterpart to approve direction, protect legitimacy, and unlock cross-agency cooperation."
         },
         {
           "role_id": "POL-002",
@@ -5592,7 +5631,8 @@
           "owner": "Wade",
           "due": "",
           "priority_tier": "P0",
-          "notes": "Controls approvals and telecom participation (e.g. Starlink restriction)"
+          "notes": "Controls approvals and telecom participation (e.g. Starlink restriction)",
+          "role_definition": "Defines policy and licensing envelope for telecom/energy participation and market-operating permissions."
         }
       ],
       "asset": [
@@ -5606,7 +5646,8 @@
           "owner": "",
           "due": "",
           "priority_tier": "P0",
-          "notes": "10GW+ excess capacity; pricing risk exists via World Bank pressure"
+          "notes": "10GW+ excess capacity; pricing risk exists via World Bank pressure",
+          "role_definition": "Provides secured generation profile and dispatch assumptions that underpin compute economics."
         },
         {
           "role_id": "AST-002",
@@ -5618,7 +5659,8 @@
           "owner": "",
           "due": "",
           "priority_tier": "P0",
-          "notes": "Controls full stack: fiber, landing, data centers"
+          "notes": "Controls full stack: fiber, landing, data centers",
+          "role_definition": "Maintains control over transoceanic routing and carrier-neutral interconnect required for hyperscale-grade operations."
         }
       ],
       "development": [
@@ -5632,7 +5674,8 @@
           "owner": "",
           "due": "",
           "priority_tier": "P1",
-          "notes": "Execution partner exists but full scope not yet locked"
+          "notes": "Execution partner exists but full scope not yet locked",
+          "role_definition": "Converts approved architecture into build execution with schedule, cost, and engineering accountability."
         }
       ],
       "capital": [
@@ -5646,7 +5689,8 @@
           "owner": "USG",
           "due": "Immediate",
           "priority_tier": "P0",
-          "notes": "Primary constraint; no structured capital model exists"
+          "notes": "Primary constraint; no structured capital model exists",
+          "role_definition": "Designs financing structure, risk allocation, and instrument sequencing to make the platform bankable and controllable."
         },
         {
           "role_id": "CAP-002",
@@ -5658,7 +5702,8 @@
           "owner": "",
           "due": "",
           "priority_tier": "P0",
-          "notes": "Demand exists but no binding commitment"
+          "notes": "Demand exists but no binding commitment",
+          "role_definition": "Commits demand profile and commercial credibility to unlock lender and equity confidence."
         }
       ],
       "delivery": [
@@ -5672,7 +5717,8 @@
           "owner": "Wade",
           "due": "",
           "priority_tier": "P0",
-          "notes": "On-ground execution + government interface"
+          "notes": "On-ground execution + government interface",
+          "role_definition": "Provides on-ground execution interface and stakeholder continuity across the program lifecycle."
         },
         {
           "role_id": "DEL-002",
@@ -5684,7 +5730,8 @@
           "owner": "USG",
           "due": "Immediate",
           "priority_tier": "P0",
-          "notes": "Critical missing role; defines control of platform"
+          "notes": "Critical missing role; defines control of platform",
+          "role_definition": "Maintains upstream control of architecture, sequencing, and governance logic across all workstreams."
         }
       ]
     },
