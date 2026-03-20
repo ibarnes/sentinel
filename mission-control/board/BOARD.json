@@ -3511,11 +3511,17 @@
           "author": "sentinel",
           "text": "Night build window 2026-03-20T03:10Z: executed TASK-0196/TASK-0197 (tranche-O decision digest + approval card, RP-0082). Awaiting Isaac approval decisions for oldest RFR set.",
           "created_at": "2026-03-20T03:10:00Z"
+        },
+        {
+          "id": "link-0198-20260320-0630",
+          "author": "sentinel",
+          "text": "Decomposition child TASK-0198 executed (late-night recovery stale-RFR tranche-P approval routing).",
+          "created_at": "2026-03-20T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-20T03:10:00Z",
+      "updated_at": "2026-03-20T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -6959,6 +6965,38 @@
       "updated_at": "2026-03-20T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0198",
+      "title": "BRS-2026-03-20 Package stale-RFR tranche-P approval card (late-night recovery)",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "board-recovery",
+        "decomposition",
+        "approval-routing"
+      ],
+      "linked_refs": [
+        "RP-0083"
+      ],
+      "description": "Create a 30–90 minute stale-RFR approval microbatch for items older than 24h and publish routing card for Isaac.\nAcceptance Criteria:\n- Includes all Ready for Review items older than 24h at sweep time.\n- Uses explicit Approve/Hold command format.\n- Records governance guardrail and next decision ask.",
+      "comments": [
+        {
+          "id": "done-0198-20260320-0630",
+          "author": "sentinel",
+          "text": "Published tranche-P approval card at mission-control/board/approval-queue/2026-03-20T06-30-00Z-tranche-p-approval-card.md and recovery packet RP-0083.",
+          "created_at": "2026-03-20T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-20T06:30:00Z",
+      "updated_at": "2026-03-20T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0083",
+      "parent_id": "TASK-0107"
     }
   ]
 }
