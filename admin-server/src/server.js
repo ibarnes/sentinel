@@ -5248,20 +5248,22 @@ function normalizeActorAlignment(initiative = {}) {
     const rawSimple = Array.isArray(vSimple) ? vSimple : (vSimple && typeof vSimple === 'object' && Array.isArray(vSimple.roles) ? vSimple.roles : []);
 
     const merged = new Map();
-    rawSimple.map((r, idx) => normRole(r, l, idx)).forEach((r) => {
-      const key = (r.role_id || '').toLowerCase() || `${l}:${(r.role_label || '').toLowerCase()}`;
-      merged.set(key, r);
+    rawSimple.map((raw, idx) => ({ raw, n: normRole(raw, l, idx) })).forEach(({ raw, n }) => {
+      const explicitId = String(raw?.role_id || raw?.id || '').trim().toLowerCase();
+      const key = explicitId || `${l}:${(n.role_label || '').toLowerCase()}`;
+      merged.set(key, n);
     });
-    rawRich.map((r, idx) => normRole(r, l, idx)).forEach((r) => {
-      const key = (r.role_id || '').toLowerCase() || `${l}:${(r.role_label || '').toLowerCase()}`;
+    rawRich.map((raw, idx) => ({ raw, n: normRole(raw, l, idx) })).forEach(({ raw, n }) => {
+      const explicitId = String(raw?.role_id || raw?.id || '').trim().toLowerCase();
+      const key = explicitId || `${l}:${(n.role_label || '').toLowerCase()}`;
       const prev = merged.get(key) || {};
       merged.set(key, {
         ...prev,
-        ...r,
-        role_label: r.role_label || prev.role_label || '',
-        mapped_entity_ref: r.mapped_entity_ref || prev.mapped_entity_ref || '',
-        notes: r.notes || prev.notes || '',
-        role_definition: r.role_definition || prev.role_definition || ''
+        ...n,
+        role_label: n.role_label || prev.role_label || '',
+        mapped_entity_ref: n.mapped_entity_ref || prev.mapped_entity_ref || '',
+        notes: n.notes || prev.notes || '',
+        role_definition: n.role_definition || prev.role_definition || ''
       });
     });
 
