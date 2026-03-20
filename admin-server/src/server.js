@@ -2347,7 +2347,7 @@ app.get('/dashboard/initiatives', async (req, res) => {
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
-    ${pageHeader('Initiatives', '', 'Gate 0–7 is the canonical initiative workflow')}
+    ${pageHeader('Initiatives', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiatives/export.json">Get JSON</a>', 'Gate 0–7 is the canonical initiative workflow')}
     <form id="initiativesFilterForm" method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-2"><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div><div class="col-md-2"><select class="form-select" name="weakest_layer">${weakestLayerOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===weakestLayerFilter?'selected':''}>Weakest Layer: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-3"><select class="form-select" name="primary_constraint">${primaryConstraintOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===primaryConstraintFilter?'selected':''}>Primary Constraint: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-3"><select class="form-select" name="sort_by"><option value="updated_desc" ${sortBy==='updated_desc'?'selected':''}>Sort: Updated</option><option value="alignment_desc" ${sortBy==='alignment_desc'?'selected':''}>Sort: Alignment ↓</option><option value="alignment_asc" ${sortBy==='alignment_asc'?'selected':''}>Sort: Alignment ↑</option><option value="actor_gaps_desc" ${sortBy==='actor_gaps_desc'?'selected':''}>Sort: Actor Gaps ↓</option><option value="actor_gaps_asc" ${sortBy==='actor_gaps_asc'?'selected':''}>Sort: Actor Gaps ↑</option><option value="weakest_layer" ${sortBy==='weakest_layer'?'selected':''}>Sort: Weakest Layer</option><option value="primary_constraint" ${sortBy==='primary_constraint'?'selected':''}>Sort: Primary Constraint</option></select></div><div class="col-md-2 d-flex gap-1"><a class="btn btn-outline-secondary w-50" href="/dashboard/initiatives">Reset</a><a class="btn btn-outline-secondary w-50" href="/dashboard/initiatives?show_test=${showTest ? '0' : '1'}">${showTest ? 'Hide' : 'Show'} Tests</a></div></form>
     <div class="card mb-3"><div class="card-body py-2"><div class="small text-muted mb-1">Actor Gap Analytics (all initiatives)</div><div class="d-flex flex-wrap gap-2">${LAYERS.map((l)=>`<span class="badge text-bg-light border">${escapeHtml(l)}: ${weakestCounts[l]}</span>`).join('')}</div></div></div>
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Name</th><th>Infrastructure Type</th><th>Gate Stage</th><th>Actor Gaps</th><th>Alignment %</th><th>Weakest Layer</th><th>Primary Constraint</th><th>Linked Buyers</th><th>Updated</th><th class="text-end">Actions</th></tr></thead><tbody>
@@ -2368,6 +2368,11 @@ app.get('/dashboard/initiatives', async (req, res) => {
     });
   </script>
 </body></html>`);
+});
+
+app.get('/dashboard/initiatives/export.json', async (_req, res) => {
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  res.type('application/json').send(JSON.stringify(initiatives, null, 2));
 });
 
 app.get('/dashboard/buyer/:id', async (req, res) => {
