@@ -5222,7 +5222,12 @@ function normalizeActorAlignment(initiative = {}) {
     ? initiative.actor_alignment.layers
     : (initiative?.actor_alignment_layers && typeof initiative.actor_alignment_layers === 'object' ? initiative.actor_alignment_layers : {});
   const out = {};
-  for (const l of ['political','asset','development','capital','delivery']) out[l] = Array.isArray(src[l]) ? src[l] : [];
+  for (const l of ['political','asset','development','capital','delivery']) {
+    const v = src[l];
+    if (Array.isArray(v)) out[l] = v;
+    else if (v && typeof v === 'object' && Array.isArray(v.roles)) out[l] = v.roles;
+    else out[l] = [];
+  }
   return out;
 }
 
