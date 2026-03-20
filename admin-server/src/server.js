@@ -5218,9 +5218,12 @@ app.post('/api/initiatives/suggest', requireRole('architect','editor'), async (r
 });
 
 function normalizeActorAlignment(initiative = {}) {
-  const src = initiative?.actor_alignment?.layers && typeof initiative.actor_alignment.layers === 'object'
+  const srcRich = initiative?.actor_alignment_layers && typeof initiative.actor_alignment_layers === 'object'
+    ? initiative.actor_alignment_layers
+    : {};
+  const srcSimple = initiative?.actor_alignment?.layers && typeof initiative.actor_alignment.layers === 'object'
     ? initiative.actor_alignment.layers
-    : (initiative?.actor_alignment_layers && typeof initiative.actor_alignment_layers === 'object' ? initiative.actor_alignment_layers : {});
+    : {};
 
   const normRole = (r = {}, layer = 'political', idx = 0) => ({
     role_id: String(r.role_id || r.id || `${layer}_${idx + 1}`),
@@ -5239,9 +5242,30 @@ function normalizeActorAlignment(initiative = {}) {
 
   const out = {};
   for (const l of ['political','asset','development','capital','delivery']) {
-    const v = src[l];
-    const raw = Array.isArray(v) ? v : (v && typeof v === 'object' && Array.isArray(v.roles) ? v.roles : []);
-    out[l] = raw.map((r, idx) => normRole(r, l, idx));
+    const vRich = srcRich[l];
+    const vSimple = srcSimple[l];
+    const rawRich = Array.isArray(vRich) ? vRich : (vRich && typeof vRich === 'object' && Array.isArray(vRich.roles) ? vRich.roles : []);
+    const rawSimple = Array.isArray(vSimple) ? vSimple : (vSimple && typeof vSimple === 'object' && Array.isArray(vSimple.roles) ? vSimple.roles : []);
+
+    const merged = new Map();
+    rawSimple.map((r, idx) => normRole(r, l, idx)).forEach((r) => {
+      const key = (r.role_id || '').toLowerCase() || `${l}:${(r.role_label || '').toLowerCase()}`;
+      merged.set(key, r);
+    });
+    rawRich.map((r, idx) => normRole(r, l, idx)).forEach((r) => {
+      const key = (r.role_id || '').toLowerCase() || `${l}:${(r.role_label || '').toLowerCase()}`;
+      const prev = merged.get(key) || {};
+      merged.set(key, {
+        ...prev,
+        ...r,
+        role_label: r.role_label || prev.role_label || '',
+        mapped_entity_ref: r.mapped_entity_ref || prev.mapped_entity_ref || '',
+        notes: r.notes || prev.notes || '',
+        role_definition: r.role_definition || prev.role_definition || ''
+      });
+    });
+
+    out[l] = [...merged.values()];
   }
   return out;
 }
