@@ -316,3 +316,25 @@
 - No scoring-policy changes.
 
 - HQ locality tracking rule (2026-03-19): Isaac is in Atlanta and HQ setup is underway there; include an Atlanta local-activity watch lane (governance, mobility, logistics, city execution signals) in addition to core USG strategic signals.
+
+# Project Status Snapshot (2026-03-20)
+- Board execution cadence sustained across morning, midday, and night windows with decomposition gate + artifact-first governance intact.
+- New blocker-chain artifacts delivered:
+  - `TASK-0192`/`TASK-0193` + `RP-0080` (morning preflight + wrapper fail-fast evidence refresh).
+  - `TASK-0194`/`TASK-0195` + `RP-0081` (midday preflight + wrapper fail-fast evidence refresh).
+- New stale-RFR routing tranche delivered:
+  - `TASK-0196`/`TASK-0197` + `RP-0082` (tranche-O decision digest + approval card for oldest 12 Ready-for-Review items).
+- Credentialed blocker chain remains unchanged:
+  - `TASK-0159` still requires live `BASE_URL` + `TEAM_SESSION_COOKIE`.
+  - `TASK-0160` remains queued for post-PASS replay transitions.
+- Heartbeat durability notes:
+  - Buyer graph expanded for DFC (Ben Black, Conor Coleman, Caroline Vik).
+  - New stale-path pressure surfaced on NSIA (`PATH-NSIA-001`) and TAFF (`PATH-TAFF-FAISAL-NET-001`) warming paths >14 days.
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-20)
+- Daily log created at `memory/2026-03-20.md` and distilled into durable snapshot.
+- Durable changes captured: RP-0080/RP-0081 blocker-chain evidence refresh and RP-0082 tranche-O approval-routing artifacts.
+- No new operating-rule changes.
+- No scoring-policy changes.
