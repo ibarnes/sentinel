@@ -3505,11 +3505,17 @@
           "author": "sentinel",
           "created_at": "2026-03-19T06:30:00Z",
           "text": "Late-night decomposition gate: added/executed TASK-0191 to publish tranche-N approval routing microbatch for stale Ready-for-Review queue (RP-0079)."
+        },
+        {
+          "id": "progress-0107-20260320-0310",
+          "author": "sentinel",
+          "text": "Night build window 2026-03-20T03:10Z: executed TASK-0196/TASK-0197 (tranche-O decision digest + approval card, RP-0082). Awaiting Isaac approval decisions for oldest RFR set.",
+          "created_at": "2026-03-20T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-19T06:30:00Z",
+      "updated_at": "2026-03-20T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -6879,6 +6885,80 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0081"
+    },
+    {
+      "id": "TASK-0196",
+      "title": "BRS-2026-03-20 Package Ready-for-Review tranche-O decision digest (oldest set)",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/review-packets/RP-0082-board-build-window-night-2026-03-20.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Create a decision digest for the current oldest Ready-for-Review set with explicit approve/hold framing and queue-age leverage notes.\nAcceptance Criteria:\n- Includes oldest RFR set with recommendation framing.\n- Includes explicit Isaac decision prompt.\n- Packet committed and linked to parent recovery task.",
+      "comments": [
+        {
+          "id": "done-0196-20260320-0310",
+          "author": "sentinel",
+          "text": "Published tranche-O decision digest at mission-control/review-packets/RP-0082-board-build-window-night-2026-03-20.md.",
+          "created_at": "2026-03-20T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-20T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0082-board-build-window-night-2026-03-20.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-20T03:10:00Z",
+      "updated_at": "2026-03-20T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0082"
+    },
+    {
+      "id": "TASK-0197",
+      "title": "BRS-2026-03-20 Publish tranche-O approval routing card",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/approval-queue/2026-03-20T03-10-00Z-tranche-o-approval-card.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Publish compact approval routing card for tranche-O with low-latency approve/hold command format and governance reminders.\nAcceptance Criteria:\n- Card lists pending task IDs and approve/hold asks.\n- Includes effect on queue-age pressure and blocker-chain replay readiness.\n- Includes governance guardrail.",
+      "comments": [
+        {
+          "id": "done-0197-20260320-0310",
+          "author": "sentinel",
+          "text": "Published tranche-O approval card at mission-control/board/approval-queue/2026-03-20T03-10-00Z-tranche-o-approval-card.md.",
+          "created_at": "2026-03-20T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-20T03:10:00Z",
+      "updated_at": "2026-03-20T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
