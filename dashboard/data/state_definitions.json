@@ -24,7 +24,9 @@
         "constraint_resolution_logic_documented",
         "roles_mapped",
         "dependencies_identified",
-        "transition_path_defined"
+        "transition_path_defined",
+        "mandate_signed",
+        "fee_secured"
       ],
       "blocks": [
         "architecture_conceptual_only",
@@ -92,6 +94,28 @@
     "commitment",
     "regression"
   ],
+  "mandate_gate": {
+    "required_for_states": [
+      "governance_ready",
+      "capital_ready",
+      "execution_ready"
+    ],
+    "required_flags": [
+      "mandate_signed",
+      "fee_secured"
+    ],
+    "rule": "No mandate -> no Gate 2+ progression"
+  },
+  "pre_mandate_phase": {
+    "positioning_only": true,
+    "disallow": [
+      "modeling",
+      "structuring",
+      "coordination",
+      "advisory_execution"
+    ],
+    "entry_message": "Pre-Mandate (Positioning Only)"
+  },
   "provenance_values": [
     "provided_by_isaac",
     "discovered_by_system",

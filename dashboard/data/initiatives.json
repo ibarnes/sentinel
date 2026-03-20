@@ -35,7 +35,10 @@
     },
     "is_test": true,
     "active": false,
-    "portfolio_visibility": "hidden"
+    "portfolio_visibility": "hidden",
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-653305",
@@ -72,7 +75,10 @@
     },
     "is_test": true,
     "active": false,
-    "portfolio_visibility": "hidden"
+    "portfolio_visibility": "hidden",
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-AI-OPT-A",
@@ -103,7 +109,10 @@
     },
     "is_test": true,
     "active": false,
-    "portfolio_visibility": "hidden"
+    "portfolio_visibility": "hidden",
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-AI-OPT-B",
@@ -134,7 +143,10 @@
     },
     "is_test": true,
     "active": false,
-    "portfolio_visibility": "hidden"
+    "portfolio_visibility": "hidden",
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-AI-OPT-C",
@@ -165,7 +177,10 @@
     },
     "is_test": true,
     "active": false,
-    "portfolio_visibility": "hidden"
+    "portfolio_visibility": "hidden",
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-AI-OPT-D",
@@ -196,7 +211,10 @@
     },
     "is_test": true,
     "active": false,
-    "portfolio_visibility": "hidden"
+    "portfolio_visibility": "hidden",
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -1114,14 +1132,17 @@
       "last_transition_id": "st_seed_2026_03_19_init_ng_fin_energy_spine",
       "cap_reason": "high blocker: scale execution risk monitoring required",
       "regression_impact_30d": 0
-    }
+    },
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-AP-AI-FACTORY-001",
     "name": "Hyperscaler-Aligned AI Infrastructure Platform (Andhra Pradesh)",
     "status": "Pre-FID / Formation",
-    "gate_stage": "Gate 2",
-    "gate_updated_at": "2026-03-09T17:12:34.057Z",
+    "gate_stage": "Gate 1",
+    "gate_updated_at": "2026-03-20T18:50:14.219Z",
     "infrastructure_category": "Digital",
     "primary_buyer_id": "GIC",
     "linked_buyers": [
@@ -2087,7 +2108,10 @@
       "last_transition_id": "st_seed_2026_03_19_init_ap_ai_factory_001",
       "cap_reason": "high blocker: capital stack definition not finalized",
       "regression_impact_30d": 0
-    }
+    },
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -2835,7 +2859,10 @@
       "last_transition_id": "st_seed_2026_03_19_init_2026_03_05_commodity_corridor",
       "cap_reason": "high blocker: governance owner and approvals not fully locked",
       "regression_impact_30d": 0
-    }
+    },
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-GRAVITY-001",
@@ -3524,7 +3551,10 @@
       "last_transition_id": "st_seed_2026_03_19_init_gravity_001",
       "cap_reason": "high blocker: named accountable office not finalized",
       "regression_impact_30d": 0
-    }
+    },
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-653306",
@@ -4220,7 +4250,10 @@
       "last_transition_id": "st_seed_2026_03_19_init_653306",
       "cap_reason": "high blocker: governance owner and approvals not fully locked",
       "regression_impact_30d": 0
-    }
+    },
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
@@ -4994,7 +5027,10 @@
       "last_transition_id": "st_seed_2026_03_19_init_2026_03_global_automated_labor_infras",
       "cap_reason": "high blocker: named accountable office not finalized",
       "regression_impact_30d": 0
-    }
+    },
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
@@ -5311,7 +5347,10 @@
       "last_transition_id": "st_2026_03_19_usvi_005",
       "cap_reason": "critical blocker: capital stack not finalized",
       "regression_impact_30d": -6
-    }
+    },
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   },
   {
     "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
@@ -5648,6 +5687,9 @@
           "notes": "Critical missing role; defines control of platform"
         }
       ]
-    }
+    },
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)"
   }
 ]
