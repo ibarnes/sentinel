@@ -1670,6 +1670,7 @@ app.get('/dashboard/review', async (req, res) => {
   const start = (safePage - 1) * pageSize;
   const end = start + pageSize;
   const rps = all.slice(start, end);
+  const canAct = ['architect'].includes(effectiveRole(req) || '');
 
   const qp = (p) => `/dashboard/review?page=${p}&pageSize=${pageSize}`;
 
@@ -1683,8 +1684,8 @@ app.get('/dashboard/review', async (req, res) => {
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review?showAll=true">Show All</a>
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review?page=1&pageSize=25">Paged View</a>
     </div>
-    <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Title</th><th>Compact</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th></tr></thead><tbody>
-      ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td><a href="/dashboard/review/${encodeURIComponent(r.rp_id || '')}">${escapeHtml(r.title||'')}</a></td><td class="small" style="max-width:420px">${escapeHtml(r.compact||'—')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td></tr>`).join('')) || '<tr><td colspan="8">No review packets</td></tr>'}
+    <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Title</th><th>Compact</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th>${canAct?'<th>Actions</th>':''}</tr></thead><tbody>
+      ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td><a href="/dashboard/review/${encodeURIComponent(r.rp_id || '')}">${escapeHtml(r.title||'')}</a></td><td class="small" style="max-width:420px">${escapeHtml(r.compact||'—')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td>${canAct?`<td><div class="btn-group btn-group-sm"><button class="btn btn-outline-success" data-rp-action="approve" data-rp-id="${escapeHtml(r.rp_id||'')}">Approve</button><button class="btn btn-outline-warning" data-rp-action="reject" data-rp-id="${escapeHtml(r.rp_id||'')}">Reject</button><button class="btn btn-outline-secondary" data-rp-action="archive" data-rp-id="${escapeHtml(r.rp_id||'')}">Defer</button></div></td>`:''}</tr>`).join('')) || `<tr><td colspan="${canAct?9:8}">No review packets</td></tr>`}
     </tbody></table></div></div>
 
     <div class="d-flex flex-wrap gap-2 align-items-center mt-2">
@@ -1698,7 +1699,29 @@ app.get('/dashboard/review', async (req, res) => {
         <button class="btn btn-sm btn-primary" type="submit">Go</button>
       </form>
     </div>
-  </div></body></html>`);
+  </div>
+  ${canAct ? `<script>
+    document.querySelectorAll('[data-rp-action]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const rpId = btn.getAttribute('data-rp-id');
+        const action = btn.getAttribute('data-rp-action');
+        if (!rpId || !action) return;
+        const notes = prompt('Notes for ' + action + ' (optional):', '') || '';
+        const res = await fetch('/api/review/' + encodeURIComponent(rpId) + '/' + action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ architect_notes: notes })
+        });
+        if (!res.ok) {
+          const t = await res.text();
+          alert('Action failed: ' + t);
+          return;
+        }
+        window.location.reload();
+      });
+    });
+  </script>` : ''}
+  </body></html>`);
 });
 
 app.get('/dashboard/review/:rpId', async (req, res) => {
@@ -1713,6 +1736,7 @@ app.get('/dashboard/review/:rpId', async (req, res) => {
     .map(([k, v]) => `<tr><th style="width:220px">${escapeHtml(k)}</th><td>${escapeHtml(String(v ?? ''))}</td></tr>`)
     .join('') || '<tr><td colspan="2">No metadata</td></tr>';
   const rendered = renderSimpleMarkdown(body);
+  const canAct = ['architect'].includes(effectiveRole(req) || '');
 
   res.type('html').send(`<!doctype html><html><head>${uiHead(`Review Packet ${rpId}`)}</head><body><div class="app-shell">
     ${dashboardNav('review')}
@@ -1720,9 +1744,31 @@ app.get('/dashboard/review/:rpId', async (req, res) => {
       <h1 class="page-title">${escapeHtml(rp.front?.title || rpId)}</h1>
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review">Back to list</a>
     </div>
+    ${canAct ? `<div class="card mb-3"><div class="card-body"><div class="row g-2 align-items-end"><div class="col-md-8"><label class="form-label">Decision Notes</label><textarea id="rpNotes" class="form-control" rows="2" placeholder="Optional notes for approve/reject/defer"></textarea></div><div class="col-md-4"><div class="btn-group w-100"><button class="btn btn-success" data-rp-action="approve" data-rp-id="${escapeHtml(rpId)}">Approve</button><button class="btn btn-warning" data-rp-action="reject" data-rp-id="${escapeHtml(rpId)}">Reject</button><button class="btn btn-secondary" data-rp-action="archive" data-rp-id="${escapeHtml(rpId)}">Defer</button></div></div></div></div></div>` : ''}
     <div class="card mb-3"><div class="table-responsive"><table class="table table-sm align-middle"><tbody>${frontRows}</tbody></table></div></div>
     <div class="card"><div class="card-body markdown-body">${rendered}</div></div>
-  </div></body></html>`);
+  </div>
+  ${canAct ? `<script>
+    document.querySelectorAll('[data-rp-action]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const rpId = btn.getAttribute('data-rp-id');
+        const action = btn.getAttribute('data-rp-action');
+        const notes = (document.getElementById('rpNotes')?.value || '').trim();
+        const res = await fetch('/api/review/' + encodeURIComponent(rpId) + '/' + action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ architect_notes: notes })
+        });
+        if (!res.ok) {
+          const t = await res.text();
+          alert('Action failed: ' + t);
+          return;
+        }
+        window.location.reload();
+      });
+    });
+  </script>` : ''}
+  </body></html>`);
 });
 
 app.get('/dashboard/board', async (_req, res) => {
