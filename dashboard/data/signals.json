@@ -6404,5 +6404,281 @@
       "Debt-service/NPV savings disclosure",
       "Fiscal-space deployment evidence (education and priority sectors)"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-03-20-CAPITAL-SYSTEMS-INTELLIGENCE-24H-CLUSTER-001",
+    "title": "Capital Systems Intelligence Cluster \u2014 highest-impact infrastructure financing moves (24h)",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified_with_caveats",
+    "observed_at": "2026-03-20T15:47:00Z",
+    "summary": "Cross-jurisdiction signals indicate synchronized pipeline activation, operator-led capex cycles, sovereign platform-fund formation, and growing public-vs-private governance pressure in essential services. Constraint has shifted from project existence to bankable, governance-aligned absorption capacity.",
+    "flow": "pipeline reactivation + platform funding vehicles + governance tightening -> demand for blended-capital execution architecture",
+    "verification_note": "Strategic synthesis provided by Isaac from multiple contemporaneous developments; individual child signals should continue source-level tracking.",
+    "sources": [
+      {
+        "label": "Isaac synthesized intelligence brief",
+        "url": "internal://isaac/telegram/2026-03-20-capital-systems-intelligence-cluster"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "ppp",
+      "blended-finance",
+      "infrastructure-platforms",
+      "operator-capex",
+      "public-private-governance",
+      "global"
+    ],
+    "geography": [
+      "Global"
+    ],
+    "country": "Global",
+    "buyer_ids": [
+      "WORLDBANK",
+      "IFC",
+      "AfDB",
+      "AFC",
+      "DFC",
+      "TEMASEK",
+      "GIC",
+      "QIA",
+      "MUBADALA",
+      "ADQ"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "child_signal_ids": [
+      "SIG-2026-03-20-PPP-PIPELINE-ACTIVATION-MULTI-JURISDICTION-001",
+      "SIG-2026-03-20-BRAZIL-OPERATOR-CAPEX-CYCLE-001",
+      "SIG-2026-03-20-KENYA-NATIONAL-INFRA-FUND-001",
+      "SIG-2026-03-20-WATER-PUBLIC-VS-PRIVATE-POLICY-PRESSURE-001"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "architecture"
+    ],
+    "evidence_type": "synthesized_multi_signal",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-20-PPP-PIPELINE-ACTIVATION-MULTI-JURISDICTION-001",
+    "parent_signal_id": "SIG-2026-03-20-CAPITAL-SYSTEMS-INTELLIGENCE-24H-CLUSTER-001",
+    "title": "PPP pipeline activation across Peru, Philippines, and UK (water/security/fusion)",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-20T15:47:00Z",
+    "summary": "Multiple jurisdictions are reactivating or restructuring PPP pipelines across critical sectors, signaling renewed procurement momentum in bundled/investable formats.",
+    "flow": "delayed pipeline restart -> project restructuring for bankability -> consortium-ready procurement formats",
+    "sources": [
+      {
+        "label": "Isaac synthesized brief",
+        "url": "internal://isaac/telegram/2026-03-20-ppp-activation"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "ppp",
+      "peru",
+      "philippines",
+      "uk",
+      "water",
+      "security",
+      "fusion"
+    ],
+    "geography": [
+      "Peru",
+      "Philippines",
+      "United Kingdom"
+    ],
+    "country": "Peru",
+    "buyer_ids": [
+      "WORLDBANK",
+      "IFC",
+      "DFC",
+      "TEMASEK",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery"
+    ],
+    "evidence_type": "synthesized_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-20-BRAZIL-OPERATOR-CAPEX-CYCLE-001",
+    "parent_signal_id": "SIG-2026-03-20-CAPITAL-SYSTEMS-INTELLIGENCE-24H-CLUSTER-001",
+    "title": "Brazil operators signal ~$10B infrastructure capex cycle for 2026",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-20T15:47:00Z",
+    "summary": "Operator-led capex readiness in Brazil suggests private concessions/platform operators driving a self-reinforcing infrastructure investment cycle.",
+    "flow": "operator confidence + demand visibility -> capex deployment cycle -> co-investment opportunities with institutional capital",
+    "sources": [
+      {
+        "label": "Isaac synthesized brief",
+        "url": "internal://isaac/telegram/2026-03-20-brazil-capex"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "brazil",
+      "capex",
+      "operators",
+      "concessions",
+      "infrastructure"
+    ],
+    "geography": [
+      "Brazil",
+      "Latin America"
+    ],
+    "country": "Brazil",
+    "buyer_ids": [
+      "IFC",
+      "DFC",
+      "TEMASEK",
+      "GIC",
+      "QIA",
+      "MUBADALA"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital"
+    ],
+    "evidence_type": "synthesized_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "capex_usd": 10000000000
+    }
+  },
+  {
+    "signal_id": "SIG-2026-03-20-KENYA-NATIONAL-INFRA-FUND-001",
+    "parent_signal_id": "SIG-2026-03-20-CAPITAL-SYSTEMS-INTELLIGENCE-24H-CLUSTER-001",
+    "title": "Kenya formalizes large-scale National Infrastructure Fund financing platform",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-20T15:47:00Z",
+    "summary": "Kenya reportedly passed legislation for a major national infrastructure fund model, signaling shift from sovereign debt dependence toward blended/investment-led financing architecture.",
+    "flow": "sovereign debt constraints -> platform fund legislation -> institutional/private capital mobilization pathway",
+    "sources": [
+      {
+        "label": "Isaac synthesized brief",
+        "url": "internal://isaac/telegram/2026-03-20-kenya-infra-fund"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "kenya",
+      "infrastructure-fund",
+      "blended-finance",
+      "platform-vehicle"
+    ],
+    "geography": [
+      "Kenya",
+      "Africa"
+    ],
+    "country": "Kenya",
+    "buyer_ids": [
+      "AfDB",
+      "AFC",
+      "WORLDBANK",
+      "IFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "synthesized_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "target_fund_kes": 5000000000000,
+      "approx_usd": 35000000000
+    }
+  },
+  {
+    "signal_id": "SIG-2026-03-20-WATER-PUBLIC-VS-PRIVATE-POLICY-PRESSURE-001",
+    "parent_signal_id": "SIG-2026-03-20-CAPITAL-SYSTEMS-INTELLIGENCE-24H-CLUSTER-001",
+    "title": "Global policy pressure rises on public vs private financing balance in water infrastructure",
+    "signal_class": "Structural Ambiguity",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-20T15:47:00Z",
+    "summary": "World Water Day policy/labor pressure highlights rising scrutiny on PPP-heavy water models, implying tighter social-affordability conditions and hybrid control structures.",
+    "flow": "social/policy scrutiny -> tighter PPP political tolerance in essential services -> shift toward hybrid public-control/private-execution structures",
+    "sources": [
+      {
+        "label": "Isaac synthesized brief",
+        "url": "internal://isaac/telegram/2026-03-20-water-policy-pressure"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "water",
+      "ppp",
+      "policy-risk",
+      "public-private",
+      "social-infrastructure"
+    ],
+    "geography": [
+      "Global"
+    ],
+    "country": "Global",
+    "buyer_ids": [
+      "WORLDBANK",
+      "IFC",
+      "AfDB",
+      "AFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital"
+    ],
+    "evidence_type": "synthesized_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
