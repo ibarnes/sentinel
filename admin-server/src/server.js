@@ -1826,7 +1826,7 @@ app.get('/dashboard/buyers', async (req, res) => {
   };
   res.type('html').send(`<!doctype html><html><head>${uiHead('Buyers')}</head><body><div class="app-shell">
     ${dashboardNav('buyers')}
-    <div class="d-flex justify-content-between align-items-center mb-2"><h1 class="page-title">Buyers</h1></div>
+    <div class="d-flex justify-content-between align-items-center mb-2"><h1 class="page-title">Buyers</h1><a class="btn btn-sm btn-outline-secondary" href="/dashboard/buyers/export.json">Get JSON</a></div>
     ${canEdit ? `<div id="addBuyerBox" class="collapse mb-3"><div class="card"><div class="card-body">
       <h6>Add Buyer</h6>
       <form method="post" action="/api/buyers" class="row g-2">
@@ -1896,6 +1896,11 @@ app.get('/dashboard/buyers', async (req, res) => {
     });
   </script>` : ''}
 </body></html>`);
+});
+
+app.get('/dashboard/buyers/export.json', async (_req, res) => {
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  res.type('application/json').send(JSON.stringify(buyers, null, 2));
 });
 
 app.get('/dashboard/signals', async (req, res) => {
