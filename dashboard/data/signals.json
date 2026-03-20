@@ -6335,5 +6335,74 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-20-ANGOLA-WBG-MIGA-REFINANCE-PACKAGE-001",
+    "title": "World Bank Group approves ~$1.1B Angola package with MIGA-backed debt refinance structure",
+    "signal_class": "Capital Reality",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified",
+    "observed_at": "2026-03-20T14:16:00Z",
+    "summary": "World Bank Group boards approved a layered Angola financing package (~$750M DPL + ~$240M policy-based guarantee + MIGA second-loss guarantee supporting a $400M commercial debt refinance), shifting this into active sovereign balance-sheet execution.",
+    "flow": "sovereign debt pressure -> DFI layered guarantees + policy financing -> lower-cost commercial refinancing -> fiscal-space release for reforms/development priorities",
+    "verification_note": "Board-approved package details provided by Isaac with structured components and execution triggers; classified verified pending publication of legal/guarantee filings for drawdown sequencing.",
+    "sources": [
+      {
+        "label": "Isaac-provided structured briefing (WBG/MIGA Angola package)",
+        "url": "internal://isaac/telegram/2026-03-20-angola-wbg-miga-package"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "angola",
+      "world-bank",
+      "miga",
+      "sovereign-debt",
+      "debt-refinancing",
+      "guarantee-structure",
+      "capital-mobilization",
+      "lobito-corridor"
+    ],
+    "geography": [
+      "Angola",
+      "Africa"
+    ],
+    "country": "Angola",
+    "buyer_ids": [
+      "WORLDBANK",
+      "IFC",
+      "AFC",
+      "AfDB",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "architecture"
+    ],
+    "evidence_type": "primary_institutional_board_approval",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "total_package_usd": 1100000000,
+      "ibrd_dpl_usd": 750000000,
+      "policy_based_guarantee_usd": 240000000,
+      "commercial_refinance_usd": 400000000,
+      "miga_coverage_pct": 95
+    },
+    "watch_items": [
+      "Publication/filing of legal and guarantee documentation",
+      "Commercial facility mobilization and refinance close",
+      "Debt-service/NPV savings disclosure",
+      "Fiscal-space deployment evidence (education and priority sectors)"
+    ]
   }
 ]
