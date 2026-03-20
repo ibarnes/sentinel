@@ -1,0 +1,2 @@
+ERROR: BASE_URL and TEAM_SESSION_COOKIE must be set
+EXIT:2
