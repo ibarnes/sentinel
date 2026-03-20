@@ -5221,12 +5221,27 @@ function normalizeActorAlignment(initiative = {}) {
   const src = initiative?.actor_alignment?.layers && typeof initiative.actor_alignment.layers === 'object'
     ? initiative.actor_alignment.layers
     : (initiative?.actor_alignment_layers && typeof initiative.actor_alignment_layers === 'object' ? initiative.actor_alignment_layers : {});
+
+  const normRole = (r = {}, layer = 'political', idx = 0) => ({
+    role_id: String(r.role_id || r.id || `${layer}_${idx + 1}`),
+    role_label: String(r.role_label || r.role || r.label || '').trim(),
+    layer,
+    status: String(r.status || 'missing').trim().toLowerCase(),
+    mapped_entity_ref: String(r.mapped_entity_ref || r.mapped_entity || r.entity || '').trim(),
+    is_critical_role: Boolean(r.is_critical_role ?? r.critical ?? false),
+    owner: String(r.owner || '').trim(),
+    due: String(r.due || '').trim(),
+    priority_tier: String(r.priority_tier || r.priority || 'P0').trim(),
+    role_definition: String(r.role_definition || '').trim(),
+    notes: String(r.notes || '').trim(),
+    mapped_entity_type: String(r.mapped_entity_type || '').trim()
+  });
+
   const out = {};
   for (const l of ['political','asset','development','capital','delivery']) {
     const v = src[l];
-    if (Array.isArray(v)) out[l] = v;
-    else if (v && typeof v === 'object' && Array.isArray(v.roles)) out[l] = v.roles;
-    else out[l] = [];
+    const raw = Array.isArray(v) ? v : (v && typeof v === 'object' && Array.isArray(v.roles) ? v.roles : []);
+    out[l] = raw.map((r, idx) => normRole(r, l, idx));
   }
   return out;
 }
