@@ -1685,7 +1685,7 @@ app.get('/dashboard/review', async (req, res) => {
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review?page=1&pageSize=25">Paged View</a>
     </div>
     <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>ID</th><th>Title</th><th>Compact</th><th>Status</th><th>Linked Task</th><th>Created</th><th>By</th><th>File</th>${canAct?'<th>Actions</th>':''}</tr></thead><tbody>
-      ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td><a href="/dashboard/review/${encodeURIComponent(r.rp_id || '')}">${escapeHtml(r.title||'')}</a></td><td class="small" style="max-width:420px">${escapeHtml(r.compact||'—')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td>${canAct?`<td><div class="btn-group btn-group-sm"><button class="btn btn-outline-success" data-rp-action="approve" data-rp-id="${escapeHtml(r.rp_id||'')}">Approve</button><button class="btn btn-outline-warning" data-rp-action="reject" data-rp-id="${escapeHtml(r.rp_id||'')}">Reject</button><button class="btn btn-outline-secondary" data-rp-action="archive" data-rp-id="${escapeHtml(r.rp_id||'')}">Defer</button></div></td>`:''}</tr>`).join('')) || `<tr><td colspan="${canAct?9:8}">No review packets</td></tr>`}
+      ${(rps.map(r => `<tr><td>${escapeHtml(r.rp_id||'')}</td><td><a href="/dashboard/review/${encodeURIComponent(r.rp_id || '')}">${escapeHtml(r.title||'')}</a></td><td class="small" style="max-width:420px">${escapeHtml(r.compact||'—')}</td><td>${escapeHtml(r.status||'')}</td><td>${escapeHtml(r.linked_task||'')}</td><td class="mono small">${escapeHtml(r.created_at||'')}</td><td>${escapeHtml(r.created_by||'')}</td><td class="mono small">${escapeHtml(r.path||'')}</td>${canAct?`<td><div class="btn-group btn-group-sm"><button class="btn btn-outline-success" data-rp-action="approve" data-rp-id="${escapeHtml(r.rp_id||'')}" data-rp-path="${escapeHtml(r.path||'')}">Approve</button><button class="btn btn-outline-warning" data-rp-action="reject" data-rp-id="${escapeHtml(r.rp_id||'')}" data-rp-path="${escapeHtml(r.path||'')}">Reject</button><button class="btn btn-outline-secondary" data-rp-action="archive" data-rp-id="${escapeHtml(r.rp_id||'')}" data-rp-path="${escapeHtml(r.path||'')}">Defer</button></div></td>`:''}</tr>`).join('')) || `<tr><td colspan="${canAct?9:8}">No review packets</td></tr>`}
     </tbody></table></div></div>
 
     <div class="d-flex flex-wrap gap-2 align-items-center mt-2">
@@ -1705,12 +1705,13 @@ app.get('/dashboard/review', async (req, res) => {
       btn.addEventListener('click', async () => {
         const rpId = btn.getAttribute('data-rp-id');
         const action = btn.getAttribute('data-rp-action');
+        const rpPath = btn.getAttribute('data-rp-path') || '';
         if (!rpId || !action) return;
         const notes = prompt('Notes for ' + action + ' (optional):', '') || '';
         const res = await fetch('/api/review/' + encodeURIComponent(rpId) + '/' + action, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ architect_notes: notes })
+          body: JSON.stringify({ architect_notes: notes, path: rpPath })
         });
         if (!res.ok) {
           const t = await res.text();
@@ -1744,7 +1745,7 @@ app.get('/dashboard/review/:rpId', async (req, res) => {
       <h1 class="page-title">${escapeHtml(rp.front?.title || rpId)}</h1>
       <a class="btn btn-sm btn-outline-secondary" href="/dashboard/review">Back to list</a>
     </div>
-    ${canAct ? `<div class="card mb-3"><div class="card-body"><div class="row g-2 align-items-end"><div class="col-md-8"><label class="form-label">Decision Notes</label><textarea id="rpNotes" class="form-control" rows="2" placeholder="Optional notes for approve/reject/defer"></textarea></div><div class="col-md-4"><div class="btn-group w-100"><button class="btn btn-success" data-rp-action="approve" data-rp-id="${escapeHtml(rpId)}">Approve</button><button class="btn btn-warning" data-rp-action="reject" data-rp-id="${escapeHtml(rpId)}">Reject</button><button class="btn btn-secondary" data-rp-action="archive" data-rp-id="${escapeHtml(rpId)}">Defer</button></div></div></div></div></div>` : ''}
+    ${canAct ? `<div class="card mb-3"><div class="card-body"><div class="row g-2 align-items-end"><div class="col-md-8"><label class="form-label">Decision Notes</label><textarea id="rpNotes" class="form-control" rows="2" placeholder="Optional notes for approve/reject/defer"></textarea></div><div class="col-md-4"><div class="btn-group w-100"><button class="btn btn-success" data-rp-action="approve" data-rp-id="${escapeHtml(rpId)}" data-rp-path="${escapeHtml(rp.path || '')}">Approve</button><button class="btn btn-warning" data-rp-action="reject" data-rp-id="${escapeHtml(rpId)}" data-rp-path="${escapeHtml(rp.path || '')}">Reject</button><button class="btn btn-secondary" data-rp-action="archive" data-rp-id="${escapeHtml(rpId)}" data-rp-path="${escapeHtml(rp.path || '')}">Defer</button></div></div></div></div></div>` : ''}
     <div class="card mb-3"><div class="table-responsive"><table class="table table-sm align-middle"><tbody>${frontRows}</tbody></table></div></div>
     <div class="card"><div class="card-body markdown-body">${rendered}</div></div>
   </div>
@@ -1753,11 +1754,12 @@ app.get('/dashboard/review/:rpId', async (req, res) => {
       btn.addEventListener('click', async () => {
         const rpId = btn.getAttribute('data-rp-id');
         const action = btn.getAttribute('data-rp-action');
+        const rpPath = btn.getAttribute('data-rp-path') || '';
         const notes = (document.getElementById('rpNotes')?.value || '').trim();
         const res = await fetch('/api/review/' + encodeURIComponent(rpId) + '/' + action, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ architect_notes: notes })
+          body: JSON.stringify({ architect_notes: notes, path: rpPath })
         });
         if (!res.ok) {
           const t = await res.text();
@@ -4533,7 +4535,14 @@ async function parseRpFileById(rpId) {
   const files = (await fs.readdir(REVIEW_PACKET_ROOT).catch(() => []))
     .filter((f) => f.startsWith(rpId + '-'));
   if (!files.length) return null;
-  const full = path.join(REVIEW_PACKET_ROOT, files[0]);
+  let chosen = files[0];
+  let bestMtime = -1;
+  for (const f of files) {
+    const st = await fs.stat(path.join(REVIEW_PACKET_ROOT, f)).catch(() => null);
+    const mt = st ? new Date(st.mtime).getTime() : -1;
+    if (mt > bestMtime) { bestMtime = mt; chosen = f; }
+  }
+  const full = path.join(REVIEW_PACKET_ROOT, chosen);
   const txt = await fs.readFile(full, 'utf8');
   const m = txt.match(/^---\n([\s\S]*?)\n---/);
   const front = {};
@@ -4546,8 +4555,26 @@ async function parseRpFileById(rpId) {
   return { front, full, text: txt };
 }
 
-async function updateRpFrontmatter(rpId, patch) {
-  const parsed = await parseRpFileById(rpId);
+async function parseRpFileByPath(relPath) {
+  const rp = String(relPath || '').trim();
+  const abs = path.resolve(ROOT, rp);
+  const rootAbs = path.resolve(REVIEW_PACKET_ROOT);
+  if (!abs.startsWith(rootAbs)) return null;
+  const txt = await fs.readFile(abs, 'utf8').catch(() => null);
+  if (txt == null) return null;
+  const m = txt.match(/^---\n([\s\S]*?)\n---/);
+  const front = {};
+  if (m) {
+    for (const line of m[1].split('\n')) {
+      const i = line.indexOf(':');
+      if (i > 0) front[line.slice(0, i).trim()] = line.slice(i + 1).trim();
+    }
+  }
+  return { front, full: abs, text: txt };
+}
+
+async function updateRpFrontmatter(rpId, patch, relPath = '') {
+  const parsed = relPath ? await parseRpFileByPath(relPath) : await parseRpFileById(rpId);
   if (!parsed) throw new Error('RP not found');
   const nextFront = { ...parsed.front, ...patch };
   const rest = parsed.text.replace(/^---\n[\s\S]*?\n---\n?/, '');
@@ -6702,7 +6729,7 @@ app.post('/api/review/:rpId/approve', requireRole('architect'), async (req, res)
     status: 'Approved',
     architect_decision: 'Approve',
     architect_notes: String(req.body.architect_notes || 'Approved'),
-  });
+  }, String(req.body.path || ''));
 
   const board = await readJson(BOARD_FILE, defaultBoard());
   const t = board.tasks.find((x) => x.review_packet_id === rpId || x.id === rp.front.linked_task);
@@ -6728,7 +6755,7 @@ app.post('/api/review/:rpId/reject', requireRole('architect'), async (req, res) 
     status: 'Rejected',
     architect_decision: 'Reject',
     architect_notes: String(req.body.architect_notes || 'Rejected'),
-  });
+  }, String(req.body.path || ''));
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: 'architect', event_type: 'rp.reject', entity_type: 'review_packet', entity_id: rpId, meta: { path: updated.path } });
   await createSnapshot('rp.reject');
   res.json({ ok: true });
@@ -6738,7 +6765,7 @@ app.post('/api/review/:rpId/archive', requireRole('architect'), async (req, res)
   const rpId = String(req.params.rpId || '').trim();
   const rp = await parseRpFileById(rpId);
   if (!rp) return res.status(404).json({ error: 'rp not found' });
-  const updated = await updateRpFrontmatter(rpId, { status: 'Archived' });
+  const updated = await updateRpFrontmatter(rpId, { status: 'Archived' }, String(req.body.path || ''));
   await appendAuditEvent({ ts: nowIso(), actor: getUserLabel(req), role: 'architect', event_type: 'rp.archive', entity_type: 'review_packet', entity_id: rpId, meta: { path: updated.path } });
   await createSnapshot('rp.archive');
   res.json({ ok: true });
