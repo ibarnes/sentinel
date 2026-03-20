@@ -5248,24 +5248,38 @@ function normalizeActorAlignment(initiative = {}) {
     const rawSimple = Array.isArray(vSimple) ? vSimple : (vSimple && typeof vSimple === 'object' && Array.isArray(vSimple.roles) ? vSimple.roles : []);
 
     const merged = new Map();
-    rawSimple.map((raw, idx) => ({ raw, n: normRole(raw, l, idx) })).forEach(({ raw, n }) => {
+    const upsertRole = (raw, n) => {
       const explicitId = String(raw?.role_id || raw?.id || '').trim().toLowerCase();
-      const key = explicitId || `${l}:${(n.role_label || '').toLowerCase()}`;
-      merged.set(key, n);
-    });
-    rawRich.map((raw, idx) => ({ raw, n: normRole(raw, l, idx) })).forEach(({ raw, n }) => {
-      const explicitId = String(raw?.role_id || raw?.id || '').trim().toLowerCase();
-      const key = explicitId || `${l}:${(n.role_label || '').toLowerCase()}`;
-      const prev = merged.get(key) || {};
-      merged.set(key, {
+      const labelKey = `${l}:${(n.role_label || '').toLowerCase()}`;
+      // If same label already exists, always merge there (prevents duplicate when one copy has explicit ID and another doesn't)
+      const primaryKey = merged.has(labelKey) ? labelKey : (explicitId || labelKey);
+      const prev = merged.get(primaryKey) || {};
+      merged.set(primaryKey, {
         ...prev,
         ...n,
+        role_id: n.role_id || prev.role_id || '',
         role_label: n.role_label || prev.role_label || '',
         mapped_entity_ref: n.mapped_entity_ref || prev.mapped_entity_ref || '',
         notes: n.notes || prev.notes || '',
         role_definition: n.role_definition || prev.role_definition || ''
       });
-    });
+      // If we inserted with explicitId and a label entry also exists, collapse into label key
+      if (explicitId && explicitId !== labelKey && merged.has(explicitId) && merged.has(labelKey)) {
+        const a = merged.get(labelKey) || {};
+        const b = merged.get(explicitId) || {};
+        merged.set(labelKey, {
+          ...a,
+          ...b,
+          role_label: a.role_label || b.role_label || '',
+          notes: a.notes || b.notes || '',
+          role_definition: a.role_definition || b.role_definition || ''
+        });
+        merged.delete(explicitId);
+      }
+    };
+
+    rawSimple.map((raw, idx) => ({ raw, n: normRole(raw, l, idx) })).forEach(({ raw, n }) => upsertRole(raw, n));
+    rawRich.map((raw, idx) => ({ raw, n: normRole(raw, l, idx) })).forEach(({ raw, n }) => upsertRole(raw, n));
 
     out[l] = [...merged.values()];
   }
