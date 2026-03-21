@@ -1,0 +1,35 @@
+{
+  "version": "v1",
+  "gates": {
+    "Gate 0": {
+      "conditions": [
+        { "id": "platform_pressure_confirmed", "label": "Platform pressure confirmed", "field": "platform_pressure_confirmed", "type": "boolean" },
+        { "id": "capital_presence_confirmed", "label": "Capital presence confirmed", "field": "capital_presence_confirmed", "type": "boolean" },
+        { "id": "fid_definable", "label": "FID definability confirmed", "field": "fid_definable", "type": "boolean" },
+        { "id": "multi_actor_dependency_confirmed", "label": "Multi-actor dependency confirmed", "field": "multi_actor_dependency_confirmed", "type": "boolean" }
+      ]
+    },
+    "Gate 1": {
+      "conditions": [
+        { "id": "platform_defined", "label": "Platform defined", "field": "description", "type": "nonempty" },
+        { "id": "buyer_defined", "label": "Buyer defined", "field": "linked_buyers", "type": "array_nonempty" },
+        { "id": "structural_blockage_defined", "label": "Structural blockage defined", "field": "primary_constraint.name", "type": "nonempty" }
+      ]
+    },
+    "Gate 2": {
+      "requires_mandate": true,
+      "conditions": [
+        { "id": "information_completeness", "label": "Information completeness available", "field": "information_completeness_pct", "type": "number" },
+        { "id": "known_unknowns_listed", "label": "Known unknowns listed", "field": "known_unknowns", "type": "array_nonempty" }
+      ]
+    },
+    "Gate 3": {
+      "requires_mandate": true,
+      "conditions": [
+        { "id": "capital_stack_defined", "label": "Capital stack defined", "field": "capital_stack_defined", "type": "boolean" },
+        { "id": "decision_rights_defined", "label": "Decision rights defined", "field": "decision_rights_defined", "type": "boolean" },
+        { "id": "risk_allocation_defined", "label": "Risk allocation defined", "field": "risk_allocation_defined", "type": "boolean" }
+      ]
+    }
+  }
+}

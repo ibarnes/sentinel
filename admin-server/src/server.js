@@ -53,6 +53,7 @@ const DASHBOARD_MEETING_MINUTES_FILE = path.join(ROOT, 'dashboard', 'data', 'mee
 const DASHBOARD_STATE_TRANSITIONS_FILE = path.join(ROOT, 'dashboard', 'data', 'state_transitions.json');
 const DASHBOARD_STATE_DEFINITIONS_FILE = path.join(ROOT, 'dashboard', 'data', 'state_definitions.json');
 const DASHBOARD_STATE_CONSTRAINTS_FILE = path.join(ROOT, 'dashboard', 'data', 'state_constraints.json');
+const DASHBOARD_GATE_CONTROL_CHECKS_FILE = path.join(ROOT, 'dashboard', 'data', 'gate_control_checks.json');
 const DASHBOARD_TEAM_FILE = path.join(ROOT, 'dashboard', 'data', 'team.json');
 const DASHBOARD_CONTACT_PATHS_FILE = path.join(ROOT, 'dashboard', 'data', 'contact_paths.json');
 const DASHBOARD_DECISION_ARCH_FILE = path.join(ROOT, 'dashboard', 'data', 'decision_architecture.json');
@@ -2698,6 +2699,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
   const transitionsAll = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
   const constraintsAll = await readJson(DASHBOARD_STATE_CONSTRAINTS_FILE, []);
   const stateDefs = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
+  const gateChecks = await readJson(DASHBOARD_GATE_CONTROL_CHECKS_FILE, { gates: {} });
   const i = initiatives.find(x=>x.initiative_id===id);
   if(!i) return res.status(404).send('Initiative not found');
   const linkedBuyers = buyers.filter(b => (i.linked_buyers||[]).includes(b.buyer_id));
@@ -2819,12 +2821,17 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
 
   const stateSummaryBlock = `<div class="card mb-3"><div class="card-body"><div class="d-flex justify-content-between align-items-start flex-wrap gap-2"><div><h6 class="mb-1">State Transition Summary</h6><div class="small text-muted">State-aware command surface for this initiative</div></div><a class="btn btn-sm btn-outline-secondary" href="/dashboard/state-transitions?initiative=${encodeURIComponent(i.initiative_id)}">View All Transitions →</a></div><div class="mt-2"><strong>State:</strong> <code>${escapeHtml(currentState)}</code><br/><strong>Readiness:</strong> ${escapeHtml(String(readiness))} / ${escapeHtml(String(maxPossible))}${maxPossible > readiness ? ' (capped)' : ''}${lastDelta!=null ? ` <span class="small text-muted">Δ ${escapeHtml(String(lastDelta))}</span>` : ''}<br/><strong>Last Transition:</strong> ${escapeHtml(lastTransitionType)}${lastTransition ? ` (${escapeHtml(lastTransitionTs)})` : ' (none)'}${lastTransition?.id ? ` · <a href="/dashboard/state-transition/${encodeURIComponent(String(lastTransition.id))}">${escapeHtml(String(lastTransition.id))}</a>` : ''}<br/><strong>Confidence:</strong> ${escapeHtml(confidence)}</div>${regressionFlag ? `<div class="alert alert-warning mt-2 mb-2 py-2">⚠️ Regression detected (${escapeHtml(lastTransitionTs || 'recently')})</div>` : ''}<div><strong>Primary Constraint:</strong> ${escapeHtml(statePrimaryConstraint)}<br/><strong>Next Required State:</strong> ${escapeHtml(nextRequiredState)}<br/><strong>Next Required Transition:</strong> ${nextRequiredTransition !== '—' ? `<a href="/dashboard/state-transitions?initiative=${encodeURIComponent(i.initiative_id)}">${escapeHtml(nextRequiredTransition)}</a>` : '—'}<br/><strong>Critical Path:</strong> ${criticalPathYes ? 'YES' : 'NO'}${capReason && capReason !== '—' ? `<br/><span class="small text-muted">Cap reason: ${escapeHtml(capReason)}</span>` : ''}</div></div></div>`;
 
+  const gateAudit = evaluateInitiativeGateAudit(i, gateChecks);
+  const gateAuditRows = (gateAudit.rows || []).map((r) => `<tr><td>${escapeHtml(r.label)}</td><td>${r.ok ? '✅ Pass' : '❌ Fail'}</td><td class="small text-muted">${escapeHtml(typeof r.value === 'object' ? JSON.stringify(r.value) : String(r.value ?? ''))}</td></tr>`).join('') || '<tr><td colspan="3" class="text-muted">No gate checks defined for this gate.</td></tr>';
+  const gateAuditBlock = `<div class="card mb-3"><div class="card-body"><h6 class="mb-1">Gate Control Audit (${escapeHtml(gateAudit.gate)})</h6><div class="small text-muted mb-2">Reality conditions must pass before progression.</div><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Condition</th><th>Status</th><th>Observed</th></tr></thead><tbody>${gateAuditRows}</tbody></table></div></div></div>`;
+
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiative Detail')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/initiatives">← Initiatives</a>
     <div class="d-flex justify-content-between align-items-center mb-2"><h3 class="mb-0">${escapeHtml(i.name)}</h3>${canEdit ? `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a>` : ''}</div>
     ${(!i.mandate_signed || !i.fee_secured) ? `<div class="alert alert-warning py-2"><strong>Pre-Mandate (Positioning Only)</strong> — Gate 2+ progression blocked until mandate is signed and fee is secured.</div>` : ''}
     ${stateSummaryBlock}
+    ${gateAuditBlock}
     ${canEdit && editMode ? `<div class="card mb-3"><div class="card-body"><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/update" class="row g-2"><div class="col-md-6"><label class="form-label">Name</label><input class="form-control" name="name" value="${escapeHtml(i.name || '')}" required /></div><div class="col-md-3"><label class="form-label">Status</label><input class="form-control" name="status" value="${escapeHtml(i.status || '')}" /></div><div class="col-md-3"><label class="form-label">Infrastructure Type</label><input class="form-control" name="infrastructure_category" value="${escapeHtml(i.infrastructure_category || '')}" /></div><div class="col-12"><label class="form-label">Macro Gravity Summary (Markdown)</label><textarea class="form-control mono" name="macro_gravity_summary" rows="6" placeholder="# Strategic gravity\n- pressure\n- constraints\n- leverage">${escapeHtml(i.macro_gravity_summary || '')}</textarea><div class="form-text">Supports headings, bullets, bold/italic, inline code, and links.</div></div><div class="col-12"><label class="form-label">Initiative Stakeholders</label><div class="d-flex flex-wrap gap-2 mb-2"><button class="btn btn-sm btn-outline-primary" type="submit" formaction="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/apply-template">Apply Template</button><button class="btn btn-sm btn-outline-secondary" type="submit" formaction="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/apply-template" name="overwrite" value="true">Apply Template (Overwrite)</button></div><div class="border rounded p-2 small text-muted">Use “+ Add Actor Role” below to manage stakeholder roles. Raw JSON is hidden in normal workflow.</div></div><div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-primary" type="submit">Save Initiative</button><a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">Cancel</a></div></form></div></div><div class="card mb-3"><div class="card-body"><div class="d-flex justify-content-between align-items-center"><h6 class="mb-2">Actor Role Management</h6><span class="small text-muted">+ Add Actor Role</span></div><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/add" class="row g-2"><div class="col-md-2"><label class="form-label">Layer</label><select class="form-select form-select-sm" name="layer" required>${LAYERS.map((l)=>`<option value="${l}">${escapeHtml(LAYER_LABEL[l])}</option>`).join('')}</select></div><div class="col-md-3"><label class="form-label">Role</label><input class="form-control form-control-sm" name="role_label" list="commonRoleList" placeholder="e.g., Anchor Equity" required /><datalist id="commonRoleList"><option>Political Sponsor</option><option>Regulator</option><option>Asset Owner</option><option>Operator</option><option>Project Developer</option><option>Technical Integrator</option><option>Off-Taker</option><option>Anchor Equity</option><option>Development Finance Lender</option><option>Commercial Lender</option><option>EPC Contractor</option><option>Key Supplier / OEM</option></datalist></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select form-select-sm" name="status">${['missing','identified','validated','engaged','committed'].map((s)=>`<option value="${s}">${s}</option>`).join('')}</select></div><div class="col-md-2"><label class="form-label">Entity Type</label><select class="form-select form-select-sm" name="mapped_entity_type"><option value="">(none)</option><option>buyer</option><option>organization</option><option>team</option><option>regulator</option><option>operator</option><option>other</option></select></div><div class="col-md-3"><label class="form-label">Linked Entity</label><input class="form-control form-control-sm" name="mapped_entity_ref" list="entityPickerList" placeholder="Select from Actors/Buyers" /></div><div class="col-md-3"><label class="form-label">Role Definition</label><input class="form-control form-control-sm" name="role_definition" placeholder="What this role represents" /></div><div class="col-md-3"><label class="form-label">Notes</label><input class="form-control form-control-sm" name="notes" /></div><div class="col-md-2"><label class="form-label">Owner</label><input class="form-control form-control-sm" name="owner" placeholder="e.g., Tyreek" /></div><div class="col-md-2"><label class="form-label">Due</label><input class="form-control form-control-sm" type="date" name="due" /></div><div class="col-md-2 d-flex align-items-end"><div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="is_critical_role" id="criticalRoleTick" /><label class="form-check-label" for="criticalRoleTick">Critical</label></div></div><div class="col-md-2 d-flex align-items-end"><button class="btn btn-sm btn-primary w-100" type="submit">+ Add Actor Role</button></div></form></div></div><div class="card mb-3"><div class="card-body"><h6 class="mb-2">Update Existing Role</h6><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/update" class="row g-2"><div class="col-md-3"><label class="form-label">Role</label><select class="form-select form-select-sm" name="role_id" required>${rolesPrioritized.map((r)=>`<option value="${escapeHtml(String(r.role_id||''))}">[${escapeHtml(r.priority_tier || 'P4')}] ${escapeHtml(LAYER_LABEL[r.layer])} · ${escapeHtml(cleanRoleLabel(r.role_label) || r.role_id || 'Unnamed role')}</option>`).join('')}</select></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select form-select-sm" name="status">${['missing','identified','validated','engaged','committed'].map((s)=>`<option value="${s}">${s}</option>`).join('')}</select></div><div class="col-md-2"><label class="form-label">Entity Type</label><select class="form-select form-select-sm" name="mapped_entity_type"><option value="">(none)</option><option>buyer</option><option>organization</option><option>team</option><option>regulator</option><option>operator</option><option>other</option></select></div><div class="col-md-3"><label class="form-label">Linked Entity</label><input class="form-control form-control-sm" name="mapped_entity_ref" list="entityPickerList" /></div><div class="col-md-2"><label class="form-label">Owner</label><input class="form-control form-control-sm" name="owner" /></div><div class="col-md-2"><label class="form-label">Due</label><input class="form-control form-control-sm" type="date" name="due" /></div><div class="col-md-3"><label class="form-label">Role Definition</label><input class="form-control form-control-sm" name="role_definition" /></div><div class="col-md-3"><label class="form-label">Notes</label><input class="form-control form-control-sm" name="notes" /></div><div class="col-md-2 d-flex align-items-end"><div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="is_critical_role" id="criticalRoleTickUpdate" /><label class="form-check-label" for="criticalRoleTickUpdate">Critical</label></div></div><div class="col-md-2 d-flex align-items-end"><button class="btn btn-sm btn-outline-primary w-100" type="submit">Update Role</button></div></form></div></div><datalist id="entityPickerList">${entityOptions.map((o)=>`<option value="${escapeHtml(o.ref)}">${escapeHtml(o.label)} (${escapeHtml(o.type)})</option>`).join('')}</datalist>` : `<div class="markdown-body mb-2">${macroGravityRendered}</div>
     <p><strong>Status:</strong> ${escapeHtml(i.status || '')}</p>`}
     <details class="card mb-3"><summary class="card-header"><strong>Actor Alignment Map</strong> <span class="small text-muted ms-2">(collapsible)</span></summary><div class="card-body">
@@ -4274,7 +4281,38 @@ function stateOrder(defs = {}) {
   return map;
 }
 
-function evaluateBoardStateGate({ task, targetStatus, initiativesById, transitionsByInitiative, definitions }) {
+function getDeep(obj, pathStr) {
+  const parts = String(pathStr || '').split('.').filter(Boolean);
+  let cur = obj;
+  for (const p of parts) {
+    if (cur == null) return undefined;
+    cur = cur[p];
+  }
+  return cur;
+}
+
+function evaluateInitiativeGateAudit(initiative = {}, gateChecks = {}) {
+  const gate = String(initiative.gate_stage || 'Gate 0');
+  const spec = gateChecks?.gates?.[gate] || null;
+  const rows = [];
+  if (!spec) return { gate, rows, pass: true };
+  for (const c of (spec.conditions || [])) {
+    const val = getDeep(initiative, c.field);
+    let ok = false;
+    if (c.type === 'boolean') ok = val === true;
+    else if (c.type === 'nonempty') ok = String(val || '').trim().length > 0;
+    else if (c.type === 'array_nonempty') ok = Array.isArray(val) && val.length > 0;
+    else if (c.type === 'number') ok = typeof val === 'number' && Number.isFinite(val);
+    rows.push({ id: c.id, label: c.label, ok, value: val });
+  }
+  if (spec.requires_mandate) {
+    rows.push({ id: 'mandate_signed', label: 'Mandate signed', ok: !!initiative.mandate_signed, value: initiative.mandate_signed });
+    rows.push({ id: 'fee_secured', label: 'Fee secured', ok: !!initiative.fee_secured, value: initiative.fee_secured });
+  }
+  return { gate, rows, pass: rows.every((r) => r.ok) };
+}
+
+function evaluateBoardStateGate({ task, targetStatus, initiativesById, transitionsByInitiative, definitions, gateChecks }) {
   const requiredStateByBoard = {
     'Ready for Review': 'governance_ready',
     'Done': 'execution_ready'
@@ -4294,6 +4332,11 @@ function evaluateBoardStateGate({ task, targetStatus, initiativesById, transitio
   for (const iid of taskInitiatives) {
     const initiative = initiativesById.get(iid);
     if (!initiative) return { ok: false, reason: `initiative ${iid} not found` };
+    const gateAudit = evaluateInitiativeGateAudit(initiative, gateChecks || {});
+    if (!gateAudit.pass) {
+      const failed = (gateAudit.rows || []).filter((r) => !r.ok).map((r) => r.label).join(', ');
+      return { ok: false, reason: `${iid}: gate ${gateAudit.gate} conditions not satisfied (${failed})` };
+    }
     const currentState = String(initiative.current_state || initiative.state || '').trim();
     const curOrd = Number(order[currentState] || 0);
 
@@ -6527,6 +6570,7 @@ async function handleTaskMove(req, res, statusInput) {
       const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
       const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
       const definitions = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
+      const gateChecks = await readJson(DASHBOARD_GATE_CONTROL_CHECKS_FILE, { gates: {} });
       const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || '').toUpperCase(), i]));
       const transitionsByInitiative = new Map();
       for (const tr of (transitions || [])) {
@@ -6537,7 +6581,7 @@ async function handleTaskMove(req, res, statusInput) {
           transitionsByInitiative.get(iid).push(tr);
         }
       }
-      const gate = evaluateBoardStateGate({ task, targetStatus: status, initiativesById, transitionsByInitiative, definitions });
+      const gate = evaluateBoardStateGate({ task, targetStatus: status, initiativesById, transitionsByInitiative, definitions, gateChecks });
       if (gate && gate.ok === false) {
         return res.status(400).json({ error: `state gate blocked: ${gate.reason}` });
       }
@@ -6663,7 +6707,7 @@ app.post('/api/tasks/:id/request-approval', requireRole('architect', 'editor'), 
         transitionsByInitiative.get(iid).push(tr);
       }
     }
-    const gate = evaluateBoardStateGate({ task, targetStatus: 'Ready for Review', initiativesById, transitionsByInitiative, definitions });
+    const gate = evaluateBoardStateGate({ task, targetStatus: 'Ready for Review', initiativesById, transitionsByInitiative, definitions, gateChecks });
     if (gate && gate.ok === false) {
       return res.status(400).json({ error: `state gate blocked: ${gate.reason}` });
     }
@@ -6703,6 +6747,7 @@ app.post('/api/tasks/:id/approve', requireAnyAuth, async (req, res) => {
       const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
       const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
       const definitions = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
+      const gateChecks = await readJson(DASHBOARD_GATE_CONTROL_CHECKS_FILE, { gates: {} });
       const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || '').toUpperCase(), i]));
       const transitionsByInitiative = new Map();
       for (const tr of (transitions || [])) {
@@ -6713,7 +6758,7 @@ app.post('/api/tasks/:id/approve', requireAnyAuth, async (req, res) => {
           transitionsByInitiative.get(iid).push(tr);
         }
       }
-      const gate = evaluateBoardStateGate({ task, targetStatus: 'Done', initiativesById, transitionsByInitiative, definitions });
+      const gate = evaluateBoardStateGate({ task, targetStatus: 'Done', initiativesById, transitionsByInitiative, definitions, gateChecks });
       if (gate && gate.ok === false) {
         return res.status(400).json({ error: `state gate blocked: ${gate.reason}` });
       }
