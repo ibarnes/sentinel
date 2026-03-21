@@ -6847,5 +6847,182 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-21-GHANA-EWOYAA-LITHIUM-RATIFICATION-001",
+    "title": "Ghana reportedly ratifies Ewoyaa lithium mining lease tied to US supply-chain diversification",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-21T23:49:00Z",
+    "summary": "Social-captured reporting claims Ghana ratified the Ewoyaa lithium lease, positioning the project as a potential US-facing critical-minerals supply diversification node.",
+    "flow": "critical minerals demand + China concentration risk -> African lithium project ratification -> potential non-China battery supply corridor",
+    "verification_note": "Image-based social report; requires primary parliamentary/government and company filings for full verification.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Ghana Ewoyaa lithium claim)",
+        "url": "internal://isaac/telegram/media/2026-03-21-ghana-ewoyaa"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "ghana",
+      "lithium",
+      "critical-minerals",
+      "us-supply-chain",
+      "battery-materials",
+      "reported"
+    ],
+    "geography": [
+      "Ghana",
+      "Africa",
+      "United States"
+    ],
+    "country": "Ghana",
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "WORLDBANK",
+      "IFC",
+      "DFC",
+      "TEMASEK",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery",
+      "governance"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-21-SEC-NASDAQ-TOKENIZED-SECURITIES-CLAIM-001",
+    "title": "Claim circulating that SEC approved tokenized trading of all Nasdaq securities",
+    "signal_class": "Structural Ambiguity",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "unverified_claim",
+    "observed_at": "2026-03-21T23:49:00Z",
+    "summary": "A high-impact social claim states the SEC approved tokenized trading for all Nasdaq securities; this requires immediate primary-source validation before operational use.",
+    "flow": "tokenization narrative acceleration -> potential market-structure shift claim -> high misinformation risk without regulator/market operator confirmation",
+    "verification_note": "Unverified social claim from image capture; do not treat as confirmed policy/action until SEC and Nasdaq primary notices are found.",
+    "sources": [
+      {
+        "label": "User-provided image capture (SEC/Nasdaq tokenization claim)",
+        "url": "internal://isaac/telegram/media/2026-03-21-sec-nasdaq-tokenized-claim"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "sec",
+      "nasdaq",
+      "tokenization",
+      "market-structure",
+      "unverified-claim",
+      "misinformation-risk"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK",
+      "GIC",
+      "IFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "low",
+    "advances_hypothesis": false,
+    "blocks_hypothesis": false,
+    "watch_items": [
+      "SEC official release",
+      "Nasdaq official market notice",
+      "Broker-dealer/ATS implementation guidance"
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-03-21-INGA3-RDC-SA-TALKS-RESUME-001",
+    "title": "DRC and South Africa reportedly resume Inga 3 hydropower talks",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-21T23:49:00Z",
+    "summary": "Image-captured reporting indicates DRC and South Africa plan to resume Inga 3 talks, with potential 11GW generation and expanded cross-border export commitments.",
+    "flow": "regional power deficit + trade integration demand -> mega-hydropower project reactivation -> possible long-cycle transmission/export corridor dynamics",
+    "verification_note": "Reported via social image repost; requires primary ministry/utility statements and updated project financing terms.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Inga 3 talks resume claim)",
+        "url": "internal://isaac/telegram/media/2026-03-21-inga3-rdc-sa"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "drc",
+      "south-africa",
+      "inga3",
+      "hydropower",
+      "regional-power-trade",
+      "reported"
+    ],
+    "geography": [
+      "Democratic Republic of the Congo",
+      "South Africa",
+      "Africa"
+    ],
+    "country": "Democratic Republic of the Congo",
+    "buyer_ids": [
+      "AfDB",
+      "AFC",
+      "WORLDBANK",
+      "IFC",
+      "DFC",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "delivery"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "potential_generation_mw": 11000,
+      "reported_project_cost_usd": 10000000000,
+      "reported_export_mw_from": 2500,
+      "reported_export_mw_to": 5000
+    }
   }
 ]
