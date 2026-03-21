@@ -6680,5 +6680,172 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-21-US-RARE-EARTH-INDUSTRIAL-POLICY-VULCAN-001",
+    "title": "US rare-earth industrial policy momentum around Vulcan Elements financing stack",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-03-21T03:32:00Z",
+    "summary": "Social-captured narrative claims rapid valuation and policy-linked financing support around a US rare-earth magnet manufacturing buildout outside China, signaling strategic mineral-industrial policy acceleration.",
+    "flow": "critical mineral dependence risk -> policy/defense-backed financing and guarantees -> domestic rare-earth processing/manufacturing capacity build",
+    "verification_note": "Derived from social image capture with mixed claims; requires primary filing and official agency disclosures for full verification.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Vulcan Elements claim)",
+        "url": "internal://isaac/telegram/media/2026-03-21-vulcan-rare-earth"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "united-states",
+      "rare-earths",
+      "industrial-policy",
+      "critical-minerals",
+      "defense-finance",
+      "reported"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "DFC",
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "delivery"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-21-AFRICA-ENERGY-LEADERS-US-PARTNERSHIP-PUSH-001",
+    "title": "African energy leaders seek US partnership to address power shortages",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-21T03:32:00Z",
+    "summary": "Image-captured report indicates energy leaders from Nigeria and other African countries are engaging US stakeholders to mobilize funding and partnerships for generation, transmission, and distribution gaps.",
+    "flow": "persistent power deficit + financing gaps -> external partnership diplomacy -> potential blended-capital and technical cooperation channels",
+    "verification_note": "Reported from social image context; treat as directional until primary delegation communiqu\u00e9s are attached.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Africa-US energy partnership push)",
+        "url": "internal://isaac/telegram/media/2026-03-21-africa-energy-us-partnership"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "africa",
+      "nigeria",
+      "energy",
+      "us-partnership",
+      "power-shortage",
+      "blended-finance"
+    ],
+    "geography": [
+      "Africa",
+      "Nigeria",
+      "United States"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "AfDB",
+      "WORLDBANK",
+      "IFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "delivery"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-21-US-JAPAN-NUCLEAR-SMR-COOP-001",
+    "title": "US-Japan announced SMR/nuclear cooperation package (reported ~$40B)",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-03-21T03:32:00Z",
+    "summary": "Social-captured reporting cites a major US-Japan next-generation reactor cooperation package involving GE Vernova-Hitachi builds, signaling renewed nuclear baseload push tied to AI/electrification demand.",
+    "flow": "AI/electrification power demand -> policy-backed nuclear baseload expansion -> multinational industrial cooperation and capex cycle",
+    "verification_note": "Headline claims include multiple figures and timelines from social summary; keep as reported-with-caveats pending direct White House/official program documents.",
+    "sources": [
+      {
+        "label": "User-provided image capture (US-Japan SMR cooperation claim)",
+        "url": "internal://isaac/telegram/media/2026-03-21-us-japan-smr"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "united-states",
+      "japan",
+      "nuclear",
+      "smr",
+      "ge-vernova",
+      "hitachi",
+      "energy-transition"
+    ],
+    "geography": [
+      "United States",
+      "Japan"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK",
+      "GIC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery",
+      "governance"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
