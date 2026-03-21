@@ -2167,6 +2167,11 @@ app.get('/dashboard/state-transitions', async (req, res) => {
 
   overviewRows.sort((a, b) => Number(b.readiness || 0) - Number(a.readiness || 0));
 
+  const trunc = (v, n = 110) => {
+    const s = String(v || '');
+    return s.length > n ? `${s.slice(0, n - 1)}…` : s;
+  };
+
   const cards = sorted.slice(0, 25).map((t) => {
     const dt = String(t.timestamp || t.created_at || '').slice(0, 19).replace('T', ' ');
     const initiativesText = (t.initiative_ids || []).join(', ') || '—';
@@ -2176,7 +2181,12 @@ app.get('/dashboard/state-transitions', async (req, res) => {
     const conf = t.confidence == null ? '—' : String(t.confidence);
     const evidenceCount = Array.isArray(t.evidence) ? t.evidence.length : 0;
     const evidenceStrength = String(t.evidence_strength || '—');
-    return `<a class="card mb-3 text-decoration-none" style="color:inherit" href="/dashboard/state-transition/${encodeURIComponent(String(t.id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="font-size:1.05rem;color:var(--text-primary)">${escapeHtml(String(t.summary || t.id || 'State transition'))}</h6><div class="small text-muted mono">${escapeHtml(String(t.id || ''))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(dt || '—')}</div></div><div class="small mt-2" style="color:var(--text-primary)"><strong>${escapeHtml(fromState)}</strong> → <strong>${escapeHtml(toState)}</strong> · ${escapeHtml(ttype)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Initiatives:</strong> ${escapeHtml(initiativesText)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Evidence:</strong> ${escapeHtml(String(evidenceCount))} (${escapeHtml(evidenceStrength)}) · <strong>Confidence:</strong> ${escapeHtml(conf)}</div></div></a>`;
+    const fullTitle = String(t.summary || t.id || 'State transition');
+    const shortTitle = trunc(fullTitle, 115);
+    const fullId = String(t.id || '');
+    const shortId = trunc(fullId, 56);
+    const shortInitiatives = trunc(initiativesText, 90);
+    return `<a class="card mb-3 text-decoration-none" style="color:inherit" href="/dashboard/state-transition/${encodeURIComponent(String(t.id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div style="min-width:0;flex:1"><h6 class="mb-1" title="${escapeHtml(fullTitle)}" style="font-size:1.05rem;color:var(--text-primary);word-break:break-word;overflow-wrap:anywhere">${escapeHtml(shortTitle)}</h6><div class="small text-muted mono" title="${escapeHtml(fullId)}" style="word-break:break-word;overflow-wrap:anywhere">${escapeHtml(shortId)}</div></div><div class="small mono" style="color:var(--text-muted);white-space:nowrap">${escapeHtml(dt || '—')}</div></div><div class="small mt-2" style="color:var(--text-primary)"><strong>${escapeHtml(fromState)}</strong> → <strong>${escapeHtml(toState)}</strong> · ${escapeHtml(ttype)}</div><div class="small mt-1" style="color:var(--text-primary);word-break:break-word;overflow-wrap:anywhere" title="${escapeHtml(initiativesText)}"><strong>Initiatives:</strong> ${escapeHtml(shortInitiatives)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Evidence:</strong> ${escapeHtml(String(evidenceCount))} (${escapeHtml(evidenceStrength)}) · <strong>Confidence:</strong> ${escapeHtml(conf)}</div></div></a>`;
   }).join('');
 
   const stateDefs = Object.entries(defs?.states || {}).sort((a,b)=>Number(a[1]?.order||0)-Number(b[1]?.order||0)).map(([k, v]) => `<tr><td><code>${escapeHtml(k)}</code></td><td>${escapeHtml(String(v?.order || '—'))}</td><td>${v?.next_state ? `<code>${escapeHtml(k)}</code> → <code>${escapeHtml(String(v.next_state))}</code>` : '—'}</td><td><span class="badge text-bg-light border">${escapeHtml(String(v?.max_score_ceiling ?? '—'))}</span></td></tr>`).join('') || '<tr><td colspan="4" class="text-muted">No state definitions</td></tr>';
