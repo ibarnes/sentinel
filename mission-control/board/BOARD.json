@@ -3436,7 +3436,11 @@
         "mission-control/review-packets/RP-0070-board-build-window-night-2026-03-16.md",
         "mission-control/board/approval-queue/2026-03-16T03-10-00Z-tranche-j-approval-card.md",
         "TASK-0191",
-        "mission-control/review-packets/RP-0079-board-recovery-sweep-2026-03-19-0630.md"
+        "mission-control/review-packets/RP-0079-board-recovery-sweep-2026-03-19-0630.md",
+        "TASK-0203",
+        "TASK-0204",
+        "mission-control/review-packets/RP-0087-board-build-window-night-2026-03-21.md",
+        "mission-control/board/approval-queue/2026-03-21T03-10-00Z-tranche-q-approval-card.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3541,11 +3545,17 @@
           "author": "sentinel",
           "text": "Decomposition child TASK-0198 executed (late-night recovery stale-RFR tranche-P approval routing).",
           "created_at": "2026-03-20T06:30:00Z"
+        },
+        {
+          "id": "progress-0107-20260321-0310",
+          "author": "sentinel",
+          "text": "Night build window 2026-03-21T03:10Z: executed TASK-0203/TASK-0204 (tranche-Q decision digest + approval card, RP-0087). Awaiting Isaac approval decisions for oldest RFR set.",
+          "created_at": "2026-03-21T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-20T06:30:00Z",
+      "updated_at": "2026-03-21T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -7193,6 +7203,81 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0086"
+    },
+    {
+      "id": "TASK-0203",
+      "title": "BRS-2026-03-21a Build oldest-RFR tranche-Q decision digest",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/review-packets/RP-0087-board-build-window-night-2026-03-21.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Create a 12-item oldest Ready-for-Review decision digest (items >24h) with approve/hold recommendations and queue-age leverage ordering.",
+      "comments": [
+        {
+          "id": "done-0203-20260321-0310",
+          "author": "sentinel",
+          "text": "Published tranche-Q decision digest in RP-0087 for the oldest 12 Ready-for-Review items.",
+          "created_at": "2026-03-21T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-21T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0087-board-build-window-night-2026-03-21.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-21T03:10:00Z",
+      "updated_at": "2026-03-21T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0087"
+    },
+    {
+      "id": "TASK-0204",
+      "title": "BRS-2026-03-21b Publish tranche-Q approval routing card",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0203",
+        "mission-control/board/approval-queue/2026-03-21T03-10-00Z-tranche-q-approval-card.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Publish compact tranche-Q approval card with one-line Approve/Hold command format and governance guardrail.",
+      "comments": [
+        {
+          "id": "done-0204-20260321-0310",
+          "author": "sentinel",
+          "text": "Published tranche-Q approval routing card at mission-control/board/approval-queue/2026-03-21T03-10-00Z-tranche-q-approval-card.md.",
+          "created_at": "2026-03-21T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-21T03:10:00Z",
+      "updated_at": "2026-03-21T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
