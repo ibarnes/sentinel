@@ -2850,11 +2850,17 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-03-20T16:30Z: advanced TASK-0201/TASK-0202 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0086). Live credential execution still pending TASK-0159.",
           "created_at": "2026-03-20T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0097-20260321-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-03-21T10:40Z: advanced TASK-0207/TASK-0208 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0089). Live credential execution still pending TASK-0159.",
+          "created_at": "2026-03-21T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-20T16:30:00Z",
+      "updated_at": "2026-03-21T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3300,11 +3306,17 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-03-20T16:30Z: advanced TASK-0201/TASK-0202 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0086). Live credential execution still pending TASK-0159.",
           "created_at": "2026-03-20T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0103-20260321-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-03-21T10:40Z: TASK-0207/TASK-0208 completed and linked to RP-0089; blocker state unchanged pending live credentials for TASK-0159/TASK-0111.",
+          "created_at": "2026-03-21T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-20T16:30:00Z",
+      "updated_at": "2026-03-21T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3555,11 +3567,17 @@
           "author": "sentinel",
           "text": "Night build window 2026-03-21T03:10Z: executed TASK-0203/TASK-0204 (tranche-Q decision digest + approval card, RP-0087). Awaiting Isaac approval decisions for oldest RFR set.",
           "created_at": "2026-03-21T03:10:00Z"
+        },
+        {
+          "id": "progress-0107-20260321-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-03-21T10:40Z: continued P0 blocker-chain stream and advanced TASK-0207/TASK-0208 to Ready for Review (RP-0089); approval queue age pressure unchanged pending Isaac decisions.",
+          "created_at": "2026-03-21T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-21T06:30:00Z",
+      "updated_at": "2026-03-21T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -7333,6 +7351,91 @@
       "updated_at": "2026-03-21T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0207",
+      "title": "TS-H1.1c.2bc Capture sweep-time credential preflight artifact (morning execution sweep)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "morning-execution-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "mission-control/evidence/pipeline-run/preflight-2026-03-21T10-40-00Z.md"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "Generate fresh preflight artifact during morning sweep to prove current credential state before execution.\nAcceptance Criteria:\n- Preflight markdown artifact exists for this sweep.\n- Artifact explicitly states PASS/BLOCKED.\n- Path linked to parent blocker chain.",
+      "comments": [
+        {
+          "id": "done-0207-20260321-1040",
+          "author": "sentinel",
+          "text": "Generated sweep-time preflight artifact at mission-control/evidence/pipeline-run/preflight-2026-03-21T10-40-00Z.md (BLOCKED: missing BASE_URL + TEAM_SESSION_COOKIE).",
+          "created_at": "2026-03-21T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-21T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0089-board-execution-sweep-morning-2026-03-21.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-21T10:40:00Z",
+      "updated_at": "2026-03-21T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0089"
+    },
+    {
+      "id": "TASK-0208",
+      "title": "TS-H1.1c.2bd Run one-command credentialed wrapper dry-run and capture fail-fast evidence (morning)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "morning-execution-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credentialed-once.sh",
+        "mission-control/evidence/pipeline-run/2026-03-21T10-40-00Z-credentialed-wrapper-dryrun.md"
+      ],
+      "description": "Execute wrapper in no-credential mode to verify deterministic fail-fast behavior and provide operator-proof artifact for the next credential window.\nAcceptance Criteria:\n- Wrapper exits with missing-env error.\n- Output captured in timestamped markdown artifact.\n- Artifact linked in blocker chain.",
+      "comments": [
+        {
+          "id": "done-0208-20260321-1040",
+          "author": "sentinel",
+          "text": "Captured fail-fast dry-run evidence at mission-control/evidence/pipeline-run/2026-03-21T10-40-00Z-credentialed-wrapper-dryrun.md (expected missing credential env error).",
+          "created_at": "2026-03-21T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-21T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0089-board-execution-sweep-morning-2026-03-21.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-21T10:40:00Z",
+      "updated_at": "2026-03-21T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0089"
     }
   ]
 }
