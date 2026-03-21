@@ -339,3 +339,20 @@
 - Durable changes captured: RP-0080/RP-0081 blocker-chain evidence refresh and RP-0082 tranche-O approval-routing artifacts.
 - No new operating-rule changes.
 - No scoring-policy changes.
+
+# Project Status Snapshot (2026-03-21)
+- Board build window executed with decomposition gate + artifact-first governance intact.
+- New stale-RFR reduction tranche delivered:
+  - `TASK-0203` + `RP-0087` (tranche-Q decision digest for oldest 12 Ready-for-Review items >24h).
+  - `TASK-0204` (tranche-Q approval routing card).
+- Credentialed blocker chain remains unchanged:
+  - `TASK-0159` still requires live `BASE_URL` + `TEAM_SESSION_COOKIE` for one-pass credentialed execution.
+  - `TASK-0160` remains queued for post-PASS replay transitions.
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-21)
+- Daily log created at `memory/2026-03-21.md` and distilled into durable snapshot.
+- Durable changes captured: RP-0087 tranche-Q decision/routing artifacts and continued credentialed execution blocker status.
+- No new operating-rule changes.
+- No scoring-policy changes.
