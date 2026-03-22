@@ -954,7 +954,7 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
 <html><head>${uiHead('Dashboard')}</head><body>
   <div class="app-shell">
     ${dashboardNav('home')}
-    ${pageHeader('Operations Dashboard', '', 'Mission Control overview')}
+    ${pageHeader('Operations Dashboard', '', 'Mission Control overview · Build 2026-03-22.02')}
 
     <div class="row g-3 mb-3">
       <div class="col-12 col-md-6 col-xl-3">${statCard('Active Tasks', activeTaskCount, `Total: ${totalTaskCount}`)}</div>
