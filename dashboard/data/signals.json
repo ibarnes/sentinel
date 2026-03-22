@@ -7024,5 +7024,62 @@
       "reported_export_mw_from": 2500,
       "reported_export_mw_to": 5000
     }
+  },
+  {
+    "signal_id": "SIG-2026-03-22-NIGERIA-PROVIDUS-RECAP-COMPLIANCE-001",
+    "title": "Providus reportedly meets CBN regional-bank recapitalization threshold",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-22T00:28:00Z",
+    "summary": "Image-captured reporting indicates Providus met/surpassed the CBN recap threshold for a regional bank (reported N65bn vs N50bn requirement), signaling compliance progress within Nigeria's banking recap cycle.",
+    "flow": "regulatory recap pressure -> bank capital adequacy upgrades -> improved system resilience and lending/settlement confidence",
+    "verification_note": "Derived from user-provided image and outlet context; classify as reported pending primary CBN/bank filing confirmation.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Providus recap claim)",
+        "url": "internal://isaac/telegram/media/2026-03-22-providus-recap"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "cbn",
+      "bank-recapitalization",
+      "capital-adequacy",
+      "financial-system-resilience",
+      "reported"
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "IFC",
+      "WORLDBANK",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "reported_raised_ngn": 65000000000,
+      "reported_regional_threshold_ngn": 50000000000
+    }
   }
 ]
