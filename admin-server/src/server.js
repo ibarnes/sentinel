@@ -942,6 +942,8 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
   const state = await readJson(DASHBOARD_STATE_FILE, {});
   const liveBoard = await readJson(BOARD_FILE, defaultBoard());
   const boardCounts = Object.fromEntries(BOARD_COLUMNS.map((c) => [c, (liveBoard.tasks || []).filter((t) => t.status === c).length]));
+  const totalTaskCount = (liveBoard.tasks || []).length;
+  const activeTaskCount = (liveBoard.tasks || []).filter((t) => String(t.status || '').trim() !== 'Done').length;
   const packets = await listReviewPackets(300);
   const pendingRps = packets.filter((rp) => String(rp.status || '').toLowerCase() === 'ready for review').length;
   const recent = await readActivityEvents({ limit: 200 });
@@ -955,7 +957,7 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
     ${pageHeader('Operations Dashboard', '', 'Mission Control overview')}
 
     <div class="row g-3 mb-3">
-      <div class="col-12 col-md-6 col-xl-3">${statCard('Active Tasks', Object.values(boardCounts).reduce((a,b)=>a+Number(b||0),0))}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Active Tasks', activeTaskCount, `Total: ${totalTaskCount}`)}</div>
       <div class="col-12 col-md-6 col-xl-3">${statCard('Pending Review Packets', pendingRps)}</div>
       <div class="col-12 col-md-6 col-xl-3">${statCard('Latest UOS Publish', '-', escapeHtml(latestUosPublish))}</div>
       <div class="col-12 col-md-6 col-xl-3">${statCard('Last Updated', '-', escapeHtml(lastUpdatedLive))}</div>
