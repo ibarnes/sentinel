@@ -7157,5 +7157,61 @@
         }
       ]
     }
+  },
+  {
+    "signal_id": "SIG-2026-03-22-DANGOTE-REFINERY-AFRICA-FUEL-ALTERNATIVE-001",
+    "title": "Dangote Refinery reportedly sees regional demand surge as alternative fuel supply node",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-22T00:34:00Z",
+    "summary": "Image-captured reporting claims Dangote Refinery is receiving increased inquiries from African governments seeking refined product alternatives amid Iran-war-linked disruption concerns.",
+    "flow": "geopolitical supply disruption risk -> scramble for alternative refined-product sources -> rise in regional refining hub relevance (Nigeria)",
+    "verification_note": "Derived from social image and secondary outlet framing referencing Bloomberg; classify as reported pending primary Bloomberg/full-source confirmation.",
+    "sources": [
+      {
+        "label": "User-provided image capture (Nairametrics post referencing Bloomberg)",
+        "url": "internal://isaac/telegram/media/2026-03-22-dangote-fuel-alternative"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "dangote-refinery",
+      "fuel-security",
+      "geopolitical-disruption",
+      "africa-energy",
+      "reported"
+    ],
+    "geography": [
+      "Nigeria",
+      "Africa"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "AFC",
+      "AfDB",
+      "WORLDBANK",
+      "IFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "delivery",
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "image_capture_secondary",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
