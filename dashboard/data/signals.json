@@ -7081,5 +7081,81 @@
       "reported_raised_ngn": 65000000000,
       "reported_regional_threshold_ngn": 50000000000
     }
+  },
+  {
+    "signal_id": "SIG-2026-03-21-BEZOS-INDUSTRIAL-AI-ROLLUP-001",
+    "title": "Bezos reportedly explores ~$100B industrial AI rollup strategy",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "High",
+    "verification_status": "multi_source_confirmed",
+    "observed_at": "2026-03-21T00:00:00Z",
+    "summary": "Multi-source reporting indicates Jeff Bezos is exploring formation of an approximately $100B acquisition-and-transformation platform targeting industrial and manufacturing assets for AI/automation modernization.",
+    "flow": "large-scale capital formation -> industrial asset aggregation -> AI/automation overlay -> long-cycle physical-system productivity repricing",
+    "verification_note": "User-provided synthesis cites Tier-1 multi-source confirmation (Reuters/WSJ/TechCrunch/Forbes); treat as early capital-formation stage with target pipeline details still emerging.",
+    "sources": [
+      {
+        "label": "Isaac-provided multi-source synthesis (Reuters/WSJ/TechCrunch/Forbes)",
+        "url": "internal://isaac/telegram/2026-03-21-bezos-industrial-ai-rollup"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "bezos",
+      "industrial_ai",
+      "capital_shift",
+      "manufacturing",
+      "automation",
+      "platform_strategy"
+    ],
+    "geography": [
+      "Global"
+    ],
+    "country": "Global",
+    "buyer_ids": [
+      "PIF",
+      "ADQ",
+      "MUBADALA",
+      "GIC",
+      "TEMASEK",
+      "QIA",
+      "IFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture",
+      "delivery"
+    ],
+    "evidence_type": "tier1_multi_source_synthesis",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "estimated_size_usd": 100000000000,
+      "readiness_score": 0.55,
+      "expected_horizon": "3_to_10_year_execution_cycle"
+    },
+    "state_transition": {
+      "current_state": "capital_formation",
+      "next_state": "target_acquisition_identification",
+      "blocking_constraints": [
+        {
+          "constraint_id": "con_capital_commitment_not_finalized",
+          "type": "capital",
+          "severity": "high"
+        },
+        {
+          "constraint_id": "con_target_pipeline_not_public",
+          "type": "pipeline_visibility",
+          "severity": "medium"
+        }
+      ]
+    }
   }
 ]
