@@ -54,6 +54,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "weak",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -63,7 +68,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.819Z",
+    "updated_at": "2026-03-22T22:43:23.979Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -133,6 +138,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "weak",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -142,7 +152,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.823Z",
+    "updated_at": "2026-03-22T22:43:23.984Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -212,6 +222,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "present",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -221,7 +236,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_at": "2026-03-22T22:43:23.984Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -296,6 +311,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "present",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "replaceable",
       "notes": "Derived from mapped decision-architecture bench depth (3 seat actor(s))."
@@ -305,7 +325,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_at": "2026-03-22T22:43:23.984Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -380,6 +400,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "weak",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -389,7 +414,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_at": "2026-03-22T22:43:23.984Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -464,6 +489,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "present",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -473,7 +503,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_at": "2026-03-22T22:43:23.984Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -543,6 +573,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "present",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -552,7 +587,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_at": "2026-03-22T22:43:23.984Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -617,6 +652,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "present",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -626,7 +666,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_at": "2026-03-22T22:43:23.984Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -691,6 +731,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "geopolitical",
+      "status": "weak",
+      "description": "Cross-region strategic posture introduces geopolitical timing pressure."
+    },
     "dependency_risk": {
       "status": "replaceable",
       "notes": "Derived from mapped decision-architecture bench depth (3 seat actor(s))."
@@ -700,7 +745,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_at": "2026-03-22T22:43:23.985Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -765,6 +810,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "present",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -774,7 +824,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_at": "2026-03-22T22:43:23.985Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -839,6 +889,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "present",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -848,7 +903,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_at": "2026-03-22T22:43:23.985Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": []
   },
@@ -907,6 +962,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "capital_window",
+      "status": "present",
+      "description": "Capital deployment is linked to an approval/allocation window that can close."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -916,7 +976,7 @@
     "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
     "recommended_owner": "Signal Lead",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_at": "2026-03-22T22:43:23.985Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -981,6 +1041,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "competitive",
+      "status": "absent",
+      "description": "Competitive positioning pressure is present but not clearly time-bound."
+    },
     "dependency_risk": {
       "status": "replaceable",
       "notes": "Derived from mapped decision-architecture bench depth (3 seat actor(s))."
@@ -990,7 +1055,7 @@
     "next_action": "Define capital stack owner, tranche path, and deployability conditions.",
     "recommended_owner": "Capital Strategist",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.825Z",
+    "updated_at": "2026-03-22T22:43:23.985Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {
@@ -1065,6 +1130,11 @@
         "notes": "Decision clarity inferred from explicit next-transition definition."
       }
     },
+    "pressure_driver": {
+      "type": "competitive",
+      "status": "absent",
+      "description": "Competitive positioning pressure is present but not clearly time-bound."
+    },
     "dependency_risk": {
       "status": "singleton",
       "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
@@ -1074,7 +1144,7 @@
     "next_action": "Map approval chain and convert ask to authority-compliant decision packet.",
     "recommended_owner": "Executive Sponsor",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:02:34.825Z",
+    "updated_at": "2026-03-22T22:43:23.985Z",
     "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
     "intelligence_tasks": [
       {

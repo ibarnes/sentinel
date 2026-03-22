@@ -2481,7 +2481,7 @@ app.get('/dashboard/constraints', async (req, res) => {
     ${dashboardNav('constraints')}
     ${pageHeader('Buyer Seat Constraints', `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/constraints/export.json">Raw JSON</a>`, 'Canonical mandate blocker model (USG v1.0)')}
     <div class="mb-3 d-flex gap-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/constraints?show_test=${showTest ? '0' : '1'}">${showTest ? 'Hide' : 'Show'} Tests</a></div>
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Initiative</th><th>Buyer</th><th>Seat Stage</th><th>Seat Validity</th><th>Dominant Blocker</th><th>Dominant Degrader</th><th>Dependency Risk</th><th>Recommended Owner</th><th>Intelligence Tasks</th></tr></thead><tbody>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Initiative</th><th>Buyer</th><th>Seat Stage</th><th>Seat Validity</th><th>Pressure Driver</th><th>Dominant Blocker</th><th>Dominant Degrader</th><th>Dependency Risk</th><th>Recommended Owner</th><th>Intelligence Tasks</th></tr></thead><tbody>
       ${rows.map((r) => {
         const i = initiativeById.get(String(r.initiative_id || ''));
         const b = buyerById.get(String(r.buyer_id || ''));
@@ -2491,13 +2491,14 @@ app.get('/dashboard/constraints', async (req, res) => {
           <td>${escapeHtml(b?.name || r.buyer_id || '—')}</td>
           <td>${escapeHtml(String(r.buyer_seat_stage || '—'))}</td>
           <td>${seatBadge(r?.buyer_seat?.seat_validity)}</td>
+          <td><span class="badge text-bg-light border">${escapeHtml(String(r?.pressure_driver?.type || '—'))}</span><div class="small text-muted">${escapeHtml(String(r?.pressure_driver?.status || '—'))}</div></td>
           <td>${blockerBadge(r.dominant_blocker)}</td>
           <td>${blockerBadge(r.dominant_degrader)}</td>
           <td>${escapeHtml(String(r?.dependency_risk?.status || '—'))}</td>
           <td>${escapeHtml(String(r.recommended_owner || '—'))}</td>
           <td>${tasks > 0 ? `<span class="badge text-bg-warning">${tasks}</span>` : '<span class="badge text-bg-success">0</span>'}</td>
         </tr>`;
-      }).join('') || '<tr><td colspan="9" class="text-muted">No constraint records found.</td></tr>'}
+      }).join('') || '<tr><td colspan="10" class="text-muted">No constraint records found.</td></tr>'}
     </tbody></table></div>
   </div></body></html>`);
 });
@@ -2918,6 +2919,8 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
       </div>
       <div class="small mb-2"><strong>Recommended Owner:</strong> ${escapeHtml(String(seatConstraint.recommended_owner || '—'))}</div>
       <div class="small mb-2"><strong>Next Action:</strong> ${escapeHtml(String(seatConstraint.next_action || '—'))}</div>
+      <div class="small mb-1"><strong>Pressure Driver:</strong> ${escapeHtml(String(seatConstraint?.pressure_driver?.type || '—'))} (${escapeHtml(String(seatConstraint?.pressure_driver?.status || '—'))})</div>
+      <div class="small text-muted mb-2">${escapeHtml(String(seatConstraint?.pressure_driver?.description || ''))}</div>
       <div class="small mb-3"><strong>Dependency Risk:</strong> ${escapeHtml(String(seatConstraint?.dependency_risk?.status || '—'))}</div>
       <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Constraint</th><th>Status</th><th>Confidence</th><th>Evidence</th></tr></thead><tbody>
         ${constraintBadge('Authority', c.authority?.status, c.authority?.confidence, c.authority?.evidence_sufficiency)}

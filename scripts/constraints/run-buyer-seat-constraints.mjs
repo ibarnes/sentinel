@@ -84,6 +84,39 @@ function deriveBuyerSeat(initiative, buyer, decisionRows, contactRows) {
     return 0.4;
   })();
 
+  const pressureDriver = (() => {
+    const urgencyRaw = String(buyer?.pressure_factors?.timing_urgency || '').toLowerCase();
+    const capRaw = String(buyer?.transfer_chain?.payment_trigger || buyer?.transfer_chain?.budget_program || '').toLowerCase();
+    const geoRaw = String((buyer?.geo_focus || []).join(' ') || '').toLowerCase();
+    const roleRaw = String(buyer?.transfer_chain?.approval_authority || '').toLowerCase();
+
+    let type = 'competitive';
+    let status = 'weak';
+    let description = 'Competitive positioning pressure is present but not clearly time-bound.';
+
+    if (urgencyRaw.includes('high')) {
+      type = 'time-bound';
+      status = 'present';
+      description = 'Timing urgency is explicitly high; delay risks decision-window loss.';
+    } else if (capRaw.includes('approval') || capRaw.includes('committee') || capRaw.includes('allocation') || capRaw.includes('trigger')) {
+      type = 'capital_window';
+      status = pressureScore >= 0.5 ? 'present' : 'weak';
+      description = 'Capital deployment is linked to an approval/allocation window that can close.';
+    } else if (roleRaw.includes('regulator') || roleRaw.includes('policy')) {
+      type = 'regulatory';
+      status = pressureScore >= 0.5 ? 'present' : 'weak';
+      description = 'Regulatory or policy sequencing is a relevant pressure driver.';
+    } else if (geoRaw.includes('gulf') || geoRaw.includes('mena') || geoRaw.includes('africa')) {
+      type = 'geopolitical';
+      status = pressureScore >= 0.6 ? 'present' : pressureScore >= 0.4 ? 'weak' : 'absent';
+      description = 'Cross-region strategic posture introduces geopolitical timing pressure.';
+    } else {
+      status = pressureScore >= 0.7 ? 'present' : pressureScore >= 0.45 ? 'weak' : 'absent';
+    }
+
+    return { type, status, description };
+  })();
+
   const riskScore = hasField(initiative?.macro_gravity_summary) ? 0.6 : 0.35;
   const trustScore = (() => {
     const s = String(contact?.status || contact?.access_type || '').toLowerCase();
@@ -129,6 +162,7 @@ function deriveBuyerSeat(initiative, buyer, decisionRows, contactRows) {
       seat_validity: 'weak',
     },
     constraints,
+    pressure_driver: pressureDriver,
     dependency_risk: {
       status: dependencyStatus,
       notes: `Derived from mapped decision-architecture bench depth (${seatPeople.length} seat actor(s)).`,

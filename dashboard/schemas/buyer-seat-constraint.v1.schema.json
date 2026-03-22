@@ -55,6 +55,16 @@
       },
       "additionalProperties": false
     },
+    "pressure_driver": {
+      "type": "object",
+      "required": ["type", "status", "description"],
+      "properties": {
+        "type": { "type": "string", "enum": ["regulatory", "competitive", "time-bound", "capital_window", "geopolitical"] },
+        "status": { "type": "string", "enum": ["present", "weak", "absent"] },
+        "description": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
     "dependency_risk": {
       "type": "object",
       "required": ["status", "notes"],
