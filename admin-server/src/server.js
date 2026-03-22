@@ -1835,6 +1835,19 @@ app.get('/dashboard/uos', async (_req, res) => {
   </div></body></html>`);
 });
 
+
+
+app.get('/dashboard/events', async (req, res) => {
+  const events = await readEventLog(1000);
+  const limit = Number.isFinite(Number(req.query.limit)) ? Math.max(25, Math.min(500, Number(req.query.limit))) : 200;
+  const shown = events.slice(0, limit);
+  const rows = shown.map((e) => {
+    const ts = (e.at || '').replace('T', ' ').replace('Z', '');
+    return `<tr><td class="mono small">${escapeHtml(ts)}</td><td>${escapeHtml(e.actor || 'unknown')}</td><td>${escapeHtml(e.event || '')}</td></tr>`;
+  }).join('');
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Event Log')}</head><body><div class="app-shell">${dashboardNav('home')}<div class="d-flex justify-content-between align-items-center mb-2"><h1 class="page-title">Event Log</h1><a class="btn btn-sm btn-outline-secondary" href="/dashboard">Back</a></div><div class="mb-2 d-flex gap-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/events?limit=100">100</a><a class="btn btn-sm btn-outline-secondary" href="/dashboard/events?limit=200">200</a><a class="btn btn-sm btn-outline-secondary" href="/dashboard/events?limit=500">500</a></div><div class="card"><div class="card-body"><div class="small text-muted mb-2">Showing ${shown.length} of ${events.length}</div><div class="table-responsive"><table class="table table-sm align-middle mb-0"><thead><tr><th>TIME</th><th>ACTOR</th><th>EVENT</th></tr></thead><tbody>${rows}</tbody></table></div></div></div></div></body></html>`);
+});
+
 app.get('/dashboard/buyers', async (req, res) => {
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const sector = req.query.sector ? String(req.query.sector) : '';
@@ -2887,18 +2900,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
     </div></details>
     <details class="card mb-3"><summary class="card-header"><strong>Linked Buyers</strong></summary><div class="card-body"><ul class="mb-0">${linkedBuyers.map(b=>`<li>${escapeHtml(b.name)}</li>`).join('') || '<li class="text-muted">No linked buyers</li>'}</ul></div></details>
     <details class="card mb-3"><summary class="card-header"><strong>Decks</strong></summary><div class="card-body"><ul class="mb-0">${deckLinks.map(p=>`<li><a href="/${p}">${escapeHtml(p)}</a></li>`).join('') || '<li class="text-muted">No decks yet</li>'}</ul></div></details>
-    <details class="card mt-3"><summary class="card-header"><strong>Create Presentation</strong></summary><div class="card-body">
-      <form method="post" action="/api/presentations/generate" class="row g-2">
-        <input type="hidden" name="initiative_id" value="${escapeHtml(i.initiative_id)}" />
-        <div class="col-md-3"><label class="form-label">Type</label><select class="form-select" name="deck_type"><option value="utc-internal">UTC Internal</option><option value="buyer-mandate-mirror">Buyer Mandate Mirror</option></select></div>
-        <div class="col-md-3"><label class="form-label">Template</label><select class="form-select" name="template_id"><option>sovereign-memo</option><option>clean-minimal</option><option>blueprint</option><option>dark-institutional</option></select></div>
-        <div class="col-md-3"><label class="form-label">Image Provider</label><select class="form-select" name="image_provider"><option value="placeholder">Placeholder</option><option value="openai">OpenAI</option><option value="gemini">Gemini</option><option value="grok">Grok (xAI)</option></select></div>
-        <div class="col-md-3"><label class="form-label">Copy Provider</label><select class="form-select" name="copy_provider"><option value="local">Local Rewriter</option><option value="claude">Claude (Anthropic)</option></select></div>
-        <div class="col-md-3"><label class="form-label">Buyer (for mirror)</label><select class="form-select" name="buyer_id"><option value="">(none)</option>${linkedBuyers.map(b=>`<option ${b.buyer_id===buyer_id?'selected':''} value="${b.buyer_id}">${escapeHtml(b.buyer_id)}</option>`).join('')}</select></div>
-        <div class="col-12"><small class="text-muted">Reading level is locked to 8–9th grade.</small></div>
-        <div class="col-12"><button class="btn btn-primary">Generate</button></div>
-      </form>
-    </div></details>
+    <div class="card mt-3"><div class="card-body"><div class="d-flex justify-content-between align-items-center mb-2"><strong>Recent Events</strong><span class="small text-muted">Showing ${Math.min(10, events.length)} of ${events.length}</span></div><div class="table-responsive"><table class="table table-sm align-middle mb-0"><thead><tr><th>TIME</th><th>ACTOR</th><th>EVENT</th></tr></thead><tbody>${(events.slice(0,10).map((e)=>{ const ts=(e.at||'').replace('T',' ').replace('Z',''); return `<tr><td class="mono small">${escapeHtml(ts)}</td><td>${escapeHtml(e.actor||'unknown')}</td><td>${escapeHtml(e.event||'')}</td></tr>`; }).join(''))}</tbody></table></div><div class="mt-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/events">View full event log</a></div></div></div>
   </div>
   <script>
     (function setupPriorityTooltips(){
