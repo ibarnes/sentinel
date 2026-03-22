@@ -356,3 +356,24 @@
 - Durable changes captured: RP-0087 tranche-Q decision/routing artifacts and continued credentialed execution blocker status.
 - No new operating-rule changes.
 - No scoring-policy changes.
+
+# Project Status Snapshot (2026-03-22)
+- Heartbeat + signal monitoring surfaced a fresh qualifying pressure update after stale refresh:
+  - `run-if-stale.mjs` returned `status=refreshed`; new high-impact delta included `SIG-2026-03-21-SEC-NASDAQ-TOKENIZED-SECURITIES-CLAIM-001` (tokenized-Nasdaq claim) mapped to top-ranked buyers; posture kept verification-first due to low-confidence/misinformation risk.
+- Board execution cadence sustained with decomposition gate + artifact-first governance:
+  - Midday: `TASK-0209`/`TASK-0210` advanced to Ready for Review with `RP-0091` (`2b0cf76`).
+  - Night build: `TASK-0211`/`TASK-0212` executed (tranche-S decision digest + approval routing card) with `RP-0092` (`f3358e9`).
+- Buyer access graph pressure remains unresolved in top cohort:
+  - Missing decision-architecture coverage persists (`ADQ, AFC, MUBADALA, PIF, QIA, TEMASEK, WORLDBANK`).
+  - Stale warming paths persist (`PATH-NSIA-001`, `PATH-TAFF-FAISAL-NET-001`).
+- Credentialed blocker chain unchanged:
+  - `TASK-0159` / `TASK-0111` still require live `BASE_URL` + `TEAM_SESSION_COOKIE` before post-PASS replay (`TASK-0160`).
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-22)
+- Daily log created at `memory/2026-03-22.md` and distilled into durable snapshot.
+- Durable changes captured: signal-pressure refreshed delta alert (tokenized-Nasdaq claim), RP-0091/RP-0092 tranche artifacts, and unchanged credentialed execution blocker state.
+- No new operating-rule changes.
+- No scoring-policy changes.
+
