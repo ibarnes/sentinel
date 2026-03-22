@@ -716,6 +716,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
       <a class="nav-link ${is('actors')}" href="/dashboard/actors" title="Actors"><i data-lucide="contact-round" class="nav-icon"></i><span class="nav-label">Actors</span></a>
       <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
+      <a class="nav-link ${is('constraints')}" href="/dashboard/constraints" title="Constraints"><i data-lucide="shield-alert" class="nav-icon"></i><span class="nav-label">Constraints</span></a>
       <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
 
       <div class="oc-nav-group-label">Control</div>
@@ -2449,6 +2450,58 @@ app.get('/dashboard/initiatives/export.json', async (_req, res) => {
   res.type('application/json').send(JSON.stringify(initiatives, null, 2));
 });
 
+app.get('/dashboard/constraints/export.json', async (_req, res) => {
+  const rows = await readJson(path.join(ROOT, 'dashboard/data/buyer_seat_constraints.json'), []);
+  res.type('application/json').send(JSON.stringify(rows, null, 2));
+});
+
+app.get('/dashboard/constraints', async (req, res) => {
+  const initiativesRaw = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const constraints = await readJson(path.join(ROOT, 'dashboard/data/buyer_seat_constraints.json'), []);
+  const showTest = String(req.query.show_test || '0') === '1';
+  const initiatives = showTest ? initiativesRaw : initiativesRaw.filter((i) => !i?.is_test);
+
+  const initiativeById = new Map(initiatives.map((i) => [String(i.initiative_id), i]));
+  const buyerById = new Map(buyers.map((b) => [String(b.buyer_id), b]));
+
+  const rows = constraints
+    .filter((c) => initiativeById.has(String(c.initiative_id || '')))
+    .sort((a, b) => String(a.initiative_id || '').localeCompare(String(b.initiative_id || '')));
+
+  const seatBadge = (v) => {
+    const key = String(v || 'weak');
+    const cls = key === 'valid' ? 'success' : key === 'invalid' ? 'danger' : 'warning';
+    return `<span class="badge text-bg-${cls}">${escapeHtml(key)}</span>`;
+  };
+
+  const blockerBadge = (v) => v ? `<span class="badge text-bg-light border">${escapeHtml(v)}</span>` : '<span class="text-muted">—</span>';
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Constraints')}</head><body><div class="app-shell">
+    ${dashboardNav('constraints')}
+    ${pageHeader('Buyer Seat Constraints', `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/constraints/export.json">Raw JSON</a>`, 'Canonical mandate blocker model (USG v1.0)')}
+    <div class="mb-3 d-flex gap-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/constraints?show_test=${showTest ? '0' : '1'}">${showTest ? 'Hide' : 'Show'} Tests</a></div>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Initiative</th><th>Buyer</th><th>Seat Stage</th><th>Seat Validity</th><th>Dominant Blocker</th><th>Dominant Degrader</th><th>Dependency Risk</th><th>Recommended Owner</th><th>Intelligence Tasks</th></tr></thead><tbody>
+      ${rows.map((r) => {
+        const i = initiativeById.get(String(r.initiative_id || ''));
+        const b = buyerById.get(String(r.buyer_id || ''));
+        const tasks = Array.isArray(r.intelligence_tasks) ? r.intelligence_tasks.length : 0;
+        return `<tr>
+          <td><a href="/dashboard/initiative/${encodeURIComponent(String(r.initiative_id || ''))}">${escapeHtml(i?.name || r.initiative_id || '—')}</a><div class="small text-muted mono">${escapeHtml(String(r.initiative_id || ''))}</div></td>
+          <td>${escapeHtml(b?.name || r.buyer_id || '—')}</td>
+          <td>${escapeHtml(String(r.buyer_seat_stage || '—'))}</td>
+          <td>${seatBadge(r?.buyer_seat?.seat_validity)}</td>
+          <td>${blockerBadge(r.dominant_blocker)}</td>
+          <td>${blockerBadge(r.dominant_degrader)}</td>
+          <td>${escapeHtml(String(r?.dependency_risk?.status || '—'))}</td>
+          <td>${escapeHtml(String(r.recommended_owner || '—'))}</td>
+          <td>${tasks > 0 ? `<span class="badge text-bg-warning">${tasks}</span>` : '<span class="badge text-bg-success">0</span>'}</td>
+        </tr>`;
+      }).join('') || '<tr><td colspan="9" class="text-muted">No constraint records found.</td></tr>'}
+    </tbody></table></div>
+  </div></body></html>`);
+});
+
 app.get('/dashboard/buyer/:id', async (req, res) => {
   const id = String(req.params.id);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
@@ -2721,6 +2774,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
   const buyer_id = req.query.buyer_id ? String(req.query.buyer_id) : '';
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const buyerSeatConstraints = await readJson(path.join(ROOT, 'dashboard/data/buyer_seat_constraints.json'), []);
   const transitionsAll = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
   const constraintsAll = await readJson(DASHBOARD_STATE_CONSTRAINTS_FILE, []);
   const stateDefs = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
@@ -2728,6 +2782,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
   const i = initiatives.find(x=>x.initiative_id===id);
   if(!i) return res.status(404).send('Initiative not found');
   const linkedBuyers = buyers.filter(b => (i.linked_buyers||[]).includes(b.buyer_id));
+  const seatConstraint = buyerSeatConstraints.find((r) => String(r.initiative_id || '') === id) || null;
   const entityOptions = await loadActorEntityOptions();
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const editMode = String(req.query.edit || '') === '1';
@@ -2850,6 +2905,33 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
   const gateAuditRows = (gateAudit.rows || []).map((r) => `<tr><td>${escapeHtml(r.label)}</td><td>${r.ok ? '✅ Pass' : '❌ Fail'}</td><td class="small text-muted">${escapeHtml(typeof r.value === 'object' ? JSON.stringify(r.value) : String(r.value ?? ''))}</td></tr>`).join('') || '<tr><td colspan="3" class="text-muted">No gate checks defined for this gate.</td></tr>';
   const gateAuditBlock = `<div class="card mb-3"><div class="card-body"><h6 class="mb-1">Gate Control Audit (${escapeHtml(gateAudit.gate)})</h6><div class="small text-muted mb-2">Reality conditions must pass before progression.</div><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Condition</th><th>Status</th><th>Observed</th></tr></thead><tbody>${gateAuditRows}</tbody></table></div></div></div>`;
 
+  const constraintBadge = (label, status, confidence, evidence) => `<tr><td><strong>${escapeHtml(label)}</strong></td><td>${escapeHtml(String(status || '—'))}</td><td>${escapeHtml(String(confidence || '—'))}</td><td>${escapeHtml(String(evidence || '—'))}</td></tr>`;
+  const seatConstraintBlock = seatConstraint ? (() => {
+    const c = seatConstraint.constraints || {};
+    const tasks = Array.isArray(seatConstraint.intelligence_tasks) ? seatConstraint.intelligence_tasks : [];
+    return `<details class="card mb-3" open><summary class="card-header"><strong>Buyer Seat Constraint Model (USG v1.0)</strong></summary><div class="card-body">
+      <div class="row g-2 mb-2">
+        <div class="col-md-3"><div class="border rounded p-2"><div class="small text-muted">Seat Stage</div><div><strong>${escapeHtml(String(seatConstraint.buyer_seat_stage || '—'))}</strong></div></div></div>
+        <div class="col-md-3"><div class="border rounded p-2"><div class="small text-muted">Seat Validity</div><div><strong>${escapeHtml(String(seatConstraint?.buyer_seat?.seat_validity || '—'))}</strong></div></div></div>
+        <div class="col-md-3"><div class="border rounded p-2"><div class="small text-muted">Dominant Blocker</div><div><strong>${escapeHtml(String(seatConstraint.dominant_blocker || '—'))}</strong></div></div></div>
+        <div class="col-md-3"><div class="border rounded p-2"><div class="small text-muted">Dominant Degrader</div><div><strong>${escapeHtml(String(seatConstraint.dominant_degrader || '—'))}</strong></div></div></div>
+      </div>
+      <div class="small mb-2"><strong>Recommended Owner:</strong> ${escapeHtml(String(seatConstraint.recommended_owner || '—'))}</div>
+      <div class="small mb-2"><strong>Next Action:</strong> ${escapeHtml(String(seatConstraint.next_action || '—'))}</div>
+      <div class="small mb-3"><strong>Dependency Risk:</strong> ${escapeHtml(String(seatConstraint?.dependency_risk?.status || '—'))}</div>
+      <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Constraint</th><th>Status</th><th>Confidence</th><th>Evidence</th></tr></thead><tbody>
+        ${constraintBadge('Authority', c.authority?.status, c.authority?.confidence, c.authority?.evidence_sufficiency)}
+        ${constraintBadge('Capital Control', c.capital_control?.status, c.capital_control?.confidence, c.capital_control?.evidence_sufficiency)}
+        ${constraintBadge('Mandate Alignment', c.mandate_alignment?.status, c.mandate_alignment?.confidence, c.mandate_alignment?.evidence_sufficiency)}
+        ${constraintBadge('Urgency / Pressure', c.urgency_pressure?.status, c.urgency_pressure?.confidence, c.urgency_pressure?.evidence_sufficiency)}
+        ${constraintBadge('Risk Perception', c.risk_perception?.status, c.risk_perception?.confidence, c.risk_perception?.evidence_sufficiency)}
+        ${constraintBadge('Trust / Access', c.trust_access?.status, c.trust_access?.confidence, c.trust_access?.evidence_sufficiency)}
+        ${constraintBadge('Decision Clarity', c.decision_clarity?.status, c.decision_clarity?.confidence, c.decision_clarity?.evidence_sufficiency)}
+      </tbody></table></div>
+      <div><strong>Intelligence Tasks</strong><ul class="mb-0">${tasks.map((t) => `<li>${escapeHtml(String(t.task || ''))} <span class="text-muted">(${escapeHtml(String(t.constraint || ''))} · ${escapeHtml(String(t.priority || ''))})</span></li>`).join('') || '<li class="text-muted">None</li>'}</ul></div>
+    </div></details>`;
+  })() : `<details class="card mb-3"><summary class="card-header"><strong>Buyer Seat Constraint Model (USG v1.0)</strong></summary><div class="card-body"><div class="text-muted">No constraint record found for this initiative. Run <code>node scripts/constraints/run-buyer-seat-constraints.mjs</code>.</div></div></details>`;
+
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiative Detail')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/initiatives">← Initiatives</a>
@@ -2857,6 +2939,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
     ${(!i.mandate_signed || !i.fee_secured) ? `<div class="alert alert-warning py-2"><strong>Pre-Mandate (Positioning Only)</strong> — Gate 2+ progression blocked until mandate is signed and fee is secured.</div>` : ''}
     ${stateSummaryBlock}
     ${gateAuditBlock}
+    ${seatConstraintBlock}
     ${canEdit && editMode ? `<div class="card mb-3"><div class="card-body"><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/update" class="row g-2"><div class="col-md-6"><label class="form-label">Name</label><input class="form-control" name="name" value="${escapeHtml(i.name || '')}" required /></div><div class="col-md-3"><label class="form-label">Status</label><input class="form-control" name="status" value="${escapeHtml(i.status || '')}" /></div><div class="col-md-3"><label class="form-label">Infrastructure Type</label><input class="form-control" name="infrastructure_category" value="${escapeHtml(i.infrastructure_category || '')}" /></div><div class="col-12"><label class="form-label">Macro Gravity Summary (Markdown)</label><textarea class="form-control mono" name="macro_gravity_summary" rows="6" placeholder="# Strategic gravity\n- pressure\n- constraints\n- leverage">${escapeHtml(i.macro_gravity_summary || '')}</textarea><div class="form-text">Supports headings, bullets, bold/italic, inline code, and links.</div></div><div class="col-12"><label class="form-label">Initiative Stakeholders</label><div class="d-flex flex-wrap gap-2 mb-2"><button class="btn btn-sm btn-outline-primary" type="submit" formaction="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/apply-template">Apply Template</button><button class="btn btn-sm btn-outline-secondary" type="submit" formaction="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/apply-template" name="overwrite" value="true">Apply Template (Overwrite)</button></div><div class="border rounded p-2 small text-muted">Use “+ Add Actor Role” below to manage stakeholder roles. Raw JSON is hidden in normal workflow.</div></div><div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-primary" type="submit">Save Initiative</button><a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">Cancel</a></div></form></div></div><div class="card mb-3"><div class="card-body"><div class="d-flex justify-content-between align-items-center"><h6 class="mb-2">Actor Role Management</h6><span class="small text-muted">+ Add Actor Role</span></div><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/add" class="row g-2"><div class="col-md-2"><label class="form-label">Layer</label><select class="form-select form-select-sm" name="layer" required>${LAYERS.map((l)=>`<option value="${l}">${escapeHtml(LAYER_LABEL[l])}</option>`).join('')}</select></div><div class="col-md-3"><label class="form-label">Role</label><input class="form-control form-control-sm" name="role_label" list="commonRoleList" placeholder="e.g., Anchor Equity" required /><datalist id="commonRoleList"><option>Political Sponsor</option><option>Regulator</option><option>Asset Owner</option><option>Operator</option><option>Project Developer</option><option>Technical Integrator</option><option>Off-Taker</option><option>Anchor Equity</option><option>Development Finance Lender</option><option>Commercial Lender</option><option>EPC Contractor</option><option>Key Supplier / OEM</option></datalist></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select form-select-sm" name="status">${['missing','identified','validated','engaged','committed'].map((s)=>`<option value="${s}">${s}</option>`).join('')}</select></div><div class="col-md-2"><label class="form-label">Entity Type</label><select class="form-select form-select-sm" name="mapped_entity_type"><option value="">(none)</option><option>buyer</option><option>organization</option><option>team</option><option>regulator</option><option>operator</option><option>other</option></select></div><div class="col-md-3"><label class="form-label">Linked Entity</label><input class="form-control form-control-sm" name="mapped_entity_ref" list="entityPickerList" placeholder="Select from Actors/Buyers" /></div><div class="col-md-3"><label class="form-label">Role Definition</label><input class="form-control form-control-sm" name="role_definition" placeholder="What this role represents" /></div><div class="col-md-3"><label class="form-label">Notes</label><input class="form-control form-control-sm" name="notes" /></div><div class="col-md-2"><label class="form-label">Owner</label><input class="form-control form-control-sm" name="owner" placeholder="e.g., Tyreek" /></div><div class="col-md-2"><label class="form-label">Due</label><input class="form-control form-control-sm" type="date" name="due" /></div><div class="col-md-2 d-flex align-items-end"><div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="is_critical_role" id="criticalRoleTick" /><label class="form-check-label" for="criticalRoleTick">Critical</label></div></div><div class="col-md-2 d-flex align-items-end"><button class="btn btn-sm btn-primary w-100" type="submit">+ Add Actor Role</button></div></form></div></div><div class="card mb-3"><div class="card-body"><h6 class="mb-2">Update Existing Role</h6><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/actor-roles/update" class="row g-2"><div class="col-md-3"><label class="form-label">Role</label><select class="form-select form-select-sm" name="role_id" required>${rolesPrioritized.map((r)=>`<option value="${escapeHtml(String(r.role_id||''))}">[${escapeHtml(r.priority_tier || 'P4')}] ${escapeHtml(LAYER_LABEL[r.layer])} · ${escapeHtml(cleanRoleLabel(r.role_label) || r.role_id || 'Unnamed role')}</option>`).join('')}</select></div><div class="col-md-2"><label class="form-label">Status</label><select class="form-select form-select-sm" name="status">${['missing','identified','validated','engaged','committed'].map((s)=>`<option value="${s}">${s}</option>`).join('')}</select></div><div class="col-md-2"><label class="form-label">Entity Type</label><select class="form-select form-select-sm" name="mapped_entity_type"><option value="">(none)</option><option>buyer</option><option>organization</option><option>team</option><option>regulator</option><option>operator</option><option>other</option></select></div><div class="col-md-3"><label class="form-label">Linked Entity</label><input class="form-control form-control-sm" name="mapped_entity_ref" list="entityPickerList" /></div><div class="col-md-2"><label class="form-label">Owner</label><input class="form-control form-control-sm" name="owner" /></div><div class="col-md-2"><label class="form-label">Due</label><input class="form-control form-control-sm" type="date" name="due" /></div><div class="col-md-3"><label class="form-label">Role Definition</label><input class="form-control form-control-sm" name="role_definition" /></div><div class="col-md-3"><label class="form-label">Notes</label><input class="form-control form-control-sm" name="notes" /></div><div class="col-md-2 d-flex align-items-end"><div class="form-check mb-1"><input class="form-check-input" type="checkbox" name="is_critical_role" id="criticalRoleTickUpdate" /><label class="form-check-label" for="criticalRoleTickUpdate">Critical</label></div></div><div class="col-md-2 d-flex align-items-end"><button class="btn btn-sm btn-outline-primary w-100" type="submit">Update Role</button></div></form></div></div><datalist id="entityPickerList">${entityOptions.map((o)=>`<option value="${escapeHtml(o.ref)}">${escapeHtml(o.label)} (${escapeHtml(o.type)})</option>`).join('')}</datalist>` : `<div class="markdown-body mb-2">${macroGravityRendered}</div>
     <p><strong>Status:</strong> ${escapeHtml(i.status || '')}</p>`}
     <details class="card mb-3"><summary class="card-header"><strong>Actor Alignment Map</strong> <span class="small text-muted ms-2">(collapsible)</span></summary><div class="card-body">
