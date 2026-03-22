@@ -2503,6 +2503,39 @@ app.get('/dashboard/constraints', async (req, res) => {
   </div></body></html>`);
 });
 
+app.get('/dashboard/initiative/:id/export.json', async (req, res) => {
+  const id = String(req.params.id || '');
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const contactPaths = await readJson(DASHBOARD_CONTACT_PATHS_FILE, []);
+  const decisionArch = await readJson(DASHBOARD_DECISION_ARCH_FILE, []);
+  const buyerSeatConstraints = await readJson(path.join(ROOT, 'dashboard/data/buyer_seat_constraints.json'), []);
+
+  const initiative = initiatives.find((x) => String(x.initiative_id || '') === id);
+  if (!initiative) return res.status(404).type('application/json').send(JSON.stringify({ error: 'Initiative not found', initiative_id: id }, null, 2));
+
+  const linkedBuyerIds = Array.isArray(initiative.linked_buyers) ? initiative.linked_buyers : [];
+  const linkedBuyers = buyers.filter((b) => linkedBuyerIds.includes(b.buyer_id));
+  const linkedSignals = signals.filter((s) => Array.isArray(s?.initiative_ids) && s.initiative_ids.includes(id));
+  const linkedContactPaths = contactPaths.filter((p) => linkedBuyerIds.includes(String(p.buyer_id || '')));
+  const linkedDecisionArchitecture = decisionArch.filter((d) => linkedBuyerIds.includes(String(d.buyer_id || '')));
+  const seatConstraint = buyerSeatConstraints.find((r) => String(r.initiative_id || '') === id) || null;
+
+  const out = {
+    initiative,
+    linked_buyer_ids: linkedBuyerIds,
+    linked_buyers: linkedBuyers,
+    linked_signals: linkedSignals,
+    linked_contact_paths: linkedContactPaths,
+    linked_decision_architecture: linkedDecisionArchitecture,
+    buyer_seat_constraint: seatConstraint,
+    exported_at: nowIso(),
+  };
+
+  res.type('application/json').send(JSON.stringify(out, null, 2));
+});
+
 app.get('/dashboard/buyer/:id', async (req, res) => {
   const id = String(req.params.id);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
@@ -2938,7 +2971,7 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiative Detail')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
     <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/initiatives">← Initiatives</a>
-    <div class="d-flex justify-content-between align-items-center mb-2"><h3 class="mb-0">${escapeHtml(i.name)}</h3>${canEdit ? `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a>` : ''}</div>
+    <div class="d-flex justify-content-between align-items-center mb-2"><h3 class="mb-0">${escapeHtml(i.name)}</h3><div class="d-flex gap-2">${canEdit ? `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a>` : ''}<a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}/export.json">Get JSON</a></div></div>
     ${(!i.mandate_signed || !i.fee_secured) ? `<div class="alert alert-warning py-2"><strong>Pre-Mandate (Positioning Only)</strong> — Gate 2+ progression blocked until mandate is signed and fee is secured.</div>` : ''}
     ${stateSummaryBlock}
     ${gateAuditBlock}
