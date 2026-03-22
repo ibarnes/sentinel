@@ -1,0 +1,1107 @@
+[
+  {
+    "initiative_id": "INIT-001",
+    "buyer_id": "PIF",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Public Investment Fund",
+      "capital_range": "6–12 months",
+      "capital_type": "Investment Program Allocation",
+      "authority_type": "PIF Investment Committee",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "native",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "no_pressure",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "unclear",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "direct_trust",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "open_loop",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "authority",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.819Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "urgency_pressure",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade urgency_pressure from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "decision_clarity",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade decision_clarity from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-653305",
+    "buyer_id": "PIF",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Public Investment Fund",
+      "capital_range": "6–12 months",
+      "capital_type": "Investment Program Allocation",
+      "authority_type": "PIF Investment Committee",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "adjacent",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "no_pressure",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "unclear",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "direct_trust",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "open_loop",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "authority",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.823Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "urgency_pressure",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade urgency_pressure from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "decision_clarity",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade decision_clarity from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-AI-OPT-A",
+    "buyer_id": "FMF-NG",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Federal Ministry of Finance (Nigeria)",
+      "capital_range": "9–18 months",
+      "capital_type": "Fiscal Allocation",
+      "authority_type": "Federal Executive Council / Budget Office",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "adjacent",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "latent_pressure",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "too_high",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "no_access",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "open_loop",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "authority",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "risk_perception",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade risk_perception from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "trust_access",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade trust_access from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "decision_clarity",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade decision_clarity from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-AI-OPT-B",
+    "buyer_id": "DFC",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Chief Executive Officer",
+      "capital_range": "3-6+ months",
+      "capital_type": "Debt, equity, guarantees, project preparation",
+      "authority_type": "DFC Investment Committee",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "unconstrained",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "native",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "latent_pressure",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "too_high",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "no_access",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "open_loop",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "replaceable",
+      "notes": "Derived from mapped decision-architecture bench depth (3 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "risk_perception",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "risk_perception",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade risk_perception from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "trust_access",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade trust_access from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "decision_clarity",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade decision_clarity from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-AI-OPT-C",
+    "buyer_id": "PIF",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Public Investment Fund",
+      "capital_range": "6–12 months",
+      "capital_type": "Investment Program Allocation",
+      "authority_type": "PIF Investment Committee",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "native",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "no_pressure",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "too_high",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "direct_trust",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "open_loop",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "authority",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "urgency_pressure",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade urgency_pressure from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "risk_perception",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade risk_perception from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "decision_clarity",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade decision_clarity from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-AI-OPT-D",
+    "buyer_id": "AFC",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Africa Finance Corporation",
+      "capital_range": "3–6 months",
+      "capital_type": "Project Preparation",
+      "authority_type": "AFC Investment Committee",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "native",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "latent_pressure",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "too_high",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "direct_trust",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "open_loop",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "authority",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "risk_perception",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade risk_perception from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "decision_clarity",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade decision_clarity from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
+    "buyer_id": "FMF-NG",
+    "buyer_seat_stage": "fid",
+    "buyer_seat": {
+      "description": "Federal Ministry of Finance (Nigeria)",
+      "capital_range": "9–18 months",
+      "capital_type": "Fiscal Allocation",
+      "authority_type": "Federal Executive Council / Budget Office",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "adjacent",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "latent_pressure",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "unclear",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "no_access",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "binary_clear",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "authority",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "trust_access",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade trust_access from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-AP-AI-FACTORY-001",
+    "buyer_id": "GIC",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Gulf Investment Corporation",
+      "capital_range": "6–12 months",
+      "capital_type": "Investment Program Allocation",
+      "authority_type": "GIC Investment Committee",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "adjacent",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "latent_pressure",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "unclear",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "no_access",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "binary_clear",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "authority",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "trust_access",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade trust_access from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "buyer_id": "TAFF",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Family principal / strategic capital allocator",
+      "capital_range": "1–3 months once alignment confirmed",
+      "capital_type": "Family principal capital allocation",
+      "authority_type": "Family principal decision",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "unconstrained",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "adjacent",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "no_pressure",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "unclear",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "direct_trust",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "binary_clear",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "replaceable",
+      "notes": "Derived from mapped decision-architecture bench depth (3 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "mandate_alignment",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "urgency_pressure",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade urgency_pressure from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-GRAVITY-001",
+    "buyer_id": "ADQ",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "ADQ",
+      "capital_range": "6–12 months",
+      "capital_type": "Sovereign investment allocation",
+      "authority_type": "ADQ Investment Committee",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "adjacent",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "latent_pressure",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "unclear",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "no_access",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "binary_clear",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "authority",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "trust_access",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade trust_access from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-653306",
+    "buyer_id": "AFC",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Africa Finance Corporation",
+      "capital_range": "3–6 months",
+      "capital_type": "Project Preparation",
+      "authority_type": "AFC Investment Committee",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "adjacent",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "latent_pressure",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "unclear",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "direct_trust",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "binary_clear",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "authority",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": []
+  },
+  {
+    "initiative_id": "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
+    "buyer_id": "ADQ",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "ADQ",
+      "capital_range": "6–12 months",
+      "capital_type": "Sovereign investment allocation",
+      "authority_type": "ADQ Investment Committee",
+      "seat_validity": "weak"
+    },
+    "constraints": {
+      "authority": {
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "aligned",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "adjacent",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "latent_pressure",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "unclear",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "no_access",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "binary_clear",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "urgency_pressure",
+    "dominant_degrader": "authority",
+    "next_action": "Create time-bound pressure memo with trigger events and consequence window.",
+    "recommended_owner": "Signal Lead",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.824Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "trust_access",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade trust_access from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
+    "buyer_id": "USVI-RECOVERY-AUTHORITY",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Director",
+      "capital_range": "Unknown",
+      "capital_type": "Unspecified",
+      "authority_type": "Unspecified",
+      "seat_validity": "invalid"
+    },
+    "constraints": {
+      "authority": {
+        "status": "unconstrained",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "absent",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "adjacent",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "no_pressure",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "too_high",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "direct_trust",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "binary_clear",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "replaceable",
+      "notes": "Derived from mapped decision-architecture bench depth (3 seat actor(s))."
+    },
+    "dominant_blocker": "capital_control",
+    "dominant_degrader": "mandate_alignment",
+    "next_action": "Define capital stack owner, tranche path, and deployability conditions.",
+    "recommended_owner": "Capital Strategist",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.825Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "capital_control",
+        "priority": "high",
+        "task": "Collect first-party evidence to upgrade capital_control from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "urgency_pressure",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade urgency_pressure from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "risk_perception",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade risk_perception from missing evidence to partial/sufficient."
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "buyer_id": "AWS",
+    "buyer_seat_stage": "anchor",
+    "buyer_seat": {
+      "description": "Primary buyer seat",
+      "capital_range": "Unknown",
+      "capital_type": "Unspecified",
+      "authority_type": "Unspecified",
+      "seat_validity": "invalid"
+    },
+    "constraints": {
+      "authority": {
+        "status": "blocked",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+      },
+      "capital_control": {
+        "status": "absent",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+      },
+      "mandate_alignment": {
+        "status": "out_of_scope",
+        "confidence": "low",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+      },
+      "urgency_pressure": {
+        "status": "no_pressure",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+      },
+      "risk_perception": {
+        "status": "too_high",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+      },
+      "trust_access": {
+        "status": "no_access",
+        "confidence": "low",
+        "evidence_sufficiency": "missing",
+        "notes": "Trust/access inferred from active contact path quality and freshness."
+      },
+      "decision_clarity": {
+        "status": "binary_clear",
+        "confidence": "high",
+        "evidence_sufficiency": "sufficient",
+        "notes": "Decision clarity inferred from explicit next-transition definition."
+      }
+    },
+    "dependency_risk": {
+      "status": "singleton",
+      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+    },
+    "dominant_blocker": "authority",
+    "dominant_degrader": "capital_control",
+    "next_action": "Map approval chain and convert ask to authority-compliant decision packet.",
+    "recommended_owner": "Executive Sponsor",
+    "model_version": "usg_buyer_seat_constraints_v1.0",
+    "updated_at": "2026-03-22T22:02:34.825Z",
+    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "intelligence_tasks": [
+      {
+        "constraint": "authority",
+        "priority": "high",
+        "task": "Collect first-party evidence to upgrade authority from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "capital_control",
+        "priority": "high",
+        "task": "Collect first-party evidence to upgrade capital_control from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "urgency_pressure",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade urgency_pressure from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "risk_perception",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade risk_perception from missing evidence to partial/sufficient."
+      },
+      {
+        "constraint": "trust_access",
+        "priority": "medium",
+        "task": "Collect first-party evidence to upgrade trust_access from missing evidence to partial/sufficient."
+      }
+    ]
+  }
+]

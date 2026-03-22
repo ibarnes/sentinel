@@ -1,0 +1,39 @@
+{
+  "model_version": "usg_buyer_seat_constraints_v1.0",
+  "green_states": {
+    "authority": ["unconstrained"],
+    "capital_control": ["aligned"],
+    "mandate_alignment": ["native"],
+    "urgency_pressure": ["high_pressure"],
+    "risk_perception": ["acceptable"],
+    "trust_access": ["direct_trust"],
+    "decision_clarity": ["binary_clear"]
+  },
+  "hard_blockers": {
+    "authority": ["blocked"],
+    "capital_control": ["absent"],
+    "mandate_alignment": ["out_of_scope"]
+  },
+  "hard_blocker_order": ["authority", "capital_control", "mandate_alignment"],
+  "conversion_blocker_order": ["urgency_pressure", "risk_perception", "trust_access", "decision_clarity"],
+  "recommended_owner_by_constraint": {
+    "authority": "Executive Sponsor",
+    "capital_control": "Capital Strategist",
+    "mandate_alignment": "Mandate Architect",
+    "urgency_pressure": "Signal Lead",
+    "risk_perception": "Risk Lead",
+    "trust_access": "Relationship Owner",
+    "decision_clarity": "Deal Lead",
+    "dependency_risk": "Portfolio Lead"
+  },
+  "next_action_templates": {
+    "authority": "Map approval chain and convert ask to authority-compliant decision packet.",
+    "capital_control": "Define capital stack owner, tranche path, and deployability conditions.",
+    "mandate_alignment": "Produce mandate-bridge narrative with precedent and downside protection.",
+    "urgency_pressure": "Create time-bound pressure memo with trigger events and consequence window.",
+    "risk_perception": "Issue risk-compression brief with mitigation owners and proof artifacts.",
+    "trust_access": "Open direct path to seat via strongest warm conduit and credibility proof.",
+    "decision_clarity": "Rewrite ask into binary mandate decision with explicit yes/no threshold.",
+    "dependency_risk": "Build alternate-seat plan with at least one validated substitute path."
+  }
+}

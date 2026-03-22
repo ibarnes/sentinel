@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://usg.local/schemas/buyer-seat-constraint.v1.schema.json",
+  "title": "USG Buyer Seat Constraint Model v1.0",
+  "type": "object",
+  "required": [
+    "initiative_id",
+    "buyer_seat_stage",
+    "buyer_seat",
+    "constraints",
+    "dependency_risk",
+    "dominant_blocker",
+    "dominant_degrader",
+    "next_action",
+    "model_version"
+  ],
+  "properties": {
+    "initiative_id": { "type": "string", "minLength": 1 },
+    "buyer_id": { "type": "string" },
+    "buyer_seat_stage": {
+      "type": "string",
+      "enum": ["anchor", "mandate_fee", "pre_fid", "fid", "strategic_follow_on"]
+    },
+    "buyer_seat": {
+      "type": "object",
+      "required": ["description", "capital_range", "capital_type", "authority_type", "seat_validity"],
+      "properties": {
+        "description": { "type": "string" },
+        "capital_range": { "type": "string" },
+        "capital_type": { "type": "string" },
+        "authority_type": { "type": "string" },
+        "seat_validity": { "type": "string", "enum": ["valid", "weak", "invalid"] }
+      },
+      "additionalProperties": true
+    },
+    "constraints": {
+      "type": "object",
+      "required": [
+        "authority",
+        "capital_control",
+        "mandate_alignment",
+        "urgency_pressure",
+        "risk_perception",
+        "trust_access",
+        "decision_clarity"
+      ],
+      "properties": {
+        "authority": { "$ref": "#/$defs/authorityConstraint" },
+        "capital_control": { "$ref": "#/$defs/capitalControlConstraint" },
+        "mandate_alignment": { "$ref": "#/$defs/mandateAlignmentConstraint" },
+        "urgency_pressure": { "$ref": "#/$defs/urgencyConstraint" },
+        "risk_perception": { "$ref": "#/$defs/riskConstraint" },
+        "trust_access": { "$ref": "#/$defs/trustConstraint" },
+        "decision_clarity": { "$ref": "#/$defs/decisionConstraint" }
+      },
+      "additionalProperties": false
+    },
+    "dependency_risk": {
+      "type": "object",
+      "required": ["status", "notes"],
+      "properties": {
+        "status": { "type": "string", "enum": ["replaceable", "thin_bench", "singleton"] },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "dominant_blocker": { "type": "string" },
+    "dominant_degrader": { "type": "string" },
+    "next_action": { "type": "string" },
+    "recommended_owner": { "type": "string" },
+    "intelligence_tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["constraint", "task", "priority"],
+        "properties": {
+          "constraint": { "type": "string" },
+          "task": { "type": "string" },
+          "priority": { "type": "string", "enum": ["high", "medium", "low"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "updated_at": { "type": "string" },
+    "updated_by": { "type": "string" },
+    "model_version": { "type": "string", "const": "usg_buyer_seat_constraints_v1.0" }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "baseConstraint": {
+      "type": "object",
+      "required": ["status", "confidence", "evidence_sufficiency", "notes"],
+      "properties": {
+        "status": { "type": "string" },
+        "confidence": { "type": "string", "enum": ["high", "medium", "low"] },
+        "evidence_sufficiency": { "type": "string", "enum": ["sufficient", "partial", "missing"] },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "authorityConstraint": {
+      "allOf": [
+        { "$ref": "#/$defs/baseConstraint" },
+        { "properties": { "status": { "enum": ["unconstrained", "partial", "blocked"] } } }
+      ]
+    },
+    "capitalControlConstraint": {
+      "allOf": [
+        { "$ref": "#/$defs/baseConstraint" },
+        { "properties": { "status": { "enum": ["aligned", "fragmented", "absent"] } } }
+      ]
+    },
+    "mandateAlignmentConstraint": {
+      "allOf": [
+        { "$ref": "#/$defs/baseConstraint" },
+        { "properties": { "status": { "enum": ["native", "adjacent", "out_of_scope"] } } }
+      ]
+    },
+    "urgencyConstraint": {
+      "allOf": [
+        { "$ref": "#/$defs/baseConstraint" },
+        { "properties": { "status": { "enum": ["high_pressure", "latent_pressure", "no_pressure"] } } }
+      ]
+    },
+    "riskConstraint": {
+      "allOf": [
+        { "$ref": "#/$defs/baseConstraint" },
+        { "properties": { "status": { "enum": ["acceptable", "unclear", "too_high"] } } }
+      ]
+    },
+    "trustConstraint": {
+      "allOf": [
+        { "$ref": "#/$defs/baseConstraint" },
+        { "properties": { "status": { "enum": ["direct_trust", "proxied", "no_access"] } } }
+      ]
+    },
+    "decisionConstraint": {
+      "allOf": [
+        { "$ref": "#/$defs/baseConstraint" },
+        { "properties": { "status": { "enum": ["binary_clear", "fuzzy", "open_loop"] } } }
+      ]
+    }
+  }
+}
