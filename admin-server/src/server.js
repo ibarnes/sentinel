@@ -2511,6 +2511,7 @@ app.get('/dashboard/initiative/:id/export.json', async (req, res) => {
   const contactPaths = await readJson(DASHBOARD_CONTACT_PATHS_FILE, []);
   const decisionArch = await readJson(DASHBOARD_DECISION_ARCH_FILE, []);
   const buyerSeatConstraints = await readJson(path.join(ROOT, 'dashboard/data/buyer_seat_constraints.json'), []);
+  const orchestratorConnectionMap = await readJson(path.join(ROOT, 'dashboard/data/orchestrator_connection_map.json'), []);
 
   const initiative = initiatives.find((x) => String(x.initiative_id || '') === id);
   if (!initiative) return res.status(404).type('application/json').send(JSON.stringify({ error: 'Initiative not found', initiative_id: id }, null, 2));
@@ -2521,6 +2522,7 @@ app.get('/dashboard/initiative/:id/export.json', async (req, res) => {
   const linkedContactPaths = contactPaths.filter((p) => linkedBuyerIds.includes(String(p.buyer_id || '')));
   const linkedDecisionArchitecture = decisionArch.filter((d) => linkedBuyerIds.includes(String(d.buyer_id || '')));
   const seatConstraint = buyerSeatConstraints.find((r) => String(r.initiative_id || '') === id) || null;
+  const orchestratorConnections = orchestratorConnectionMap.find((r) => String(r.initiative_id || '') === id) || null;
 
   const out = {
     initiative,
@@ -2530,6 +2532,7 @@ app.get('/dashboard/initiative/:id/export.json', async (req, res) => {
     linked_contact_paths: linkedContactPaths,
     linked_decision_architecture: linkedDecisionArchitecture,
     buyer_seat_constraint: seatConstraint,
+    orchestrator_connections: orchestratorConnections,
     exported_at: nowIso(),
   };
 

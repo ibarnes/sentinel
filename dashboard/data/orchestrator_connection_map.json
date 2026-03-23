@@ -1,0 +1,54 @@
+[
+  {
+    "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "seat_stage": "mandate_fee",
+    "focus_rule": "Map connections to lead orchestrators outside Alpha Wave",
+    "lead_orchestrators": [
+      {
+        "name": "Alpha Wave",
+        "relationship_status": "covered",
+        "path_owner": "Wade",
+        "notes": "Existing relationship already in place."
+      },
+      {
+        "name": "Temasek",
+        "relationship_status": "unmapped",
+        "path_owner": "TBD",
+        "notes": "Priority mapping target."
+      },
+      {
+        "name": "KKR",
+        "relationship_status": "unmapped",
+        "path_owner": "TBD",
+        "notes": "Priority mapping target."
+      },
+      {
+        "name": "Stonepeak",
+        "relationship_status": "unmapped",
+        "path_owner": "TBD",
+        "notes": "Priority mapping target."
+      },
+      {
+        "name": "GIP",
+        "relationship_status": "unmapped",
+        "path_owner": "TBD",
+        "notes": "Priority mapping target."
+      },
+      {
+        "name": "General Atlantic",
+        "relationship_status": "unmapped",
+        "path_owner": "TBD",
+        "notes": "Priority mapping target."
+      }
+    ],
+    "capital_stack_layers": {
+      "credibility_anchor": ["AFC"],
+      "strategic_power": ["Mubadala", "ADQ"],
+      "acceleration_layer": ["NVIDIA ecosystem"],
+      "future_tenant_later": ["AWS", "Google"],
+      "co_investment_layer": ["Family offices"]
+    },
+    "updated_at": "2026-03-23T00:24:00Z",
+    "updated_by": "approved_by_isaac"
+  }
+]

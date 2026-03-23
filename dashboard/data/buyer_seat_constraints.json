@@ -5,7 +5,7 @@
     "buyer_seat_stage": "anchor",
     "buyer_seat": {
       "description": "Public Investment Fund",
-      "capital_range": "6–12 months",
+      "capital_range": "6\u201312 months",
       "capital_type": "Investment Program Allocation",
       "authority_type": "PIF Investment Committee",
       "seat_validity": "weak"
@@ -89,7 +89,7 @@
     "buyer_seat_stage": "anchor",
     "buyer_seat": {
       "description": "Public Investment Fund",
-      "capital_range": "6–12 months",
+      "capital_range": "6\u201312 months",
       "capital_type": "Investment Program Allocation",
       "authority_type": "PIF Investment Committee",
       "seat_validity": "weak"
@@ -173,7 +173,7 @@
     "buyer_seat_stage": "anchor",
     "buyer_seat": {
       "description": "Federal Ministry of Finance (Nigeria)",
-      "capital_range": "9–18 months",
+      "capital_range": "9\u201318 months",
       "capital_type": "Fiscal Allocation",
       "authority_type": "Federal Executive Council / Budget Office",
       "seat_validity": "weak"
@@ -351,7 +351,7 @@
     "buyer_seat_stage": "anchor",
     "buyer_seat": {
       "description": "Public Investment Fund",
-      "capital_range": "6–12 months",
+      "capital_range": "6\u201312 months",
       "capital_type": "Investment Program Allocation",
       "authority_type": "PIF Investment Committee",
       "seat_validity": "weak"
@@ -440,7 +440,7 @@
     "buyer_seat_stage": "anchor",
     "buyer_seat": {
       "description": "Africa Finance Corporation",
-      "capital_range": "3–6 months",
+      "capital_range": "3\u20136 months",
       "capital_type": "Project Preparation",
       "authority_type": "AFC Investment Committee",
       "seat_validity": "weak"
@@ -524,7 +524,7 @@
     "buyer_seat_stage": "fid",
     "buyer_seat": {
       "description": "Federal Ministry of Finance (Nigeria)",
-      "capital_range": "9–18 months",
+      "capital_range": "9\u201318 months",
       "capital_type": "Fiscal Allocation",
       "authority_type": "Federal Executive Council / Budget Office",
       "seat_validity": "weak"
@@ -603,7 +603,7 @@
     "buyer_seat_stage": "anchor",
     "buyer_seat": {
       "description": "Gulf Investment Corporation",
-      "capital_range": "6–12 months",
+      "capital_range": "6\u201312 months",
       "capital_type": "Investment Program Allocation",
       "authority_type": "GIC Investment Committee",
       "seat_validity": "weak"
@@ -682,7 +682,7 @@
     "buyer_seat_stage": "anchor",
     "buyer_seat": {
       "description": "Family principal / strategic capital allocator",
-      "capital_range": "1–3 months once alignment confirmed",
+      "capital_range": "1\u20133 months once alignment confirmed",
       "capital_type": "Family principal capital allocation",
       "authority_type": "Family principal decision",
       "seat_validity": "weak"
@@ -761,7 +761,7 @@
     "buyer_seat_stage": "anchor",
     "buyer_seat": {
       "description": "ADQ",
-      "capital_range": "6–12 months",
+      "capital_range": "6\u201312 months",
       "capital_type": "Sovereign investment allocation",
       "authority_type": "ADQ Investment Committee",
       "seat_validity": "weak"
@@ -840,7 +840,7 @@
     "buyer_seat_stage": "anchor",
     "buyer_seat": {
       "description": "Africa Finance Corporation",
-      "capital_range": "3–6 months",
+      "capital_range": "3\u20136 months",
       "capital_type": "Project Preparation",
       "authority_type": "AFC Investment Committee",
       "seat_validity": "weak"
@@ -913,7 +913,7 @@
     "buyer_seat_stage": "anchor",
     "buyer_seat": {
       "description": "ADQ",
-      "capital_range": "6–12 months",
+      "capital_range": "6\u201312 months",
       "capital_type": "Sovereign investment allocation",
       "authority_type": "ADQ Investment Committee",
       "seat_validity": "weak"
@@ -1077,101 +1077,136 @@
   },
   {
     "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
-    "buyer_id": "AWS",
-    "buyer_seat_stage": "anchor",
+    "buyer_id": "ANGOLA-SOVEREIGN-AI-CAPITAL",
+    "buyer_seat_stage": "mandate_fee",
     "buyer_seat": {
-      "description": "Primary buyer seat",
-      "capital_range": "Unknown",
-      "capital_type": "Unspecified",
-      "authority_type": "Unspecified",
-      "seat_validity": "invalid"
+      "description": "Capital allocator tied to Angola sovereign balance sheet or strategic AI capital, funding the $100M unlock before hyperscaler entry",
+      "capital_range": "$100M unlock step (pre-hyperscaler)",
+      "capital_type": "Mandate fee + pre-FID milestone capital",
+      "authority_type": "Sovereign-linked strategic allocator with pre-FID mandate authority",
+      "seat_validity": "weak"
     },
     "constraints": {
       "authority": {
-        "status": "blocked",
-        "confidence": "low",
-        "evidence_sufficiency": "missing",
-        "notes": "Authority inferred from decision architecture influence and approval chain evidence."
+        "status": "partial",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Sovereign-linked allocator seat identified; final sign-off path still committee-influenced."
       },
       "capital_control": {
-        "status": "absent",
-        "confidence": "low",
-        "evidence_sufficiency": "missing",
-        "notes": "Capital control inferred from buyer transfer-chain deployability fields."
+        "status": "fragmented",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Mandate economics are defined, but full orchestrator-led stack still being assembled."
       },
       "mandate_alignment": {
-        "status": "out_of_scope",
-        "confidence": "low",
+        "status": "adjacent",
+        "confidence": "medium",
         "evidence_sufficiency": "partial",
-        "notes": "Mandate fit inferred from initiative category vs buyer sector focus."
+        "notes": "AI campus pre-hyperscaler unlock is strategic but requires explicit mandate framing."
       },
       "urgency_pressure": {
-        "status": "no_pressure",
-        "confidence": "low",
-        "evidence_sufficiency": "missing",
-        "notes": "Urgency inferred from buyer pressure factors and timing signals."
+        "status": "high_pressure",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Window is before hyperscaler entry; delay weakens positioning and economics."
       },
       "risk_perception": {
-        "status": "too_high",
-        "confidence": "low",
-        "evidence_sufficiency": "missing",
-        "notes": "Risk stance inferred from initiative clarity and macro-gravity articulation."
+        "status": "unclear",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Perceived execution risk remains until orchestrator bench + stack credibility are locked."
       },
       "trust_access": {
-        "status": "no_access",
-        "confidence": "low",
-        "evidence_sufficiency": "missing",
-        "notes": "Trust/access inferred from active contact path quality and freshness."
+        "status": "proxied",
+        "confidence": "medium",
+        "evidence_sufficiency": "partial",
+        "notes": "Alpha Wave path exists via Wade; additional orchestrator paths still need direct mapping."
       },
       "decision_clarity": {
         "status": "binary_clear",
         "confidence": "high",
         "evidence_sufficiency": "sufficient",
-        "notes": "Decision clarity inferred from explicit next-transition definition."
+        "notes": "Mandate ask is explicit: approve $8M\u2013$25M mandate structure for $100M unlock path."
       }
     },
     "pressure_driver": {
-      "type": "competitive",
-      "status": "absent",
-      "description": "Competitive positioning pressure is present but not clearly time-bound."
+      "type": "capital_window",
+      "status": "present",
+      "description": "Pre-hyperscaler capital window requires mandate commitment now to preserve first-mover position."
     },
     "dependency_risk": {
-      "status": "singleton",
-      "notes": "Derived from mapped decision-architecture bench depth (0 seat actor(s))."
+      "status": "thin_bench",
+      "notes": "Alpha Wave relationship is covered; non-Alpha orchestrator access still needs expansion."
     },
-    "dominant_blocker": "authority",
+    "dominant_blocker": "trust_access",
     "dominant_degrader": "capital_control",
-    "next_action": "Map approval chain and convert ask to authority-compliant decision packet.",
-    "recommended_owner": "Executive Sponsor",
+    "next_action": "Map and activate direct/credible paths to Temasek, KKR, Stonepeak, GIP, and General Atlantic to diversify orchestrator access beyond Alpha Wave.",
+    "recommended_owner": "Relationship Owner",
     "model_version": "usg_buyer_seat_constraints_v1.0",
-    "updated_at": "2026-03-22T22:43:23.985Z",
-    "updated_by": "scripts/constraints/run-buyer-seat-constraints.mjs",
+    "updated_at": "2026-03-23T00:24:00Z",
+    "updated_by": "manual_override_approved_by_isaac",
     "intelligence_tasks": [
       {
-        "constraint": "authority",
+        "constraint": "trust_access",
         "priority": "high",
-        "task": "Collect first-party evidence to upgrade authority from missing evidence to partial/sufficient."
+        "task": "Build named connection map + intro pathways for Temasek, KKR, Stonepeak, GIP, and General Atlantic (excluding Alpha Wave)."
       },
       {
         "constraint": "capital_control",
         "priority": "high",
-        "task": "Collect first-party evidence to upgrade capital_control from missing evidence to partial/sufficient."
-      },
-      {
-        "constraint": "urgency_pressure",
-        "priority": "medium",
-        "task": "Collect first-party evidence to upgrade urgency_pressure from missing evidence to partial/sufficient."
-      },
-      {
-        "constraint": "risk_perception",
-        "priority": "medium",
-        "task": "Collect first-party evidence to upgrade risk_perception from missing evidence to partial/sufficient."
-      },
-      {
-        "constraint": "trust_access",
-        "priority": "medium",
-        "task": "Collect first-party evidence to upgrade trust_access from missing evidence to partial/sufficient."
+        "task": "Translate orchestrator bench into staged capital stack with accountable owner and timeline for the $100M unlock step."
       }
-    ]
+    ],
+    "mandate_fee": {
+      "target_range_usd_m": [
+        8,
+        25
+      ],
+      "structure": {
+        "upfront_usd_m": [
+          3,
+          10
+        ],
+        "milestone_based": "Remainder paid across pre-FID milestones"
+      }
+    },
+    "promote": {
+      "platform_economics_percent": [
+        10,
+        20
+      ],
+      "activation_triggers": [
+        "FID",
+        "capital_close"
+      ]
+    },
+    "lead_orchestrator_bench": [
+      "Alpha Wave",
+      "Temasek",
+      "KKR",
+      "Stonepeak",
+      "GIP",
+      "General Atlantic"
+    ],
+    "capital_stack_layers": {
+      "credibility_anchor": [
+        "AFC"
+      ],
+      "strategic_power": [
+        "Mubadala",
+        "ADQ"
+      ],
+      "acceleration_layer": [
+        "NVIDIA ecosystem"
+      ],
+      "future_tenant_later": [
+        "AWS",
+        "Google"
+      ],
+      "co_investment_layer": [
+        "Family offices"
+      ]
+    }
   }
 ]
