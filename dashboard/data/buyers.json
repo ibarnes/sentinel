@@ -3003,7 +3003,8 @@
       ]
     },
     "created_at": "2026-03-23T00:00:00Z",
-    "updated_at": "2026-03-23T00:00:00Z"
+    "updated_at": "2026-03-23T00:00:00Z",
+    "hq_country": "United States"
   },
   {
     "buyer_id": "STONEPEAK",
@@ -3142,7 +3143,8 @@
       ]
     },
     "created_at": "2026-03-23T00:00:00Z",
-    "updated_at": "2026-03-23T00:00:00Z"
+    "updated_at": "2026-03-23T00:00:00Z",
+    "hq_country": "United States"
   },
   {
     "buyer_id": "GIP",
@@ -3282,6 +3284,7 @@
       ]
     },
     "created_at": "2026-03-23T00:00:00Z",
-    "updated_at": "2026-03-23T00:00:00Z"
+    "updated_at": "2026-03-23T00:00:00Z",
+    "hq_country": "United States"
   }
 ]
