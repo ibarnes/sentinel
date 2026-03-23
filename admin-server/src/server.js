@@ -1344,6 +1344,8 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
   const actorProfiles = await readJson(path.join(ROOT, 'dashboard/data/actor_profiles.json'), {});
   const focus = String(req.query.focus || '');
   const tab = String(req.query.tab || 'overview').toLowerCase();
+  const page = Math.max(1, Number(req.query.page || 1));
+  const pageSize = Math.min(200, Math.max(25, Number(req.query.page_size || 50)));
   const editShiv = String(req.query.edit || '') === '1';
   const shivProfile = {
     role: String(actorProfiles?.['shiv-khemka']?.role || 'Vice-Chairman, SUN Group; Executive Chairman, tGELF'),
@@ -1429,7 +1431,22 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
     ['timeline', 'Notes / Timeline'],
   ];
 
-  const tableRows = rows.slice(0, 250);
+  const rowsByTab = (() => {
+    if (tab === 'capital') return rows.filter((r) => ['Capital Provider','Credibility Anchor','Buyer Candidate'].includes(String(r.relationship_type || '')) || ['Funds','Approves'].includes(String(r.unlock_role || '')));
+    if (tab === 'initiatives') return rows.filter((r) => Array.isArray(r.linked_initiatives) && r.linked_initiatives.length > 0);
+    if (tab === 'signals') return rows.filter((r) => String(r.signal_status || '') === 'active');
+    if (tab === 'second_degree') return [];
+    if (tab === 'first_degree') return rows;
+    if (tab === 'timeline') return rows.filter((r) => String(r.notes || '').trim().length > 0);
+    return rows;
+  })();
+
+  const totalRows = rowsByTab.length;
+  const totalPages = Math.max(1, Math.ceil(totalRows / pageSize));
+  const currentPage = Math.min(page, totalPages);
+  const start = (currentPage - 1) * pageSize;
+  const tableRows = rowsByTab.slice(start, start + pageSize);
+  const tabUrl = (p) => `/dashboard/actors/shiv-khemka?tab=${encodeURIComponent(tab)}&page=${p}&page_size=${pageSize}${focus ? `&focus=${encodeURIComponent(focus)}` : ''}`;
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Actor Intelligence: Shiv Khemka')}</head><body><div class="app-shell">
     ${dashboardNav('actors')}
@@ -1444,7 +1461,7 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
       <div class="col-md-2">${statCard('High-priority unlock', String(highPriorityUnlock))}</div>
     </div>
 
-    <ul class="nav nav-tabs mb-3">${tabItems.map(([k,label])=>`<li class="nav-item"><a class="nav-link ${tab===k?'active':''}" href="/dashboard/actors/shiv-khemka?tab=${k}">${label}</a></li>`).join('')}</ul>
+    <ul class="nav nav-tabs mb-3">${tabItems.map(([k,label])=>`<li class="nav-item"><a class="nav-link ${tab===k?'active':''}" href="/dashboard/actors/shiv-khemka?tab=${k}&page=1&page_size=${pageSize}">${label}</a></li>`).join('')}</ul>
 
     <div class="row g-3">
       <div class="col-lg-3">
@@ -1470,10 +1487,10 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
 
       <div class="col-lg-6">
         <div class="card"><div class="card-body">
-          <div class="d-flex justify-content-between align-items-center mb-2"><strong>Linked Actors to Shiv</strong><span class="small text-muted">${tableRows.length} rows</span></div>
+          <div class="d-flex justify-content-between align-items-center mb-2"><strong>Linked Actors to Shiv</strong><span class="small text-muted">Showing ${tableRows.length} of ${totalRows}</span></div>
           <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Actor Name</th><th>Organization</th><th>Relationship Type</th><th>Degree</th><th>Link</th><th>Access</th><th>Initiative</th><th>Unlock Role</th><th>Status</th></tr></thead><tbody>
-            ${tableRows.map((r)=>`<tr>
-              <td><a href="/dashboard/actors/shiv-khemka?focus=${encodeURIComponent(r.actor_id)}&tab=${encodeURIComponent(tab)}">${escapeHtml(r.name || '—')}</a></td>
+            ${tab === 'second_degree' ? '<tr><td colspan="9" class="text-muted">Second-degree graph expansion is not yet modeled in current dataset.</td></tr>' : tableRows.map((r)=>`<tr>
+              <td><a href="/dashboard/actors/shiv-khemka?focus=${encodeURIComponent(r.actor_id)}&tab=${encodeURIComponent(tab)}&page=${currentPage}&page_size=${pageSize}">${escapeHtml(r.name || '—')}</a></td>
               <td>${escapeHtml(r.organization || '—')}</td>
               <td>${escapeHtml(r.relationship_type || '—')}</td>
               <td>${escapeHtml(r.relationship_degree || '—')}</td>
@@ -1484,6 +1501,7 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
               <td>${escapeHtml(r.signal_status || '—')}</td>
             </tr>`).join('') || '<tr><td colspan="9" class="text-muted">No linked actors.</td></tr>'}
           </tbody></table></div>
+          ${tab !== 'second_degree' ? `<div class="d-flex justify-content-between align-items-center mt-2"><div class="small text-muted">Page ${currentPage} of ${totalPages}</div><div class="btn-group"><a class="btn btn-sm btn-outline-secondary ${currentPage<=1?'disabled':''}" href="${currentPage<=1?'#':tabUrl(currentPage-1)}">Prev</a><a class="btn btn-sm btn-outline-secondary ${currentPage>=totalPages?'disabled':''}" href="${currentPage>=totalPages?'#':tabUrl(currentPage+1)}">Next</a></div></div>` : ''}
         </div></div>
       </div>
 
