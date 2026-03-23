@@ -1162,6 +1162,43 @@ function resolvePlatformPressureRefs(rows = [], { buyers = [], initiatives = [],
 app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+
+  const makeId = (v) => String(v || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const assignedFromInitiatives = [];
+  for (const i of initiatives) {
+    const iid = String(i?.initiative_id || '').trim();
+    if (!iid) continue;
+    const roleRows = Array.isArray(i?.actor_roles_table) ? i.actor_roles_table : [];
+    for (const row of roleRows) {
+      const mapped = String(row?.mapped_entity || '').trim();
+      if (!mapped || mapped === 'None' || mapped === 'null') continue;
+      const role = String(row?.role || '').trim();
+      const layer = String(row?.layer || '').trim();
+      const status = String(row?.status || '').trim();
+      assignedFromInitiatives.push({
+        actor_id: `initiative-${iid}-${makeId(mapped)}`,
+        name_display: mapped,
+        first_name: mapped.split(/\s+/).slice(0, -1).join(' ') || mapped,
+        last_name: mapped.split(/\s+/).slice(-1).join(' ') || mapped,
+        organization_primary: mapped,
+        designation: role ? `${role}${layer ? ` (${layer})` : ''}` : (layer ? `Initiative Role (${layer})` : 'Initiative Role'),
+        country_normalized: '',
+        actor_type: 'initiative_assigned',
+        owner: `initiative:${iid}`,
+        relationship_source: 'initiative_actor_roles_table',
+        relationship_strength: status || 'assigned',
+      });
+    }
+  }
+
+  const mergedById = new Map();
+  for (const a of [...actors, ...assignedFromInitiatives]) {
+    const k = String(a?.actor_id || '').trim() || `${String(a?.name_display || a?.name || '').trim()}::${String(a?.owner || '').trim()}`;
+    if (!k) continue;
+    if (!mergedById.has(k)) mergedById.set(k, a);
+  }
+  const actorRows = [...mergedById.values()];
 
   const q = String(req.query.q || '').trim().toLowerCase();
   const countryFilter = String(req.query.country || '').trim();
@@ -1172,7 +1209,7 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
   const page = Math.max(1, Number(req.query.page || 1));
   const pageSize = Math.min(200, Math.max(10, Number(req.query.pageSize || 50)));
 
-  const normalized = actors.map((a) => {
+  const normalized = actorRows.map((a) => {
     const full = String(a.name_display || a.name || '').trim();
     const first = String(a.first_name || '').trim() || full.split(/\s+/).slice(0, -1).join(' ');
     const last = String(a.last_name || '').trim() || full.split(/\s+/).slice(-1).join(' ');
