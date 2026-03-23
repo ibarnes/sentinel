@@ -3286,5 +3286,39 @@
     "created_at": "2026-03-23T00:00:00Z",
     "updated_at": "2026-03-23T00:00:00Z",
     "hq_country": "United States"
+  },
+  {
+    "buyer_id": "GENERAL_ATLANTIC",
+    "name": "General Atlantic",
+    "type": "Growth Equity",
+    "status": "prospect",
+    "pathway_status": "unmapped",
+    "mandate_summary": "Global growth equity investor focused on scaling category-leading technology and platform companies.",
+    "geo_focus": [
+      "Global",
+      "North America",
+      "Europe",
+      "Asia",
+      "Selective Emerging Markets"
+    ],
+    "sector_focus": [
+      "Technology",
+      "Digital Infrastructure",
+      "Financial Services",
+      "Healthcare"
+    ],
+    "score": 2.3,
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "Medium",
+      "timing_urgency": "Medium"
+    },
+    "initiatives": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "website": "https://www.generalatlantic.com",
+    "hq_country": "United States",
+    "created_at": "2026-03-23T16:58:00Z",
+    "updated_at": "2026-03-23T16:58:00Z"
   }
 ]
