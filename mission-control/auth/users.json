@@ -8,6 +8,15 @@
       "active": true,
       "createdAt": "2026-02-25T05:13:34.722Z",
       "invitedBy": "isaac"
+    },
+    {
+      "id": "807b5c65-b067-4e7b-9b43-5a246add1a7f",
+      "username": "richard.hoffman",
+      "role": "observer",
+      "passwordHash": "$2a$12$aJI7z89TQXcyTHJLf/othuYlDOZ13ohTvUbLFMZXcmqcf7JqU46EO",
+      "active": true,
+      "createdAt": "2026-03-23T16:46:59.955Z",
+      "invitedBy": "isaac"
     }
   ],
   "invites": [
