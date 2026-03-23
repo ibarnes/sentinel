@@ -3148,20 +3148,21 @@
     "buyer_id": "GIP",
     "name": "Global Infrastructure Partners",
     "type": "Infrastructure Private Equity",
-    "mandate_summary": "Invest in essential infrastructure assets and platforms with durable, contracted, long-duration cash flow profiles.",
+    "mandate_summary": "Deploy large-scale capital into essential infrastructure platforms with strong cash flows and global strategic relevance.",
     "geo_focus": [
       "Global",
       "North America",
       "Europe",
+      "Asia",
       "Selective Emerging Markets"
     ],
     "sector_focus": [
       "Energy",
-      "Transport & Logistics",
+      "Transport",
       "Digital Infrastructure",
       "Utilities"
     ],
-    "score": 2.4,
+    "score": 2.6,
     "pressure_factors": {
       "capital_deployment": "High",
       "regional_alignment": "Medium",
@@ -3172,30 +3173,115 @@
     ],
     "website": "https://www.global-infra.com",
     "transfer_chain": {
-      "stored_energy_source": "Institutional LP capital allocations",
-      "budget_program": "Global Infrastructure Partners flagship strategies",
-      "funding_type": "Infrastructure fund deployment allocation",
-      "approval_authority": "Investment Committee",
+      "stored_energy_source": "Institutional LP capital (sovereigns, pensions, endowments)",
+      "budget_program": "GIP Infrastructure Funds",
+      "funding_type": "Flagship infrastructure fund allocation",
+      "approval_authority": "Investment Committee (Partners + IC)",
       "verification_status": "Unverified",
-      "confidence_level": "Medium",
-      "primary_infrastructure_pressure": "Deploy committed capital into de-risked, scalable infrastructure platforms",
-      "linked_signals_30d": "1 Medium",
-      "signal_trend": "Stable",
-      "strategic_alignment_thesis": "Pre-FID structuring + bankability discipline can create institutional-grade entry points.",
+      "confidence_level": "High",
+      "primary_infrastructure_pressure": "Need to deploy large capital into scaled, essential infrastructure platforms with long-term durability",
+      "linked_signals_30d": "2 Medium (Global energy transition + digital infrastructure expansion)",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Pre-FID governance and structuring enables aggregation of assets into a platform large enough for GIP-scale deployment",
       "linked_initiative": "West Africa Energy Corridor",
       "recognition_evidence_status": "Partial",
-      "required_governance_artifacts": "Bankability framework + cashflow visibility + risk controls",
+      "required_governance_artifacts": "Platform-level aggregation model + governance clarity + scale pathway to multi-billion deployment",
       "mandate_pathway_stage": "Initial Validation",
-      "checklist_coverage": "1 / 4",
-      "critical_blocker": "Insufficient validated revenue and downside-protection profile at pre-FID",
-      "transfer_vehicle": "Lead/co-lead infrastructure equity position",
-      "payment_trigger": "IC approval of structured risk-adjusted framework",
-      "estimated_time_to_transfer": "4–10 months",
-      "mandate_fee_structure": "Pre-FID structuring mandate tied to bankable asset pipeline",
-      "promote_trigger": "Capital close + operational value milestones",
-      "recurrence_potential": "High"
+      "checklist_coverage": "2 / 4",
+      "critical_blocker": "Insufficient platform scale or aggregation strategy to justify GIP-sized capital deployment",
+      "transfer_vehicle": "Anchor or control equity position in infrastructure platform",
+      "payment_trigger": "IC approval based on scale, durability, and platform expansion potential",
+      "estimated_time_to_transfer": "6–12 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate tied to platform aggregation and scale build-out",
+      "promote_trigger": "Capital deployment + platform scaling (multi-asset expansion)",
+      "recurrence_potential": "Very High (platform roll-up and expansion strategy)"
     },
-    "created_at": "2026-03-23T16:55:00Z",
-    "updated_at": "2026-03-23T16:55:00Z"
+    "website_notes": [
+      "Identity = Global infrastructure platform investor focused on scale and essential assets",
+      "Identification = Platform builder and aggregator, not single-asset investor",
+      "Access Physics = Requires large-scale, aggregated opportunities with expansion pathways",
+      "Distribution Mechanics = Partner-led deal sourcing + co-investor syndication",
+      "Conversion Physics = Aggregate assets into institutional-scale platform to unlock capital"
+    ],
+    "buyer_state": {
+      "reach_profile": [
+        "Very high shielding",
+        "Partner-led engagement",
+        "Scale-sensitive",
+        "High altitude symmetry sensitivity",
+        "High channel dependence"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Platform aggregation strategy",
+            "Multi-asset scalability",
+            "Long-term infrastructure durability",
+            "Global relevance of asset base"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Sovereign co-investors",
+            "Large infrastructure partners",
+            "Portfolio company adjacency",
+            "Global advisors (legal, financial)",
+            "Strategic capital partners"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Global infrastructure capital deployment cycles",
+            "Large-scale privatizations or concessions",
+            "Energy transition platform builds",
+            "Digital infrastructure consolidation waves"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Partner level (critical)",
+            "Deal lead / sector head",
+            "Investment Committee sponsor"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: VERY HIGH — Access requires top-tier relationships.",
+        "Decision Speed: MEDIUM-SLOW — Large-scale diligence required.",
+        "Risk Exposure: HIGH — Focused on durability and downside protection.",
+        "Altitude Sensitivity: CRITICAL — Must match institutional scale and credibility.",
+        "Channel Dependence: HIGH — Warm, high-trust conduits required."
+      ],
+      "channels": {
+        "primary": [
+          "Sovereign co-investor introductions",
+          "Large infrastructure partners",
+          "Top-tier advisors (legal, financial)",
+          "Existing portfolio adjacency"
+        ],
+        "secondary": [
+          "Platform-level investment thesis routed through partner-level contact"
+        ],
+        "avoid": [
+          "Single-asset opportunities without scale pathway",
+          "Sub-scale platforms",
+          "Cold outreach",
+          "Unstructured early-stage narratives"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 — Platform Pressure: Identify lack of scale preventing large capital deployment.",
+        "Step 2 — Platform Framing: Define multi-asset aggregation strategy and expansion pathway.",
+        "Step 3 — Structural Alignment: Align governance, capital stack, and scaling roadmap.",
+        "Step 4 — Mandate Execution: Secure pre-FID structuring mandate tied to platform build-out.",
+        "Step 5 — FID Trigger: Capital deploys once platform reaches institutional scale threshold."
+      ]
+    },
+    "created_at": "2026-03-23T00:00:00Z",
+    "updated_at": "2026-03-23T00:00:00Z"
   }
 ]
