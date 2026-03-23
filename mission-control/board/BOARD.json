@@ -3480,7 +3480,10 @@
         "TASK-0205",
         "TASK-0206",
         "mission-control/review-packets/RP-0088-board-recovery-sweep-2026-03-21-0630.md",
-        "mission-control/board/approval-queue/2026-03-21T06-30-00Z-tranche-r-approval-card.md"
+        "mission-control/board/approval-queue/2026-03-21T06-30-00Z-tranche-r-approval-card.md",
+        "TASK-0221",
+        "TASK-0222",
+        "mission-control/review-packets/RP-0098-board-recovery-sweep-2026-03-23-0630.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3621,11 +3624,17 @@
           "author": "sentinel",
           "text": "Night build window decomposed/executed TASK-0219/TASK-0220 for tranche-U stale-RFR reduction; awaiting Isaac approval routing decisions.",
           "created_at": "2026-03-23T03:10:00Z"
+        },
+        {
+          "id": "update-0107-20260323-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep decomposition gate: added TASK-0221/TASK-0222 for tranche-V stale-RFR reduction; executed TASK-0221 and published RP-0098 decision packet.",
+          "created_at": "2026-03-23T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-23T03:10:00Z",
+      "updated_at": "2026-03-23T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -7991,6 +8000,75 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0097"
+    },
+    {
+      "id": "TASK-0221",
+      "title": "BRS-2026-03-23a Build oldest-RFR tranche-V decision packet",
+      "status": "Ready for Review",
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0222",
+        "mission-control/review-packets/RP-0098-board-recovery-sweep-2026-03-23-0630.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Create a 30–90 minute decision packet for oldest stale Ready-for-Review items with approve/hold recommendation, age snapshot, and leverage ordering.\nAcceptance Criteria:\n- Includes stalled snapshot counts for In Progress >48h, Ready for Review >24h, and Blocked.\n- Lists current oldest stale RFR tranche with recommendation per item.\n- Contains explicit Isaac decision prompts and next unblock sequence.",
+      "comments": [
+        {
+          "id": "done-0221-20260323-0630",
+          "author": "sentinel",
+          "text": "Executed during late-night recovery sweep; published RP-0098 with stalled list, decomposition updates, and tranche-V decision packet.",
+          "created_at": "2026-03-23T06:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-23T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0098-board-recovery-sweep-2026-03-23-0630.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "review_packet_id": "RP-0098",
+      "owner": "sentinel",
+      "due_date": null,
+      "created_at": "2026-03-23T06:30:00Z",
+      "updated_at": "2026-03-23T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0222",
+      "title": "BRS-2026-03-23b Route tranche-V approval card and transition prep",
+      "status": "Backlog",
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0221",
+        "mission-control/board/approval-queue/2026-03-23T06-30-00Z-tranche-v-approval-card.md"
+      ],
+      "parent_id": "TASK-0221",
+      "description": "After tranche-V decisions are captured, publish approval routing card and pre-stage transition-safe comment templates.\nAcceptance Criteria:\n- Approval routing card lists tranche-V scope + decision template.\n- Transition-safe comment template prepared for approve/hold paths.\n- No Done transitions without explicit approved review packet evidence.",
+      "comments": [],
+      "request_approval": null,
+      "owner": "sentinel",
+      "due_date": null,
+      "created_at": "2026-03-23T06:30:00Z",
+      "updated_at": "2026-03-23T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
