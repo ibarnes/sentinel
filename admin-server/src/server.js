@@ -1247,7 +1247,7 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
   };
   const sortMark = (field) => sort === field ? (dir === 'asc' ? ' ↑' : ' ↓') : '';
 
-  res.type('html').send(`<!doctype html><html><head>${uiHead('Actors')}</head><body><div class="app-shell">${dashboardNav('actors')}${pageHeader('Actors','', 'Canonical actor registry for picker-based mapping')} ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Actor</strong></summary><div class="card-body"><form method="post" action="/api/actors" class="row g-2"><div class="col-md-4"><label class="form-label">Actor ID *</label><input class="form-control" name="actor_id" required /></div><div class="col-md-4"><label class="form-label">Name *</label><input class="form-control" name="name" required /></div><div class="col-md-4"><label class="form-label">Type</label><select class="form-select" name="actor_type"><option>family_office</option><option>sovereign</option><option>organization</option><option>operator</option><option>regulator</option><option>team</option><option>other</option></select></div><div class="col-12"><button class="btn btn-sm btn-primary">Save Actor</button></div></form></div></details>` : ''}
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Actors')}</head><body><div class="app-shell">${dashboardNav('actors')}${pageHeader('Actors','<a class="btn btn-sm btn-outline-secondary" href="/dashboard/actors/shiv-khemka">Actor Intelligence: Shiv Khemka</a>', 'Canonical actor registry for picker-based mapping')} ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Actor</strong></summary><div class="card-body"><form method="post" action="/api/actors" class="row g-2"><div class="col-md-4"><label class="form-label">Actor ID *</label><input class="form-control" name="actor_id" required /></div><div class="col-md-4"><label class="form-label">Name *</label><input class="form-control" name="name" required /></div><div class="col-md-4"><label class="form-label">Type</label><select class="form-select" name="actor_type"><option>family_office</option><option>sovereign</option><option>organization</option><option>operator</option><option>regulator</option><option>team</option><option>other</option></select></div><div class="col-12"><button class="btn btn-sm btn-primary">Save Actor</button></div></form></div></details>` : ''}
   <div class="card mb-3"><div class="card-body"><form class="row g-2" method="get" action="/dashboard/actors">
     <input type="hidden" name="sort" value="${escapeHtml(sort)}" />
     <input type="hidden" name="dir" value="${escapeHtml(dir)}" />
@@ -1258,7 +1258,7 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
     <div class="col-md-2"><label class="form-label">Page Size</label><select class="form-select" name="pageSize" onchange="this.form.submit()">${[25,50,100,200].map((n)=>`<option value="${n}" ${pageSize===n?'selected':''}>${n}</option>`).join('')}</select></div>
     <div class="col-12 d-flex gap-2"><button class="btn btn-primary btn-sm" type="submit">Apply</button><a class="btn btn-outline-secondary btn-sm" href="/dashboard/actors">Reset</a><span class="small text-muted ms-auto">Showing ${rows.length} of ${total}</span></div>
   </form></div></div>
-  <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th><a href="${sortHref('first')}">First Name${sortMark('first')}</a></th><th><a href="${sortHref('last')}">Last Name${sortMark('last')}</a></th><th><a href="${sortHref('designation')}">Designation${sortMark('designation')}</a></th><th><a href="${sortHref('company')}">Company${sortMark('company')}</a></th><th><a href="${sortHref('country')}">Country${sortMark('country')}</a></th></tr></thead><tbody>${rows.map((a)=>`<tr><td>${escapeHtml(a.first || '—')}</td><td>${escapeHtml(a.last || '—')}</td><td>${escapeHtml(a.designation || '—')}</td><td>${escapeHtml(a.company || '—')}</td><td>${escapeHtml(a.country || '—')}</td></tr>`).join('') || '<tr><td colspan="5" class="text-muted">No actors match current filters.</td></tr>'}</tbody></table></div>
+  <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th><a href="${sortHref('first')}">First Name${sortMark('first')}</a></th><th><a href="${sortHref('last')}">Last Name${sortMark('last')}</a></th><th><a href="${sortHref('designation')}">Designation${sortMark('designation')}</a></th><th><a href="${sortHref('company')}">Company${sortMark('company')}</a></th><th><a href="${sortHref('country')}">Country${sortMark('country')}</a></th></tr></thead><tbody>${rows.map((a)=>`<tr><td>${escapeHtml(a.first || '—')}</td><td><a href="/dashboard/actors/shiv-khemka?focus=${encodeURIComponent(String(a.actor_id || ''))}">${escapeHtml(a.last || '—')}</a></td><td>${escapeHtml(a.designation || '—')}</td><td>${escapeHtml(a.company || '—')}</td><td>${escapeHtml(a.country || '—')}</td></tr>`).join('') || '<tr><td colspan="5" class="text-muted">No actors match current filters.</td></tr>'}</tbody></table></div>
   <div class="d-flex justify-content-between align-items-center mt-2">
     <div class="small text-muted">Page ${currentPage} of ${totalPages}</div>
     <div class="btn-group">
@@ -1266,6 +1266,172 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
       <a class="btn btn-sm btn-outline-secondary ${currentPage>=totalPages?'disabled':''}" href="${currentPage>=totalPages?'#':qp(currentPage+1)}">Next</a>
     </div>
   </div>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/actors/shiv-khemka/export.json', requireAnyAuth, async (_req, res) => {
+  const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
+  const introPaths = await readJson(path.join(ROOT, 'dashboard/data/orchestrator_intro_paths.json'), []);
+  const shivActors = actors.filter((a) => String(a.owner || '').trim().toLowerCase() === 'shiv khemka');
+  const out = {
+    primary_actor: {
+      name: 'Shiv Khemka',
+      role: 'Investor / Chairman / Strategic Connector',
+      organization: 'The Chiltern Group / related entities',
+      actor_type: 'capital_network_influence',
+      geography: 'UK / India / Global',
+      strategic_function: 'Access pathway, buyer influence, platform credibility',
+      influence_score: 92,
+      access_status: 'direct',
+    },
+    linked_actors: shivActors,
+    orchestrator_intro_paths: introPaths,
+    exported_at: nowIso(),
+  };
+  res.type('application/json').send(JSON.stringify(out, null, 2));
+});
+
+app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
+  const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const introPaths = await readJson(path.join(ROOT, 'dashboard/data/orchestrator_intro_paths.json'), []);
+  const focus = String(req.query.focus || '');
+  const tab = String(req.query.tab || 'overview').toLowerCase();
+
+  const shivActors = actors.filter((a) => String(a.owner || '').trim().toLowerCase() === 'shiv khemka');
+
+  const inferRelationshipType = (a) => {
+    const t = String(a.actor_type || '').toLowerCase();
+    const d = String(a.designation || '').toLowerCase();
+    if (t.includes('sovereign')) return 'Buyer Candidate';
+    if (d.includes('invest') || d.includes('capital') || d.includes('fund')) return 'Capital Provider';
+    if (d.includes('advisor') || d.includes('consult')) return 'Advisor';
+    if (d.includes('government') || d.includes('minister') || t.includes('regulator')) return 'Government Interface';
+    if (d.includes('partner') || d.includes('ceo') || d.includes('chair')) return 'Strategic Partner';
+    return 'Ecosystem Node';
+  };
+  const inferUnlockRole = (a) => {
+    const d = String(a.designation || '').toLowerCase();
+    if (d.includes('invest') || d.includes('fund') || d.includes('capital')) return 'Funds';
+    if (d.includes('board') || d.includes('chair') || d.includes('director')) return 'Approves';
+    if (d.includes('partner') || d.includes('connector')) return 'Introduces';
+    if (d.includes('advisor') || d.includes('policy')) return 'Validates';
+    if (d.includes('risk') || d.includes('compliance')) return 'De-risks';
+    return 'Accelerates';
+  };
+  const inferAccessPath = (a) => String(a.relationship_strength || '').toLowerCase().includes('first') ? 'direct' : 'warm';
+  const inferLinkStrength = (a) => String(a.relationship_strength || '').toLowerCase().includes('first') ? 'high' : 'medium';
+
+  const pathTargets = new Map(introPaths.map((p) => [String((p.bridge_actor || {}).name || '').toLowerCase(), p.target_buyer]));
+
+  const rows = shivActors.map((a) => {
+    const name = String(a.name_display || a.name || '').trim();
+    const relationship_type = inferRelationshipType(a);
+    const unlock_role = inferUnlockRole(a);
+    const access_path = inferAccessPath(a);
+    const link_strength = inferLinkStrength(a);
+    const targetedBuyer = pathTargets.get(name.toLowerCase()) || null;
+    const linked_initiatives = targetedBuyer ? ['INIT-2026-03-ANGOLA-AI-CORRIDOR'] : [];
+    const signal_status = targetedBuyer ? 'active' : 'monitoring';
+    return {
+      actor_id: String(a.actor_id || ''),
+      name,
+      organization: String(a.organization_primary || ''),
+      role: String(a.designation || ''),
+      actor_type: String(a.actor_type || ''),
+      relationship_type,
+      functional_role: String(a.designation || ''),
+      relationship_degree: '1st_degree',
+      unlock_role,
+      link_strength,
+      access_path,
+      linked_initiatives,
+      signal_status,
+      last_activity_date: String(a.updated_at || '').slice(0, 10) || '—',
+      notes: targetedBuyer ? `Candidate bridge for ${targetedBuyer}` : '',
+      targeted_buyer: targetedBuyer,
+      country: String(a.country_normalized || ''),
+    };
+  });
+
+  const focusRow = rows.find((r) => r.actor_id === focus) || rows[0] || null;
+  const firstDegreeCount = rows.length;
+  const secondDegreeCount = Math.max(0, Math.round(rows.length * 0.35));
+  const activeInitiatives = new Set(rows.flatMap((r) => r.linked_initiatives || [])).size;
+  const capitalNodes = rows.filter((r) => r.relationship_type === 'Capital Provider').length;
+  const highPriorityUnlock = rows.filter((r) => r.link_strength === 'high' && ['Funds','Approves','Introduces'].includes(r.unlock_role)).length;
+
+  const tabItems = [
+    ['overview', 'Overview'],
+    ['first_degree', '1st Degree Actors'],
+    ['second_degree', '2nd Degree Actors'],
+    ['initiatives', 'Initiatives'],
+    ['capital', 'Capital Pathways'],
+    ['signals', 'Signals'],
+    ['timeline', 'Notes / Timeline'],
+  ];
+
+  const tableRows = rows.slice(0, 250);
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Actor Intelligence: Shiv Khemka')}</head><body><div class="app-shell">
+    ${dashboardNav('actors')}
+    ${pageHeader('Actor Intelligence: Shiv Khemka', `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/actors/shiv-khemka/export.json">Get JSON</a>`, 'Relationship network, capital pathways, and initiative relevance')}
+
+    <div class="row g-2 mb-3">
+      <div class="col-md-2">${statCard('Total linked actors', String(rows.length))}</div>
+      <div class="col-md-2">${statCard('1st degree', String(firstDegreeCount))}</div>
+      <div class="col-md-2">${statCard('2nd degree (est.)', String(secondDegreeCount))}</div>
+      <div class="col-md-2">${statCard('Active initiatives', String(activeInitiatives))}</div>
+      <div class="col-md-2">${statCard('Capital pathway nodes', String(capitalNodes))}</div>
+      <div class="col-md-2">${statCard('High-priority unlock', String(highPriorityUnlock))}</div>
+    </div>
+
+    <ul class="nav nav-tabs mb-3">${tabItems.map(([k,label])=>`<li class="nav-item"><a class="nav-link ${tab===k?'active':''}" href="/dashboard/actors/shiv-khemka?tab=${k}">${label}</a></li>`).join('')}</ul>
+
+    <div class="row g-3">
+      <div class="col-lg-3">
+        <div class="card"><div class="card-body">
+          <h5 class="mb-1">Shiv Khemka</h5>
+          <div class="small text-muted mb-2">Investor / Chairman / Strategic Connector</div>
+          <div><strong>Organization:</strong> The Chiltern Group / related entities</div>
+          <div><strong>Region:</strong> UK / India / Global</div>
+          <div><strong>Actor Type:</strong> Capital / Network / Strategic Influence</div>
+          <div><strong>USG Relevance:</strong> Access pathway, buyer influence, platform credibility</div>
+          <div><strong>Influence Score:</strong> 92</div>
+          <div><strong>Access Path:</strong> Direct</div>
+          <hr/>
+          <div class="d-flex flex-wrap gap-1">
+            ${['Capital allocator','Family office ecosystem','Cross-border network','Strategic introducer','Credibility amplifier'].map((t)=>`<span class="badge text-bg-light border">${escapeHtml(t)}</span>`).join('')}
+          </div>
+        </div></div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="card"><div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2"><strong>Linked Actors to Shiv</strong><span class="small text-muted">${tableRows.length} rows</span></div>
+          <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Actor Name</th><th>Organization</th><th>Relationship Type</th><th>Degree</th><th>Link</th><th>Access</th><th>Initiative</th><th>Unlock Role</th><th>Status</th></tr></thead><tbody>
+            ${tableRows.map((r)=>`<tr>
+              <td><a href="/dashboard/actors/shiv-khemka?focus=${encodeURIComponent(r.actor_id)}&tab=${encodeURIComponent(tab)}">${escapeHtml(r.name || '—')}</a></td>
+              <td>${escapeHtml(r.organization || '—')}</td>
+              <td>${escapeHtml(r.relationship_type || '—')}</td>
+              <td>${escapeHtml(r.relationship_degree || '—')}</td>
+              <td>${escapeHtml(r.link_strength || '—')}</td>
+              <td>${escapeHtml(r.access_path || '—')}</td>
+              <td>${escapeHtml((r.linked_initiatives || []).join(', ') || '—')}</td>
+              <td>${escapeHtml(r.unlock_role || '—')}</td>
+              <td>${escapeHtml(r.signal_status || '—')}</td>
+            </tr>`).join('') || '<tr><td colspan="9" class="text-muted">No linked actors.</td></tr>'}
+          </tbody></table></div>
+        </div></div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="card"><div class="card-body">
+          <strong>Selected Actor Context</strong>
+          ${focusRow ? `<div class="mt-2"><div><strong>${escapeHtml(focusRow.name)}</strong></div><div class="small text-muted">${escapeHtml(focusRow.organization)}</div><div class="small">${escapeHtml(focusRow.role || '—')}</div><hr/><div><strong>Why this actor matters</strong><div class="small text-muted">${escapeHtml(focusRow.notes || 'Networked relationship node with pathway relevance under review.')}</div></div><div class="mt-2"><strong>Initiatives:</strong> ${escapeHtml((focusRow.linked_initiatives || []).join(', ') || 'None mapped')}</div><div><strong>Access:</strong> ${escapeHtml(focusRow.access_path)}</div><div><strong>Degree:</strong> ${escapeHtml(focusRow.relationship_degree)}</div><div><strong>Capital Path:</strong> ${focusRow.targeted_buyer ? `Yes (${escapeHtml(focusRow.targeted_buyer)})` : 'No direct mapping yet'}</div></div>` : '<div class="text-muted small mt-2">No actor selected.</div>'}
+        </div></div>
+      </div>
+    </div>
   </div></body></html>`);
 });
 
