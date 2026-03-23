@@ -2749,7 +2749,8 @@
         "TASK-0137",
         "mission-control/review-packets/RP-0050-board-build-window-night-2026-03-11.md",
         "TASK-0223",
-        "TASK-0224"
+        "TASK-0224",
+        "mission-control/review-packets/RP-0099-board-progress-sweep-midday-2026-03-23.md"
       ],
       "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
       "comments": [
@@ -2870,11 +2871,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep 2026-03-23T10:40Z: advanced TASK-0223/TASK-0224 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0099). Live credential execution still pending TASK-0159.",
           "created_at": "2026-03-23T10:40:00Z"
+        },
+        {
+          "id": "progress-task-0097-20260323-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-03-23T16:30Z: advanced TASK-0223/TASK-0224 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0099). Live credential execution still pending TASK-0159.",
+          "created_at": "2026-03-23T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-23T10:40:00Z",
+      "updated_at": "2026-03-23T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3158,7 +3165,8 @@
         "mission-control/evidence/pipeline-run/2026-03-15T16-30-00Z-credentialed-wrapper-dryrun.md",
         "TASK-0223",
         "TASK-0224",
-        "mission-control/review-packets/RP-0099-board-execution-sweep-morning-2026-03-23.md"
+        "mission-control/review-packets/RP-0099-board-execution-sweep-morning-2026-03-23.md",
+        "mission-control/review-packets/RP-0099-board-progress-sweep-midday-2026-03-23.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3353,11 +3361,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep 2026-03-23T10:40Z: advanced TASK-0223/TASK-0224 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0099). Live credential execution still pending TASK-0159.",
           "created_at": "2026-03-23T10:40:00Z"
+        },
+        {
+          "id": "progress-task-0103-20260323-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-03-23T16:30Z: TASK-0223/TASK-0224 completed and linked to RP-0099; blocker state unchanged pending live credentials for TASK-0159/TASK-0111.",
+          "created_at": "2026-03-23T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-23T10:40:00Z",
+      "updated_at": "2026-03-23T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
