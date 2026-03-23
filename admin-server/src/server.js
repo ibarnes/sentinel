@@ -1165,6 +1165,20 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
   const assignedCatalog = await readJson(path.join(ROOT, 'dashboard/data/initiative_assigned_actors.json'), { actors: [] });
 
   const makeId = (v) => String(v || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const shivAnchorActor = {
+    actor_id: 'shiv-khemka',
+    name_display: 'Shiv Khemka',
+    first_name: 'Shiv',
+    last_name: 'Khemka',
+    organization_primary: 'SUN Group',
+    designation: 'Vice-Chairman, SUN Group; Executive Chairman, tGELF',
+    country_normalized: 'India / UK / Global',
+    actor_type: 'strategic_connector',
+    owner: 'system_anchor',
+    relationship_source: 'system_anchor_profile',
+    relationship_strength: 'high',
+    profile_image: '/public/actor-images/shiv-khemka.jpg'
+  };
   const assignedFromInitiatives = (Array.isArray(assignedCatalog?.actors) ? assignedCatalog.actors : []).map((row) => {
     const first = String(row?.first_name || '').trim();
     const last = String(row?.last_name || '').trim();
@@ -1185,7 +1199,7 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
   });
 
   const mergedById = new Map();
-  for (const a of [...actors, ...assignedFromInitiatives]) {
+  for (const a of [shivAnchorActor, ...actors, ...assignedFromInitiatives]) {
     const k = String(a?.actor_id || '').trim() || `${String(a?.name_display || a?.name || '').trim()}::${String(a?.owner || '').trim()}`;
     if (!k) continue;
     if (!mergedById.has(k)) mergedById.set(k, a);
@@ -1287,7 +1301,7 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
     <div class="col-md-2"><label class="form-label">Page Size</label><select class="form-select" name="pageSize" onchange="this.form.submit()">${[25,50,100,200].map((n)=>`<option value="${n}" ${pageSize===n?'selected':''}>${n}</option>`).join('')}</select></div>
     <div class="col-12 d-flex gap-2"><button class="btn btn-primary btn-sm" type="submit">Apply</button><a class="btn btn-outline-secondary btn-sm" href="/dashboard/actors">Reset</a><span class="small text-muted ms-auto">Showing ${rows.length} of ${total}</span></div>
   </form></div></div>
-  <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th><a href="${sortHref('first')}">First Name${sortMark('first')}</a></th><th><a href="${sortHref('last')}">Last Name${sortMark('last')}</a></th><th><a href="${sortHref('designation')}">Designation${sortMark('designation')}</a></th><th><a href="${sortHref('company')}">Company${sortMark('company')}</a></th><th><a href="${sortHref('country')}">Country${sortMark('country')}</a></th></tr></thead><tbody>${rows.map((a)=>`<tr><td>${escapeHtml(a.first || '—')}</td><td><a href="/dashboard/actors/shiv-khemka?focus=${encodeURIComponent(String(a.actor_id || ''))}">${escapeHtml(a.last || '—')}</a></td><td>${escapeHtml(a.designation || '—')}</td><td>${escapeHtml(a.company || '—')}</td><td>${escapeHtml(a.country || '—')}</td></tr>`).join('') || '<tr><td colspan="5" class="text-muted">No actors match current filters.</td></tr>'}</tbody></table></div>
+  <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Photo</th><th><a href="${sortHref('first')}">First Name${sortMark('first')}</a></th><th><a href="${sortHref('last')}">Last Name${sortMark('last')}</a></th><th><a href="${sortHref('designation')}">Designation${sortMark('designation')}</a></th><th><a href="${sortHref('company')}">Company${sortMark('company')}</a></th><th><a href="${sortHref('country')}">Country${sortMark('country')}</a></th></tr></thead><tbody>${rows.map((a)=>`<tr><td>${a.profile_image ? `<img src="${escapeHtml(a.profile_image)}" style="width:40px;height:40px;object-fit:cover;border-radius:6px;border:1px solid #ddd"/>` : '<div style="width:40px;height:40px;border-radius:6px;background:#f1f3f5"></div>'}</td><td>${escapeHtml(a.first || '—')}</td><td><a href="/dashboard/actor/${encodeURIComponent(String(a.actor_id || ''))}">${escapeHtml(a.last || '—')}</a></td><td>${escapeHtml(a.designation || '—')}</td><td>${escapeHtml(a.company || '—')}</td><td>${escapeHtml(a.country || '—')}</td></tr>`).join('') || '<tr><td colspan="6" class="text-muted">No actors match current filters.</td></tr>'}</tbody></table></div>
   <div class="d-flex justify-content-between align-items-center mt-2">
     <div class="small text-muted">Page ${currentPage} of ${totalPages}</div>
     <div class="btn-group">
@@ -1462,6 +1476,116 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
       </div>
     </div>
   </div></body></html>`);
+});
+
+app.get('/dashboard/actor/:id', requireAnyAuth, async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  if (id === 'shiv-khemka') return res.redirect('/dashboard/actors/shiv-khemka');
+
+  const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
+  const assignedCatalog = await readJson(path.join(ROOT, 'dashboard/data/initiative_assigned_actors.json'), { actors: [] });
+  const makeId = (v) => String(v || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const assignedRows = (Array.isArray(assignedCatalog?.actors) ? assignedCatalog.actors : []).map((row) => {
+    const first = String(row?.first_name || '').trim();
+    const last = String(row?.last_name || '').trim();
+    const full = `${first} ${last}`.trim();
+    return {
+      actor_id: `initiative-assigned-${makeId(`${full}-${row?.company || ''}`)}`,
+      name_display: full,
+      first_name: first,
+      last_name: last,
+      organization_primary: String(row?.company || '').trim(),
+      designation: String(row?.designation || '').trim(),
+      country_normalized: String(row?.country || '').trim(),
+      actor_type: 'initiative_assigned',
+      profile_image: String(row?.profile_image || '').trim(),
+      resolution_status: String(row?.resolution_status || '').trim(),
+      source_kind: 'initiative_assigned_catalog'
+    };
+  });
+
+  const merged = new Map();
+  for (const a of [...actors, ...assignedRows]) {
+    const key = String(a?.actor_id || '').trim();
+    if (key && !merged.has(key)) merged.set(key, a);
+  }
+  const actor = merged.get(id);
+  if (!actor) return res.status(404).type('html').send(`<!doctype html><html><head>${uiHead('Actor Not Found')}</head><body><div class="app-shell">${dashboardNav('actors')}<div class="alert alert-warning">Actor not found.</div></div></body></html>`);
+
+  const fullName = String(actor.name_display || `${actor.first_name || ''} ${actor.last_name || ''}`.trim() || actor.actor_id || 'Actor');
+  const img = String(actor.profile_image || '').trim();
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead(`Actor: ${fullName}`)}</head><body><div class="app-shell">
+    ${dashboardNav('actors')}
+    ${pageHeader(`Actor: ${escapeHtml(fullName)}`, `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/actors">Back to Actors</a>`, 'Master-detail actor profile')}
+    <div class="row g-3">
+      <div class="col-lg-4">
+        <div class="card"><div class="card-body">
+          <div class="mb-3">${img ? `<img src="${escapeHtml(img)}" style="width:200px;height:200px;object-fit:cover;border-radius:10px;border:1px solid #ddd"/>` : `<div style="width:200px;height:200px;border-radius:10px;background:#f1f3f5;border:1px dashed #ccc;display:flex;align-items:center;justify-content:center" class="text-muted">No photo</div>`}</div>
+          <div><strong>Name:</strong> ${escapeHtml(fullName)}</div>
+          <div><strong>Designation:</strong> ${escapeHtml(String(actor.designation || '—'))}</div>
+          <div><strong>Organization:</strong> ${escapeHtml(String(actor.organization_primary || actor.company || '—'))}</div>
+          <div><strong>Country:</strong> ${escapeHtml(String(actor.country_normalized || actor.country || '—'))}</div>
+          <div><strong>Type:</strong> ${escapeHtml(String(actor.actor_type || '—'))}</div>
+          ${actor.resolution_status ? `<div><strong>Resolution:</strong> ${escapeHtml(String(actor.resolution_status))}</div>` : ''}
+        </div></div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card"><div class="card-body">
+          <h6>Profile Image</h6>
+          <div class="small text-muted mb-2">Uploaded images are normalized visually to a fixed square using object-fit: cover.</div>
+          <form method="post" action="/api/actors/${encodeURIComponent(id)}/photo" enctype="multipart/form-data" class="row g-2">
+            <div class="col-md-8"><input class="form-control" type="file" name="photo" accept="image/*" required /></div>
+            <div class="col-md-4"><button class="btn btn-primary w-100" type="submit">Upload Photo</button></div>
+          </form>
+        </div></div>
+      </div>
+    </div>
+  </div></body></html>`);
+});
+
+app.post('/api/actors/:id/photo', requireRole('architect','editor'), upload.single('photo'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  if (!req.file) return res.status(400).send('Photo file required');
+  if (!String(req.file.mimetype || '').startsWith('image/')) return res.status(400).send('Only image uploads are allowed');
+
+  const ext = (String(req.file.mimetype || '').split('/')[1] || 'jpg').replace(/[^a-z0-9]/gi, '').toLowerCase() || 'jpg';
+  const dir = path.join(ROOT, 'public', 'actor-images');
+  await fs.mkdir(dir, { recursive: true });
+  const filename = `${id}-${Date.now()}.${ext}`;
+  const fullPath = path.join(dir, filename);
+  await fs.writeFile(fullPath, req.file.buffer);
+  const publicPath = `/public/actor-images/${filename}`;
+
+  const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
+  let updated = false;
+  for (const a of actors) {
+    if (String(a.actor_id || '').trim() === id) {
+      a.profile_image = publicPath;
+      updated = true;
+      break;
+    }
+  }
+  if (updated) {
+    await writeJson(DASHBOARD_ACTORS_FILE, actors);
+  } else {
+    const assignedFile = path.join(ROOT, 'dashboard/data/initiative_assigned_actors.json');
+    const assigned = await readJson(assignedFile, { actors: [] });
+    const makeId = (v) => String(v || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    const rows = Array.isArray(assigned?.actors) ? assigned.actors : [];
+    for (const row of rows) {
+      const full = `${String(row.first_name || '').trim()} ${String(row.last_name || '').trim()}`.trim();
+      const rid = `initiative-assigned-${makeId(`${full}-${row.company || ''}`)}`;
+      if (rid === id) {
+        row.profile_image = publicPath;
+        updated = true;
+        break;
+      }
+    }
+    if (updated) await writeJson(assignedFile, assigned);
+  }
+
+  return res.redirect(`/dashboard/actor/${encodeURIComponent(id)}`);
 });
 
 app.post('/api/actors', requireRole('architect','editor'), async (req, res) => {
