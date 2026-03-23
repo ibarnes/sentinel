@@ -1163,6 +1163,7 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
   const assignedCatalog = await readJson(path.join(ROOT, 'dashboard/data/initiative_assigned_actors.json'), { actors: [] });
+  const actorProfiles = await readJson(path.join(ROOT, 'dashboard/data/actor_profiles.json'), {});
 
   const makeId = (v) => String(v || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
   const shivAnchorActor = {
@@ -1177,7 +1178,7 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
     owner: 'system_anchor',
     relationship_source: 'system_anchor_profile',
     relationship_strength: 'high',
-    profile_image: '/public/actor-images/shiv-khemka.jpg'
+    profile_image: String(actorProfiles?.['shiv-khemka']?.profile_image || '/public/actor-images/shiv-khemka.jpg')
   };
   const assignedFromInitiatives = (Array.isArray(assignedCatalog?.actors) ? assignedCatalog.actors : []).map((row) => {
     const first = String(row?.first_name || '').trim();
@@ -1315,6 +1316,7 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
 app.get('/dashboard/actors/shiv-khemka/export.json', requireAnyAuth, async (_req, res) => {
   const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
   const introPaths = await readJson(path.join(ROOT, 'dashboard/data/orchestrator_intro_paths.json'), []);
+  const actorProfiles = await readJson(path.join(ROOT, 'dashboard/data/actor_profiles.json'), {});
   const shivActors = actors.filter((a) => String(a.owner || '').trim().toLowerCase() === 'shiv khemka');
   const out = {
     primary_actor: {
@@ -1326,6 +1328,7 @@ app.get('/dashboard/actors/shiv-khemka/export.json', requireAnyAuth, async (_req
       strategic_function: 'Cross-border strategic connector across advanced technology investment, sovereign-adjacent capital pathways, and global education/leadership networks',
       influence_score: 95,
       access_status: 'direct',
+      profile_image: String(actorProfiles?.['shiv-khemka']?.profile_image || '/public/actor-images/shiv-khemka.jpg'),
     },
     linked_actors: shivActors,
     orchestrator_intro_paths: introPaths,
@@ -1338,8 +1341,10 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
   const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const introPaths = await readJson(path.join(ROOT, 'dashboard/data/orchestrator_intro_paths.json'), []);
+  const actorProfiles = await readJson(path.join(ROOT, 'dashboard/data/actor_profiles.json'), {});
   const focus = String(req.query.focus || '');
   const tab = String(req.query.tab || 'overview').toLowerCase();
+  const shivImg = String(actorProfiles?.['shiv-khemka']?.profile_image || '/public/actor-images/shiv-khemka.jpg');
 
   const shivActors = actors.filter((a) => String(a.owner || '').trim().toLowerCase() === 'shiv khemka');
 
@@ -1434,6 +1439,7 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
     <div class="row g-3">
       <div class="col-lg-3">
         <div class="card"><div class="card-body">
+          <div class="mb-2">${shivImg ? `<img src="${escapeHtml(shivImg)}" style="width:120px;height:120px;object-fit:cover;border-radius:10px;border:1px solid #ddd"/>` : ''}</div>
           <h5 class="mb-1">Shiv Khemka</h5>
           <div class="small text-muted mb-2">Vice-Chairman, SUN Group; Executive Chairman, tGELF</div>
           <div><strong>Organization:</strong> SUN Group</div>
@@ -1442,6 +1448,7 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
           <div><strong>USG Relevance:</strong> Access pathway, buyer influence, platform credibility</div>
           <div><strong>Influence Score:</strong> 95</div>
           <div><strong>Access Path:</strong> Direct</div>
+          <div class="mt-2"><form method="post" action="/api/actors/shiv-khemka/photo" enctype="multipart/form-data" class="d-flex gap-1"><input class="form-control form-control-sm" type="file" name="photo" accept="image/*" required /><button class="btn btn-sm btn-primary" type="submit">Upload</button></form></div>
           <hr/>
           <div class="d-flex flex-wrap gap-1">
             ${['Advanced tech investor','Cross-border capital network','Strategic introducer','Education & leadership convening','Credibility amplifier'].map((t)=>`<span class="badge text-bg-light border">${escapeHtml(t)}</span>`).join('')}
@@ -1559,6 +1566,15 @@ app.post('/api/actors/:id/photo', requireRole('architect','editor'), upload.sing
 
   const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
   let updated = false;
+  if (id === 'shiv-khemka') {
+    const profilesFile = path.join(ROOT, 'dashboard/data/actor_profiles.json');
+    const profiles = await readJson(profilesFile, {});
+    profiles['shiv-khemka'] = { ...(profiles['shiv-khemka'] || {}), profile_image: publicPath, updated_at: nowIso() };
+    await writeJson(profilesFile, profiles);
+    updated = true;
+    return res.redirect('/dashboard/actors/shiv-khemka');
+  }
+
   for (const a of actors) {
     if (String(a.actor_id || '').trim() === id) {
       a.profile_image = publicPath;
