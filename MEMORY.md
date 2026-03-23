@@ -377,3 +377,22 @@
 - No new operating-rule changes.
 - No scoring-policy changes.
 
+# Project Status Snapshot (2026-03-23)
+- Heartbeat + signal monitoring remained freshness-compliant and surfaced a new qualifying high-impact delta after refresh:
+  - `SIG-2026-03-22-US-DFC-HORMUZ-REINSURANCE-001` (reported ~$20B maritime reinsurance facility for Gulf shipping continuity; `verification_status=verified`, confidence 0.62).
+- Board cadence sustained across recovery/execution/progress/build windows with decomposition gate + artifact-first governance:
+  - Recovery: `TASK-0213`/`TASK-0214` with `RP-0093` (tranche-T routing), commit `d86bf43`.
+  - Morning: `TASK-0215`/`TASK-0216` with `RP-0094` (preflight + fail-fast evidence), commit `a014b28`.
+  - Midday: `TASK-0217`/`TASK-0218` with `RP-0096` (preflight + fail-fast evidence), commit `9111af1`.
+  - Night build: `TASK-0219`/`TASK-0220` with `RP-0097` (tranche-U decision digest + routing card), commit `5ac8a53`.
+- Credentialed blocker chain unchanged:
+  - `TASK-0159` / `TASK-0111` still require live `BASE_URL` + `TEAM_SESSION_COOKIE` before post-PASS replay (`TASK-0160`).
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-23)
+- Daily log created at `memory/2026-03-23.md` and distilled into durable snapshot.
+- Durable changes captured: maritime-reinsurance signal-pressure update plus RP-0093/RP-0094/RP-0096/RP-0097 artifact progression.
+- No new operating-rule changes.
+- No scoring-policy changes.
+
