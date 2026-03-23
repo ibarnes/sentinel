@@ -2881,7 +2881,8 @@ app.get('/dashboard/initiatives', async (req, res) => {
 });
 
 app.get('/dashboard/initiatives/export.json', async (_req, res) => {
-  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const initiativesRaw = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const initiatives = initiativesRaw.filter((i) => !i?.is_test);
   res.type('application/json').send(JSON.stringify(initiatives, null, 2));
 });
 
