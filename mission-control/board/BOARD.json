@@ -3615,11 +3615,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep decomposed into TASK-0213/TASK-0214 (tranche-T for newly stale RFR cohort) and executed with RP-0093 + approval card.",
           "created_at": "2026-03-22T06:30:00Z"
+        },
+        {
+          "id": "update-0107-20260323-0310",
+          "author": "sentinel",
+          "text": "Night build window decomposed/executed TASK-0219/TASK-0220 for tranche-U stale-RFR reduction; awaiting Isaac approval routing decisions.",
+          "created_at": "2026-03-23T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-22T06:30:00Z",
+      "updated_at": "2026-03-23T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -7902,6 +7908,89 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0096"
+    },
+    {
+      "id": "TASK-0219",
+      "title": "BRS-2026-03-23a Build oldest-RFR tranche-U decision digest",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/review-packets/RP-0097-board-build-window-night-2026-03-23.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Create tranche-U decision digest for oldest 12 Ready-for-Review items with approve/defer recommendations and governance-safe rationale.\nAcceptance Criteria:\n- Exactly 12 oldest Ready-for-Review tasks included.\n- Each includes recommendation + rationale.\n- Packet committed and linked to parent recovery task.",
+      "comments": [
+        {
+          "id": "done-0219-20260323-0310",
+          "author": "sentinel",
+          "text": "Executed night build window tranche-U digest at mission-control/review-packets/RP-0097-board-build-window-night-2026-03-23.md.",
+          "created_at": "2026-03-23T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-23T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0097-board-build-window-night-2026-03-23.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-23T03:10:00Z",
+      "updated_at": "2026-03-23T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0097"
+    },
+    {
+      "id": "TASK-0220",
+      "title": "BRS-2026-03-23b Publish tranche-U approval routing card",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/approval-queue/2026-03-23T03-10-00Z-tranche-u-approval-card.md",
+        "mission-control/review-packets/RP-0097-board-build-window-night-2026-03-23.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Publish operator approval-routing card for tranche-U decisions with explicit capture template and transition guardrails.\nAcceptance Criteria:\n- Routing card references RP-0097.\n- Includes decision capture template.\n- Includes governance constraints for transition safety.",
+      "comments": [
+        {
+          "id": "done-0220-20260323-0310",
+          "author": "sentinel",
+          "text": "Published tranche-U approval routing card at mission-control/board/approval-queue/2026-03-23T03-10-00Z-tranche-u-approval-card.md.",
+          "created_at": "2026-03-23T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-23T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0097-board-build-window-night-2026-03-23.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-23T03:10:00Z",
+      "updated_at": "2026-03-23T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0097"
     }
   ]
 }
