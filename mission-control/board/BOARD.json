@@ -2747,7 +2747,9 @@
         "TASK-0135",
         "TASK-0136",
         "TASK-0137",
-        "mission-control/review-packets/RP-0050-board-build-window-night-2026-03-11.md"
+        "mission-control/review-packets/RP-0050-board-build-window-night-2026-03-11.md",
+        "TASK-0223",
+        "TASK-0224"
       ],
       "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
       "comments": [
@@ -2862,11 +2864,17 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-03-21T16:30Z: advanced TASK-0209/TASK-0210 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0091). Live credential execution still pending TASK-0159.",
           "created_at": "2026-03-21T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0097-20260323-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-03-23T10:40Z: advanced TASK-0223/TASK-0224 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0099). Live credential execution still pending TASK-0159.",
+          "created_at": "2026-03-23T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-22T16:30:00Z",
+      "updated_at": "2026-03-23T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3147,7 +3155,10 @@
         "TASK-0172",
         "mission-control/review-packets/RP-0069-board-progress-sweep-midday-2026-03-15.md",
         "mission-control/evidence/pipeline-run/preflight-2026-03-15T16-30-00Z.md",
-        "mission-control/evidence/pipeline-run/2026-03-15T16-30-00Z-credentialed-wrapper-dryrun.md"
+        "mission-control/evidence/pipeline-run/2026-03-15T16-30-00Z-credentialed-wrapper-dryrun.md",
+        "TASK-0223",
+        "TASK-0224",
+        "mission-control/review-packets/RP-0099-board-execution-sweep-morning-2026-03-23.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3336,11 +3347,17 @@
           "author": "sentinel",
           "text": "Midday progress sweep advanced with TASK-0217/TASK-0218 evidence artifacts (preflight BLOCKED; wrapper fail-fast confirmed).",
           "created_at": "2026-03-22T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0103-20260323-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-03-23T10:40Z: advanced TASK-0223/TASK-0224 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0099). Live credential execution still pending TASK-0159.",
+          "created_at": "2026-03-23T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-22T16:30:00Z",
+      "updated_at": "2026-03-23T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -8067,6 +8084,92 @@
       "due_date": null,
       "created_at": "2026-03-23T06:30:00Z",
       "updated_at": "2026-03-23T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0223",
+      "title": "TS-H1.1c.2bg Capture sweep-time credential preflight artifact (morning execution sweep)",
+      "status": "Ready for Review",
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "morning-execution-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "mission-control/evidence/pipeline-run/preflight-2026-03-23T10-40-00Z.md"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "Execute credential preflight at sweep start and persist timestamped artifact for operator handoff.\nAcceptance Criteria:\n- Preflight report generated for current sweep timestamp.\n- Status deterministically indicates PASS/BLOCKED from env presence.\n- Artifact linked in blocker chain.",
+      "comments": [
+        {
+          "id": "done-0223-20260323-1040",
+          "author": "sentinel",
+          "text": "Generated sweep-time preflight artifact at mission-control/evidence/pipeline-run/preflight-2026-03-23T10-40-00Z.md (status BLOCKED: missing BASE_URL + TEAM_SESSION_COOKIE).",
+          "created_at": "2026-03-23T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-23T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0099-board-execution-sweep-morning-2026-03-23.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "review_packet_id": "RP-0099",
+      "owner": "sentinel",
+      "due_date": null,
+      "created_at": "2026-03-23T10:40:00Z",
+      "updated_at": "2026-03-23T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0224",
+      "title": "TS-H1.1c.2bh Run one-command credentialed wrapper dry-run and capture fail-fast evidence (morning)",
+      "status": "Ready for Review",
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "morning-execution-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credentialed-once.sh",
+        "mission-control/evidence/pipeline-run/2026-03-23T10-40-00Z-credentialed-wrapper-dryrun.md"
+      ],
+      "parent_id": "TASK-0103",
+      "description": "Execute wrapper in no-credential mode to verify deterministic fail-fast behavior and provide operator-proof artifact for the next credential window.\nAcceptance Criteria:\n- Wrapper exits with missing-env error.\n- Output captured in timestamped markdown artifact.\n- Artifact linked in blocker chain.",
+      "comments": [
+        {
+          "id": "done-0224-20260323-1040",
+          "author": "sentinel",
+          "text": "Captured fail-fast dry-run evidence at mission-control/evidence/pipeline-run/2026-03-23T10-40-00Z-credentialed-wrapper-dryrun.md (expected missing credential env error).",
+          "created_at": "2026-03-23T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-23T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0099-board-execution-sweep-morning-2026-03-23.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "review_packet_id": "RP-0099",
+      "owner": "sentinel",
+      "due_date": null,
+      "created_at": "2026-03-23T10:40:00Z",
+      "updated_at": "2026-03-23T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
