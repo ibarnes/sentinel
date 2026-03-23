@@ -2791,8 +2791,18 @@ app.get('/dashboard/team', async (_req, res) => {
 
 app.get('/dashboard/initiatives', async (req, res) => {
   const initiativesRaw = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const isTestInitiative = (i) => {
+    const name = String(i?.name || '').toLowerCase();
+    const status = String(i?.status || '').toLowerCase();
+    const id = String(i?.initiative_id || '').toLowerCase();
+    return Boolean(i?.is_test)
+      || name.includes('[test]')
+      || status.includes('archived - test data')
+      || status.includes('test data')
+      || id.includes('test');
+  };
   const showTest = String(req.query.show_test || '0') === '1';
-  const initiatives = showTest ? initiativesRaw : initiativesRaw.filter((i) => !i?.is_test);
+  const initiatives = showTest ? initiativesRaw : initiativesRaw.filter((i) => !isTestInitiative(i));
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const byId = Object.fromEntries(buyers.map(b => [b.buyer_id, b.name]));
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
@@ -2882,7 +2892,17 @@ app.get('/dashboard/initiatives', async (req, res) => {
 
 app.get('/dashboard/initiatives/export.json', async (_req, res) => {
   const initiativesRaw = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
-  const initiatives = initiativesRaw.filter((i) => !i?.is_test);
+  const isTestInitiative = (i) => {
+    const name = String(i?.name || '').toLowerCase();
+    const status = String(i?.status || '').toLowerCase();
+    const id = String(i?.initiative_id || '').toLowerCase();
+    return Boolean(i?.is_test)
+      || name.includes('[test]')
+      || status.includes('archived - test data')
+      || status.includes('test data')
+      || id.includes('test');
+  };
+  const initiatives = initiativesRaw.filter((i) => !isTestInitiative(i));
   res.type('application/json').send(JSON.stringify(initiatives, null, 2));
 });
 
