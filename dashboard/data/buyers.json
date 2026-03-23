@@ -3428,5 +3428,34 @@
     },
     "created_at": "2026-03-23T00:00:00Z",
     "updated_at": "2026-03-23T00:00:00Z"
+  },
+  {
+    "buyer_id": "ALPHA_WAVE",
+    "name": "Alpha Wave",
+    "type": "Strategic Capital",
+    "status": "prospect",
+    "pathway_status": "mapped",
+    "mandate_summary": "Deploy growth and strategic capital into scalable technology and platform opportunities.",
+    "geo_focus": [
+      "Global"
+    ],
+    "sector_focus": [
+      "Technology",
+      "Digital Infrastructure",
+      "AI Platforms"
+    ],
+    "score": 2.4,
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "Medium",
+      "timing_urgency": "High"
+    },
+    "initiatives": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "website": "https://www.alphawaveglobal.com",
+    "hq_country": "United States",
+    "created_at": "2026-03-23T17:00:00Z",
+    "updated_at": "2026-03-23T17:00:00Z"
   }
 ]
