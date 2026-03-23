@@ -1162,35 +1162,27 @@ function resolvePlatformPressureRefs(rows = [], { buyers = [], initiatives = [],
 app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
-  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const assignedCatalog = await readJson(path.join(ROOT, 'dashboard/data/initiative_assigned_actors.json'), { actors: [] });
 
   const makeId = (v) => String(v || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  const assignedFromInitiatives = [];
-  for (const i of initiatives) {
-    const iid = String(i?.initiative_id || '').trim();
-    if (!iid) continue;
-    const roleRows = Array.isArray(i?.actor_roles_table) ? i.actor_roles_table : [];
-    for (const row of roleRows) {
-      const mapped = String(row?.mapped_entity || '').trim();
-      if (!mapped || mapped === 'None' || mapped === 'null') continue;
-      const role = String(row?.role || '').trim();
-      const layer = String(row?.layer || '').trim();
-      const status = String(row?.status || '').trim();
-      assignedFromInitiatives.push({
-        actor_id: `initiative-${iid}-${makeId(mapped)}`,
-        name_display: mapped,
-        first_name: mapped.split(/\s+/).slice(0, -1).join(' ') || mapped,
-        last_name: mapped.split(/\s+/).slice(-1).join(' ') || mapped,
-        organization_primary: mapped,
-        designation: role ? `${role}${layer ? ` (${layer})` : ''}` : (layer ? `Initiative Role (${layer})` : 'Initiative Role'),
-        country_normalized: '',
-        actor_type: 'initiative_assigned',
-        owner: `initiative:${iid}`,
-        relationship_source: 'initiative_actor_roles_table',
-        relationship_strength: status || 'assigned',
-      });
-    }
-  }
+  const assignedFromInitiatives = (Array.isArray(assignedCatalog?.actors) ? assignedCatalog.actors : []).map((row) => {
+    const first = String(row?.first_name || '').trim();
+    const last = String(row?.last_name || '').trim();
+    const full = `${first} ${last}`.trim();
+    return {
+      actor_id: `initiative-assigned-${makeId(`${full}-${row?.company || ''}`)}`,
+      name_display: full || String(row?.company || 'Initiative Assigned Actor'),
+      first_name: first,
+      last_name: last || full,
+      organization_primary: String(row?.company || '').trim(),
+      designation: String(row?.designation || 'Initiative Role').trim(),
+      country_normalized: String(row?.country || '').trim(),
+      actor_type: 'initiative_assigned',
+      owner: 'initiative_assigned_catalog',
+      relationship_source: 'initiative_assigned_catalog',
+      relationship_strength: String(row?.resolution_status || 'assigned').trim(),
+    };
+  });
 
   const mergedById = new Map();
   for (const a of [...actors, ...assignedFromInitiatives]) {

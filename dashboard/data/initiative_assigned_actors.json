@@ -1,0 +1,76 @@
+{
+  "actors": [
+    {
+      "first_name": "Adrienne",
+      "last_name": "Williams-Octalien",
+      "designation": "ODR Program Authority Lead (political)",
+      "company": "Office of Disaster Recovery (USVI)",
+      "country": "USVI",
+      "resolution_status": "confirmed"
+    },
+    {
+      "first_name": "Marcia",
+      "last_name": "Fudge",
+      "designation": "HUD CDBG-DR Funding Authority (capital)",
+      "company": "U.S. Department of Housing and Urban Development",
+      "country": "USA",
+      "resolution_status": "approximate"
+    },
+    {
+      "first_name": "Daryl",
+      "last_name": "Griffith",
+      "designation": "VIHFA Authority Lead (political)",
+      "company": "Virgin Islands Housing Finance Authority",
+      "country": "USVI",
+      "resolution_status": "approximate"
+    },
+    {
+      "first_name": "Ângelo",
+      "last_name": "Gama",
+      "designation": "CEO – Fiber Infrastructure & Landing Authority (asset)",
+      "company": "Angola Cables",
+      "country": "Angola",
+      "resolution_status": "confirmed"
+    },
+    {
+      "first_name": "Ana",
+      "last_name": "Dias Lourenço",
+      "designation": "First Lady – Sovereign Influence & Strategic Alignment (political)",
+      "company": "Government of Angola",
+      "country": "Angola",
+      "resolution_status": "confirmed"
+    },
+    {
+      "first_name": "Mark",
+      "last_name": "Newson",
+      "designation": "Local Market Access & Project Intelligence Lead (development)",
+      "company": "Capital Projects Consulting Group",
+      "country": "USA",
+      "resolution_status": "confirmed"
+    },
+    {
+      "first_name": "Norman",
+      "last_name": "Foster",
+      "designation": "Master Planning Lead (development)",
+      "company": "Foster + Partners",
+      "country": "UK",
+      "resolution_status": "approximate"
+    },
+    {
+      "first_name": "Malcolm",
+      "last_name": "Wilson",
+      "designation": "Deal Origination Intermediary (development)",
+      "company": "U.S. Realty Partners",
+      "country": "USA",
+      "resolution_status": "confirmed"
+    },
+    {
+      "first_name": "Wade",
+      "last_name": "Cherwayko",
+      "designation": "Local Execution Lead (delivery)",
+      "company": "Independent / Local",
+      "country": "Canada",
+      "resolution_status": "confirmed"
+    }
+  ]
+}
