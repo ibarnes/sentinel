@@ -1,0 +1,97 @@
+[
+  {
+    "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "target_buyer": "KKR",
+    "path_rank": 1,
+    "bridge_actor": {
+      "name": "Sergio Carneiro",
+      "organization": "Mubadala Capital",
+      "title": "Executive Director - Private Equity",
+      "source_owner": "Shiv Khemka"
+    },
+    "path_type": "private_equity_adjacency",
+    "confidence": "medium",
+    "confidence_score": 0.72,
+    "why_this_path": "Direct PE adjacency and institutional overlap with global large-cap PE decision circles.",
+    "first_outreach_ask": "Request a warm intro to KKR infra/growth decision-makers for a pre-hyperscaler mandate-fee unlock discussion.",
+    "owner": "Relationship Owner",
+    "status": "proposed",
+    "next_step": "Confirm Shiv willingness + preferred intro framing; draft 5-line mandate note before outreach."
+  },
+  {
+    "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "target_buyer": "Stonepeak",
+    "path_rank": 1,
+    "bridge_actor": {
+      "name": "Ranjith Powell",
+      "organization": "Public Investment Fund (PIF)",
+      "title": "Head of Ports & Transport Infrastructure",
+      "source_owner": "Shiv Khemka"
+    },
+    "path_type": "infrastructure_adjacency",
+    "confidence": "medium",
+    "confidence_score": 0.7,
+    "why_this_path": "Strong infra allocation profile and relevance to large-ticket infrastructure allocator networks.",
+    "first_outreach_ask": "Seek directional referral to Stonepeak partner-level infra capital team evaluating emerging corridor platforms.",
+    "owner": "Relationship Owner",
+    "status": "proposed",
+    "next_step": "Validate Ranjith relationship freshness and identify strongest co-signing credibility anchor in message."
+  },
+  {
+    "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "target_buyer": "GIP",
+    "path_rank": 1,
+    "bridge_actor": {
+      "name": "Ranjith Powell",
+      "organization": "Public Investment Fund (PIF)",
+      "title": "Head of Ports & Transport Infrastructure",
+      "source_owner": "Shiv Khemka"
+    },
+    "path_type": "infrastructure_adjacency",
+    "confidence": "medium",
+    "confidence_score": 0.69,
+    "why_this_path": "Infrastructure platform focus aligns with GIP-style mandate appetite and long-duration asset logic.",
+    "first_outreach_ask": "Request intro into GIP-linked infrastructure capital principals for pre-FID platform economics discussion.",
+    "owner": "Relationship Owner",
+    "status": "proposed",
+    "next_step": "Prepare one-page economics and risk-compression brief before intro request."
+  },
+  {
+    "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "target_buyer": "Temasek",
+    "path_rank": 1,
+    "bridge_actor": {
+      "name": "Mazin Al Shanbari",
+      "organization": "Jada Fund of Funds",
+      "title": "Chief Investment Officer",
+      "source_owner": "Shiv Khemka"
+    },
+    "path_type": "sovereign_allocator_adjacency",
+    "confidence": "low",
+    "confidence_score": 0.54,
+    "why_this_path": "Institutional allocator adjacency, but no explicit Temasek-linked proof in current dataset.",
+    "first_outreach_ask": "Ask for guidance and warm routing into Singapore sovereign allocator ecosystem relevant to AI infrastructure platforms.",
+    "owner": "Relationship Owner",
+    "status": "proposed",
+    "next_step": "Run evidence enrichment to identify direct Singapore/Temasek bridge before first contact."
+  },
+  {
+    "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "target_buyer": "General Atlantic",
+    "path_rank": 1,
+    "bridge_actor": {
+      "name": "Vusi Thembekwayo",
+      "organization": "MyGrowthFund Venture Partners",
+      "title": "Founder and CEO",
+      "source_owner": "Shiv Khemka"
+    },
+    "path_type": "growth_capital_adjacency",
+    "confidence": "low",
+    "confidence_score": 0.5,
+    "why_this_path": "Growth-capital adjacency exists but no explicit GA linkage in current records.",
+    "first_outreach_ask": "Request a referral into global growth-equity principals open to AI infrastructure enabling platforms.",
+    "owner": "Relationship Owner",
+    "status": "proposed",
+    "next_step": "Tighten narrative to GA-style growth thesis before outreach."
+  }
+]
