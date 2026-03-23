@@ -7265,5 +7265,295 @@
       "Gulf"
     ],
     "country": "United States"
+  },
+  {
+    "signal_id": "SIG-2026-03-23-IFC-NIGERIA-PPP-PIPELINE-001",
+    "title": "IFC formalizes upstream PPP pipeline partnership with Nigeria federal government",
+    "signal_class": "Governance + Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-23T13:29:00Z",
+    "summary": "IFC has formalized partnership with Nigeria's federal government to build a national PPP pipeline across transport, energy, IT, and sanitation with upstream transaction advisory embedded.",
+    "flow": "upstream advisory embed -> centrally manufactured PPP pipeline -> origination control shifts to IFC-structured channels -> external sponsors face reduced early-stage influence",
+    "verification_note": "Provided by Isaac; treat as high-impact monitor pending first-party + Tier-1 corroboration threshold.",
+    "sources": [
+      {
+        "label": "Provided by Isaac (Capital Systems Intelligence brief)",
+        "url": "internal://isaac-brief/2026-03-23/capital-systems-intel"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "IFC",
+      "NIGERIA-FEDERAL-GOV"
+    ],
+    "actor_roles": [
+      "pipeline-architect",
+      "transaction-advisor"
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "delivery"
+    ],
+    "evidence_type": "operator_brief",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "ppp",
+      "nigeria",
+      "ifc",
+      "pipeline-origination",
+      "upstream-control"
+    ],
+    "buyer_ids": [
+      "IFC",
+      "AfDB",
+      "AFC",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "geography": [
+      "Nigeria",
+      "Africa"
+    ],
+    "country": "Nigeria"
+  },
+  {
+    "signal_id": "SIG-2026-03-23-AIFF-CONTINENTAL-PLATFORM-001",
+    "title": "Africa Infrastructure Financing Facility platform formation signals continent-level coordination",
+    "signal_class": "Governance + Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-23T13:29:00Z",
+    "summary": "AIFF platform development indicates movement toward continent-scale preparation and financing coordination for cross-border infrastructure corridors.",
+    "flow": "platform consolidation -> standardized prep/financing frameworks -> pooled access channels -> reduced fragmentation and higher gateway concentration",
+    "verification_note": "Provided by Isaac; maintain monitor posture until threshold verification is met.",
+    "sources": [
+      {
+        "label": "Provided by Isaac (Capital Systems Intelligence brief)",
+        "url": "internal://isaac-brief/2026-03-23/capital-systems-intel"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "AIFF",
+      "SOVEREIGN-ACTORS",
+      "MULTILATERAL-ACTORS"
+    ],
+    "actor_roles": [
+      "platform-coordinator",
+      "capital-orchestrator"
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital"
+    ],
+    "evidence_type": "operator_brief",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "aiff",
+      "platformization",
+      "cross-border-corridors",
+      "capital-orchestration"
+    ],
+    "buyer_ids": [
+      "AfDB",
+      "IFC",
+      "AFC",
+      "PIF",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "geography": [
+      "Africa"
+    ],
+    "country": "Pan-African"
+  },
+  {
+    "signal_id": "SIG-2026-03-23-AFDB-BLENDED-FINANCE-DEEPENING-001",
+    "title": "AfDB deepens blended-finance and co-financing architecture",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-23T13:29:00Z",
+    "summary": "AfDB is expanding structured partnerships and co-financing frameworks to mobilize private and sovereign capital via blended-finance vehicles and technical-assistance-backed pathways.",
+    "flow": "blended frameworks scale -> capital aggregation improves -> standalone non-aligned deals face higher funding friction",
+    "verification_note": "Provided by Isaac; confirm with first-party + Tier-1 sources for posture change.",
+    "sources": [
+      {
+        "label": "Provided by Isaac (Capital Systems Intelligence brief)",
+        "url": "internal://isaac-brief/2026-03-23/capital-systems-intel"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "AfDB"
+    ],
+    "actor_roles": [
+      "capital-aggregator",
+      "co-financing-anchor"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "operator_brief",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "afdb",
+      "blended-finance",
+      "co-financing",
+      "technical-assistance"
+    ],
+    "buyer_ids": [
+      "AfDB",
+      "IFC",
+      "AFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "geography": [
+      "Africa"
+    ],
+    "country": "Pan-African"
+  },
+  {
+    "signal_id": "SIG-2026-03-23-POLICY-CAPITAL-ATTRACTION-REFORM-001",
+    "title": "Governments increasingly engineer policy/institutional reform to attract infrastructure capital",
+    "signal_class": "Governance Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-23T13:29:00Z",
+    "summary": "Recent government engagements (e.g., Kenya-US water/infrastructure reform focus) indicate a shift from project-level promotion to policy-layer capital enablement.",
+    "flow": "policy reform layer strengthens -> investor confidence + reduced friction -> PPP scalability improves -> insider early-access advantage rises",
+    "verification_note": "Provided by Isaac; hold monitor status pending threshold verification.",
+    "sources": [
+      {
+        "label": "Provided by Isaac (Capital Systems Intelligence brief)",
+        "url": "internal://isaac-brief/2026-03-23/capital-systems-intel"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "KENYA-GOV",
+      "US-GOV"
+    ],
+    "actor_roles": [
+      "policy-designer",
+      "capital-enabler"
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital"
+    ],
+    "evidence_type": "operator_brief",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "policy-reform",
+      "capital-attraction",
+      "ppp-scalability",
+      "water-infrastructure"
+    ],
+    "buyer_ids": [
+      "AfDB",
+      "IFC",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "geography": [
+      "Kenya",
+      "Africa"
+    ],
+    "country": "Kenya"
+  },
+  {
+    "signal_id": "SIG-2026-03-23-AFRICA-PLATFORMIZED-ORIGINATION-CONTROL-001",
+    "title": "System thesis: African infrastructure origination is consolidating into platformized institutional channels",
+    "signal_class": "System Architecture",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-23T13:29:00Z",
+    "summary": "Combined signals indicate advantage is shifting from deal discovery to being inside platformized systems that create and gate infrastructure pipelines (IFC/AfDB/AIFF + policy reform channels).",
+    "flow": "institutionalized pipeline creation + platform coordination + policy-layer enablement -> access concentrates in system channels -> out-of-system sponsors lose early influence",
+    "verification_note": "Meta-signal synthesized from Isaac-provided developments; keep monitor until component signals cross verification threshold.",
+    "sources": [
+      {
+        "label": "Provided by Isaac (Capital Systems Intelligence brief)",
+        "url": "internal://isaac-brief/2026-03-23/capital-systems-intel"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "5_recognize_patterns",
+    "system_guess": "USG",
+    "actor_refs": [
+      "IFC",
+      "AfDB",
+      "AIFF"
+    ],
+    "actor_roles": [
+      "origination-gatekeeper",
+      "capital-aggregator",
+      "platform-coordinator"
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "delivery"
+    ],
+    "evidence_type": "operator_brief_synthesis",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "platformized-origination",
+      "system-control",
+      "africa-infrastructure",
+      "access-gating"
+    ],
+    "buyer_ids": [
+      "IFC",
+      "AfDB",
+      "AFC",
+      "DFC",
+      "PIF",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "geography": [
+      "Africa"
+    ],
+    "country": "Pan-African"
   }
 ]
