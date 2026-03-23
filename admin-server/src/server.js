@@ -2799,7 +2799,6 @@ app.get('/dashboard/constraints', async (req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Constraints')}</head><body><div class="app-shell">
     ${dashboardNav('constraints')}
     ${pageHeader('Buyer Seat Constraints', `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/constraints/export.json">Raw JSON</a>`, 'Canonical mandate blocker model (USG v1.0)')}
-    <div class="mb-3 d-flex gap-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/constraints?show_test=${showTest ? '0' : '1'}">${showTest ? 'Hide' : 'Show'} Tests</a></div>
     <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Initiative</th><th>Buyer</th><th>Seat Stage</th><th>Seat Validity</th><th>Pressure Driver</th><th>Dominant Blocker</th><th>Dominant Degrader</th><th>Dependency Risk</th><th>Recommended Owner</th><th>Intelligence Tasks</th></tr></thead><tbody>
       ${rows.map((r) => {
         const i = initiativeById.get(String(r.initiative_id || ''));
