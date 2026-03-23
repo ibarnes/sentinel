@@ -1276,12 +1276,12 @@ app.get('/dashboard/actors/shiv-khemka/export.json', requireAnyAuth, async (_req
   const out = {
     primary_actor: {
       name: 'Shiv Khemka',
-      role: 'Investor / Chairman / Strategic Connector',
-      organization: 'The Chiltern Group / related entities',
+      role: 'Vice-Chairman, SUN Group; Executive Chairman, tGELF',
+      organization: 'SUN Group',
       actor_type: 'capital_network_influence',
-      geography: 'UK / India / Global',
-      strategic_function: 'Access pathway, buyer influence, platform credibility',
-      influence_score: 92,
+      geography: 'India / UK / Global',
+      strategic_function: 'Cross-border strategic connector across advanced technology investment, sovereign-adjacent capital pathways, and global education/leadership networks',
+      influence_score: 95,
       access_status: 'direct',
     },
     linked_actors: shivActors,
@@ -1392,16 +1392,16 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
       <div class="col-lg-3">
         <div class="card"><div class="card-body">
           <h5 class="mb-1">Shiv Khemka</h5>
-          <div class="small text-muted mb-2">Investor / Chairman / Strategic Connector</div>
-          <div><strong>Organization:</strong> The Chiltern Group / related entities</div>
-          <div><strong>Region:</strong> UK / India / Global</div>
+          <div class="small text-muted mb-2">Vice-Chairman, SUN Group; Executive Chairman, tGELF</div>
+          <div><strong>Organization:</strong> SUN Group</div>
+          <div><strong>Region:</strong> India / UK / Global</div>
           <div><strong>Actor Type:</strong> Capital / Network / Strategic Influence</div>
           <div><strong>USG Relevance:</strong> Access pathway, buyer influence, platform credibility</div>
-          <div><strong>Influence Score:</strong> 92</div>
+          <div><strong>Influence Score:</strong> 95</div>
           <div><strong>Access Path:</strong> Direct</div>
           <hr/>
           <div class="d-flex flex-wrap gap-1">
-            ${['Capital allocator','Family office ecosystem','Cross-border network','Strategic introducer','Credibility amplifier'].map((t)=>`<span class="badge text-bg-light border">${escapeHtml(t)}</span>`).join('')}
+            ${['Advanced tech investor','Cross-border capital network','Strategic introducer','Education & leadership convening','Credibility amplifier'].map((t)=>`<span class="badge text-bg-light border">${escapeHtml(t)}</span>`).join('')}
           </div>
         </div></div>
       </div>
