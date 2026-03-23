@@ -3009,87 +3009,139 @@
     "buyer_id": "STONEPEAK",
     "name": "Stonepeak",
     "type": "Infrastructure Private Equity",
-    "mandate_summary": "Deploy large-scale infrastructure capital into resilient, long-duration real asset and digital infrastructure platforms.",
+    "mandate_summary": "Deploy long-term capital into core infrastructure and real assets with stable, predictable cash flows.",
     "geo_focus": [
-      "Global",
       "North America",
       "Europe",
+      "Asia",
       "Selective Emerging Markets"
     ],
     "sector_focus": [
-      "Infrastructure",
       "Energy",
+      "Transport & Logistics",
       "Digital Infrastructure",
-      "Transport & Logistics"
+      "Utilities"
     ],
-    "score": 2.3,
+    "score": 2.5,
     "pressure_factors": {
       "capital_deployment": "High",
-      "regional_alignment": "Medium",
+      "regional_alignment": "Low",
       "timing_urgency": "Medium"
     },
     "initiatives": [
-      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+      "INIT-001"
     ],
     "website": "https://www.stonepeak.com",
     "transfer_chain": {
-      "stored_energy_source": "Institutional LP capital allocations",
-      "budget_program": "Stonepeak flagship infrastructure strategies",
-      "funding_type": "Fund deployment allocation",
-      "approval_authority": "Investment Committee",
+      "stored_energy_source": "Institutional LP capital (pensions, sovereign wealth funds, insurance capital)",
+      "budget_program": "Stonepeak Infrastructure Funds",
+      "funding_type": "Long-duration infrastructure fund allocation",
+      "approval_authority": "Investment Committee (Sector Leads + IC)",
       "verification_status": "Unverified",
-      "confidence_level": "Medium",
-      "primary_infrastructure_pressure": "Deploy committed capital into de-risked platform opportunities with durable cash-flow potential",
-      "linked_signals_30d": "1 Medium (infrastructure allocation discipline)",
+      "confidence_level": "High",
+      "primary_infrastructure_pressure": "Need to deploy capital into yield-generating infrastructure with long-term contracted or predictable cash flows",
+      "linked_signals_30d": "1 Medium (Digital + energy infrastructure expansion)",
       "signal_trend": "Stable",
-      "strategic_alignment_thesis": "Pre-FID structuring and risk compression can create institutional-grade entry points.",
-      "linked_initiative": "Angola Sovereign AI Energy & Compute Corridor",
+      "strategic_alignment_thesis": "Structured pre-FID platform enables creation of bankable, yield-generating assets aligned with Stonepeak’s long-duration capital strategy",
+      "linked_initiative": "West Africa Energy Corridor",
       "recognition_evidence_status": "Partial",
-      "required_governance_artifacts": "Investment memo + risk controls + capital stack clarity",
+      "required_governance_artifacts": "Bankability framework + revenue model clarity + contracted/offtake visibility",
       "mandate_pathway_stage": "Initial Validation",
-      "checklist_coverage": "1 / 4",
-      "critical_blocker": "Insufficient validated downside-protection evidence at pre-FID stage",
-      "transfer_vehicle": "Lead/co-lead infrastructure allocation",
-      "payment_trigger": "IC approval of structured deal framework",
-      "estimated_time_to_transfer": "4–9 months",
-      "mandate_fee_structure": "Pre-FID structuring mandate tied to privileged positioning",
-      "promote_trigger": "Capital close + asset-level value milestones",
-      "recurrence_potential": "High"
+      "checklist_coverage": "2 / 4",
+      "critical_blocker": "Lack of contracted revenue visibility or guaranteed offtake at pre-FID stage",
+      "transfer_vehicle": "Lead or anchor infrastructure equity position",
+      "payment_trigger": "IC approval based on stable cash flow visibility",
+      "estimated_time_to_transfer": "5–10 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate (must convert into bankable asset pipeline)",
+      "promote_trigger": "Capital deployment into operational assets",
+      "recurrence_potential": "High (portfolio of long-duration infrastructure assets)"
     },
     "website_notes": [
-      "Identity = Institutional infrastructure allocator",
-      "Identification = Structured, risk-adjusted platform investor",
-      "Access Physics = Requires quality diligence and downside clarity",
-      "Distribution Mechanics = Deal team + IC channels",
-      "Conversion Physics = Risk compression + cash-flow pathway"
+      "Identity = Long-duration infrastructure capital allocator focused on yield stability",
+      "Identification = Cash-flow-driven infrastructure investor, not speculative growth investor",
+      "Access Physics = Requires visibility into contracted or highly predictable revenue streams",
+      "Distribution Mechanics = Sector teams + IC gating + co-investor syndication",
+      "Conversion Physics = Convert uncertainty into predictable cash flows to unlock capital"
     ],
     "buyer_state": {
       "reach_profile": [
         "High shielding",
-        "Deal-team driven",
-        "Return-sensitive",
-        "Warm-channel preference"
+        "Sector-specialist driven",
+        "Yield-sensitive",
+        "High altitude symmetry sensitivity",
+        "Moderate channel dependence"
       ],
       "pathways": [
         {
           "title": "Structural Relevance (Primary)",
           "points": [
-            "Risk-adjusted return clarity",
-            "Execution de-risking",
-            "Capital stack discipline"
+            "Revenue predictability",
+            "Offtake agreements",
+            "Contracted cash flow visibility",
+            "Operational stability"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Infrastructure co-investors",
+            "Project developers",
+            "Utilities and operators",
+            "Financial advisors",
+            "Existing portfolio relationships"
           ]
         },
         {
           "title": "Irreversibility Windows",
           "points": [
-            "Fund deployment cycle pressure",
-            "Thematic infrastructure pushes",
-            "Pipeline scarcity windows"
+            "Capital deployment pacing",
+            "Sector-specific investment waves (energy transition, data centers)",
+            "Large-scale infrastructure privatizations",
+            "Pipeline gaps in long-duration assets"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Managing Director / Partner",
+            "Sector head (energy, digital infra)",
+            "Investment Committee sponsor"
           ]
         }
+      ],
+      "system_dynamics": [
+        "Shielding: HIGH — Access through infrastructure networks.",
+        "Decision Speed: MEDIUM — Driven by deal readiness.",
+        "Risk Exposure: MODERATE — Focused on operational and revenue risk.",
+        "Altitude Sensitivity: HIGH — Must match institutional quality.",
+        "Channel Dependence: MEDIUM — Warm, sector-aligned entry preferred."
+      ],
+      "channels": {
+        "primary": [
+          "Infrastructure developers and operators",
+          "Co-investor syndicates",
+          "Sector-focused investment bankers",
+          "Direct relationships with sector teams"
+        ],
+        "secondary": [
+          "Targeted infrastructure investment memo routed through sector lead"
+        ],
+        "avoid": [
+          "Early-stage, non-bankable opportunities",
+          "Uncontracted revenue models",
+          "Speculative infrastructure plays",
+          "Generalist outreach without sector fit"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 — Platform Pressure: Identify lack of bankability or revenue certainty blocking investment.",
+        "Step 2 — Platform Framing: Define asset-level economics, revenue model, and offtake pathways.",
+        "Step 3 — Structural Alignment: Secure contracted revenue or near-term visibility into cash flows.",
+        "Step 4 — Mandate Execution: Secure pre-FID structuring mandate tied to asset bankability.",
+        "Step 5 — FID Trigger: Capital deploys once assets meet yield and stability thresholds."
       ]
     },
-    "created_at": "2026-03-23T16:54:00Z",
-    "updated_at": "2026-03-23T16:54:00Z"
+    "created_at": "2026-03-23T00:00:00Z",
+    "updated_at": "2026-03-23T00:00:00Z"
   }
 ]
