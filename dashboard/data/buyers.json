@@ -3291,9 +3291,7 @@
     "buyer_id": "GENERAL_ATLANTIC",
     "name": "General Atlantic",
     "type": "Growth Equity",
-    "status": "prospect",
-    "pathway_status": "unmapped",
-    "mandate_summary": "Global growth equity investor focused on scaling category-leading technology and platform companies.",
+    "mandate_summary": "Invest in high-growth companies and platforms with strong scalability, technology leverage, and global expansion potential.",
     "geo_focus": [
       "Global",
       "North America",
@@ -3304,21 +3302,131 @@
     "sector_focus": [
       "Technology",
       "Digital Infrastructure",
-      "Financial Services",
-      "Healthcare"
+      "Fintech",
+      "Enterprise Platforms",
+      "Consumer Platforms"
     ],
     "score": 2.3,
     "pressure_factors": {
       "capital_deployment": "High",
-      "regional_alignment": "Medium",
-      "timing_urgency": "Medium"
+      "regional_alignment": "Low",
+      "timing_urgency": "High"
     },
     "initiatives": [
-      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+      "INIT-001"
     ],
     "website": "https://www.generalatlantic.com",
     "hq_country": "United States",
-    "created_at": "2026-03-23T16:58:00Z",
-    "updated_at": "2026-03-23T16:58:00Z"
+    "transfer_chain": {
+      "stored_energy_source": "Institutional LP capital (pensions, sovereigns, endowments)",
+      "budget_program": "General Atlantic Growth Equity Funds",
+      "funding_type": "Growth equity allocation",
+      "approval_authority": "Investment Committee (Deal Team + IC)",
+      "verification_status": "Unverified",
+      "confidence_level": "High",
+      "primary_infrastructure_pressure": "Need to deploy capital into scalable, high-growth platforms with clear expansion trajectories",
+      "linked_signals_30d": "2 Medium (AI platform growth + digital infrastructure software layer expansion)",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Structured platform creates a scalable operating layer (digital, fintech, AI) that can grow across regions and capture exponential value",
+      "linked_initiative": "West Africa Energy Corridor",
+      "recognition_evidence_status": "Partial",
+      "required_governance_artifacts": "Scalable business model + growth metrics + expansion roadmap + management team strength",
+      "mandate_pathway_stage": "Initial Validation",
+      "checklist_coverage": "2 / 4",
+      "critical_blocker": "Lack of clear high-growth operating layer (software, platform, or fintech) tied to infrastructure",
+      "transfer_vehicle": "Minority or significant growth equity stake in operating platform",
+      "payment_trigger": "IC approval based on growth trajectory and scalability",
+      "estimated_time_to_transfer": "3–6 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate (must tie to operating company equity position)",
+      "promote_trigger": "Equity value growth and liquidity events",
+      "recurrence_potential": "High (follow-on rounds and expansion capital)"
+    },
+    "website_notes": [
+      "Identity = Growth equity investor focused on scaling platforms, not building physical infrastructure",
+      "Identification = Minority or strategic growth investor in operating companies",
+      "Access Physics = Requires clear growth story with strong unit economics and expansion potential",
+      "Distribution Mechanics = Deal teams + sector focus + founder/operator alignment",
+      "Conversion Physics = Show exponential growth pathway to unlock capital"
+    ],
+    "buyer_state": {
+      "reach_profile": [
+        "Moderate shielding",
+        "Deal-team driven",
+        "Growth-sensitive",
+        "Moderate altitude symmetry sensitivity",
+        "Lower channel dependence than infrastructure funds"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Scalable platform model",
+            "Technology leverage (AI, fintech, software)",
+            "Clear growth metrics",
+            "Expansion across markets"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Founders / operators",
+            "Growth-stage investors",
+            "Venture ecosystem connections",
+            "Board-level introductions",
+            "Advisors and bankers"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Growth inflection points",
+            "Market expansion windows",
+            "Technology adoption waves (AI, fintech)",
+            "Competitive positioning shifts"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Partner / Managing Director",
+            "Deal lead",
+            "Investment Committee sponsor"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: MEDIUM — More accessible than sovereigns or infra funds.",
+        "Decision Speed: FAST — Growth deals move quickly when conviction is high.",
+        "Risk Exposure: MODERATE — Focused on growth risk, not infrastructure risk.",
+        "Altitude Sensitivity: MEDIUM — Strong operator alignment required.",
+        "Channel Dependence: LOWER — Can engage through strong direct narrative."
+      ],
+      "channels": {
+        "primary": [
+          "Founder/operator relationships",
+          "Growth-stage investor networks",
+          "Direct deal team outreach (if highly relevant)",
+          "Board-level introductions"
+        ],
+        "secondary": [
+          "High-quality growth narrative with metrics routed to sector team"
+        ],
+        "avoid": [
+          "Pure infrastructure plays with no tech layer",
+          "Low-growth or yield-only models",
+          "Unclear scalability",
+          "Heavy asset narratives without operating leverage"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 — Platform Pressure: Identify lack of scalable operating layer limiting growth.",
+        "Step 2 — Platform Framing: Define technology-enabled platform with strong growth metrics.",
+        "Step 3 — Structural Alignment: Align equity structure, governance, and expansion roadmap.",
+        "Step 4 — Mandate Execution: Secure pre-FID structuring mandate tied to operating company equity.",
+        "Step 5 — FID Trigger: Capital deploys as growth equity into scaling platform."
+      ]
+    },
+    "created_at": "2026-03-23T00:00:00Z",
+    "updated_at": "2026-03-23T00:00:00Z"
   }
 ]
