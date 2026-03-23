@@ -1344,6 +1344,16 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
   const actorProfiles = await readJson(path.join(ROOT, 'dashboard/data/actor_profiles.json'), {});
   const focus = String(req.query.focus || '');
   const tab = String(req.query.tab || 'overview').toLowerCase();
+  const editShiv = String(req.query.edit || '') === '1';
+  const shivProfile = {
+    role: String(actorProfiles?.['shiv-khemka']?.role || 'Vice-Chairman, SUN Group; Executive Chairman, tGELF'),
+    organization: String(actorProfiles?.['shiv-khemka']?.organization || 'SUN Group'),
+    region: String(actorProfiles?.['shiv-khemka']?.region || 'India / UK / Global'),
+    actor_type: String(actorProfiles?.['shiv-khemka']?.actor_type || 'Capital / Network / Strategic Influence'),
+    usg_relevance: String(actorProfiles?.['shiv-khemka']?.usg_relevance || 'Access pathway, buyer influence, platform credibility'),
+    influence_score: Number(actorProfiles?.['shiv-khemka']?.influence_score || 95),
+    access_path: String(actorProfiles?.['shiv-khemka']?.access_path || 'Direct')
+  };
   const shivImg = String(actorProfiles?.['shiv-khemka']?.profile_image || '/public/actor-images/shiv-khemka.jpg');
 
   const shivActors = actors.filter((a) => String(a.owner || '').trim().toLowerCase() === 'shiv khemka');
@@ -1441,14 +1451,16 @@ app.get('/dashboard/actors/shiv-khemka', requireAnyAuth, async (req, res) => {
         <div class="card"><div class="card-body">
           <div class="mb-2">${shivImg ? `<img src="${escapeHtml(shivImg)}" style="width:120px;height:120px;object-fit:cover;border-radius:10px;border:1px solid #ddd"/>` : ''}</div>
           <h5 class="mb-1">Shiv Khemka</h5>
-          <div class="small text-muted mb-2">Vice-Chairman, SUN Group; Executive Chairman, tGELF</div>
-          <div><strong>Organization:</strong> SUN Group</div>
-          <div><strong>Region:</strong> India / UK / Global</div>
-          <div><strong>Actor Type:</strong> Capital / Network / Strategic Influence</div>
-          <div><strong>USG Relevance:</strong> Access pathway, buyer influence, platform credibility</div>
-          <div><strong>Influence Score:</strong> 95</div>
-          <div><strong>Access Path:</strong> Direct</div>
-          <div class="mt-2"><form method="post" action="/api/actors/shiv-khemka/photo" enctype="multipart/form-data" class="d-flex gap-1"><input class="form-control form-control-sm" type="file" name="photo" accept="image/*" required /><button class="btn btn-sm btn-primary" type="submit">Upload</button></form></div>
+          <div class="small text-muted mb-2">${escapeHtml(shivProfile.role)}</div>
+          <div><strong>Organization:</strong> ${escapeHtml(shivProfile.organization)}</div>
+          <div><strong>Region:</strong> ${escapeHtml(shivProfile.region)}</div>
+          <div><strong>Actor Type:</strong> ${escapeHtml(shivProfile.actor_type)}</div>
+          <div><strong>USG Relevance:</strong> ${escapeHtml(shivProfile.usg_relevance)}</div>
+          <div><strong>Influence Score:</strong> ${escapeHtml(String(shivProfile.influence_score))}</div>
+          <div><strong>Access Path:</strong> ${escapeHtml(shivProfile.access_path)}</div>
+          <div class="mt-2 d-flex gap-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actors/shiv-khemka?edit=1&tab=${encodeURIComponent(tab)}">Edit</a></div>
+          ${(!shivImg || editShiv) ? `<div class="mt-2"><form method="post" action="/api/actors/shiv-khemka/photo" enctype="multipart/form-data" class="d-flex gap-1"><input class="form-control form-control-sm" type="file" name="photo" accept="image/*" required /><button class="btn btn-sm btn-primary" type="submit">Upload</button></form></div>` : ''}
+          ${editShiv ? `<form method="post" action="/api/actors/shiv-khemka/update" class="row g-1 mt-2"><div class="col-12"><input class="form-control form-control-sm" name="role" value="${escapeHtml(shivProfile.role)}" placeholder="Role"/></div><div class="col-12"><input class="form-control form-control-sm" name="organization" value="${escapeHtml(shivProfile.organization)}" placeholder="Organization"/></div><div class="col-12"><input class="form-control form-control-sm" name="region" value="${escapeHtml(shivProfile.region)}" placeholder="Region"/></div><div class="col-12"><input class="form-control form-control-sm" name="actor_type" value="${escapeHtml(shivProfile.actor_type)}" placeholder="Actor Type"/></div><div class="col-12"><input class="form-control form-control-sm" name="usg_relevance" value="${escapeHtml(shivProfile.usg_relevance)}" placeholder="USG Relevance"/></div><div class="col-6"><input class="form-control form-control-sm" name="influence_score" value="${escapeHtml(String(shivProfile.influence_score))}" placeholder="Influence Score"/></div><div class="col-6"><input class="form-control form-control-sm" name="access_path" value="${escapeHtml(shivProfile.access_path)}" placeholder="Access Path"/></div><div class="col-12 d-flex gap-1"><button class="btn btn-sm btn-primary" type="submit">Save</button><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actors/shiv-khemka?tab=${encodeURIComponent(tab)}">Cancel</a></div></form>` : ''}
           <hr/>
           <div class="d-flex flex-wrap gap-1">
             ${['Advanced tech investor','Cross-border capital network','Strategic introducer','Education & leadership convening','Credibility amplifier'].map((t)=>`<span class="badge text-bg-light border">${escapeHtml(t)}</span>`).join('')}
@@ -1521,6 +1533,7 @@ app.get('/dashboard/actor/:id', requireAnyAuth, async (req, res) => {
 
   const fullName = String(actor.name_display || `${actor.first_name || ''} ${actor.last_name || ''}`.trim() || actor.actor_id || 'Actor');
   const img = String(actor.profile_image || '').trim();
+  const editMode = String(req.query.edit || '') === '1';
 
   res.type('html').send(`<!doctype html><html><head>${uiHead(`Actor: ${fullName}`)}</head><body><div class="app-shell">
     ${dashboardNav('actors')}
@@ -1539,16 +1552,85 @@ app.get('/dashboard/actor/:id', requireAnyAuth, async (req, res) => {
       </div>
       <div class="col-lg-8">
         <div class="card"><div class="card-body">
-          <h6>Profile Image</h6>
-          <div class="small text-muted mb-2">Uploaded images are normalized visually to a fixed square using object-fit: cover.</div>
-          <form method="post" action="/api/actors/${encodeURIComponent(id)}/photo" enctype="multipart/form-data" class="row g-2">
-            <div class="col-md-8"><input class="form-control" type="file" name="photo" accept="image/*" required /></div>
-            <div class="col-md-4"><button class="btn btn-primary w-100" type="submit">Upload Photo</button></div>
-          </form>
+          <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Actor Controls</h6><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actor/${encodeURIComponent(id)}?edit=1">Edit</a></div>
+          ${(!img || editMode) ? `<div><div class="small text-muted mb-2">Uploaded images are normalized visually to a fixed square using object-fit: cover.</div><form method="post" action="/api/actors/${encodeURIComponent(id)}/photo" enctype="multipart/form-data" class="row g-2 mb-3"><div class="col-md-8"><input class="form-control" type="file" name="photo" accept="image/*" required /></div><div class="col-md-4"><button class="btn btn-primary w-100" type="submit">Upload Photo</button></div></form></div>` : `<div class="small text-muted mb-3">Photo uploaded. Use Edit to change actor attributes or replace image.</div>`}
+          ${editMode ? `<form method="post" action="/api/actors/${encodeURIComponent(id)}/update" class="row g-2"><div class="col-md-6"><label class="form-label">First Name</label><input class="form-control" name="first_name" value="${escapeHtml(String(actor.first_name || ''))}" /></div><div class="col-md-6"><label class="form-label">Last Name</label><input class="form-control" name="last_name" value="${escapeHtml(String(actor.last_name || ''))}" /></div><div class="col-md-6"><label class="form-label">Designation</label><input class="form-control" name="designation" value="${escapeHtml(String(actor.designation || ''))}" /></div><div class="col-md-6"><label class="form-label">Organization</label><input class="form-control" name="organization_primary" value="${escapeHtml(String(actor.organization_primary || actor.company || ''))}" /></div><div class="col-md-4"><label class="form-label">Country</label><input class="form-control" name="country_normalized" value="${escapeHtml(String(actor.country_normalized || actor.country || ''))}" /></div><div class="col-md-4"><label class="form-label">Type</label><input class="form-control" name="actor_type" value="${escapeHtml(String(actor.actor_type || ''))}" /></div><div class="col-md-4"><label class="form-label">Resolution</label><input class="form-control" name="resolution_status" value="${escapeHtml(String(actor.resolution_status || ''))}" /></div><div class="col-12 d-flex gap-2"><button class="btn btn-primary" type="submit">Save Changes</button><a class="btn btn-outline-secondary" href="/dashboard/actor/${encodeURIComponent(id)}">Cancel</a></div></form>` : ''}
         </div></div>
       </div>
     </div>
   </div></body></html>`);
+});
+
+app.post('/api/actors/:id/update', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  const first_name = String(req.body.first_name || '').trim();
+  const last_name = String(req.body.last_name || '').trim();
+  const designation = String(req.body.designation || '').trim();
+  const organization_primary = String(req.body.organization_primary || '').trim();
+  const country_normalized = String(req.body.country_normalized || '').trim();
+  const actor_type = String(req.body.actor_type || '').trim();
+  const resolution_status = String(req.body.resolution_status || '').trim();
+
+  const actors = await readJson(DASHBOARD_ACTORS_FILE, []);
+  let updated = false;
+  for (const a of actors) {
+    if (String(a.actor_id || '').trim() === id) {
+      a.first_name = first_name;
+      a.last_name = last_name;
+      a.name_display = `${first_name} ${last_name}`.trim() || a.name_display || a.name || id;
+      a.designation = designation;
+      a.organization_primary = organization_primary;
+      a.country_normalized = country_normalized;
+      a.actor_type = actor_type || a.actor_type;
+      updated = true;
+      break;
+    }
+  }
+  if (updated) {
+    await writeJson(DASHBOARD_ACTORS_FILE, actors);
+    return res.redirect(`/dashboard/actor/${encodeURIComponent(id)}`);
+  }
+
+  const assignedFile = path.join(ROOT, 'dashboard/data/initiative_assigned_actors.json');
+  const assigned = await readJson(assignedFile, { actors: [] });
+  const makeId = (v) => String(v || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const rows = Array.isArray(assigned?.actors) ? assigned.actors : [];
+  for (const row of rows) {
+    const full = `${String(row.first_name || '').trim()} ${String(row.last_name || '').trim()}`.trim();
+    const rid = `initiative-assigned-${makeId(`${full}-${row.company || ''}`)}`;
+    if (rid === id) {
+      row.first_name = first_name || row.first_name;
+      row.last_name = last_name || row.last_name;
+      row.designation = designation || row.designation;
+      row.company = organization_primary || row.company;
+      row.country = country_normalized || row.country;
+      if (resolution_status) row.resolution_status = resolution_status;
+      updated = true;
+      break;
+    }
+  }
+  if (updated) await writeJson(assignedFile, assigned);
+
+  return res.redirect(`/dashboard/actor/${encodeURIComponent(id)}`);
+});
+
+app.post('/api/actors/shiv-khemka/update', requireRole('architect','editor'), async (req, res) => {
+  const profilesFile = path.join(ROOT, 'dashboard/data/actor_profiles.json');
+  const profiles = await readJson(profilesFile, {});
+  const current = profiles['shiv-khemka'] || {};
+  profiles['shiv-khemka'] = {
+    ...current,
+    role: String(req.body.role || current.role || '').trim(),
+    organization: String(req.body.organization || current.organization || '').trim(),
+    region: String(req.body.region || current.region || '').trim(),
+    actor_type: String(req.body.actor_type || current.actor_type || '').trim(),
+    usg_relevance: String(req.body.usg_relevance || current.usg_relevance || '').trim(),
+    influence_score: Number(req.body.influence_score || current.influence_score || 95),
+    access_path: String(req.body.access_path || current.access_path || '').trim(),
+    updated_at: nowIso()
+  };
+  await writeJson(profilesFile, profiles);
+  return res.redirect('/dashboard/actors/shiv-khemka');
 });
 
 app.post('/api/actors/:id/photo', requireRole('architect','editor'), upload.single('photo'), async (req, res) => {
