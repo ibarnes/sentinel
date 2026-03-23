@@ -2867,28 +2867,142 @@
   },
   {
     "buyer_id": "KKR",
-    "name": "KKR",
-    "type": "Private Capital",
-    "status": "prospect",
-    "pathway_status": "unmapped",
-    "mandate_summary": "Global investment firm with infrastructure, private equity, and strategic capital deployment capabilities relevant to large-scale platform buildouts.",
+    "name": "KKR & Co. Inc.",
+    "type": "Private Equity",
+    "mandate_summary": "Deploy large-scale private equity and infrastructure capital into high-return, de-risked platforms globally.",
     "geo_focus": [
-      "Global"
+      "Global",
+      "North America",
+      "Europe",
+      "Asia",
+      "Selective Emerging Markets"
     ],
     "sector_focus": [
       "Infrastructure",
       "Energy",
-      "Digital"
+      "Digital Infrastructure",
+      "Private Equity"
     ],
-    "score": 1.0,
+    "score": 2.4,
     "pressure_factors": {
-      "capital_deployment": "Medium",
+      "capital_deployment": "High",
       "regional_alignment": "Medium",
-      "timing_urgency": "Low"
+      "timing_urgency": "Medium"
     },
     "initiatives": [
-      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+      "INIT-001"
     ],
-    "website": "https://www.kkr.com"
+    "website": "https://www.kkr.com",
+    "transfer_chain": {
+      "stored_energy_source": "Institutional LP capital allocations (pension funds, sovereigns, endowments)",
+      "budget_program": "KKR Global Infrastructure Fund / Asia Infrastructure Fund / Next Gen Digital Funds",
+      "funding_type": "Fund deployment allocation",
+      "approval_authority": "Investment Committee (Deal Team + IC)",
+      "verification_status": "Unverified",
+      "confidence_level": "High",
+      "primary_infrastructure_pressure": "Need to deploy large pools of committed LP capital into scalable, de-risked infrastructure platforms",
+      "linked_signals_30d": "2 Medium (Digital infrastructure expansion + energy transition investments)",
+      "signal_trend": "Stable",
+      "strategic_alignment_thesis": "Pre-FID structuring reduces execution risk and creates institutional-grade entry points for large-scale capital deployment",
+      "linked_initiative": "West Africa Energy Corridor",
+      "recognition_evidence_status": "Partial",
+      "required_governance_artifacts": "Institutional-grade investment memo + risk mitigation framework + clear capital stack hierarchy",
+      "mandate_pathway_stage": "Initial Validation",
+      "checklist_coverage": "2 / 4",
+      "critical_blocker": "Insufficient risk-adjusted return visibility at pre-FID stage",
+      "transfer_vehicle": "Lead investor position or co-lead infrastructure allocation",
+      "payment_trigger": "IC approval of de-risked investment structure",
+      "estimated_time_to_transfer": "4–9 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate (must tie to exclusive deal positioning)",
+      "promote_trigger": "Capital deployment + asset-level value creation milestones",
+      "recurrence_potential": "High (multi-asset platform rollouts)"
+    },
+    "website_notes": [
+      "Identity = Institutional capital allocator focused on risk-adjusted returns at scale",
+      "Identification = Lead or co-lead infrastructure investor, not early-stage speculator",
+      "Access Physics = Requires institutional-grade structuring and downside protection",
+      "Distribution Mechanics = Deal teams + sector specialists + IC gating",
+      "Conversion Physics = Risk compression + clear path to returns unlocks mandate"
+    ],
+    "buyer_state": {
+      "reach_profile": [
+        "High shielding",
+        "Deal-team driven",
+        "Return-sensitive",
+        "Moderate altitude symmetry sensitivity",
+        "Moderate channel dependence"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Risk-adjusted return clarity",
+            "Downside protection mechanisms",
+            "Capital stack positioning",
+            "Exit visibility"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Portfolio company relationships",
+            "Co-investors",
+            "Infrastructure fund partners",
+            "Placement agents",
+            "Advisors (legal, financial)"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Fund deployment cycles",
+            "Capital deployment pacing pressure",
+            "Thematic investment pushes (energy transition, digital infra)",
+            "Large deal pipeline gaps"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Partner / Managing Director level",
+            "Deal team lead",
+            "Investment Committee sponsor"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: HIGH — Access through trusted deal channels.",
+        "Decision Speed: MEDIUM — Faster than sovereigns but still structured.",
+        "Risk Exposure: HIGH — Must show downside protection.",
+        "Altitude Sensitivity: HIGH — Institutional-grade engagement required.",
+        "Channel Dependence: MEDIUM — Warm intros strongly preferred."
+      ],
+      "channels": {
+        "primary": [
+          "Existing co-investor relationships",
+          "Placement agents / capital advisors",
+          "Direct deal team relationships",
+          "Portfolio company adjacency"
+        ],
+        "secondary": [
+          "Targeted investment memo routed through sector team"
+        ],
+        "avoid": [
+          "Generic inbound pitches",
+          "Unstructured early-stage opportunities",
+          "No clear return profile",
+          "“Vision-only” positioning without numbers"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 — Platform Pressure: Identify where risk or ambiguity blocks institutional capital deployment.",
+        "Step 2 — Platform Framing: Define investment case with clear returns, downside protection, and structure.",
+        "Step 3 — Structural Alignment: Align capital stack, governance, and exit pathways.",
+        "Step 4 — Mandate Execution: Secure pre-FID structuring mandate tied to deal exclusivity.",
+        "Step 5 — FID Trigger: IC approval leads to capital deployment and platform scaling."
+      ]
+    },
+    "created_at": "2026-03-23T00:00:00Z",
+    "updated_at": "2026-03-23T00:00:00Z"
   }
 ]
