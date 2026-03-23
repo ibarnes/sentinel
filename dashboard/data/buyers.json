@@ -3431,31 +3431,143 @@
   },
   {
     "buyer_id": "ALPHA_WAVE",
-    "name": "Alpha Wave",
-    "type": "Strategic Capital",
-    "status": "prospect",
-    "pathway_status": "mapped",
-    "mandate_summary": "Deploy growth and strategic capital into scalable technology and platform opportunities.",
+    "name": "Alpha Wave Global",
+    "type": "Hybrid (Growth Equity / Credit / Strategic Capital)",
+    "mandate_summary": "Deploy flexible capital across growth equity, credit, and strategic opportunities in partnership with sovereign and institutional capital.",
     "geo_focus": [
-      "Global"
+      "Global",
+      "Middle East",
+      "Asia",
+      "Selective Emerging Markets"
     ],
     "sector_focus": [
       "Technology",
       "Digital Infrastructure",
-      "AI Platforms"
+      "Energy Transition",
+      "AI",
+      "Strategic Platforms"
     ],
-    "score": 2.4,
+    "score": 2.7,
     "pressure_factors": {
       "capital_deployment": "High",
-      "regional_alignment": "Medium",
+      "regional_alignment": "High",
       "timing_urgency": "High"
     },
     "initiatives": [
-      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+      "INIT-001"
     ],
     "website": "https://www.alphawaveglobal.com",
     "hq_country": "United States",
-    "created_at": "2026-03-23T17:00:00Z",
-    "updated_at": "2026-03-23T17:00:00Z"
+    "transfer_chain": {
+      "stored_energy_source": "Sovereign-backed capital pools (e.g., Mubadala partnership) + institutional LP capital",
+      "budget_program": "Alpha Wave Ventures / Alpha Wave Private Credit / Strategic Opportunities",
+      "funding_type": "Flexible mandate-driven allocation (equity, credit, hybrid)",
+      "approval_authority": "Investment Committee (Senior Partners + Sovereign-aligned stakeholders)",
+      "verification_status": "Unverified",
+      "confidence_level": "High",
+      "primary_infrastructure_pressure": "Need to deploy capital quickly into high-conviction, strategically aligned opportunities with strong sovereign relevance",
+      "linked_signals_30d": "3 Medium (AI infrastructure, sovereign tech alignment, emerging market platform plays)",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Pre-FID structuring authority creates early access to high-quality platforms aligned with sovereign capital priorities, enabling Alpha Wave to lead or anchor before hyperscalers and large infra funds enter",
+      "linked_initiative": "West Africa Energy Corridor",
+      "recognition_evidence_status": "Partial",
+      "required_governance_artifacts": "Clear mandate pathway + sovereign alignment logic + early entry advantage + capital stack orchestration plan",
+      "mandate_pathway_stage": "Validation",
+      "checklist_coverage": "3 / 4",
+      "critical_blocker": "Lack of clearly defined early-entry advantage or exclusive positioning at pre-FID stage",
+      "transfer_vehicle": "Anchor mandate investor or strategic lead capital provider",
+      "payment_trigger": "Internal IC approval aligned with sovereign partner strategy",
+      "estimated_time_to_transfer": "2–6 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate (high probability of acceptance if exclusivity is clear)",
+      "promote_trigger": "FID + platform scaling + downstream capital participation",
+      "recurrence_potential": "Very High (repeatable across multiple platforms and geographies)"
+    },
+    "website_notes": [
+      "Identity = Flexible capital allocator bridging sovereign capital and private markets",
+      "Identification = Early-stage strategic capital provider, not late-stage infrastructure allocator",
+      "Access Physics = Requires high-conviction, well-structured opportunities with early positioning advantage",
+      "Distribution Mechanics = Partner-led relationships + sovereign alignment + rapid decision cycles",
+      "Conversion Physics = Show asymmetric early access + strategic alignment to unlock fast capital"
+    ],
+    "buyer_state": {
+      "reach_profile": [
+        "Moderate shielding",
+        "Partner-driven",
+        "Opportunity-sensitive",
+        "High altitude symmetry sensitivity",
+        "Lower channel dependence (relative to sovereigns)"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Early entry advantage",
+            "Sovereign alignment",
+            "Platform-level upside",
+            "Speed to capital deployment"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Sovereign capital partners (e.g., Mubadala)",
+            "High-trust operator relationships",
+            "Strategic advisors",
+            "Cross-border investment networks",
+            "Existing co-investors"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "AI infrastructure build-out cycles",
+            "Sovereign strategic investment pushes",
+            "Pre-hyperscaler entry windows",
+            "Emerging market platform formation moments"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Senior Partner level",
+            "Deal lead",
+            "Sovereign-aligned decision stakeholders"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: MEDIUM — More accessible than sovereign funds.",
+        "Decision Speed: FAST — Can move quickly with conviction.",
+        "Risk Exposure: MODERATE — Comfortable earlier than infra funds.",
+        "Altitude Sensitivity: HIGH — Must match strategic relevance.",
+        "Channel Dependence: MEDIUM — Warm intros help, but strong narrative can break through."
+      ],
+      "channels": {
+        "primary": [
+          "Sovereign-aligned introductions",
+          "Direct partner relationships",
+          "Strategic co-investor pathways",
+          "High-trust operator networks"
+        ],
+        "secondary": [
+          "Direct outreach with highly structured mandate narrative"
+        ],
+        "avoid": [
+          "Late-stage infrastructure-only positioning",
+          "Generic growth pitches",
+          "No exclusivity or edge",
+          "Slow-moving opportunities"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 — Platform Pressure: Identify missed early-entry opportunity before large capital enters.",
+        "Step 2 — Platform Framing: Define platform with clear sovereign alignment and asymmetric upside.",
+        "Step 3 — Structural Alignment: Establish exclusivity, governance, and capital stack positioning.",
+        "Step 4 — Mandate Execution: Secure pre-FID structuring mandate with Alpha Wave as anchor or lead.",
+        "Step 5 — FID Trigger: Larger capital (infra funds, hyperscalers) enters after structure is validated."
+      ]
+    },
+    "created_at": "2026-03-23T00:00:00Z",
+    "updated_at": "2026-03-23T00:00:00Z"
   }
 ]
