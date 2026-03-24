@@ -15886,5 +15886,725 @@
     "confidence": "medium",
     "verification_status": "source_listed_not_relationship_verified",
     "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-udg-aliu-miubi-hammed",
+    "name_display": "Aliu Miubi-Hammed",
+    "first_name": "Aliu",
+    "last_name": "Miubi-Hammed",
+    "organization_primary": "Qucoon",
+    "designation": "Head of Consulting",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-basil-udaudoh",
+    "name_display": "Basil Udaudoh",
+    "first_name": "Basil",
+    "last_name": "Udaudoh",
+    "organization_primary": "Slalom",
+    "designation": "Delivery Solution Lead",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-brian-lenehart",
+    "name_display": "Brian Lenehart",
+    "first_name": "Brian",
+    "last_name": "Lenehart",
+    "organization_primary": "Slalom",
+    "designation": "Payments Architect",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "approximate",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-chiedozie-nwosu",
+    "name_display": "Chiedozie Nwosu",
+    "first_name": "Chiedozie",
+    "last_name": "Nwosu",
+    "organization_primary": "Qucoon",
+    "designation": "Frontend Engineer, AWS",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-chito-chuks",
+    "name_display": "Chito Chuks",
+    "first_name": "Chito",
+    "last_name": "Chuks",
+    "organization_primary": "Qucoon",
+    "designation": "Enterprise Business Manager",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-david-itakpe",
+    "name_display": "David Itakpe",
+    "first_name": "David",
+    "last_name": "Itakpe",
+    "organization_primary": "Qucoon",
+    "designation": "Backend Engineer, AWS",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-elizabeth-lounsbury",
+    "name_display": "Elizabeth Lounsbury",
+    "first_name": "Elizabeth",
+    "last_name": "Lounsbury",
+    "organization_primary": "Slalom",
+    "designation": "Managing Director, AWS",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-emmanuella-etuk",
+    "name_display": "Emmanuella Etuk",
+    "first_name": "Emmanuella",
+    "last_name": "Etuk",
+    "organization_primary": "Qucoon",
+    "designation": "Technical Program Manager",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-evan-mele",
+    "name_display": "Evan Mele",
+    "first_name": "Evan",
+    "last_name": "Mele",
+    "organization_primary": "Slalom",
+    "designation": "Quality Engineering Architect",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-frank-felix",
+    "name_display": "Frank Felix",
+    "first_name": "Frank",
+    "last_name": "Felix",
+    "organization_primary": "Qucoon",
+    "designation": "AI/ML Engineer",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-luke-joliat",
+    "name_display": "Luke Joliat",
+    "first_name": "Luke",
+    "last_name": "Joliat",
+    "organization_primary": "Slalom",
+    "designation": "AI Accelerated Engineering Architect",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-m-hans-delly",
+    "name_display": "M. Hans Delly",
+    "first_name": "M.",
+    "last_name": "Hans Delly",
+    "organization_primary": "Slalom",
+    "designation": "Managing Director, Global Lead Tech Strategy",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "approximate",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-pinkk-ratnad",
+    "name_display": "Pinkk Ratnad",
+    "first_name": "Pinkk",
+    "last_name": "Ratnad",
+    "organization_primary": "Slalom",
+    "designation": "Security Architect",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "approximate",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-rich-campoomar",
+    "name_display": "Rich Campoomar",
+    "first_name": "Rich",
+    "last_name": "Campoomar",
+    "organization_primary": "Slalom",
+    "designation": "Enterprise Architect",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "approximate",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-rodrigo-sep-lveda-ayala",
+    "name_display": "Rodrigo Sepúlveda Ayala",
+    "first_name": "Rodrigo",
+    "last_name": "Sepúlveda Ayala",
+    "organization_primary": "Slalom",
+    "designation": "AWS Cloud Architect",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-sam-mcclanahan",
+    "name_display": "Sam McClanahan",
+    "first_name": "Sam",
+    "last_name": "McClanahan",
+    "organization_primary": "Slalom",
+    "designation": "Solution Owner",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-somtochukwu-ezeh",
+    "name_display": "Somtochukwu Ezeh",
+    "first_name": "Somtochukwu",
+    "last_name": "Ezeh",
+    "organization_primary": "Qucoon",
+    "designation": "AWS Cloud Engineer",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-temitope-olakunle",
+    "name_display": "Temitope Olakunle",
+    "first_name": "Temitope",
+    "last_name": "Olakunle",
+    "organization_primary": "Qucoon",
+    "designation": "CTO",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-victoria-mogbolu",
+    "name_display": "Victoria Mogbolu",
+    "first_name": "Victoria",
+    "last_name": "Mogbolu",
+    "organization_primary": "Qucoon",
+    "designation": "Security Engineer",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-udg-yinka-daramola",
+    "name_display": "Yinka Daramola",
+    "first_name": "Yinka",
+    "last_name": "Daramola",
+    "organization_primary": "Qucoon",
+    "designation": "CEO",
+    "country_normalized": "",
+    "actor_type": "operator",
+    "relationship_type": "delivery_network",
+    "unlock_role": "accelerates",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "confirmed",
+    "owner": "Unified Digital Group",
+    "company_linkage": {
+      "subsidiary": "Unified Digital Group",
+      "parent": "Unified State Group",
+      "link_type": "subsidiary_to_parent_operating_network"
+    },
+    "notes": "Added from UDG financial services domain expertise team slide; connected to UDG as USG subsidiary operating network.",
+    "sources": [
+      {
+        "label": "UDG team/services slide (user-provided image, 2026-03-24)",
+        "url": "internal://isaac-provided/media/udg-team-slide-2026-03-24"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_image_transcribed",
+    "updated_at": "2026-03-24T23:25:00Z"
   }
 ]
