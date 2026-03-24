@@ -7617,5 +7617,67 @@
       "Colombia"
     ],
     "country": "Brazil"
+  },
+  {
+    "signal_id": "SIG-2026-03-24-CARGILL-AI-YIELD-BEEF-PRICES-001",
+    "title": "Cargill uses AI to improve processing yield as beef prices rise",
+    "signal_class": "Operational Efficiency + Supply Constraint Response",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-24T13:37:00Z",
+    "summary": "Cargill is reported to be applying AI in meat processing to increase usable yield per animal amid elevated beef prices and supply pressure.",
+    "flow": "input scarcity + price pressure -> AI yield optimization in physical processing -> incremental per-unit gains scale into material margin impact",
+    "verification_note": "FT source URL captured; direct article fetch blocked in current environment. Keep monitor until full first-party/Tier-1 corroboration is complete.",
+    "sources": [
+      {
+        "label": "Financial Times",
+        "url": "https://www.ft.com/content/9089e369-92f4-48dc-ac09-46b6a62035a6"
+      },
+      {
+        "label": "User-provided social/image context",
+        "url": "internal://isaac-provided/media-signal/cargill-ai-yield-2026-03-24"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "CARGILL"
+    ],
+    "actor_roles": [
+      "industrial-operator",
+      "ai-adopter"
+    ],
+    "lifecycle_stage_refs": [
+      "delivery",
+      "capital"
+    ],
+    "evidence_type": "tier1_media_plus_user_context",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "ai-operations",
+      "yield-optimization",
+      "food-supply-chain",
+      "inflation-response",
+      "industrial-ai"
+    ],
+    "buyer_ids": [
+      "KKR",
+      "STONEPEAK",
+      "GIP",
+      "GENERAL_ATLANTIC",
+      "ALPHA_WAVE"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "geography": [
+      "United States",
+      "Global"
+    ],
+    "country": "United States"
   }
 ]
