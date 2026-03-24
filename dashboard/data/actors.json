@@ -10813,5 +10813,28 @@
     "source_row_hash": "b2dad2a15ca66253",
     "needs_review": false,
     "owner": "Shiv Khemka"
+  },
+  {
+    "actor_id": "actor-usvi-adrienne-williams-octalien",
+    "name_display": "Adrienne L. Williams-Octalien",
+    "first_name": "Adrienne",
+    "last_name": "Williams-Octalien",
+    "organization_primary": "Office of Disaster Recovery (USVI)",
+    "designation": "Director, Virgin Islands Office of Disaster Recovery (ODR)",
+    "country_normalized": "USVI",
+    "actor_type": "government_interface",
+    "relationship_type": "program_authority",
+    "unlock_role": "approves",
+    "relationship_degree": "1st_degree",
+    "link_strength": "high",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "active",
+    "resolution_status": "confirmed",
+    "owner": "initiative:INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
+    "notes": "Primary POC and program authority seat for USVI recovery initiative.",
+    "updated_at": "2026-03-24T17:38:00Z"
   }
 ]

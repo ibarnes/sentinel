@@ -5056,9 +5056,12 @@
         "priority": "P0",
         "layer": "political",
         "role": "Program Authority Lead (ODR)",
-        "status": "identified",
-        "mapped_entity": "Office of Disaster Recovery (USVI)",
-        "critical": true
+        "status": "validated",
+        "mapped_entity": "Adrienne L. Williams-Octalien — Office of Disaster Recovery (USVI)",
+        "critical": true,
+        "mapped_entity_type": "organization",
+        "mapped_entity_ref": "actor-usvi-adrienne-williams-octalien",
+        "notes": "Primary POC confirmed."
       },
       {
         "priority": "P0",
