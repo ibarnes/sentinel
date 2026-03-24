@@ -11283,12 +11283,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/adamkus-valdas/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/valdas-adamkus.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/valdas-adamkus.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/valdas-adamkus.jpg"
       }
     ],
     "confidence": "medium",
@@ -11316,12 +11320,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/adriano-afonso-maleiane/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/12/Captura-de-pantalla-2025-12-12-a-las-16.10.54-500x500.png",
+    "profile_image": "/public/actor-images/clubmadrid/adriano-afonso-maleiane.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2025/12/Captura-de-pantalla-2025-12-12-a-las-16.10.54-500x500.png"
       }
     ],
     "confidence": "medium",
@@ -11349,12 +11357,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/aho-esko/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Captura-de-pantalla-2024-07-11-a-las-12.37.16-500x500.png",
+    "profile_image": "/public/actor-images/clubmadrid/esko-aho.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/Captura-de-pantalla-2024-07-11-a-las-12.37.16-500x500.png"
       }
     ],
     "confidence": "medium",
@@ -11382,12 +11394,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/arias-oscar/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/oscar-arias.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/scar-arias-s-nchez.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/oscar-arias.jpg"
       }
     ],
     "confidence": "medium",
@@ -11415,12 +11431,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/aznar-jose-maria/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-maria-aznar.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jos-mar-a-aznar.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-maria-aznar.jpg"
       }
     ],
     "confidence": "medium",
@@ -11448,12 +11468,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/bachelet-michelle/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/michelle-bachelet.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/michelle-bachelet.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/michelle-bachelet.jpg"
       }
     ],
     "confidence": "medium",
@@ -11481,12 +11505,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/balkenende-jan-peter/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/02/Balkenende-Jan-Peter-e1580721798434.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jan-peter-balkenende.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2020/02/Balkenende-Jan-Peter-e1580721798434.jpg"
       }
     ],
     "confidence": "medium",
@@ -11514,12 +11542,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/bambang-yudhoyono-susilo/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/10/1x1-Web-PD-7-1-500x500.png",
+    "profile_image": "/public/actor-images/clubmadrid/susilo-bambang-yudhoyono.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2022/10/1x1-Web-PD-7-1-500x500.png"
       }
     ],
     "confidence": "medium",
@@ -11547,12 +11579,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/banda-joyce/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/joyce-banda.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/joyce-hilda-banda.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/joyce-banda.jpg"
       }
     ],
     "confidence": "medium",
@@ -11580,12 +11616,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/berset-alain/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2024/07/Portrait2-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/alain-berset.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2024/07/Portrait2-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -11613,12 +11653,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/bildt-carl/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/carl-bildt.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/carl-bildt.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/carl-bildt.jpg"
       }
     ],
     "confidence": "medium",
@@ -11646,12 +11690,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/birkavs-valdis/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/valdis-birkavs.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/valdis-birkavs.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/valdis-birkavs.jpg"
       }
     ],
     "confidence": "medium",
@@ -11679,12 +11727,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/bondevik-kjell-magne/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Kjell-Magne-Bondevik-500x500.webp",
+    "profile_image": "/public/actor-images/clubmadrid/kjell-magne-bondevik.webp",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/Kjell-Magne-Bondevik-500x500.webp"
       }
     ],
     "confidence": "medium",
@@ -11712,12 +11764,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/brown-gordon/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/11/Brown-Gordon.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/james-gordon-brown.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2020/11/Brown-Gordon.jpg"
       }
     ],
     "confidence": "medium",
@@ -11745,12 +11801,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/brundtland-gro-harlem/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Gro_Harlem_Brundtland_2009-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/gro-harlem-brundtland.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/Gro_Harlem_Brundtland_2009-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -11778,12 +11838,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/buzek-jerzy/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jerzy-buzek.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jerzy-karol-buzek.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/jerzy-buzek.jpg"
       }
     ],
     "confidence": "medium",
@@ -11811,12 +11875,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/calderon-felipe/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/felipe-calderon-2.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/felipe-calder-n-hinojosa.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/felipe-calderon-2.jpg"
       }
     ],
     "confidence": "medium",
@@ -11844,12 +11912,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/calmy-rey-micheline/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/micheline-calmy-rey.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/micheline-calmy-rey.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/micheline-calmy-rey.jpg"
       }
     ],
     "confidence": "medium",
@@ -11877,12 +11949,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/campbell-kim/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/AKCAMBPBELL-Photog-Cooper-OHara-Full-cropped-square.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/kim-campbell.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/AKCAMBPBELL-Photog-Cooper-OHara-Full-cropped-square.jpg"
       }
     ],
     "confidence": "medium",
@@ -11910,12 +11986,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/cardoso-fernando-henrique/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/fernando-henrique-cardoso.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/fernando-henrique-cardoso.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/fernando-henrique-cardoso.jpg"
       }
     ],
     "confidence": "medium",
@@ -11943,12 +12023,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/carlos-alvarado/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2023/01/1x1-1-500x500.png",
+    "profile_image": "/public/actor-images/clubmadrid/carlos-alvarado-quesada.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2023/01/1x1-1-500x500.png"
       }
     ],
     "confidence": "medium",
@@ -11976,12 +12060,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/cavaco-silva-anibal/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/anibal-cavaco-silva.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/an-bal-cavaco-silva.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/anibal-cavaco-silva.jpg"
       }
     ],
     "confidence": "medium",
@@ -12009,12 +12097,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/cellou-dalein-diallo/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/03/Cellou-Dalein-Diallo-1-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/cellou-dalein-diallo.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2025/03/Cellou-Dalein-Diallo-1-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -12042,12 +12134,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/chinchilla-miranda-laura/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/10/d9ca71ee-23ba-4150-ab4b-8e7b7186e486-2-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/laura-chinchilla.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2020/10/d9ca71ee-23ba-4150-ab4b-8e7b7186e486-2-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -12075,12 +12171,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/chissano-joaquim/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/joaquim-chissano.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/joaquim-chissano.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/joaquim-chissano.jpg"
       }
     ],
     "confidence": "medium",
@@ -12108,12 +12208,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/chretien-jean/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jean-chretien.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jean-chr-tien.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/jean-chretien.jpg"
       }
     ],
     "confidence": "medium",
@@ -12141,12 +12245,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/clark-helen/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2019/10/Clark-Helen-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/helen-clark.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2019/10/Clark-Helen-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -12174,12 +12282,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/clinton-bill/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/bill-clinton.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/bill-clinton.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/bill-clinton.jpg"
       }
     ],
     "confidence": "medium",
@@ -12207,12 +12319,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/coleiro-preca-marie-louise/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/04/Coleiro_Preca.png",
+    "profile_image": "/public/actor-images/clubmadrid/marie-louise-coleiro-preca.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2022/04/Coleiro_Preca.png"
       }
     ],
     "confidence": "medium",
@@ -12240,12 +12356,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/de-villepin-dominique/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/12/Dominique-de-Villepin.png",
+    "profile_image": "/public/actor-images/clubmadrid/dominique-de-villepin.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2020/12/Dominique-de-Villepin.png"
       }
     ],
     "confidence": "medium",
@@ -12273,12 +12393,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/dimitrov-philip/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/philip-dimitrov.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/philip-dimitrov.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/philip-dimitrov.jpg"
       }
     ],
     "confidence": "medium",
@@ -12306,12 +12430,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/durao-barroso-jose-manuel/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-manuel-durao-barroso.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jos-manuel-barroso.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-manuel-durao-barroso.jpg"
       }
     ],
     "confidence": "medium",
@@ -12339,12 +12467,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/fernandez-leonel/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/leonel-fernandez.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/leonel-fern-ndez.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/leonel-fernandez.jpg"
       }
     ],
     "confidence": "medium",
@@ -12372,12 +12504,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/figueres-jose-maria/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-maria-figueres.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jos-mar-a-figueres.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-maria-figueres.jpg"
       }
     ],
     "confidence": "medium",
@@ -12405,12 +12541,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/finnbogadottir-vigdis/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/vigdis-finnbogadottir.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/vigd-s-finnbogad-ttir.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/vigdis-finnbogadottir.jpg"
       }
     ],
     "confidence": "medium",
@@ -12438,12 +12578,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/fox-vicente/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/vicente-fox.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/vicente-fox.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/vicente-fox.jpg"
       }
     ],
     "confidence": "medium",
@@ -12471,12 +12615,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/francisco-sagasti/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/sagasti3-500x500.jpeg",
+    "profile_image": "/public/actor-images/clubmadrid/francisco-sagasti.jpeg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2022/07/sagasti3-500x500.jpeg"
       }
     ],
     "confidence": "medium",
@@ -12504,12 +12652,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/fukuda-yasuo/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/yasuo-fukuda.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/yasuo-fukuda.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/yasuo-fukuda.jpg"
       }
     ],
     "confidence": "medium",
@@ -12537,12 +12689,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/gaviria-cesar/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/cesar-gaviria.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/c-sar-gaviria.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/cesar-gaviria.jpg"
       }
     ],
     "confidence": "medium",
@@ -12570,12 +12726,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/gemayel-amine-pierre/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Board-500x500.png",
+    "profile_image": "/public/actor-images/clubmadrid/amine-pierre-gemayel.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/Board-500x500.png"
       }
     ],
     "confidence": "medium",
@@ -12603,12 +12763,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/gonzalez-felipe/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/felipe-gonzalez.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/felipe-gonz-lez-m-rquez.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/felipe-gonzalez.jpg"
       }
     ],
     "confidence": "medium",
@@ -12636,12 +12800,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/grybauskaite-dalia/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/07/Prezidentė-Dalia-Grybauskaitė-1.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/dalia-grybauskaite.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2020/07/Prezidentė-Dalia-Grybauskaitė-1.jpg"
       }
     ],
     "confidence": "medium",
@@ -12669,12 +12837,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/gusenbauer-alfred/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/alfred-gusenbauer.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/alfred-gusenbauer.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/alfred-gusenbauer.jpg"
       }
     ],
     "confidence": "medium",
@@ -12702,12 +12874,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/guterres-antonio/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Guterres-Antonio2taken-online-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/ant-nio-guterres.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/Guterres-Antonio2taken-online-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -12735,12 +12911,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/halonen-tarja/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/tarja-halonen.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/tarja-kaarina-halonen.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/tarja-halonen.jpg"
       }
     ],
     "confidence": "medium",
@@ -12768,12 +12948,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/han-seung-soo/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/seung-soo-han.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/han-seung-soo.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/seung-soo-han.jpg"
       }
     ],
     "confidence": "medium",
@@ -12801,12 +12985,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/hilda-heine/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/Heine-Hilda_taken-online-500x500.jpeg",
+    "profile_image": "/public/actor-images/clubmadrid/hilda-heine.jpeg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2022/07/Heine-Hilda_taken-online-500x500.jpeg"
       }
     ],
     "confidence": "medium",
@@ -12834,12 +13022,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/hollande-francois/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2018/12/Hollande.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/fran-ois-hollande.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2018/12/Hollande.jpg"
       }
     ],
     "confidence": "medium",
@@ -12867,12 +13059,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/hurtado-osvaldo/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/osvaldo-hurtado.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/osvaldo-hurtado-larrea.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/osvaldo-hurtado.jpg"
       }
     ],
     "confidence": "medium",
@@ -12900,12 +13096,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/james-patterson-percival-noel/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/percival-noel-james-patterson.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/percival-james-patterson.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/percival-noel-james-patterson.jpg"
       }
     ],
     "confidence": "medium",
@@ -12933,12 +13133,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/jean-claude-juncker/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/Jean-Claude-Juncker-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jean-claude-juncker.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2022/07/Jean-Claude-Juncker-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -12966,12 +13170,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/jean-pierre-raffarin/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/05/JEAN_PIERRE_RAFFARIN-2.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jean-pierre-raffarin.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2025/05/JEAN_PIERRE_RAFFARIN-2.jpg"
       }
     ],
     "confidence": "medium",
@@ -12999,12 +13207,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/jebali-hamadi/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/hamadi-jebali.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/hamadi-jebali.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/hamadi-jebali.jpg"
       }
     ],
     "confidence": "medium",
@@ -13032,12 +13244,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/joachim-gauck/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/Gauck-Joachim-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/joachim-wilhelm-gauck.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2022/07/Gauck-Joachim-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -13065,12 +13281,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/johnson-sirleaf-ellen/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2019/04/Johnson-Sirleaf-Ellen.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/ellen-johnson-sirleaf.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2019/04/Johnson-Sirleaf-Ellen.jpg"
       }
     ],
     "confidence": "medium",
@@ -13098,12 +13318,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/josipovic-ivo/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/07/Ivo-Josipovic-1-1.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/ivo-josipovic.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2020/07/Ivo-Josipovic-1-1.jpg"
       }
     ],
     "confidence": "medium",
@@ -13131,12 +13355,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/julia-gillard/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2024/05/Julia-Gillard-Headshot-scaled-e1716538217387-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/julia-eileen-gillard.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2024/05/Julia-Gillard-Headshot-scaled-e1716538217387-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -13164,12 +13392,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/juppe-alain/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/alain-juppe.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/alain-marie-jupp.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/alain-juppe.jpg"
       }
     ],
     "confidence": "medium",
@@ -13197,12 +13429,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/katerina-sakellaropoulou/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/09/katerina.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/katerina-sakellaropoulou.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2025/09/katerina.jpg"
       }
     ],
     "confidence": "medium",
@@ -13230,12 +13466,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/kucan-milan/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/milan-kucan.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/milan-ku-an.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/milan-kucan.jpg"
       }
     ],
     "confidence": "medium",
@@ -13263,12 +13503,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/kufuor-john/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/john-kufuor.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/john-kufuor.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/john-kufuor.jpg"
       }
     ],
     "confidence": "medium",
@@ -13296,12 +13540,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/kumaratunga-chandrika/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/chandrika-kumaratunga.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/chandrika-kumaratunga.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/chandrika-kumaratunga.jpg"
       }
     ],
     "confidence": "medium",
@@ -13329,12 +13577,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/kwasniewski-aleksander/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/aleksander-kwasniewski.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/aleksander-kwasniewski.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/aleksander-kwasniewski.jpg"
       }
     ],
     "confidence": "medium",
@@ -13362,12 +13614,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/lacalle-luis-alberto/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/luis-alberto-lacalle.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/luis-alberto-lacalle.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/luis-alberto-lacalle.jpg"
       }
     ],
     "confidence": "medium",
@@ -13395,12 +13651,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/lagos-ricardo/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/ricardo-lagos.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/ricardo-lagos.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/ricardo-lagos.jpg"
       }
     ],
     "confidence": "medium",
@@ -13428,12 +13688,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/lagumdzija-zlatko/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/zlatko-lagumdzija.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/zlatko-lagumdzija.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/zlatko-lagumdzija.jpg"
       }
     ],
     "confidence": "medium",
@@ -13461,12 +13725,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/lee-hong-koo/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/hong-koo-lee.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/lee-hong-koo.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/hong-koo-lee.jpg"
       }
     ],
     "confidence": "medium",
@@ -13494,12 +13762,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/leo-varadkar/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/07/LeoPicGreyTie-500x334.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/leo-eric-varadkar.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2025/07/LeoPicGreyTie-500x334.jpg"
       }
     ],
     "confidence": "medium",
@@ -13527,12 +13799,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/leterme-yves/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/yves-leterme.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/yves-leterme.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/yves-leterme.jpg"
       }
     ],
     "confidence": "medium",
@@ -13560,12 +13836,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/letta-enrico/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2021/01/E-Letta.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/enrico-letta.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2021/01/E-Letta.jpg"
       }
     ],
     "confidence": "medium",
@@ -13593,12 +13873,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/leuthard-doris/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/04/Leuthard-Doris-1-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/doris-leuthard.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2022/04/Leuthard-Doris-1-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -13626,12 +13910,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/mari-kiviniemi/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/02/keksi_stk_metsa_board_mari_kiviniemi_39922-2-500x500.jpeg",
+    "profile_image": "/public/actor-images/clubmadrid/mari-johanna-kiviniemi.jpeg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2025/02/keksi_stk_metsa_board_mari_kiviniemi_39922-2-500x500.jpeg"
       }
     ],
     "confidence": "medium",
@@ -13659,12 +13947,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/mauricio-macri/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/Macri-Mauricio-2-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/mauricio-macri.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2022/07/Macri-Mauricio-2-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -13692,12 +13984,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/mehdi-jomaa/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/mehdi-jomaa.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/mehdi-jomaa.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/mehdi-jomaa.jpg"
       }
     ],
     "confidence": "medium",
@@ -13725,12 +14021,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/meidani-rexhep/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Rexhep-Meidani-Mejdani-500x445.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/rexhep-qemal-meidani.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/Rexhep-Meidani-Mejdani-500x445.jpg"
       }
     ],
     "confidence": "medium",
@@ -13758,12 +14058,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/mesa-carlos/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/carlos-mesa.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/carlos-mesa.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/carlos-mesa.jpg"
       }
     ],
     "confidence": "medium",
@@ -13791,12 +14095,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/michel-james/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2019/04/High-resolution-photo-of-President-Michelweb.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/james-alix-michel.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2019/04/High-resolution-photo-of-President-Michelweb.jpg"
       }
     ],
     "confidence": "medium",
@@ -13824,12 +14132,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/mogae-festus/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/festus-mogae.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/festus-gontebanye-mogae.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/festus-mogae.jpg"
       }
     ],
     "confidence": "medium",
@@ -13857,12 +14169,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/monti-mario/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/08/Photo-Mario-Monti.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/mario-monti.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2020/08/Photo-Mario-Monti.jpg"
       }
     ],
     "confidence": "medium",
@@ -13890,12 +14206,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/moussa-mara/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/PHOTO-2022-8-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/moussa-mara.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2022/07/PHOTO-2022-8-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -13923,12 +14243,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/mvuyelwa-mbeki-thabo/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/thabo-mvuyelwa-mbeki.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/thabo-mvuyelwa-mbeki.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/thabo-mvuyelwa-mbeki.jpg"
       }
     ],
     "confidence": "medium",
@@ -13956,12 +14280,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/natalia-gavrilita/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/05/Secretary_Blinken_Meets_with_Moldovan_Prime_Minister_Natalia_Gavrilita_52227531626_cropped-490x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/natalia-gavrili-a.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2025/05/Secretary_Blinken_Meets_with_Moldovan_Prime_Minister_Natalia_Gavrilita_52227531626_cropped-490x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -13989,12 +14317,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/obasanjo-olusegun/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/olusegun-obasanjo.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/olusegun-obasanjo.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/olusegun-obasanjo.jpg"
       }
     ],
     "confidence": "medium",
@@ -14022,12 +14354,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/otunbayeva-roza/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/roza-otunbayeva.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/roza-otunbayeva.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/roza-otunbayeva.jpg"
       }
     ],
     "confidence": "medium",
@@ -14055,12 +14391,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/panyarachun-anand/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/anand-panyarachun.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/anand-panyarachun.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/anand-panyarachun.jpg"
       }
     ],
     "confidence": "medium",
@@ -14088,12 +14428,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/paolo-gentiloni/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/07/GENTILONI-formal-pose-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/paolo-gentiloni-silveri.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2025/07/GENTILONI-formal-pose-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -14121,12 +14465,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/papandreou-george/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/george-papandreou.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/george-papandreou.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/george-papandreou.jpg"
       }
     ],
     "confidence": "medium",
@@ -14154,12 +14502,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/pastrana-andres/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/andres-pastrana.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/andr-s-pastrana.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/andres-pastrana.jpg"
       }
     ],
     "confidence": "medium",
@@ -14187,12 +14539,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/patil-pratibha/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/pratibha-patil-1.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/pratibha-devisingh-patil.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/pratibha-patil-1.jpg"
       }
     ],
     "confidence": "medium",
@@ -14220,12 +14576,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/prodi-romano/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Romano_Prodi.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/romano-prodi.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/Romano_Prodi.jpg"
       }
     ],
     "confidence": "medium",
@@ -14253,12 +14613,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/quiroga-jorge-fernando/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jorge-fernando-quiroga.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jorge-quiroga.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/jorge-fernando-quiroga.jpg"
       }
     ],
     "confidence": "medium",
@@ -14286,12 +14650,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/radicova-iveta/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/iveta-radicova.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/iveta-radi-ov.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/iveta-radicova.jpg"
       }
     ],
     "confidence": "medium",
@@ -14319,12 +14687,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/rajoy-mariano/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2019/11/Mariano_Rajoy_Brey.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/mariano-rajoy.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2019/11/Mariano_Rajoy_Brey.jpg"
       }
     ],
     "confidence": "medium",
@@ -14352,12 +14724,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/ram-nath-kovind/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2023/03/One-year-standing-with-Ukraine-1-500x500.png",
+    "profile_image": "/public/actor-images/clubmadrid/ram-nath-kovind.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2023/03/One-year-standing-with-Ukraine-1-500x500.png"
       }
     ],
     "confidence": "medium",
@@ -14385,12 +14761,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/ramos-horta-jose-manuel/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-manuel-ramos-horta.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jos-manuel-ramos-horta.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-manuel-ramos-horta.jpg"
       }
     ],
     "confidence": "medium",
@@ -14418,12 +14798,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/rasmussen-poul-nyrup/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/poul-nyrup-rasmussen.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/poul-nyrup-rasmussen.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/poul-nyrup-rasmussen.jpg"
       }
     ],
     "confidence": "medium",
@@ -14451,12 +14835,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/robinson-mary/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/mary-robinson.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/mary-robinson.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/mary-robinson.jpg"
       }
     ],
     "confidence": "medium",
@@ -14484,12 +14872,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/rodriguez-zapatero-jose-luis/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-luis-rodriguez-zapatero.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jos-luis-rodr-guez-zapatero.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-luis-rodriguez-zapatero.jpg"
       }
     ],
     "confidence": "medium",
@@ -14517,12 +14909,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/roman-petre/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/petre-roman.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/petre-roman.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/petre-roman.jpg"
       }
     ],
     "confidence": "medium",
@@ -14550,12 +14946,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/rudd-kevin/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/kevin-rudd.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/kevin-michael-rudd.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/kevin-rudd.jpg"
       }
     ],
     "confidence": "medium",
@@ -14583,12 +14983,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/ruiz-tagle-eduardo-frei/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Eduardo-Frei-Ruiz-Tagle-3-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/eduardo-frei-ruiz-tagle.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/Eduardo-Frei-Ruiz-Tagle-3-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -14616,12 +15020,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/sanguinetti-julio-maria/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/julio-maria-sanguinetti.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/julio-mar-a-sanguinetti.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/julio-maria-sanguinetti.jpg"
       }
     ],
     "confidence": "medium",
@@ -14649,12 +15057,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/sanna-marin/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2024/04/Captura-de-pantalla-2024-04-05-a-las-15.43.26-500x500.png",
+    "profile_image": "/public/actor-images/clubmadrid/sanna-marin.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2024/04/Captura-de-pantalla-2024-04-05-a-las-15.43.26-500x500.png"
       }
     ],
     "confidence": "medium",
@@ -14682,12 +15094,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/schussel-wolfang/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/1x1-Web-PD-4-500x500.png",
+    "profile_image": "/public/actor-images/clubmadrid/wolfgang-sch-ssel.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/1x1-Web-PD-4-500x500.png"
       }
     ],
     "confidence": "medium",
@@ -14715,12 +15131,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/shipley-jennifer-mary/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jennifer-mary-shipley.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/dame-jennifer-mary-shipley.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/jennifer-mary-shipley.jpg"
       }
     ],
     "confidence": "medium",
@@ -14748,12 +15168,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/sigurdartottir-johanna/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/johanna-sigurdartottir.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/j-hanna-sigur-ard-ttir.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/johanna-sigurdartottir.jpg"
       }
     ],
     "confidence": "medium",
@@ -14781,12 +15205,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/siniora-fuad/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/fuad-siniora.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/fuad-siniora.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/fuad-siniora.jpg"
       }
     ],
     "confidence": "medium",
@@ -14814,12 +15242,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/stefan-lofven/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2023/01/Stefan_Löfven._premier_Zweden_met_DE_CUMULA_cropped-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/kjell-stefan-l-fven.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2023/01/Stefan_Löfven._premier_Zweden_met_DE_CUMULA_cropped-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -14847,12 +15279,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/stubb-alexander/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/12/Captura-de-pantalla-2024-03-19-a-las-15.45.59-500x500.png",
+    "profile_image": "/public/actor-images/clubmadrid/alexander-stubb.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2020/12/Captura-de-pantalla-2024-03-19-a-las-15.45.59-500x500.png"
       }
     ],
     "confidence": "medium",
@@ -14880,12 +15316,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/suchocka-hanna/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/hanna-suchocka.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/hanna-stanis-awa-suchocka.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/hanna-suchocka.jpg"
       }
     ],
     "confidence": "medium",
@@ -14913,12 +15353,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/tadic-boris/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/tadic-boris.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/boris-tadic.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/tadic-boris.jpg"
       }
     ],
     "confidence": "medium",
@@ -14946,12 +15390,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/thorning-schmidt-helle/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2018/11/Helle_Thorning-Schmidt@05x-1.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/helle-thorning-schmidt.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2018/11/Helle_Thorning-Schmidt@05x-1.jpg"
       }
     ],
     "confidence": "medium",
@@ -14979,12 +15427,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/torrijos-martin/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/martin-torrijos.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/mart-n-torrijos-espino.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/martin-torrijos.jpg"
       }
     ],
     "confidence": "medium",
@@ -15012,12 +15464,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/toure-aminata/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2019/01/image0-2-324x500.jpeg",
+    "profile_image": "/public/actor-images/clubmadrid/aminata-tour.jpeg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2019/01/image0-2-324x500.jpeg"
       }
     ],
     "confidence": "medium",
@@ -15045,12 +15501,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/tsakhia-elbegdorj/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2018/11/Tsakhiagiin_Elbegdorj_01_Senate_of_Poland@05x-e1543421820702.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/elbegdorj-tsakhia.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2018/11/Tsakhiagiin_Elbegdorj_01_Senate_of_Poland@05x-e1543421820702.jpg"
       }
     ],
     "confidence": "medium",
@@ -15078,12 +15538,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/turk-danilo/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/10/Diseno-sin-titulo-500x500.png",
+    "profile_image": "/public/actor-images/clubmadrid/danilo-t-rk.png",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2020/10/Diseno-sin-titulo-500x500.png"
       }
     ],
     "confidence": "medium",
@@ -15111,12 +15575,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/uteem-cassam/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/cassam-uteem.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/cassam-uteem.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/cassam-uteem.jpg"
       }
     ],
     "confidence": "medium",
@@ -15144,12 +15612,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/valdis-zatlers/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2023/01/Foto_portrets_VZ-copia-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/valdis-zatlers.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2023/01/Foto_portrets_VZ-copia-500x500.jpg"
       }
     ],
     "confidence": "medium",
@@ -15177,12 +15649,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/van-rompuy-herman/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/herman-van-rompuy-2.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/herman-van-rompuy.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/herman-van-rompuy-2.jpg"
       }
     ],
     "confidence": "medium",
@@ -15210,12 +15686,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/verhofstadt-guy/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/guy-verhofstadt.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/guy-verhofstadt.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/guy-verhofstadt.jpg"
       }
     ],
     "confidence": "medium",
@@ -15243,12 +15723,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/vike-freiberga-vaira/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/vaira-vike-freiberga.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/vaira-vike-freiberga.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/vaira-vike-freiberga.jpg"
       }
     ],
     "confidence": "medium",
@@ -15276,12 +15760,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/viktor-yushchenko/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/Yushchenko-Viktor-500x500.jpeg",
+    "profile_image": "/public/actor-images/clubmadrid/viktor-yushchenko.jpeg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2022/07/Yushchenko-Viktor-500x500.jpeg"
       }
     ],
     "confidence": "medium",
@@ -15309,12 +15797,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/yoser-thinley-jigmi/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jigmi-yoser-thinley.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/jigme-yoser-thinley.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/jigmi-yoser-thinley.jpg"
       }
     ],
     "confidence": "medium",
@@ -15342,12 +15834,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/zedillo-ernesto/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/ernesto-zedillo.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/ernesto-zedillo.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2017/10/ernesto-zedillo.jpg"
       }
     ],
     "confidence": "medium",
@@ -15375,12 +15871,16 @@
     "resolution_status": "identified",
     "owner": "Mark Grobmyer",
     "profile_url": "https://clubmadrid.org/who/members/zuzana-caputova/",
-    "profile_image": "https://clubmadrid.org/wp-content/uploads/2026/02/6607350890295_211465-2-1-500x500.jpg",
+    "profile_image": "/public/actor-images/clubmadrid/zuzana-aputov.jpg",
     "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
     "sources": [
       {
         "label": "Club de Madrid full members",
         "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      },
+      {
+        "label": "Club de Madrid member image source",
+        "url": "https://clubmadrid.org/wp-content/uploads/2026/02/6607350890295_211465-2-1-500x500.jpg"
       }
     ],
     "confidence": "medium",
