@@ -1552,27 +1552,88 @@ app.get('/dashboard/actor/:id', requireAnyAuth, async (req, res) => {
   const fullName = String(actor.name_display || `${actor.first_name || ''} ${actor.last_name || ''}`.trim() || actor.actor_id || 'Actor');
   const img = String(actor.profile_image || '').trim();
   const editMode = String(req.query.edit || '') === '1';
+  const tab = String(req.query.tab || 'overview').toLowerCase();
 
-  res.type('html').send(`<!doctype html><html><head>${uiHead(`Actor: ${fullName}`)}</head><body><div class="app-shell">
+  const actorLinked = Array.isArray(actor.linked_initiatives) ? actor.linked_initiatives : [];
+  const allActors = [...merged.values()];
+  const linkedActors = allActors.filter((a) => {
+    if (String(a.actor_id || '') === id) return false;
+    const sameOwner = actor.owner && a.owner && String(actor.owner) === String(a.owner);
+    const sameOrg = actor.organization_primary && a.organization_primary && String(actor.organization_primary) === String(a.organization_primary);
+    const aLinked = Array.isArray(a.linked_initiatives) ? a.linked_initiatives : [];
+    const overlap = actorLinked.length && aLinked.some((x) => actorLinked.includes(x));
+    return Boolean(sameOwner || sameOrg || overlap);
+  });
+
+  const rowsByTab = (() => {
+    if (tab === 'initiatives') return linkedActors.filter((a) => (Array.isArray(a.linked_initiatives) ? a.linked_initiatives.length : 0) > 0);
+    if (tab === 'signals') return linkedActors.filter((a) => String(a.signal_status || '') === 'active');
+    if (tab === 'capital') return linkedActors.filter((a) => /capital|invest|fund|equity|sovereign/i.test(String(a.designation || '') + ' ' + String(a.actor_type || '')));
+    if (tab === 'second_degree') return [];
+    if (tab === 'timeline') return linkedActors.filter((a) => String(a.notes || '').trim());
+    return linkedActors;
+  })();
+
+  const statLinked = linkedActors.length;
+  const statInitiatives = actorLinked.length;
+  const statActive = linkedActors.filter((a) => String(a.signal_status || '') === 'active').length;
+
+  const tabItems = [
+    ['overview', 'Overview'],
+    ['first_degree', '1st Degree Actors'],
+    ['second_degree', '2nd Degree Actors'],
+    ['initiatives', 'Initiatives'],
+    ['capital', 'Capital Pathways'],
+    ['signals', 'Signals'],
+    ['timeline', 'Notes / Timeline'],
+  ];
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead(`Actor Intelligence: ${fullName}`)}</head><body><div class="app-shell">
     ${dashboardNav('actors')}
-    ${pageHeader(`Actor: ${escapeHtml(fullName)}`, `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/actors">Back to Actors</a>`, 'Master-detail actor profile')}
+    ${pageHeader(`Actor Intelligence: ${escapeHtml(fullName)}`, `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/actors">Back to Actors</a>`, 'Relationship network, pathways, and initiative relevance')}
+
+    <div class="row g-2 mb-3">
+      <div class="col-md-3">${statCard('Linked actors', String(statLinked))}</div>
+      <div class="col-md-3">${statCard('Active initiatives', String(statInitiatives))}</div>
+      <div class="col-md-3">${statCard('Active signal nodes', String(statActive))}</div>
+      <div class="col-md-3">${statCard('Actor type', String(actor.actor_type || '—'))}</div>
+    </div>
+
+    <ul class="nav nav-tabs mb-3">${tabItems.map(([k,label])=>`<li class="nav-item"><a class="nav-link ${tab===k?'active':''}" href="/dashboard/actor/${encodeURIComponent(id)}?tab=${k}">${label}</a></li>`).join('')}</ul>
+
     <div class="row g-3">
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <div class="card"><div class="card-body">
-          <div class="mb-3">${img ? `<img src="${escapeHtml(img)}" style="width:200px;height:200px;object-fit:cover;border-radius:10px;border:1px solid #ddd"/>` : `<div style="width:200px;height:200px;border-radius:10px;background:#f1f3f5;border:1px dashed #ccc;display:flex;align-items:center;justify-content:center" class="text-muted">No photo</div>`}</div>
-          <div><strong>Name:</strong> ${escapeHtml(fullName)}</div>
-          <div><strong>Designation:</strong> ${escapeHtml(String(actor.designation || '—'))}</div>
+          <div class="mb-2">${img ? `<img src="${escapeHtml(img)}" style="width:120px;height:120px;object-fit:cover;border-radius:10px;border:1px solid #ddd"/>` : `<div style="width:120px;height:120px;border-radius:10px;background:#f1f3f5;border:1px dashed #ccc;display:flex;align-items:center;justify-content:center" class="text-muted">No photo</div>`}</div>
+          <h5 class="mb-1">${escapeHtml(fullName)}</h5>
+          <div class="small text-muted mb-2">${escapeHtml(String(actor.designation || '—'))}</div>
           <div><strong>Organization:</strong> ${escapeHtml(String(actor.organization_primary || actor.company || '—'))}</div>
           <div><strong>Country:</strong> ${escapeHtml(String(actor.country_normalized || actor.country || '—'))}</div>
           <div><strong>Type:</strong> ${escapeHtml(String(actor.actor_type || '—'))}</div>
           ${actor.resolution_status ? `<div><strong>Resolution:</strong> ${escapeHtml(String(actor.resolution_status))}</div>` : ''}
+          <div class="mt-2 d-flex gap-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actor/${encodeURIComponent(id)}?edit=1&tab=${encodeURIComponent(tab)}">Edit</a></div>
+          ${(!img || editMode) ? `<div class="mt-2"><form method="post" action="/api/actors/${encodeURIComponent(id)}/photo" enctype="multipart/form-data" class="d-flex gap-1"><input class="form-control form-control-sm" type="file" name="photo" accept="image/*" required /><button class="btn btn-sm btn-primary" type="submit">Upload</button></form></div>` : ''}
         </div></div>
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-6">
         <div class="card"><div class="card-body">
-          <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Actor Controls</h6><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actor/${encodeURIComponent(id)}?edit=1">Edit</a></div>
-          ${(!img || editMode) ? `<div><div class="small text-muted mb-2">Uploaded images are normalized visually to a fixed square using object-fit: cover.</div><form method="post" action="/api/actors/${encodeURIComponent(id)}/photo" enctype="multipart/form-data" class="row g-2 mb-3"><div class="col-md-8"><input class="form-control" type="file" name="photo" accept="image/*" required /></div><div class="col-md-4"><button class="btn btn-primary w-100" type="submit">Upload Photo</button></div></form></div>` : `<div class="small text-muted mb-3">Photo uploaded. Use Edit to change actor attributes or replace image.</div>`}
-          ${editMode ? `<form method="post" action="/api/actors/${encodeURIComponent(id)}/update" class="row g-2"><div class="col-md-6"><label class="form-label">First Name</label><input class="form-control" name="first_name" value="${escapeHtml(String(actor.first_name || ''))}" /></div><div class="col-md-6"><label class="form-label">Last Name</label><input class="form-control" name="last_name" value="${escapeHtml(String(actor.last_name || ''))}" /></div><div class="col-md-6"><label class="form-label">Designation</label><input class="form-control" name="designation" value="${escapeHtml(String(actor.designation || ''))}" /></div><div class="col-md-6"><label class="form-label">Organization</label><input class="form-control" name="organization_primary" value="${escapeHtml(String(actor.organization_primary || actor.company || ''))}" /></div><div class="col-md-4"><label class="form-label">Country</label><input class="form-control" name="country_normalized" value="${escapeHtml(String(actor.country_normalized || actor.country || ''))}" /></div><div class="col-md-4"><label class="form-label">Type</label><input class="form-control" name="actor_type" value="${escapeHtml(String(actor.actor_type || ''))}" /></div><div class="col-md-4"><label class="form-label">Resolution</label><input class="form-control" name="resolution_status" value="${escapeHtml(String(actor.resolution_status || ''))}" /></div><div class="col-12 d-flex gap-2"><button class="btn btn-primary" type="submit">Save Changes</button><a class="btn btn-outline-secondary" href="/dashboard/actor/${encodeURIComponent(id)}">Cancel</a></div></form>` : ''}
+          <div class="d-flex justify-content-between align-items-center mb-2"><strong>Linked Actors</strong><span class="small text-muted">${rowsByTab.length} rows</span></div>
+          <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Actor Name</th><th>Organization</th><th>Type</th><th>Initiatives</th><th>Status</th></tr></thead><tbody>
+            ${tab === 'second_degree' ? '<tr><td colspan="5" class="text-muted">Second-degree mapping not yet modeled.</td></tr>' : rowsByTab.map((r)=>`<tr><td><a href="/dashboard/actor/${encodeURIComponent(String(r.actor_id||''))}">${escapeHtml(String(r.name_display || `${r.first_name||''} ${r.last_name||''}`.trim() || r.actor_id || '—'))}</a></td><td>${escapeHtml(String(r.organization_primary || r.company || '—'))}</td><td>${escapeHtml(String(r.actor_type || '—'))}</td><td>${escapeHtml((Array.isArray(r.linked_initiatives)?r.linked_initiatives:[]).join(', ') || '—')}</td><td>${escapeHtml(String(r.signal_status || '—'))}</td></tr>`).join('') || '<tr><td colspan="5" class="text-muted">No linked actors found for this tab.</td></tr>'}
+          </tbody></table></div>
+        </div></div>
+      </div>
+      <div class="col-lg-3">
+        <div class="card"><div class="card-body">
+          <strong>Selected Actor Context</strong>
+          <div class="mt-2 small">
+            <div><strong>Actor ID:</strong> ${escapeHtml(String(actor.actor_id || '—'))}</div>
+            <div><strong>Linked Initiatives:</strong> ${escapeHtml(actorLinked.join(', ') || 'None')}</div>
+            <div><strong>Access Path:</strong> ${escapeHtml(String(actor.access_path || '—'))}</div>
+            <div><strong>Link Strength:</strong> ${escapeHtml(String(actor.link_strength || '—'))}</div>
+            <div><strong>Notes:</strong> ${escapeHtml(String(actor.notes || '—'))}</div>
+          </div>
+          ${editMode ? `<hr/><form method="post" action="/api/actors/${encodeURIComponent(id)}/update" class="row g-2"><div class="col-12"><label class="form-label">First Name</label><input class="form-control" name="first_name" value="${escapeHtml(String(actor.first_name || ''))}" /></div><div class="col-12"><label class="form-label">Last Name</label><input class="form-control" name="last_name" value="${escapeHtml(String(actor.last_name || ''))}" /></div><div class="col-12"><label class="form-label">Designation</label><input class="form-control" name="designation" value="${escapeHtml(String(actor.designation || ''))}" /></div><div class="col-12"><label class="form-label">Organization</label><input class="form-control" name="organization_primary" value="${escapeHtml(String(actor.organization_primary || actor.company || ''))}" /></div><div class="col-6"><label class="form-label">Country</label><input class="form-control" name="country_normalized" value="${escapeHtml(String(actor.country_normalized || actor.country || ''))}" /></div><div class="col-6"><label class="form-label">Type</label><input class="form-control" name="actor_type" value="${escapeHtml(String(actor.actor_type || ''))}" /></div><div class="col-12"><label class="form-label">Resolution</label><input class="form-control" name="resolution_status" value="${escapeHtml(String(actor.resolution_status || ''))}" /></div><div class="col-12 d-flex gap-2"><button class="btn btn-primary" type="submit">Save Changes</button><a class="btn btn-outline-secondary" href="/dashboard/actor/${encodeURIComponent(id)}?tab=${encodeURIComponent(tab)}">Cancel</a></div></form>` : ''}
         </div></div>
       </div>
     </div>
