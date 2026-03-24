@@ -3517,7 +3517,10 @@
         "mission-control/review-packets/RP-0098-board-recovery-sweep-2026-03-23-0630.md",
         "TASK-0223",
         "TASK-0224",
-        "mission-control/review-packets/RP-0099-board-build-window-night-2026-03-24.md"
+        "mission-control/review-packets/RP-0099-board-build-window-night-2026-03-24.md",
+        "TASK-0225",
+        "TASK-0226",
+        "mission-control/review-packets/RP-0100-board-recovery-sweep-2026-03-24-0630.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3670,11 +3673,17 @@
           "author": "sentinel",
           "text": "Night build window decomposition gate: queued TASK-0223/TASK-0224 (tranche-W decision digest + approval routing card) and executed TASK-0222 routing artifact for tranche-V.",
           "created_at": "2026-03-24T03:10:00Z"
+        },
+        {
+          "id": "update-0107-20260324-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep decomposition gate: added TASK-0225/TASK-0226 for tranche-X stale-RFR reduction; executed TASK-0225 and published RP-0100 decision packet.",
+          "created_at": "2026-03-24T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-24T03:10:00Z",
+      "updated_at": "2026-03-24T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -8209,6 +8218,74 @@
       "due_date": null,
       "created_at": "2026-03-23T10:40:00Z",
       "updated_at": "2026-03-23T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0225",
+      "title": "BRS-2026-03-24a Build oldest-RFR tranche-X decision microbatch",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/review-packets/RP-0100-board-recovery-sweep-2026-03-24-0630.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Create a 12-item oldest Ready-for-Review decision microbatch with approve/defer recommendation and queue-age leverage note.\nAcceptance Criteria:\n- Exactly 12 oldest RFR tasks listed with age.\n- Includes approve/defer recommendation and transition leverage sequencing.\n- Packet committed and linked to parent task.",
+      "comments": [
+        {
+          "id": "done-0225-20260324-0630",
+          "author": "sentinel",
+          "text": "Executed during late-night recovery sweep; tranche-X packet created at mission-control/review-packets/RP-0100-board-recovery-sweep-2026-03-24-0630.md.",
+          "created_at": "2026-03-24T06:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-24T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0100-board-recovery-sweep-2026-03-24-0630.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-24T06:30:00Z",
+      "updated_at": "2026-03-24T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0100"
+    },
+    {
+      "id": "TASK-0226",
+      "title": "BRS-2026-03-24b Publish tranche-X approval routing card + transition-safe templates",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0225",
+        "mission-control/board/sweeps/2026-03-24T06-30-00Z-late-night-recovery-sweep.md"
+      ],
+      "parent_id": "TASK-0225",
+      "description": "Publish approval routing card and transition-safe templates for tranche-X so decisions can be replayed to board in <30 minutes.\nAcceptance Criteria:\n- Approval card lists tranche-X items with approve/hold checkboxes.\n- Includes deterministic transition comment templates.\n- No Done transitions without approved review packet.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-03-24T06:30:00Z",
+      "updated_at": "2026-03-24T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
