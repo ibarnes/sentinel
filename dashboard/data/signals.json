@@ -7555,5 +7555,67 @@
       "Africa"
     ],
     "country": "Pan-African"
+  },
+  {
+    "signal_id": "SIG-2026-03-24-CELAC-AFRICA-DIALOGUE-PLATFORM-001",
+    "title": "Lula participation in CELAC summit + CELAC-Africa forum signals bloc-level coordination push",
+    "signal_class": "Governance + Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-24T11:59:00Z",
+    "summary": "Reporting indicates Brazil is reinforcing CELAC regional coordination and CELAC-Africa dialogue across investment, infrastructure, energy, and development cooperation agendas.",
+    "flow": "high-level bloc coordination -> political alignment channels expand -> cross-region cooperation frameworks strengthen -> potential routing effects on infrastructure/investment pathways",
+    "verification_note": "Source is secondary relay; hold Monitor until first-party/Tier-1 corroboration threshold is met.",
+    "sources": [
+      {
+        "label": "Global Times / Brasil 247 relay",
+        "url": "https://www.globaltimes.cn/page/202603/1357278.shtml"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "BRAZIL-GOV",
+      "CELAC",
+      "AFRICAN-UNION"
+    ],
+    "actor_roles": [
+      "regional-coordinator",
+      "diplomatic-platform-builder"
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital"
+    ],
+    "evidence_type": "media_report",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "celac",
+      "africa-dialogue",
+      "global-south",
+      "regional-integration",
+      "infrastructure-cooperation"
+    ],
+    "buyer_ids": [
+      "AfDB",
+      "IFC",
+      "AFC",
+      "PIF",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "geography": [
+      "Latin America",
+      "Africa",
+      "Brazil",
+      "Colombia"
+    ],
+    "country": "Brazil"
   }
 ]
