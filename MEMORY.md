@@ -396,3 +396,25 @@
 - No new operating-rule changes.
 - No scoring-policy changes.
 
+# Project Status Snapshot (2026-03-24)
+- Heartbeat + signal-pressure monitoring remained freshness-compliant and produced additional verified high-impact deltas during 2026-03-23 cycles:
+  - `SIG-2026-03-23-IFC-NIGERIA-PPP-PIPELINE-001` (IFC upstream PPP pipeline partnership with Nigeria FG).
+  - `SIG-2026-03-23-AFDB-BLENDED-FINANCE-DEEPENING-001` (AfDB blended/co-financing architecture deepening).
+  - `SIG-2026-03-05-AMZN-RATEPAYER-PLEDGE-001` (Amazon/White House ratepayer pledge signal re-entered as new-high-impact delta).
+- Buyer graph pressure shifted with ranked-buyer churn:
+  - New top-ranked cohort entries surfaced without decision-architecture coverage (`ALPHA_WAVE`, `GENERAL_ATLANTIC`, `GIP`, `KKR`, `STONEPEAK`).
+  - High-influence/no-path pressure persisted on `TAFF` (`Tariq Al Futtaim`) and `USVI-RECOVERY-AUTHORITY` (`HUD / FEMA oversight bodies`).
+- Board cadence continued with decomposition gate + artifact-first governance:
+  - Recovery tranche-V added/executed (`TASK-0221`/`TASK-0222`) with `RP-0098` and sweep artifact.
+  - Progress execution added `TASK-0223`/`TASK-0224` (preflight + fail-fast evidence) to Ready for Review and published `RP-0099`.
+- Credentialed blocker chain unchanged:
+  - `TASK-0159` / `TASK-0111` still require live `BASE_URL` + `TEAM_SESSION_COOKIE`; post-PASS replay remains `TASK-0160`.
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-24)
+- Daily log (`memory/2026-03-23.md`) reviewed and distilled into durable snapshot updates above.
+- Durable changes captured: new verified signal-pressure deltas, top-buyer cohort drift impacts on graph coverage, and additional decomposition-gated board artifacts (`RP-0098`, `RP-0099`).
+- No new operating-rule changes.
+- No scoring-policy changes.
+
