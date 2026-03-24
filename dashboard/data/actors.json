@@ -10844,5 +10844,129 @@
     ],
     "last_verified_at": "2026-03-24",
     "verification_source": "gvi_official_directory_2025_11_16"
+  },
+  {
+    "actor_id": "actor-usvi-joel-h-holt",
+    "name_display": "Joel H. Holt",
+    "first_name": "Joel",
+    "last_name": "H. Holt",
+    "organization_primary": "Law Firm of Attorney Joel H. Holt, P.C.",
+    "designation": "Attorney / Bar-network legal node",
+    "country_normalized": "USVI",
+    "actor_type": "advisor",
+    "relationship_type": "legal_network",
+    "unlock_role": "validates",
+    "relationship_degree": "2nd_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "notes": "Identified as close friend of Mark G and leading member of VI bar association; verification pending.",
+    "sources": [
+      {
+        "label": "Mark G Meeting 03-24-26 (provided by Isaac)",
+        "url": "internal://isaac-meeting-notes/2026-03-24/mark-g"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "pending_independent_verification",
+    "updated_at": "2026-03-24T22:04:00Z"
+  },
+  {
+    "actor_id": "actor-usvi-mark-g-son",
+    "name_display": "Mark G Son (name pending)",
+    "first_name": "",
+    "last_name": "",
+    "organization_primary": "USVI Supreme Court (historical clerkship path)",
+    "designation": "Former clerk, USVI Supreme Court",
+    "country_normalized": "USVI",
+    "actor_type": "influence_node",
+    "relationship_type": "judicial_proximity",
+    "unlock_role": "introduces",
+    "relationship_degree": "2nd_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "notes": "Meeting correction: Mark's son clerked for USVI Supreme Court; full identity pending verification.",
+    "sources": [
+      {
+        "label": "Mark G Meeting 03-24-26 (provided by Isaac)",
+        "url": "internal://isaac-meeting-notes/2026-03-24/mark-g"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "pending_independent_verification",
+    "updated_at": "2026-03-24T22:04:00Z"
+  },
+  {
+    "actor_id": "actor-us-fed-mike-mical",
+    "name_display": "Mike Mical",
+    "first_name": "Mike",
+    "last_name": "Mical",
+    "organization_primary": "US Federal-adjacent network (specific org pending)",
+    "designation": "Strategic connector",
+    "country_normalized": "USA",
+    "actor_type": "connector",
+    "relationship_type": "federal_network",
+    "unlock_role": "introduces",
+    "relationship_degree": "2nd_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "notes": "Identified as close friend of Mark G; federal pathway potential; details pending verification.",
+    "sources": [
+      {
+        "label": "Mark G Meeting 03-24-26 (provided by Isaac)",
+        "url": "internal://isaac-meeting-notes/2026-03-24/mark-g"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "pending_independent_verification",
+    "updated_at": "2026-03-24T22:04:00Z"
+  },
+  {
+    "actor_id": "actor-us-fed-raj-davedee",
+    "name_display": "Raj Davedee",
+    "first_name": "Raj",
+    "last_name": "Davedee",
+    "organization_primary": "International Trade Administration / U.S. Foreign Commercial Service",
+    "designation": "Trade/commercial government interface",
+    "country_normalized": "USA",
+    "actor_type": "government_interface",
+    "relationship_type": "trade_network",
+    "unlock_role": "de-risks",
+    "relationship_degree": "2nd_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "notes": "Identified as linked to ITA/FCS; exact title and current assignment pending verification.",
+    "sources": [
+      {
+        "label": "Mark G Meeting 03-24-26 (provided by Isaac)",
+        "url": "internal://isaac-meeting-notes/2026-03-24/mark-g"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "pending_independent_verification",
+    "updated_at": "2026-03-24T22:04:00Z"
   }
 ]

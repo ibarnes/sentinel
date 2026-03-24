@@ -5360,7 +5360,48 @@
         "url": "https://www.vi.gov/wp-content/uploads/2025/11/GVI-Directory-11.16.25.pdf"
       }
     ],
-    "last_contact_directory_verification": "2026-03-24"
+    "last_contact_directory_verification": "2026-03-24",
+    "verification_queue": [
+      {
+        "actor_id": "actor-usvi-joel-h-holt",
+        "name": "Joel H. Holt",
+        "status": "pending",
+        "priority": "high",
+        "reason": "Mark G meeting note requires independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T22:04:00Z"
+      },
+      {
+        "actor_id": "actor-usvi-mark-g-son",
+        "name": "Mark G Son (name pending)",
+        "status": "pending",
+        "priority": "high",
+        "reason": "Mark G meeting note requires independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T22:04:00Z"
+      },
+      {
+        "actor_id": "actor-us-fed-mike-mical",
+        "name": "Mike Mical",
+        "status": "pending",
+        "priority": "medium",
+        "reason": "Mark G meeting note requires independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T22:04:00Z"
+      },
+      {
+        "actor_id": "actor-us-fed-raj-davedee",
+        "name": "Raj Davedee",
+        "status": "pending",
+        "priority": "medium",
+        "reason": "Mark G meeting note requires independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T22:04:00Z"
+      }
+    ],
+    "operator_notes": [
+      "2026-03-24: Added identified (unverified) Mark G network actors (Joel H. Holt, Mark's son clerkship path, Mike Mical, Raj Davedee) with verification queue entries."
+    ]
   },
   {
     "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
