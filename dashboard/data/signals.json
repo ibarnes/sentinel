@@ -7739,5 +7739,65 @@
       "European Union"
     ],
     "country": "Ghana"
+  },
+  {
+    "signal_id": "SIG-2026-03-24-ARES-APOLLO-PRIVATE-CREDIT-CAP-001",
+    "title": "Ares and Apollo private-credit posture signals tighter deployment discipline",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-24T23:31:00Z",
+    "summary": "Yahoo Finance video headline indicates Ares and Apollo are capping/tightening private-credit posture, implying stricter underwriting and structure selectivity in the current market cycle.",
+    "flow": "private-credit discipline tightens -> higher bar for risk-adjusted structures -> weaker pre-FID/transition financings face greater friction -> better-structured mandate pathways gain relative advantage",
+    "verification_note": "Source URL captured from Isaac-provided signal; direct fetch unavailable in current environment. Keep monitor until full transcript/headline corroboration is attached.",
+    "sources": [
+      {
+        "label": "Yahoo Finance video",
+        "url": "https://finance.yahoo.com/video/ares-apollo-cap-private-credit-163531864.html"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "ARES",
+      "APOLLO"
+    ],
+    "actor_roles": [
+      "private-credit-allocator"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "media_headline",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "private-credit",
+      "underwriting-discipline",
+      "capital-selectivity",
+      "risk-compression"
+    ],
+    "buyer_ids": [
+      "KKR",
+      "STONEPEAK",
+      "GIP",
+      "GENERAL_ATLANTIC",
+      "ALPHA_WAVE",
+      "HAUN"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "geography": [
+      "United States",
+      "Global"
+    ],
+    "country": "United States"
   }
 ]
