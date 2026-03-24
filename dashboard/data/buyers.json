@@ -3569,5 +3569,117 @@
     },
     "created_at": "2026-03-23T00:00:00Z",
     "updated_at": "2026-03-23T00:00:00Z"
+  },
+  {
+    "buyer_id": "HAUN",
+    "name": "Haun Ventures",
+    "type": "Hybrid (Venture / Growth / Strategic Digital Capital)",
+    "mandate_summary": "Deploy institutional capital into digital assets, frontier technology, and technology-adjacent strategic platforms with strong scalability and regulatory durability.",
+    "geo_focus": [
+      "Global",
+      "North America",
+      "Europe",
+      "Selective Emerging Markets"
+    ],
+    "sector_focus": [
+      "AI",
+      "Digital Infrastructure",
+      "Fintech",
+      "Cybersecurity",
+      "Frontier Technology",
+      "Tokenized Platforms"
+    ],
+    "score": 2.5,
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "Medium",
+      "timing_urgency": "High"
+    },
+    "initiatives": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-AP-AI-FACTORY-001",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-GRAVITY-001",
+      "INIT-653306",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "website": "https://www.haun.co",
+    "hq_country": "United States",
+    "transfer_chain": {
+      "stored_energy_source": "Institutional LP capital (sovereigns, endowments, foundations, pensions, financial institutions)",
+      "budget_program": "Haun Ventures flagship investment strategies",
+      "funding_type": "Venture/growth strategic allocation",
+      "approval_authority": "Investment Committee (partners + deal team)",
+      "verification_status": "Unverified",
+      "confidence_level": "Medium",
+      "primary_infrastructure_pressure": "Deploy capital into scalable, regulation-aware digital and infrastructure-enabling platforms with asymmetric upside",
+      "linked_signals_30d": "2 Medium (AI platform acceleration + digital infrastructure demand)",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "Pre-FID structuring that includes a high-growth operating layer (AI, software, fintech rails) can create investable pathways for strategic digital capital before large infra capital enters.",
+      "linked_initiative": "Angola Sovereign AI Energy & Compute Corridor",
+      "recognition_evidence_status": "Partial",
+      "required_governance_artifacts": "Scalable operating model + regulatory pathway + risk controls + growth metrics",
+      "mandate_pathway_stage": "Initial Validation",
+      "checklist_coverage": "2 / 4",
+      "critical_blocker": "Unclear linkage between hard infrastructure buildout and high-growth operating equity outcomes",
+      "transfer_vehicle": "Minority/strategic growth stake + follow-on rights",
+      "payment_trigger": "IC approval based on scalability + governance + strategic edge",
+      "estimated_time_to_transfer": "3–7 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate tied to operating-layer equity pathway",
+      "promote_trigger": "Platform growth, capital close, and value-accretive expansion milestones",
+      "recurrence_potential": "High"
+    },
+    "website_notes": [
+      "Founded by Katie Haun; firm positioned at intersection of digital assets, frontier tech, and institutional capital",
+      "Team profile indicates strong operator, security, policy, and institutional finance depth",
+      "Institutional LP base includes sovereign wealth funds and major allocators",
+      "Access physics favor high-quality structured opportunities with clear strategic edge"
+    ],
+    "buyer_state": {
+      "reach_profile": [
+        "Moderate shielding",
+        "Partner-led decisions",
+        "Growth-and-strategy sensitive",
+        "Medium channel dependence"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Scalable operating platform",
+            "Regulatory durability",
+            "Technology leverage",
+            "Expansion pathway"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Sovereign-aligned allocators",
+            "Founder/operator network",
+            "Policy-regulatory expertise",
+            "Co-investor channels"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "AI infrastructure acceleration cycles",
+            "Digital platform adoption waves",
+            "Pre-hyperscaler structuring windows"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: MEDIUM — accessible through strong strategic narratives and trusted warm paths.",
+        "Decision Speed: MEDIUM-FAST when conviction and structure are clear.",
+        "Risk Exposure: MODERATE-HIGH centered on regulatory and execution assumptions.",
+        "Altitude Sensitivity: HIGH for partner-level strategic framing."
+      ]
+    },
+    "created_at": "2026-03-24T01:52:00Z",
+    "updated_at": "2026-03-24T01:52:00Z"
   }
 ]
