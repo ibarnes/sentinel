@@ -1,0 +1,171 @@
+{
+  "generated_at": "2026-03-24T18:54:00Z",
+  "count": 15,
+  "candidates": [
+    {
+      "name_display": "Office of Disaster Recovery",
+      "organization_primary": "Office of Disaster Recovery",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "G017OLGT25",
+      "source_contract_url": "https://dpp.vi.gov/contracts/office-of-disaster-recovery/",
+      "initiative_candidate": "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
+      "usg_relevance_score": 57
+    },
+    {
+      "name_display": "Morgan Franklin",
+      "organization_primary": "Morgan Franklin",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P033DOFT18",
+      "source_contract_url": "https://dpp.vi.gov/contracts/morganfranklin-consulting-llc/",
+      "initiative_candidate": "USG",
+      "usg_relevance_score": 56
+    },
+    {
+      "name_display": "CPH, Inc.",
+      "organization_primary": "CPH, Inc.",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P112DHST21",
+      "source_contract_url": "https://dpp.vi.gov/contracts/cph-inc-2/",
+      "initiative_candidate": "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
+      "usg_relevance_score": 52
+    },
+    {
+      "name_display": "Benham & Hodge, P.C.",
+      "organization_primary": "Benham & Hodge, P.C.",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P050DOFT22",
+      "source_contract_url": "https://dpp.vi.gov/contracts/dof-and-benham-hodge-p-c-unaudited-basic-financial-statements-fy20-fy21-fy22/",
+      "initiative_candidate": "USG",
+      "usg_relevance_score": 48
+    },
+    {
+      "name_display": "BDO USA, LLP.",
+      "organization_primary": "BDO USA, LLP.",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P016DOFT22",
+      "source_contract_url": "https://dpp.vi.gov/contracts/bdo-usa-llp-5/",
+      "initiative_candidate": "USG",
+      "usg_relevance_score": 48
+    },
+    {
+      "name_display": "BDO USA, LLP",
+      "organization_primary": "BDO USA, LLP",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P055DOFT21",
+      "source_contract_url": "https://dpp.vi.gov/contracts/bdo-usa-llp-3/",
+      "initiative_candidate": "USG",
+      "usg_relevance_score": 48
+    },
+    {
+      "name_display": "Bradford E. Marshall Jr., d/b/a Mars Construction Consultants",
+      "organization_primary": "Bradford E. Marshall Jr., d/b/a Mars Construction Consultants",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P089DPWT23",
+      "source_contract_url": "https://dpp.vi.gov/contracts/bradford-e-marshall-jr-d-b-a-mars-construction-consultants-4/",
+      "initiative_candidate": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "usg_relevance_score": 47
+    },
+    {
+      "name_display": "John Paul David",
+      "organization_primary": "John Paul David",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P088DPWT23",
+      "source_contract_url": "https://dpp.vi.gov/contracts/john-paul-david-p-e-2/",
+      "initiative_candidate": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "usg_relevance_score": 47
+    },
+    {
+      "name_display": "Mr. Jomo L. McClean",
+      "organization_primary": "Mr. Jomo L. McClean",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P084DPWT23",
+      "source_contract_url": "https://dpp.vi.gov/contracts/mr-jomo-l-mcclean/",
+      "initiative_candidate": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "usg_relevance_score": 47
+    },
+    {
+      "name_display": "Carahsoft Technology Corp",
+      "organization_primary": "Carahsoft Technology Corp",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P061DOFT20",
+      "source_contract_url": "https://dpp.vi.gov/contracts/carahsoft-technology-corp/",
+      "initiative_candidate": "USG",
+      "usg_relevance_score": 47
+    },
+    {
+      "name_display": "Carahsoft Technology Corp.",
+      "organization_primary": "Carahsoft Technology Corp.",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P047DOFT20",
+      "source_contract_url": "https://dpp.vi.gov/contracts/government-travel-expense-management/",
+      "initiative_candidate": "USG",
+      "usg_relevance_score": 47
+    },
+    {
+      "name_display": "Myron L.W. James",
+      "organization_primary": "Myron L.W. James",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P007DPWT19",
+      "source_contract_url": "https://dpp.vi.gov/contracts/myron-l-w-james/",
+      "initiative_candidate": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "usg_relevance_score": 47
+    },
+    {
+      "name_display": "Northwoods Consulting Partners, Inc.",
+      "organization_primary": "Northwoods Consulting Partners, Inc.",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P043DOFT18",
+      "source_contract_url": "https://dpp.vi.gov/contracts/northwoods-consulting-partners-inc/",
+      "initiative_candidate": "USG",
+      "usg_relevance_score": 47
+    },
+    {
+      "name_display": "Attlee Connor",
+      "organization_primary": "Attlee Connor",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P018DPWT18",
+      "source_contract_url": "https://dpp.vi.gov/contracts/attlee-conner/",
+      "initiative_candidate": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "usg_relevance_score": 47
+    },
+    {
+      "name_display": "Cornelius Maher",
+      "organization_primary": "Cornelius Maher",
+      "designation": "Contracted vendor / delivery node",
+      "actor_type": "vendor_node",
+      "country_normalized": "USVI",
+      "source_contract_number": "P019DPWT18",
+      "source_contract_url": "https://dpp.vi.gov/contracts/cornelius-maher/",
+      "initiative_candidate": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "usg_relevance_score": 47
+    }
+  ]
+}
