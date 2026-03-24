@@ -11248,7 +11248,7 @@
     ],
     "signal_status": "active",
     "resolution_status": "identified",
-    "owner": "provided_by_isaac",
+    "owner": "Mark Grobmyer",
     "email": "mwgrobmyer@deployglobaltech.com",
     "website": "https://www.globalsinstitute.org/",
     "notes": "Chairman of Global Solutions Institute (GSI), focused on deployment of problem-solving technologies.",
@@ -11260,6 +11260,4131 @@
     ],
     "confidence": "medium",
     "verification_status": "pending_independent_verification",
-    "updated_at": "2026-03-24T23:09:00Z"
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-valdas-adamkus",
+    "name_display": "Valdas Adamkus",
+    "first_name": "Valdas",
+    "last_name": "Adamkus",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Lithuania (1998-2003; 2004-2009)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/adamkus-valdas/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/valdas-adamkus.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-adriano-afonso-maleiane",
+    "name_display": "Adriano Afonso Maleiane",
+    "first_name": "Adriano",
+    "last_name": "Afonso Maleiane",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of The Republic of Mozambique (2022-2025)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/adriano-afonso-maleiane/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/12/Captura-de-pantalla-2025-12-12-a-las-16.10.54-500x500.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-esko-aho",
+    "name_display": "Esko Aho",
+    "first_name": "Esko",
+    "last_name": "Aho",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Finland (1991-1995)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/aho-esko/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Captura-de-pantalla-2024-07-11-a-las-12.37.16-500x500.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-scar-arias-s-nchez",
+    "name_display": "Óscar Arias Sánchez",
+    "first_name": "Óscar",
+    "last_name": "Arias Sánchez",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Costa Rica (1986-1990; 2006-2010) and Nobel Peace Laureate (1987)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/arias-oscar/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/oscar-arias.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jos-mar-a-aznar",
+    "name_display": "José María Aznar",
+    "first_name": "José",
+    "last_name": "María Aznar",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Government of Spain (1996-2004)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/aznar-jose-maria/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-maria-aznar.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-michelle-bachelet",
+    "name_display": "Michelle Bachelet",
+    "first_name": "Michelle",
+    "last_name": "Bachelet",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Chile (2006-2010, 2014-2018)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/bachelet-michelle/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/michelle-bachelet.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jan-peter-balkenende",
+    "name_display": "Jan Peter Balkenende",
+    "first_name": "Jan",
+    "last_name": "Peter Balkenende",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of the Netherlands (2002-2010)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/balkenende-jan-peter/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/02/Balkenende-Jan-Peter-e1580721798434.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-susilo-bambang-yudhoyono",
+    "name_display": "Susilo Bambang Yudhoyono",
+    "first_name": "Susilo",
+    "last_name": "Bambang Yudhoyono",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Indonesia (2004-2014)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/bambang-yudhoyono-susilo/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/10/1x1-Web-PD-7-1-500x500.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-joyce-hilda-banda",
+    "name_display": "Joyce Hilda Banda",
+    "first_name": "Joyce",
+    "last_name": "Hilda Banda",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Malawi (2012-2014)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/banda-joyce/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/joyce-banda.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-alain-berset",
+    "name_display": "Alain Berset",
+    "first_name": "Alain",
+    "last_name": "Berset",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Switzerland (2018; 2023)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/berset-alain/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2024/07/Portrait2-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-carl-bildt",
+    "name_display": "Carl Bildt",
+    "first_name": "Carl",
+    "last_name": "Bildt",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Sweden (1991-1994)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/bildt-carl/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/carl-bildt.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-valdis-birkavs",
+    "name_display": "Valdis Birkavs",
+    "first_name": "Valdis",
+    "last_name": "Birkavs",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Latvia (1993-1994)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/birkavs-valdis/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/valdis-birkavs.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-kjell-magne-bondevik",
+    "name_display": "Kjell Magne Bondevik",
+    "first_name": "Kjell",
+    "last_name": "Magne Bondevik",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Norway (1997-2000; 2001-2005)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/bondevik-kjell-magne/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Kjell-Magne-Bondevik-500x500.webp",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-james-gordon-brown",
+    "name_display": "James Gordon Brown",
+    "first_name": "James",
+    "last_name": "Gordon Brown",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of the United Kingdom (2007-2010)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/brown-gordon/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/11/Brown-Gordon.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-gro-harlem-brundtland",
+    "name_display": "Gro Harlem Brundtland",
+    "first_name": "Gro",
+    "last_name": "Harlem Brundtland",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Norway (1986-1989; 1990-1996)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/brundtland-gro-harlem/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Gro_Harlem_Brundtland_2009-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jerzy-karol-buzek",
+    "name_display": "Jerzy Karol Buzek",
+    "first_name": "Jerzy",
+    "last_name": "Karol Buzek",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Poland (1997-2001)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/buzek-jerzy/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jerzy-buzek.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-felipe-calder-n-hinojosa",
+    "name_display": "Felipe Calderón Hinojosa",
+    "first_name": "Felipe",
+    "last_name": "Calderón Hinojosa",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Mexico (2006-2012)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/calderon-felipe/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/felipe-calderon-2.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-micheline-calmy-rey",
+    "name_display": "Micheline Calmy-Rey",
+    "first_name": "Micheline",
+    "last_name": "Calmy-Rey",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Swiss Confederation (2007, 2011)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/calmy-rey-micheline/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/micheline-calmy-rey.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-kim-campbell",
+    "name_display": "Kim Campbell",
+    "first_name": "Kim",
+    "last_name": "Campbell",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Canada (1993)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/campbell-kim/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/AKCAMBPBELL-Photog-Cooper-OHara-Full-cropped-square.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-fernando-henrique-cardoso",
+    "name_display": "Fernando Henrique Cardoso",
+    "first_name": "Fernando",
+    "last_name": "Henrique Cardoso",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Brazil (1995-2003)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/cardoso-fernando-henrique/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/fernando-henrique-cardoso.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-carlos-alvarado-quesada",
+    "name_display": "Carlos Alvarado Quesada",
+    "first_name": "Carlos",
+    "last_name": "Alvarado Quesada",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Costa Rica (2018-2022)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/carlos-alvarado/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2023/01/1x1-1-500x500.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-an-bal-cavaco-silva",
+    "name_display": "Aníbal Cavaco Silva",
+    "first_name": "Aníbal",
+    "last_name": "Cavaco Silva",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Portugal (1985-1995), President of Portugal (2006-2016)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/cavaco-silva-anibal/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/anibal-cavaco-silva.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-cellou-dalein-diallo",
+    "name_display": "Cellou Dalein Diallo",
+    "first_name": "Cellou",
+    "last_name": "Dalein Diallo",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Guinea  (2004-2006)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/cellou-dalein-diallo/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/03/Cellou-Dalein-Diallo-1-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-laura-chinchilla",
+    "name_display": "Laura Chinchilla",
+    "first_name": "Laura",
+    "last_name": "Chinchilla",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Costa Rica (2010-2014)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/chinchilla-miranda-laura/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/10/d9ca71ee-23ba-4150-ab4b-8e7b7186e486-2-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-joaquim-chissano",
+    "name_display": "Joaquim Chissano",
+    "first_name": "Joaquim",
+    "last_name": "Chissano",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Mozambique (1986-2004)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/chissano-joaquim/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/joaquim-chissano.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jean-chr-tien",
+    "name_display": "Jean Chrétien",
+    "first_name": "Jean",
+    "last_name": "Chrétien",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Canada (1990-2003)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/chretien-jean/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jean-chretien.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-helen-clark",
+    "name_display": "Helen Clark",
+    "first_name": "Helen",
+    "last_name": "Clark",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of New Zealand (1999-2008)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/clark-helen/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2019/10/Clark-Helen-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-bill-clinton",
+    "name_display": "Bill Clinton",
+    "first_name": "Bill",
+    "last_name": "Clinton",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the United States (1992-2000)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/clinton-bill/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/bill-clinton.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-marie-louise-coleiro-preca",
+    "name_display": "Marie-Louise Coleiro Preca",
+    "first_name": "Marie-Louise",
+    "last_name": "Coleiro Preca",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Malta (2014 – 2019)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/coleiro-preca-marie-louise/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/04/Coleiro_Preca.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-dominique-de-villepin",
+    "name_display": "Dominique de Villepin",
+    "first_name": "Dominique",
+    "last_name": "de Villepin",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of France (2005-2007)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/de-villepin-dominique/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/12/Dominique-de-Villepin.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-philip-dimitrov",
+    "name_display": "Philip Dimitrov",
+    "first_name": "Philip",
+    "last_name": "Dimitrov",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Bulgaria (1991-1992)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/dimitrov-philip/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/philip-dimitrov.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jos-manuel-barroso",
+    "name_display": "José Manuel Barroso",
+    "first_name": "José",
+    "last_name": "Manuel Barroso",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Portugal (2002-2004)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/durao-barroso-jose-manuel/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-manuel-durao-barroso.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-leonel-fern-ndez",
+    "name_display": "Leonel Fernández",
+    "first_name": "Leonel",
+    "last_name": "Fernández",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Dominican Republic (1996-2000; 2004-2012)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/fernandez-leonel/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/leonel-fernandez.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jos-mar-a-figueres",
+    "name_display": "José María Figueres",
+    "first_name": "José",
+    "last_name": "María Figueres",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Costa Rica (1994-1998)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/figueres-jose-maria/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-maria-figueres.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-vigd-s-finnbogad-ttir",
+    "name_display": "Vigdís Finnbogadóttir",
+    "first_name": "Vigdís",
+    "last_name": "Finnbogadóttir",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Iceland (1980-1996), First Woman in the World to be democratically elected a constitutional Head of State",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/finnbogadottir-vigdis/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/vigdis-finnbogadottir.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-vicente-fox",
+    "name_display": "Vicente Fox",
+    "first_name": "Vicente",
+    "last_name": "Fox",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Mexico (2000-2006)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/fox-vicente/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/vicente-fox.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-francisco-sagasti",
+    "name_display": "Francisco Sagasti",
+    "first_name": "Francisco",
+    "last_name": "Sagasti",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Peru 2020-2021",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/francisco-sagasti/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/sagasti3-500x500.jpeg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-yasuo-fukuda",
+    "name_display": "Yasuo Fukuda",
+    "first_name": "Yasuo",
+    "last_name": "Fukuda",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Japan (2007-2008)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/fukuda-yasuo/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/yasuo-fukuda.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-c-sar-gaviria",
+    "name_display": "César Gaviria",
+    "first_name": "César",
+    "last_name": "Gaviria",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Colombia (1990-1994)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/gaviria-cesar/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/cesar-gaviria.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-amine-pierre-gemayel",
+    "name_display": "Amine Pierre Gemayel",
+    "first_name": "Amine",
+    "last_name": "Pierre Gemayel",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Lebanon (1982 -1988)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/gemayel-amine-pierre/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Board-500x500.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-felipe-gonz-lez-m-rquez",
+    "name_display": "Felipe González Márquez",
+    "first_name": "Felipe",
+    "last_name": "González Márquez",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Spanish Government (1982-1996)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/gonzalez-felipe/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/felipe-gonzalez.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-dalia-grybauskaite",
+    "name_display": "Dalia Grybauskaite",
+    "first_name": "Dalia",
+    "last_name": "Grybauskaite",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Lithuania (2009-2019)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/grybauskaite-dalia/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/07/Prezidentė-Dalia-Grybauskaitė-1.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-alfred-gusenbauer",
+    "name_display": "Alfred Gusenbauer",
+    "first_name": "Alfred",
+    "last_name": "Gusenbauer",
+    "organization_primary": "Club de Madrid",
+    "designation": "Chancellor of Austria (2007-2008)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/gusenbauer-alfred/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/alfred-gusenbauer.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-ant-nio-guterres",
+    "name_display": "António Guterres",
+    "first_name": "António",
+    "last_name": "Guterres",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Portugal (1995-2001) and current UN Secretary General",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/guterres-antonio/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Guterres-Antonio2taken-online-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-tarja-kaarina-halonen",
+    "name_display": "Tarja Kaarina Halonen",
+    "first_name": "Tarja",
+    "last_name": "Kaarina Halonen",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Republic of Finland (2000-2012)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/halonen-tarja/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/tarja-halonen.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-han-seung-soo",
+    "name_display": "Han Seung-soo",
+    "first_name": "Han",
+    "last_name": "Seung-soo",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of South Korea (2008-2009)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/han-seung-soo/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/seung-soo-han.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-hilda-heine",
+    "name_display": "Hilda Heine",
+    "first_name": "Hilda",
+    "last_name": "Heine",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Marshall Islands (2016-2020; 2024-)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/hilda-heine/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/Heine-Hilda_taken-online-500x500.jpeg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-fran-ois-hollande",
+    "name_display": "François Hollande",
+    "first_name": "François",
+    "last_name": "Hollande",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of France (2012-2017)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/hollande-francois/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2018/12/Hollande.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-osvaldo-hurtado-larrea",
+    "name_display": "Osvaldo Hurtado Larrea",
+    "first_name": "Osvaldo",
+    "last_name": "Hurtado Larrea",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Ecuador (1981-1984)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/hurtado-osvaldo/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/osvaldo-hurtado.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-percival-james-patterson",
+    "name_display": "Percival James Patterson",
+    "first_name": "Percival",
+    "last_name": "James Patterson",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Jamaica (1992-2006)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/james-patterson-percival-noel/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/percival-noel-james-patterson.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jean-claude-juncker",
+    "name_display": "Jean-Claude Juncker",
+    "first_name": "Jean-Claude",
+    "last_name": "Juncker",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Luxembourg (1995-2013), President of the European Commission (2014-2019)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/jean-claude-juncker/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/Jean-Claude-Juncker-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jean-pierre-raffarin",
+    "name_display": "Jean-Pierre Raffarin",
+    "first_name": "Jean-Pierre",
+    "last_name": "Raffarin",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of France (2002-2005)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/jean-pierre-raffarin/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/05/JEAN_PIERRE_RAFFARIN-2.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-hamadi-jebali",
+    "name_display": "Hamadi Jebali",
+    "first_name": "Hamadi",
+    "last_name": "Jebali",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Tunisia (2011-2013)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/jebali-hamadi/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/hamadi-jebali.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-joachim-wilhelm-gauck",
+    "name_display": "Joachim Wilhelm Gauck",
+    "first_name": "Joachim",
+    "last_name": "Wilhelm Gauck",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Germany (2012-2017)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/joachim-gauck/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/Gauck-Joachim-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-ellen-johnson-sirleaf",
+    "name_display": "Ellen Johnson Sirleaf",
+    "first_name": "Ellen",
+    "last_name": "Johnson Sirleaf",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Liberia (2006-2018) and Nobel Peace Laureate (2011)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/johnson-sirleaf-ellen/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2019/04/Johnson-Sirleaf-Ellen.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-ivo-josipovic",
+    "name_display": "Ivo Josipovic",
+    "first_name": "Ivo",
+    "last_name": "Josipovic",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Croatia (2010-2015)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/josipovic-ivo/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/07/Ivo-Josipovic-1-1.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-julia-eileen-gillard",
+    "name_display": "Julia Eileen Gillard",
+    "first_name": "Julia",
+    "last_name": "Eileen Gillard",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Australia (2010-2013)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/julia-gillard/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2024/05/Julia-Gillard-Headshot-scaled-e1716538217387-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-alain-marie-jupp",
+    "name_display": "Alain Marie Juppé",
+    "first_name": "Alain",
+    "last_name": "Marie Juppé",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of France (1995-1997)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/juppe-alain/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/alain-juppe.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-katerina-sakellaropoulou",
+    "name_display": "Katerina Sakellaropoulou",
+    "first_name": "Katerina",
+    "last_name": "Sakellaropoulou",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Greece 2020 - 2025",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/katerina-sakellaropoulou/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/09/katerina.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-milan-ku-an",
+    "name_display": "Milan Kučan",
+    "first_name": "Milan",
+    "last_name": "Kučan",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Republic of Slovenia (1992-2002)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/kucan-milan/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/milan-kucan.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-john-kufuor",
+    "name_display": "John Kufuor",
+    "first_name": "John",
+    "last_name": "Kufuor",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Ghana (2001-2009)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/kufuor-john/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/john-kufuor.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-chandrika-kumaratunga",
+    "name_display": "Chandrika Kumaratunga",
+    "first_name": "Chandrika",
+    "last_name": "Kumaratunga",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Sri Lanka (1994-2005)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/kumaratunga-chandrika/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/chandrika-kumaratunga.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-aleksander-kwasniewski",
+    "name_display": "Aleksander Kwasniewski",
+    "first_name": "Aleksander",
+    "last_name": "Kwasniewski",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Poland (1995 – 2005)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/kwasniewski-aleksander/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/aleksander-kwasniewski.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-luis-alberto-lacalle",
+    "name_display": "Luis Alberto Lacalle",
+    "first_name": "Luis",
+    "last_name": "Alberto Lacalle",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Uruguay (1990-1995)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/lacalle-luis-alberto/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/luis-alberto-lacalle.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-ricardo-lagos",
+    "name_display": "Ricardo Lagos",
+    "first_name": "Ricardo",
+    "last_name": "Lagos",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Chile (2000 – 2006)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/lagos-ricardo/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/ricardo-lagos.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-zlatko-lagumdzija",
+    "name_display": "Zlatko Lagumdzija",
+    "first_name": "Zlatko",
+    "last_name": "Lagumdzija",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Bosnia & Herzegovina (2001-2002)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/lagumdzija-zlatko/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/zlatko-lagumdzija.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-lee-hong-koo",
+    "name_display": "Lee Hong-koo",
+    "first_name": "Lee",
+    "last_name": "Hong-koo",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of South Korea (1994-1995)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/lee-hong-koo/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/hong-koo-lee.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-leo-eric-varadkar",
+    "name_display": "Leo Eric Varadkar",
+    "first_name": "Leo",
+    "last_name": "Eric Varadkar",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Ireland (2017-2020) and (2022-2024)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/leo-varadkar/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/07/LeoPicGreyTie-500x334.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-yves-leterme",
+    "name_display": "Yves Leterme",
+    "first_name": "Yves",
+    "last_name": "Leterme",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Belgium (2008, 2009-2011)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/leterme-yves/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/yves-leterme.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-enrico-letta",
+    "name_display": "Enrico Letta",
+    "first_name": "Enrico",
+    "last_name": "Letta",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Italy (2013-2014)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/letta-enrico/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2021/01/E-Letta.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-doris-leuthard",
+    "name_display": "Doris Leuthard",
+    "first_name": "Doris",
+    "last_name": "Leuthard",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Switzerland (2010, 2017)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/leuthard-doris/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/04/Leuthard-Doris-1-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-mari-johanna-kiviniemi",
+    "name_display": "Mari Johanna Kiviniemi",
+    "first_name": "Mari",
+    "last_name": "Johanna Kiviniemi",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Finland (2010-2011)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/mari-kiviniemi/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/02/keksi_stk_metsa_board_mari_kiviniemi_39922-2-500x500.jpeg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-mauricio-macri",
+    "name_display": "Mauricio Macri",
+    "first_name": "Mauricio",
+    "last_name": "Macri",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Argentina (2015-2019)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/mauricio-macri/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/Macri-Mauricio-2-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-mehdi-jomaa",
+    "name_display": "Mehdi Jomaa",
+    "first_name": "Mehdi",
+    "last_name": "Jomaa",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Tunisia (2014-2015)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/mehdi-jomaa/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/mehdi-jomaa.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-rexhep-qemal-meidani",
+    "name_display": "Rexhep Qemal Meidani",
+    "first_name": "Rexhep",
+    "last_name": "Qemal Meidani",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Republic of Albania (1997-2002)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/meidani-rexhep/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Rexhep-Meidani-Mejdani-500x445.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-carlos-mesa",
+    "name_display": "Carlos Mesa",
+    "first_name": "Carlos",
+    "last_name": "Mesa",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Bolivia (2003-2005)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/mesa-carlos/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/carlos-mesa.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-james-alix-michel",
+    "name_display": "James Alix Michel",
+    "first_name": "James",
+    "last_name": "Alix Michel",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Seychelles (2004-2016)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/michel-james/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2019/04/High-resolution-photo-of-President-Michelweb.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-festus-gontebanye-mogae",
+    "name_display": "Festus Gontebanye Mogae",
+    "first_name": "Festus",
+    "last_name": "Gontebanye Mogae",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Botswana (1998-2008)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/mogae-festus/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/festus-mogae.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-mario-monti",
+    "name_display": "Mario Monti",
+    "first_name": "Mario",
+    "last_name": "Monti",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Council of Ministers of Italy (2011-2013)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/monti-mario/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/08/Photo-Mario-Monti.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-moussa-mara",
+    "name_display": "Moussa Mara",
+    "first_name": "Moussa",
+    "last_name": "Mara",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Mali 2014-2015",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/moussa-mara/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/PHOTO-2022-8-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-thabo-mvuyelwa-mbeki",
+    "name_display": "Thabo Mvuyelwa Mbeki",
+    "first_name": "Thabo",
+    "last_name": "Mvuyelwa Mbeki",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the South Africa (1999-2008)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/mvuyelwa-mbeki-thabo/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/thabo-mvuyelwa-mbeki.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-natalia-gavrili-a",
+    "name_display": "Natalia Gavrilița",
+    "first_name": "Natalia",
+    "last_name": "Gavrilița",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Moldova (2021 – 2023)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/natalia-gavrilita/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/05/Secretary_Blinken_Meets_with_Moldovan_Prime_Minister_Natalia_Gavrilita_52227531626_cropped-490x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-olusegun-obasanjo",
+    "name_display": "Olusegun Obasanjo",
+    "first_name": "Olusegun",
+    "last_name": "Obasanjo",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Nigeria (1976-1979; 1999-2007)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/obasanjo-olusegun/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/olusegun-obasanjo.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-roza-otunbayeva",
+    "name_display": "Roza Otunbayeva",
+    "first_name": "Roza",
+    "last_name": "Otunbayeva",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Kyrgyz Republic (2010-2011)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/otunbayeva-roza/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/roza-otunbayeva.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-anand-panyarachun",
+    "name_display": "Anand Panyarachun",
+    "first_name": "Anand",
+    "last_name": "Panyarachun",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Thailand (1991-1992)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/panyarachun-anand/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/anand-panyarachun.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-paolo-gentiloni-silveri",
+    "name_display": "Paolo Gentiloni Silveri",
+    "first_name": "Paolo",
+    "last_name": "Gentiloni Silveri",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Italy (2016–2018)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/paolo-gentiloni/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2025/07/GENTILONI-formal-pose-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-george-papandreou",
+    "name_display": "George Papandreou",
+    "first_name": "George",
+    "last_name": "Papandreou",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Greece (2009-2011)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/papandreou-george/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/george-papandreou.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-andr-s-pastrana",
+    "name_display": "Andrés Pastrana",
+    "first_name": "Andrés",
+    "last_name": "Pastrana",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Colombia (1998-2002)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/pastrana-andres/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/andres-pastrana.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-pratibha-devisingh-patil",
+    "name_display": "Pratibha Devisingh Patil",
+    "first_name": "Pratibha",
+    "last_name": "Devisingh Patil",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of India (2007-2012)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/patil-pratibha/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/pratibha-patil-1.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-romano-prodi",
+    "name_display": "Romano Prodi",
+    "first_name": "Romano",
+    "last_name": "Prodi",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of The European Commission (1999-2004) and Prime Minister of Italy (1996-1998; 2006-2008)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/prodi-romano/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Romano_Prodi.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jorge-quiroga",
+    "name_display": "Jorge Quiroga",
+    "first_name": "Jorge",
+    "last_name": "Quiroga",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Bolivia (2001-2002)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/quiroga-jorge-fernando/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jorge-fernando-quiroga.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-iveta-radi-ov",
+    "name_display": "Iveta Radičová",
+    "first_name": "Iveta",
+    "last_name": "Radičová",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of the Slovak Republic (2010-2012)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/radicova-iveta/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/iveta-radicova.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-mariano-rajoy",
+    "name_display": "Mariano Rajoy",
+    "first_name": "Mariano",
+    "last_name": "Rajoy",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Government of Spain (2011-2018)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/rajoy-mariano/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2019/11/Mariano_Rajoy_Brey.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-ram-nath-kovind",
+    "name_display": "Ram Nath Kovind",
+    "first_name": "Ram",
+    "last_name": "Nath Kovind",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of India (2017-2022)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/ram-nath-kovind/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2023/03/One-year-standing-with-Ukraine-1-500x500.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jos-manuel-ramos-horta",
+    "name_display": "José Manuel Ramos-Horta",
+    "first_name": "José",
+    "last_name": "Manuel Ramos-Horta",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Timor-Leste (2007-2012; 2022-)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/ramos-horta-jose-manuel/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-manuel-ramos-horta.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-poul-nyrup-rasmussen",
+    "name_display": "Poul Nyrup Rasmussen",
+    "first_name": "Poul",
+    "last_name": "Nyrup Rasmussen",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Denmark (1993-2001)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/rasmussen-poul-nyrup/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/poul-nyrup-rasmussen.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-mary-robinson",
+    "name_display": "Mary Robinson",
+    "first_name": "Mary",
+    "last_name": "Robinson",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Ireland (1990-1997) • Former Vice President of the Club de Madrid",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/robinson-mary/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/mary-robinson.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jos-luis-rodr-guez-zapatero",
+    "name_display": "José Luis Rodríguez Zapatero",
+    "first_name": "José",
+    "last_name": "Luis Rodríguez Zapatero",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Government of Spain (2004-2011)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/rodriguez-zapatero-jose-luis/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jose-luis-rodriguez-zapatero.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-petre-roman",
+    "name_display": "Petre Roman",
+    "first_name": "Petre",
+    "last_name": "Roman",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Romania (1989-1991)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/roman-petre/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/petre-roman.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-kevin-michael-rudd",
+    "name_display": "Kevin Michael Rudd",
+    "first_name": "Kevin",
+    "last_name": "Michael Rudd",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Australia (2007-2010, 2013)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/rudd-kevin/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/kevin-rudd.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-eduardo-frei-ruiz-tagle",
+    "name_display": "Eduardo Frei Ruiz-Tagle",
+    "first_name": "Eduardo",
+    "last_name": "Frei Ruiz-Tagle",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Chile (1994-2000)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/ruiz-tagle-eduardo-frei/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/Eduardo-Frei-Ruiz-Tagle-3-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-julio-mar-a-sanguinetti",
+    "name_display": "Julio María Sanguinetti",
+    "first_name": "Julio",
+    "last_name": "María Sanguinetti",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Uruguay (1985-1990; 1995-2000)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/sanguinetti-julio-maria/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/julio-maria-sanguinetti.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-sanna-marin",
+    "name_display": "Sanna Marin",
+    "first_name": "Sanna",
+    "last_name": "Marin",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Finland (2019-2023)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/sanna-marin/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2024/04/Captura-de-pantalla-2024-04-05-a-las-15.43.26-500x500.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-wolfgang-sch-ssel",
+    "name_display": "Wolfgang Schüssel",
+    "first_name": "Wolfgang",
+    "last_name": "Schüssel",
+    "organization_primary": "Club de Madrid",
+    "designation": "Chancellor of Austria (2000 – 2007)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/schussel-wolfang/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/1x1-Web-PD-4-500x500.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-dame-jennifer-mary-shipley",
+    "name_display": "Dame Jennifer Mary Shipley",
+    "first_name": "Dame",
+    "last_name": "Jennifer Mary Shipley",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of New Zealand (1997-1999)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/shipley-jennifer-mary/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jennifer-mary-shipley.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-j-hanna-sigur-ard-ttir",
+    "name_display": "Jóhanna Sigurðardóttir",
+    "first_name": "Jóhanna",
+    "last_name": "Sigurðardóttir",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Iceland (2009-2013)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/sigurdartottir-johanna/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/johanna-sigurdartottir.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-fuad-siniora",
+    "name_display": "Fuad Siniora",
+    "first_name": "Fuad",
+    "last_name": "Siniora",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Lebanon (2005-2008)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/siniora-fuad/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/fuad-siniora.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-kjell-stefan-l-fven",
+    "name_display": "Kjell Stefan Löfven",
+    "first_name": "Kjell",
+    "last_name": "Stefan Löfven",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Sweden (2014-2021)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/stefan-lofven/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2023/01/Stefan_Löfven._premier_Zweden_met_DE_CUMULA_cropped-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-alexander-stubb",
+    "name_display": "Alexander Stubb",
+    "first_name": "Alexander",
+    "last_name": "Stubb",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Finland (2014-2015); President of Finland (2024-)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/stubb-alexander/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/12/Captura-de-pantalla-2024-03-19-a-las-15.45.59-500x500.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-hanna-stanis-awa-suchocka",
+    "name_display": "Hanna Stanisława Suchocka",
+    "first_name": "Hanna",
+    "last_name": "Stanisława Suchocka",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Poland (1992-1993)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/suchocka-hanna/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/hanna-suchocka.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-boris-tadic",
+    "name_display": "Boris Tadic",
+    "first_name": "Boris",
+    "last_name": "Tadic",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Serbia (2004-2012)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/tadic-boris/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/tadic-boris.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-helle-thorning-schmidt",
+    "name_display": "Helle Thorning-Schmidt",
+    "first_name": "Helle",
+    "last_name": "Thorning-Schmidt",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Denmark (2011-2015)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/thorning-schmidt-helle/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2018/11/Helle_Thorning-Schmidt@05x-1.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-mart-n-torrijos-espino",
+    "name_display": "Martín Torrijos Espino",
+    "first_name": "Martín",
+    "last_name": "Torrijos Espino",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Panama (2004 - 2009)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/torrijos-martin/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/martin-torrijos.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-aminata-tour",
+    "name_display": "Aminata Touré",
+    "first_name": "Aminata",
+    "last_name": "Touré",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Senegal (2013-2014)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/toure-aminata/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2019/01/image0-2-324x500.jpeg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-elbegdorj-tsakhia",
+    "name_display": "Elbegdorj Tsakhia",
+    "first_name": "Elbegdorj",
+    "last_name": "Tsakhia",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Mongolia (1998, 2004-2006) & President of Mongolia (2009–2017)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/tsakhia-elbegdorj/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2018/11/Tsakhiagiin_Elbegdorj_01_Senate_of_Poland@05x-e1543421820702.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-danilo-t-rk",
+    "name_display": "Danilo Türk",
+    "first_name": "Danilo",
+    "last_name": "Türk",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Slovenia (2007-2012)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/turk-danilo/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2020/10/Diseno-sin-titulo-500x500.png",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-cassam-uteem",
+    "name_display": "Cassam Uteem",
+    "first_name": "Cassam",
+    "last_name": "Uteem",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of the Republic of Mauritius (1992-1997; 1997- 2002)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/uteem-cassam/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/cassam-uteem.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-valdis-zatlers",
+    "name_display": "Valdis Zatlers",
+    "first_name": "Valdis",
+    "last_name": "Zatlers",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Latvia (2007-2011)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/valdis-zatlers/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2023/01/Foto_portrets_VZ-copia-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-herman-van-rompuy",
+    "name_display": "Herman Van Rompuy",
+    "first_name": "Herman",
+    "last_name": "Van Rompuy",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Belgium (2008-2009) and first President of the European Council",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/van-rompuy-herman/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/herman-van-rompuy-2.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-guy-verhofstadt",
+    "name_display": "Guy Verhofstadt",
+    "first_name": "Guy",
+    "last_name": "Verhofstadt",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Belgium (1999-2008)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/verhofstadt-guy/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/guy-verhofstadt.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-vaira-vike-freiberga",
+    "name_display": "Vaira Vike-Freiberga",
+    "first_name": "Vaira",
+    "last_name": "Vike-Freiberga",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Latvia (1999-2007)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/vike-freiberga-vaira/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/vaira-vike-freiberga.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-viktor-yushchenko",
+    "name_display": "Viktor Yushchenko",
+    "first_name": "Viktor",
+    "last_name": "Yushchenko",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Ukraine (2005 –2010)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/viktor-yushchenko/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2022/07/Yushchenko-Viktor-500x500.jpeg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-jigme-yoser-thinley",
+    "name_display": "Jigme Yoser Thinley",
+    "first_name": "Jigme",
+    "last_name": "Yoser Thinley",
+    "organization_primary": "Club de Madrid",
+    "designation": "Prime Minister of Bhutan (2008-2013)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/yoser-thinley-jigmi/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/jigmi-yoser-thinley.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-ernesto-zedillo",
+    "name_display": "Ernesto Zedillo",
+    "first_name": "Ernesto",
+    "last_name": "Zedillo",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Mexico (1994-2000)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/zedillo-ernesto/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2017/10/ernesto-zedillo.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
+  },
+  {
+    "actor_id": "actor-clubmadrid-zuzana-aputov",
+    "name_display": "Zuzana Čaputová",
+    "first_name": "Zuzana",
+    "last_name": "Čaputová",
+    "organization_primary": "Club de Madrid",
+    "designation": "President of Slovakia (2019 to 2024)",
+    "country_normalized": "",
+    "actor_type": "influence_node",
+    "relationship_type": "club_madrid_full_member",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "Mark Grobmyer",
+    "profile_url": "https://clubmadrid.org/who/members/zuzana-caputova/",
+    "profile_image": "https://clubmadrid.org/wp-content/uploads/2026/02/6607350890295_211465-2-1-500x500.jpg",
+    "notes": "Marked as first-degree Mark Grobmyer connection via Club de Madrid full-member network mapping.",
+    "sources": [
+      {
+        "label": "Club de Madrid full members",
+        "url": "https://clubmadrid.org/who/?fwp_categories=full-members"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "source_listed_not_relationship_verified",
+    "updated_at": "2026-03-24T23:15:00Z"
   }
 ]
