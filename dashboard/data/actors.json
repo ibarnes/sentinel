@@ -10835,6 +10835,14 @@
     "resolution_status": "confirmed",
     "owner": "initiative:INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
     "notes": "Primary POC and program authority seat for USVI recovery initiative.",
-    "updated_at": "2026-03-24T17:38:00Z"
+    "updated_at": "2026-03-24T17:38:00Z",
+    "sources": [
+      {
+        "label": "Government of the United States Virgin Islands Official Directory (11.16.25)",
+        "url": "https://www.vi.gov/wp-content/uploads/2025/11/GVI-Directory-11.16.25.pdf"
+      }
+    ],
+    "last_verified_at": "2026-03-24",
+    "verification_source": "gvi_official_directory_2025_11_16"
   }
 ]
