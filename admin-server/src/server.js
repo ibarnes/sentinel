@@ -3264,6 +3264,7 @@ app.get('/dashboard/buyer/:id', async (req, res) => {
 app.get('/dashboard/initiative/:id', async (req, res) => {
   const id = String(req.params.id);
   const buyer_id = req.query.buyer_id ? String(req.query.buyer_id) : '';
+  const canEdit = ['architect','editor'].includes(String(effectiveRole(req) || '').trim().toLowerCase());
   const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const buyerSeatConstraints = await readJson(path.join(ROOT, 'dashboard/data/buyer_seat_constraints.json'), []);
@@ -3276,7 +3277,6 @@ app.get('/dashboard/initiative/:id', async (req, res) => {
   const linkedBuyers = buyers.filter(b => (i.linked_buyers||[]).includes(b.buyer_id));
   const seatConstraint = buyerSeatConstraints.find((r) => String(r.initiative_id || '') === id) || null;
   const entityOptions = await loadActorEntityOptions();
-  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const editMode = String(req.query.edit || '') === '1';
   const LAYERS = ['political','asset','development','capital','delivery'];
   const LAYER_LABEL = { political:'Political', asset:'Asset', development:'Development', capital:'Capital', delivery:'Delivery' };
