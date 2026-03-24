@@ -1243,7 +1243,7 @@ app.get('/dashboard/actors', requireAnyAuth, async (req, res) => {
 
   const filtered = normalized.filter((a) => {
     if (q) {
-      const hay = `${a.first} ${a.last} ${a.designation} ${a.company} ${a.country} ${a.actor_type} ${a.owner}`.toLowerCase();
+      const hay = `${a.first} ${a.last} ${a.designation} ${a.company} ${a.country} ${a.actor_type}`.toLowerCase();
       if (!hay.includes(q)) return false;
     }
     if (countryFilter && a.country !== countryFilter) return false;
