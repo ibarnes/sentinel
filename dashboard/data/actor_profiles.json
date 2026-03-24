@@ -11,5 +11,9 @@
     "profile_image": "/public/actor-images/hannibal-ware.jpg",
     "image_source": "https://en.wikipedia.org/wiki/Hannibal_Ware",
     "updated_at": "2026-03-24T22:10:00Z"
+  },
+  "actor-us-mark-grobmyer": {
+    "profile_image": "/public/actor-images/mark-grobmyer.jpg",
+    "updated_at": "2026-03-24T23:45:00Z"
   }
 }
