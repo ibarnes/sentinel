@@ -7799,5 +7799,67 @@
       "Global"
     ],
     "country": "United States"
+  },
+  {
+    "signal_id": "SIG-2026-03-24-US-FISCAL-INSOLVENCY-FRAMING-001",
+    "title": "Fortune analysis frames U.S. fiscal position as insolvency-equivalent based on Treasury statements",
+    "signal_class": "Macro Fiscal Pressure + Capital Conditions",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-24T23:39:00Z",
+    "summary": "Fortune article argues that Treasury FY2025 consolidated statements imply insolvency-like federal fiscal dynamics, citing large negative net position, rising long-term obligations, and persistent GAO disclaimer context.",
+    "flow": "fiscal stress narrative intensifies -> market risk pricing/tight-credit bias increases -> federal-dependent funding pathways face scrutiny/timing drag -> structured private/sovereign capital pathways gain relative importance",
+    "verification_note": "Source is analytical media framing; validate against first-party Treasury + GAO source documents and independent Tier-1 context before posture escalation.",
+    "sources": [
+      {
+        "label": "Fortune",
+        "url": "https://fortune.com/2026/03/23/us-government-insolvent-fiscal-crisis-fix/"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "US-TREASURY",
+      "GAO",
+      "US-CONGRESS"
+    ],
+    "actor_roles": [
+      "fiscal-authority",
+      "audit-oversight"
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital"
+    ],
+    "evidence_type": "tier1_media_analysis",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "us-fiscal-pressure",
+      "capital-conditions",
+      "credit-tightening",
+      "federal-funding-risk"
+    ],
+    "buyer_ids": [
+      "KKR",
+      "STONEPEAK",
+      "GIP",
+      "GENERAL_ATLANTIC",
+      "ALPHA_WAVE",
+      "HAUN"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "geography": [
+      "United States",
+      "Global"
+    ],
+    "country": "United States"
   }
 ]
