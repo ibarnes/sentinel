@@ -5397,10 +5397,65 @@
         "reason": "Mark G meeting note requires independent verification",
         "source": "provided_by_isaac",
         "added_at": "2026-03-24T22:04:00Z"
+      },
+      {
+        "actor_id": "actor-us-tanisha-lewis",
+        "name": "Tanisha Lewis",
+        "status": "pending",
+        "priority": "high",
+        "reason": "Tanisha Lewis meeting network mapping requires independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T22:08:00Z"
+      },
+      {
+        "actor_id": "actor-us-camille-moore",
+        "name": "Camille Moore",
+        "status": "pending",
+        "priority": "medium",
+        "reason": "Tanisha Lewis meeting network mapping requires independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T22:08:00Z"
+      },
+      {
+        "actor_id": "actor-us-tonya-saunders",
+        "name": "Tonya Saunders",
+        "status": "pending",
+        "priority": "medium",
+        "reason": "Tanisha Lewis meeting network mapping requires independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T22:08:00Z"
+      },
+      {
+        "actor_id": "actor-us-steven-benjamin",
+        "name": "Steven Benjamin",
+        "status": "pending",
+        "priority": "medium",
+        "reason": "Tanisha Lewis meeting network mapping requires independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T22:08:00Z"
+      },
+      {
+        "actor_id": "actor-us-hannibal-ware",
+        "name": "Hannibal Ware",
+        "status": "pending",
+        "priority": "high",
+        "reason": "Tanisha Lewis meeting network mapping requires independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T22:08:00Z"
+      },
+      {
+        "actor_id": "actor-usvi-mrs-kim",
+        "name": "Mrs Kim (full name pending)",
+        "status": "pending",
+        "priority": "high",
+        "reason": "Tanisha Lewis meeting network mapping requires independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T22:08:00Z"
       }
     ],
     "operator_notes": [
-      "2026-03-24: Added identified (unverified) Mark G network actors (Joel H. Holt, Mark's son clerkship path, Mike Mical, Raj Davedee) with verification queue entries."
+      "2026-03-24: Added identified (unverified) Mark G network actors (Joel H. Holt, Mark's son clerkship path, Mike Mical, Raj Davedee) with verification queue entries.",
+      "2026-03-24: Added Tanisha Lewis network actors (Tanisha, Camille Moore, Tonya Saunders, Steven Benjamin, Hannibal Ware, Mrs Kim) as identified with verification queue entries."
     ]
   },
   {

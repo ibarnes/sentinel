@@ -10968,5 +10968,264 @@
     "confidence": "low",
     "verification_status": "pending_independent_verification",
     "updated_at": "2026-03-24T22:04:00Z"
+  },
+  {
+    "actor_id": "actor-us-tanisha-lewis",
+    "name_display": "Tanisha Lewis",
+    "first_name": "Tanisha",
+    "last_name": "Lewis",
+    "organization_primary": "Niche Consulting Firm",
+    "designation": "Bipartisan government strategy and organizational change advisor",
+    "country_normalized": "USA",
+    "actor_type": "connector",
+    "relationship_type": "government_network",
+    "unlock_role": "introduces",
+    "relationship_degree": "1st_degree",
+    "link_strength": "high",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "active",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "notes": "Knows USVI government; bipartisan infrastructure/policy operator. Connected to Rep. Don Bacon and advisor network.",
+    "sources": [
+      {
+        "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
+        "url": "internal://isaac-meeting-notes/2026-03-24/tanisha-lewis"
+      },
+      {
+        "label": "Niche Consulting Firm",
+        "url": "https://www.nicheconsultingfirm.com"
+      },
+      {
+        "label": "Rep. Don Bacon",
+        "url": "https://bacon.house.gov"
+      },
+      {
+        "label": "Hannibal Ware",
+        "url": "https://en.wikipedia.org/wiki/Hannibal_Ware"
+      }
+    ],
+    "confidence": "medium",
+    "verification_status": "pending_independent_verification",
+    "profile_image": "/public/actor-images/tanisha-lewis.jpg",
+    "updated_at": "2026-03-24T22:08:00Z"
+  },
+  {
+    "actor_id": "actor-us-camille-moore",
+    "name_display": "Camille Moore",
+    "first_name": "Camille",
+    "last_name": "Moore",
+    "organization_primary": "Niche Consulting Firm",
+    "designation": "Strategy/operations lead (Tanisha team)",
+    "country_normalized": "USA",
+    "actor_type": "advisor",
+    "relationship_type": "team_node",
+    "unlock_role": "accelerates",
+    "relationship_degree": "2nd_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "notes": "Described as key strategist on Tanisha's team.",
+    "sources": [
+      {
+        "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
+        "url": "internal://isaac-meeting-notes/2026-03-24/tanisha-lewis"
+      },
+      {
+        "label": "Niche Consulting Firm",
+        "url": "https://www.nicheconsultingfirm.com"
+      },
+      {
+        "label": "Rep. Don Bacon",
+        "url": "https://bacon.house.gov"
+      },
+      {
+        "label": "Hannibal Ware",
+        "url": "https://en.wikipedia.org/wiki/Hannibal_Ware"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "pending_independent_verification",
+    "updated_at": "2026-03-24T22:08:00Z"
+  },
+  {
+    "actor_id": "actor-us-tonya-saunders",
+    "name_display": "Tonya Saunders",
+    "first_name": "Tonya",
+    "last_name": "Saunders",
+    "organization_primary": "Independent (mentor network)",
+    "designation": "Lobbying/workforce development advisor (HBCU experience)",
+    "country_normalized": "USA",
+    "actor_type": "advisor",
+    "relationship_type": "policy_network",
+    "unlock_role": "de-risks",
+    "relationship_degree": "2nd_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "notes": "Tanisha mentor with decades in lobbying and workforce development.",
+    "sources": [
+      {
+        "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
+        "url": "internal://isaac-meeting-notes/2026-03-24/tanisha-lewis"
+      },
+      {
+        "label": "Niche Consulting Firm",
+        "url": "https://www.nicheconsultingfirm.com"
+      },
+      {
+        "label": "Rep. Don Bacon",
+        "url": "https://bacon.house.gov"
+      },
+      {
+        "label": "Hannibal Ware",
+        "url": "https://en.wikipedia.org/wiki/Hannibal_Ware"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "pending_independent_verification",
+    "updated_at": "2026-03-24T22:08:00Z"
+  },
+  {
+    "actor_id": "actor-us-steven-benjamin",
+    "name_display": "Steven Benjamin",
+    "first_name": "Steven",
+    "last_name": "Benjamin",
+    "organization_primary": "Advisor network",
+    "designation": "Advisor to Tanisha Lewis",
+    "country_normalized": "USA",
+    "actor_type": "influence_node",
+    "relationship_type": "policy_network",
+    "unlock_role": "introduces",
+    "relationship_degree": "2nd_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "notes": "Identified as advisor in Tanisha network.",
+    "sources": [
+      {
+        "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
+        "url": "internal://isaac-meeting-notes/2026-03-24/tanisha-lewis"
+      },
+      {
+        "label": "Niche Consulting Firm",
+        "url": "https://www.nicheconsultingfirm.com"
+      },
+      {
+        "label": "Rep. Don Bacon",
+        "url": "https://bacon.house.gov"
+      },
+      {
+        "label": "Hannibal Ware",
+        "url": "https://en.wikipedia.org/wiki/Hannibal_Ware"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "pending_independent_verification",
+    "updated_at": "2026-03-24T22:08:00Z"
+  },
+  {
+    "actor_id": "actor-us-hannibal-ware",
+    "name_display": "Hannibal Ware",
+    "first_name": "Hannibal",
+    "last_name": "Ware",
+    "organization_primary": "Public energy oversight network",
+    "designation": "Commissioner (energy oversight context)",
+    "country_normalized": "USA",
+    "actor_type": "government_interface",
+    "relationship_type": "energy_policy",
+    "unlock_role": "approves",
+    "relationship_degree": "2nd_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "notes": "Out of town until end of week; energy-policy relevance.",
+    "sources": [
+      {
+        "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
+        "url": "internal://isaac-meeting-notes/2026-03-24/tanisha-lewis"
+      },
+      {
+        "label": "Niche Consulting Firm",
+        "url": "https://www.nicheconsultingfirm.com"
+      },
+      {
+        "label": "Rep. Don Bacon",
+        "url": "https://bacon.house.gov"
+      },
+      {
+        "label": "Hannibal Ware",
+        "url": "https://en.wikipedia.org/wiki/Hannibal_Ware"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "pending_independent_verification",
+    "updated_at": "2026-03-24T22:08:00Z"
+  },
+  {
+    "actor_id": "actor-usvi-mrs-kim",
+    "name_display": "Mrs Kim (full name pending)",
+    "first_name": "Kim",
+    "last_name": "",
+    "organization_primary": "USVI contact node (via Tanisha)",
+    "designation": "USVI local connector",
+    "country_normalized": "USVI",
+    "actor_type": "connector",
+    "relationship_type": "local_access",
+    "unlock_role": "introduces",
+    "relationship_degree": "2nd_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "active",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "notes": "Tanisha to connect within next week; full identity pending.",
+    "sources": [
+      {
+        "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
+        "url": "internal://isaac-meeting-notes/2026-03-24/tanisha-lewis"
+      },
+      {
+        "label": "Niche Consulting Firm",
+        "url": "https://www.nicheconsultingfirm.com"
+      },
+      {
+        "label": "Rep. Don Bacon",
+        "url": "https://bacon.house.gov"
+      },
+      {
+        "label": "Hannibal Ware",
+        "url": "https://en.wikipedia.org/wiki/Hannibal_Ware"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "pending_identity_resolution",
+    "updated_at": "2026-03-24T22:08:00Z"
   }
 ]
