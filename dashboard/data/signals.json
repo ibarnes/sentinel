@@ -7679,5 +7679,65 @@
       "Global"
     ],
     "country": "United States"
+  },
+  {
+    "signal_id": "SIG-2026-03-24-GHANA-EU-SECURITY-DEFENSE-PARTNERSHIP-001",
+    "title": "Ghana signs first EU–Africa security and defense partnership",
+    "signal_class": "Governance + Security Architecture",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-24T23:08:00Z",
+    "summary": "Reuters-referenced reporting indicates Ghana has signed the first EU–Africa security and defense partnership, signaling deeper Europe–West Africa security alignment.",
+    "flow": "security architecture alignment -> lower perceived sovereign/corridor risk -> stronger institutional confidence conditions for capital engagement",
+    "verification_note": "Captured from user-provided Reuters/X screenshot context; keep monitor until direct Reuters URL and corroboration are logged.",
+    "sources": [
+      {
+        "label": "User-provided Reuters screenshot context",
+        "url": "internal://isaac-provided/media-signal/ghana-eu-security-partnership-2026-03-24"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "GHANA-GOV",
+      "EU"
+    ],
+    "actor_roles": [
+      "security-partner",
+      "governance-anchor"
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital"
+    ],
+    "evidence_type": "media_screenshot",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "ghana",
+      "eu",
+      "security-partnership",
+      "defense-cooperation",
+      "west-africa-risk"
+    ],
+    "buyer_ids": [
+      "AfDB",
+      "IFC",
+      "AFC",
+      "PIF",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "geography": [
+      "Ghana",
+      "West Africa",
+      "European Union"
+    ],
+    "country": "Ghana"
   }
 ]
