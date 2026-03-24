@@ -1,0 +1,828 @@
+{
+  "generatedAt": "2026-03-24T10:31:47.953Z",
+  "rows": [
+    {
+      "buyer": "PIF",
+      "sourceTried": [
+        "https://www.pif.gov.sa/en/news-and-insights/",
+        "https://www.pif.gov.sa/en/"
+      ],
+      "sourceUsed": "https://www.pif.gov.sa/en/news-and-insights/",
+      "fetchStatus": "HTTP_403",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "AFC",
+      "sourceTried": [
+        "https://www.africafc.org/media-centre/",
+        "https://www.africafc.org/"
+      ],
+      "sourceUsed": "https://www.africafc.org/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "February 14, 2025",
+      "capitalAmount": "$ 17bn",
+      "sector": "Infrastructure",
+      "geography": "MISSING",
+      "mandateLanguage": "platform",
+      "leadershipStatement": "President",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "s Ababa, Ethiopia – 18 February 2026 — African Heads of State and Government on February 14, 2025, formally launched the Africa Infrastructure Financing Facility (AIFF), a coord",
+        "capitalAmount": "elp address Africa’s infrastructure needs and challenges: 48 member countries US$ 17bn disbursed to projects across 36 countries Investee Companies As a leading instr",
+        "sector": "pital Partners Careers Contact Search Search --> --> --> Back Back Instrumental Infrastructure. Instrumental Africa. Read More --> Compendium of Africa’s Strategic Minerals 2",
+        "geography": "MISSING",
+        "mandateLanguage": " the Africa Infrastructure Financing Facility (AIFF), a coordinated, Africa-led platform designed to accelerate the preparation and facilitation of financing for priori",
+        "leadershipStatement": "ore about us, our governance structures and our business model. Samaila Zubairu President &amp; CEO “It is the strength of our mindset and our unique approach to deliver"
+      },
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "verified_source",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "geography"
+      ]
+    },
+    {
+      "buyer": "AfDB",
+      "sourceTried": [
+        "https://www.afdb.org/en/news-and-events",
+        "https://www.afdb.org/en"
+      ],
+      "sourceUsed": "https://www.afdb.org/en/news-and-events",
+      "fetchStatus": "HTTP_403",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "NSIA",
+      "sourceTried": [
+        "https://nsia.com.ng/news/",
+        "https://nsia.com.ng/"
+      ],
+      "sourceUsed": "https://nsia.com.ng/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "$50 M",
+      "sector": "Infrastructure",
+      "geography": "MISSING",
+      "mandateLanguage": "Mandate",
+      "leadershipStatement": "President",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": " &#8594; Grievance Redress Tool &#8594; Search NSIA &#038; JICA Set to Launch US$50 Million Impact Innovation Fund to Empower Nigerian Startups Learn more NSIA &#038",
+        "sector": "cale to stimulate economic growth. NSIA Funds &#8594; Portfolio &#8594; Nigeria Infrastructure Fund &#8594; Direct Investments &#8594; Future Generations Fund &#8594; Third P",
+        "geography": "MISSING",
+        "mandateLanguage": "deration set up to manage funds in excess of budgeted hydrocarbon revenues. Our Mandate &#8594; Governance &#8594; Our History &#8594; Our Investment Our Investments &",
+        "leadershipStatement": "Window (NSW) project alongside the Federal Inland Revenue Service (FIRS) by HE, President Bola Ahmed Tinubu. &#xf5f1; &nbsp; Signed strategic partnership agreement with "
+      },
+      "signalScore": 2.6,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "geography"
+      ]
+    },
+    {
+      "buyer": "IFC",
+      "sourceTried": [
+        "https://www.ifc.org/en/pressroom",
+        "https://www.ifc.org/"
+      ],
+      "sourceUsed": "https://www.ifc.org/en/pressroom",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "Infrastructure",
+      "geography": "MISSING",
+      "mandateLanguage": "mandate",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "amp; Forestry Creative Industries Education Financial Institutions Funds Health Infrastructure Manufacturing Public-Private Partnerships Tourism, Retail &amp; Property Trade ",
+        "geography": "MISSING",
+        "mandateLanguage": "e world’s most challenging markets. Including a history of innovation, a global mandate, and a determination to achieve measurable development impact. Our Impact Overv",
+        "leadershipStatement": "ent, creates jobs and improves the lives of people. More About Us About IFC Our Leadership Development Partners Diversity, Equity and Inclusion Accountability Learn more "
+      },
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "geography"
+      ]
+    },
+    {
+      "buyer": "GIC",
+      "sourceTried": [
+        "https://www.gic.com.kw/en/media-center/",
+        "https://www.gic.com.kw/"
+      ],
+      "sourceUsed": "https://www.gic.com.kw/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "Kuwait",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": true,
+      "evidence": {
+        "date": "Filtered as stale (>24m old) for pressure events",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "An investment company incorporated in the State of Kuwait. - Gulf Investment Corporation % Skip to content Skip to footer Home Principal ",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1.8,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "verified_source",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "FMF-NG",
+      "sourceTried": [
+        "https://www.finance.gov.ng/category/press-release/",
+        "https://www.finance.gov.ng/"
+      ],
+      "sourceUsed": "https://www.finance.gov.ng/category/press-release/",
+      "fetchStatus": "HTTP_404",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "ADFD",
+      "sourceTried": [
+        "https://www.adfd.ae/media-centre/",
+        "https://www.adfd.ae/"
+      ],
+      "sourceUsed": "https://www.adfd.ae/media-centre/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "SFD",
+      "sourceTried": [
+        "https://www.sfd.gov.sa/en/media-center/",
+        "https://www.sfd.gov.sa/en"
+      ],
+      "sourceUsed": "https://www.sfd.gov.sa/en/media-center/",
+      "fetchStatus": "FETCH_fetch failed",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "MUBADALA",
+      "sourceTried": [
+        "https://www.mubadala.com/en/news",
+        "https://www.mubadala.com/"
+      ],
+      "sourceUsed": "https://www.mubadala.com/en/news",
+      "fetchStatus": "FETCH_fetch failed",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "TPO",
+      "sourceTried": [
+        "https://pritzkerorg.com/",
+        "https://pritzkerorg.com/investment-criteria/"
+      ],
+      "sourceUsed": "https://pritzkerorg.com/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "HCC",
+      "sourceTried": [
+        "https://www.henrycrown.com/"
+      ],
+      "sourceUsed": "https://www.henrycrown.com/",
+      "fetchStatus": "FETCH_fetch failed",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "ANSCHUTZ",
+      "sourceTried": [
+        "https://www.anschutz.com/"
+      ],
+      "sourceUsed": "https://www.anschutz.com/",
+      "fetchStatus": "FETCH_fetch failed",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "KOCH",
+      "sourceTried": [
+        "https://www.kochind.com/newsroom/",
+        "https://www.kochind.com/"
+      ],
+      "sourceUsed": "https://www.kochind.com/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "Energy",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "s Resources Georgia-Pacific Guardian Industries Infor INVISTA KBX Koch Ag &amp; Energy Solutions Koch Engineered Solutions Koch Minerals &amp; Trading Molex Koch Inve",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "COX",
+      "sourceTried": [
+        "https://www.coxenterprises.com/news/",
+        "https://www.coxenterprises.com/"
+      ],
+      "sourceUsed": "https://www.coxenterprises.com/news/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "Digital",
+      "geography": "MISSING",
+      "mandateLanguage": "commitment",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "ns Cox Automotive Cox Farms Our Story Why Choose Us Growth Operations Cleantech Digital Media Public Sector Healthcare Socium Ventures People Benefits Medical Plans Pr",
+        "geography": "MISSING",
+        "mandateLanguage": "onservation&#45;Minded Families 12/08/2025 This acquisition will bolster KUIU’s commitment to its customers, employees and innovation. Learn More 1 2 3 4 5 In the news Co",
+        "leadershipStatement": "Cox Enterprises News | Cox Enterprises --> Search anytime by typing About Us Leadership Message What We Stand For History Inclusion &amp; Engagement Inclusion Partners"
+      },
+      "signalScore": 1.8,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "geography"
+      ]
+    },
+    {
+      "buyer": "DFC",
+      "sourceTried": [
+        "https://www.dfc.gov/media/press-releases",
+        "https://www.dfc.gov/our-work"
+      ],
+      "sourceUsed": "https://www.dfc.gov/media/press-releases",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "March 11, 2026",
+      "capitalAmount": "$20",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "CEO",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": " Affairs Benefits FAQs Fair Chance Act Search... Search Keywords Apply Newsroom March 11, 2026 Media Release DFC Announces Chubb as Lead Insurance Partner for Maritime Reinsu",
+        "capitalAmount": "Partner for Maritime Reinsurance Plan March 6, 2026 Media Release DFC Announces $20B Plan for Maritime Reinsurance in the Gulf March 4, 2026 Media Release DFC CEO ",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": " $20B Plan for Maritime Reinsurance in the Gulf March 4, 2026 Media Release DFC CEO Ben Black Discusses U.S. Economic Statecraft, DFC Tools During Milken Panel Mar"
+      },
+      "signalScore": 1.8,
+      "fieldProvenance": {
+        "date": "verified_source",
+        "capitalAmount": "verified_source",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "sector",
+        "geography",
+        "mandateLanguage"
+      ]
+    },
+    {
+      "buyer": "Brookfield",
+      "sourceTried": [
+        "https://bep.brookfield.com/press-releases",
+        "https://bep.brookfield.com/"
+      ],
+      "sourceUsed": "https://bep.brookfield.com/press-releases",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "$10 Billion",
+      "sector": "Renewable",
+      "geography": "Us",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "ined Bloomberg TV. Image Brookfield Launches New Strategy Brookfield is raising $10 Billion for new AI infrastructure fund. Invest With Us We partner with institutions and",
+        "sector": "404 | Brookfield Renewable Partners Skip to main content Open menu About Us Long-term thinking. Real world",
+        "geography": "404 | Brookfield Renewable Partners Skip to main content Open menu About Us Long-term thinking. Real world impact. Company Who We Are Global Presence The E",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "m thinking. Real world impact. Company Who We Are Global Presence The Ecosystem Leadership Sustainability Businesses Asset Management Wealth Solutions Capabilities Asset "
+      },
+      "signalScore": 2.6,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "mandateLanguage"
+      ]
+    },
+    {
+      "buyer": "GIP",
+      "sourceTried": [
+        "https://www.global-infra.com/news/",
+        "https://www.global-infra.com/"
+      ],
+      "sourceUsed": "https://www.global-infra.com/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "Infrastructure",
+      "geography": "Global",
+      "mandateLanguage": "platform",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "Global Infrastructure Partners - A leading infrastructure investor. Skip to content Clear Search ABOU",
+        "geography": "Global Infrastructure Partners - A leading infrastructure investor. Skip to content Cl",
+        "mandateLanguage": "Emerging Markets strategies. Additionally, our Separately Managed Account (SMA) platform provides tailored risk and return solutions to a group of select institutional ",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1.8,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "NigeriaMortgageFund",
+      "sourceTried": [
+        "https://www.mreif.com.ng/",
+        "https://www.mreif.com.ng/category/news/"
+      ],
+      "sourceUsed": "https://www.mreif.com.ng/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_API_KEY_MISSING",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "1 Million",
+      "sector": "housing",
+      "geography": "Nigeria",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "ic growth, ultimately improving living conditions and national competitiveness. 1 Million Houses 25,000 Units Delivered 11,700 Units Sold 5 States Abuja, Lagos, Port Har",
+        "sector": "ting Banks: How MREIF Works For: homebuyer MREIF is designed to make affordable housing accessible through streamlined processes and tailored mortgage solutions. Creat",
+        "geography": " a property from our list of verified properties from leading developers across Nigeria, or upload your own property. Click to see properties Get Pre-approved Apply an",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1.8,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    }
+  ]
+}
