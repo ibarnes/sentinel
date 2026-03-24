@@ -11024,16 +11024,16 @@
     "actor_type": "advisor",
     "relationship_type": "team_node",
     "unlock_role": "accelerates",
-    "relationship_degree": "2nd_degree",
+    "relationship_degree": "1st_degree",
     "link_strength": "medium",
-    "access_path": "warm",
+    "access_path": "direct",
     "linked_initiatives": [
       "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
     "signal_status": "monitoring",
     "resolution_status": "identified",
-    "owner": "provided_by_isaac",
-    "notes": "Described as key strategist on Tanisha's team.",
+    "owner": "Tanisha Lewis",
+    "notes": "Described as key strategist on Tanisha's team. Reassigned under Tanisha Lewis network (2026-03-24 correction).",
     "sources": [
       {
         "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
@@ -11054,7 +11054,7 @@
     ],
     "confidence": "low",
     "verification_status": "pending_independent_verification",
-    "updated_at": "2026-03-24T22:08:00Z"
+    "updated_at": "2026-03-24T23:28:00Z"
   },
   {
     "actor_id": "actor-us-tonya-saunders",
@@ -11067,16 +11067,16 @@
     "actor_type": "advisor",
     "relationship_type": "policy_network",
     "unlock_role": "de-risks",
-    "relationship_degree": "2nd_degree",
+    "relationship_degree": "1st_degree",
     "link_strength": "medium",
-    "access_path": "warm",
+    "access_path": "direct",
     "linked_initiatives": [
       "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
     "signal_status": "monitoring",
     "resolution_status": "identified",
-    "owner": "provided_by_isaac",
-    "notes": "Tanisha mentor with decades in lobbying and workforce development.",
+    "owner": "Tanisha Lewis",
+    "notes": "Tanisha mentor with decades in lobbying and workforce development. Reassigned under Tanisha Lewis network (2026-03-24 correction).",
     "sources": [
       {
         "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
@@ -11097,7 +11097,7 @@
     ],
     "confidence": "low",
     "verification_status": "pending_independent_verification",
-    "updated_at": "2026-03-24T22:08:00Z"
+    "updated_at": "2026-03-24T23:28:00Z"
   },
   {
     "actor_id": "actor-us-steven-benjamin",
@@ -11110,16 +11110,16 @@
     "actor_type": "influence_node",
     "relationship_type": "policy_network",
     "unlock_role": "introduces",
-    "relationship_degree": "2nd_degree",
+    "relationship_degree": "1st_degree",
     "link_strength": "medium",
-    "access_path": "warm",
+    "access_path": "direct",
     "linked_initiatives": [
       "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
     "signal_status": "monitoring",
     "resolution_status": "identified",
-    "owner": "provided_by_isaac",
-    "notes": "Identified as advisor in Tanisha network.",
+    "owner": "Tanisha Lewis",
+    "notes": "Identified as advisor in Tanisha network. Reassigned under Tanisha Lewis network (2026-03-24 correction).",
     "sources": [
       {
         "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
@@ -11140,7 +11140,7 @@
     ],
     "confidence": "low",
     "verification_status": "pending_independent_verification",
-    "updated_at": "2026-03-24T22:08:00Z"
+    "updated_at": "2026-03-24T23:28:00Z"
   },
   {
     "actor_id": "actor-us-hannibal-ware",
@@ -11153,16 +11153,16 @@
     "actor_type": "government_interface",
     "relationship_type": "energy_policy",
     "unlock_role": "approves",
-    "relationship_degree": "2nd_degree",
+    "relationship_degree": "1st_degree",
     "link_strength": "medium",
-    "access_path": "warm",
+    "access_path": "direct",
     "linked_initiatives": [
       "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
     "signal_status": "monitoring",
     "resolution_status": "identified",
-    "owner": "provided_by_isaac",
-    "notes": "Out of town until end of week; energy-policy relevance.",
+    "owner": "Tanisha Lewis",
+    "notes": "Out of town until end of week; energy-policy relevance. Reassigned under Tanisha Lewis network (2026-03-24 correction).",
     "sources": [
       {
         "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
@@ -11183,7 +11183,7 @@
     ],
     "confidence": "low",
     "verification_status": "pending_independent_verification",
-    "updated_at": "2026-03-24T22:10:00Z",
+    "updated_at": "2026-03-24T23:28:00Z",
     "profile_image": "/public/actor-images/hannibal-ware.jpg"
   },
   {
@@ -11197,16 +11197,16 @@
     "actor_type": "connector",
     "relationship_type": "local_access",
     "unlock_role": "introduces",
-    "relationship_degree": "2nd_degree",
+    "relationship_degree": "1st_degree",
     "link_strength": "medium",
-    "access_path": "warm",
+    "access_path": "direct",
     "linked_initiatives": [
       "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
     "signal_status": "active",
     "resolution_status": "identified",
-    "owner": "provided_by_isaac",
-    "notes": "Tanisha to connect within next week; full identity pending.",
+    "owner": "Tanisha Lewis",
+    "notes": "Tanisha to connect within next week; full identity pending. Reassigned under Tanisha Lewis network (2026-03-24 correction).",
     "sources": [
       {
         "label": "Meeting with Tanisha Lewis 3-24-26 (provided by Isaac)",
@@ -11227,7 +11227,7 @@
     ],
     "confidence": "low",
     "verification_status": "pending_identity_resolution",
-    "updated_at": "2026-03-24T22:08:00Z"
+    "updated_at": "2026-03-24T23:28:00Z"
   },
   {
     "actor_id": "actor-us-mark-grobmyer",

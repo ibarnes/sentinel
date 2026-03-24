@@ -1560,9 +1560,7 @@ app.get('/dashboard/actor/:id', requireAnyAuth, async (req, res) => {
     if (String(a.actor_id || '') === id) return false;
     const sameOwner = actor.owner && a.owner && String(actor.owner) === String(a.owner);
     const sameOrg = actor.organization_primary && a.organization_primary && String(actor.organization_primary) === String(a.organization_primary);
-    const aLinked = Array.isArray(a.linked_initiatives) ? a.linked_initiatives : [];
-    const overlap = actorLinked.length && aLinked.some((x) => actorLinked.includes(x));
-    return Boolean(sameOwner || sameOrg || overlap);
+    return Boolean(sameOwner || sameOrg);
   });
 
   const rowsByTab = (() => {
