@@ -5451,11 +5451,21 @@
         "reason": "Tanisha Lewis meeting network mapping requires independent verification",
         "source": "provided_by_isaac",
         "added_at": "2026-03-24T22:08:00Z"
+      },
+      {
+        "actor_id": "actor-us-mark-grobmyer",
+        "name": "Mark Grobmyer",
+        "status": "pending",
+        "priority": "high",
+        "reason": "New direct profile details added (title/email/website) pending independent verification",
+        "source": "provided_by_isaac",
+        "added_at": "2026-03-24T23:09:00Z"
       }
     ],
     "operator_notes": [
       "2026-03-24: Added identified (unverified) Mark G network actors (Joel H. Holt, Mark's son clerkship path, Mike Mical, Raj Davedee) with verification queue entries.",
-      "2026-03-24: Added Tanisha Lewis network actors (Tanisha, Camille Moore, Tonya Saunders, Steven Benjamin, Hannibal Ware, Mrs Kim) as identified with verification queue entries."
+      "2026-03-24: Added Tanisha Lewis network actors (Tanisha, Camille Moore, Tonya Saunders, Steven Benjamin, Hannibal Ware, Mrs Kim) as identified with verification queue entries.",
+      "2026-03-24: Added Mark Grobmyer (GSI Chairman) profile details incl. email/website from Isaac-provided update."
     ]
   },
   {
