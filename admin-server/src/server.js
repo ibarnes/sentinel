@@ -357,7 +357,15 @@ function uiHead(title) {
     padding: 4px 6px 10px;
     border-bottom: 1px solid rgba(255,255,255,.06);
   }
-  .oc-nav-links { display: grid; gap: 4px; }
+  .oc-nav-links {
+    display: grid;
+    gap: 4px;
+    flex: 1 1 auto;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    padding-bottom: 72px;
+  }
   .oc-nav-group-label {
     margin: 8px 6px 2px;
     font-size: .66rem;
@@ -537,13 +545,17 @@ function uiHead(title) {
       z-index: 1050;
       transform: translateX(-108%);
       transition: transform var(--tr-fast);
-      overflow: auto;
+      overflow: hidden;
       margin: 0;
     }
 
     .app-shell.nav-open .oc-nav { transform: translateX(0); }
     .app-shell.nav-open .oc-nav-backdrop { display: block; }
-    .oc-nav-links { grid-template-columns: 1fr; gap: 6px; }
+    .oc-nav-links {
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding-bottom: calc(110px + env(safe-area-inset-bottom));
+    }
   }
 </style>
 <script>
