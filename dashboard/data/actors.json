@@ -16745,5 +16745,41 @@
     ],
     "updated_at": "2026-03-25T02:32:00Z",
     "profile_image": "/public/actor-images/leadership/bryan-klint.png"
+  },
+  {
+    "actor_id": "actor-us-canaan-williams",
+    "name_display": "Dr. Canaan Williams",
+    "first_name": "Canaan",
+    "last_name": "Williams",
+    "organization_primary": "Sustainable Bonds",
+    "designation": "Housing execution / impact operator candidate",
+    "country_normalized": "United States",
+    "actor_type": "operator",
+    "relationship_type": "housing_execution_candidate",
+    "unlock_role": "de-risks",
+    "relationship_degree": "2nd_degree",
+    "link_strength": "medium",
+    "access_path": "warm",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "owner": "provided_by_isaac",
+    "profile_url": "https://sustainablebonds.com",
+    "notes": "Potential future actor for USVI housing/workforce-housing pathway; introduced via Cedric-shared LinkedIn context.",
+    "sources": [
+      {
+        "label": "User-provided LinkedIn screenshot via Cedric",
+        "url": "internal://isaac-provided/media/canaan-williams-linkedin-2026-03-25"
+      },
+      {
+        "label": "Sustainable Bonds website",
+        "url": "https://sustainablebonds.com"
+      }
+    ],
+    "confidence": "low",
+    "verification_status": "pending_independent_verification",
+    "updated_at": "2026-03-25T13:13:00Z"
   }
 ]

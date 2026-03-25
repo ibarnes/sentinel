@@ -7861,5 +7861,66 @@
       "Global"
     ],
     "country": "United States"
+  },
+  {
+    "signal_id": "SIG-2026-03-25-USVI-WORKFORCE-HOUSING-EXECUTION-OPERATOR-001",
+    "title": "LinkedIn housing delivery signal indicates potential workforce-housing operator pathway for USVI",
+    "signal_class": "Delivery Capacity + Impact Housing",
+    "status": "Monitor",
+    "confidence": "Low-Medium",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-25T13:13:00Z",
+    "summary": "User-provided LinkedIn post suggests Dr. Canaan Williams has operating relevance in affordable/workforce housing and resident-impact delivery economics, potentially useful to USVI housing constraints.",
+    "flow": "housing pressure + workforce constraints -> need proven execution operators -> potential advisor/operator node improves delivery confidence and de-risking options",
+    "verification_note": "Social-source signal; validate role, operating record, and USVI applicability before posture change.",
+    "sources": [
+      {
+        "label": "User-provided LinkedIn screenshot via Cedric",
+        "url": "internal://isaac-provided/media/canaan-williams-linkedin-2026-03-25"
+      },
+      {
+        "label": "Sustainable Bonds website",
+        "url": "https://sustainablebonds.com"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "DR-CANAAN-WILLIAMS"
+    ],
+    "actor_roles": [
+      "housing-operator-candidate",
+      "delivery-advisor-candidate"
+    ],
+    "lifecycle_stage_refs": [
+      "delivery",
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "social_plus_website_context",
+    "evidence_strength": "low_medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "tags": [
+      "usvi",
+      "workforce-housing",
+      "affordable-housing",
+      "delivery-operator",
+      "impact-housing"
+    ],
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "IFC"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "geography": [
+      "US Virgin Islands",
+      "United States"
+    ],
+    "country": "United States"
   }
 ]
