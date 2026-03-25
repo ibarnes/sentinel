@@ -1,28 +1,49 @@
 {
-  "buyerAccessGraphSignature": "8b522bbc288e1e1522fe579f1fd81976262b768c733e1ee9a4e3ee33c713ce79",
-  "updatedAtUtc": "2026-03-17T15:33:00Z",
+  "buyerAccessGraphSignature": "8bc4042a8708394b7d8ff6ecda89ff60f326bf18d3f330b8c49a1145a967d5d9",
+  "updatedAtUtc": "2026-03-25T04:20:02.973Z",
   "issues": [
+    {
+      "type": "top10",
+      "buyers": [
+        "USVI-RECOVERY-AUTHORITY",
+        "ALPHA_WAVE",
+        "GIP",
+        "STONEPEAK",
+        "HAUN",
+        "KKR",
+        "TAFF",
+        "GENERAL_ATLANTIC",
+        "PIF",
+        "TEMASEK"
+      ]
+    },
     {
       "type": "missing_decision_arch",
       "buyers": [
+        "ALPHA_WAVE",
+        "GIP",
+        "STONEPEAK",
+        "HAUN",
+        "KKR",
+        "GENERAL_ATLANTIC",
         "PIF",
-        "TEMASEK",
-        "ADQ",
-        "AFC",
-        "MUBADALA",
-        "WORLDBANK",
-        "QIA"
+        "TEMASEK"
       ]
     },
     {
       "type": "stale_paths",
       "items": [
         {
-          "path_id": "PATH-NSIA-001",
           "buyer_id": "NSIA",
+          "path_id": "PATH-NSIA-001",
           "status": "Warming",
-          "last_touch_at": "2026-02-25",
-          "updated_at": null
+          "date": "2026-02-25"
+        },
+        {
+          "buyer_id": "TAFF",
+          "path_id": "PATH-TAFF-FAISAL-NET-001",
+          "status": "Warming",
+          "date": "2026-03-05T20:48:00Z"
         }
       ]
     },
@@ -30,20 +51,12 @@
       "type": "high_influence_no_path",
       "items": [
         {
-          "buyer_id": "DFC",
-          "person": "Ben Black"
-        },
-        {
-          "buyer_id": "DFC",
-          "person": "Conor Coleman"
+          "buyer_id": "USVI-RECOVERY-AUTHORITY",
+          "person": "HUD / FEMA oversight bodies"
         },
         {
           "buyer_id": "TAFF",
           "person": "Tariq Al Futtaim"
-        },
-        {
-          "buyer_id": "USVI-RECOVERY-AUTHORITY",
-          "person": "HUD / FEMA oversight bodies"
         }
       ]
     },
@@ -60,7 +73,61 @@
           ]
         },
         {
+          "buyer_id": "ALPHA_WAVE",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "GIP",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "STONEPEAK",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "HAUN",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "KKR",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
           "buyer_id": "TAFF",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "GENERAL_ATLANTIC",
           "missing": [
             "hq",
             "region",
@@ -79,60 +146,6 @@
         },
         {
           "buyer_id": "TEMASEK",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "ADQ",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "AFC",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "MUBADALA",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "DFC",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "WORLDBANK",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "QIA",
           "missing": [
             "hq",
             "region",
