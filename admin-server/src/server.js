@@ -2593,6 +2593,19 @@ app.get('/dashboard/signals-feed', requireAnyAuth, async (req, res) => {
     : (refreshStatus === 'err' ? '<div class="alert alert-danger py-2">Refresh failed. Check server logs.</div>' : '');
   const sorted = [...feed].sort((a,b)=>String(b.published_at||'').localeCompare(String(a.published_at||'')));
   const filtered = q ? sorted.filter((x)=>`${x.title||''} ${x.summary||''} ${(x.tags||[]).join(' ')} ${x.source||''}`.toLowerCase().includes(q)) : sorted;
+  const sourceCounts = sorted.reduce((acc, x) => {
+    const k = String(x.source || 'source');
+    acc[k] = (acc[k] || 0) + 1;
+    return acc;
+  }, {});
+  const topSources = Object.entries(sourceCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 8)
+    .map(([name, count]) => `<span class="badge bg-light text-dark border me-1 mb-1">${escapeHtml(name)}: ${count}</span>`)
+    .join('');
+  const googleCount = Object.entries(sourceCounts)
+    .filter(([name]) => name.toLowerCase().includes('google news'))
+    .reduce((sum, [, count]) => sum + count, 0);
   const cards = filtered.map((x) => {
     const img = x.image_url ? `<img src="${escapeHtml(String(x.image_url))}" style="width:100%;height:180px;object-fit:cover;border-radius:10px;border:1px solid var(--border);margin-bottom:10px"/>` : '';
     const why = x.why_it_matters ? `<div class="small mt-1"><strong>Why it matters:</strong> ${escapeHtml(String(x.why_it_matters))}</div>` : '';
@@ -2604,7 +2617,7 @@ app.get('/dashboard/signals-feed', requireAnyAuth, async (req, res) => {
   const refreshControl = canEdit
     ? '<form method="post" action="/api/signals-feed/refresh"><button class="btn btn-sm btn-primary" type="submit">Refresh Feed</button></form>'
     : '<button class="btn btn-sm btn-secondary" type="button" disabled title="Requires architect/editor role">Refresh Feed</button>';
-  res.type('html').send(`<!doctype html><html><head>${uiHead('Signals Feed')}</head><body><div class="app-shell">${dashboardNav('signals-feed')}${pageHeader('Signals Feed', headerActions, 'Discovery stream — promote qualified signals to canonical register')}${refreshMsg}<div class="d-flex justify-content-between align-items-center mb-2"><div class="small text-muted">${freshness}</div>${refreshControl}</div><form method="get" class="row g-2 mb-3"><div class="col-md-6"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q||''))}" placeholder="Search feed"/></div><div class="col-md-6 d-flex gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="/dashboard/signals-feed">Reset</a></div></form>${cards || '<div class="text-muted">No feed items yet. Run collector script.</div>'}</div></body></html>`);
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Signals Feed')}</head><body><div class="app-shell">${dashboardNav('signals-feed')}${pageHeader('Signals Feed', headerActions, 'Discovery stream — promote qualified signals to canonical register')}${refreshMsg}<div class="d-flex justify-content-between align-items-center mb-2"><div class="small text-muted">${freshness}</div>${refreshControl}</div><div class="small text-muted mb-2">Google News items in feed: <strong>${googleCount}</strong> · <a href="/dashboard/signals-feed?q=google+news">view Google News only</a></div><div class="mb-2">${topSources}</div><form method="get" class="row g-2 mb-3"><div class="col-md-6"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q||''))}" placeholder="Search feed"/></div><div class="col-md-6 d-flex gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="/dashboard/signals-feed">Reset</a></div></form>${cards || '<div class="text-muted">No feed items yet. Run collector script.</div>'}</div></body></html>`);
 });
 
 app.get('/dashboard/signals-feed/export.json', requireAnyAuth, async (_req, res) => {
