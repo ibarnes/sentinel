@@ -16629,14 +16629,82 @@
     "resolution_status": "confirmed",
     "owner": "Unified State Group",
     "profile_image": "/public/actor-images/richard-j-hoffman.jpg",
-    "profile_url": "https://www.linkedin.com",
-    "notes": "Profile details captured from user-provided LinkedIn screenshots.",
+    "profile_url": "https://www.linkedin.com/in/richard-j-hoffman-a94282237",
+    "notes": "President and Founding Partner focused on international expansion, transaction development, and strategic capital pathways across Africa/MENA and emerging markets.",
     "sources": [
       {
         "label": "User-provided LinkedIn screenshot",
         "url": "internal://isaac-provided/media/richard-j-hoffman-linkedin-2026-03-25"
       }
     ],
-    "updated_at": "2026-03-25T02:18:00Z"
+    "updated_at": "2026-03-25T02:30:00Z"
+  },
+  {
+    "actor_id": "actor-us-stephanie-karp-loosvelt",
+    "name_display": "Stephanie Karp Loosvelt",
+    "first_name": "Stephanie",
+    "last_name": "Karp Loosvelt",
+    "organization_primary": "Unified State Group",
+    "designation": "General Counsel",
+    "country_normalized": "United States",
+    "actor_type": "operator",
+    "relationship_type": "advisor",
+    "unlock_role": "accelerates",
+    "owner": "Unified State Group",
+    "profile_url": "https://www.linkedin.com/in/stephanie-karp-loosvelt",
+    "notes": "General Counsel with 18+ years across corporate legal strategy, risk mitigation, contract architecture, compliance, and complex negotiations.",
+    "resolution_status": "confirmed",
+    "updated_at": "2026-03-25T02:30:00Z"
+  },
+  {
+    "actor_id": "actor-us-tyreek-moore",
+    "name_display": "Tyreek Moore",
+    "first_name": "Tyreek",
+    "last_name": "Moore",
+    "organization_primary": "Unified State Group | 1921 Venture Fund | CultureVations | TJT Consulting Services",
+    "designation": "Founding Partner",
+    "country_normalized": "United States",
+    "actor_type": "operator",
+    "relationship_type": "advisor",
+    "unlock_role": "accelerates",
+    "owner": "Unified State Group",
+    "profile_url": "https://www.linkedin.com/in/tyreek-moore",
+    "notes": "Founding Partner with deep operating experience in education, coaching, and venture execution; founder/CEO of Charter School Operations Consultants.",
+    "resolution_status": "confirmed",
+    "updated_at": "2026-03-25T02:30:00Z"
+  },
+  {
+    "actor_id": "actor-ph-richelle-maylad",
+    "name_display": "Richelle Maylad",
+    "first_name": "Richelle",
+    "last_name": "Maylad",
+    "organization_primary": "Technological University of the Philippines / DepEd Parañaque",
+    "designation": "Instructional Facilitator / Educator",
+    "country_normalized": "Philippines",
+    "actor_type": "operator",
+    "relationship_type": "advisor",
+    "unlock_role": "accelerates",
+    "owner": "Unified State Group",
+    "profile_url": "https://www.linkedin.com/in/richellemaylad",
+    "notes": "Educator and instructional facilitator with background in graphics technology and teacher education.",
+    "resolution_status": "confirmed",
+    "updated_at": "2026-03-25T02:30:00Z"
+  },
+  {
+    "actor_id": "actor-us-alex-klint",
+    "name_display": "Alex Klint",
+    "first_name": "Alex",
+    "last_name": "Klint",
+    "organization_primary": "Unified State Group | SAP | AVMA",
+    "designation": "Strategic Advisor",
+    "country_normalized": "United States",
+    "actor_type": "operator",
+    "relationship_type": "advisor",
+    "unlock_role": "accelerates",
+    "owner": "Unified State Group",
+    "profile_url": "https://www.linkedin.com/in/alex-klint-6321ba47",
+    "notes": "Senior customer executive at SAP and USG strategic advisor with sales, enterprise growth, and board-level transaction experience.",
+    "resolution_status": "confirmed",
+    "updated_at": "2026-03-25T02:30:00Z"
   }
 ]

@@ -20,23 +20,30 @@
   },
   {
     "name": "Tyreek Moore",
-    "email": "tyreek@unifiedstategroup.com",
-    "title": "COO",
+    "email": "tyreeksr@yahoo.com",
+    "title": "Founding Partner",
     "status": "active",
-    "role": "Governor"
+    "role": "Originator",
+    "organization": "Unified State Group | 1921 Venture Fund | CultureVations | TJT Consulting Services",
+    "location": "New York, New York, United States",
+    "linkedin": "https://www.linkedin.com/in/tyreek-moore",
+    "education": "Harvard University, Ed.M Technology, Innovation and Education; Boston University, BS Computer Science",
+    "bio": "Founding Partner with deep operating experience in education, coaching, and venture execution; founder/CEO of Charter School Operations Consultants.",
+    "updated_at": "2026-03-25T02:30:00Z"
   },
   {
     "name": "Richard J. Hoffman",
-    "email": "Richard@unifiedstategroup.com",
+    "email": "richard@unifiedstategroup.com",
     "title": "President and Founding Partner",
     "status": "active",
     "role": "Executive / Originator",
     "organization": "Unified State Group",
-    "location": "United States",
-    "education": "Jessup University; Milken Institute (affiliation context)",
-    "bio": "President and Founding Partner focused on strategic partnerships and initiative origination.",
+    "location": "Phoenix, Arizona, United States",
+    "education": "20+ years international business; Milken Institute African Leaders Business Council",
+    "bio": "President and Founding Partner focused on international expansion, transaction development, and strategic capital pathways across Africa/MENA and emerging markets.",
     "profile_image": "/public/actor-images/richard-j-hoffman.jpg",
-    "updated_at": "2026-03-25T02:18:00Z"
+    "updated_at": "2026-03-25T02:30:00Z",
+    "linkedin": "https://www.linkedin.com/in/richard-j-hoffman-a94282237"
   },
   {
     "name": "Maryan Ali",
@@ -53,11 +60,16 @@
     "role": "Coordinator"
   },
   {
-    "name": "Alex",
-    "email": "alex@unifiedstategroup.com",
-    "title": "Title TBD",
+    "name": "Alex Klint",
+    "email": "alex.d.klint@gmail.com",
+    "title": "Strategic Advisor",
     "status": "active",
-    "role": "Analyst"
+    "role": "Advisor",
+    "organization": "Unified State Group | SAP | AVMA",
+    "location": "Wayzata, Minnesota, United States",
+    "linkedin": "https://www.linkedin.com/in/alex-klint-6321ba47",
+    "bio": "Senior customer executive at SAP and USG strategic advisor with sales, enterprise growth, and board-level transaction experience.",
+    "updated_at": "2026-03-25T02:30:00Z"
   },
   {
     "name": "Isaac Barnes",
@@ -68,10 +80,15 @@
   },
   {
     "name": "Richelle Maylad",
-    "email": "Richelle@unifiedstategroup.com",
-    "title": "Title TBD",
+    "email": "",
+    "title": "Instructional Facilitator / Educator",
     "status": "active",
-    "role": "Coordinator"
+    "role": "Coordinator",
+    "organization": "Technological University of the Philippines / DepEd Parañaque",
+    "location": "Metro Manila, Philippines",
+    "linkedin": "https://www.linkedin.com/in/richellemaylad",
+    "bio": "Educator and instructional facilitator with background in graphics technology and teacher education.",
+    "updated_at": "2026-03-25T02:30:00Z"
   },
   {
     "name": "Leo LaBranche",
@@ -84,5 +101,17 @@
     "education": "Northwestern University",
     "bio": "Driving step-change growth and positive human impact through disruptive digital initiatives.",
     "profile_image": "/public/actor-images/leo-labranche.jpg"
+  },
+  {
+    "name": "Stephanie Karp Loosvelt",
+    "email": "stephanie.loosvelt@gmail.com",
+    "title": "General Counsel",
+    "role": "Legal / Risk",
+    "status": "active",
+    "organization": "Unified State Group",
+    "location": "Tulsa, Oklahoma, United States",
+    "linkedin": "https://www.linkedin.com/in/stephanie-karp-loosvelt",
+    "bio": "General Counsel with 18+ years across corporate legal strategy, risk mitigation, contract architecture, compliance, and complex negotiations.",
+    "updated_at": "2026-03-25T02:30:00Z"
   }
 ]
