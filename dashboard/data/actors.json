@@ -16781,5 +16781,26 @@
     "confidence": "low",
     "verification_status": "pending_independent_verification",
     "updated_at": "2026-03-25T13:13:00Z"
+  },
+  {
+    "actor_id": "momodu-conteh-international-human-rights-commission",
+    "name_display": "H.E. Rev. Dr. Momodu Conteh",
+    "first_name": "Momodu",
+    "last_name": "Conteh",
+    "organization_primary": "International Human Rights Commission (IHRC)",
+    "designation": "Commissioner; Envoy to the ECOWAS Region",
+    "country_normalized": "Sierra Leone",
+    "actor_type": "regulator",
+    "relationship_source": "provided_by_isaac",
+    "relationship_strength": "first_degree",
+    "source_row_hash": "manual-2026-03-25-momodu-conteh",
+    "needs_review": true,
+    "owner": "Isaac Barnes",
+    "contact_phone": "+232 76610017",
+    "contact_email": [
+      "momoduconteh@ihrc.org",
+      "momoduconteh@yahoo.co.uk"
+    ],
+    "source_note": "Added from business card image shared by Isaac (OCR/manual extraction)."
   }
 ]

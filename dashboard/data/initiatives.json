@@ -5971,6 +5971,19 @@
             "owner": "",
             "due": "",
             "priority_tier": "P1"
+          },
+          {
+            "role_id": "ecowas_regional_envoy_liaison",
+            "role_label": "ECOWAS Regional Envoy Liaison",
+            "layer": "political",
+            "status": "identified",
+            "notes": "Potential bridge into ECOWAS regional stakeholder pathway; validate mandate scope + sponsorship influence.",
+            "mapped_entity_type": "person",
+            "mapped_entity_ref": "momodu-conteh-international-human-rights-commission",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1"
           }
         ],
         "asset": [
@@ -6309,6 +6322,19 @@
           "owner": "",
           "due": "",
           "priority_tier": "P1"
+        },
+        {
+          "role_id": "ecowas_regional_envoy_liaison",
+          "role_label": "ECOWAS Regional Envoy Liaison",
+          "layer": "political",
+          "status": "identified",
+          "notes": "Potential bridge into ECOWAS regional stakeholder pathway; validate mandate scope + sponsorship influence.",
+          "mapped_entity_type": "person",
+          "mapped_entity_ref": "momodu-conteh-international-human-rights-commission",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P1"
         }
       ],
       "asset": [
@@ -6580,7 +6606,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-25T15:42:11.721Z",
+    "updated_at": "2026-03-25T15:43:19.414Z",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
