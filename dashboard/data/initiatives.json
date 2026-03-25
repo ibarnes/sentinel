@@ -6118,6 +6118,19 @@
             "owner": "",
             "due": "",
             "priority_tier": "P1"
+          },
+          {
+            "role_id": "workforce_development_design_partner",
+            "role_label": "Workforce Development Design Partner",
+            "layer": "development",
+            "status": "identified",
+            "notes": "Shapes workforce development pathway, curriculum fit, and student-to-operator onboarding model.",
+            "mapped_entity_type": "person",
+            "mapped_entity_ref": "chelsia-mckie-workforce-access-network",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1"
           }
         ],
         "capital": [
@@ -6252,6 +6265,19 @@
             "owner": "",
             "due": "",
             "priority_tier": "P2"
+          },
+          {
+            "role_id": "national_student_talent_pipeline_operator",
+            "role_label": "National Student Talent Pipeline Operator",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "Potential access channel to college student cohorts for pilot staffing and training pipelines.",
+            "mapped_entity_type": "person",
+            "mapped_entity_ref": "chelsia-mckie-workforce-access-network",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1"
           }
         ]
       }
@@ -6469,6 +6495,19 @@
           "owner": "",
           "due": "",
           "priority_tier": "P1"
+        },
+        {
+          "role_id": "workforce_development_design_partner",
+          "role_label": "Workforce Development Design Partner",
+          "layer": "development",
+          "status": "identified",
+          "notes": "Shapes workforce development pathway, curriculum fit, and student-to-operator onboarding model.",
+          "mapped_entity_type": "person",
+          "mapped_entity_ref": "chelsia-mckie-workforce-access-network",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P1"
         }
       ],
       "capital": [
@@ -6603,10 +6642,23 @@
           "owner": "",
           "due": "",
           "priority_tier": "P2"
+        },
+        {
+          "role_id": "national_student_talent_pipeline_operator",
+          "role_label": "National Student Talent Pipeline Operator",
+          "layer": "delivery",
+          "status": "identified",
+          "notes": "Potential access channel to college student cohorts for pilot staffing and training pipelines.",
+          "mapped_entity_type": "person",
+          "mapped_entity_ref": "chelsia-mckie-workforce-access-network",
+          "is_critical_role": true,
+          "owner": "",
+          "due": "",
+          "priority_tier": "P1"
         }
       ]
     },
-    "updated_at": "2026-03-25T15:43:19.414Z",
+    "updated_at": "2026-03-25T16:42:07.858Z",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,

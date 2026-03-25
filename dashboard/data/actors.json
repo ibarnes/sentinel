@@ -16802,5 +16802,21 @@
       "momoduconteh@yahoo.co.uk"
     ],
     "source_note": "Added from business card image shared by Isaac (OCR/manual extraction)."
+  },
+  {
+    "actor_id": "chelsia-mckie-workforce-access-network",
+    "name_display": "Chelsia Mckie",
+    "first_name": "Chelsia",
+    "last_name": "Mckie",
+    "organization_primary": "Workforce Access Network (to verify)",
+    "designation": "Workforce Development Advocate / Student Network Connector",
+    "country_normalized": "United States",
+    "actor_type": "other",
+    "relationship_source": "provided_by_isaac",
+    "relationship_strength": "first_degree",
+    "source_row_hash": "manual-2026-03-25-chelsia-mckie",
+    "needs_review": true,
+    "owner": "Isaac Barnes",
+    "source_note": "Isaac met directly; reports access to college students across the country + workforce development focus."
   }
 ]
