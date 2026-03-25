@@ -1,5 +1,27 @@
 [
   {
+    "feed_id": "8nqzu",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-news",
+    "title": "Lumentum Just Joined the S&amp;P 500: What Could Keep the Huge Rally Going and What Could End It",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/lumentum-just-joined-p-500-121028019.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/12eb54a2d0f2733ce658e524713f3d0f",
+    "published_at": "2026-03-25T12:10:28.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "q7ykbi",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-news",
