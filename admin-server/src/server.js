@@ -38,7 +38,7 @@ loadEnvFile(ENV_FILE);
 const app = express();
 app.set('trust proxy', 1);
 
-const ROOT = path.resolve('/home/ec2-user/.openclaw/workspace');
+const ROOT = path.resolve(process.env.OPENCLAW_DASHBOARD_ROOT || '/home/ec2-user/.openclaw/workspace');
 const UOS_ROOT = path.join(ROOT, 'workspace', 'uos');
 const INBOX_ROOT = path.join(UOS_ROOT, 'inbox');
 const CURRENT_ROOT = path.join(UOS_ROOT, 'current');
