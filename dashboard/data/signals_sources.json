@@ -5,7 +5,10 @@
     "type": "rss",
     "url": "https://feeds.reuters.com/reuters/worldNews",
     "enabled": true,
-    "default_tags": ["macro", "geopolitics"],
+    "default_tags": [
+      "macro",
+      "geopolitics"
+    ],
     "trust_tier": "tier1"
   },
   {
@@ -14,7 +17,10 @@
     "type": "rss",
     "url": "https://feeds.reuters.com/reuters/businessNews",
     "enabled": true,
-    "default_tags": ["capital", "markets"],
+    "default_tags": [
+      "capital",
+      "markets"
+    ],
     "trust_tier": "tier1"
   },
   {
@@ -23,7 +29,10 @@
     "type": "rss",
     "url": "https://www.ft.com/world?format=rss",
     "enabled": true,
-    "default_tags": ["macro", "policy"],
+    "default_tags": [
+      "macro",
+      "policy"
+    ],
     "trust_tier": "tier1"
   },
   {
@@ -32,7 +41,10 @@
     "type": "rss",
     "url": "https://finance.yahoo.com/news/rssindex",
     "enabled": true,
-    "default_tags": ["markets", "capital"],
+    "default_tags": [
+      "markets",
+      "capital"
+    ],
     "trust_tier": "tier2"
   },
   {
@@ -41,7 +53,10 @@
     "type": "rss",
     "url": "https://www.wired.com/feed/category/business/latest/rss",
     "enabled": true,
-    "default_tags": ["technology", "operations"],
+    "default_tags": [
+      "technology",
+      "operations"
+    ],
     "trust_tier": "tier2"
   },
   {
@@ -50,7 +65,10 @@
     "type": "webpage",
     "url": "https://fortune.com/2026/03/23/us-government-insolvent-fiscal-crisis-fix/",
     "enabled": true,
-    "default_tags": ["macro", "fiscal"],
+    "default_tags": [
+      "macro",
+      "fiscal"
+    ],
     "trust_tier": "tier2"
   },
   {
@@ -59,7 +77,10 @@
     "type": "webpage",
     "url": "https://www.semafor.com/article/03/23/2026/us-deepens-ties-with-dr-congo-sanctions-rwanda",
     "enabled": true,
-    "default_tags": ["geopolitics", "africa"],
+    "default_tags": [
+      "geopolitics",
+      "africa"
+    ],
     "trust_tier": "tier2"
   },
   {
@@ -68,7 +89,11 @@
     "type": "webpage",
     "url": "https://www.globaltimes.cn/page/202603/1357278.shtml",
     "enabled": true,
-    "default_tags": ["africa", "latam", "bloc-coordination"],
+    "default_tags": [
+      "africa",
+      "latam",
+      "bloc-coordination"
+    ],
     "trust_tier": "tier3"
   },
   {
@@ -77,7 +102,10 @@
     "type": "webpage",
     "url": "https://finance.yahoo.com/video/ares-apollo-cap-private-credit-163531864.html",
     "enabled": true,
-    "default_tags": ["private-credit", "capital"],
+    "default_tags": [
+      "private-credit",
+      "capital"
+    ],
     "trust_tier": "tier2"
   },
   {
@@ -86,7 +114,49 @@
     "type": "webpage",
     "url": "https://www.ft.com/content/9089e369-92f4-48dc-ac09-46b6a62035a6",
     "enabled": true,
-    "default_tags": ["industrial-ai", "operations"],
+    "default_tags": [
+      "industrial-ai",
+      "operations"
+    ],
     "trust_tier": "tier1"
+  },
+  {
+    "source_id": "google-news-ecowas-public-safety",
+    "name": "Google News — ECOWAS Public Safety",
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=ECOWAS+public+safety+OR+law+enforcement+OR+security+infrastructure&hl=en-US&gl=US&ceid=US:en",
+    "enabled": true,
+    "default_tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2"
+  },
+  {
+    "source_id": "google-news-nigeria-policing-digital",
+    "name": "Google News — Nigeria Digital Policing",
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=Nigeria+digital+policing+OR+police+modernization+OR+command+center&hl=en-US&gl=US&ceid=US:en",
+    "enabled": true,
+    "default_tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2"
+  },
+  {
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "name": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=AfDB+OR+IFC+OR+DFC+security+infrastructure+Africa&hl=en-US&gl=US&ceid=US:en",
+    "enabled": true,
+    "default_tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2"
   }
 ]
