@@ -1,16 +1,20 @@
 {
-  "buyerAccessGraphSignature": "4c2d62b7061246e8bbf1a821409f8c2761c1d0d71cb86b3917daff755da2bb3d",
-  "updatedAtUtc": "2026-03-25T07:20:00.391Z",
+  "buyerAccessGraphSignature": "8bc4042a8708394b7d8ff6ecda89ff60f326bf18d3f330b8c49a1145a967d5d9",
+  "updatedAtUtc": "2026-03-25T07:48:00Z",
   "issues": [
     {
-      "type": "top_buyer_people_snapshot",
-      "items": [
-        "TAFF|Abdelraouf Taher|Foundation operations and project alignment",
-        "TAFF|Family investment advisors and DIFC counsel|Strategic influence / structuring counsel",
-        "TAFF|Tariq Al Futtaim|Family principal / strategic capital allocator",
-        "USVI-RECOVERY-AUTHORITY|Adrienne L. Williams-Octalien|Director",
-        "USVI-RECOVERY-AUTHORITY|Eugene Jones Jr.|Executive Director",
-        "USVI-RECOVERY-AUTHORITY|HUD / FEMA oversight bodies|Federal funding authority"
+      "type": "top10",
+      "buyers": [
+        "USVI-RECOVERY-AUTHORITY",
+        "ALPHA_WAVE",
+        "GIP",
+        "STONEPEAK",
+        "HAUN",
+        "KKR",
+        "TAFF",
+        "GENERAL_ATLANTIC",
+        "PIF",
+        "TEMASEK"
       ]
     },
     {
@@ -47,18 +51,27 @@
       "type": "high_influence_no_path",
       "items": [
         {
-          "buyer_id": "TAFF",
-          "person": "Tariq Al Futtaim"
+          "buyer_id": "USVI-RECOVERY-AUTHORITY",
+          "person": "Adrienne L. Williams-Octalien"
         },
         {
           "buyer_id": "USVI-RECOVERY-AUTHORITY",
-          "person": "HUD / FEMA oversight bodies"
+          "person": "Eugene Jones Jr."
         }
       ]
     },
     {
       "type": "metadata_drift",
       "items": [
+        {
+          "buyer_id": "USVI-RECOVERY-AUTHORITY",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
         {
           "buyer_id": "ALPHA_WAVE",
           "missing": [
@@ -69,7 +82,7 @@
           ]
         },
         {
-          "buyer_id": "GENERAL_ATLANTIC",
+          "buyer_id": "GIP",
           "missing": [
             "hq",
             "region",
@@ -78,7 +91,7 @@
           ]
         },
         {
-          "buyer_id": "GIP",
+          "buyer_id": "STONEPEAK",
           "missing": [
             "hq",
             "region",
@@ -105,24 +118,6 @@
           ]
         },
         {
-          "buyer_id": "PIF",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "STONEPEAK",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
           "buyer_id": "TAFF",
           "missing": [
             "hq",
@@ -132,7 +127,7 @@
           ]
         },
         {
-          "buyer_id": "TEMASEK",
+          "buyer_id": "GENERAL_ATLANTIC",
           "missing": [
             "hq",
             "region",
@@ -141,7 +136,16 @@
           ]
         },
         {
-          "buyer_id": "USVI-RECOVERY-AUTHORITY",
+          "buyer_id": "PIF",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "TEMASEK",
           "missing": [
             "hq",
             "region",
