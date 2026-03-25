@@ -39,6 +39,17 @@ function parseRssItems(xml='') {
   return items;
 }
 
+function parseWebPage(html = '', url = '') {
+  const title = strip((html.match(/<meta[^>]*property=["']og:title["'][^>]*content=["']([^"']+)["']/i) || [])[1]
+    || (html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [])[1]
+    || 'Web signal');
+  const summary = strip((html.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']+)["']/i) || [])[1]
+    || (html.match(/<meta[^>]*property=["']og:description["'][^>]*content=["']([^"']+)["']/i) || [])[1]
+    || '');
+  const image_url = strip((html.match(/<meta[^>]*property=["']og:image["'][^>]*content=["']([^"']+)["']/i) || [])[1] || '');
+  return [{ title, url, summary, image_url, published_at: nowIso() }];
+}
+
 function relevanceScore(text='') {
   const t = text.toLowerCase();
   let s = 0;
@@ -64,15 +75,21 @@ async function main() {
   const existing = await readJson(outFile, []);
   const seen = new Set(existing.map((x) => x.url));
   const out = [...existing];
+  const stats = { total_sources: sources.length, ok_sources: 0, failed_sources: 0, items_added: 0, failures: [] };
 
   for (const src of sources) {
     try {
       const r = await fetch(src.url, { headers: { 'user-agent': 'Mozilla/5.0' } });
-      if (!r.ok) continue;
+      if (!r.ok) {
+        stats.failed_sources += 1;
+        stats.failures.push({ source: src.name, url: src.url, status: r.status });
+        continue;
+      }
       const text = await r.text();
-      const items = src.type === 'rss' ? parseRssItems(text) : [];
+      const items = src.type === 'rss' ? parseRssItems(text) : parseWebPage(text, src.url);
+      let addedHere = 0;
       for (const item of items.slice(0, 40)) {
-        if (seen.has(item.url)) continue;
+        if (!item.url || seen.has(item.url)) continue;
         seen.add(item.url);
         const rel = relevanceScore(`${item.title} ${item.summary}`);
         out.push({
@@ -92,13 +109,24 @@ async function main() {
           why_it_matters: whyMatters(item),
           initiative_ids: ['USG']
         });
+        stats.items_added += 1;
+        addedHere += 1;
       }
-    } catch {}
+      if (addedHere >= 0) stats.ok_sources += 1;
+    } catch (e) {
+      stats.failed_sources += 1;
+      stats.failures.push({ source: src.name, url: src.url, error: String(e?.message || e) });
+    }
   }
 
   out.sort((a,b) => String(b.published_at||'').localeCompare(String(a.published_at||'')));
   await fs.writeFile(outFile, JSON.stringify(out.slice(0, 3000), null, 2) + '\n', 'utf8');
-  console.log(`signals feed updated: ${out.length} items`);
+  const metaPath = path.join(ROOT, 'dashboard/data/signals_feed.meta.json');
+  const meta = await readJson(metaPath, {});
+  meta.last_run_at = nowIso();
+  meta.last_run_stats = stats;
+  await fs.writeFile(metaPath, JSON.stringify(meta, null, 2) + '\n', 'utf8');
+  console.log(`signals feed updated: ${out.length} items, added ${stats.items_added}`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

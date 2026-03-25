@@ -18,7 +18,7 @@
     "trust_tier": "tier1"
   },
   {
-    "source_id": "ft-world",
+    "source_id": "ft-world-rss",
     "name": "Financial Times World",
     "type": "rss",
     "url": "https://www.ft.com/world?format=rss",
@@ -27,12 +27,66 @@
     "trust_tier": "tier1"
   },
   {
-    "source_id": "yahoo-finance-news",
+    "source_id": "yahoo-finance-rss",
     "name": "Yahoo Finance News",
     "type": "rss",
     "url": "https://finance.yahoo.com/news/rssindex",
     "enabled": true,
     "default_tags": ["markets", "capital"],
     "trust_tier": "tier2"
+  },
+  {
+    "source_id": "wired-business",
+    "name": "WIRED Business",
+    "type": "rss",
+    "url": "https://www.wired.com/feed/category/business/latest/rss",
+    "enabled": true,
+    "default_tags": ["technology", "operations"],
+    "trust_tier": "tier2"
+  },
+  {
+    "source_id": "fortune",
+    "name": "Fortune",
+    "type": "webpage",
+    "url": "https://fortune.com/2026/03/23/us-government-insolvent-fiscal-crisis-fix/",
+    "enabled": true,
+    "default_tags": ["macro", "fiscal"],
+    "trust_tier": "tier2"
+  },
+  {
+    "source_id": "semafor",
+    "name": "Semafor",
+    "type": "webpage",
+    "url": "https://www.semafor.com/article/03/23/2026/us-deepens-ties-with-dr-congo-sanctions-rwanda",
+    "enabled": true,
+    "default_tags": ["geopolitics", "africa"],
+    "trust_tier": "tier2"
+  },
+  {
+    "source_id": "globaltimes-celac-africa",
+    "name": "Global Times CELAC-Africa",
+    "type": "webpage",
+    "url": "https://www.globaltimes.cn/page/202603/1357278.shtml",
+    "enabled": true,
+    "default_tags": ["africa", "latam", "bloc-coordination"],
+    "trust_tier": "tier3"
+  },
+  {
+    "source_id": "yahoo-video-private-credit",
+    "name": "Yahoo Finance Video (Ares/Apollo)",
+    "type": "webpage",
+    "url": "https://finance.yahoo.com/video/ares-apollo-cap-private-credit-163531864.html",
+    "enabled": true,
+    "default_tags": ["private-credit", "capital"],
+    "trust_tier": "tier2"
+  },
+  {
+    "source_id": "ft-cargill-ai-yield",
+    "name": "Financial Times (Cargill AI yield)",
+    "type": "webpage",
+    "url": "https://www.ft.com/content/9089e369-92f4-48dc-ac09-46b6a62035a6",
+    "enabled": true,
+    "default_tags": ["industrial-ai", "operations"],
+    "trust_tier": "tier1"
   }
 ]

@@ -1,5 +1,512 @@
 [
   {
+    "feed_id": "640i72",
+    "source": "Global Times CELAC-Africa",
+    "source_id": "globaltimes-celac-africa",
+    "title": "Lula to attend CELAC summit in Colombia to strengthen regional integration and Africa dialogue - Global Times",
+    "summary": "Brazilian President Luiz Inácio Lula da Silva will participate on March 21 in Bogotá, Colombia, in the 1st CELAC-Africa High-Level Forum and the 10th Summit of Heads of State and Government of the Community of Latin American and Caribbean States (CELAC), reinforcing Brazil",
+    "url": "https://www.globaltimes.cn/page/202603/1357278.shtml",
+    "image_url": "https://www.globaltimes.cn/Portals/0/attachment/2026/2026-03-20/1bbb9e27-5001-41f4-a465-7cbf43e7fcda.jpeg",
+    "published_at": "2026-03-25T13:30:20.517Z",
+    "tags": [
+      "africa",
+      "latam",
+      "bloc-coordination"
+    ],
+    "trust_tier": "tier3",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potential policy/authority shift affecting capital pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jo2zdy",
+    "source": "Semafor",
+    "source_id": "semafor",
+    "title": "US shifts ties with DRC, Rwanda",
+    "summary": "Washington recently sanctioned elements of Rwanda’s military and reopened limited security cooperation with Kinshasa.",
+    "url": "https://www.semafor.com/article/03/23/2026/us-deepens-ties-with-dr-congo-sanctions-rwanda",
+    "image_url": "https://img.semafor.com/c8e56e0cc91225a2e78a7a907f973b61331b4de2-5284x3523.jpg?rect=0,375,5284,2774&amp;w=1200&amp;h=630&amp;q=75&amp;auto=format",
+    "published_at": "2026-03-25T13:30:19.577Z",
+    "tags": [
+      "geopolitics",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "wo9rmc",
+    "source": "Fortune",
+    "source_id": "fortune",
+    "title": "The Treasury just declared the U.S. insolvent. The media missed it | Fortune",
+    "summary": "The Government Accountability Office can&#x27;t even verify the books. Here&#x27;s what Congress must do.",
+    "url": "https://fortune.com/2026/03/23/us-government-insolvent-fiscal-crisis-fix/",
+    "image_url": "https://fortune.com/img-assets/wp-content/uploads/2026/03/GettyImages-2267586624-e1774278717621.jpg?resize=1200,600",
+    "published_at": "2026-03-25T13:30:19.484Z",
+    "tags": [
+      "macro",
+      "fiscal"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potential policy/authority shift affecting capital pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "eshio",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer Says He Wouldn’t Bet Against Dollar Stores Like Dollar Tree",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-says-wouldn-t-131339390.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/293138d34069d99e680c827f55215206",
+    "published_at": "2026-03-25T13:13:39.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "4wucha",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer Notes That the Charitable Trust Holds On to Home Depot In Case the Rates Get Cut",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-notes-charitable-trust-131337924.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/753cb9cb32336de8f86289f7a7c7b36e",
+    "published_at": "2026-03-25T13:13:37.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "igndi5",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer Says Retailers Like Walmart Would “Do Well If You Think That We’re Headed Toward a Slowdown Because of Oil Prices”",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-says-retailers-walmart-131336536.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/71b33ea37e69f8b8933eb47466fd5f90",
+    "published_at": "2026-03-25T13:13:36.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2e845s",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer Says “Target Has Been a Standout”",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-says-target-standout-131334926.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/f6497930c7732eef3c7d79847d97e1aa",
+    "published_at": "2026-03-25T13:13:34.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2h4j3m",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer on Five Below: “I Think It’s Staying Strong”",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-five-below-think-131333464.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/d33bdc283f11c51e1edf5a2884041b55",
+    "published_at": "2026-03-25T13:13:33.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "9v35vm",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer on Ross Stores: “That Last Quarter Showed More Strength Than I’ve Seen From That Company in Ages”",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-ross-stores-last-131331578.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/61065709a1bdf54b4284c76a9977e4c9",
+    "published_at": "2026-03-25T13:13:31.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "lelw4d",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer Highlights TJX Companies Are “Making a Killing By Scooping Up Excess Inventory From Troubled Retailers”",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-highlights-tjx-companies-131330878.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/e7ce02738b547dc513a8196cdef40274",
+    "published_at": "2026-03-25T13:13:30.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "41r7j9",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer Says the Pullback in Jacobs Solutions Makes No Sense to Him",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-says-pullback-jacobs-131328017.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/e333aa5b72577d2e050d3c5b0c90bb89",
+    "published_at": "2026-03-25T13:13:28.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "sgnryu",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer Highlights Ulta Beauty For Its Strong High End Sales Despite A Recent Earnings Miss",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-highlights-ulta-beauty-131326288.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/e7ce02738b547dc513a8196cdef40274",
+    "published_at": "2026-03-25T13:13:26.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "hyuamc",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer on Swarmer, Inc.: “Let’s Call It a Cool Story, But Not Much More Than That”",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-swarmer-inc-let-131324517.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/92264ef32b70332cc4ea9283d978e1a6",
+    "published_at": "2026-03-25T13:13:24.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "w0w5ae",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "UK inflation holds at 3% as Middle East instability raises energy price risks",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/policy/articles/uk-inflation-holds-3-middle-131127985.html",
+    "image_url": "https://media.zenfs.com/en/retail_insight_network_724/5867134b3b1beda300982139c441ea8e",
+    "published_at": "2026-03-25T13:11:27.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "fj28ol",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Bank of England rate hike: a question of if or when?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/policy/articles/bank-england-rate-hike-130800360.html",
+    "image_url": "https://media.zenfs.com/en/proactive_us_504/d0622b5fa218d1bf786eb7f08ad62ab5",
+    "published_at": "2026-03-25T13:08:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "p09zux",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Here Are 2 Mining Stocks to Buy on the Dip",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/2-mining-stocks-buy-dip-130700504.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/0e7e0852c1d7ad28a200f898e65e83cf",
+    "published_at": "2026-03-25T13:07:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "w5u1v0",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Bitpanda Links European Banks With Tokenized Assets",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/bitpanda-links-european-banks-tokenized-130500971.html",
+    "image_url": "https://media.zenfs.com/en/cryptoprowl_304/f47ce291cfa2ad77d3478b71ae27e332",
+    "published_at": "2026-03-25T13:05:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "59kzkv",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "5 Strategies High-Net-Worth Families Use To Build Generational Wealth",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/5-strategies-high-net-worth-131606675.html",
+    "image_url": "https://media.zenfs.com/en/gobankingrates_644/a3f4e88a441f43a0671201e4cc300b17",
+    "published_at": "2026-03-25T13:02:04.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tnv8by",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "A Dave Ramsey Employee Paid Off $118,000 in Four Years By Working Two Side Jobs",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/options/articles/dave-ramsey-employee-paid-off-125825704.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/5cd11fe1685ae0e9ab858d16f1f35875",
+    "published_at": "2026-03-25T12:58:25.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "v4clqr",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "SLB expands Nvidia partnership to develop AI infrastructure for energy sector",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/slb-expands-nvidia-partnership-develop-125705214.html",
+    "image_url": "https://media.zenfs.com/en/reuters.com/78a47e0856380bea44d682d0e61a57e9",
+    "published_at": "2026-03-25T12:57:05.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "b5ariu",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Stock Market Today: Dow Rallies On Trump Peace Plan; Oil Prices Dive (Live Coverage)",
+    "summary": "",
+    "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-iran-peace-plan-oil-prices/?src=A00220&amp;yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/940bfb7ff3b5d5fe9f59a57c0bd92b82",
+    "published_at": "2026-03-25T12:54:56.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "vyc1vh",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "AI boom accelerates China's chip industry growth as demand strains supply chain",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/ai-boom-accelerates-chinas-chip-122047480.html",
+    "image_url": "https://media.zenfs.com/en/reuters-finance.com/1e2d1b4e741f0f3d0df637187ffb86b4",
+    "published_at": "2026-03-25T12:20:47.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "phi9o8",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Google to label verified investment apps in India amid regulatory crackdown on fraud",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/google-label-verified-investment-apps-121938652.html",
+    "image_url": "https://media.zenfs.com/en/reuters-finance.com/caa51baf9e7cb10358e6038ea6f064e8",
+    "published_at": "2026-03-25T12:19:38.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "8nqzu",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-news",
@@ -792,6 +1299,28 @@
     ]
   },
   {
+    "feed_id": "4ekfaa",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Pentagon’s ‘Attempt to Cripple’ Anthropic Is Troubling, Judge Says",
+    "summary": "During a hearing Tuesday, a district court judge questioned the Department of Defense’s motivations for labeling the Claude AI developer a supply-chain risk.",
+    "url": "https://www.wired.com/story/pentagons-attempt-to-cripple-anthropic-is-troublesome-judge-says/",
+    "image_url": "",
+    "published_at": "2026-03-24T22:13:17.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "6c4m8s",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-news",
@@ -836,6 +1365,28 @@
     ]
   },
   {
+    "feed_id": "dri190",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Arm Is Now Making Its Own Chips",
+    "summary": "The chip design firm says Meta, OpenAI, Cerebras, and Cloudflare are among the first customers of its new artificial intelligence hardware.",
+    "url": "https://www.wired.com/story/chip-design-firm-arm-is-making-its-own-ai-cpu/",
+    "image_url": "",
+    "published_at": "2026-03-24T17:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "uhyr6k",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-news",
@@ -869,6 +1420,402 @@
     "tags": [
       "markets",
       "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "oxpple",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Chris Hayes Has Some Advice for Keeping Up With the News",
+    "summary": "The host of MS Now’s All In, knows how hard it is to stay current. But he also knows where you should focus your attention—and it starts with a sober view of AI.",
+    "url": "https://www.wired.com/story/the-big-interview-podcast-chris-hayes/",
+    "image_url": "",
+    "published_at": "2026-03-24T10:30:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "fiwsux",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "The AI Race Is Pressuring Utilities to Squeeze More From Europe’s Power Grids",
+    "summary": "As data center developers queue up to connect to power grids across Europe, network operators are experimenting with novel ways of clearing room for them.",
+    "url": "https://www.wired.com/story/europe-squeeze-power-energy-grid-ai-data-center/",
+    "image_url": "",
+    "published_at": "2026-03-23T09:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "xwxn49",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Anthropic Denies It Could Sabotage AI Tools During War",
+    "summary": "The Department of Defense alleges the AI developer could manipulate models in the middle of war. Company executives argue that’s impossible.",
+    "url": "https://www.wired.com/story/anthropic-denies-sabotage-ai-tools-war-claude/",
+    "image_url": "",
+    "published_at": "2026-03-21T00:03:20.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jk4j50",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "‘A Rigged and Dangerous Product’: The Wildest Week for Prediction Markets Yet",
+    "summary": "As the prediction market boom continues, backlash is growing, too, with Arizona filing criminal charges against Kalshi and public outcry after Polymarket traders threatened a journalist.",
+    "url": "https://www.wired.com/story/why-this-was-the-wildest-week-for-prediction-markets-yet/",
+    "image_url": "",
+    "published_at": "2026-03-20T21:07:04.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "p21ewk",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Kalshi Has Been Temporarily Banned in Nevada",
+    "summary": "A judge ordered Kalshi to immediately halt sports and election contracts in the state, intensifying a growing regulatory battle over prediction markets.",
+    "url": "https://www.wired.com/story/nevada-bans-kalshi-prediction-market/",
+    "image_url": "",
+    "published_at": "2026-03-20T16:54:15.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "vmyxod",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "At Palantir’s Developer Conference, AI Is Built to Win Wars",
+    "summary": "As business soars, Palantir is doubling down on a vision of AI built for battlefield advantage—and attracting customers who agree.",
+    "url": "https://www.wired.com/story/palantir-developer-conference-ai-war-alex-karp/",
+    "image_url": "",
+    "published_at": "2026-03-20T15:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "gb3yb0",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "My AI Agent ‘Cofounder’ Conquered LinkedIn. Then It Got Banned",
+    "summary": "When social media is constantly pushing people to use AI, why not let AI agents participate?",
+    "url": "https://www.wired.com/story/linkedin-invited-my-ai-cofounder-to-give-a-corporate-talk-then-banned-it/",
+    "image_url": "",
+    "published_at": "2026-03-20T10:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ic0aty",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "‘Uncanny Valley’: Nvidia’s ‘Super Bowl of AI,’ Tesla Disappoints, and Meta’s VR Metaverse ‘Shutdown’",
+    "summary": "In this episode, we dive into Nvidia’s annual developer conference and what CEO Jensen Huang is saying about the future of the company.",
+    "url": "https://www.wired.com/story/uncanny-valley-podcast-nvidia-gtc-tesla-disappointed-fans-meta-horizon-worlds/",
+    "image_url": "",
+    "published_at": "2026-03-19T21:43:56.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "8e37py",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Google Shakes Up Its Browser Agent Team Amid OpenClaw Craze",
+    "summary": "As Silicon Valley obsesses over a new wave of AI coding agents, Google and other AI labs are shifting their bets.",
+    "url": "https://www.wired.com/story/google-shakes-up-project-mariner-team-web-browsing-agents/",
+    "image_url": "",
+    "published_at": "2026-03-19T18:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2ro6hz",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "A New Game Turns the H-1B Visa System Into a Surreal Simulation",
+    "summary": "Inspired by real immigrant stories, H1B.Life captures the uncertainty, trade-offs, and pure luck that shape the lives of people trying to build a future in the US.",
+    "url": "https://www.wired.com/story/made-in-china-a-new-game-turns-the-h-1b-visa-system-into-a-surreal-simulation/",
+    "image_url": "",
+    "published_at": "2026-03-19T16:59:50.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "u0ljgq",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Signal’s Creator Is Helping Encrypt Meta AI",
+    "summary": "Moxie Marlinspike says the technology powering his encrypted AI chatbot, Confer, will be integrated into Meta AI. The move could help protect the AI conversations of millions of people.",
+    "url": "https://www.wired.com/story/signals-creator-is-helping-encrypt-meta-ai/",
+    "image_url": "",
+    "published_at": "2026-03-19T14:09:51.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "m7wz9r",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "The Fight to Hold AI Companies Accountable for Children’s Deaths",
+    "summary": "After a series of suicides allegedly linked to AI chatbots, one lawyer is trying to hold companies like OpenAI accountable.",
+    "url": "https://www.wired.com/story/how-ai-chatbots-drove-families-to-the-brink-and-the-lawyer-fighting-back/",
+    "image_url": "",
+    "published_at": "2026-03-19T10:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "s6qave",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Why Walmart and OpenAI Are Shaking Up Their Agentic Shopping Deal",
+    "summary": "After OpenAI’s Instant Checkout feature fell short, Walmart is instead embedding its Sparky chatbot directly into ChatGPT and Google Gemini.",
+    "url": "https://www.wired.com/story/ai-lab-walmart-openai-shaking-up-agentic-shopping-deal/",
+    "image_url": "",
+    "published_at": "2026-03-18T18:01:18.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "6px5mb",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Join Our Next Livestream: The War Machine",
+    "summary": "On March 26, a panel of WIRED experts will dissect the defense tech industry’s impact on modern warfare. Submit your questions now.",
+    "url": "https://www.wired.com/story/livestream-the-war-machine/",
+    "image_url": "",
+    "published_at": "2026-03-18T10:30:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "mfvvqv",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Justice Department Says Anthropic Can’t Be Trusted With Warfighting Systems",
+    "summary": "In response to Anthropic’s lawsuit, the government said it lawfully penalized the company for trying to limit how its Claude AI models could be used by the military.",
+    "url": "https://www.wired.com/story/department-of-defense-responds-to-anthropic-lawsuit/",
+    "image_url": "",
+    "published_at": "2026-03-18T00:51:14.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potential policy/authority shift affecting capital pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "83m3kx",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "How Invisalign Became the World’s Biggest User of 3D Printers",
+    "summary": "Joe Hogan, Align Technology’s plastics-nerd CEO, says you shouldn’t eat with your aligners and that you don’t need to wear your retainers every night.",
+    "url": "https://www.wired.com/story/how-invisalign-became-the-worlds-biggest-3d-printing-company/",
+    "image_url": "",
+    "published_at": "2026-03-17T11:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "gdal8z",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "COBOL Is the Asbestos of Programming Languages",
+    "summary": "The most widely adopted computer language in history, COBOL is now causing a host of problems. It's also dangerously difficult to remove.",
+    "url": "https://www.wired.com/story/cobol-is-the-asbestos-of-programming-languages/",
+    "image_url": "",
+    "published_at": "2026-03-16T11:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "duqlq5",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Wall Street Is Already Betting on Prediction Markets",
+    "summary": "As the legal war over how to regulate prediction markets rages on, financial institutions are embracing the industry anyway.",
+    "url": "https://www.wired.com/story/prediction-markets-find-a-welcome-on-wall-street/",
+    "image_url": "",
+    "published_at": "2026-03-16T09:30:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
     ],
     "trust_tier": "tier2",
     "relevance_score": 0,

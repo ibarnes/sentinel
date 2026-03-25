@@ -1,5 +1,33 @@
 {
-  "last_run_at": "2026-03-25T12:27:15Z",
+  "last_run_at": "2026-03-25T13:30:21.030Z",
   "cadence": "0 */6 * * *",
-  "notes": "Auto-refresh every 6 hours via cron; manual refresh available on /dashboard/signals-feed"
+  "notes": "Auto-refresh every 6 hours via cron; manual refresh available on /dashboard/signals-feed",
+  "last_run_stats": {
+    "total_sources": 10,
+    "ok_sources": 6,
+    "failed_sources": 4,
+    "items_added": 43,
+    "failures": [
+      {
+        "source": "Reuters World",
+        "url": "https://feeds.reuters.com/reuters/worldNews",
+        "error": "fetch failed"
+      },
+      {
+        "source": "Reuters Business",
+        "url": "https://feeds.reuters.com/reuters/businessNews",
+        "error": "fetch failed"
+      },
+      {
+        "source": "Yahoo Finance Video (Ares/Apollo)",
+        "url": "https://finance.yahoo.com/video/ares-apollo-cap-private-credit-163531864.html",
+        "error": "fetch failed"
+      },
+      {
+        "source": "Financial Times (Cargill AI yield)",
+        "url": "https://www.ft.com/content/9089e369-92f4-48dc-ac09-46b6a62035a6",
+        "status": 403
+      }
+    ]
+  }
 }
