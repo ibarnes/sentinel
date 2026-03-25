@@ -2854,8 +2854,8 @@ app.get('/dashboard/team', async (_req, res) => {
   res.type('html').send(`<!doctype html><html><head>${uiHead('Team')}</head><body><div class="app-shell">
     ${dashboardNav('team')}
     ${pageHeader('Team Directory', '', 'USG operator contacts and roles')}
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Name</th><th>Title</th><th>Role</th><th>Email</th><th>Status</th></tr></thead><tbody>
-      ${sorted.map((m)=>`<tr><td>${escapeHtml(m.name || '')}</td><td>${escapeHtml(m.title || 'TBD')}</td><td>${escapeHtml(m.role || 'TBD')}</td><td>${m.email ? `<a href="mailto:${escapeHtml(m.email)}">${escapeHtml(m.email)}</a>` : '—'}</td><td>${escapeHtml(m.status || 'active')}</td></tr>`).join('') || '<tr><td colspan="5">No team records</td></tr>'}
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Photo</th><th>Name</th><th>Title</th><th>Role</th><th>Email</th><th>Status</th></tr></thead><tbody>
+      ${sorted.map((m)=>`<tr><td>${m.profile_image ? `<img src="${escapeHtml(m.profile_image)}" style="width:44px;height:44px;object-fit:cover;border-radius:8px;border:1px solid #ddd"/>` : '<div style="width:44px;height:44px;border-radius:8px;background:#f1f3f5"></div>'}</td><td>${escapeHtml(m.name || '')}${m.organization ? `<div class="small text-muted">${escapeHtml(m.organization)}</div>` : ''}${m.location ? `<div class="small text-muted">${escapeHtml(m.location)}</div>` : ''}</td><td>${escapeHtml(m.title || 'TBD')}</td><td>${escapeHtml(m.role || 'TBD')}</td><td>${m.email ? `<a href="mailto:${escapeHtml(m.email)}">${escapeHtml(m.email)}</a>` : '—'}</td><td>${escapeHtml(m.status || 'active')}</td></tr>`).join('') || '<tr><td colspan="6">No team records</td></tr>'}
     </tbody></table></div>
   </div></body></html>`);
 });

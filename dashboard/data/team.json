@@ -61,5 +61,17 @@
     "title": "Title TBD",
     "status": "active",
     "role": "Coordinator"
+  },
+  {
+    "name": "Leo LaBranche",
+    "email": "leo@unifieddigitalgroup.com",
+    "title": "CEO",
+    "status": "active",
+    "role": "Executive",
+    "organization": "Unified Digital Group",
+    "location": "Bellevue, Washington, United States",
+    "education": "Northwestern University",
+    "bio": "Driving step-change growth and positive human impact through disruptive digital initiatives.",
+    "profile_image": "/public/actor-images/leo-labranche.jpg"
   }
 ]
