@@ -1,0 +1,38 @@
+[
+  {
+    "source_id": "reuters-world",
+    "name": "Reuters World",
+    "type": "rss",
+    "url": "https://feeds.reuters.com/reuters/worldNews",
+    "enabled": true,
+    "default_tags": ["macro", "geopolitics"],
+    "trust_tier": "tier1"
+  },
+  {
+    "source_id": "reuters-business",
+    "name": "Reuters Business",
+    "type": "rss",
+    "url": "https://feeds.reuters.com/reuters/businessNews",
+    "enabled": true,
+    "default_tags": ["capital", "markets"],
+    "trust_tier": "tier1"
+  },
+  {
+    "source_id": "ft-world",
+    "name": "Financial Times World",
+    "type": "rss",
+    "url": "https://www.ft.com/world?format=rss",
+    "enabled": true,
+    "default_tags": ["macro", "policy"],
+    "trust_tier": "tier1"
+  },
+  {
+    "source_id": "yahoo-finance-news",
+    "name": "Yahoo Finance News",
+    "type": "rss",
+    "url": "https://finance.yahoo.com/news/rssindex",
+    "enabled": true,
+    "default_tags": ["markets", "capital"],
+    "trust_tier": "tier2"
+  }
+]

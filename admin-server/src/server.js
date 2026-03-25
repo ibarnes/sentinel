@@ -68,6 +68,8 @@ const DASHBOARD_SLIDE_SPECS_FILE = path.join(ROOT, 'dashboard', 'data', 'slidesp
 const DASHBOARD_SAVEPOINTS_FILE = path.join(ROOT, 'dashboard', 'data', 'savepoints.v1.json');
 const DASHBOARD_CAPITAL_MAP_FILE = path.join(ROOT, 'dashboard', 'data', 'capital-map.json');
 const DASHBOARD_PLATFORM_PRESSURE_FILE = path.join(ROOT, 'dashboard', 'data', 'platform_pressure.json');
+const DASHBOARD_SIGNALS_FEED_FILE = path.join(ROOT, 'dashboard', 'data', 'signals_feed.json');
+const DASHBOARD_SIGNALS_SOURCES_FILE = path.join(ROOT, 'dashboard', 'data', 'signals_sources.json');
 const DASHBOARD_TEMPLATE_LIBRARY_ROOT = path.join(ROOT, 'dashboard', 'templates', 'presentation-templates');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
@@ -732,6 +734,7 @@ function dashboardNav(active = '') {
     <div class="oc-nav-links">
       <div class="oc-nav-group-label">Market Intelligence</div>
       <a class="nav-link ${is('signals')}" href="/dashboard/signals" title="Signals"><i data-lucide="radio" class="nav-icon"></i><span class="nav-label">Signals</span></a>
+      <a class="nav-link ${is('signals-feed')}" href="/dashboard/signals-feed" title="Signals Feed"><i data-lucide="newspaper" class="nav-icon"></i><span class="nav-label">Signals Feed</span></a>
       <a class="nav-link ${is('state-transitions')}" href="/dashboard/state-transitions" title="State Transitions"><i data-lucide="git-compare-arrows" class="nav-icon"></i><span class="nav-label">State Transitions</span></a>
       <a class="nav-link ${is('meetings')}" href="/dashboard/meetings" title="Meetings"><i data-lucide="notebook-text" class="nav-icon"></i><span class="nav-label">Meetings</span></a>
       <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platforms"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platforms</span></a>
@@ -2577,6 +2580,53 @@ app.get('/dashboard/signals', async (req, res) => {
 app.get('/dashboard/signals/export.json', async (_req, res) => {
   const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
   res.type('application/json').send(JSON.stringify(signals, null, 2));
+});
+
+app.get('/dashboard/signals-feed', requireAnyAuth, async (req, res) => {
+  const feed = await readJson(DASHBOARD_SIGNALS_FEED_FILE, []);
+  const q = String(req.query.q || '').trim().toLowerCase();
+  const sorted = [...feed].sort((a,b)=>String(b.published_at||'').localeCompare(String(a.published_at||'')));
+  const filtered = q ? sorted.filter((x)=>`${x.title||''} ${x.summary||''} ${(x.tags||[]).join(' ')} ${x.source||''}`.toLowerCase().includes(q)) : sorted;
+  const cards = filtered.map((x) => {
+    const img = x.image_url ? `<img src="${escapeHtml(String(x.image_url))}" style="width:100%;height:180px;object-fit:cover;border-radius:10px;border:1px solid var(--border);margin-bottom:10px"/>` : '';
+    const why = x.why_it_matters ? `<div class="small mt-1"><strong>Why it matters:</strong> ${escapeHtml(String(x.why_it_matters))}</div>` : '';
+    return `<div class="card mb-3"><div class="card-body">${img}<div class="d-flex justify-content-between"><div class="small text-muted">${escapeHtml(String(x.source || 'source'))}</div><div class="small text-muted mono">${escapeHtml(String(x.published_at || '').slice(0,10))}</div></div><h6 class="mt-1 mb-1">${escapeHtml(String(x.title || 'Untitled'))}</h6><div class="small text-muted">${escapeHtml(String(x.url || ''))}</div><div class="small mt-2">${escapeHtml(String(x.summary || ''))}</div>${why}<div class="mt-2 d-flex gap-2">${(x.url ? `<a class="btn btn-sm btn-outline-secondary" target="_blank" rel="noreferrer" href="${escapeHtml(String(x.url))}">Open Source</a>` : '')}<form method="post" action="/api/signals-feed/promote/${encodeURIComponent(String(x.feed_id || ''))}"><button class="btn btn-sm btn-primary" type="submit">Promote to Canonical</button></form></div></div></div>`;
+  }).join('');
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Signals Feed')}</head><body><div class="app-shell">${dashboardNav('signals-feed')}${pageHeader('Signals Feed', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/signals-feed/export.json">Get JSON</a>', 'Discovery stream — promote qualified signals to canonical register')}<form method="get" class="row g-2 mb-3"><div class="col-md-6"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q||''))}" placeholder="Search feed"/></div><div class="col-md-6 d-flex gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="/dashboard/signals-feed">Reset</a></div></form>${cards || '<div class="text-muted">No feed items yet. Run collector script.</div>'}</div></body></html>`);
+});
+
+app.get('/dashboard/signals-feed/export.json', requireAnyAuth, async (_req, res) => {
+  const feed = await readJson(DASHBOARD_SIGNALS_FEED_FILE, []);
+  res.type('application/json').send(JSON.stringify(feed, null, 2));
+});
+
+app.post('/api/signals-feed/promote/:id', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '');
+  const feed = await readJson(DASHBOARD_SIGNALS_FEED_FILE, []);
+  const item = feed.find((x) => String(x.feed_id || '') === id);
+  if (!item) return res.redirect('/dashboard/signals-feed');
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const sid = `SIG-${new Date().toISOString().slice(0,10)}-${(item.source || 'FEED').toUpperCase().replace(/[^A-Z0-9]+/g,'-')}-${id.slice(0,6).toUpperCase()}`;
+  if (!signals.some((s) => s.signal_id === sid)) {
+    signals.push({
+      signal_id: sid,
+      title: item.title || 'Feed signal',
+      signal_class: item.signal_class || 'Platform Pressure',
+      status: 'Monitor',
+      confidence: item.confidence || 'Medium',
+      verification_status: 'pending_threshold_validation',
+      observed_at: item.published_at || new Date().toISOString(),
+      summary: item.summary || '',
+      provenance: 'discovered_by_system',
+      sources: [{ label: item.source || 'feed', url: item.url || '' }],
+      tags: Array.isArray(item.tags) ? item.tags : [],
+      initiative_ids: Array.isArray(item.initiative_ids) ? item.initiative_ids : ['USG'],
+      buyer_ids: Array.isArray(item.buyer_ids) ? item.buyer_ids : []
+    });
+    await writeJson(DASHBOARD_SIGNALS_FILE, signals);
+  }
+  res.redirect('/dashboard/signals');
 });
 
 app.get('/dashboard/signal/:id', async (req, res) => {
