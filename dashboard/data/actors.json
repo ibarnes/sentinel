@@ -16628,7 +16628,7 @@
     "signal_status": "active",
     "resolution_status": "confirmed",
     "owner": "Unified State Group",
-    "profile_image": "/public/actor-images/richard-j-hoffman.jpg",
+    "profile_image": "/public/actor-images/leadership/richard-j-hoffman.png",
     "profile_url": "https://www.linkedin.com/in/richard-j-hoffman-a94282237",
     "notes": "President and Founding Partner focused on international expansion, transaction development, and strategic capital pathways across Africa/MENA and emerging markets.",
     "sources": [
@@ -16658,7 +16658,8 @@
     "profile_url": "https://www.linkedin.com/in/stephanie-karp-loosvelt",
     "notes": "General Counsel with 18+ years across corporate legal strategy, risk mitigation, contract architecture, compliance, and complex negotiations.",
     "resolution_status": "confirmed",
-    "updated_at": "2026-03-25T02:30:00Z"
+    "updated_at": "2026-03-25T02:30:00Z",
+    "profile_image": "/public/actor-images/leadership/stephanie-karp-loosvelt.png"
   },
   {
     "actor_id": "actor-us-tyreek-moore",
@@ -16675,7 +16676,8 @@
     "profile_url": "https://www.linkedin.com/in/tyreek-moore",
     "notes": "Founding Partner with deep operating experience in education, coaching, and venture execution; founder/CEO of Charter School Operations Consultants.",
     "resolution_status": "confirmed",
-    "updated_at": "2026-03-25T02:30:00Z"
+    "updated_at": "2026-03-25T02:30:00Z",
+    "profile_image": "/public/actor-images/leadership/tyreek-moore.png"
   },
   {
     "actor_id": "actor-ph-richelle-maylad",
@@ -16709,7 +16711,8 @@
     "profile_url": "https://www.linkedin.com/in/alex-klint-6321ba47",
     "notes": "Senior customer executive at SAP and USG strategic advisor with sales, enterprise growth, and board-level transaction experience.",
     "resolution_status": "confirmed",
-    "updated_at": "2026-03-25T02:30:00Z"
+    "updated_at": "2026-03-25T02:30:00Z",
+    "profile_image": "/public/actor-images/leadership/alex-klint.png"
   },
   {
     "actor_id": "actor-us-bryan-klint",
@@ -16740,6 +16743,7 @@
         "url": "internal://isaac-provided/pdf/bryan-klint-profile-2026-03-25"
       }
     ],
-    "updated_at": "2026-03-25T02:32:00Z"
+    "updated_at": "2026-03-25T02:32:00Z",
+    "profile_image": "/public/actor-images/leadership/bryan-klint.png"
   }
 ]

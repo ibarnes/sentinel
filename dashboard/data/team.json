@@ -9,7 +9,8 @@
     "location": "Greater Minneapolis-St. Paul Area",
     "linkedin": "https://www.linkedin.com/in/bryanklint",
     "bio": "Global Managing Director at Salesforce and USG Board Member/Founding Member focused on CRM-driven growth, strategic partnerships, and impact-oriented market acceleration.",
-    "updated_at": "2026-03-25T02:32:00Z"
+    "updated_at": "2026-03-25T02:36:00Z",
+    "profile_image": "/public/actor-images/leadership/bryan-klint.png"
   },
   {
     "name": "Cedric B Hill, Hon.D.",
@@ -34,7 +35,8 @@
     "linkedin": "https://www.linkedin.com/in/tyreek-moore",
     "education": "Harvard University, Ed.M Technology, Innovation and Education; Boston University, BS Computer Science",
     "bio": "Founding Partner with deep operating experience in education, coaching, and venture execution; founder/CEO of Charter School Operations Consultants.",
-    "updated_at": "2026-03-25T02:30:00Z"
+    "updated_at": "2026-03-25T02:36:00Z",
+    "profile_image": "/public/actor-images/leadership/tyreek-moore.png"
   },
   {
     "name": "Richard J. Hoffman",
@@ -46,8 +48,8 @@
     "location": "Phoenix, Arizona, United States",
     "education": "20+ years international business; Milken Institute African Leaders Business Council",
     "bio": "President and Founding Partner focused on international expansion, transaction development, and strategic capital pathways across Africa/MENA and emerging markets.",
-    "profile_image": "/public/actor-images/richard-j-hoffman.jpg",
-    "updated_at": "2026-03-25T02:32:00Z",
+    "profile_image": "/public/actor-images/leadership/richard-j-hoffman.png",
+    "updated_at": "2026-03-25T02:36:00Z",
     "linkedin": "https://www.linkedin.com/in/richard-j-hoffman-a94282237"
   },
   {
@@ -55,7 +57,9 @@
     "email": "maryan@unifiedstategroup.com",
     "title": "Chief Strategy Officer",
     "status": "active",
-    "role": "Curator"
+    "role": "Curator",
+    "profile_image": "/public/actor-images/leadership/maryan-ali.png",
+    "updated_at": "2026-03-25T02:36:00Z"
   },
   {
     "name": "Monica Colon",
@@ -74,14 +78,17 @@
     "location": "Wayzata, Minnesota, United States",
     "linkedin": "https://www.linkedin.com/in/alex-klint-6321ba47",
     "bio": "Senior customer executive at SAP and USG strategic advisor with sales, enterprise growth, and board-level transaction experience.",
-    "updated_at": "2026-03-25T02:30:00Z"
+    "updated_at": "2026-03-25T02:36:00Z",
+    "profile_image": "/public/actor-images/leadership/alex-klint.png"
   },
   {
     "name": "Isaac Barnes",
     "email": "isaac@unifiedstategroup.com",
     "title": "Founder",
     "role": "Architect",
-    "status": "active"
+    "status": "active",
+    "profile_image": "/public/actor-images/leadership/isaac-barnes.png",
+    "updated_at": "2026-03-25T02:36:00Z"
   },
   {
     "name": "Richelle Maylad",
@@ -105,7 +112,8 @@
     "location": "Bellevue, Washington, United States",
     "education": "Northwestern University",
     "bio": "Driving step-change growth and positive human impact through disruptive digital initiatives.",
-    "profile_image": "/public/actor-images/leo-labranche.jpg"
+    "profile_image": "/public/actor-images/leadership/leo-labranche.jpeg",
+    "updated_at": "2026-03-25T02:36:00Z"
   },
   {
     "name": "Stephanie Karp Loosvelt",
@@ -117,6 +125,7 @@
     "location": "Tulsa, Oklahoma, United States",
     "linkedin": "https://www.linkedin.com/in/stephanie-karp-loosvelt",
     "bio": "General Counsel with 18+ years across corporate legal strategy, risk mitigation, contract architecture, compliance, and complex negotiations.",
-    "updated_at": "2026-03-25T02:30:00Z"
+    "updated_at": "2026-03-25T02:36:00Z",
+    "profile_image": "/public/actor-images/leadership/stephanie-karp-loosvelt.png"
   }
 ]
