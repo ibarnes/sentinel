@@ -194,7 +194,7 @@
     "title": "Angola Cables meeting",
     "participants": [
       "Wade",
-      "\u00c2ngelo Gama",
+      "Ângelo Gama",
       "Leo LaBranche",
       "Richard Hoffman",
       "Jose Assis",
@@ -253,5 +253,164 @@
     },
     "created_at": "2026-03-19T22:45:00Z",
     "updated_at": "2026-03-19T22:45:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-03-24-USG-FINANCE-001",
+    "date_time": "2026-03-24T00:00:00Z",
+    "title": "USG Finance Meeting",
+    "participants": [
+      "Isaac Barnes",
+      "Michael Sico",
+      "Monica Colon"
+    ],
+    "summary": "Liquidity and fiscal stress review covering Bestaf debt exposure (~$1.5M), April payment pause communications, payroll/benefit constraints, insurance burden, tax/underwriting blockers for LOC, and contingency planning.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Issue written April non-payment notices before month-end.",
+      "Pursue extension on Bestaf dev-team payments.",
+      "Advance contingency plan for UDG fiscal responsibility and financing readiness."
+    ],
+    "risks": [
+      "Near-term cash runway compression (end-April projected ~$20k).",
+      "Debt and vendor payment default risk.",
+      "Compliance risk around payroll/benefits and tax arrears.",
+      "Underwriter rejection risk without income/returns package."
+    ],
+    "next_actions": [
+      {
+        "action": "Get extension on Bestaf dev-team payments.",
+        "owner": "Isaac",
+        "due": "2026-03-31",
+        "status": "open"
+      },
+      {
+        "action": "Collect vendor list from Sico.",
+        "owner": "Michael Sico",
+        "due": "2026-03-31",
+        "status": "open"
+      },
+      {
+        "action": "Collect agreement package from Monica.",
+        "owner": "Monica Colon",
+        "due": "2026-03-31",
+        "status": "open"
+      },
+      {
+        "action": "Have Leo conversation and put outcomes in writing.",
+        "owner": "Isaac",
+        "due": "2026-03-31",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting notes in Telegram"
+    },
+    "created_at": "2026-03-25T01:30:00Z",
+    "updated_at": "2026-03-25T01:30:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-03-24-MARK-G-001",
+    "date_time": "2026-03-24T00:00:00Z",
+    "title": "Mark G Meeting",
+    "participants": [
+      "Isaac Barnes",
+      "Mark Grobmyer"
+    ],
+    "summary": "Relationship-intelligence meeting focused on USVI legal/governance and federal-adjacent connector pathways, including Joel H. Holt and additional network nodes pending verification.",
+    "initiative_ids": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Map Mark-network legal/governance connectors into actor model as identified (verification-pending).",
+      "Prioritize identity verification for placeholder contacts and federal-role claims."
+    ],
+    "risks": [
+      "Attribution risk if names/roles are not independently verified.",
+      "Over-reliance risk on relationship-only access channels."
+    ],
+    "next_actions": [
+      {
+        "action": "Verify identities/roles for Mark-network actors added from meeting notes.",
+        "owner": "Sentinel",
+        "due": "2026-03-28",
+        "status": "open"
+      },
+      {
+        "action": "Prioritize USVI legal/governance connectors for pathway mapping.",
+        "owner": "Isaac",
+        "due": "2026-03-29",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting notes in Telegram"
+    },
+    "created_at": "2026-03-25T01:30:00Z",
+    "updated_at": "2026-03-25T01:30:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-03-24-TANISHA-LEWIS-001",
+    "date_time": "2026-03-24T00:00:00Z",
+    "title": "Meeting with Tanisha Lewis",
+    "participants": [
+      "Isaac Barnes",
+      "Tanisha Lewis",
+      "Cedric Hill",
+      "Telly Renfroe",
+      "Camille Moore"
+    ],
+    "summary": "Network and pathway meeting highlighting Tanisha’s bipartisan government access, USVI familiarity, organizational-change experience, and advisory/connector network including Don Bacon, Steven Benjamin, Tonya Saunders, Hannibal Ware, and Mrs Kim (identity pending).",
+    "initiative_ids": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Map Tanisha network as first-degree/second-degree actors under Tanisha ownership.",
+      "Prioritize near-term VI connector handoff via Mrs Kim and energy-policy linkage review."
+    ],
+    "risks": [
+      "Identity/title verification gaps for newly introduced contacts.",
+      "Execution timing risk if follow-up introductions slip beyond one-week window."
+    ],
+    "next_actions": [
+      {
+        "action": "Confirm full identity and role for Mrs Kim.",
+        "owner": "Tanisha Lewis",
+        "due": "2026-03-31",
+        "status": "open"
+      },
+      {
+        "action": "Verify Hannibal Ware availability and pathway relevance after return.",
+        "owner": "Sentinel",
+        "due": "2026-03-31",
+        "status": "open"
+      },
+      {
+        "action": "Compile first outreach sequence for Tanisha network nodes.",
+        "owner": "Isaac",
+        "due": "2026-03-31",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting notes in Telegram",
+      "links": [
+        "https://www.nicheconsultingfirm.com",
+        "https://bacon.house.gov",
+        "https://en.wikipedia.org/wiki/Hannibal_Ware"
+      ]
+    },
+    "created_at": "2026-03-25T01:30:00Z",
+    "updated_at": "2026-03-25T01:30:00Z"
   }
 ]
