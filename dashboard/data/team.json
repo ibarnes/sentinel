@@ -26,11 +26,17 @@
     "role": "Governor"
   },
   {
-    "name": "Richard Hoffman",
+    "name": "Richard J. Hoffman",
     "email": "Richard@unifiedstategroup.com",
-    "title": "President",
+    "title": "President and Founding Partner",
     "status": "active",
-    "role": "Originator"
+    "role": "Executive / Originator",
+    "organization": "Unified State Group",
+    "location": "United States",
+    "education": "Jessup University; Milken Institute (affiliation context)",
+    "bio": "President and Founding Partner focused on strategic partnerships and initiative origination.",
+    "profile_image": "/public/actor-images/richard-j-hoffman.jpg",
+    "updated_at": "2026-03-25T02:18:00Z"
   },
   {
     "name": "Maryan Ali",

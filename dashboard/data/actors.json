@@ -16607,5 +16607,36 @@
     "confidence": "medium",
     "verification_status": "source_image_transcribed",
     "updated_at": "2026-03-24T23:25:00Z"
+  },
+  {
+    "actor_id": "actor-us-richard-j-hoffman",
+    "name_display": "Richard J. Hoffman",
+    "first_name": "Richard",
+    "last_name": "J. Hoffman",
+    "organization_primary": "Unified State Group",
+    "designation": "President and Founding Partner",
+    "country_normalized": "United States",
+    "actor_type": "operator",
+    "relationship_type": "executive",
+    "unlock_role": "approves",
+    "relationship_degree": "1st_degree",
+    "link_strength": "high",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "active",
+    "resolution_status": "confirmed",
+    "owner": "Unified State Group",
+    "profile_image": "/public/actor-images/richard-j-hoffman.jpg",
+    "profile_url": "https://www.linkedin.com",
+    "notes": "Profile details captured from user-provided LinkedIn screenshots.",
+    "sources": [
+      {
+        "label": "User-provided LinkedIn screenshot",
+        "url": "internal://isaac-provided/media/richard-j-hoffman-linkedin-2026-03-25"
+      }
+    ],
+    "updated_at": "2026-03-25T02:18:00Z"
   }
 ]
