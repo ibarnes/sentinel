@@ -3553,7 +3553,9 @@
         "mission-control/review-packets/RP-0099-board-build-window-night-2026-03-24.md",
         "TASK-0225",
         "TASK-0226",
-        "mission-control/review-packets/RP-0100-board-recovery-sweep-2026-03-24-0630.md"
+        "mission-control/review-packets/RP-0100-board-recovery-sweep-2026-03-24-0630.md",
+        "TASK-0231",
+        "mission-control/review-packets/RP-0103-board-build-window-night-2026-03-25.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3712,11 +3714,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep decomposition gate: added TASK-0225/TASK-0226 for tranche-X stale-RFR reduction; executed TASK-0225 and published RP-0100 decision packet.",
           "created_at": "2026-03-24T06:30:00Z"
+        },
+        {
+          "id": "progress-task-0107-20260325-0310",
+          "author": "sentinel",
+          "text": "Night build window 2026-03-25T03:10Z: advanced TASK-0226/TASK-0231 to Ready for Review (tranche-X approval routing + tranche-Y decision digest) via RP-0103.",
+          "created_at": "2026-03-25T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-24T06:30:00Z",
+      "updated_at": "2026-03-25T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -8298,7 +8306,7 @@
     {
       "id": "TASK-0226",
       "title": "BRS-2026-03-24b Publish tranche-X approval routing card + transition-safe templates",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -8311,16 +8319,33 @@
       "linked_refs": [
         "TASK-0107",
         "TASK-0225",
-        "mission-control/board/sweeps/2026-03-24T06-30-00Z-late-night-recovery-sweep.md"
+        "mission-control/board/sweeps/2026-03-24T06-30-00Z-late-night-recovery-sweep.md",
+        "mission-control/board/approval-queue/2026-03-25T03-10-00Z-tranche-x-approval-card.md",
+        "mission-control/review-packets/RP-0103-board-build-window-night-2026-03-25.md"
       ],
       "parent_id": "TASK-0225",
       "description": "Publish approval routing card and transition-safe templates for tranche-X so decisions can be replayed to board in <30 minutes.\nAcceptance Criteria:\n- Approval card lists tranche-X items with approve/hold checkboxes.\n- Includes deterministic transition comment templates.\n- No Done transitions without approved review packet.",
-      "comments": [],
-      "request_approval": null,
+      "comments": [
+        {
+          "id": "done-0226-20260325-0310",
+          "author": "sentinel",
+          "text": "Published tranche-X approval routing card with transition-safe templates at mission-control/board/approval-queue/2026-03-25T03-10-00Z-tranche-x-approval-card.md.",
+          "created_at": "2026-03-25T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-25T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0103-board-build-window-night-2026-03-25.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
       "created_at": "2026-03-24T06:30:00Z",
-      "updated_at": "2026-03-24T06:30:00Z",
+      "updated_at": "2026-03-25T03:10:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-0103"
     },
     {
       "id": "TASK-0227",
@@ -8491,6 +8516,48 @@
       "review_packet_id": "RP-0102",
       "created_at": "2026-03-24T16:30:00Z",
       "updated_at": "2026-03-24T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0231",
+      "title": "BRS-2026-03-25a Build oldest-RFR tranche-Y decision digest (next stale cohort)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/sweeps/2026-03-25T03-10-00Z-night-build-tranche-y-decision-digest.md",
+        "mission-control/review-packets/RP-0103-board-build-window-night-2026-03-25.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Create tranche-Y decision digest for next oldest Ready-for-Review cohort with approve/hold recommendations and queue-age leverage notes.\nAcceptance Criteria:\n- Includes next oldest stale RFR cohort with recommendations.\n- Includes explicit Isaac decision prompt and governance guardrail.\n- Digest committed and linked to parent recovery task.",
+      "comments": [
+        {
+          "id": "done-0231-20260325-0310",
+          "author": "sentinel",
+          "text": "Published tranche-Y decision digest at mission-control/board/sweeps/2026-03-25T03-10-00Z-night-build-tranche-y-decision-digest.md.",
+          "created_at": "2026-03-25T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-25T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0103-board-build-window-night-2026-03-25.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "review_packet_id": "RP-0103",
+      "created_at": "2026-03-25T03:10:00Z",
+      "updated_at": "2026-03-25T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
