@@ -418,3 +418,19 @@
 - No new operating-rule changes.
 - No scoring-policy changes.
 
+
+# Project Status Snapshot (2026-03-25)
+- Night build window (03:10 UTC) continued decomposition-gated stale-RFR recovery under `TASK-0107`:
+  - `TASK-0226` advanced to Ready for Review (tranche-X approval routing card + transition-safe templates).
+  - `TASK-0231` added/executed to Ready for Review (tranche-Y decision digest for next stale cohort).
+  - Review packet published: `mission-control/review-packets/RP-0103-board-build-window-night-2026-03-25.md`.
+- Credentialed blocker chain unchanged:
+  - `TASK-0159` / `TASK-0111` still require live `BASE_URL` + `TEAM_SESSION_COOKIE`; post-PASS replay remains `TASK-0160`.
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-25)
+- Daily log created at `memory/2026-03-25.md` and distilled into durable snapshot above.
+- Durable changes captured: tranche-X routing completion (`TASK-0226`) and tranche-Y decision digest (`TASK-0231`) with `RP-0103`.
+- No new operating-rule changes.
+- No scoring-policy changes.
