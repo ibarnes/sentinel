@@ -172,5 +172,19 @@
       "remittances"
     ],
     "trust_tier": "tier2"
+  },
+  {
+    "source_id": "nairametrics-home",
+    "name": "Nairametrics",
+    "type": "webpage",
+    "url": "https://nairametrics.com/",
+    "enabled": true,
+    "default_tags": [
+      "nigeria",
+      "markets",
+      "policy",
+      "capital"
+    ],
+    "trust_tier": "tier2"
   }
 ]

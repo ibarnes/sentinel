@@ -1,12 +1,12 @@
 {
-  "last_run_at": "2026-03-25T22:41:44.788Z",
+  "last_run_at": "2026-03-25T22:48:18.110Z",
   "cadence": "0 */6 * * *",
   "notes": "Auto-refresh every 6 hours via cron; manual refresh available on /dashboard/signals-feed",
   "last_run_stats": {
-    "total_sources": 14,
+    "total_sources": 15,
     "ok_sources": 10,
-    "failed_sources": 4,
-    "items_added": 39,
+    "failed_sources": 5,
+    "items_added": 9,
     "failures": [
       {
         "source": "Reuters World",
@@ -26,6 +26,11 @@
       {
         "source": "Financial Times (Cargill AI yield)",
         "url": "https://www.ft.com/content/9089e369-92f4-48dc-ac09-46b6a62035a6",
+        "status": 403
+      },
+      {
+        "source": "Nairametrics",
+        "url": "https://nairametrics.com/",
         "status": 403
       }
     ]
