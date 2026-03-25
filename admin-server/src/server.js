@@ -2586,6 +2586,11 @@ app.get('/dashboard/signals-feed', requireAnyAuth, async (req, res) => {
   const feed = await readJson(DASHBOARD_SIGNALS_FEED_FILE, []);
   const q = String(req.query.q || '').trim().toLowerCase();
   const meta = await readJson(path.join(ROOT, 'dashboard/data/signals_feed.meta.json'), {});
+  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
+  const refreshStatus = String(req.query.refresh || '').trim().toLowerCase();
+  const refreshMsg = refreshStatus === 'ok'
+    ? '<div class="alert alert-success py-2">Signals feed refreshed.</div>'
+    : (refreshStatus === 'err' ? '<div class="alert alert-danger py-2">Refresh failed. Check server logs.</div>' : '');
   const sorted = [...feed].sort((a,b)=>String(b.published_at||'').localeCompare(String(a.published_at||'')));
   const filtered = q ? sorted.filter((x)=>`${x.title||''} ${x.summary||''} ${(x.tags||[]).join(' ')} ${x.source||''}`.toLowerCase().includes(q)) : sorted;
   const cards = filtered.map((x) => {
@@ -2596,7 +2601,10 @@ app.get('/dashboard/signals-feed', requireAnyAuth, async (req, res) => {
 
   const freshness = meta.last_run_at ? `Last refresh: ${escapeHtml(String(meta.last_run_at))}` : 'Last refresh: never';
   const headerActions = `<a class="btn btn-sm btn-outline-secondary" href="/dashboard/signals-feed/export.json">Get JSON</a>`;
-  res.type('html').send(`<!doctype html><html><head>${uiHead('Signals Feed')}</head><body><div class="app-shell">${dashboardNav('signals-feed')}${pageHeader('Signals Feed', headerActions, 'Discovery stream — promote qualified signals to canonical register')}<div class="d-flex justify-content-between align-items-center mb-2"><div class="small text-muted">${freshness}</div><form method="post" action="/api/signals-feed/refresh"><button class="btn btn-sm btn-primary" type="submit">Refresh Feed</button></form></div><form method="get" class="row g-2 mb-3"><div class="col-md-6"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q||''))}" placeholder="Search feed"/></div><div class="col-md-6 d-flex gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="/dashboard/signals-feed">Reset</a></div></form>${cards || '<div class="text-muted">No feed items yet. Run collector script.</div>'}</div></body></html>`);
+  const refreshControl = canEdit
+    ? '<form method="post" action="/api/signals-feed/refresh"><button class="btn btn-sm btn-primary" type="submit">Refresh Feed</button></form>'
+    : '<button class="btn btn-sm btn-secondary" type="button" disabled title="Requires architect/editor role">Refresh Feed</button>';
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Signals Feed')}</head><body><div class="app-shell">${dashboardNav('signals-feed')}${pageHeader('Signals Feed', headerActions, 'Discovery stream — promote qualified signals to canonical register')}${refreshMsg}<div class="d-flex justify-content-between align-items-center mb-2"><div class="small text-muted">${freshness}</div>${refreshControl}</div><form method="get" class="row g-2 mb-3"><div class="col-md-6"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q||''))}" placeholder="Search feed"/></div><div class="col-md-6 d-flex gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="/dashboard/signals-feed">Reset</a></div></form>${cards || '<div class="text-muted">No feed items yet. Run collector script.</div>'}</div></body></html>`);
 });
 
 app.get('/dashboard/signals-feed/export.json', requireAnyAuth, async (_req, res) => {
@@ -2605,14 +2613,32 @@ app.get('/dashboard/signals-feed/export.json', requireAnyAuth, async (_req, res)
 });
 
 app.post('/api/signals-feed/refresh', requireRole('architect','editor'), async (_req, res) => {
-  const cmd = `node ${path.join(ROOT, 'scripts/signals-feed/build-signals-feed.mjs')}`;
-  exec(cmd, { timeout: 180000 }, async (_err, _stdout, _stderr) => {
-    const metaPath = path.join(ROOT, 'dashboard/data/signals_feed.meta.json');
+  const metaPath = path.join(ROOT, 'dashboard/data/signals_feed.meta.json');
+  try {
+    const { spawnSync } = await import('node:child_process');
+    const scriptPath = path.join(ROOT, 'scripts/signals-feed/build-signals-feed.mjs');
+    const run = spawnSync('node', [scriptPath], { cwd: ROOT, encoding: 'utf8', timeout: 180000 });
+    if (run.error || run.status !== 0) {
+      const detail = run.error ? String(run.error.message || run.error) : String(run.stderr || run.stdout || 'unknown error');
+      await appendAuditEvent({
+        ts: nowIso(),
+        actor: getUserLabel(_req),
+        role: effectiveRole(_req) || 'unknown',
+        event_type: 'workflow.error',
+        entity_type: 'signals_feed',
+        entity_id: 'refresh',
+        meta: { detail: detail.slice(0, 1200) }
+      }).catch(() => {});
+      return res.redirect('/dashboard/signals-feed?refresh=err');
+    }
+
     const meta = await readJson(metaPath, {});
     meta.last_run_at = nowIso();
     await writeJson(metaPath, meta);
-  });
-  res.redirect('/dashboard/signals-feed');
+    return res.redirect('/dashboard/signals-feed?refresh=ok');
+  } catch (_err) {
+    return res.redirect('/dashboard/signals-feed?refresh=err');
+  }
 });
 
 app.post('/api/signals-feed/promote/:id', requireRole('architect','editor'), async (req, res) => {
