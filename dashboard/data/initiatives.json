@@ -1520,8 +1520,8 @@
             "role_id": "ai_compute_architecture_provider",
             "role_label": "AI Compute Architecture Provider",
             "layer": "delivery",
-            "status": "identified",
-            "notes": "",
+            "status": "engaged",
+            "notes": "2026-03-25: USG (Leo LaBranche) executed direct outreach thread to NVIDIA (Raj + team) to unblock INIT-AP-AI-FACTORY-001 table access constraint; awaiting response/meeting confirmation.",
             "mapped_entity_type": "organization",
             "mapped_entity_ref": "NVIDIA",
             "is_critical_role": true,
@@ -1988,8 +1988,8 @@
           "role_id": "ai_compute_architecture_provider",
           "role_label": "AI Compute Architecture Provider",
           "layer": "delivery",
-          "status": "identified",
-          "notes": "",
+          "status": "engaged",
+          "notes": "2026-03-25: USG (Leo LaBranche) executed direct outreach thread to NVIDIA (Raj + team) to unblock INIT-AP-AI-FACTORY-001 table access constraint; awaiting response/meeting confirmation.",
           "mapped_entity_type": "organization",
           "mapped_entity_ref": "NVIDIA",
           "is_critical_role": true,
@@ -2090,15 +2090,16 @@
         }
       ]
     },
-    "updated_at": "2026-03-09T23:44:00Z",
+    "updated_at": "2026-03-25T18:39:09.994Z",
     "current_state": "governance_ready",
     "readiness_score": 54,
     "max_possible_score": 65,
     "next_required_state": "capital_ready",
     "critical_constraints": [
-      "Capital stack definition not finalized"
+      "Capital stack definition not finalized",
+      "NVIDIA table access and participation not yet secured"
     ],
-    "primary_constraint": "Capital stack definition not finalized",
+    "primary_constraint": "NVIDIA table access and participation not yet secured",
     "next_required_transition": "st_req_init_ap_ai_factory_001_capital_commitment",
     "last_transition_id": "st_seed_2026_03_19_init_ap_ai_factory_001",
     "last_transition_timestamp": "2026-03-19T16:00:00Z",
@@ -2106,12 +2107,25 @@
     "readiness_explain": {
       "last_delta": 3,
       "last_transition_id": "st_seed_2026_03_19_init_ap_ai_factory_001",
-      "cap_reason": "high blocker: capital stack definition not finalized",
+      "cap_reason": "high blocker: NVIDIA table access and participation not yet secured",
       "regression_impact_30d": 0
     },
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "execution_updates": [
+      {
+        "ts": "2026-03-25T18:39:09.994Z",
+        "type": "constraint_unblock_attempt",
+        "initiative_id": "INIT-AP-AI-FACTORY-001",
+        "actor": "USG / Leo LaBranche",
+        "target": "NVIDIA (Raj + team)",
+        "summary": "Direct outreach executed to secure NVIDIA table participation and unblock delivery-gate constraint.",
+        "status": "pending_response",
+        "provenance": "provided_by_isaac",
+        "evidence_ref": "Telegram images, message 3314 (2026-03-25)"
+      }
+    ]
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
