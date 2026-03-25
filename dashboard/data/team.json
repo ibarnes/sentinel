@@ -1,10 +1,15 @@
 [
   {
     "name": "Bryan Klint",
-    "email": "bryan@unifiedstategroup.com",
-    "title": "Title TBD",
+    "email": "bklint@salesforce.com",
+    "title": "Managing Director and Board Member",
     "status": "active",
-    "role": "Originator"
+    "role": "Board Member / Strategic Advisor",
+    "organization": "Salesforce | Unified State Group | AVMA",
+    "location": "Greater Minneapolis-St. Paul Area",
+    "linkedin": "https://www.linkedin.com/in/bryanklint",
+    "bio": "Global Managing Director at Salesforce and USG Board Member/Founding Member focused on CRM-driven growth, strategic partnerships, and impact-oriented market acceleration.",
+    "updated_at": "2026-03-25T02:32:00Z"
   },
   {
     "name": "Cedric B Hill, Hon.D.",
@@ -42,7 +47,7 @@
     "education": "20+ years international business; Milken Institute African Leaders Business Council",
     "bio": "President and Founding Partner focused on international expansion, transaction development, and strategic capital pathways across Africa/MENA and emerging markets.",
     "profile_image": "/public/actor-images/richard-j-hoffman.jpg",
-    "updated_at": "2026-03-25T02:30:00Z",
+    "updated_at": "2026-03-25T02:32:00Z",
     "linkedin": "https://www.linkedin.com/in/richard-j-hoffman-a94282237"
   },
   {

@@ -16635,9 +16635,13 @@
       {
         "label": "User-provided LinkedIn screenshot",
         "url": "internal://isaac-provided/media/richard-j-hoffman-linkedin-2026-03-25"
+      },
+      {
+        "label": "Richard Hoffman profile PDF (provided by Isaac)",
+        "url": "internal://isaac-provided/pdf/richard-hoffman-profile-2026-03-25"
       }
     ],
-    "updated_at": "2026-03-25T02:30:00Z"
+    "updated_at": "2026-03-25T02:32:00Z"
   },
   {
     "actor_id": "actor-us-stephanie-karp-loosvelt",
@@ -16706,5 +16710,36 @@
     "notes": "Senior customer executive at SAP and USG strategic advisor with sales, enterprise growth, and board-level transaction experience.",
     "resolution_status": "confirmed",
     "updated_at": "2026-03-25T02:30:00Z"
+  },
+  {
+    "actor_id": "actor-us-bryan-klint",
+    "name_display": "Bryan Klint",
+    "first_name": "Bryan",
+    "last_name": "Klint",
+    "organization_primary": "Salesforce | Unified State Group",
+    "designation": "Managing Director and Board Member",
+    "country_normalized": "United States",
+    "actor_type": "operator",
+    "relationship_type": "board_member",
+    "unlock_role": "approves",
+    "relationship_degree": "1st_degree",
+    "link_strength": "high",
+    "access_path": "direct",
+    "linked_initiatives": [
+      "USG"
+    ],
+    "signal_status": "active",
+    "resolution_status": "confirmed",
+    "owner": "Unified State Group",
+    "email": "bklint@salesforce.com",
+    "profile_url": "https://www.linkedin.com/in/bryanklint",
+    "notes": "Global Managing Director at Salesforce and USG Board Member/Founding Member focused on CRM-driven growth, strategic partnerships, and impact-oriented market acceleration.",
+    "sources": [
+      {
+        "label": "Bryan Klint profile PDF (provided by Isaac)",
+        "url": "internal://isaac-provided/pdf/bryan-klint-profile-2026-03-25"
+      }
+    ],
+    "updated_at": "2026-03-25T02:32:00Z"
   }
 ]
