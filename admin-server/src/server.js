@@ -133,19 +133,20 @@ function uiHead(title) {
 <script defer src="/public/vendor/cytoscape.min.js"></script>
 <style>
   :root {
-    --bg: #0f1115;
-    --surface: #151922;
-    --surface-elevated: #1a202b;
-    --border: #252c39;
-    --text: #e8ecf3;
-    --text-muted: #9aa5b4;
-    --accent: #4f8cff;
-    --accent-soft: rgba(79, 140, 255, 0.16);
+    --bg: #070b14;
+    --surface: #0f1728;
+    --surface-elevated: #121d33;
+    --border: #253659;
+    --text: #eaf1ff;
+    --text-muted: #9fb0d4;
+    --accent: #66e3ff;
+    --accent-2: #7effb4;
+    --accent-soft: rgba(102, 227, 255, 0.18);
     --radius-sm: 12px;
     --radius-md: 14px;
     --radius-lg: 16px;
-    --shadow-sm: 0 12px 24px rgba(2, 8, 20, 0.18);
-    --shadow-lg: 0 20px 44px rgba(2, 8, 20, 0.28);
+    --shadow-sm: 0 14px 30px rgba(2, 8, 20, 0.28);
+    --shadow-lg: 0 24px 56px rgba(2, 8, 20, 0.42);
     --tr-fast: 180ms ease;
   }
 
@@ -162,11 +163,15 @@ function uiHead(title) {
     --shadow-lg: 0 16px 30px rgba(15, 23, 38, 0.12);
   }
 
-  html, body { background: var(--bg); color: var(--text); font-family: Inter, "Segoe UI", Roboto, sans-serif; }
+  html, body {
+    background: radial-gradient(1200px 700px at 84% -18%, rgba(46,80,145,.38) 0%, transparent 62%), var(--bg);
+    color: var(--text);
+    font-family: Inter, "Segoe UI", Roboto, sans-serif;
+  }
   body { min-height: 100vh; }
   body.nav-drawer-open { overflow: hidden; }
-  a { color: #86b2ff; text-decoration: none; }
-  a:hover { color: #a3c6ff; }
+  a { color: #9adfff; text-decoration: none; }
+  a:hover { color: #c7efff; }
   .app-shell { max-width: 1380px; margin: 24px auto; padding: 0 16px; }
   .page-title { font-size: 1.65rem; font-weight: 650; margin: 0; letter-spacing: -0.02em; }
   .section-title { font-size: 1rem; font-weight: 600; margin: 0; }
@@ -196,7 +201,10 @@ function uiHead(title) {
   }
 
   .card,
-  .navbar { box-shadow: var(--shadow-sm); }
+  .navbar {
+    box-shadow: var(--shadow-sm);
+    border: 1px solid color-mix(in srgb, var(--border) 85%, #ffffff 15%) !important;
+  }
   .card.elevated { box-shadow: var(--shadow-lg); background: var(--surface-elevated) !important; }
 
   .form-control,
@@ -250,11 +258,16 @@ function uiHead(title) {
 
   .btn { transition: all var(--tr-fast); min-height: 38px; }
   .btn-primary {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #f8fbff;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border-color: transparent;
+    color: #032233;
+    font-weight: 650;
   }
-  .btn-primary:hover { background: #669bff; border-color: #669bff; }
+  .btn-primary:hover {
+    filter: brightness(1.05);
+    border-color: transparent;
+    color: #032233;
+  }
   .btn-outline-secondary,
   .btn-outline-primary {
     border-color: var(--border);
