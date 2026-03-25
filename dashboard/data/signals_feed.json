@@ -1,5 +1,359 @@
 [
   {
+    "feed_id": "ts7cim",
+    "source": "TheCable — CBN IMTO Naira Settlement Directive",
+    "source_id": "thecable-cbn-imto-naira-settlement-2026-03-24",
+    "title": "No more dollar payments as CBN directs IMTOs to open naira settlement accounts",
+    "summary": "The CBN has directed all international money transfer operators (IMTOs) to open naira settlement accounts and route all...",
+    "url": "https://www.thecable.ng/no-more-dollar-payments-as-cbn-directs-imtos-to-open-naira-settlement-accounts/",
+    "image_url": "https://www.thecable.ng/wp-content/uploads/2026/03/Dollars_TheCable.jpeg",
+    "published_at": "2026-03-25T22:41:44.769Z",
+    "tags": [
+      "nigeria",
+      "cbn",
+      "fx-policy",
+      "remittances"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "8etkb3",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "OpenClaw Agents Can Be Guilt-Tripped Into Self-Sabotage",
+    "summary": "In a controlled experiment, OpenClaw agents proved prone to panic and vulnerable to manipulation. They even disabled their own functionality when gaslit by humans.",
+    "url": "https://www.wired.com/story/openclaw-ai-agent-manipulation-security-northeastern-study/",
+    "image_url": "",
+    "published_at": "2026-03-25T18:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "i0sps7",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Nasdaq bounces as oil price softens as US pushes for Iran talks",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-set-bounce-back-oil-120000903.html",
+    "image_url": "https://media.zenfs.com/en/proactive_us_504/b5fc6eb4a70870ab9d0e31f928ecda64",
+    "published_at": "2026-03-25T16:17:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ywrx25",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jensen Huang Just Made a $1 Trillion Prediction. One Stock Benefits Most, and It’s Not Nvidia",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-just-made-1-160927290.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/6fb7016c6d286557a8958760856243b4",
+    "published_at": "2026-03-25T16:09:27.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "6m7lkx",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Meta Set To Lay Off 'Hundreds' Amid Expensive AI Push: Report",
+    "summary": "",
+    "url": "https://www.investors.com/news/technology/meta-stock-layoffs-reality-labs-metaverse/?src=A00220&amp;yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/1facf66d2ae9609e2b06542587df649a",
+    "published_at": "2026-03-25T16:08:34.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "wwwgqh",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "TSM vs. AVGO: Which is a Better Semiconductor Stock?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/tsm-vs-avgo-better-semiconductor-160812191.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/d9f12e155ff4625bcae79553b9be2b93",
+    "published_at": "2026-03-25T16:08:12.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2mvms6",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "AI will not lead to mass permanent unemployment",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/articles/ai-not-lead-mass-permanent-160805416.html",
+    "image_url": "https://media.zenfs.com/en/verdict_626/d6e98bcce764e6fcb74b2e1fe3ea3c2b",
+    "published_at": "2026-03-25T16:08:05.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "yy1t76",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Nvidia Projects $1 Trillion in Artificial Intelligence (AI) Chip Sales Through 2027. Here's 1 Stock to Buy Hand Over Fist Before That Happens.",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-projects-1-trillion-artificial-160500271.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/35be98cc197fb0ed73cf8fb9d116e50a",
+    "published_at": "2026-03-25T16:05:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "6w2i6j",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "3 Beaten-Down Dividend Aristocrats to Scoop Up While Wall Street Chases AI Stocks Into a Cliff",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/3-beaten-down-dividend-aristocrats-160348068.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/2a6deef6e5508e9c6eff0a7fb9f69abe",
+    "published_at": "2026-03-25T16:03:48.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jlqpor",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Workers everywhere feel very bad about their job security",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/workers-everywhere-feel-very-bad-about-their-job-security-160224025.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2026-03/4f17bf00-285a-11f1-9dbf-702caa2d50ae",
+    "published_at": "2026-03-25T16:02:24.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "db77hv",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Intel Stock Is Rising. Why the Chip Maker is Making ‘Pricing Updates.’",
+    "summary": "",
+    "url": "https://www.barrons.com/articles/intel-stock-price-chip-sector-semiconductors-cpu-3575ea0d?siteid=yhoof2&amp;yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/Barrons.com/efb9eb9abbaeb51a7e28c011b62ac4d1",
+    "published_at": "2026-03-25T16:02:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "aogep3",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "4 ETFs to Consider for the End of the Iran War",
+    "summary": "",
+    "url": "https://www.barrons.com/articles/4-etfs-end-of-the-iran-war-ec887a3a?siteid=yhoof2&amp;yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/Barrons.com/4d522dcca83013fdea30a98e87f2ff1d",
+    "published_at": "2026-03-25T16:02:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "lx2nct",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Lyft rolls out driver-relief program as US fuel prices climb",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/lyft-rolls-driver-relief-program-155531401.html",
+    "image_url": "https://media.zenfs.com/en/reuters.com/263c2f259a7721cb886bb9f44a301f69",
+    "published_at": "2026-03-25T16:01:28.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "3krnap",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How Zillow Preview affects Chicago’s battle over pre-market inventory",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/zillow-preview-affects-chicago-battle-160000570.html",
+    "image_url": "https://media.zenfs.com/en/the_real_deal_435/b273182f13ca4c401be1d720c465a855",
+    "published_at": "2026-03-25T16:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "uv6o77",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Echo Global Logistics expands platform with ITS acquisition",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/echo-global-logistics-expands-platform-155830454.html",
+    "image_url": "https://media.zenfs.com/en/freightwaves_373/2d4954a87a55127355db9e9d0b06c898",
+    "published_at": "2026-03-25T15:58:30.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "z9ylly",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Gold Stock Stabilization Creates Opening For Ownership At A Discount",
+    "summary": "",
+    "url": "https://www.investors.com/research/options/gold-stock-agnico-eagle-mines-aem-options-trade-markets-cash-secured-put/?src=A00220&amp;yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/161c8703892ae64a43ae9d13c6990675",
+    "published_at": "2026-03-25T15:56:16.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "lhwj80",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -17,6 +371,28 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "by9vws",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why Floor &amp; Decor Holdings (FND) Could Rebound Sharply with Housing Recovery",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/why-floor-decor-holdings-fnd-155413564.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/288618b500c5532a6e1e978c396cb0f2",
+    "published_at": "2026-03-25T15:54:13.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
     ]
@@ -303,6 +679,28 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "9ehu0n",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Coinbase Integrates Chainlink to Deliver Institutional Trading Data Onchain",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/coinbase-integrates-chainlink-deliver-institutional-153700667.html",
+    "image_url": "https://media.zenfs.com/en/cryptoprowl_304/fbb7edff49fa88570ab75b3c1a3ea5e1",
+    "published_at": "2026-03-25T15:37:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
     "initiative_ids": [
       "USG"
     ]
@@ -2993,6 +3391,28 @@
     ]
   },
   {
+    "feed_id": "f55eon",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How are people affording houses in today's market? 10 expert-backed tips for buyers.",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/banking/article/how-are-people-affording-houses-in-todays-market-195928862.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-06/8a0cdc30-4dea-11f0-853b-6352d2a30cb4",
+    "published_at": "2026-03-24T19:59:28.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "6c4m8s",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-news",
@@ -3037,6 +3457,28 @@
     ]
   },
   {
+    "feed_id": "5w827s",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Influencer tax rules: A guide for TikTok, Twitch, and other creators",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/taxes/article/influencer-tax-rules-a-guide-for-tiktok-twitch-and-other-creators-172421382.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2021-09/fd538840-17cc-11ec-a67f-748cfdf04400",
+    "published_at": "2026-03-24T17:24:21.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "dri190",
     "source": "WIRED Business",
     "source_id": "wired-business",
@@ -3048,6 +3490,864 @@
     "tags": [
       "technology",
       "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "o4osgs",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Lean Hog Prices Are Falling: Sell When They Hit This Price",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/lean-hog-prices-falling-sell-144748592.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/612b7c16041ab850a4c03bd8c2a201ef",
+    "published_at": "2026-03-24T14:47:48.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "sogyrh",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "What OpenAI’s IPO Risk Disclosure Really Tells Us About Microsoft’s Position",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/openai-ipo-risk-disclosure-really-144732767.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/e2cebdccf82bd8bc766d22fc56cf4dcc",
+    "published_at": "2026-03-24T14:47:32.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "np7qnz",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Wall Street's Crypto Ties Deepen as NYSE Taps Securitize for Tokenized Securities",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/wall-streets-crypto-ties-deepen-144700522.html",
+    "image_url": "https://media.zenfs.com/en/decrypt_157/1a84e395b73c21928c58cb3c94f56ac3",
+    "published_at": "2026-03-24T14:47:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "432rt4",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "From $383 to $500: BofA’s Bold Microsoft Call Rests on Azure and Copilot Momentum",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/383-500-bofa-bold-microsoft-144544159.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/d1715da5f795272432068ed0c23e4417",
+    "published_at": "2026-03-24T14:45:44.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "wmm8ar",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Market Minute 3-24-26- Markets Weigh Mideast Deal Details",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/market-minute-3-24-26-144500645.html",
+    "image_url": "https://media.zenfs.com/en/moneyshow_610/7331f7da0d28bd1831a5da26e06bbbb3",
+    "published_at": "2026-03-24T14:45:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "1wukzt",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Apollo Caps Cashouts at Its $25 Billion Debt Fund. Why Investors Are Rushing for the Exit.",
+    "summary": "",
+    "url": "https://www.barrons.com/articles/apollo-caps-withdrawals-private-credit-stock-a8b905be?siteid=yhoof2&amp;yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/Barrons.com/44d4c2636e298e87b780e9b48befd8d0",
+    "published_at": "2026-03-24T14:45:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "xegwjb",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is F5 Stock Outperforming the Dow?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/f5-stock-outperforming-dow-144435046.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/11f6b740a2a4a2027640c947586de76e",
+    "published_at": "2026-03-24T14:44:35.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "a8rrlg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "RadNet (RDNT) Acquires Gleamer for €230 Million",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/radnet-rdnt-acquires-gleamer-230-144319165.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/aaf021dccf3b144ed4365b584abcb555",
+    "published_at": "2026-03-24T14:43:19.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "gx7dqo",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Craig-Hallum Reaffirms Buy on GeneDx (WGS) With $153 Price Target",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/craig-hallum-reaffirms-buy-genedx-144317655.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/59f5e0462e2d7b80ecfab6610b52f17d",
+    "published_at": "2026-03-24T14:43:17.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "itrctf",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Waters (WAT) Prices $3.5 Billion Senior Notes Offering",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/waters-wat-prices-3-5-144316159.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/be16c96f22d8b010adc2dc1ee822caaf",
+    "published_at": "2026-03-24T14:43:16.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "besye5",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Morgan Stanley Lowers Personalis (PSNL) Price Target to $10",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-lowers-personalis-psnl-144314497.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/bd19a2ab1281659b3ef974e09ab73e0f",
+    "published_at": "2026-03-24T14:43:14.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "lqni4w",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "CareDx (CDNA) Launches AI-based Platform VANTx",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/caredx-cdna-launches-ai-based-144313909.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/3b343e18c5ebf7d5580a32740b53b5b3",
+    "published_at": "2026-03-24T14:43:13.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "i5n8fv",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "TD Cowen Upgrades IQVIA (IQV) to Buy and Raises Price Target to $213",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/td-cowen-upgrades-iqvia-iqv-144311003.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/93ee6d480da3a844ab166851d03e1ab8",
+    "published_at": "2026-03-24T14:43:11.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "udaoax",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Agilent Technologies (A) to Acquire Biocare Medical for $950M",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/agilent-technologies-acquire-biocare-medical-144310353.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/e781b5633d937e03b3149f4a2c7197b7",
+    "published_at": "2026-03-24T14:43:10.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "g7lfms",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Natera (NTRA) Launches Zenith Genomic Assay",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/natera-ntra-launches-zenith-genomic-144308857.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/364039ca54951922b161043bc831536b",
+    "published_at": "2026-03-24T14:43:08.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "nqqg1q",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Thermo Fisher Scientific (TMO) Partners With AIM ImmunoTech on Phase 3 Cancer Trial",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/thermo-fisher-scientific-tmo-partners-144306984.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/310be9e29c6b513c3887b32a8d69f0b6",
+    "published_at": "2026-03-24T14:43:06.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "gb125z",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Danaher (DHR) Projects 2026 Revenue Growth at TD Cowen 46th Annual Health Care Conference",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/danaher-dhr-projects-2026-revenue-144304502.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/1329434e26e794dd4fa201803012e840",
+    "published_at": "2026-03-24T14:43:04.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "g4vd02",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Here's How Oil Stock Volatility Is Affecting This Leading Solar Energy Company",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/heres-oil-stock-volatility-affecting-144300690.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/7175c5da97140e047306f596bb9aa554",
+    "published_at": "2026-03-24T14:43:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tmpk7f",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why NexGen Energy’s Rook I Approval Could Mark a Turning Point for Its Uranium Buildout",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/why-nexgen-energy-rook-approval-144102895.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/93d6c5caf4d87c641d141db92f60638b",
+    "published_at": "2026-03-24T14:41:02.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "9by41v",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How Deep Yellow’s Tumas Progress Is Shaping the Next Phase of Its Uranium Development Story",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/deep-yellow-tumas-progress-shaping-144100536.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/883bc53bf157c1e98869643fa12bcb54",
+    "published_at": "2026-03-24T14:41:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "w07sqb",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why HC Wainwright Sees Uranium Energy Well Positioned for a Bigger Production Ramp",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/why-hc-wainwright-sees-uranium-144058894.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/489bcabc959238bf4d2ddb7f798da2c6",
+    "published_at": "2026-03-24T14:40:58.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "msndl1",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How Energy Fuels’ 2026 Outlook Framed 2025 as a Transformational Year for the Company",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/energy-fuels-2026-outlook-framed-144057575.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/1d4f4811d5f84d643e1fb5ff4d531b4c",
+    "published_at": "2026-03-24T14:40:57.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "cslrts",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why enCore Energy’s 2025 Production Gains Matter for Its Contract-Delivery Strategy",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/why-encore-energy-2025-production-144055210.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/1c3688cd4565f80154675597adaca2f9",
+    "published_at": "2026-03-24T14:40:55.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "1wmguu",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Capital One Has Investors Spooked, but Here’s What Wall Street Expects",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/capital-one-investors-spooked-wall-144005908.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/f5d2574118daead0256105e3ac658d81",
+    "published_at": "2026-03-24T14:40:05.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "wr3ygz",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Estée Lauder Stock Plunges After Puig Merger Talk. Why It’s Getting Ugly for Shares.",
+    "summary": "",
+    "url": "https://www.barrons.com/articles/estee-lauder-stock-price-puig-merger-deal-5095cf93?siteid=yhoof2&amp;yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/Barrons.com/13fa78a0b4232014aff001f77e433dd9",
+    "published_at": "2026-03-24T14:38:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ocmanb",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "'Buy the Dip' Signal on Uranium Stock Has Never Been Wrong",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/buy-dip-signal-uranium-stock-143750136.html",
+    "image_url": "https://media.zenfs.com/en/schaeffers_investment_research_24/cc39314184608592cb5e513681861a3a",
+    "published_at": "2026-03-24T14:37:50.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "foss01",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Dollar Supported by Weak Stocks and Higher Bond Yields",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/currencies/articles/dollar-supported-weak-stocks-higher-143227968.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/84ae0eb9df2ee375c1348da6ad2c252a",
+    "published_at": "2026-03-24T14:32:27.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qu3a1j",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Comfort Systems Stock: Is FIX Outperforming the Industrial Sector?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/comfort-systems-stock-fix-outperforming-143224763.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/3f2b2212851a490d8776edab8f3fa392",
+    "published_at": "2026-03-24T14:32:24.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "pdfywp",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Foreign Funds Ditch $50 Billion in Asian Stocks as Oil Shock Dims Prospects",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/foreign-funds-ditch-50-billion-143000303.html",
+    "image_url": "https://media.zenfs.com/en/oilprice.com/9b0076960b19148f055eac4e8d0197e4",
+    "published_at": "2026-03-24T14:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "pviht5",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How Oklo’s DOE Milestone Advanced Its Push Into Domestic Isotope Production",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/oklo-doe-milestone-advanced-push-142748091.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/0a9c57a0a1329e42a9ebd9a675e5fd51",
+    "published_at": "2026-03-24T14:27:48.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "dnj6e6",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why Ur-Energy’s Higher 2026 Spending Hasn’t Derailed Wall Street’s Broader View",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/why-ur-energy-higher-2026-142746019.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/3d20326d6ca50812c875e9add574d7ff",
+    "published_at": "2026-03-24T14:27:46.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "acsbt5",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How NuScale Is Expanding Its Nuclear Pitch Beyond Power Generation and Into Industrial Heat",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/nuscale-expanding-nuclear-pitch-beyond-142745505.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/fa299f1b6163624ef04d7e20683171da",
+    "published_at": "2026-03-24T14:27:45.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tah19p",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why Denison Mines’ Construction Timeline Is Central to the Bull Case After TD’s Target Hike",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/why-denison-mines-construction-timeline-142743228.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/f3e61b43510e7d24d413f9975317fa63",
+    "published_at": "2026-03-24T14:27:43.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "flfm3t",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How Centrus Thinks Palantir Can Help Cut Costs in Its Enrichment Expansion Effort",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/centrus-thinks-palantir-help-cut-142741142.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/675ff11074fa0f9f4d21657de208d173",
+    "published_at": "2026-03-24T14:27:41.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "t6zc9x",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer on Corning Incorporated: “We’ll Pick Some Up After the Sell, Not Before”",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-corning-incorporated-ll-142619289.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/293138d34069d99e680c827f55215206",
+    "published_at": "2026-03-24T14:26:19.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "nn9lkj",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer Recommends a Caller to Sell Half of Their Coterra Energy Position and “Let the Rest Run”",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-recommends-caller-sell-142616129.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/86b6f1eab4d4c0ffbf065f3a834e0a1b",
+    "published_at": "2026-03-24T14:26:16.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "89hen8",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer on TechnipFMC plc: “It’s Still Inexpensive Versus the Others in the Cohort”",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-technipfmc-plc-still-142615653.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/753cb9cb32336de8f86289f7a7c7b36e",
+    "published_at": "2026-03-24T14:26:15.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "h6e64k",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "More Americans than ever are turning to personal loans. Here's what's driving it.",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/personal-loans/article/more-americans-than-ever-are-turning-to-personal-loans-heres-whats-driving-it-141834099.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2021-09/422c56a0-0ffc-11ec-bfdb-550413521f4b",
+    "published_at": "2026-03-24T14:18:34.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2hfr4q",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "3 ways your relationship status could impact your tax bill",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/taxes/article/3-ways-your-relationship-status-could-impact-your-tax-bill-130041862.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-11/cfb654b0-c594-11f0-b5bb-bdd38023ffea",
+    "published_at": "2026-03-24T13:00:41.000Z",
+    "tags": [
+      "markets",
+      "capital"
     ],
     "trust_tier": "tier2",
     "relevance_score": 0,
@@ -3117,6 +4417,578 @@
     ],
     "trust_tier": "tier2",
     "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ovtsr4",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How Is Texas Pacific Land’s Stock Performance Compared to Other Oil &amp; Gas Stocks?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/texas-pacific-land-stock-performance-100123760.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/09451fa03336c1633f2a4f36d6866025",
+    "published_at": "2026-03-24T10:01:23.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "cpyg2l",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Best high-yield savings interest rates today, March 24, 2026 (Earn up to 4% APY)",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/article/best-high-yield-savings-interest-rates-today-tuesday-march-24-2026-100053103.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2024-07/61b31c70-4eb5-11ef-bef7-1c95e6978ba4",
+    "published_at": "2026-03-24T10:00:53.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "agz2v3",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Morning Brief: Hopes for a deal lift stocks — and send oil down",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/morning-brief-hopes-for-a-deal-lift-stocks--and-send-oil-down-100030178.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2026-03/76d41d30-26fd-11f1-bfff-473dcf596b04",
+    "published_at": "2026-03-24T10:00:30.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qwxu4c",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Best CD rates today, March 24, 2026: Lock in up to 4.15% APY today",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/banking/article/best-cd-rates-today-march-24-2026-lock-in-up-to-4-1-5-apy-today-100022097.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2024-07/c47b17e0-4f64-11ef-bfe0-fc9ef2fc2991",
+    "published_at": "2026-03-24T10:00:22.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "1oc8e0",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Best money market account rates today, March 24, 2026 (Earn up to 4.01% APY)",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/banking/article/best-money-market-account-rates-today-tuesday-march-24-2026-100004576.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-04/30d67df0-1a29-11f0-bffe-c9fedabef6b7",
+    "published_at": "2026-03-24T10:00:04.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "3aq7zz",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "HELOC and home equity loan rates today, March 24, 2026: Tap an average credit limit of nearly $150,000",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-home-equity-loan-rates-today-tuesday-march-24-2026-100000460.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-06/c4b61900-3fee-11f0-b7db-9b92c1c08f42",
+    "published_at": "2026-03-24T10:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qosgwe",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Mortgage and refinance interest rates today, March 24, 2026: Higher yet again",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-refinance-rates-today-tuesday-march-24-2026-100000603.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2024-04/700e25a0-fb43-11ee-be6b-a40c5cf2631a",
+    "published_at": "2026-03-24T10:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "h5v9vn",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "TotalEnergies Exits U.S. Offshore Wind and Redirects Capital to LNG",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/totalenergies-exits-u-offshore-wind-094600039.html",
+    "image_url": "https://media.zenfs.com/en/oilprice.com/797297c27bb42a7ba710f6b6e5f6e3eb",
+    "published_at": "2026-03-24T09:46:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "bflapl",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Super Micro’s Fate Lies in Nvidia’s Hands",
+    "summary": "",
+    "url": "https://www.wsj.com/finance/stocks/super-micros-fate-lies-in-nvidias-hands-ac3157ab?siteid=yhoof2&amp;yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/wsj.com/5b37d1d46f7fc577c5c0231b174d3edf",
+    "published_at": "2026-03-24T09:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ixv51k",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "China’s Green Energy Stocks Surge as Middle East War Upends Oil Markets",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/china-green-energy-stocks-surge-092700676.html",
+    "image_url": "https://media.zenfs.com/en/oilprice.com/0facde879ba150c442f06c129328bb94",
+    "published_at": "2026-03-24T09:27:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "99wexv",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "This \"Magnificent Seven\" Stock Is Historically Cheap and Begging to Be Bought (Hint: It's Not Nvidia)",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/magnificent-seven-stock-historically-cheap-092600896.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/b823ff73dee5557085dfc61cb0b16176",
+    "published_at": "2026-03-24T09:26:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "m5xt81",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Puig’s Shares Leap on Potential Estee Lauder Merger",
+    "summary": "",
+    "url": "https://www.wsj.com/business/retail/puigs-shares-leap-on-potential-estee-lauder-merger-85c31684?siteid=yhoof2&amp;yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/wsj.com/8b7828251db980c8ca859af929ee8d4b",
+    "published_at": "2026-03-24T09:25:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tlf2yr",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Zijin to acquire stake in Chifeng Gold",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/zijin-acquire-stake-chifeng-gold-092458794.html",
+    "image_url": "https://media.zenfs.com/en/mining_technology_700/d0763f6d159cfaa24ce856ee82dd4ae9",
+    "published_at": "2026-03-24T09:24:58.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "vn0jj9",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Here's Everything Investors Need to Know About the Upcoming SpaceX IPO",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/heres-everything-investors-know-upcoming-092000829.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/bb7187404c9404c76318adb32066bf26",
+    "published_at": "2026-03-24T09:20:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "fb4hee",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Cencora to buy EyeSouth’s retina business for $1.1B",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/cencora-buy-eyesouth-retina-business-091942040.html",
+    "image_url": "https://media.zenfs.com/en/healthcare_dive_849/e1063b63ffd8c1a424bc633f8d40ac5c",
+    "published_at": "2026-03-24T09:19:42.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "iqh340",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Hatch Bank CFO on liquidity, risk and the potential for automation",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/policy/articles/hatch-bank-cfo-liquidity-risk-091816683.html",
+    "image_url": "https://media.zenfs.com/en/cfo_com_600/3547d4ac6f110a1f09993aa8caa18437",
+    "published_at": "2026-03-24T09:18:16.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "xpfakl",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Bytes Technology Group Q4 Earnings Call Highlights",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/bytes-technology-group-q4-earnings-090531637.html",
+    "image_url": "https://media.zenfs.com/en/marketbeat_955/0f682b2a5863effd59271d8aaea62420",
+    "published_at": "2026-03-24T09:05:31.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "xocpvk",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How the Fed has — and hasn't — responded to previous oil price shocks",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/how-the-fed-has--and-hasnt--responded-to-previous-oil-price-shocks-090035039.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2026-03/afcab0c0-2461-11f1-a77f-d072934c7306",
+    "published_at": "2026-03-24T09:00:35.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "o8x4kp",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Ask an Advisor: I'm 58 With $700k Saved and No Social Security for 7 Years. How Do I Cover $3,000 Monthly Expenses?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/options/articles/ask-advisor-cover-3-000-110000758.html",
+    "image_url": "https://media.zenfs.com/en/smartasset_475/58fa2f15c54bf3640ef094d537a69fe6",
+    "published_at": "2026-03-24T09:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "rr3hvn",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Venture Global Secures 5-Year LNG Supply Deal With Vitol",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/venture-global-secures-5-lng-084535710.html",
+    "image_url": "https://media.zenfs.com/en/oilprice.com/fed081a50f18b3704ad210e0bfd8563b",
+    "published_at": "2026-03-24T08:45:35.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "8d7hnw",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Should I Convert 20% of My IRA to a Roth Each Year to Reduce Taxes and RMDs?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/options/articles/wise-convert-20-ira-roth-134014337.html",
+    "image_url": "https://media.zenfs.com/en/smartasset_475/a15c302d4ef6e950351b190bac3bd261",
+    "published_at": "2026-03-24T07:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "l19yn1",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is Vital Farms (VITL) One of the Best Small Cap Consumer Staples Stocks",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/vital-farms-vitl-one-best-063438275.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/ac95c1eccea45183d4b98d4116ca1f0e",
+    "published_at": "2026-03-24T06:34:38.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "158344",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "What Makes Utz Brands (UTZ) Appear so Attractive",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/makes-utz-brands-utz-appear-063435026.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/57e2eddbde1cf7deddfb257e1e2e6310",
+    "published_at": "2026-03-24T06:34:35.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "5wqas5",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Westrock Coffee (WEST) Inspires Confidence With Strong Fundamental Growth",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/westrock-coffee-west-inspires-confidence-063429170.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/b0f8f437e1c4b8d84d31fdb7277a0eb1",
+    "published_at": "2026-03-24T06:34:29.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2lis3t",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How Is Grocery Outlet (GO) Preparing to Navigate Supply Chain and Affordability Hurdles",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/grocery-outlet-preparing-navigate-supply-063427220.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/af81e4f2c1de167dfc9777f2b41d192c",
+    "published_at": "2026-03-24T06:34:27.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "1koscx",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Will Nature’s Sunshine (NATR) Capitalize on Untapped Opportunities",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/nature-sunshine-natr-capitalize-untapped-063424997.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/8b1a4d276483a112af2709d75732b696",
+    "published_at": "2026-03-24T06:34:24.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
@@ -3544,6 +5416,28 @@
     ]
   },
   {
+    "feed_id": "5qq42d",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "IRS staffing is down by 27% this year. Here’s how that could impact your refund.",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/taxes/article/irs-staffing-is-down-by-27-this-year-heres-how-that-could-impact-your-refund-130052643.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2026-03/b895ff10-180f-11f1-bff2-d2629070b44c",
+    "published_at": "2026-03-13T13:00:52.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "5ip18e",
     "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
@@ -3774,6 +5668,28 @@
     ]
   },
   {
+    "feed_id": "sccnmc",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "The complete list of credit card perks that reset each calendar year (2026)",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/credit-card-perks-calendar-year-214541060.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-06/92facfd0-5111-11f0-9f3d-0587eb66dfec",
+    "published_at": "2026-02-06T20:45:11.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "qvrlmo",
     "source": "Google News — Nigeria Digital Policing",
     "source_id": "google-news-nigeria-policing-digital",
@@ -3874,6 +5790,52 @@
     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE50LW0xU0I0aUdLZUtNaFFCNXhFSHhEdGtNMDRzYmRYZWFhQlpyWWlUQ0psc1RyeE80Q3RxTnRUNWhvX2hLdm5tZWNRMk9fcnp2b3FDMEFCM01LbmdseUZpdTg4QndLajBZ?oc=5",
     "image_url": "",
     "published_at": "2026-01-18T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ax8gys",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Lagos CCTV surveillance centre will enhance crime prevention — Police - Punch Newspapers",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxNXzctNkRzY3lmNXd6YldoaEN2cHFRaGFRTmphaFR2SnJrS0VFdDdLRnJVOVZqNWswaXdtUzk4RTI2VldhQ0NaMVExbFpZVjVWVi04QmtIem12NDVRVGNWTGlkaE5GX09FT0QxZ2Z4ZmNKVEFxdU5vYmpiWkhkRXZ6Zl9QOGlQUTJGN0R5aERuLUxiZw?oc=5\" target=\"_blank\"&gt;Lagos CCTV surveillance centre will enhance crime prevention — Police&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Punch Newspapers&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNXzctNkRzY3lmNXd6YldoaEN2cHFRaGFRTmphaFR2SnJrS0VFdDdLRnJVOVZqNWswaXdtUzk4RTI2VldhQ0NaMVExbFpZVjVWVi04QmtIem12NDVRVGNWTGlkaE5GX09FT0QxZ2Z4ZmNKVEFxdU5vYmpiWkhkRXZ6Zl9QOGlQUTJGN0R5aERuLUxiZw?oc=5",
+    "image_url": "",
+    "published_at": "2026-01-18T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "up8ydl",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Police arrest 49-year-old man for defiling minor in Oyo - Punch Newspapers",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMiggFBVV95cUxPeG5RZS1paGlLTUtnOUgzT0UwbUc1UEdUTWlBdE42LTNKWl9oZEhnZ1poUzZwOEdZY1JYYnMyRzE2OTV3ZkdDekppR3VoZE5MdlUwVzZMUzJOMUVIeDV2ejJnaUI3cEFyQkdlQ1o0R20yWXUxRWZXaUM5VkFaSnlMcVF3?oc=5\" target=\"_blank\"&gt;Police arrest 49-year-old man for defiling minor in Oyo&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Punch Newspapers&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPeG5RZS1paGlLTUtnOUgzT0UwbUc1UEdUTWlBdE42LTNKWl9oZEhnZ1poUzZwOEdZY1JYYnMyRzE2OTV3ZkdDekppR3VoZE5MdlUwVzZMUzJOMUVIeDV2ejJnaUI3cEFyQkdlQ1o0R20yWXUxRWZXaUM5VkFaSnlMcVF3?oc=5",
+    "image_url": "",
+    "published_at": "2026-01-09T08:00:00.000Z",
     "tags": [
       "google-news",
       "nigeria",
@@ -4395,6 +6357,29 @@
     ]
   },
   {
+    "feed_id": "nz5xfq",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "IGP Lays Foundation for Conference Centre at Lagos Police Command - PRNigeria News",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMickFVX3lxTE5WR3ZGTTBPb0NLWkhkbkRhSzZ1VjRucjYtSHBfRUhVeDBqVG1DVGJPakxHaVVwOHV3LVI1bTJ2LUNrZEdFOFZYUUYya3Z1MmRSVE9zREJ4RmsyRVdnelAzUHNMdEdYREZURjhTYVRKWC0wdw?oc=5\" target=\"_blank\"&gt;IGP Lays Foundation for Conference Centre at Lagos Police Command&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;PRNigeria News&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5WR3ZGTTBPb0NLWkhkbkRhSzZ1VjRucjYtSHBfRUhVeDBqVG1DVGJPakxHaVVwOHV3LVI1bTJ2LUNrZEdFOFZYUUYya3Z1MmRSVE9zREJ4RmsyRVdnelAzUHNMdEdYREZURjhTYVRKWC0wdw?oc=5",
+    "image_url": "",
+    "published_at": "2025-11-07T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "z1beoo",
     "source": "Google News — Nigeria Digital Policing",
     "source_id": "google-news-nigeria-policing-digital",
@@ -4610,6 +6595,29 @@
     "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQWnk2eDk1TkFQeEhkemFuVkJOVEthOFJzb1llX1psRzlzbW8yVEdiOFpIM2J2SzJaLVR6U3Q5WVZEUWlJYkRfeG04cXRBSWNvSVEwU1VPdWdSRVBmWFFBM1lIZllXeVRCRV9PeEVqSlNPc1NiWThjU3hxWFlaenRrckVuNGk2b29yYVk3TFA4YWZDTUlCaTRMd0xVbkVtUDhTdTdIS2dMNFNzb0JWLXFROTlib3hlRk5SV3lrbHpGQnljT201RmQ5dWhPYWhPX2trQm94Q1RWQQ?oc=5",
     "image_url": "",
     "published_at": "2025-10-08T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "bs7pwf",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "São Tomé and Príncipe: African Development Bank Group Approves Additional $8.9 Million GEF Grant to strengthen agricultural and fisheries sectors against climate shocks - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMixgJBVV95cUxQMk5QNjFtQ2ZRZGdfUEt1VEoyOUozZG9jQi1PRXVfcHlWazNzTHBRYm9OVWNmdDJIZzFHRkRWeENGeE1zVmJPWW0xdzNLaUFIX0FoVjdscUVrNGlYd3hFeEJKR0l3UFBzZEhoTi0xbFoxcmVETnNmbzFnaDRENFNvSTlaM0pvOWRneHpEUkEtMUJ0ZDJzV1pzREg1QUZfeXJhaVU2QU9WeFNkTFlkRkYtald3bG8ya3pUb2d0X2Q5Q1pLbXF6QXVHVXltMy12U2Eyc3JYc1dTWnlNckwyeDM5R3dxemhlY1V1bVNTRXhlVlpkejhDNERxbzJfSm52LW9UWWYwX1V3Q0djbEZnQVlULXNqTXJVSVU0ekxHOUsyTjZIT3VESWVmTEZzLXladDVwTEZ1bEhBaTZmLV82dUJza2ZPcVNhdw?oc=5\" target=\"_blank\"&gt;São Tomé and Príncipe: African Development Bank Group Approves Additional $8.9 Million GEF Grant to strengthen agricultural and fisheries sectors against climate shocks&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMixgJBVV95cUxQMk5QNjFtQ2ZRZGdfUEt1VEoyOUozZG9jQi1PRXVfcHlWazNzTHBRYm9OVWNmdDJIZzFHRkRWeENGeE1zVmJPWW0xdzNLaUFIX0FoVjdscUVrNGlYd3hFeEJKR0l3UFBzZEhoTi0xbFoxcmVETnNmbzFnaDRENFNvSTlaM0pvOWRneHpEUkEtMUJ0ZDJzV1pzREg1QUZfeXJhaVU2QU9WeFNkTFlkRkYtald3bG8ya3pUb2d0X2Q5Q1pLbXF6QXVHVXltMy12U2Eyc3JYc1dTWnlNckwyeDM5R3dxemhlY1V1bVNTRXhlVlpkejhDNERxbzJfSm52LW9UWWYwX1V3Q0djbEZnQVlULXNqTXJVSVU0ekxHOUsyTjZIT3VESWVmTEZzLXladDVwTEZ1bEhBaTZmLV82dUJza2ZPcVNhdw?oc=5",
+    "image_url": "",
+    "published_at": "2025-10-07T07:00:00.000Z",
     "tags": [
       "google-news",
       "capital",
@@ -4901,6 +6909,28 @@
     ]
   },
   {
+    "feed_id": "rfewru",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Southwest Rapid Rewards Performance Business review: Valuable airline perks and an annual anniversary bonus",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/credit-cards/review/southwest-rapid-rewards-performance-business-review-231209206.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2024-11/25229070-98a6-11ef-bfec-b04d83bcab95",
+    "published_at": "2025-08-06T17:31:42.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "fy6hby",
     "source": "Google News — ECOWAS Public Safety",
     "source_id": "google-news-ecowas-public-safety",
@@ -4993,6 +7023,52 @@
     ]
   },
   {
+    "feed_id": "mghuly",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "Horn of Africa leaders emphasize enhanced digital integration for increased regional growth - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMi3gFBVV95cUxQSkRDOHlGMTdhRmlSb0N2WmpwMmlZclNJUjFJR0FINUdxYzdwSXBISTR4R2ctU2JHR3Q0T04zRnhjT2tnbHJHSnZmNUJmZDRPMFZEbjcxdTExa3I1Y2QwWWo2S1VqMjRrTHZuT3cwZFpqQUhIZFlrUVFqQmFTWGU4Uy1JXzZuS1JPbnh4VGZ5VVpOdndUUDdHMkpTWkp0NmZMSjQxNU1tM1hJdmFydXJ5SThheGRkZ0VKRS16MmkxWUNGQUtpMURmeUlVdzI3YmhmRHZEQmhRZjdZdDR5b1E?oc=5\" target=\"_blank\"&gt;Horn of Africa leaders emphasize enhanced digital integration for increased regional growth&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQSkRDOHlGMTdhRmlSb0N2WmpwMmlZclNJUjFJR0FINUdxYzdwSXBISTR4R2ctU2JHR3Q0T04zRnhjT2tnbHJHSnZmNUJmZDRPMFZEbjcxdTExa3I1Y2QwWWo2S1VqMjRrTHZuT3cwZFpqQUhIZFlrUVFqQmFTWGU4Uy1JXzZuS1JPbnh4VGZ5VVpOdndUUDdHMkpTWkp0NmZMSjQxNU1tM1hJdmFydXJ5SThheGRkZ0VKRS16MmkxWUNGQUtpMURmeUlVdzI3YmhmRHZEQmhRZjdZdDR5b1E?oc=5",
+    "image_url": "",
+    "published_at": "2025-07-21T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "u4gqy2",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "African Development Bank and Partners Launch a $263.8 Million Infrastructure Project to Transform Urban Development in Abia State - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMijAJBVV95cUxOMElEbkVscjZYSEpORTZZR1NYYWJpeFlCU3hrSVdfVEYzbTRxOEV0YVJsTllRVjdlQ2ViXzFVNGVvRU5URFNnQ0NaWGpFNUluNXJYb2JqMU5uR2NWcUhYWUxTQ1FwT1lXQW5jaG9LTk80SVVYTkhaSi1oT1cxTDgwMmllNXVHeFREdWY3bXd3a015T1VVNlBFdUtjcjhmUHBldHJMRC1kWWU0R1ZuNEdvSjdJQW5uU1p3aTFSakl4SHZlaC1HSTB2dVBPLXhIbmliazlHR0dTd0xRc3VMb3FyeUxtcUJ3NWdrcV9EY0lVUmNURjlQclF1UmdsX2dRZFJzdXU2MjdqWHhUWjRo?oc=5\" target=\"_blank\"&gt;African Development Bank and Partners Launch a $263.8 Million Infrastructure Project to Transform Urban Development in Abia State&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxOMElEbkVscjZYSEpORTZZR1NYYWJpeFlCU3hrSVdfVEYzbTRxOEV0YVJsTllRVjdlQ2ViXzFVNGVvRU5URFNnQ0NaWGpFNUluNXJYb2JqMU5uR2NWcUhYWUxTQ1FwT1lXQW5jaG9LTk80SVVYTkhaSi1oT1cxTDgwMmllNXVHeFREdWY3bXd3a015T1VVNlBFdUtjcjhmUHBldHJMRC1kWWU0R1ZuNEdvSjdJQW5uU1p3aTFSakl4SHZlaC1HSTB2dVBPLXhIbmliazlHR0dTd0xRc3VMb3FyeUxtcUJ3NWdrcV9EY0lVUmNURjlQclF1UmdsX2dRZFJzdXU2MjdqWHhUWjRo?oc=5",
+    "image_url": "",
+    "published_at": "2025-07-16T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "qb74y8",
     "source": "Google News — ECOWAS Public Safety",
     "source_id": "google-news-ecowas-public-safety",
@@ -5039,6 +7115,28 @@
     ]
   },
   {
+    "feed_id": "jmrqff",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Which credit cards offer primary rental car insurance for your next trip?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/which-credit-cards-offer-primary-rental-car-insurance-174242694.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-07/ca418b40-569e-11f0-b8df-8bbcdbffadf9",
+    "published_at": "2025-07-01T17:42:42.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "edhshb",
     "source": "Google News — Nigeria Digital Policing",
     "source_id": "google-news-nigeria-policing-digital",
@@ -5057,6 +7155,29 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "6i7kw6",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "African Development Bank approves ZAR 2.5 billion loan to City of Johannesburg for critical urban infrastructure development - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMihAJBVV95cUxQUWNOOGNlTjJ5UmN0U293OWlVY1Z3SVo0UDZwVkp4MFJyaUpURWgtc0VQXzZ6Qjk0Ym9hTmlfMjVzX3ZxVE5pZE1rSWdQSkVfOXBkR2xRSldoS0RFNURQdGNjN3dtNTlRUl9VeWs4Ul9JWHJtUGVleFJvdnFOY0xMcnJCbUJVazBUWTBWVXFuYkU1dGFlWjJsVHJSRmlFczU4Y1Nta0FYTVo4bFd2Qk1odVZtMkxYSHZQWGdsMi1RVWU4eC1NRnR0M21hN0pnUVBvSkdqRENEanZfS25KWk1pNzBqTzhoUmQzRGIxbUpReXRmM1ppVGNUeXV3dmdoNTM3QThtOA?oc=5\" target=\"_blank\"&gt;African Development Bank approves ZAR 2.5 billion loan to City of Johannesburg for critical urban infrastructure development&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQUWNOOGNlTjJ5UmN0U293OWlVY1Z3SVo0UDZwVkp4MFJyaUpURWgtc0VQXzZ6Qjk0Ym9hTmlfMjVzX3ZxVE5pZE1rSWdQSkVfOXBkR2xRSldoS0RFNURQdGNjN3dtNTlRUl9VeWs4Ul9JWHJtUGVleFJvdnFOY0xMcnJCbUJVazBUWTBWVXFuYkU1dGFlWjJsVHJSRmlFczU4Y1Nta0FYTVo4bFd2Qk1odVZtMkxYSHZQWGdsMi1RVWU4eC1NRnR0M21hN0pnUVBvSkdqRENEanZfS25KWk1pNzBqTzhoUmQzRGIxbUpReXRmM1ppVGNUeXV3dmdoNTM3QThtOA?oc=5",
+    "image_url": "",
+    "published_at": "2025-07-01T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
     "initiative_ids": [
       "USG"
     ]
@@ -5131,6 +7252,29 @@
     ]
   },
   {
+    "feed_id": "ftd55",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "Economy, health, education, top agenda as ECOWAS ministers meet in Abuja - The Guardian Nigeria News",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMimwFBVV95cUxNT2pnZ2lKdks0d3FkREdYMWpPeFlxMEduZmMwOXFxNWRZcHpOSC10T0pOa2JDbkxqMWs4aFlTZHZ4S2FTNzNtd3JhN3F2NmpVaHQ2UkgwS0tpM2JBWi1FTkpuaXlTSC00eDRCQzlfTVA2bEVIOG5LRDNVT2gzbWVReWlwY0Z3SlM4Ql93LTBvb1pSZmV0Wi1yU3VJOA?oc=5\" target=\"_blank\"&gt;Economy, health, education, top agenda as ECOWAS ministers meet in Abuja&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;The Guardian Nigeria News&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNT2pnZ2lKdks0d3FkREdYMWpPeFlxMEduZmMwOXFxNWRZcHpOSC10T0pOa2JDbkxqMWs4aFlTZHZ4S2FTNzNtd3JhN3F2NmpVaHQ2UkgwS0tpM2JBWi1FTkpuaXlTSC00eDRCQzlfTVA2bEVIOG5LRDNVT2gzbWVReWlwY0Z3SlM4Ql93LTBvb1pSZmV0Wi1yU3VJOA?oc=5",
+    "image_url": "",
+    "published_at": "2025-06-19T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "3mfr00",
     "source": "Google News — ECOWAS Public Safety",
     "source_id": "google-news-ecowas-public-safety",
@@ -5149,6 +7293,29 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potential policy/authority shift affecting capital pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "lb4ryz",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "SADC Reinforces Regional Partnership with AfDB at Annual Meetings - SADC",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMilAFBVV95cUxPTndmZHJBd3hiZ1E0WTJ5TFF2aWEya1l5UVJydUozUktDdjNXODZjUGVkMzREdkdSSVMtbGs5bmFja3Z4R0dhaEFrS3JjWDUzbTZjUV9SM0hNTE9yVXplUjhLc04yaFJ1YzhVRzZTTGI4YUw1Q28zSjRNekpDX2V0cXlQWWVmN2tTMm1PRlBKQjdzLWlD?oc=5\" target=\"_blank\"&gt;SADC Reinforces Regional Partnership with AfDB at Annual Meetings&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;SADC&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPTndmZHJBd3hiZ1E0WTJ5TFF2aWEya1l5UVJydUozUktDdjNXODZjUGVkMzREdkdSSVMtbGs5bmFja3Z4R0dhaEFrS3JjWDUzbTZjUV9SM0hNTE9yVXplUjhLc04yaFJ1YzhVRzZTTGI4YUw1Q28zSjRNekpDX2V0cXlQWWVmN2tTMm1PRlBKQjdzLWlD?oc=5",
+    "image_url": "",
+    "published_at": "2025-06-02T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
     ]
@@ -5215,6 +7382,29 @@
     ],
     "trust_tier": "tier2",
     "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "61fgva",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "Geospatial Intelligence: A Strategic Tool for Combating Insecurity in West Africa - THISDAYLIVE",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMivAFBVV95cUxOY2hPQkRhaVM1SWpCdUZrUUl0VHhxNllybVlYR3VmeFRQZmlHV0I4SGs0Y2lQbUNTQjdyWk04SkhaajQ5Z1pOa0lBaEdYYXlKN2dYZ0RidjEtWS1VZ010R2lKMVBuNmRGb3VISXc2RUVQazRNVEFzVEgyeTBtNDNqWjNjQ1pFdnF3bnNhMklzNEVhLUVRYWZkdjZXVWExc0luQUdRN1U4SmlwVDc4ZzB0M3c1Y09Ncl9XOHpOUg?oc=5\" target=\"_blank\"&gt;Geospatial Intelligence: A Strategic Tool for Combating Insecurity in West Africa&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;THISDAYLIVE&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOY2hPQkRhaVM1SWpCdUZrUUl0VHhxNllybVlYR3VmeFRQZmlHV0I4SGs0Y2lQbUNTQjdyWk04SkhaajQ5Z1pOa0lBaEdYYXlKN2dYZ0RidjEtWS1VZ010R2lKMVBuNmRGb3VISXc2RUVQazRNVEFzVEgyeTBtNDNqWjNjQ1pFdnF3bnNhMklzNEVhLUVRYWZkdjZXVWExc0luQUdRN1U4SmlwVDc4ZzB0M3c1Y09Ncl9XOHpOUg?oc=5",
+    "image_url": "",
+    "published_at": "2025-05-13T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
@@ -5315,6 +7505,29 @@
     ]
   },
   {
+    "feed_id": "opvtd3",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "AfDB mission to Djibouti charts course to strengthen development partnership - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMitwFBVV95cUxNQmxnV1N0QmJPbWNINzdOZ0xyUUR6U09zSno3Rm1NRHZMV2RrOTI5ODVYQnV4R3dHLTYxbW5xX3VrYkhJbnc4aV8yVnJVOUREX2laZzhGb3FLN2JfS2VBTmRQN2ktS2JwM1A5YTRHZEtwb0F4SEpXa19MZUhya2U4eFMwOTFia2NuSHpTcmFSbEV6enJUd3Z3REcyaVN5alF5ZlpLbmIzVFZ1MFJwSDQ3WnlIdTV2UkU?oc=5\" target=\"_blank\"&gt;AfDB mission to Djibouti charts course to strengthen development partnership&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNQmxnV1N0QmJPbWNINzdOZ0xyUUR6U09zSno3Rm1NRHZMV2RrOTI5ODVYQnV4R3dHLTYxbW5xX3VrYkhJbnc4aV8yVnJVOUREX2laZzhGb3FLN2JfS2VBTmRQN2ktS2JwM1A5YTRHZEtwb0F4SEpXa19MZUhya2U4eFMwOTFia2NuSHpTcmFSbEV6enJUd3Z3REcyaVN5alF5ZlpLbmIzVFZ1MFJwSDQ3WnlIdTV2UkU?oc=5",
+    "image_url": "",
+    "published_at": "2025-04-22T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "5s84oa",
     "source": "Google News — Nigeria Digital Policing",
     "source_id": "google-news-nigeria-policing-digital",
@@ -5407,6 +7620,28 @@
     ]
   },
   {
+    "feed_id": "axguul",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How does business travel insurance work?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/how-does-business-travel-insurance-work-182812567.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-02/46e3e6a0-f495-11ef-af27-43c5152abf8b",
+    "published_at": "2025-02-27T18:28:12.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "w23ow1",
     "source": "Google News — ECOWAS Public Safety",
     "source_id": "google-news-ecowas-public-safety",
@@ -5445,6 +7680,29 @@
     ],
     "trust_tier": "tier2",
     "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "xox7jq",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "Ghana’s potential as a maritime logistics hub for West Africa - MyJoyOnline",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMikwFBVV95cUxNWHVfRW94SFExWkk5R0FzSG82NXN6eWlOdUtIWWQ1WGk5bjV0VVJxYUdEZzFXM3dVc0lJc2JoeWlvVldKczBGX2FDTWQxSkRLNHRJU01aR3A0V0pBZE1iOHdRRTVLOF9ha2tNN2pXRERNVHlUdjh5UVAzYVJ5Z1dES0JHV2ZjcjZyaTRGUWJGdXVqWUU?oc=5\" target=\"_blank\"&gt;Ghana’s potential as a maritime logistics hub for West Africa&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;MyJoyOnline&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNWHVfRW94SFExWkk5R0FzSG82NXN6eWlOdUtIWWQ1WGk5bjV0VVJxYUdEZzFXM3dVc0lJc2JoeWlvVldKczBGX2FDTWQxSkRLNHRJU01aR3A0V0pBZE1iOHdRRTVLOF9ha2tNN2pXRERNVHlUdjh5UVAzYVJ5Z1dES0JHV2ZjcjZyaTRGUWJGdXVqWUU?oc=5",
+    "image_url": "",
+    "published_at": "2025-02-17T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
@@ -5614,6 +7872,29 @@
     ]
   },
   {
+    "feed_id": "3r38u5",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "Madagascar - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMijgJBVV95cUxNTVVfcUFuWEhVc3FSMDViTTJrTGJqZnRpZEhocmZtUE5hc0NuTGhwYWN1LS11dWxmVWd1YUtVU0RFSkpjM2VQU2premZvNTZuZVdySHM1Nk9HQzN4MjFZQWdod1AxT3JIMk9pcjM3T0otT013cXBFVnFpWTBVTEc3dm1MdWZyak9QT0dQWXM2Z1B1cldqRHFFam1VS2NfdWxyVkZzdnZIamQwYUlVd0s3eXlEUG9ZUldQRENnbkY0U0VtX3dQWENxSXhnZWtlZ2ZJeWhsTnB4N2N4YzJfT3JZUzRWczB5TXpvNW9QYjAtSzFrZjJ3ZmhwcE5JZ2xGcHVWeVdpbFh0NU1uZEdxbVE?oc=5\" target=\"_blank\"&gt;Madagascar&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxNTVVfcUFuWEhVc3FSMDViTTJrTGJqZnRpZEhocmZtUE5hc0NuTGhwYWN1LS11dWxmVWd1YUtVU0RFSkpjM2VQU2premZvNTZuZVdySHM1Nk9HQzN4MjFZQWdod1AxT3JIMk9pcjM3T0otT013cXBFVnFpWTBVTEc3dm1MdWZyak9QT0dQWXM2Z1B1cldqRHFFam1VS2NfdWxyVkZzdnZIamQwYUlVd0s3eXlEUG9ZUldQRENnbkY0U0VtX3dQWENxSXhnZWtlZ2ZJeWhsTnB4N2N4YzJfT3JZUzRWczB5TXpvNW9QYjAtSzFrZjJ3ZmhwcE5JZ2xGcHVWeVdpbFh0NU1uZEdxbVE?oc=5",
+    "image_url": "",
+    "published_at": "2024-12-11T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "yv3m67",
     "source": "Google News — ECOWAS Public Safety",
     "source_id": "google-news-ecowas-public-safety",
@@ -5629,6 +7910,29 @@
     ],
     "trust_tier": "tier2",
     "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "u812f2",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "Rwanda: African Development Bank approves $100 million loan to enhance urban transport in Kigali - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMi4wFBVV95cUxNYVg5RFVNVEk1QkdNVk5wM0ZwUmhqVVZGRk12QzFiblpSUTd3WmRvZEpQa0hQWVFmTTJiYUsyeUxKbEZZWkVNU0Y0Uzk4cU1WeWtoeVhJaUNuSHEyT2d2Uk5VTnFZTnNQaXVINnd3VTdyLTQ4YWtlYUZpLXVLUFUtOUgtcGJtLTJwT3pRMVlNTWNCbmRpYXRNdFJianVFVE11aHpMOVlkLXJpekVpNTdiczh4WlZCamU5Q1l6b21jYlh1N053NmRoemdGci1XVUxianBYSHY2eHNfX1d6dkVBNGFaMA?oc=5\" target=\"_blank\"&gt;Rwanda: African Development Bank approves $100 million loan to enhance urban transport in Kigali&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNYVg5RFVNVEk1QkdNVk5wM0ZwUmhqVVZGRk12QzFiblpSUTd3WmRvZEpQa0hQWVFmTTJiYUsyeUxKbEZZWkVNU0Y0Uzk4cU1WeWtoeVhJaUNuSHEyT2d2Uk5VTnFZTnNQaXVINnd3VTdyLTQ4YWtlYUZpLXVLUFUtOUgtcGJtLTJwT3pRMVlNTWNCbmRpYXRNdFJianVFVE11aHpMOVlkLXJpekVpNTdiczh4WlZCamU5Q1l6b21jYlh1N053NmRoemdGci1XVUxianBYSHY2eHNfX1d6dkVBNGFaMA?oc=5",
+    "image_url": "",
+    "published_at": "2024-12-04T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
@@ -5660,6 +7964,52 @@
     ]
   },
   {
+    "feed_id": "q4wh2y",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "Nigeria ranks 42nd as list of most safe and secure countries in Africa emerges - Legit News",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxNTTFLSVZXNDMxZGZsQl9JejNZWUVRbmJJek1xYU5VcmwxdEwxc2k3MXZVVTl0SlRTdWpOdEptQVFCcU9yYW9BU2RiZk1JLVVRcjNDM2tOaS1GSnZtalFSV2U2U254VWZrdEVqZ3d3N0p0WEtCeGNLVXQ0czNBR09LOG02blYySUljeG44?oc=5\" target=\"_blank\"&gt;Nigeria ranks 42nd as list of most safe and secure countries in Africa emerges&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Legit News&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNTTFLSVZXNDMxZGZsQl9JejNZWUVRbmJJek1xYU5VcmwxdEwxc2k3MXZVVTl0SlRTdWpOdEptQVFCcU9yYW9BU2RiZk1JLVVRcjNDM2tOaS1GSnZtalFSV2U2U254VWZrdEVqZ3d3N0p0WEtCeGNLVXQ0czNBR09LOG02blYySUljeG44?oc=5",
+    "image_url": "",
+    "published_at": "2024-11-21T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "4gt77o",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "West African leaders meet in Rivers for ECOWAS parliament session - The Guardian Nigeria News",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxQZ0t0dVAzY3ozRHFXU0o3cVdoMEJSRWlXcnp4UFJiNHdmSU9lT1BFUF9pREE4OW5oYjJVODltMHU2dDJLcHV6V1dMRF8yN2xPaFZSeWNJVlUyQjBpUDVRaGt6Vk1HaUlwOWwtZWxvTnFqTXFiZHBXdENvVWFxUmhyNk1OM3F0VzQxRUNYQUc0S0w3TUEwUnc?oc=5\" target=\"_blank\"&gt;West African leaders meet in Rivers for ECOWAS parliament session&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;The Guardian Nigeria News&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQZ0t0dVAzY3ozRHFXU0o3cVdoMEJSRWlXcnp4UFJiNHdmSU9lT1BFUF9pREE4OW5oYjJVODltMHU2dDJLcHV6V1dMRF8yN2xPaFZSeWNJVlUyQjBpUDVRaGt6Vk1HaUlwOWwtZWxvTnFqTXFiZHBXdENvVWFxUmhyNk1OM3F0VzQxRUNYQUc0S0w3TUEwUnc?oc=5",
+    "image_url": "",
+    "published_at": "2024-11-06T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "686brs",
     "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
@@ -5678,6 +8028,50 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "h0p9is",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Capital One vs. Chase: Which bank is best for you?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/banking/comparison/capital-one-vs-chase-184106558.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2024-10/0a5dcff0-96d7-11ef-bfee-14e509046357",
+    "published_at": "2024-10-30T18:41:06.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2970oy",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "SoFi vs. Ally: Which online bank is best for you?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/banking/comparison/sofi-vs-ally-213127255.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2024-10/82bd9a80-8bff-11ef-93fe-6d08d367d067",
+    "published_at": "2024-10-16T21:31:27.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
     ]
@@ -5767,6 +8161,29 @@
     ],
     "trust_tier": "tier2",
     "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "kj3rop",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "ECOWAS seeks $12 billion for Abidjan-Lagos highway - The Guardian Nigeria News",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMikgFBVV95cUxPbm5YY0w4cExBLTFnVVNsLWJMRGNOcXFaRVRFblJFN3UzMXpjbTJ4aEs4QmJFblhleG5MVWlWODh2VWl0ZmMtZjlwcW1POWJldVJVWE5URy1IbjQyRWpGYmJaaWJaRVlSa0ZCbEN6UFZhbTZLWU1JR2tBLURHNVJUOThBZTdMY0NQLU1YdmU2UXNvQQ?oc=5\" target=\"_blank\"&gt;ECOWAS seeks $12 billion for Abidjan-Lagos highway&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;The Guardian Nigeria News&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPbm5YY0w4cExBLTFnVVNsLWJMRGNOcXFaRVRFblJFN3UzMXpjbTJ4aEs4QmJFblhleG5MVWlWODh2VWl0ZmMtZjlwcW1POWJldVJVWE5URy1IbjQyRWpGYmJaaWJaRVlSa0ZCbEN6UFZhbTZLWU1JR2tBLURHNVJUOThBZTdMY0NQLU1YdmU2UXNvQQ?oc=5",
+    "image_url": "",
+    "published_at": "2024-09-17T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
@@ -5959,6 +8376,29 @@
     ]
   },
   {
+    "feed_id": "1t89ij",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "Presight to fast-track The Gambia’s transformation through digital ID, govt initiative - Biometric Update",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMiwAFBVV95cUxPaE5DMkZQNlNRQmdWWGxnUVVaaTROUEU4Q3d4UTBUbU53dUZ3WWpjR092cWtabEpyQWlvbVJ5ZUFscW0wQ3N4YjhCREpYLWFPa2tuS0hPMG9zVHI3YnN2Q0FOU2ZfSWV1OE5zSVhPMFN1UTNVVGp6Z1kxWThqVEY0N3ZoMnBjNVlGUmFzSTlYeGhtbmJGMnpsaU9QYmJpSWZOc1RnLUpqbmRsc3pBcGxkLXBKOEZvU3pDcFc0RGRpUVo?oc=5\" target=\"_blank\"&gt;Presight to fast-track The Gambia’s transformation through digital ID, govt initiative&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;Biometric Update&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPaE5DMkZQNlNRQmdWWGxnUVVaaTROUEU4Q3d4UTBUbU53dUZ3WWpjR092cWtabEpyQWlvbVJ5ZUFscW0wQ3N4YjhCREpYLWFPa2tuS0hPMG9zVHI3YnN2Q0FOU2ZfSWV1OE5zSVhPMFN1UTNVVGp6Z1kxWThqVEY0N3ZoMnBjNVlGUmFzSTlYeGhtbmJGMnpsaU9QYmJpSWZOc1RnLUpqbmRsc3pBcGxkLXBKOEZvU3pDcFc0RGRpUVo?oc=5",
+    "image_url": "",
+    "published_at": "2024-06-03T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "x9nkp9",
     "source": "Google News — ECOWAS Public Safety",
     "source_id": "google-news-ecowas-public-safety",
@@ -5971,6 +8411,29 @@
       "google-news",
       "ecowas",
       "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "g5ehv0",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "Great Green Wall Initiative - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMioAFBVV95cUxPeno4N1NucWl1V01KTXFlR0s3VW1UT0I5ZFUzYXVJSjExbFJkb0Y2b0VyYW9GaDl0azZ3ekkyWUk1b0JoNEIwYXo4ZFBGYkVZWkc0WmNGcl83RHFEeGRfUHdVS0w3aUh3d2dNNnRMNFJGaGcwR2VveUVCcjM1Wm5xWUNZV1hUbzBOakRqZ0NIczk2bXhHNzdnOFk5Q0xnOURa?oc=5\" target=\"_blank\"&gt;Great Green Wall Initiative&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPeno4N1NucWl1V01KTXFlR0s3VW1UT0I5ZFUzYXVJSjExbFJkb0Y2b0VyYW9GaDl0azZ3ekkyWUk1b0JoNEIwYXo4ZFBGYkVZWkc0WmNGcl83RHFEeGRfUHdVS0w3aUh3d2dNNnRMNFJGaGcwR2VveUVCcjM1Wm5xWUNZV1hUbzBOakRqZ0NIczk2bXhHNzdnOFk5Q0xnOURa?oc=5",
+    "image_url": "",
+    "published_at": "2024-05-28T04:14:29.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
     ],
     "trust_tier": "tier2",
     "relevance_score": 8,
@@ -6005,6 +8468,29 @@
     ]
   },
   {
+    "feed_id": "sfhbut",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Zone 16, AIG visits Bayelsa Police command, commends digital security - TVC News",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMilgFBVV95cUxNX19hUHhYV08zSWR1QkdxUmNtVUlHbGh3S1VyUFVEUmtkTnh2X1B1RzJLNWpiNzF5cjVfWHpXR1NlWExJNTlpRU8yMDJfNjl0Z25NZXF2Zi1QVnBTMXV3WDRwQTBMY21SNUplbWRFcXVvSEpZMXVjUEZUcWh0bUkzVmZJMzFYcTFzTkM3ZGZldTRNUXExb2c?oc=5\" target=\"_blank\"&gt;Zone 16, AIG visits Bayelsa Police command, commends digital security&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;TVC News&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNX19hUHhYV08zSWR1QkdxUmNtVUlHbGh3S1VyUFVEUmtkTnh2X1B1RzJLNWpiNzF5cjVfWHpXR1NlWExJNTlpRU8yMDJfNjl0Z25NZXF2Zi1QVnBTMXV3WDRwQTBMY21SNUplbWRFcXVvSEpZMXVjUEZUcWh0bUkzVmZJMzFYcTFzTkM3ZGZldTRNUXExb2c?oc=5",
+    "image_url": "",
+    "published_at": "2024-05-18T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "x5kv0m",
     "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
@@ -6023,6 +8509,75 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potential policy/authority shift affecting capital pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ocq5ug",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "African Development Bank Group, Lake Chad Basin Commission sign MOU to restore Lake Chad Basin - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMi5gFBVV95cUxPcUtNTjAwcmVLaWZCZzJDLVZhMzR2akx0ekc5dzNZU2NvMU12dm5iVXMxQzJRdzYxMGtGei1oMVZfdXdkckFTOHNvbFhiTjNYMGI4U3N0QUpINGVIYWlacl8zZDI0VTNpYVk1ekxTZEoxMWpmaFdqQzBpNzVFWHBZUWcyNXFEeE1mWmdMbDBoSU52RjlPVWtZell2SzlOb25wdUhmMWhXWmhkRjFrY3VKQjNJNDNFY2RnbEQtd2s2b1JRTVVscS1TRHpyN3NLeHNwRWdCOVdwUUwwSWI2U0VtbmI0MHdNQQ?oc=5\" target=\"_blank\"&gt;African Development Bank Group, Lake Chad Basin Commission sign MOU to restore Lake Chad Basin&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPcUtNTjAwcmVLaWZCZzJDLVZhMzR2akx0ekc5dzNZU2NvMU12dm5iVXMxQzJRdzYxMGtGei1oMVZfdXdkckFTOHNvbFhiTjNYMGI4U3N0QUpINGVIYWlacl8zZDI0VTNpYVk1ekxTZEoxMWpmaFdqQzBpNzVFWHBZUWcyNXFEeE1mWmdMbDBoSU52RjlPVWtZell2SzlOb25wdUhmMWhXWmhkRjFrY3VKQjNJNDNFY2RnbEQtd2s2b1JRTVVscS1TRHpyN3NLeHNwRWdCOVdwUUwwSWI2U0VtbmI0MHdNQQ?oc=5",
+    "image_url": "",
+    "published_at": "2024-02-20T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "hwjgfa",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "Senegal: African Development Bank improves quality of life for hundreds of thousands of rural people by facilitating their access to basic socio-economic infrastructure - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMinwJBVV95cUxNd055WUJnYmNWbEpsRDJaLTBmTGFvd2tlOHRfZ3hMX2JHcHJPQXg1VFpWckRneWhGbFFoa2wtUWcxdlM5MUJtLTd2cGZOWDlud1liaXFNSGxJakpYc04zNjFMdDladTNheGJDT0Vxd3c0Wm9UVklOV1VZLWZPQ1VKeTh4WXZJc3E2YlQyRk1mdW5wSkNHcHR2MVlwYWY2QV9WQ1M1dHBiYlpPQkZGRF9fdGp0amRTZm40UGRkTW5sSGVtczk3WUM1bTUzMko5azFEaEh2X2NSSDR2cmoySDRfc25jYWtaTUhXVGVxTDJwaHhfa2dyVW5HLUdZWFQzcFpPNkp0dkc3eTQtcC15NDk2Z1M2Zzlua1lmMkxmSXJiYw?oc=5\" target=\"_blank\"&gt;Senegal: African Development Bank improves quality of life for hundreds of thousands of rural people by facilitating their access to basic socio-economic infrastructure&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMinwJBVV95cUxNd055WUJnYmNWbEpsRDJaLTBmTGFvd2tlOHRfZ3hMX2JHcHJPQXg1VFpWckRneWhGbFFoa2wtUWcxdlM5MUJtLTd2cGZOWDlud1liaXFNSGxJakpYc04zNjFMdDladTNheGJDT0Vxd3c0Wm9UVklOV1VZLWZPQ1VKeTh4WXZJc3E2YlQyRk1mdW5wSkNHcHR2MVlwYWY2QV9WQ1M1dHBiYlpPQkZGRF9fdGp0amRTZm40UGRkTW5sSGVtczk3WUM1bTUzMko5azFEaEh2X2NSSDR2cmoySDRfc25jYWtaTUhXVGVxTDJwaHhfa2dyVW5HLUdZWFQzcFpPNkp0dkc3eTQtcC15NDk2Z1M2Zzlua1lmMkxmSXJiYw?oc=5",
+    "image_url": "",
+    "published_at": "2024-02-15T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "fnuscp",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "After Mali, Niger, Burkina Faso’ exit notice, brewing crisis in Senegal further threatens ECOWAS’ unity - The Guardian Nigeria News",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMi4AFBVV95cUxPZHpFLXF3ZUVNeEhJWXh3VVJqZ1MydmlndXFhQkhsRVJrRlR1SXF4S0pNT0h4R3Z4UkZCM0MtcGZtaHlyUDZTR0x6bVViSlhhQlRkNHdfLTlFVEZNVmlBSTdMTXprdV9US2hjbzZzRjlrc0I2Nk9yT0JiN3JiUGJXd1FjSU5XVnJ2TGJqajU5dnFINnZFZmUzb2pCd2dHZDVmLU1qRW1WZzhlNHF0ZUgzZjNZbGVnNkJwMG9fakxhcldiM01RVkRheE80MWw1RHhVaXNwZHViZk1vcjZaNXo5Zg?oc=5\" target=\"_blank\"&gt;After Mali, Niger, Burkina Faso’ exit notice, brewing crisis in Senegal further threatens ECOWAS’ unity&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;The Guardian Nigeria News&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPZHpFLXF3ZUVNeEhJWXh3VVJqZ1MydmlndXFhQkhsRVJrRlR1SXF4S0pNT0h4R3Z4UkZCM0MtcGZtaHlyUDZTR0x6bVViSlhhQlRkNHdfLTlFVEZNVmlBSTdMTXprdV9US2hjbzZzRjlrc0I2Nk9yT0JiN3JiUGJXd1FjSU5XVnJ2TGJqajU5dnFINnZFZmUzb2pCd2dHZDVmLU1qRW1WZzhlNHF0ZUgzZjNZbGVnNkJwMG9fakxhcldiM01RVkRheE80MWw1RHhVaXNwZHViZk1vcjZaNXo5Zg?oc=5",
+    "image_url": "",
+    "published_at": "2024-02-11T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
     ]
@@ -6120,6 +8675,29 @@
     ]
   },
   {
+    "feed_id": "tyvlb",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "Namibia: African Development Bank approves $196 million loan to modernize railway infrastructure - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMi5wFBVV95cUxNa29WM2d5bXJYejc2NjV3enJCU1ZPcEc4Z0J4d2huc0JDNHhLb2M5QmZhV0IwdTJjYzRtRi1Hc3JtdkpmYVNKMWtFS3k2QlZBX0R0NDNXbTJlTEJpUmdMV2tqRVQtWWg1ZHFPQ3dYVUdEUDUyTkhuR0dvbk9WUDFzYU9qY0JfVllaOE0yWktGYkdhUnMwYzRUVnFSbXRtQ0wzVlIzcU02WUhJa24zUjZralBoMzc5RnByZ29lX2dFNnRENk5abm5HSDZ6N04zOFJXU1dhSTRra21QUlo5YkNnVjM3SWJYWjA?oc=5\" target=\"_blank\"&gt;Namibia: African Development Bank approves $196 million loan to modernize railway infrastructure&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNa29WM2d5bXJYejc2NjV3enJCU1ZPcEc4Z0J4d2huc0JDNHhLb2M5QmZhV0IwdTJjYzRtRi1Hc3JtdkpmYVNKMWtFS3k2QlZBX0R0NDNXbTJlTEJpUmdMV2tqRVQtWWg1ZHFPQ3dYVUdEUDUyTkhuR0dvbk9WUDFzYU9qY0JfVllaOE0yWktGYkdhUnMwYzRUVnFSbXRtQ0wzVlIzcU02WUhJa24zUjZralBoMzc5RnByZ29lX2dFNnRENk5abm5HSDZ6N04zOFJXU1dhSTRra21QUlo5YkNnVjM3SWJYWjA?oc=5",
+    "image_url": "",
+    "published_at": "2023-10-31T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "d6zwjj",
     "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
@@ -6143,6 +8721,52 @@
     ]
   },
   {
+    "feed_id": "yqrcyo",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "Djibouti: African Development Bank launches study on urban infrastructure and climate adaptation - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMi1AFBVV95cUxNX1BiOXpxeUhLT2Jac1gzMVZfcEgweXF0Mm5Da0p6RXdZVnJrSTMxcDQ3TklncnRBdTFVY1hyWU9PT0JKcHkyU2k3VHcyNFlHXzVTcmthR213RkpSRWZIby04QXpCWWF0SXB2YUdQVk5aRHpQU0xWazNkQ01ycTBjcE5KaUI0T1NvdUN3d19HYkdUcTVoVWh4ZmFKNjc2MUdJX3ZLRzdDQUJpVjJVUXJtaDdYMzd1OFZ3ZlpEdncxX0FfSXFHek5ZaE9seURKd0l3TFY0Qw?oc=5\" target=\"_blank\"&gt;Djibouti: African Development Bank launches study on urban infrastructure and climate adaptation&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNX1BiOXpxeUhLT2Jac1gzMVZfcEgweXF0Mm5Da0p6RXdZVnJrSTMxcDQ3TklncnRBdTFVY1hyWU9PT0JKcHkyU2k3VHcyNFlHXzVTcmthR213RkpSRWZIby04QXpCWWF0SXB2YUdQVk5aRHpQU0xWazNkQ01ycTBjcE5KaUI0T1NvdUN3d19HYkdUcTVoVWh4ZmFKNjc2MUdJX3ZLRzdDQUJpVjJVUXJtaDdYMzd1OFZ3ZlpEdncxX0FfSXFHek5ZaE9seURKd0l3TFY0Qw?oc=5",
+    "image_url": "",
+    "published_at": "2023-06-06T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "rbu08o",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "African Development Bank approves $15 million loan for Infrastructure Credit Guarantee Company Limited to support infrastructure financing in Nigeria - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMipgJBVV95cUxPZXFfWGJLdTh4LXNiSFZvdTVTZE5KcnBTcEU3bGNHZGVBVVVpZXE1LTZ2SExzeVYtdmRiMEJlemt6VVBtTnVWQTU4MmV3Q0JQbVVSM3ZQOThGdjRjWE1zUlFIbXdKZmJvdmZrYmtHUnJSdmxkeWY3aC1SSWRhdEJQT0J2VnU3RllxMXlEM1BhM0lhWlNvNXJXQ2dtRU52cUFFTmpxOUstQWZ0RzVQMnFfUDc5MWFrV0xKR3JvWktaSHJfeXV2WUM4QjF6Q2FyV2xySG1BTlVJVklXd2xYQWRKXzh5eUJRVjZ5TzFQU1IxbFNuS3V5aFg3ZURIbGN1WkZId3EwQjNCeVZfQnYzajBZb3JaNWlIYW5ESXdGYVBpeENaNFRUc1E?oc=5\" target=\"_blank\"&gt;African Development Bank approves $15 million loan for Infrastructure Credit Guarantee Company Limited to support infrastructure financing in Nigeria&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMipgJBVV95cUxPZXFfWGJLdTh4LXNiSFZvdTVTZE5KcnBTcEU3bGNHZGVBVVVpZXE1LTZ2SExzeVYtdmRiMEJlemt6VVBtTnVWQTU4MmV3Q0JQbVVSM3ZQOThGdjRjWE1zUlFIbXdKZmJvdmZrYmtHUnJSdmxkeWY3aC1SSWRhdEJQT0J2VnU3RllxMXlEM1BhM0lhWlNvNXJXQ2dtRU52cUFFTmpxOUstQWZ0RzVQMnFfUDc5MWFrV0xKR3JvWktaSHJfeXV2WUM4QjF6Q2FyV2xySG1BTlVJVklXd2xYQWRKXzh5eUJRVjZ5TzFQU1IxbFNuS3V5aFg3ZURIbGN1WkZId3EwQjNCeVZfQnYzajBZb3JaNWlIYW5ESXdGYVBpeENaNFRUc1E?oc=5",
+    "image_url": "",
+    "published_at": "2023-05-18T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "u33u83",
     "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
@@ -6161,6 +8785,29 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "obf7yh",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "Founding Partners of Africa Investment Forum secure $1 billion in memoranda of understanding during U.S.-Africa Leaders’ Summit - African Development Bank Group",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMihgJBVV95cUxOQVFiU2F2X1ZoSUZhZjdTZ2tETEtHN2NhY0p1TnNFQzNLZHNIWl9tVjZyN0h2RHpfNC11YzBNd1hvdjRuOHBNSlA0UUFQSjR0OHV2anVPZnFiak00NzgyM2pMV044aWFoQS03Y2xNMkJSbnpSSElydmE3dVRQdkpCblJiWFpTMDJocmxUQkJaZlZ5aGJGdFZoTTJsMDhmcVBqbnlJZ0FHMnpZY1V2YXMxQXN2Uno2VWpqaDROYnhGWDRaa1NLMHJhNXBjaHI4eXp6OGlqbGEwWVE2VE5uMnEzZ1l5WWVuNlJDUmE4eFN6dE5WZFVwS011MnQtWkdCREV4ZFZfbHlB?oc=5\" target=\"_blank\"&gt;Founding Partners of Africa Investment Forum secure $1 billion in memoranda of understanding during U.S.-Africa Leaders’ Summit&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;African Development Bank Group&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOQVFiU2F2X1ZoSUZhZjdTZ2tETEtHN2NhY0p1TnNFQzNLZHNIWl9tVjZyN0h2RHpfNC11YzBNd1hvdjRuOHBNSlA0UUFQSjR0OHV2anVPZnFiak00NzgyM2pMV044aWFoQS03Y2xNMkJSbnpSSElydmE3dVRQdkpCblJiWFpTMDJocmxUQkJaZlZ5aGJGdFZoTTJsMDhmcVBqbnlJZ0FHMnpZY1V2YXMxQXN2Uno2VWpqaDROYnhGWDRaa1NLMHJhNXBjaHI4eXp6OGlqbGEwWVE2VE5uMnEzZ1l5WWVuNlJDUmE4eFN6dE5WZFVwS011MnQtWkdCREV4ZFZfbHlB?oc=5",
+    "image_url": "",
+    "published_at": "2022-12-23T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
     ]
@@ -6227,6 +8874,52 @@
     ],
     "trust_tier": "tier2",
     "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "q4r7vj",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "Biometric card to replace ECOWAS travel certificate - The Guardian Nigeria News",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMigwFBVV95cUxQaXZGbnF3QXhCZ1Y0WFBNeXRQODFwakFuSGo0bTMzQ3pRS2R5TVQ4aldxa2V0NUM1WERTVlBpeHAzYTc5YXgwcHZUOGlWeFJ5b044eklRM2p2V0NWU0FHbGsxVmI5V1VlbHlCZzI5YUJSRTd6YTFCb0p1X0dxQkNHdzRvaw?oc=5\" target=\"_blank\"&gt;Biometric card to replace ECOWAS travel certificate&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;The Guardian Nigeria News&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQaXZGbnF3QXhCZ1Y0WFBNeXRQODFwakFuSGo0bTMzQ3pRS2R5TVQ4aldxa2V0NUM1WERTVlBpeHAzYTc5YXgwcHZUOGlWeFJ5b044eklRM2p2V0NWU0FHbGsxVmI5V1VlbHlCZzI5YUJSRTd6YTFCb0p1X0dxQkNHdzRvaw?oc=5",
+    "image_url": "",
+    "published_at": "2019-04-21T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "7clr6i",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "New ECOWAS Abuja headquarter’s project throws up consultancy jobs - The Guardian Nigeria News",
+    "summary": "&lt;a href=\"https://news.google.com/rss/articles/CBMimgFBVV95cUxQY29jcGlCUk9hM3JDQW53SlNkTWtoa1ZZMHo1ZXRmNFhfX05OdU9CS0VwcnJtb0RPWGdHUzA3TTNxYmE5TF9RZE96OE5Bbk00d0l2dUVlWF92c2VHbW1QVlMxc1AydVpqNi1JaVdzYUVmdmVCU0hUY01SYnhBLXFqUEZjMmQ1bllMRGxoZGpwem5rTHhqTkdadEh3?oc=5\" target=\"_blank\"&gt;New ECOWAS Abuja headquarter’s project throws up consultancy jobs&lt;/a&gt;&amp;nbsp;&amp;nbsp;&lt;font color=\"#6f6f6f\"&gt;The Guardian Nigeria News&lt;/font&gt;",
+    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQY29jcGlCUk9hM3JDQW53SlNkTWtoa1ZZMHo1ZXRmNFhfX05OdU9CS0VwcnJtb0RPWGdHUzA3TTNxYmE5TF9RZE96OE5Bbk00d0l2dUVlWF92c2VHbW1QVlMxc1AydVpqNi1JaVdzYUVmdmVCU0hUY01SYnhBLXFqUEZjMmQ1bllMRGxoZGpwem5rTHhqTkdadEh3?oc=5",
+    "image_url": "",
+    "published_at": "2019-03-11T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",

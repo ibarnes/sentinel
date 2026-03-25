@@ -158,5 +158,19 @@
       "africa"
     ],
     "trust_tier": "tier2"
+  },
+  {
+    "source_id": "thecable-cbn-imto-naira-settlement-2026-03-24",
+    "name": "TheCable — CBN IMTO Naira Settlement Directive",
+    "type": "webpage",
+    "url": "https://www.thecable.ng/no-more-dollar-payments-as-cbn-directs-imtos-to-open-naira-settlement-accounts/",
+    "enabled": true,
+    "default_tags": [
+      "nigeria",
+      "cbn",
+      "fx-policy",
+      "remittances"
+    ],
+    "trust_tier": "tier2"
   }
 ]

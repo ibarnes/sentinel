@@ -7922,5 +7922,59 @@
       "United States"
     ],
     "country": "United States"
+  },
+  {
+    "signal_id": "SIG-2026-03-25-CBN-IMTO-NAIRA-SETTLEMENT-001",
+    "title": "CBN directs IMTOs to settle remittances via naira accounts from May 1, 2026",
+    "signal_class": "Capital Reality",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-03-25T22:41:36.146Z",
+    "summary": "The Central Bank of Nigeria directed international money transfer operators to open naira settlement accounts and route remittance disbursements through them, ending dollar payout mode and tightening FX/remittance traceability.",
+    "flow": "CBN remittance settlement policy shift -> formal FX market routing + compliance enforcement -> pricing/settlement behavior change for inbound diaspora flows -> potential implications for local liquidity and capital-formation pathways",
+    "verification_note": "Single-publication report (TheCable) referencing CBN circular; keep as Monitor pending first-party CBN circular capture or Tier-1 corroboration.",
+    "sources": [
+      {
+        "label": "Google Share link provided by Isaac",
+        "url": "https://share.google/RdYD9KVi2sDw230o9"
+      },
+      {
+        "label": "TheCable",
+        "url": "https://www.thecable.ng/no-more-dollar-payments-as-cbn-directs-imtos-to-open-naira-settlement-accounts/"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "cbn",
+      "imto",
+      "remittances",
+      "fx-policy",
+      "naira-settlement"
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "CBN",
+      "NSIA",
+      "AFC",
+      "AfDB"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital"
+    ],
+    "evidence_type": "industry_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
