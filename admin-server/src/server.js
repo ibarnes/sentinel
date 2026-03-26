@@ -2617,7 +2617,10 @@ app.get('/dashboard/signals-feed', requireAnyAuth, async (req, res) => {
         return '';
       }
     })();
-    return `<div class="signals-grid-item"><div class="card h-100"><div class="card-body d-flex flex-column">${img}<div class="d-flex justify-content-between"><div class="small text-muted">${escapeHtml(String(x.source || 'source'))}</div><div class="small text-muted mono">${escapeHtml(String(x.published_at || '').slice(0,10))}</div></div><h6 class="mt-1 mb-1">${escapeHtml(String(x.title || 'Untitled'))}</h6><div class="small text-muted text-truncate" title="${escapeHtml(String(x.url || ''))}">${escapeHtml(shortUrl)}</div><div class="small mt-2">${escapeHtml(String(x.summary || ''))}</div>${why}<div class="mt-2 d-flex gap-2 mt-auto">${(x.url ? `<a class="btn btn-sm btn-outline-secondary" target="_blank" rel="noreferrer" href="${escapeHtml(String(x.url))}">Open Source</a>` : '')}<form method="post" action="/api/signals-feed/promote/${encodeURIComponent(String(x.feed_id || ''))}"><button class="btn btn-sm btn-primary" type="submit">Promote to Canonical</button></form></div></div></div></div>`;
+    const titleHtml = x.url
+      ? `<a target="_blank" rel="noreferrer" href="${escapeHtml(String(x.url))}">${escapeHtml(String(x.title || 'Untitled'))}</a>`
+      : `${escapeHtml(String(x.title || 'Untitled'))}`;
+    return `<div class="signals-grid-item"><div class="card h-100"><div class="card-body d-flex flex-column">${img}<div class="d-flex justify-content-between"><div class="small text-muted">${escapeHtml(String(x.source || 'source'))}</div><div class="small text-muted mono">${escapeHtml(String(x.published_at || '').slice(0,10))}</div></div><h6 class="mt-1 mb-1">${titleHtml}</h6><div class="small text-muted text-truncate" title="${escapeHtml(String(x.url || ''))}">${escapeHtml(shortUrl)}</div><div class="small mt-2">${escapeHtml(String(x.summary || ''))}</div>${why}<div class="mt-2 d-flex gap-2 mt-auto"><form method="post" action="/api/signals-feed/promote/${encodeURIComponent(String(x.feed_id || ''))}"><button class="btn btn-sm btn-primary" type="submit">Ingest</button></form></div></div></div></div>`;
   }).join('');
 
   const freshness = meta.last_run_at ? `Last refresh: ${escapeHtml(String(meta.last_run_at))}` : 'Last refresh: never';
