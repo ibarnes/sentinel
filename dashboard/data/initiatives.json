@@ -78,7 +78,30 @@
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:44:08.173Z"
+    "updated_at": "2026-03-26T03:14:36.899Z",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority",
+      "authority_scope": "Approves commitment and assumes decision-rights for deployment risk",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-653305",
@@ -158,7 +181,30 @@
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:44:08.173Z"
+    "updated_at": "2026-03-26T03:14:36.899Z",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority",
+      "authority_scope": "Approves commitment and assumes decision-rights for deployment risk",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-AI-OPT-A",
@@ -232,7 +278,30 @@
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:44:08.173Z"
+    "updated_at": "2026-03-26T03:14:36.899Z",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "authority_scope": "Approves capital commitment structure and risk envelope for digital/AI infrastructure deployment",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-AI-OPT-B",
@@ -306,7 +375,30 @@
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:44:08.173Z"
+    "updated_at": "2026-03-26T03:14:36.899Z",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "authority_scope": "Approves capital commitment structure and risk envelope for digital/AI infrastructure deployment",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-AI-OPT-C",
@@ -380,7 +472,30 @@
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:44:08.173Z"
+    "updated_at": "2026-03-26T03:14:36.899Z",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "authority_scope": "Approves capital commitment structure and risk envelope for digital/AI infrastructure deployment",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-AI-OPT-D",
@@ -454,7 +569,30 @@
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:44:08.173Z"
+    "updated_at": "2026-03-26T03:14:36.899Z",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "authority_scope": "Approves capital commitment structure and risk envelope for digital/AI infrastructure deployment",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -1354,7 +1492,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:44:08.173Z",
+    "updated_at": "2026-03-26T03:14:36.899Z",
     "current_state": "execution_ready",
     "readiness_score": 90,
     "max_possible_score": 100,
@@ -1414,7 +1552,30 @@
     "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
-    "flow_health": "redundant"
+    "flow_health": "redundant",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority",
+      "authority_scope": "Approves commitment and assumes decision-rights for deployment risk",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -2369,7 +2530,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:44:08.173Z",
+    "updated_at": "2026-03-26T03:14:36.899Z",
     "current_state": "governance_ready",
     "readiness_score": 54,
     "max_possible_score": 65,
@@ -2448,7 +2609,30 @@
     "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
-    "flow_health": "redundant"
+    "flow_health": "redundant",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "authority_scope": "Approves capital commitment structure and risk envelope for digital/AI infrastructure deployment",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -3178,7 +3362,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:44:08.173Z",
+    "updated_at": "2026-03-26T03:14:36.899Z",
     "current_state": "architecture_defined",
     "readiness_score": 36,
     "max_possible_score": 45,
@@ -3238,7 +3422,30 @@
     "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
-    "flow_health": "redundant"
+    "flow_health": "redundant",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority",
+      "authority_scope": "Approves commitment and assumes decision-rights for deployment risk",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-GRAVITY-001",
@@ -3909,7 +4116,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:44:08.173Z",
+    "updated_at": "2026-03-26T03:14:36.899Z",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
@@ -3969,7 +4176,30 @@
     "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
-    "flow_health": "redundant"
+    "flow_health": "redundant",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority",
+      "authority_scope": "Approves commitment and assumes decision-rights for deployment risk",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-653306",
@@ -4647,7 +4877,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:44:08.173Z",
+    "updated_at": "2026-03-26T03:14:36.899Z",
     "current_state": "architecture_defined",
     "readiness_score": 36,
     "max_possible_score": 45,
@@ -4707,7 +4937,30 @@
     "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
-    "flow_health": "redundant"
+    "flow_health": "redundant",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "authority_scope": "Approves capital commitment structure and risk envelope for digital/AI infrastructure deployment",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
@@ -5524,7 +5777,30 @@
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:44:08.173Z"
+    "updated_at": "2026-03-26T03:14:36.899Z",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority",
+      "authority_scope": "Approves commitment and assumes decision-rights for deployment risk",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
@@ -5976,7 +6252,7 @@
       "capital-markets-structuring-needed",
       "execution-velocity-sensitive"
     ],
-    "updated_at": "2026-03-26T02:44:08.173Z",
+    "updated_at": "2026-03-26T03:14:36.899Z",
     "buyer_absorption_thesis": "Buyer pulls when recovery outcomes are time-bound and auditable, execution counterparties are named, and capital can be deployed with controlled downside.",
     "path_redundancy_rule": "minimum_3_independent_lanes",
     "access_lanes": [
@@ -6015,7 +6291,30 @@
     "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
-    "flow_health": "redundant"
+    "flow_health": "redundant",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority",
+      "authority_scope": "Approves commitment and assumes decision-rights for deployment risk",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
@@ -6413,7 +6712,7 @@
       "energy-digital-convergence",
       "sovereign-pacing-risk"
     ],
-    "updated_at": "2026-03-26T02:44:08.173Z",
+    "updated_at": "2026-03-26T03:14:36.899Z",
     "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
     "path_redundancy_rule": "minimum_3_independent_lanes",
     "access_lanes": [
@@ -6452,7 +6751,30 @@
     "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
-    "flow_health": "redundant"
+    "flow_health": "redundant",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "authority_scope": "Approves capital commitment structure and risk envelope for digital/AI infrastructure deployment",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   },
   {
     "initiative_id": "INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE",
@@ -7242,7 +7564,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:44:08.173Z",
+    "updated_at": "2026-03-26T03:14:36.899Z",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
@@ -7307,6 +7629,29 @@
     "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
-    "flow_health": "redundant"
+    "flow_health": "redundant",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "authority_scope": "Approves capital commitment structure and risk envelope for digital/AI infrastructure deployment",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed"
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Initial sponsor / introducer channel",
+      "translation_layer": "Strategy / advisory / general executive layer",
+      "conversion_node": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
+      "confirm_node": "Buyer commitment confirmation owner",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_conversion_direct",
+      "prewire_required": true
+    },
+    "path_precision_score": 75,
+    "boundary_loss_risk": "medium",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    }
   }
 ]
