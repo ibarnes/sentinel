@@ -38,7 +38,44 @@
     "portfolio_visibility": "hidden",
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "PIF",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "PIF",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "PIF",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant",
+    "updated_at": "2026-03-26T02:42:06.639Z"
   },
   {
     "initiative_id": "INIT-653305",
@@ -78,7 +115,44 @@
     "portfolio_visibility": "hidden",
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when strategic outcomes are explicit, risk allocation is acceptable, and execution/financing pathways are independently viable.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "PIF",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "PIF",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "PIF",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant",
+    "updated_at": "2026-03-26T02:42:06.639Z"
   },
   {
     "initiative_id": "INIT-AI-OPT-A",
@@ -112,7 +186,44 @@
     "portfolio_visibility": "hidden",
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when strategic outcomes are explicit, risk allocation is acceptable, and execution/financing pathways are independently viable.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "FMF-NG",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "FMF-NG",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "FMF-NG",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant",
+    "updated_at": "2026-03-26T02:42:06.639Z"
   },
   {
     "initiative_id": "INIT-AI-OPT-B",
@@ -146,7 +257,44 @@
     "portfolio_visibility": "hidden",
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "DFC",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "DFC",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "DFC",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant",
+    "updated_at": "2026-03-26T02:42:06.639Z"
   },
   {
     "initiative_id": "INIT-AI-OPT-C",
@@ -180,7 +328,44 @@
     "portfolio_visibility": "hidden",
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "PIF",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "PIF",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "PIF",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant",
+    "updated_at": "2026-03-26T02:42:06.639Z"
   },
   {
     "initiative_id": "INIT-AI-OPT-D",
@@ -214,7 +399,44 @@
     "portfolio_visibility": "hidden",
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when strategic outcomes are explicit, risk allocation is acceptable, and execution/financing pathways are independently viable.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "AFC",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "AFC",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "AFC",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant",
+    "updated_at": "2026-03-26T02:42:06.639Z"
   },
   {
     "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -1114,7 +1336,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-10T15:48:00Z",
+    "updated_at": "2026-03-26T02:42:06.639Z",
     "current_state": "execution_ready",
     "readiness_score": 90,
     "max_possible_score": 100,
@@ -1135,7 +1357,43 @@
     },
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when strategic outcomes are explicit, risk allocation is acceptable, and execution/financing pathways are independently viable.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "FMF-NG",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "FMF-NG",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "FMF-NG",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant"
   },
   {
     "initiative_id": "INIT-AP-AI-FACTORY-001",
@@ -2090,7 +2348,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T01:11:04.549Z",
+    "updated_at": "2026-03-26T02:42:06.639Z",
     "current_state": "governance_ready",
     "readiness_score": 54,
     "max_possible_score": 65,
@@ -2130,7 +2388,43 @@
       "resilience-aligned",
       "capital-markets-structuring-needed",
       "sovereign-pacing-risk"
-    ]
+    ],
+    "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "GIC",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "GIC",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "GIC",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant"
   },
   {
     "initiative_id": "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -2860,7 +3154,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-10T00:33:00Z",
+    "updated_at": "2026-03-26T02:42:06.639Z",
     "current_state": "architecture_defined",
     "readiness_score": 36,
     "max_possible_score": 45,
@@ -2881,7 +3175,43 @@
     },
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "TAFF",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "TAFF",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "TAFF",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant"
   },
   {
     "initiative_id": "INIT-GRAVITY-001",
@@ -3552,7 +3882,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-10T00:26:00Z",
+    "updated_at": "2026-03-26T02:42:06.639Z",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
@@ -3573,7 +3903,43 @@
     },
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when strategic outcomes are explicit, risk allocation is acceptable, and execution/financing pathways are independently viable.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "ADQ",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "ADQ",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "ADQ",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant"
   },
   {
     "initiative_id": "INIT-653306",
@@ -4251,7 +4617,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-10T22:59:45.044Z",
+    "updated_at": "2026-03-26T02:42:06.639Z",
     "current_state": "architecture_defined",
     "readiness_score": 36,
     "max_possible_score": 45,
@@ -4272,7 +4638,43 @@
     },
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when strategic outcomes are explicit, risk allocation is acceptable, and execution/financing pathways are independently viable.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "AFC",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "AFC",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "AFC",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant"
   },
   {
     "initiative_id": "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
@@ -5049,7 +5451,44 @@
     },
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "buyer_absorption_thesis": "Buyer pulls when strategic outcomes are explicit, risk allocation is acceptable, and execution/financing pathways are independently viable.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "ADQ",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "ADQ",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "ADQ",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant",
+    "updated_at": "2026-03-26T02:42:06.639Z"
   },
   {
     "initiative_id": "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
@@ -5501,7 +5940,43 @@
       "capital-markets-structuring-needed",
       "execution-velocity-sensitive"
     ],
-    "updated_at": "2026-03-26T01:11:04.549Z"
+    "updated_at": "2026-03-26T02:42:06.639Z",
+    "buyer_absorption_thesis": "Buyer pulls when recovery outcomes are time-bound and auditable, execution counterparties are named, and capital can be deployed with controlled downside.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "USVI-RECOVERY-AUTHORITY",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "USVI-RECOVERY-AUTHORITY",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "USVI-RECOVERY-AUTHORITY",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant"
   },
   {
     "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
@@ -5899,7 +6374,43 @@
       "energy-digital-convergence",
       "sovereign-pacing-risk"
     ],
-    "updated_at": "2026-03-26T01:11:04.549Z"
+    "updated_at": "2026-03-26T02:42:06.639Z",
+    "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "AWS",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "AWS",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "AWS",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant"
   },
   {
     "initiative_id": "INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE",
@@ -6689,7 +7200,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T01:11:04.549Z",
+    "updated_at": "2026-03-26T02:42:06.639Z",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
@@ -6715,6 +7226,42 @@
       "resilience-aligned",
       "local-capital-alignment-critical",
       "public-finance-architecture-fit"
-    ]
+    ],
+    "buyer_absorption_thesis": "Buyer pulls when response/accountability outcomes are measurable, political risk is de-risked, and funding architecture supports phased implementation.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-policy-sponsor",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "TAFF",
+        "independence_group": "A",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+      },
+      {
+        "lane_id": "lane-2-capital-platform",
+        "lane_type": "capital_platform",
+        "target_buyer": "TAFF",
+        "independence_group": "B",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+      },
+      {
+        "lane_id": "lane-3-operator-delivery",
+        "lane_type": "operator_delivery",
+        "target_buyer": "TAFF",
+        "independence_group": "C",
+        "status": "to_build",
+        "owner": "",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 0,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant"
   }
 ]
