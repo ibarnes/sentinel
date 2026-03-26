@@ -6810,9 +6810,12 @@
     "impact_tags": [
       "resilience-aligned",
       "energy-digital-convergence",
-      "sovereign-pacing-risk"
+      "sovereign-pacing-risk",
+      "dual-node-conversion-required",
+      "anchor-demand-gating",
+      "simultaneous-demand-capital-alignment"
     ],
-    "updated_at": "2026-03-26T03:14:36.899Z",
+    "updated_at": "2026-03-26T03:50:22.459Z",
     "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
     "path_redundancy_rule": "minimum_3_independent_lanes",
     "access_lanes": [
@@ -6854,27 +6857,94 @@
     "flow_health": "redundant",
     "boundary_coupling_rule": "no_progress_without_conversion_node_path",
     "conversion_node_role": {
-      "role_label": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
-      "authority_scope": "Approves capital commitment structure and risk envelope for digital/AI infrastructure deployment",
+      "role_label": "Dual-node conversion system (Demand node + Capital node)",
+      "authority_scope": "Commitment requires simultaneous convergence of anchor demand commitment and infrastructure capital commitment",
       "decision_type": "concept_to_commitment",
-      "status": "unconfirmed"
+      "status": "partially_confirmed",
+      "node_model": "dual_node_simultaneous",
+      "demand_node": {
+        "primary": {
+          "name": "Matt Garman (candidate)",
+          "title": "CEO / SVP Infrastructure authority (to validate exact title path)",
+          "organization": "Amazon Web Services",
+          "authority_type": [
+            "risk_acceptance",
+            "demand_commitment"
+          ],
+          "evidence": "Hyperscaler infrastructure leadership controls regional expansion and capacity commitment pathways."
+        },
+        "backup": {
+          "name": "Jensen Huang (ecosystem leverage node)",
+          "title": "Chief Executive Officer",
+          "organization": "NVIDIA",
+          "authority_type": [
+            "ecosystem_validation"
+          ],
+          "evidence": "Demand amplifier/validator influence; not direct buyer capital node."
+        }
+      },
+      "capital_node": {
+        "primary": {
+          "name": "Joseph Baratta (representative of infra capital class)",
+          "title": "Global infrastructure capital authority (to validate current exact title)",
+          "organization": "Blackstone",
+          "authority_type": [
+            "capital_deployment",
+            "risk_acceptance"
+          ],
+          "evidence": "Infra-capital IC authority class required for platform equity commitment."
+        }
+      },
+      "critical_note": "Sequential routing fails; conversion requires simultaneous demand + capital alignment event."
     },
     "internal_path_map": {
-      "boundary_entry_node": "Initial sponsor / introducer channel",
-      "translation_layer": "Strategy / advisory / general executive layer",
-      "conversion_node": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
-      "confirm_node": "Buyer commitment confirmation owner",
+      "boundary_entry_node": "Operator/asset readiness narrative (energy + fiber + land + sovereign support)",
+      "translation_layer": "General ecosystem narrative channel (avoid)",
+      "conversion_node": "Hyperscaler infra decision authority + infra capital IC authority",
+      "confirm_node": "Joint pre-FID commitment alignment",
       "current_route": "entry_to_translation",
-      "target_route": "entry_to_conversion_direct",
-      "prewire_required": true
+      "target_route": "entry_to_dual_conversion_direct",
+      "prewire_required": true,
+      "best_introducer_demand": "NVIDIA to hyperscaler infrastructure leadership path",
+      "best_introducer_capital": "Sovereign co-investor pathway (Mubadala/PIF class)",
+      "no_translation_path_hypothesis": "A pre-wired corridor package presented simultaneously to hyperscaler demand authority and infra-capital authority can move directly to joint commitment structuring without internal reinterpretation."
     },
-    "path_precision_score": 75,
+    "path_precision_score": 84,
     "boundary_loss_risk": "medium",
     "internal_access_critical": true,
     "translation_load_test": {
       "status": "required",
       "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
-    }
+    },
+    "boundary_gate_map": {
+      "gate_name": "Joint commitment alignment (Pre-FID)",
+      "gate_owner": "Hyperscaler infra leadership + infrastructure capital IC",
+      "required_artifact": "Bankable AI Corridor Package (power + fiber + governance + demand structure + capital structure)",
+      "decision_window": "30-90 days",
+      "top_rejection_reasons": [
+        "No committed demand",
+        "No clear capital structure",
+        "Governance unclear",
+        "Execution risk too high"
+      ]
+    },
+    "first_motion_package": {
+      "artifacts": [
+        "Capital structure memo",
+        "Technical validation brief"
+      ],
+      "real_first_move": "Secure anchor demand conversation (AWS / Google / Microsoft) before sequencing downstream capital motions.",
+      "immediate_next_action": "Run anchor-demand conversation: “What conditions are required for committed regional capacity anchor?”",
+      "owner": "USG",
+      "due_window": "Immediate (gating)"
+    },
+    "blocker_diagnostics": {
+      "blocker_1": "Uncollapsed demand signal (anchor tenant not secured)",
+      "blocker_2": "Capital stack architect missing",
+      "blocker_3": "Governance clarity insufficient for joint commitment"
+    },
+    "gating_truth": "Stranded energy -> contracted compute demand -> financeable infrastructure asset",
+    "entry_doctrine": "Simultaneous convergence: Demand node + Capital node"
   },
   {
     "initiative_id": "INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE",
