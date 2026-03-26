@@ -2090,7 +2090,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-25T18:39:09.994Z",
+    "updated_at": "2026-03-26T01:11:04.549Z",
     "current_state": "governance_ready",
     "readiness_score": 54,
     "max_possible_score": 65,
@@ -2125,6 +2125,11 @@
         "provenance": "provided_by_isaac",
         "evidence_ref": "Telegram images, message 3314 (2026-03-25)"
       }
+    ],
+    "impact_tags": [
+      "resilience-aligned",
+      "capital-markets-structuring-needed",
+      "sovereign-pacing-risk"
     ]
   },
   {
@@ -5490,7 +5495,13 @@
       "2026-03-24: Added Tanisha Lewis network actors (Tanisha, Camille Moore, Tonya Saunders, Steven Benjamin, Hannibal Ware, Mrs Kim) as identified with verification queue entries.",
       "2026-03-24: Added Mark Grobmyer (GSI Chairman) profile details incl. email/website from Isaac-provided update.",
       "2026-03-25: Added Dr. Canaan Williams as identified USVI workforce-housing actor candidate from Cedric LinkedIn signal + sustainablebonds.com context."
-    ]
+    ],
+    "impact_tags": [
+      "resilience-aligned",
+      "capital-markets-structuring-needed",
+      "execution-velocity-sensitive"
+    ],
+    "updated_at": "2026-03-26T01:11:04.549Z"
   },
   {
     "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
@@ -5882,7 +5893,13 @@
     },
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "impact_tags": [
+      "resilience-aligned",
+      "energy-digital-convergence",
+      "sovereign-pacing-risk"
+    ],
+    "updated_at": "2026-03-26T01:11:04.549Z"
   },
   {
     "initiative_id": "INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE",
@@ -6672,7 +6689,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-25T16:42:07.858Z",
+    "updated_at": "2026-03-26T01:11:04.549Z",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
@@ -6693,6 +6710,11 @@
     },
     "mandate_signed": false,
     "fee_secured": false,
-    "phase_banner": "Pre-Mandate (Positioning Only)"
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "impact_tags": [
+      "resilience-aligned",
+      "local-capital-alignment-critical",
+      "public-finance-architecture-fit"
+    ]
   }
 ]

@@ -7976,5 +7976,283 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-03-25-THECABLE-CBN-IMTO-NAIRA-SETTLEMENT-DIRECTIVE-TS7CIM",
+    "title": "No more dollar payments as CBN directs IMTOs to open naira settlement accounts",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-03-25T22:41:44.769Z",
+    "summary": "The CBN has directed all international money transfer operators (IMTOs) to open naira settlement accounts and route all...",
+    "provenance": "discovered_by_system",
+    "sources": [
+      {
+        "label": "TheCable — CBN IMTO Naira Settlement Directive",
+        "url": "https://www.thecable.ng/no-more-dollar-payments-as-cbn-directs-imtos-to-open-naira-settlement-accounts/"
+      }
+    ],
+    "tags": [
+      "nigeria",
+      "cbn",
+      "fx-policy",
+      "remittances"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": []
+  },
+  {
+    "signal_id": "SIG-2026-03-26-META-CAPITAL-RESILIENCE-CLUSTER-001",
+    "title": "Capital Systems Intelligence Cluster: Resilience concentration + financing model transition + sovereign pacing tension",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "observed_at": "2026-03-26T01:10:00Z",
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "evidence_type": "strategic_assessment",
+    "evidence_strength": "medium",
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Composite signal cluster from Isaac: sovereign capital concentration into resilience infrastructure, African domestic-capital mobilization architecture, blended finance migration into capital markets instruments, and potential Gulf SWF stabilization mandate tension.",
+    "flow": "macro capital regime transition -> resilience-first allocation + local capital architecture + structured-market financing -> differential initiative execution velocity and funding availability",
+    "verification_note": "Strategic cluster provided directly by Isaac; use as operating posture update pending source-level decomposition and corroboration.",
+    "sources": [
+      {
+        "label": "Isaac strategic brief (Telegram)",
+        "url": "internal://chat/2026-03-26"
+      }
+    ],
+    "tags": [
+      "meta-signal",
+      "capital-systems",
+      "resilience-infrastructure",
+      "africa-capital-architecture",
+      "blended-finance",
+      "sovereign-capital"
+    ],
+    "geography": [
+      "Global",
+      "Africa",
+      "Gulf"
+    ],
+    "country": "Multi-Region",
+    "buyer_ids": [
+      "PIF",
+      "MUBADALA",
+      "QIA",
+      "GIC",
+      "AfDB",
+      "AFC",
+      "DFC"
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ]
+  },
+  {
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "observed_at": "2026-03-26T01:10:00Z",
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "evidence_type": "strategic_assessment",
+    "evidence_strength": "medium",
+    "initiative_ids": [
+      "USG"
+    ],
+    "signal_id": "SIG-2026-03-26-RESILIENCE-ALLOCATION-TILT-001",
+    "title": "Sovereign capital tilt toward resilience infrastructure is accelerating",
+    "signal_class": "Capital Reality",
+    "summary": "Sovereign allocation behavior is increasingly concentrated in resilience-class hard assets (digital infrastructure, energy security, and climate adaptation systems).",
+    "flow": "sovereign allocation tilt -> crowding into resilience themes -> faster closes/tighter pricing in targeted sectors",
+    "tags": [
+      "sovereign-capital",
+      "resilience",
+      "digital-infrastructure",
+      "energy-security",
+      "climate-adaptation"
+    ],
+    "geography": [
+      "Global"
+    ],
+    "country": "Global",
+    "buyer_ids": [
+      "PIF",
+      "MUBADALA",
+      "QIA",
+      "GIC",
+      "TEMASEK"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "sources": [
+      {
+        "label": "Isaac strategic brief (Telegram)",
+        "url": "internal://chat/2026-03-26"
+      }
+    ],
+    "verification_note": "Provided by Isaac; treat as high-value directional posture signal pending source-level corroboration."
+  },
+  {
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "observed_at": "2026-03-26T01:10:00Z",
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "evidence_type": "strategic_assessment",
+    "evidence_strength": "medium",
+    "initiative_ids": [
+      "USG"
+    ],
+    "signal_id": "SIG-2026-03-26-AFRICA-CAPITAL-MOBILIZATION-ARCH-001",
+    "title": "African finance architecture shifting toward domestic/institutional capital mobilization",
+    "signal_class": "Platform Pressure",
+    "summary": "AfDB/regional ecosystem momentum indicates transition from aid/debt dependence toward domestic capital mobilization and local market deepening.",
+    "flow": "regional finance architecture shift -> domestic pension/sovereign mobilization + local-currency instruments -> greater need for local platform alignment",
+    "tags": [
+      "africa",
+      "capital-mobilization",
+      "local-currency",
+      "institutional-capital"
+    ],
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa",
+    "buyer_ids": [
+      "AfDB",
+      "AFC",
+      "NSIA"
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital"
+    ],
+    "sources": [
+      {
+        "label": "Isaac strategic brief (Telegram)",
+        "url": "internal://chat/2026-03-26"
+      }
+    ],
+    "verification_note": "Provided by Isaac; treat as high-value directional posture signal pending source-level corroboration."
+  },
+  {
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "observed_at": "2026-03-26T01:10:00Z",
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "evidence_type": "strategic_assessment",
+    "evidence_strength": "medium",
+    "initiative_ids": [
+      "USG"
+    ],
+    "signal_id": "SIG-2026-03-26-BLENDED-FINANCE-CAPITAL-MARKETS-SHIFT-001",
+    "title": "Blended finance moving beyond PPP bank debt toward capital-markets structures",
+    "signal_class": "Capital Reality",
+    "summary": "Infrastructure funding patterns increasingly include bonds/securitization/sukuk and structured exits rather than pure bank-led PPP debt.",
+    "flow": "ppp debt constraints -> structured capital-markets instruments rise -> advantage to deals designed for refinance/exit pathways",
+    "tags": [
+      "blended-finance",
+      "project-bonds",
+      "securitization",
+      "sukuk",
+      "refinance-design"
+    ],
+    "geography": [
+      "Africa"
+    ],
+    "country": "Africa",
+    "buyer_ids": [
+      "AfDB",
+      "AFC",
+      "DFC"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture"
+    ],
+    "sources": [
+      {
+        "label": "Isaac strategic brief (Telegram)",
+        "url": "internal://chat/2026-03-26"
+      }
+    ],
+    "verification_note": "Provided by Isaac; treat as high-value directional posture signal pending source-level corroboration."
+  },
+  {
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "observed_at": "2026-03-26T01:10:00Z",
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "evidence_type": "strategic_assessment",
+    "evidence_strength": "medium",
+    "initiative_ids": [
+      "USG"
+    ],
+    "signal_id": "SIG-2026-03-26-GULF-SWF-STABILIZATION-TENSION-001",
+    "title": "Geopolitical pressure may increase Gulf SWF domestic stabilization mandate",
+    "signal_class": "Structural Ambiguity",
+    "summary": "Rising geopolitical risk could force selected SWFs to balance outbound deployment with domestic stabilization needs, affecting pacing/selectivity.",
+    "flow": "geopolitical stress -> dual mandate tension for SWFs -> slower/stricter outbound capital decisions",
+    "tags": [
+      "gulf",
+      "swf",
+      "stabilization",
+      "liquidity-risk",
+      "timeline-risk"
+    ],
+    "geography": [
+      "Gulf",
+      "Global"
+    ],
+    "country": "Gulf",
+    "buyer_ids": [
+      "PIF",
+      "MUBADALA",
+      "QIA",
+      "ADQ"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "sources": [
+      {
+        "label": "Isaac strategic brief (Telegram)",
+        "url": "internal://chat/2026-03-26"
+      }
+    ],
+    "verification_note": "Provided by Isaac; treat as high-value directional posture signal pending source-level corroboration."
   }
 ]
