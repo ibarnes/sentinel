@@ -2898,11 +2898,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep 2026-03-26T10:40Z: advanced TASK-0242/TASK-0243 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0110). Live credential execution still pending TASK-0159.",
           "created_at": "2026-03-26T10:40:00Z"
+        },
+        {
+          "id": "progress-task-0097-20260326-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-03-26T16:30Z: advanced TASK-0244/TASK-0245 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0111). Live credential execution still pending TASK-0159.",
+          "created_at": "2026-03-26T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-26T10:40:00Z",
+      "updated_at": "2026-03-26T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3412,11 +3418,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep 2026-03-26T10:40Z: TASK-0242/TASK-0243 completed and linked to RP-0110; blocker state unchanged pending live credentials for TASK-0159/TASK-0111.",
           "created_at": "2026-03-26T10:40:00Z"
+        },
+        {
+          "id": "progress-task-0103-20260326-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-03-26T16:30Z: TASK-0244/TASK-0245 completed and linked to RP-0111; blocker state unchanged pending live credentials for TASK-0159/TASK-0111.",
+          "created_at": "2026-03-26T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-26T10:40:00Z",
+      "updated_at": "2026-03-26T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3742,11 +3754,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep decomposition gate: added TASK-0240/TASK-0241 for tranche-AB stale-RFR recovery; executed TASK-0240 and queued routing card in RP-0109.",
           "created_at": "2026-03-26T06:30:00Z"
+        },
+        {
+          "id": "progress-task-0107-20260326-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-03-26T16:30Z: continued P0 blocker-chain stream and advanced TASK-0244/TASK-0245 to Ready for Review (RP-0111); approval queue age pressure unchanged pending Isaac decisions.",
+          "created_at": "2026-03-26T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-03-26T06:30:00Z",
+      "updated_at": "2026-03-26T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -9098,6 +9116,94 @@
       "updated_by": "sentinel",
       "parent_id": "TASK-0103",
       "review_packet_id": "RP-0110"
+    },
+    {
+      "id": "TASK-0244",
+      "title": "TS-H1.1c.2bu Capture midday credential preflight artifact (progress sweep)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-progress-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "mission-control/evidence/pipeline-run/preflight-2026-03-26T16-30-00Z.md",
+        "mission-control/review-packets/RP-0111-board-progress-sweep-midday-2026-03-26.md"
+      ],
+      "description": "Run credential preflight checker during midday progress slot and capture deterministic PASS/BLOCKED artifact for the active blocker chain.\nAcceptance Criteria:\n- Preflight report is captured with UTC timestamp.\n- Status is deterministic based on env state.\n- Artifact path linked to TASK-0103 chain.",
+      "comments": [
+        {
+          "id": "done-0244-20260326-1630",
+          "author": "sentinel",
+          "text": "Executed preflight capture; artifact recorded at mission-control/evidence/pipeline-run/preflight-2026-03-26T16-30-00Z.md.",
+          "created_at": "2026-03-26T16:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-26T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0111-board-progress-sweep-midday-2026-03-26.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-26T16:30:00Z",
+      "updated_at": "2026-03-26T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0111"
+    },
+    {
+      "id": "TASK-0245",
+      "title": "TS-H1.1c.2bv Run one-command credentialed wrapper and capture midday fail-fast evidence",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "midday-progress-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credentialed-once.sh",
+        "mission-control/evidence/pipeline-run/2026-03-26T16-30-00Z-credentialed-wrapper-dryrun.md",
+        "mission-control/review-packets/RP-0111-board-progress-sweep-midday-2026-03-26.md"
+      ],
+      "description": "Execute one-command credentialed wrapper during midday slot and capture deterministic fail-fast output when credentials are unavailable.\nAcceptance Criteria:\n- Wrapper command executed once.\n- Fail-fast stderr/exit code captured in artifact.\n- Artifact linked to blocker chain for review.",
+      "comments": [
+        {
+          "id": "done-0245-20260326-1630",
+          "author": "sentinel",
+          "text": "Executed wrapper dry-run; fail-fast evidence captured at mission-control/evidence/pipeline-run/2026-03-26T16-30-00Z-credentialed-wrapper-dryrun.md.",
+          "created_at": "2026-03-26T16:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-26T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0111-board-progress-sweep-midday-2026-03-26.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-26T16:30:00Z",
+      "updated_at": "2026-03-26T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0111"
     }
   ]
 }
