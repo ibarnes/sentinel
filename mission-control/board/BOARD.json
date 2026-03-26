@@ -2892,11 +2892,17 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-03-24T16:30Z: advanced TASK-0229/TASK-0230 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0102). Live credential execution still pending TASK-0159.",
           "created_at": "2026-03-24T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0097-20260326-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-03-26T10:40Z: advanced TASK-0242/TASK-0243 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0110). Live credential execution still pending TASK-0159.",
+          "created_at": "2026-03-26T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-03-24T16:30:00Z",
+      "updated_at": "2026-03-26T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3400,11 +3406,17 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-03-24T16:30Z: advanced TASK-0229/TASK-0230 to Ready for Review with fresh blocked preflight + fail-fast dry-run evidence (RP-0102). Live credential execution still pending TASK-0159.",
           "created_at": "2026-03-24T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0103-20260326-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-03-26T10:40Z: TASK-0242/TASK-0243 completed and linked to RP-0110; blocker state unchanged pending live credentials for TASK-0159/TASK-0111.",
+          "created_at": "2026-03-26T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-03-24T16:30:00Z",
+      "updated_at": "2026-03-26T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -8998,6 +9010,94 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-0109"
+    },
+    {
+      "id": "TASK-0242",
+      "title": "TS-H1.1c.2bs Capture morning credential preflight artifact (execution sweep)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "morning-execution-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "mission-control/evidence/pipeline-run/preflight-2026-03-26T10-40-00Z.md",
+        "mission-control/review-packets/RP-0110-board-execution-sweep-morning-2026-03-26.md"
+      ],
+      "description": "Run preflight checker and capture deterministic PASS/BLOCKED artifact for current execution slot.\nAcceptance Criteria:\n- Preflight script executed with timestamped output.\n- Artifact records explicit missing/present credential state.\n- Parent blocker chain linkage preserved.",
+      "comments": [
+        {
+          "id": "done-0242-20260326-1040",
+          "author": "sentinel",
+          "text": "Executed preflight capture; artifact recorded at mission-control/evidence/pipeline-run/preflight-2026-03-26T10-40-00Z.md (status: BLOCKED, missing credentials).",
+          "created_at": "2026-03-26T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-26T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0110-board-execution-sweep-morning-2026-03-26.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-26T10:40:00Z",
+      "updated_at": "2026-03-26T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0110"
+    },
+    {
+      "id": "TASK-0243",
+      "title": "TS-H1.1c.2bt Run one-command credentialed wrapper and capture fail-fast evidence (execution sweep)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "morning-execution-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credentialed-once.sh",
+        "mission-control/evidence/pipeline-run/2026-03-26T10-40-00Z-credentialed-wrapper-dryrun.md",
+        "mission-control/review-packets/RP-0110-board-execution-sweep-morning-2026-03-26.md"
+      ],
+      "description": "Execute one-command wrapper in unattended slot and capture deterministic fail-fast output when credentials are absent.\nAcceptance Criteria:\n- Wrapper command executed in sweep slot.\n- stderr/output captured to timestamped artifact.\n- Artifact confirms fail-fast credential gate behavior.",
+      "comments": [
+        {
+          "id": "done-0243-20260326-1040",
+          "author": "sentinel",
+          "text": "Executed wrapper dry-run; fail-fast evidence captured at mission-control/evidence/pipeline-run/2026-03-26T10-40-00Z-credentialed-wrapper-dryrun.md.",
+          "created_at": "2026-03-26T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-26T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0110-board-execution-sweep-morning-2026-03-26.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-03-26T10:40:00Z",
+      "updated_at": "2026-03-26T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103",
+      "review_packet_id": "RP-0110"
     }
   ]
 }
