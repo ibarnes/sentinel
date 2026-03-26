@@ -47,35 +47,38 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "PIF",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "PIF",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "PIF",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:42:06.639Z"
+    "updated_at": "2026-03-26T02:44:08.173Z"
   },
   {
     "initiative_id": "INIT-653305",
@@ -124,35 +127,38 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "PIF",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "PIF",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "PIF",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:42:06.639Z"
+    "updated_at": "2026-03-26T02:44:08.173Z"
   },
   {
     "initiative_id": "INIT-AI-OPT-A",
@@ -195,35 +201,38 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "FMF-NG",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "FMF-NG",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "FMF-NG",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:42:06.639Z"
+    "updated_at": "2026-03-26T02:44:08.173Z"
   },
   {
     "initiative_id": "INIT-AI-OPT-B",
@@ -266,35 +275,38 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "DFC",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "DFC",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "DFC",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:42:06.639Z"
+    "updated_at": "2026-03-26T02:44:08.173Z"
   },
   {
     "initiative_id": "INIT-AI-OPT-C",
@@ -337,35 +349,38 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "PIF",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "PIF",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "PIF",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:42:06.639Z"
+    "updated_at": "2026-03-26T02:44:08.173Z"
   },
   {
     "initiative_id": "INIT-AI-OPT-D",
@@ -408,35 +423,38 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "AFC",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "AFC",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "AFC",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:42:06.639Z"
+    "updated_at": "2026-03-26T02:44:08.173Z"
   },
   {
     "initiative_id": "INIT-NG-FIN-ENERGY-SPINE",
@@ -1336,7 +1354,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:42:06.639Z",
+    "updated_at": "2026-03-26T02:44:08.173Z",
     "current_state": "execution_ready",
     "readiness_score": 90,
     "max_possible_score": 100,
@@ -1366,31 +1384,34 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "FMF-NG",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "FMF-NG",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "FMF-NG",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant"
@@ -2348,7 +2369,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:42:06.639Z",
+    "updated_at": "2026-03-26T02:44:08.173Z",
     "current_state": "governance_ready",
     "readiness_score": 54,
     "max_possible_score": 65,
@@ -2397,31 +2418,34 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "GIC",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "GIC",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "GIC",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant"
@@ -3154,7 +3178,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:42:06.639Z",
+    "updated_at": "2026-03-26T02:44:08.173Z",
     "current_state": "architecture_defined",
     "readiness_score": 36,
     "max_possible_score": 45,
@@ -3184,31 +3208,34 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "TAFF",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "TAFF",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "TAFF",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant"
@@ -3882,7 +3909,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:42:06.639Z",
+    "updated_at": "2026-03-26T02:44:08.173Z",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
@@ -3912,31 +3939,34 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "ADQ",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "ADQ",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "ADQ",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant"
@@ -4617,7 +4647,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:42:06.639Z",
+    "updated_at": "2026-03-26T02:44:08.173Z",
     "current_state": "architecture_defined",
     "readiness_score": 36,
     "max_possible_score": 45,
@@ -4647,31 +4677,34 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "AFC",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "AFC",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "AFC",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant"
@@ -5460,35 +5493,38 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "ADQ",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "ADQ",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "ADQ",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant",
-    "updated_at": "2026-03-26T02:42:06.639Z"
+    "updated_at": "2026-03-26T02:44:08.173Z"
   },
   {
     "initiative_id": "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
@@ -5940,7 +5976,7 @@
       "capital-markets-structuring-needed",
       "execution-velocity-sensitive"
     ],
-    "updated_at": "2026-03-26T02:42:06.639Z",
+    "updated_at": "2026-03-26T02:44:08.173Z",
     "buyer_absorption_thesis": "Buyer pulls when recovery outcomes are time-bound and auditable, execution counterparties are named, and capital can be deployed with controlled downside.",
     "path_redundancy_rule": "minimum_3_independent_lanes",
     "access_lanes": [
@@ -5949,31 +5985,34 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "USVI-RECOVERY-AUTHORITY",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "USVI-RECOVERY-AUTHORITY",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "USVI-RECOVERY-AUTHORITY",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant"
@@ -6374,7 +6413,7 @@
       "energy-digital-convergence",
       "sovereign-pacing-risk"
     ],
-    "updated_at": "2026-03-26T02:42:06.639Z",
+    "updated_at": "2026-03-26T02:44:08.173Z",
     "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
     "path_redundancy_rule": "minimum_3_independent_lanes",
     "access_lanes": [
@@ -6383,31 +6422,34 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "AWS",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "AWS",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "AWS",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant"
@@ -7200,7 +7242,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T02:42:06.639Z",
+    "updated_at": "2026-03-26T02:44:08.173Z",
     "current_state": "constraint_discovery",
     "readiness_score": 18,
     "max_possible_score": 25,
@@ -7235,31 +7277,34 @@
         "lane_type": "policy_sponsor",
         "target_buyer": "TAFF",
         "independence_group": "A",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Identify policy/governance sponsor channel with direct buyer relevance.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-2-capital-platform",
         "lane_type": "capital_platform",
         "target_buyer": "TAFF",
         "independence_group": "B",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors."
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map co-invest/capital-platform pathway that reaches buyer without relying on lane-1 actors.",
+        "due": "2026-03-29"
       },
       {
         "lane_id": "lane-3-operator-delivery",
         "lane_type": "operator_delivery",
         "target_buyer": "TAFF",
         "independence_group": "C",
-        "status": "to_build",
-        "owner": "",
-        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull."
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Activate operator/technical-delivery pathway that creates independent buyer pull.",
+        "due": "2026-03-29"
       }
     ],
     "access_lane_count": 3,
-    "access_lane_active_count": 0,
+    "access_lane_active_count": 3,
     "access_lane_independent_count": 3,
     "path_dependency_risk": false,
     "flow_health": "redundant"
