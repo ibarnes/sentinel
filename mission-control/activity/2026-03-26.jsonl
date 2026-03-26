@@ -1,0 +1,12 @@
+{"ts":"2026-03-26T00:15:48.829Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-26T00:20:23.605Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-26T00:25:58.201Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-26T00:25:58.635Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-26T00:42:40.167Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-26T00:42:40.628Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-26T00:49:15.792Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-26T00:49:16.235Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-26T00:49:16.668Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-26T00:59:59.579Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-03-26T01:00:00.015Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts": "2026-03-26T11:15:00.000Z", "actor": "sentinel", "role": "operator", "event_type": "morning_brief.generated", "entity_type": "brief", "entity_id": "2026-03-26", "meta": {"path": "mission-control/briefs/2026-03-26-morning-brief.md", "delivery": "internal_only"}}
