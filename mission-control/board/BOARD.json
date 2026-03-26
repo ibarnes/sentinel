@@ -8825,6 +8825,91 @@
       "updated_at": "2026-03-25T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0238",
+      "title": "BRS-2026-03-26a Publish tranche-Z approval routing card",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/sweeps/2026-03-25T06-30-00Z-tranche-z-decision-digest.md",
+        "mission-control/board/approval-queue/2026-03-26T03-10-00Z-tranche-z-approval-card.md",
+        "mission-control/review-packets/RP-0108-board-build-window-night-2026-03-26.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Convert tranche-Z digest into explicit approval routing card so Isaac can process approvals in a single command-format pass.\nAcceptance Criteria:\n- Approval card exists under mission-control/board/approval-queue/.\n- Includes all tranche-Z task IDs with approve/hold guidance.\n- Includes governance guardrail (no Done without approved RP).",
+      "comments": [
+        {
+          "id": "done-0238-20260326-0310",
+          "author": "sentinel",
+          "text": "Published tranche-Z approval routing card at mission-control/board/approval-queue/2026-03-26T03-10-00Z-tranche-z-approval-card.md.",
+          "created_at": "2026-03-26T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-26T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0108-board-build-window-night-2026-03-26.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "review_packet_id": "RP-0108",
+      "created_at": "2026-03-26T03:10:00Z",
+      "updated_at": "2026-03-26T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0239",
+      "title": "BRS-2026-03-26b Build tranche-AA decision digest for next stale RFR cohort",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/sweeps/2026-03-26T03-10-00Z-tranche-aa-decision-digest.md",
+        "mission-control/review-packets/RP-0108-board-build-window-night-2026-03-26.md"
+      ],
+      "parent_id": "TASK-0107",
+      "description": "Build tranche-AA decision digest for next oldest stale Ready-for-Review cohort after tranche-Z routing.\nAcceptance Criteria:\n- Digest includes explicit task set with approve/hold recommendations.\n- Includes why-this-tranche rationale and Isaac decision prompt.\n- Includes governance guardrail and queue-age compression objective.",
+      "comments": [
+        {
+          "id": "done-0239-20260326-0310",
+          "author": "sentinel",
+          "text": "Published tranche-AA decision digest at mission-control/board/sweeps/2026-03-26T03-10-00Z-tranche-aa-decision-digest.md.",
+          "created_at": "2026-03-26T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-03-26T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-0108-board-build-window-night-2026-03-26.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "review_packet_id": "RP-0108",
+      "created_at": "2026-03-26T03:10:00Z",
+      "updated_at": "2026-03-26T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
