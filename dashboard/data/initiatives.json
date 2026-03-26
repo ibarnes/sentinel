@@ -3411,7 +3411,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T03:14:36.899Z",
+    "updated_at": "2026-03-26T03:48:26.089Z",
     "current_state": "architecture_defined",
     "readiness_score": 36,
     "max_possible_score": 45,
@@ -3474,27 +3474,78 @@
     "flow_health": "redundant",
     "boundary_coupling_rule": "no_progress_without_conversion_node_path",
     "conversion_node_role": {
-      "role_label": "Capital Deployment + Risk Acceptance Authority",
-      "authority_scope": "Approves commitment and assumes decision-rights for deployment risk",
+      "role_label": "Principal conviction node (single-node authority)",
+      "authority_scope": "Direct principal authority for sponsorship, capital participation, and governance backing",
       "decision_type": "concept_to_commitment",
-      "status": "unconfirmed"
+      "status": "confirmed",
+      "primary_node": {
+        "name": "Tariq Al Futtaim",
+        "title": "Principal",
+        "organization": "Tariq Al Futtaim Family Office",
+        "authority_type": [
+          "capital_deployment",
+          "risk_acceptance"
+        ],
+        "evidence": "Principal-level authority over family office capital and sponsorship decisions."
+      },
+      "backup_node": {
+        "name": "Senior Investment Lead (to identify by name)",
+        "title": "Investment Director / Head of Investments (candidate role)",
+        "organization": "Tariq Al Futtaim Family Office",
+        "authority_type": [
+          "risk_shaping"
+        ],
+        "evidence": "Likely recommendation/gatekeeping pathway; not final approval authority."
+      },
+      "critical_note": "TAFF buyer physics is principal-led single-node system; no IC/committee substitution."
     },
     "internal_path_map": {
-      "boundary_entry_node": "Initial sponsor / introducer channel",
-      "translation_layer": "Strategy / advisory / general executive layer",
-      "conversion_node": "Capital Deployment + Risk Acceptance Authority",
-      "confirm_node": "Buyer commitment confirmation owner",
+      "boundary_entry_node": "Trusted peer principal introducer",
+      "translation_layer": "Advisory/operator routing (avoid)",
+      "conversion_node": "Tariq Al Futtaim (direct principal node)",
+      "confirm_node": "Principal conviction statement",
       "current_route": "entry_to_translation",
       "target_route": "entry_to_conversion_direct",
-      "prewire_required": true
+      "prewire_required": true,
+      "best_introducer": "Trusted peer principal channel",
+      "alternate_introducer": "Dangote / Dantata / sovereign-aligned capital peer",
+      "no_translation_path_hypothesis": "A direct, high-clarity corridor control + profit-capture brief can trigger principal conviction without internal reinterpretation."
     },
-    "path_precision_score": 75,
-    "boundary_loss_risk": "medium",
-    "internal_access_critical": true,
+    "path_precision_score": 95,
+    "boundary_loss_risk": "low",
+    "internal_access_critical": false,
     "translation_load_test": {
       "status": "required",
       "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
-    }
+    },
+    "boundary_gate_map": {
+      "gate_name": "Principal conviction",
+      "gate_owner": "Tariq Al Futtaim",
+      "required_artifact": "Simple economic control model (1-page clarity brief)",
+      "decision_window": "Minutes to days",
+      "top_rejection_reasons": [
+        "Unclear personal win/control",
+        "Over-complex framing",
+        "Perceived external ownership"
+      ]
+    },
+    "first_motion_package": {
+      "artifacts": [
+        "1-page executive brief",
+        "Simplified corridor economics visual (optional)"
+      ],
+      "why": "Principal buyer responds to clarity, control, speed, and asymmetry; heavy structure at entry creates friction.",
+      "immediate_next_action": "Build “Corridor Control & Profit Capture Brief” answering: money source, flow control, TAFF gate role, and scale potential.",
+      "owner": "USG",
+      "due_window": "48-72 hours"
+    },
+    "blocker_diagnostics": {
+      "blocker_1": "Conversion-node confirmation previously missing",
+      "blocker_2": "Translation-heavy routing causing energy loss at boundary",
+      "blocker_3": "Premature structuring before principal conviction"
+    },
+    "governance_sequence": "Conviction -> Mandate -> Structure -> Capital",
+    "entry_doctrine": "No translation at boundary; direct principal coupling required"
   },
   {
     "initiative_id": "INIT-GRAVITY-001",
