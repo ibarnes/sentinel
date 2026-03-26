@@ -16833,6 +16833,30 @@
     "source_row_hash": "manual-2026-03-26-shannon-stroud",
     "needs_review": false,
     "owner": "Isaac Barnes",
-    "source_note": "Added from Isaac + Invest Africa announcement + IMF/WB Week roundtable concept note."
+    "source_note": "Added from Isaac + Invest Africa announcement + IMF/WB Week roundtable concept note.",
+    "authority_scope": [
+      "Convenes senior invite-only cross-sector roundtables",
+      "Shapes U.S. strategy/growth for Invest Africa",
+      "Builds investor and institutional partnership engagement across Africa-U.S. corridor"
+    ],
+    "profile_evidence": [
+      "https://www.investafrica.com/media/invest-africa-appoints-shannon-stroud-as-chief-executive-officer-of-invest-africa-us"
+    ],
+    "current_engagement": {
+      "event": "Africa’s Digital Economy: Closing the Connectivity Gap and Scaling the Tech Ecosystem",
+      "forum": "IMF/World Bank Spring Meetings margin roundtable (invitation-only)",
+      "location": "Washington, DC",
+      "timing": "Week of April 13, 2026 (08:30–10:30 ET, TBC)",
+      "format": "~30 senior leaders across DFIs, institutional investors, telecom/fintech operators, banks/corporates, policymakers",
+      "focus": [
+        "connectivity",
+        "AI",
+        "digital public infrastructure",
+        "financial inclusion"
+      ],
+      "geography_scope": "Nigeria lens, can expand pan-African and additional priority countries",
+      "source": "message_from_shannon_to_isaac_2026-03-26"
+    },
+    "updated_at": "2026-03-26T17:48:56.025Z"
   }
 ]
