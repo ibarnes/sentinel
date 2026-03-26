@@ -16818,5 +16818,21 @@
     "needs_review": true,
     "owner": "Isaac Barnes",
     "source_note": "Isaac met directly; reports access to college students across the country + workforce development focus."
+  },
+  {
+    "actor_id": "shannon-stroud-invest-africa-us",
+    "name_display": "Shannon Stroud",
+    "first_name": "Shannon",
+    "last_name": "Stroud",
+    "organization_primary": "Invest Africa (US)",
+    "designation": "Chief Executive Officer (U.S.)",
+    "country_normalized": "United States",
+    "actor_type": "corporate",
+    "relationship_source": "provided_by_isaac",
+    "relationship_strength": "first_degree",
+    "source_row_hash": "manual-2026-03-26-shannon-stroud",
+    "needs_review": false,
+    "owner": "Isaac Barnes",
+    "source_note": "Added from Isaac + Invest Africa announcement + IMF/WB Week roundtable concept note."
   }
 ]

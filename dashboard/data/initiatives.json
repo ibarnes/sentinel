@@ -850,6 +850,19 @@
             "owner": "",
             "due": "",
             "role_definition": "Integrates banking systems, telecom infrastructure, payment platforms, and digital services into a unified operational technology environment."
+          },
+          {
+            "role_id": "us-nigeria-digital-economy-convener",
+            "role_label": "U.S.-Nigeria Digital Economy Convener",
+            "layer": "development",
+            "status": "identified",
+            "notes": "Can convene IMF/WB Week buyer-facing roundtable with policymakers, investors, and operators; potential buyer-access lane and mandate-shaping channel.",
+            "mapped_entity_type": "person",
+            "mapped_entity_ref": "shannon-stroud-invest-africa-us",
+            "is_critical_role": true,
+            "owner": "Isaac Barnes",
+            "due": "",
+            "priority_tier": "P1"
           }
         ],
         "capital": [
@@ -1291,6 +1304,19 @@
           "owner": "",
           "due": "",
           "role_definition": "Integrates banking systems, telecom infrastructure, payment platforms, and digital services into a unified operational technology environment."
+        },
+        {
+          "role_id": "us-nigeria-digital-economy-convener",
+          "role_label": "U.S.-Nigeria Digital Economy Convener",
+          "layer": "development",
+          "status": "identified",
+          "notes": "Can convene IMF/WB Week buyer-facing roundtable with policymakers, investors, and operators; potential buyer-access lane and mandate-shaping channel.",
+          "mapped_entity_type": "person",
+          "mapped_entity_ref": "shannon-stroud-invest-africa-us",
+          "is_critical_role": true,
+          "owner": "Isaac Barnes",
+          "due": "",
+          "priority_tier": "P1"
         }
       ],
       "capital": [
@@ -1492,7 +1518,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T03:14:36.899Z",
+    "updated_at": "2026-03-26T17:48:22.090Z",
     "current_state": "execution_ready",
     "readiness_score": 90,
     "max_possible_score": 100,
