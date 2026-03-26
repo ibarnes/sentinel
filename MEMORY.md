@@ -434,3 +434,31 @@
 - Durable changes captured: tranche-X routing completion (`TASK-0226`) and tranche-Y decision digest (`TASK-0231`) with `RP-0103`.
 - No new operating-rule changes.
 - No scoring-policy changes.
+
+# Project Status Snapshot (2026-03-26)
+- Signals Feed reliability hardening completed in `admin-server`:
+  - Refresh route now uses deterministic `spawnSync` execution path (replacing failing `exec(...)` usage) with explicit status redirect flags (`refresh=ok|err`) and safer error handling.
+  - Role gate clarified/enforced for refresh action (`architect` or `editor`), with `/api/me` role-debug path documented for forbidden cases.
+  - UI improvements shipped: role-aware disabled refresh control, inline refresh status banner, source-count visibility, Google News quick filter, deterministic 4-column desktop card layout, and short URL display.
+- Signals ingestion hardening applied for Google News RSS:
+  - HTML-entity and embedded-anchor cleanup added.
+  - Redirect URL resolution improved for cleaner destination links.
+- New initiative created and mapped:
+  - `INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE` (`DPSI-001`) added with full schema depth.
+  - Durable framing decision: treat as digital public-safety infrastructure/governance modernization (explicitly avoid “robot police” framing).
+  - Added actor mappings for regional envoy liaison and workforce pipeline channels.
+- Signal register update:
+  - Added `SIG-2026-03-25-CBN-IMTO-NAIRA-SETTLEMENT-001` (provenance `provided_by_isaac`, status `Monitor`).
+- Board cadence sustained with decomposition gate + artifact-first governance:
+  - Recovery/execution/progress/build artifacts advanced via `RP-0104`, `RP-0105`, `RP-0107`, `RP-0108`.
+  - New stale-RFR routing artifacts: tranche-Z approval card and tranche-AA decision digest (`TASK-0238`, `TASK-0239`).
+- Credentialed blocker chain unchanged:
+  - `TASK-0159` / `TASK-0111` still require live `BASE_URL` + `TEAM_SESSION_COOKIE`; post-PASS replay remains `TASK-0160`.
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+# Nightly Memory Maintenance (2026-03-26)
+- Daily log reviewed at `memory/2026-03-26.md` and distilled into durable snapshot above.
+- Durable changes captured: Signals Feed reliability/UX hardening, ECOWAS initiative creation + framing decision, CBN IMTO signal registration, and continued decomposition-gated board artifact progression (`RP-0104/0105/0107/0108`).
+- No new operating-rule changes.
+- No scoring-policy changes.
