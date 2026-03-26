@@ -97,6 +97,41 @@ function whyMatters(item) {
   return 'Potentially relevant macro/context signal; requires verification and classification.';
 }
 
+function sanitizeSummary(summary='') {
+  const cleaned = strip(summary || '');
+  if (!cleaned) return '';
+  return cleaned.replace(/\s+/g, ' ').trim();
+}
+
+function scoreItemQuality(item = {}) {
+  const s = String(item.summary || '');
+  let score = 0;
+  if (s) score += 2;
+  if (!s.includes('<a') && !s.includes('&lt;') && !s.includes('href="')) score += 3;
+  if (String(item.url || '').includes('news.google.com/rss/articles/')) score -= 1;
+  return score;
+}
+
+function dedupeFeed(items = []) {
+  const map = new Map();
+  for (const item of items) {
+    const key = [
+      String(item.source_id || item.source || '').toLowerCase(),
+      String(item.title || '').toLowerCase().trim(),
+      String(item.published_at || '').slice(0, 10)
+    ].join('||');
+    const existing = map.get(key);
+    if (!existing) {
+      map.set(key, item);
+      continue;
+    }
+    const a = scoreItemQuality(existing);
+    const b = scoreItemQuality(item);
+    if (b > a) map.set(key, item);
+  }
+  return [...map.values()];
+}
+
 async function main() {
   const sources = (await readJson(sourcesFile, [])).filter((s) => s.enabled);
   const existing = await readJson(outFile, []);
@@ -118,13 +153,14 @@ async function main() {
       for (const item of items.slice(0, 40)) {
         if (!item.url || seen.has(item.url)) continue;
         seen.add(item.url);
-        const rel = relevanceScore(`${item.title} ${item.summary}`);
+        const cleanedSummary = sanitizeSummary(item.summary || '');
+        const rel = relevanceScore(`${item.title} ${cleanedSummary}`);
         out.push({
           feed_id: hash(item.url),
           source: src.name,
           source_id: src.source_id,
           title: item.title,
-          summary: item.summary,
+          summary: cleanedSummary,
           url: item.url,
           image_url: item.image_url,
           published_at: item.published_at,
@@ -146,14 +182,15 @@ async function main() {
     }
   }
 
-  out.sort((a,b) => String(b.published_at||'').localeCompare(String(a.published_at||'')));
-  await fs.writeFile(outFile, JSON.stringify(out.slice(0, 3000), null, 2) + '\n', 'utf8');
+  const normalized = dedupeFeed(out).map((x) => ({ ...x, summary: sanitizeSummary(x.summary || '') }));
+  normalized.sort((a,b) => String(b.published_at||'').localeCompare(String(a.published_at||'')));
+  await fs.writeFile(outFile, JSON.stringify(normalized.slice(0, 3000), null, 2) + '\n', 'utf8');
   const metaPath = path.join(ROOT, 'dashboard/data/signals_feed.meta.json');
   const meta = await readJson(metaPath, {});
   meta.last_run_at = nowIso();
   meta.last_run_stats = stats;
   await fs.writeFile(metaPath, JSON.stringify(meta, null, 2) + '\n', 'utf8');
-  console.log(`signals feed updated: ${out.length} items, added ${stats.items_added}`);
+  console.log(`signals feed updated: ${normalized.length} items, added ${stats.items_added}`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

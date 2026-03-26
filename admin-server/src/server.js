@@ -2612,7 +2612,9 @@ app.get('/dashboard/signals-feed', requireAnyAuth, async (req, res) => {
     const shortUrl = (() => {
       try {
         const u = new URL(String(x.url || ''));
-        return `${u.hostname}${u.pathname !== '/' ? u.pathname : ''}`;
+        if (u.hostname.includes('news.google.com')) return 'news.google.com';
+        const pathPart = u.pathname !== '/' ? u.pathname : '';
+        return `${u.hostname}${pathPart}`;
       } catch {
         return '';
       }
