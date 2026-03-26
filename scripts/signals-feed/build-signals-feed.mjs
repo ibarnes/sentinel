@@ -13,26 +13,53 @@ const hash = (s) => {
   return Math.abs(h).toString(36);
 };
 
-const strip = (x='') => x.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+const decodeHtml = (x='') => x
+  .replace(/&amp;/g, '&')
+  .replace(/&lt;/g, '<')
+  .replace(/&gt;/g, '>')
+  .replace(/&quot;/g, '"')
+  .replace(/&#39;/g, "'")
+  .replace(/&nbsp;/g, ' ');
+
+const strip = (x='') => decodeHtml(x).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 
 async function readJson(file, fb) {
   try { return JSON.parse(await fs.readFile(file, 'utf8')); } catch { return fb; }
 }
 
-function parseRssItems(xml='') {
+async function resolveGoogleNewsUrl(url='') {
+  try {
+    if (!url.includes('news.google.com/')) return url;
+    const r = await fetch(url, { redirect: 'follow', headers: { 'user-agent': 'Mozilla/5.0' } });
+    return r.url || url;
+  } catch {
+    return url;
+  }
+}
+
+async function parseRssItems(xml='') {
   const items = [];
   const matches = xml.match(/<item[\s\S]*?<\/item>/gi) || [];
   for (const it of matches) {
-    const g = (tag) => {
-      const m = it.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
-      return m ? strip(m[1]) : '';
+    const raw = (tag) => {
+      const m = it.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\/${tag}>`, 'i'));
+      return m ? (m[1] || '') : '';
     };
+    const g = (tag) => strip(raw(tag));
+
     const title = g('title');
-    const url = g('link');
+    let url = g('link');
     const summary = g('description');
     const pub = g('pubDate');
     const enclosure = (it.match(/<enclosure[^>]*url="([^"]+)"/i) || [])[1] || '';
     const media = (it.match(/<media:content[^>]*url="([^"]+)"/i) || [])[1] || '';
+
+    const descDecoded = decodeHtml(raw('description'));
+    const href = (descDecoded.match(/<a[^>]*href=["']([^"']+)["']/i) || [])[1] || '';
+    if (href && href.startsWith('http')) url = href;
+
+    if (url.includes('news.google.com/')) url = await resolveGoogleNewsUrl(url);
+
     if (!title || !url) continue;
     items.push({ title, url, summary, published_at: pub ? new Date(pub).toISOString() : nowIso(), image_url: media || enclosure || '' });
   }
@@ -86,7 +113,7 @@ async function main() {
         continue;
       }
       const text = await r.text();
-      const items = src.type === 'rss' ? parseRssItems(text) : parseWebPage(text, src.url);
+      const items = src.type === 'rss' ? await parseRssItems(text) : parseWebPage(text, src.url);
       let addedHere = 0;
       for (const item of items.slice(0, 40)) {
         if (!item.url || seen.has(item.url)) continue;
