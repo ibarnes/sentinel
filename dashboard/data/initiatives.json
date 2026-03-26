@@ -2530,7 +2530,7 @@
         }
       ]
     },
-    "updated_at": "2026-03-26T03:14:36.899Z",
+    "updated_at": "2026-03-26T03:45:52.898Z",
     "current_state": "governance_ready",
     "readiness_score": 54,
     "max_possible_score": 65,
@@ -2612,26 +2612,75 @@
     "flow_health": "redundant",
     "boundary_coupling_rule": "no_progress_without_conversion_node_path",
     "conversion_node_role": {
-      "role_label": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
-      "authority_scope": "Approves capital commitment structure and risk envelope for digital/AI infrastructure deployment",
+      "role_label": "GIC Infrastructure Deal Team + Investment Committee (IC) authority chain",
+      "authority_scope": "Concept-to-commitment progression through deal-team structuring and IC risk/capital approval",
       "decision_type": "concept_to_commitment",
-      "status": "unconfirmed"
+      "status": "partially_confirmed",
+      "primary_node": {
+        "name": "Lim Chow Kiat",
+        "title": "Chief Executive Officer",
+        "organization": "GIC",
+        "authority_type": [
+          "capital_deployment",
+          "risk_acceptance"
+        ],
+        "evidence": "CEO-level authority over global portfolio allocation and strategy."
+      },
+      "backup_node": {
+        "name": "Rajeev Mittal",
+        "title": "Head of Infrastructure / IC pathway (to validate exact title)",
+        "organization": "GIC",
+        "authority_type": [
+          "risk_acceptance"
+        ],
+        "evidence": "Infrastructure investments progress through IC-level underwriting and recommendation channels."
+      },
+      "critical_note": "True conversion physics requires Deal Team + IC coupling; CEO-only routing is insufficient."
     },
     "internal_path_map": {
-      "boundary_entry_node": "Initial sponsor / introducer channel",
-      "translation_layer": "Strategy / advisory / general executive layer",
-      "conversion_node": "Capital Deployment + Risk Acceptance Authority (Digital Infrastructure)",
-      "confirm_node": "Buyer commitment confirmation owner",
+      "boundary_entry_node": "Sovereign co-investor introducer or operator adjacency",
+      "translation_layer": "Sponsor/general narrative channel (to minimize)",
+      "conversion_node": "GIC infrastructure deal team to IC screening path",
+      "confirm_node": "GIC IC commitment authority",
       "current_route": "entry_to_translation",
       "target_route": "entry_to_conversion_direct",
-      "prewire_required": true
+      "prewire_required": true,
+      "best_introducer": "Sovereign co-investor pathway (Mubadala/PIF lanes)",
+      "alternate_introducer": "Operator pathway (L&T / NVIDIA adjacency)",
+      "no_translation_path_hypothesis": "A fully structured AI infrastructure investment memo presented to GIC infrastructure deal team can enter IC screening without internal reinterpretation."
     },
-    "path_precision_score": 75,
+    "path_precision_score": 88,
     "boundary_loss_risk": "medium",
     "internal_access_critical": true,
     "translation_load_test": {
       "status": "required",
       "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    },
+    "boundary_gate_map": {
+      "gate_name": "Investment Committee (IC)",
+      "gate_owner": "GIC Investment Committee",
+      "required_artifact": "Bankable deal memo (anchor tenant + power certainty + governance + capital stack)",
+      "decision_window": "4-12 weeks",
+      "top_rejection_reasons": [
+        "Incomplete risk envelope",
+        "No anchor demand",
+        "Unclear capital stack sequencing"
+      ]
+    },
+    "first_motion_package": {
+      "artifacts": [
+        "Capital structure memo",
+        "Technical validation brief"
+      ],
+      "why": "GIC behaves as pattern-matching risk compressor; requires contracted demand and bankable structure.",
+      "immediate_next_action": "Build institutional-grade AI Factory investment case with tenancy, guaranteed power, GP/SPV structure, and infra-grade returns.",
+      "owner": "USG (Architect)",
+      "due_window": "7-10 days"
+    },
+    "blocker_diagnostics": {
+      "blocker_1": "Missing anchor tenant demand",
+      "blocker_2": "Wrong entry path (translation-heavy)",
+      "blocker_3": "Buyer physics mismatch (vision-led narrative vs pattern-matched bankability)"
     }
   },
   {
