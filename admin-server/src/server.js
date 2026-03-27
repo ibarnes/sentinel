@@ -2968,6 +2968,7 @@ function flattenMeetingActions(meetings = []) {
 app.get('/dashboard/actions', async (req, res) => {
   const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
   const allRows = flattenMeetingActions(meetings);
+  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
 
   const q = String(req.query.q || '').trim().toLowerCase();
   const ownerFilter = String(req.query.owner || '').trim();
@@ -3016,6 +3017,7 @@ app.get('/dashboard/actions', async (req, res) => {
     return `<span class="badge text-bg-${cls}">${escapeHtml(String(status || 'open'))}</span>`;
   };
 
+  const currentUrl = String(req.originalUrl || '/dashboard/actions');
   const rowsHtml = filtered.map((r) => {
     const flags = [
       r.overdue ? '<span class="badge text-bg-danger me-1">Overdue</span>' : '',
@@ -3025,11 +3027,15 @@ app.get('/dashboard/actions', async (req, res) => {
       Number.isFinite(r.ageDays) ? `<span class="badge text-bg-light border">Age ${escapeHtml(String(r.ageDays))}d</span>` : '',
     ].filter(Boolean).join(' ');
 
+    const statusControl = canEdit
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status" class="d-flex gap-1 align-items-center"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><select class="form-select form-select-sm" name="status" style="min-width:128px"><option value="open" ${r.status==='open'?'selected':''}>open</option><option value="in_progress" ${r.status==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${r.status==='blocked'?'selected':''}>blocked</option><option value="done" ${r.status==='done'?'selected':''}>done</option></select><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form>`
+      : statusBadge(r.status);
+
     return `<tr>
       <td style="max-width:520px"><div>${escapeHtml(r.action)}</div><div class="small text-muted mono">${escapeHtml(r.action_id)}</div></td>
       <td>${escapeHtml(r.owner || '—')}</td>
       <td class="mono">${escapeHtml(r.due || '—')}</td>
-      <td>${statusBadge(r.status)}</td>
+      <td>${statusControl}</td>
       <td><a href="/dashboard/meeting/${encodeURIComponent(String(r.meeting_id || ''))}">${escapeHtml(r.meeting_title || r.meeting_id || 'Meeting')}</a><div class="small text-muted mono">${escapeHtml(r.meeting_id || '')}</div></td>
       <td>${flags || '<span class="text-muted">—</span>'}</td>
     </tr>`;
@@ -3071,6 +3077,46 @@ app.get('/dashboard/actions', async (req, res) => {
 
     <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Status</th><th>Meeting</th><th>Flags</th></tr></thead><tbody>${rowsHtml}</tbody></table></div></div>
   </div></body></html>`);
+});
+
+app.post('/api/actions/:actionId/status', requireRole('architect','editor'), async (req, res) => {
+  const actionId = String(req.params.actionId || '').trim();
+  const statusRaw = String(req.body.status || '').trim().toLowerCase();
+  const allowed = new Set(['open', 'in_progress', 'blocked', 'done']);
+  if (!allowed.has(statusRaw)) return res.status(400).send('invalid status');
+
+  const parts = actionId.split('::');
+  if (parts.length !== 2) return res.status(400).send('invalid action id');
+  const meetingId = String(parts[0] || '').trim();
+  const actionOrdinal = Number(parts[1]);
+  const actionIndex = Number.isInteger(actionOrdinal) ? actionOrdinal - 1 : NaN;
+  if (!meetingId || !Number.isInteger(actionIndex) || actionIndex < 0) return res.status(400).send('invalid action id');
+
+  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  const meeting = meetings.find((m) => String(m?.meeting_id || '') === meetingId);
+  if (!meeting) return res.status(404).send('meeting not found');
+
+  const actions = Array.isArray(meeting.next_actions) ? meeting.next_actions : [];
+  if (!actions[actionIndex]) return res.status(404).send('action not found');
+
+  actions[actionIndex] = { ...(actions[actionIndex] || {}), status: statusRaw };
+  meeting.next_actions = actions;
+  meeting.updated_at = nowIso();
+  await writeJson(DASHBOARD_MEETING_MINUTES_FILE, meetings);
+
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'unknown',
+    event_type: 'meeting_action.status_update',
+    entity_type: 'meeting_action',
+    entity_id: actionId,
+    meta: { meeting_id: meetingId, action_index: actionIndex + 1, status: statusRaw }
+  }).catch(() => {});
+
+  const rawReturnTo = String(req.body.return_to || req.get('referer') || '/dashboard/actions');
+  const returnTo = rawReturnTo.startsWith('/dashboard/actions') ? rawReturnTo : '/dashboard/actions';
+  return res.redirect(returnTo);
 });
 
 app.get('/dashboard/actions/export.json', async (_req, res) => {
