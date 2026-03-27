@@ -3028,7 +3028,7 @@ app.get('/dashboard/actions', async (req, res) => {
     ].filter(Boolean).join(' ');
 
     const statusControl = canEdit
-      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status" class="d-flex gap-1 align-items-center"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><select class="form-select form-select-sm" name="status" style="min-width:128px"><option value="open" ${r.status==='open'?'selected':''}>open</option><option value="in_progress" ${r.status==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${r.status==='blocked'?'selected':''}>blocked</option><option value="done" ${r.status==='done'?'selected':''}>done</option></select><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form>`
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><select class="form-select form-select-sm" name="status" style="min-width:128px" onchange="this.form.submit()"><option value="open" ${r.status==='open'?'selected':''}>open</option><option value="in_progress" ${r.status==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${r.status==='blocked'?'selected':''}>blocked</option><option value="done" ${r.status==='done'?'selected':''}>done</option></select></form>`
       : statusBadge(r.status);
 
     return `<tr>
