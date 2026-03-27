@@ -715,6 +715,7 @@ function adminNav(active = '') {
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
       <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
       <a class="nav-link ${is('activity')}" href="/dashboard/activity" title="Activity"><i data-lucide="activity" class="nav-icon"></i><span class="nav-label">Activity</span></a>
+      <a class="nav-link ${is('actions')}" href="/dashboard/actions" title="Actions"><i data-lucide="list-todo" class="nav-icon"></i><span class="nav-label">Actions</span></a>
       <a class="nav-link ${is('review')}" href="/dashboard/review" title="Review"><i data-lucide="file-text" class="nav-icon"></i><span class="nav-label">Review</span></a>
       <a class="nav-link ${is('board')}" href="/dashboard/board" title="Board"><i data-lucide="kanban-square" class="nav-icon"></i><span class="nav-label">Board</span></a>
       <a class="nav-link ${is('uos')}" href="/dashboard/uos" title="UOS"><i data-lucide="book-open" class="nav-icon"></i><span class="nav-label">UOS</span></a>
