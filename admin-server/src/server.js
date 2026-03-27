@@ -2974,18 +2974,44 @@ app.get('/dashboard/actions', async (req, res) => {
   const ownerFilter = String(req.query.owner || '').trim();
   const statusFilter = String(req.query.status || 'all').trim().toLowerCase();
   const windowFilter = String(req.query.window || 'all').trim().toLowerCase();
+  const quickFilter = String(req.query.quick || '').trim().toLowerCase();
+
+  const allowedQuickFilters = new Set(['open', 'blocked', 'done', 'overdue', 'due7', 'missing']);
+  const quick = allowedQuickFilters.has(quickFilter) ? quickFilter : '';
+
+  let effectiveStatusFilter = statusFilter;
+  let effectiveWindowFilter = windowFilter;
+  if (quick === 'open') {
+    effectiveStatusFilter = 'all';
+    effectiveWindowFilter = 'open';
+  } else if (quick === 'blocked') {
+    effectiveStatusFilter = 'blocked';
+    effectiveWindowFilter = 'all';
+  } else if (quick === 'done') {
+    effectiveStatusFilter = 'done';
+    effectiveWindowFilter = 'all';
+  } else if (quick === 'overdue') {
+    effectiveStatusFilter = 'all';
+    effectiveWindowFilter = 'overdue';
+  } else if (quick === 'due7') {
+    effectiveStatusFilter = 'all';
+    effectiveWindowFilter = 'due7';
+  } else if (quick === 'missing') {
+    effectiveStatusFilter = 'all';
+    effectiveWindowFilter = 'missing';
+  }
 
   const owners = [...new Set(allRows.map((r) => r.owner).filter(Boolean))].sort((a, b) => a.localeCompare(b));
 
   const filtered = allRows.filter((r) => {
     if (ownerFilter && r.owner !== ownerFilter) return false;
-    if (statusFilter !== 'all' && r.status !== statusFilter) return false;
+    if (effectiveStatusFilter !== 'all' && r.status !== effectiveStatusFilter) return false;
 
-    if (windowFilter === 'overdue' && !r.overdue) return false;
-    if (windowFilter === 'due7' && !r.dueSoon) return false;
-    if (windowFilter === 'missing' && !(r.missingOwner || r.missingDue)) return false;
-    if (windowFilter === 'open' && !['open', 'in_progress'].includes(r.status)) return false;
-    if (windowFilter === 'blocked' && r.status !== 'blocked') return false;
+    if (effectiveWindowFilter === 'overdue' && !r.overdue) return false;
+    if (effectiveWindowFilter === 'due7' && !r.dueSoon) return false;
+    if (effectiveWindowFilter === 'missing' && !(r.missingOwner || r.missingDue)) return false;
+    if (effectiveWindowFilter === 'open' && !['open', 'in_progress'].includes(r.status)) return false;
+    if (effectiveWindowFilter === 'blocked' && r.status !== 'blocked') return false;
 
     if (q) {
       const hay = `${r.action} ${r.owner} ${r.status} ${r.meeting_id} ${r.meeting_title}`.toLowerCase();
@@ -3017,6 +3043,47 @@ app.get('/dashboard/actions', async (req, res) => {
     return `<span class="badge text-bg-${cls}">${escapeHtml(String(status || 'open'))}</span>`;
   };
 
+  const preservedParams = new URLSearchParams();
+  if (String(req.query.q || '').trim()) preservedParams.set('q', String(req.query.q || '').trim());
+  if (ownerFilter) preservedParams.set('owner', ownerFilter);
+  if (statusFilter !== 'all') preservedParams.set('status', statusFilter);
+  if (windowFilter !== 'all') preservedParams.set('window', windowFilter);
+
+  const buildQuickHref = (quickKey) => {
+    const params = new URLSearchParams(preservedParams.toString());
+    if (quick && quick === quickKey) params.delete('quick');
+    else params.set('quick', quickKey);
+    const qs = params.toString();
+    return qs ? `/dashboard/actions?${qs}` : '/dashboard/actions';
+  };
+
+  const clearQuickUrl = (() => {
+    const qs = preservedParams.toString();
+    return qs ? `/dashboard/actions?${qs}` : '/dashboard/actions';
+  })();
+
+  const quickStatCard = (label, value, quickKey) => {
+    const active = quick === quickKey;
+    return `<a class="text-decoration-none quick-filter-card" href="${buildQuickHref(quickKey)}"><div class="card h-100 ${active ? 'border-primary shadow-sm' : ''}"><div class="card-body py-2"><div class="small text-muted">${escapeHtml(label)}</div><div class="h5 mb-0" style="color:var(--text-primary)">${escapeHtml(String(value))}</div></div></div></a>`;
+  };
+
+  const statsCardsHtml = `
+    <div class="col-6 col-md-2">${quickStatCard('Open', openCount, 'open')}</div>
+    <div class="col-6 col-md-2">${quickStatCard('Blocked', blockedCount, 'blocked')}</div>
+    <div class="col-6 col-md-2">${quickStatCard('Done', doneCount, 'done')}</div>
+    <div class="col-6 col-md-2">${quickStatCard('Overdue', overdueCount, 'overdue')}</div>
+    <div class="col-6 col-md-2">${quickStatCard('Due ≤ 7d', due7Count, 'due7')}</div>
+    <div class="col-6 col-md-2">${quickStatCard('Missing fields', missingCount, 'missing')}</div>
+  `;
+
+  const quickFilterNotice = quick
+    ? `<div class="alert alert-info py-2 mb-2 small">Quick filter active: <strong>${escapeHtml(quick)}</strong>. Tap/click empty space to clear, or tap the same metric again.</div>`
+    : '';
+
+  const quickFilterScript = quick
+    ? `<script>(function(){const clearUrl=${JSON.stringify(clearQuickUrl)};const ignore=(el)=>el&&el.closest&&el.closest('a,button,input,select,textarea,label,form,.table,.quick-filter-card,[data-no-quick-clear]');const handler=(e)=>{if(ignore(e.target)) return; window.location.href=clearUrl;};document.addEventListener('click', handler, { passive:true });document.addEventListener('touchend', handler, { passive:true });})();</script>`
+    : '';
+
   const currentUrl = String(req.originalUrl || '/dashboard/actions');
   const rowsHtml = filtered.map((r) => {
     const flags = [
@@ -3045,13 +3112,9 @@ app.get('/dashboard/actions', async (req, res) => {
     ${dashboardNav('actions')}
     ${pageHeader('Action Register', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/actions/export.json">Get JSON</a>', 'Flattened next actions from meeting minutes')}
 
-    <div class="row g-2 mb-3">
-      <div class="col-6 col-md-2">${statCard('Open', String(openCount))}</div>
-      <div class="col-6 col-md-2">${statCard('Blocked', String(blockedCount))}</div>
-      <div class="col-6 col-md-2">${statCard('Done', String(doneCount))}</div>
-      <div class="col-6 col-md-2">${statCard('Overdue', String(overdueCount))}</div>
-      <div class="col-6 col-md-2">${statCard('Due ≤ 7d', String(due7Count))}</div>
-      <div class="col-6 col-md-2">${statCard('Missing fields', String(missingCount))}</div>
+    ${quickFilterNotice}
+    <div class="row g-2 mb-3" data-no-quick-clear="1">
+      ${statsCardsHtml}
     </div>
 
     <form method="get" action="/dashboard/actions" class="row g-2 mb-3">
@@ -3076,7 +3139,7 @@ app.get('/dashboard/actions', async (req, res) => {
     </form>
 
     <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Status</th><th>Meeting</th><th>Flags</th></tr></thead><tbody>${rowsHtml}</tbody></table></div></div>
-  </div></body></html>`);
+  </div>${quickFilterScript}</body></html>`);
 });
 
 app.post('/api/actions/:actionId/status', requireRole('architect','editor'), async (req, res) => {
