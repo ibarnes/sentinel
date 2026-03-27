@@ -738,7 +738,6 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('signals-feed')}" href="/dashboard/signals-feed" title="Signals Feed"><i data-lucide="newspaper" class="nav-icon"></i><span class="nav-label">Signals Feed</span></a>
       <a class="nav-link ${is('state-transitions')}" href="/dashboard/state-transitions" title="State Transitions"><i data-lucide="git-compare-arrows" class="nav-icon"></i><span class="nav-label">State Transitions</span></a>
       <a class="nav-link ${is('meetings')}" href="/dashboard/meetings" title="Meetings"><i data-lucide="notebook-text" class="nav-icon"></i><span class="nav-label">Meetings</span></a>
-      <a class="nav-link ${is('actions')}" href="/dashboard/actions" title="Actions"><i data-lucide="list-todo" class="nav-icon"></i><span class="nav-label">Actions</span></a>
       <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platforms"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platforms</span></a>
       <a class="nav-link ${is('beacons')}" href="/dashboard/beacons" title="Beacons"><i data-lucide="satellite" class="nav-icon"></i><span class="nav-label">Beacons</span></a>
 
@@ -752,6 +751,7 @@ function dashboardNav(active = '') {
       <div class="oc-nav-group-label">Control</div>
       <a class="nav-link ${is('home')}" href="/dashboard/" title="Dashboard"><i data-lucide="home" class="nav-icon"></i><span class="nav-label">Dashboard</span></a>
       <a class="nav-link ${is('activity')}" href="/dashboard/activity" title="Activity"><i data-lucide="activity" class="nav-icon"></i><span class="nav-label">Activity</span></a>
+      <a class="nav-link ${is('actions')}" href="/dashboard/actions" title="Actions"><i data-lucide="list-todo" class="nav-icon"></i><span class="nav-label">Actions</span></a>
       <a class="nav-link ${is('review')}" href="/dashboard/review" title="Review"><i data-lucide="file-text" class="nav-icon"></i><span class="nav-label">Review</span></a>
       <a class="nav-link ${is('board')}" href="/dashboard/board" title="Board"><i data-lucide="kanban-square" class="nav-icon"></i><span class="nav-label">Board</span></a>
 
