@@ -1,0 +1,25 @@
+{
+  "id": "fixture_unified_verifier_flow",
+  "name": "Unified Verifier Fixture Flow",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "u1",
+      "index": 1,
+      "title": "Open",
+      "action": "navigate",
+      "intent": "open page",
+      "screenshots": {},
+      "annotations": []
+    },
+    {
+      "id": "u2",
+      "index": 2,
+      "title": "Upload",
+      "action": "upload",
+      "intent": "upload file",
+      "screenshots": {},
+      "annotations": []
+    }
+  ]
+}

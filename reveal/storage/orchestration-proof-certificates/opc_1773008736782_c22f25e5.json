@@ -1,0 +1,53 @@
+{
+  "orchestrationProofCertificateId": "opc_1773008736782_c22f25e5",
+  "createdAt": "2026-03-08T22:25:36.782Z",
+  "certificateVersion": "v1",
+  "targetRef": {
+    "renderAdapterContractId": "rac_1773008736772_e8bb43e8"
+  },
+  "adapterType": "composite_render",
+  "orchestrationProfile": "internal_verified",
+  "renderAdapterContractId": "rac_1773008736772_e8bb43e8",
+  "externalVerifierProfileId": "evp_1773008736770_e025edf0",
+  "admissionCertificateId": "ac_1773008736777_721171e6",
+  "adapterTrustPublicationRef": {
+    "adapterTrustPublicationId": "adpub_1773008736775_780c8bd3",
+    "adapterChainHeadDigest": "9e7ff5a77080a8614ded7a026e8ced861e6a2e442fac3924a83ee20c803e1e3f",
+    "signatureStatus": "unsigned"
+  },
+  "attestationTrustPublicationRef": null,
+  "policyManifestRef": {
+    "policyProfileId": "internal_verified",
+    "policyProfileName": "Internal Verified",
+    "version": "v1",
+    "signatureStatus": "unsigned"
+  },
+  "overallVerdict": "deny",
+  "startDecision": "no_start",
+  "blockingReasons": [
+    "trust_publication_missing",
+    "attestation_trust_publication_missing",
+    "attestation_trust_link_missing"
+  ],
+  "warnings": [
+    "unsigned_proof"
+  ],
+  "proofDigest": "4ee7d940fca1384fb86483f6dad363a645002eeec45799cef88dee4b5af2948b",
+  "proofDigestVersion": "sha256-v1",
+  "metadata": {
+    "linkedRefs": {
+      "adapterTrustPublicationId": "adpub_1773008736775_780c8bd3",
+      "attestationTrustPublicationId": null,
+      "admissionCertificateId": "ac_1773008736777_721171e6"
+    },
+    "admissionReadinessDigest": "028ed0ec22d5e944bc4c3f1490e25236feb02f14a48bbb63602d94a172b3952a",
+    "admissionSignatureStatus": "unsigned"
+  },
+  "certificateSignature": null,
+  "certificateSignatureVersion": "admission-certificate-sig-v1",
+  "certificateSigningKeyId": null,
+  "certificateSigningAlgorithm": "RSA-SHA256",
+  "certificateSignatureStatus": "unsigned",
+  "certificateSignatureValid": null,
+  "unsignedReason": "missing_key"
+}

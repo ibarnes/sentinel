@@ -1,0 +1,162 @@
+{
+  "reviewedSnapshotId": "rss_1772998619078_c2f16b7a",
+  "scriptId": "ns_1772998619064_be24d63f",
+  "reviewedScriptId": "rs_ns_1772998619064_be24d63f_3928c2",
+  "reviewVersion": 3,
+  "createdAt": "2026-03-08T19:36:59.079Z",
+  "createdBy": "fixture",
+  "sourceGeneratedScriptVersion": "v1",
+  "sourceReviewedReviewVersion": 3,
+  "reviewStatusAtSnapshot": "approved",
+  "approvalMetadataAtSnapshot": {
+    "approvedAt": "2026-03-08T19:36:59.076Z",
+    "approvedBy": "fixture"
+  },
+  "parentReviewedSnapshotId": null,
+  "parentReviewedSnapshotContentHash": null,
+  "reviewedSnapshotChainIndex": 1,
+  "reviewedSnapshotHashVersion": "sha256-v1",
+  "baselineSummary": {
+    "scriptId": "ns_1772998619064_be24d63f",
+    "sourceType": "reviewed_flow",
+    "styleProfile": "neutral_walkthrough",
+    "createdAt": "2026-03-08T19:36:59.064Z",
+    "sectionCount": 2
+  },
+  "reviewed": {
+    "reviewedScriptId": "rs_ns_1772998619064_be24d63f_3928c2",
+    "scriptId": "ns_1772998619064_be24d63f",
+    "reviewVersion": 3,
+    "reviewStatus": "approved",
+    "createdAt": "2026-03-08T19:36:59.070Z",
+    "updatedAt": "2026-03-08T19:36:59.076Z",
+    "createdBy": "fixture",
+    "lastEditedBy": "fixture",
+    "editHistory": [
+      {
+        "ts": "2026-03-08T19:36:59.070Z",
+        "actor": "fixture",
+        "action": "init_review"
+      },
+      {
+        "ts": "2026-03-08T19:36:59.072Z",
+        "actor": "fixture",
+        "action": "status_transition",
+        "payload": {
+          "targetStatus": "in_review",
+          "reason": null
+        }
+      },
+      {
+        "ts": "2026-03-08T19:36:59.076Z",
+        "actor": "fixture",
+        "action": "status_transition",
+        "payload": {
+          "targetStatus": "approved",
+          "reason": null
+        }
+      }
+    ],
+    "approvalMetadata": {
+      "approvedAt": "2026-03-08T19:36:59.076Z",
+      "approvedBy": "fixture"
+    },
+    "sections": [
+      {
+        "sectionId": "sec_0_b6589fc6",
+        "stepIndex": 0,
+        "title": "Open Dashboard",
+        "narrationText": "Navigate Open Dashboard to load dashboard.",
+        "onScreenText": "Open Dashboard",
+        "timing": {
+          "estimatedDurationMs": 2983,
+          "leadInMs": 250,
+          "leadOutMs": 250
+        },
+        "visualRefs": {
+          "screenshotBefore": null,
+          "screenshotAfter": null,
+          "highlight": null,
+          "hotspotIds": []
+        },
+        "emphasis": "none",
+        "notes": "load dashboard",
+        "metadata": {
+          "action": "navigate",
+          "progressionMode": "manual",
+          "interactionComplexity": "low"
+        },
+        "annotations": [],
+        "changeMetadata": {
+          "lastChangedAt": null,
+          "lastChangedBy": null,
+          "changedFields": []
+        }
+      },
+      {
+        "sectionId": "sec_1_356a192b",
+        "stepIndex": 1,
+        "title": "Upload CSV",
+        "narrationText": "Upload Upload CSV to add customer data.",
+        "onScreenText": "Upload CSV",
+        "timing": {
+          "estimatedDurationMs": 3397,
+          "leadInMs": 250,
+          "leadOutMs": 250
+        },
+        "visualRefs": {
+          "screenshotBefore": null,
+          "screenshotAfter": null,
+          "highlight": null,
+          "hotspotIds": []
+        },
+        "emphasis": "none",
+        "notes": "add customer data",
+        "metadata": {
+          "action": "upload",
+          "progressionMode": "manual",
+          "interactionComplexity": "low"
+        },
+        "annotations": [],
+        "changeMetadata": {
+          "lastChangedAt": null,
+          "lastChangedBy": null,
+          "changedFields": []
+        }
+      }
+    ]
+  },
+  "reviewedSnapshotContentHash": "44ff411c1132718028110ad7dad718be6fd6e71967c53e08a3c22391dfa378c9",
+  "manifest": {
+    "reviewedSnapshotId": "rss_1772998619078_c2f16b7a",
+    "scriptId": "ns_1772998619064_be24d63f",
+    "reviewVersion": 3,
+    "reviewStatus": "approved",
+    "sectionCount": 2,
+    "notesCount": 0,
+    "changedSectionCount": 0,
+    "approvalSummary": {
+      "reviewStatus": "approved",
+      "approvedAt": "2026-03-08T19:36:59.076Z",
+      "approvedBy": "fixture",
+      "rejectedAt": null,
+      "publishedReadyAt": null
+    },
+    "reviewedSnapshotContentHash": "44ff411c1132718028110ad7dad718be6fd6e71967c53e08a3c22391dfa378c9",
+    "reviewedSnapshotHashVersion": "sha256-v1",
+    "parentReviewedSnapshotId": null,
+    "parentReviewedSnapshotContentHash": null,
+    "reviewedSnapshotChainIndex": 1,
+    "publishGateResult": {
+      "canPublish": true,
+      "blockingReasons": [],
+      "warnings": [],
+      "evaluatedAt": "2026-03-08T19:36:59.079Z"
+    },
+    "exportAvailability": {
+      "standardReviewedExport": true,
+      "publishReadyExport": true
+    },
+    "createdAt": "2026-03-08T19:36:59.079Z"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "snapshotId": "snap_fixture_player_session_flow_1_1772983157385_b31161",
+  "flowId": "fixture_player_session_flow",
+  "reviewVersion": 1,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T15:19:17.386Z",
+  "createdBy": "fixture",
+  "sourceReviewedFlowVersion": 1,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "parentSnapshotId": "snap_fixture_player_session_flow_1_1772982515402_a4fd0d",
+  "parentSnapshotContentHash": "b5f7a5e16fb5506c9342841ebacc010748bbeaa4167f7eb6b7edf701d2fb0729",
+  "snapshotChainIndex": 2,
+  "reviewedFlow": {
+    "id": "fixture_player_session_flow",
+    "name": "Player Session Fixture",
+    "reviewVersion": 1,
+    "steps": [
+      {
+        "id": "s1",
+        "index": 1,
+        "title": "A",
+        "action": "click",
+        "screenshots": {},
+        "annotations": []
+      },
+      {
+        "id": "s2",
+        "index": 2,
+        "title": "B",
+        "action": "click",
+        "screenshots": {},
+        "annotations": []
+      }
+    ]
+  },
+  "snapshotContentHash": "64f25e3e1949507dd12b345193d2e4dca280b08569834ca149d7ead776c718cc",
+  "snapshotHashVersion": "sha256-v1",
+  "snapshotHashCanonicalPayload": {
+    "createdAt": "2026-03-08T15:19:17.386Z",
+    "createdBy": "fixture",
+    "flowId": "fixture_player_session_flow",
+    "parentSnapshotContentHash": "b5f7a5e16fb5506c9342841ebacc010748bbeaa4167f7eb6b7edf701d2fb0729",
+    "parentSnapshotId": "snap_fixture_player_session_flow_1_1772982515402_a4fd0d",
+    "reviewVersion": 1,
+    "reviewedFlow": {
+      "id": "fixture_player_session_flow",
+      "name": "Player Session Fixture",
+      "reviewVersion": 1,
+      "steps": [
+        {
+          "action": "click",
+          "annotations": [],
+          "id": "s1",
+          "index": 1,
+          "screenshots": {},
+          "title": "A"
+        },
+        {
+          "action": "click",
+          "annotations": [],
+          "id": "s2",
+          "index": 2,
+          "screenshots": {},
+          "title": "B"
+        }
+      ]
+    },
+    "snapshotChainIndex": 2,
+    "snapshotId": "snap_fixture_player_session_flow_1_1772983157385_b31161",
+    "snapshotVersion": 1,
+    "sourceNormalizedFlowVersion": 1,
+    "sourceReplayChecksumSummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "missing": 0,
+      "unreplayable": 0
+    },
+    "sourceReviewedFlowVersion": 1,
+    "status": "frozen"
+  },
+  "manifest": {
+    "snapshotId": "snap_fixture_player_session_flow_1_1772983157385_b31161",
+    "flowId": "fixture_player_session_flow",
+    "reviewVersion": 1,
+    "stepCount": 2,
+    "annotationCount": 0,
+    "screenshotCoverage": {
+      "total": 2,
+      "withBefore": 0,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "snapshotContentHash": "64f25e3e1949507dd12b345193d2e4dca280b08569834ca149d7ead776c718cc",
+    "snapshotHashVersion": "sha256-v1",
+    "parentSnapshotId": "snap_fixture_player_session_flow_1_1772982515402_a4fd0d",
+    "parentSnapshotContentHash": "b5f7a5e16fb5506c9342841ebacc010748bbeaa4167f7eb6b7edf701d2fb0729",
+    "snapshotChainIndex": 2,
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T15:19:17.386Z"
+  }
+}

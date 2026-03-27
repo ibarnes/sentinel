@@ -1,0 +1,50 @@
+{
+  "admissionCertificateId": "ac_1773003318750_b8f3cb8a",
+  "createdAt": "2026-03-08T20:55:18.750Z",
+  "certificateVersion": "v1",
+  "targetRef": {
+    "renderAdapterContractId": "rac_1773003318741_de8c6d78",
+    "externalVerifierProfileId": "evp_1773003318738_f946b6eb"
+  },
+  "adapterType": "composite_render",
+  "orchestrationProfile": "internal_verified",
+  "verifierPackageId": "uvp_1773003318735_4feb3e0b",
+  "externalVerifierProfileId": "evp_1773003318738_f946b6eb",
+  "renderAdapterContractId": "rac_1773003318741_de8c6d78",
+  "overallVerdict": "missing_required_artifact",
+  "admissionDecision": "deny",
+  "blockingReasons": [
+    "trust_publication_missing",
+    "attestation_trust_publication_missing"
+  ],
+  "warnings": [
+    "unsigned_proof"
+  ],
+  "trustRefs": {
+    "attestationTrustPublicationId": null,
+    "attestationChainHeadDigest": null,
+    "policyManifestId": "dev"
+  },
+  "readinessDigest": "cdc725a39400c39c21946e2dce83e2af7aae5ae6c69297d233e9d8fa425aba04",
+  "metadata": {
+    "adapterReadinessState": "blocked",
+    "policyEvaluationResult": {
+      "orchestrationPolicyProfile": "internal_verified",
+      "policyManifestVersion": "v1",
+      "policyEvaluationResult": "blocked",
+      "blockingReasons": [
+        "trust_publication_missing"
+      ],
+      "warnings": [
+        "unsigned_proof"
+      ]
+    }
+  },
+  "certificateSignature": null,
+  "certificateSignatureVersion": "admission-certificate-sig-v1",
+  "certificateSigningKeyId": null,
+  "certificateSigningAlgorithm": "RSA-SHA256",
+  "certificateSignatureStatus": "unsigned",
+  "certificateSignatureValid": null,
+  "unsignedReason": "missing_key"
+}

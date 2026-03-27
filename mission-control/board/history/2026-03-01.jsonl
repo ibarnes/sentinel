@@ -1,0 +1,2 @@
+{"ts":"2026-03-01T03:08:02.937Z","actor":"isaac","role":"architect","event_type":"task.create","entity_type":"initiative","entity_id":"INIT-653305","meta":{"name":"MENA Cross-Border Infrastructure Activation Program","linked_buyers":["PIF"]}}
+{"ts":"2026-03-01T03:14:58.743Z","actor":"isaac","role":"architect","event_type":"task.update","entity_type":"presentation_slide","entity_id":"presentations/INIT-653305/decks/utc-internal:016","meta":{"action":"slide_delete"}}

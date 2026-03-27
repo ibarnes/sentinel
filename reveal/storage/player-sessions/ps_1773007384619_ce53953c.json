@@ -1,0 +1,124 @@
+{
+  "sessionId": "ps_1773007384619_ce53953c",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_shotlist_flow",
+    "snapshotId": null,
+    "packageRef": null
+  },
+  "createdAt": "2026-03-08T22:03:04.620Z",
+  "updatedAt": "2026-03-09T17:11:42.298Z",
+  "lastActivityAt": "2026-03-08T22:03:04.620Z",
+  "expiresAt": "2026-03-09T02:03:04.620Z",
+  "currentStepIndex": 0,
+  "autoPlayEnabled": false,
+  "playbackStatus": "expired",
+  "stepCount": 2,
+  "viewerMetadata": null,
+  "cleanupStatus": "none",
+  "model": {
+    "flowId": "fixture_shotlist_flow",
+    "sourceType": "reviewed_flow",
+    "title": "ShotList Fixture",
+    "description": null,
+    "steps": [
+      {
+        "index": 0,
+        "title": "Open Dashboard",
+        "action": "navigate",
+        "intent": "load dashboard",
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [],
+        "overlay": {
+          "title": "Open Dashboard",
+          "body": "load dashboard",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "manual",
+          "requiresHotspotConfirmation": false,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      },
+      {
+        "index": 1,
+        "title": "Upload CSV",
+        "action": "upload",
+        "intent": "add customer data",
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [
+          {
+            "author": "qa",
+            "text": "Use sample.csv"
+          }
+        ],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [
+          {
+            "hotspotId": "hs_1_info_1",
+            "stepIndex": 1,
+            "type": "info",
+            "label": "Note",
+            "description": "Use sample.csv",
+            "x": 4,
+            "y": 4,
+            "width": 30,
+            "height": 12,
+            "targetAction": "show_info",
+            "targetStepIndex": null,
+            "interactionMode": "click",
+            "priority": 2,
+            "visible": true,
+            "metadata": {
+              "from": "annotation"
+            }
+          }
+        ],
+        "overlay": {
+          "title": "Upload CSV",
+          "body": "add customer data",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "manual",
+          "requiresHotspotConfirmation": false,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      }
+    ]
+  },
+  "interactionState": {
+    "0": {
+      "hotspotConfirmed": false,
+      "overlayDismissed": false,
+      "canProceed": true
+    },
+    "1": {
+      "hotspotConfirmed": false,
+      "overlayDismissed": false,
+      "canProceed": true
+    }
+  }
+}

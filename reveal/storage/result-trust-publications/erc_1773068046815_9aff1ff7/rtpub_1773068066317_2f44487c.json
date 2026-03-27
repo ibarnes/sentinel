@@ -1,0 +1,30 @@
+{
+  "resultTrustPublicationId": "rtpub_1773068066317_2f44487c",
+  "createdAt": "2026-03-09T14:54:26.317Z",
+  "publicationVersion": "v1",
+  "providerType": "subtitle_compositor",
+  "providerProfileId": "default",
+  "sourceExecutionReceiptId": "erc_1773068046815_9aff1ff7",
+  "sourceProviderSubmissionContractId": "psc_1773022291332_9ae71130",
+  "latestExecutionResultArtifactId": "era_1773068046830_037a98d7",
+  "latestResultArtifactDigest": "4f0aac27e3c9b32772e524b43961e32ed5b1dd18045c9f7fd3f0e5ab32c85d64",
+  "latestResultArtifactType": "execution_result_summary",
+  "previousPublishedResultHeadDigest": "9723fcec360bff4fff8879b211083572892c0cd09bbf0814c6a0003825b59701",
+  "resultHeadDigest": "2558975631d1c50674fae637830323b97c2218f6dadd5997204ab1d75e4f8d77",
+  "resultHeadDigestVersion": "sha256-v1",
+  "trustProfile": {
+    "trustProfileId": "local_dev",
+    "trustProfileName": "Local Development"
+  },
+  "resultTrustPublicationSignature": null,
+  "resultTrustPublicationSignatureVersion": "result-trust-sig-v1",
+  "resultTrustPublicationSigningKeyId": null,
+  "resultTrustPublicationSigningAlgorithm": "RSA-SHA256",
+  "resultTrustPublicationSignatureStatus": "unsigned",
+  "resultTrustPublicationSignatureValid": null,
+  "publicationStatus": "active",
+  "metadata": {
+    "deterministic": true
+  },
+  "unsignedReason": "missing_key"
+}

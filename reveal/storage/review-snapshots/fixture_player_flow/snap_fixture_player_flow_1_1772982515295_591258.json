@@ -1,0 +1,151 @@
+{
+  "snapshotId": "snap_fixture_player_flow_1_1772982515295_591258",
+  "flowId": "fixture_player_flow",
+  "reviewVersion": 1,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T15:08:35.296Z",
+  "createdBy": "fixture",
+  "sourceReviewedFlowVersion": 1,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "parentSnapshotId": "snap_fixture_player_flow_1_1772981757944_a7c65e",
+  "parentSnapshotContentHash": "7714aeaf91379bde0f43d43debd14d5acee35463d90d886bf9213c2d9a9fdc3f",
+  "snapshotChainIndex": 2,
+  "reviewedFlow": {
+    "id": "fixture_player_flow",
+    "name": "Player Fixture",
+    "reviewVersion": 1,
+    "steps": [
+      {
+        "id": "a",
+        "index": 1,
+        "title": "Login",
+        "action": "click",
+        "intent": "Login",
+        "screenshots": {
+          "beforeUrl": null,
+          "afterUrl": null,
+          "highlightedUrl": null
+        },
+        "annotations": [],
+        "confidence": 0.8
+      },
+      {
+        "id": "b",
+        "index": 2,
+        "title": "Open Dashboard",
+        "action": "navigate",
+        "intent": null,
+        "screenshots": {
+          "beforeUrl": null,
+          "afterUrl": null,
+          "highlightedUrl": null
+        },
+        "annotations": [
+          {
+            "author": "x",
+            "text": "good"
+          }
+        ],
+        "confidence": 0.7
+      }
+    ]
+  },
+  "snapshotContentHash": "2a0c28f92c253131458c7447457ef51f2993fb1093c724303cbccb8fc4322deb",
+  "snapshotHashVersion": "sha256-v1",
+  "snapshotHashCanonicalPayload": {
+    "createdAt": "2026-03-08T15:08:35.296Z",
+    "createdBy": "fixture",
+    "flowId": "fixture_player_flow",
+    "parentSnapshotContentHash": "7714aeaf91379bde0f43d43debd14d5acee35463d90d886bf9213c2d9a9fdc3f",
+    "parentSnapshotId": "snap_fixture_player_flow_1_1772981757944_a7c65e",
+    "reviewVersion": 1,
+    "reviewedFlow": {
+      "id": "fixture_player_flow",
+      "name": "Player Fixture",
+      "reviewVersion": 1,
+      "steps": [
+        {
+          "action": "click",
+          "annotations": [],
+          "confidence": 0.8,
+          "id": "a",
+          "index": 1,
+          "intent": "Login",
+          "screenshots": {
+            "afterUrl": null,
+            "beforeUrl": null,
+            "highlightedUrl": null
+          },
+          "title": "Login"
+        },
+        {
+          "action": "navigate",
+          "annotations": [
+            {
+              "author": "x",
+              "text": "good"
+            }
+          ],
+          "confidence": 0.7,
+          "id": "b",
+          "index": 2,
+          "intent": null,
+          "screenshots": {
+            "afterUrl": null,
+            "beforeUrl": null,
+            "highlightedUrl": null
+          },
+          "title": "Open Dashboard"
+        }
+      ]
+    },
+    "snapshotChainIndex": 2,
+    "snapshotId": "snap_fixture_player_flow_1_1772982515295_591258",
+    "snapshotVersion": 1,
+    "sourceNormalizedFlowVersion": 1,
+    "sourceReplayChecksumSummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "missing": 0,
+      "unreplayable": 0
+    },
+    "sourceReviewedFlowVersion": 1,
+    "status": "frozen"
+  },
+  "manifest": {
+    "snapshotId": "snap_fixture_player_flow_1_1772982515295_591258",
+    "flowId": "fixture_player_flow",
+    "reviewVersion": 1,
+    "stepCount": 2,
+    "annotationCount": 1,
+    "screenshotCoverage": {
+      "total": 2,
+      "withBefore": 0,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "snapshotContentHash": "2a0c28f92c253131458c7447457ef51f2993fb1093c724303cbccb8fc4322deb",
+    "snapshotHashVersion": "sha256-v1",
+    "parentSnapshotId": "snap_fixture_player_flow_1_1772981757944_a7c65e",
+    "parentSnapshotContentHash": "7714aeaf91379bde0f43d43debd14d5acee35463d90d886bf9213c2d9a9fdc3f",
+    "snapshotChainIndex": 2,
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T15:08:35.296Z"
+  }
+}

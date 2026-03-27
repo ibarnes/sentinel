@@ -1,0 +1,35 @@
+{
+  "shotListId": "sl_1772997187055_83605e81",
+  "editIntents": [
+    {
+      "editIntentId": "ei_1772997187084_4a9f66",
+      "shotId": "shot_1_1",
+      "type": "hold_extension_ms",
+      "value": 500,
+      "createdAt": "2026-03-08T19:13:07.084Z",
+      "createdBy": "fixture",
+      "rationale": null,
+      "metadata": {}
+    },
+    {
+      "editIntentId": "ei_1772997187085_185a4e",
+      "shotId": "shot_1_1",
+      "type": "note",
+      "value": "Hold intro longer",
+      "createdAt": "2026-03-08T19:13:07.085Z",
+      "createdBy": "fixture",
+      "rationale": null,
+      "metadata": {}
+    },
+    {
+      "editIntentId": "ei_1772997187103_0b276b",
+      "shotId": "shot_1_1",
+      "type": "disable_shot",
+      "value": true,
+      "createdAt": "2026-03-08T19:13:07.103Z",
+      "createdBy": "fixture",
+      "rationale": null,
+      "metadata": {}
+    }
+  ]
+}

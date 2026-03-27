@@ -1,0 +1,44 @@
+{
+  "id": "fixture_flow_snapshot",
+  "name": "Fixture Flow Snapshot",
+  "description": "snapshot fixture",
+  "appHost": "app.test",
+  "version": 1,
+  "reviewVersion": 2,
+  "steps": [
+    {
+      "id": "s1",
+      "index": 1,
+      "title": "Step 1",
+      "action": "click",
+      "intent": null,
+      "target": {
+        "elementType": "button",
+        "text": "A"
+      },
+      "page": {
+        "url": "https://app.test"
+      },
+      "screenshots": {},
+      "confidence": 0.8,
+      "annotations": []
+    },
+    {
+      "id": "s2",
+      "index": 2,
+      "title": "Step 2",
+      "action": "submit",
+      "intent": null,
+      "target": {
+        "elementType": "submit_action",
+        "text": "B"
+      },
+      "page": {
+        "url": "https://app.test/b"
+      },
+      "screenshots": {},
+      "confidence": 0.7,
+      "annotations": []
+    }
+  ]
+}

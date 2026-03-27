@@ -1,0 +1,92 @@
+{
+  "executionReceiptId": "erc_1773009076494_13808f20",
+  "createdAt": "2026-03-08T22:31:16.494Z",
+  "updatedAt": "2026-03-08T22:31:16.498Z",
+  "receiptVersion": "v1",
+  "providerSubmissionContractId": "psc_1773009076490_7c823017",
+  "providerAdapterId": "pad_1773009076488_f66edfa1",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "submissionDigest": "c937dc13d122209e1358bddf25eaffd66b3964402617294f7deb8029e6b1f06f",
+  "submissionStatus": "acknowledged",
+  "schedulerStatus": "provider_acknowledged",
+  "externalExecutionRef": "ext_1",
+  "requestSummary": {
+    "targetSystem": "generic_renderer/default",
+    "requestedAt": "2026-03-08T22:31:16.494Z",
+    "dispatchMode": "handoff_only",
+    "payloadDigest": "c937dc13d122209e1358bddf25eaffd66b3964402617294f7deb8029e6b1f06f",
+    "artifactCounts": {
+      "stages": 3,
+      "jobs": 3,
+      "inputs": 5,
+      "outputs": 3
+    }
+  },
+  "responseSummary": {
+    "acknowledgedAt": "2026-03-08T22:31:16.498Z",
+    "externalExecutionRef": "ext_1",
+    "providerMessage": "ok",
+    "responseCode": "202",
+    "errorClass": null
+  },
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "ready",
+    "blockingReasons": [],
+    "warnings": []
+  },
+  "blockingReasons": [],
+  "warnings": [],
+  "lifecycleEvents": [
+    {
+      "eventId": "ev_1773009076494_c097c3",
+      "orderIndex": 1,
+      "eventType": "receipt_created",
+      "timestamp": "2026-03-08T22:31:16.494Z",
+      "actorType": "system",
+      "summary": "Execution receipt created from provider submission contract",
+      "statusBefore": null,
+      "statusAfter": "prepared",
+      "metadata": {
+        "providerSubmissionContractId": "psc_1773009076490_7c823017"
+      }
+    },
+    {
+      "eventId": "ev_1773009076495_7c3f84",
+      "orderIndex": 2,
+      "eventType": "dispatch_marked_ready",
+      "timestamp": "2026-03-08T22:31:16.495Z",
+      "actorType": "operator",
+      "summary": "markDispatchReady",
+      "statusBefore": "prepared",
+      "statusAfter": "queued",
+      "metadata": {}
+    },
+    {
+      "eventId": "ev_1773009076497_8227e5",
+      "orderIndex": 3,
+      "eventType": "handoff_recorded",
+      "timestamp": "2026-03-08T22:31:16.497Z",
+      "actorType": "operator",
+      "summary": "recordHandoff",
+      "statusBefore": "queued",
+      "statusAfter": "handed_off",
+      "metadata": {}
+    },
+    {
+      "eventId": "ev_1773009076498_3b4cd5",
+      "orderIndex": 4,
+      "eventType": "provider_acknowledged",
+      "timestamp": "2026-03-08T22:31:16.498Z",
+      "actorType": "operator",
+      "summary": "recordAcknowledgement",
+      "statusBefore": "handed_off",
+      "statusAfter": "acknowledged",
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "deterministic": true
+  }
+}

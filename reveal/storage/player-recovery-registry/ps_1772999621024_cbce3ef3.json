@@ -1,0 +1,19 @@
+{
+  "sessionId": "ps_1772999621024_cbce3ef3",
+  "sourceType": "reviewed_flow",
+  "flowId": "fixture_shotlist_flow",
+  "snapshotId": null,
+  "packageRef": null,
+  "packageContentHash": null,
+  "packageManifestSummary": {
+    "stepCount": 2,
+    "title": "ShotList Fixture"
+  },
+  "sourceRetentionPolicy": "ephemeral_only",
+  "recoverabilityStatus": "recoverable",
+  "createdAt": "2026-03-08T19:53:41.025Z",
+  "updatedAt": "2026-03-08T19:53:41.026Z",
+  "lastRecoveryAttemptAt": null,
+  "lastRecoveryStatus": null,
+  "recoveryError": null
+}

@@ -1,0 +1,142 @@
+{
+  "verifierPackageId": "uvp_1772998618819_eb27373d",
+  "createdAt": "2026-03-08T19:36:58.819Z",
+  "verifierVersion": "v1",
+  "sourceRefs": {
+    "scriptId": "ns_1772998618729_a54bd43b",
+    "shotListId": null,
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": "vtp_1772998618756_353aff02",
+    "voicePlanSnapshotId": null
+  },
+  "scriptTrustSummary": {
+    "scriptId": "ns_1772998618729_a54bd43b",
+    "reviewStatus": "approved",
+    "integritySummary": {
+      "totalSnapshots": 1,
+      "matched": 1,
+      "mismatched": 0,
+      "brokenChainLinks": 0,
+      "missingHash": 0,
+      "firstBrokenSnapshotId": null,
+      "rows": [
+        {
+          "scriptId": "ns_1772998618729_a54bd43b",
+          "reviewedSnapshotId": "rss_1772998618746_371efe56",
+          "reviewedSnapshotChainIndex": 1,
+          "storedContentHash": "9dbc01bd0b1aeb79eaeda2fd22ffa1a5d3651a988f3344b449a5c45744935f9f",
+          "recomputedContentHash": "9dbc01bd0b1aeb79eaeda2fd22ffa1a5d3651a988f3344b449a5c45744935f9f",
+          "hashVersion": "sha256-v1",
+          "integrityStatus": "match",
+          "reasonCodes": [
+            "hash_match"
+          ]
+        }
+      ]
+    },
+    "trustPublication": {
+      "trustPublicationId": "rtp_1772998618750_f9d5195b",
+      "signatureStatus": "unsigned",
+      "chainHeadDigest": "d64a093d275b4e487491a211968eceefeb2ff9bae7156363ecbf44517137d9ac"
+    }
+  },
+  "shotTrustSummary": null,
+  "voiceTrustSummary": {
+    "voiceTrackPlanId": "vtp_1772998618756_353aff02",
+    "voicePlanSnapshotId": null,
+    "integritySummary": {
+      "totalSnapshots": 1,
+      "matched": 1,
+      "mismatched": 0,
+      "brokenChainLinks": 0,
+      "missingHash": 0,
+      "firstBrokenSnapshotId": null,
+      "rows": [
+        {
+          "voiceTrackPlanId": "vtp_1772998618756_353aff02",
+          "voicePlanSnapshotId": "vps_1772998618758_bba7591a",
+          "voicePlanSnapshotChainIndex": 1,
+          "storedContentHash": "186db14f58067cf3092479ac1e30002f03a6fbb1de547a8f1cd855db40d953d0",
+          "recomputedContentHash": "186db14f58067cf3092479ac1e30002f03a6fbb1de547a8f1cd855db40d953d0",
+          "hashVersion": "sha256-v1",
+          "integrityStatus": "match",
+          "reasonCodes": [
+            "hash_match"
+          ]
+        }
+      ]
+    },
+    "trustPublication": {
+      "voiceTrustPublicationId": "vtpub_1772998618761_179aefbb",
+      "signatureStatus": "unsigned",
+      "voiceChainHeadDigest": "f57b7034e79785654f9ae8e09d34706c8c20c912669380367d19a18b7c0c2f2d"
+    },
+    "latestVoiceSnapshot": {
+      "voiceTrackPlanId": "vtp_1772998618756_353aff02",
+      "voicePlanSnapshotId": "vps_1772998618758_bba7591a",
+      "voicePlanSnapshotChainIndex": 1,
+      "storedContentHash": "186db14f58067cf3092479ac1e30002f03a6fbb1de547a8f1cd855db40d953d0",
+      "recomputedContentHash": "186db14f58067cf3092479ac1e30002f03a6fbb1de547a8f1cd855db40d953d0",
+      "hashVersion": "sha256-v1",
+      "integrityStatus": "match",
+      "reasonCodes": [
+        "hash_match"
+      ]
+    }
+  },
+  "subtitleProofSummary": {
+    "voiceTrackPlanId": "vtp_1772998618756_353aff02",
+    "readiness": {
+      "orchestrationPolicyProfile": "production_verified",
+      "policyEvaluationResult": "blocked",
+      "blockingReasons": [
+        "latest_voice_trust_publication_unsigned"
+      ],
+      "warnings": [],
+      "evaluatedAt": "2026-03-08T19:36:58.819Z"
+    },
+    "signedProofStatus": "unsigned"
+  },
+  "attestationSummary": {
+    "latestAttestationSnapshot": null,
+    "latestAttestationSignatureStatus": null,
+    "latestBundleManifestSignatureStatus": null,
+    "latestAttestationTrustPublication": null
+  },
+  "orchestrationPolicySummary": {
+    "orchestrationPolicyProfile": "production_verified",
+    "policyManifestVersion": "v1",
+    "policyEvaluationResult": "blocked",
+    "blockingReasons": [
+      "unsigned_trust_publication",
+      "unsigned_subtitle_proof",
+      "attestation_signature_missing",
+      "bundle_manifest_signature_missing",
+      "attestation_trust_publication_missing",
+      "attestation_chain_head_digest_missing"
+    ],
+    "warnings": []
+  },
+  "overallVerificationStatus": "missing_required_artifact",
+  "blockingReasons": [
+    "unsigned_trust_publication",
+    "unsigned_subtitle_proof",
+    "attestation_signature_missing",
+    "bundle_manifest_signature_missing",
+    "attestation_trust_publication_missing",
+    "attestation_chain_head_digest_missing"
+  ],
+  "warnings": [],
+  "attestationRefs": {
+    "policyProfileId": "production_verified",
+    "policyManifestVersion": "v1"
+  },
+  "metadata": {
+    "domainStatuses": [
+      "verified",
+      "missing",
+      "verified",
+      "warning"
+    ]
+  }
+}

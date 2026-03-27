@@ -1,0 +1,104 @@
+{
+  "voiceTrackPlanId": "vtp_1772991618472_5b837ed8",
+  "sourceType": "reviewed_script",
+  "sourceRef": {
+    "scriptId": "ns_1772991618456_d9e239ec"
+  },
+  "title": "Voice Track Plan — reviewed_script",
+  "description": "Deterministic narration and caption timing plan",
+  "createdAt": "2026-03-08T17:40:18.472Z",
+  "voiceTrackPlanVersion": "v1",
+  "styleProfile": null,
+  "totalEstimatedDurationMs": 8141,
+  "segments": [
+    {
+      "segmentId": "seg_1",
+      "orderIndex": 0,
+      "sectionRef": "sec_0_b6589fc6",
+      "sceneRef": null,
+      "shotRef": null,
+      "speakerProfile": "narrator_default",
+      "narrationText": "Navigate Open Dashboard to open dashboard view.",
+      "pronunciationNotes": "open dashboard view",
+      "emphasisMarkers": [
+        "none"
+      ],
+      "pauseBeforeMs": 120,
+      "pauseAfterMs": 140,
+      "estimatedDurationMs": 3397,
+      "startOffsetMs": 120,
+      "endOffsetMs": 3517,
+      "onScreenTextRef": "Open Dashboard",
+      "captionRefs": [
+        "cap_1"
+      ],
+      "metadata": {}
+    },
+    {
+      "segmentId": "seg_2",
+      "orderIndex": 1,
+      "sectionRef": "sec_1_356a192b",
+      "sceneRef": null,
+      "shotRef": null,
+      "speakerProfile": "narrator_default",
+      "narrationText": "Upload Upload CSV to upload customer csv for analysis.",
+      "pronunciationNotes": "upload customer csv for analysis",
+      "emphasisMarkers": [
+        "none"
+      ],
+      "pauseBeforeMs": 120,
+      "pauseAfterMs": 140,
+      "estimatedDurationMs": 4224,
+      "startOffsetMs": 3777,
+      "endOffsetMs": 8001,
+      "onScreenTextRef": "Upload CSV",
+      "captionRefs": [
+        "cap_2"
+      ],
+      "metadata": {}
+    }
+  ],
+  "captions": [
+    {
+      "captionId": "cap_1",
+      "orderIndex": 0,
+      "sourceSegmentId": "seg_1",
+      "text": "Navigate Open Dashboard to open dashboard view.",
+      "startOffsetMs": 120,
+      "endOffsetMs": 3517,
+      "lineIndex": 0,
+      "styleHint": "default",
+      "metadata": {}
+    },
+    {
+      "captionId": "cap_2",
+      "orderIndex": 1,
+      "sourceSegmentId": "seg_2",
+      "text": "Upload Upload CSV to upload customer csv for analysis.",
+      "startOffsetMs": 3777,
+      "endOffsetMs": 8001,
+      "lineIndex": 0,
+      "styleHint": "default",
+      "metadata": {}
+    }
+  ],
+  "subtitleTracks": [
+    {
+      "trackId": "default-en",
+      "locale": "en",
+      "formatSupport": [
+        "srt",
+        "vtt",
+        "json"
+      ],
+      "totalCueCount": 2,
+      "totalDurationMs": 8001
+    }
+  ],
+  "metadata": {
+    "locale": "en",
+    "sourceApprovalTrust": {
+      "reviewStatus": "approved"
+    }
+  }
+}

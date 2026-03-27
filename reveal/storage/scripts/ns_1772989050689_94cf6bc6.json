@@ -1,0 +1,90 @@
+{
+  "scriptId": "ns_1772989050689_94cf6bc6",
+  "sourceType": "player_session",
+  "sourceRef": {
+    "sessionId": "ps_1772989050686_862bf923",
+    "currentStepIndex": 0,
+    "sourceType": "reviewed_flow",
+    "sourceRef": {
+      "flowId": "fixture_script_flow",
+      "snapshotId": null,
+      "packageRef": null
+    },
+    "embed": null,
+    "interactionState": {
+      "0": {
+        "hotspotConfirmed": false,
+        "overlayDismissed": false,
+        "canProceed": true
+      },
+      "1": {
+        "hotspotConfirmed": false,
+        "overlayDismissed": false,
+        "canProceed": true
+      }
+    }
+  },
+  "title": "Script Fixture Flow",
+  "description": "Fixture for script generation",
+  "createdAt": "2026-03-08T16:57:30.689Z",
+  "createdBy": null,
+  "scriptVersion": "v1",
+  "styleProfile": "executive_overview",
+  "totalEstimatedDurationMs": 7240,
+  "sections": [
+    {
+      "sectionId": "sec_0_b6589fc6",
+      "stepIndex": 0,
+      "title": "Upload CSV File",
+      "narrationText": "Upload CSV File: add customer data for analysis",
+      "onScreenText": "Upload CSV File",
+      "timing": {
+        "estimatedDurationMs": 4312,
+        "leadInMs": 300,
+        "leadOutMs": 320
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "add customer data for analysis",
+      "metadata": {
+        "action": "upload",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    },
+    {
+      "sectionId": "sec_1_356a192b",
+      "stepIndex": 1,
+      "title": "Run Analysis",
+      "narrationText": "Run Analysis: generate initial metrics",
+      "onScreenText": "Run Analysis",
+      "timing": {
+        "estimatedDurationMs": 2928,
+        "leadInMs": 300,
+        "leadOutMs": 320
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "generate initial metrics",
+      "metadata": {
+        "action": "click",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    }
+  ],
+  "metadata": {
+    "flowId": "fixture_script_flow",
+    "stepCount": 2
+  }
+}

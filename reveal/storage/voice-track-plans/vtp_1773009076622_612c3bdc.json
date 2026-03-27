@@ -1,0 +1,104 @@
+{
+  "voiceTrackPlanId": "vtp_1773009076622_612c3bdc",
+  "sourceType": "reviewed_script",
+  "sourceRef": {
+    "scriptId": "ns_1773009076602_4200b82c"
+  },
+  "title": "Voice Track Plan — reviewed_script",
+  "description": "Deterministic narration and caption timing plan",
+  "createdAt": "2026-03-08T22:31:16.622Z",
+  "voiceTrackPlanVersion": "v1",
+  "styleProfile": null,
+  "totalEstimatedDurationMs": 4830,
+  "segments": [
+    {
+      "segmentId": "seg_1",
+      "orderIndex": 0,
+      "sectionRef": "sec_0_b6589fc6",
+      "sceneRef": null,
+      "shotRef": null,
+      "speakerProfile": "narrator_default",
+      "narrationText": "Navigate Start to start.",
+      "pronunciationNotes": "start",
+      "emphasisMarkers": [
+        "none"
+      ],
+      "pauseBeforeMs": 120,
+      "pauseAfterMs": 140,
+      "estimatedDurationMs": 2155,
+      "startOffsetMs": 120,
+      "endOffsetMs": 2275,
+      "onScreenTextRef": "Start",
+      "captionRefs": [
+        "cap_1"
+      ],
+      "metadata": {}
+    },
+    {
+      "segmentId": "seg_2",
+      "orderIndex": 1,
+      "sectionRef": "sec_1_356a192b",
+      "sceneRef": null,
+      "shotRef": null,
+      "speakerProfile": "narrator_default",
+      "narrationText": "Click Continue to continue.",
+      "pronunciationNotes": "continue",
+      "emphasisMarkers": [
+        "none"
+      ],
+      "pauseBeforeMs": 120,
+      "pauseAfterMs": 140,
+      "estimatedDurationMs": 2155,
+      "startOffsetMs": 2535,
+      "endOffsetMs": 4690,
+      "onScreenTextRef": "Continue",
+      "captionRefs": [
+        "cap_2"
+      ],
+      "metadata": {}
+    }
+  ],
+  "captions": [
+    {
+      "captionId": "cap_1",
+      "orderIndex": 0,
+      "sourceSegmentId": "seg_1",
+      "text": "Navigate Start to start.",
+      "startOffsetMs": 120,
+      "endOffsetMs": 2275,
+      "lineIndex": 0,
+      "styleHint": "default",
+      "metadata": {}
+    },
+    {
+      "captionId": "cap_2",
+      "orderIndex": 1,
+      "sourceSegmentId": "seg_2",
+      "text": "Click Continue to continue.",
+      "startOffsetMs": 2535,
+      "endOffsetMs": 4690,
+      "lineIndex": 0,
+      "styleHint": "default",
+      "metadata": {}
+    }
+  ],
+  "subtitleTracks": [
+    {
+      "trackId": "default-en",
+      "locale": "en",
+      "formatSupport": [
+        "srt",
+        "vtt",
+        "json"
+      ],
+      "totalCueCount": 2,
+      "totalDurationMs": 4690
+    }
+  ],
+  "metadata": {
+    "locale": "en",
+    "sourceApprovalTrust": {
+      "reviewStatus": "approved"
+    }
+  }
+}

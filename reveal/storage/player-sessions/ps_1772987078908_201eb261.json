@@ -1,0 +1,64 @@
+{
+  "sessionId": "ps_1772987078908_201eb261",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_share_flow",
+    "snapshotId": null,
+    "packageRef": null
+  },
+  "createdAt": "2026-03-08T16:24:38.908Z",
+  "updatedAt": "2026-03-09T17:11:42.272Z",
+  "lastActivityAt": "2026-03-08T16:24:38.908Z",
+  "expiresAt": "2026-03-08T20:24:38.908Z",
+  "currentStepIndex": 0,
+  "autoPlayEnabled": false,
+  "playbackStatus": "expired",
+  "stepCount": 1,
+  "viewerMetadata": null,
+  "cleanupStatus": "none",
+  "model": {
+    "flowId": "fixture_share_flow",
+    "sourceType": "reviewed_flow",
+    "title": "Share Fixture",
+    "description": null,
+    "steps": [
+      {
+        "index": 0,
+        "title": "A",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [],
+        "overlay": {
+          "title": "A",
+          "body": "Follow this step.",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "manual",
+          "requiresHotspotConfirmation": false,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      }
+    ]
+  },
+  "interactionState": {
+    "0": {
+      "hotspotConfirmed": false,
+      "overlayDismissed": false,
+      "canProceed": true
+    }
+  }
+}

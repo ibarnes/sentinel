@@ -1,0 +1,29 @@
+{
+  "voiceTrackPlanId": "vtp_1772992885378_837c6ebf",
+  "voiceTrustPublicationId": "vtpub_1772992885411_f05ef809",
+  "latestVoicePlanSnapshotId": "vps_1772992885388_188dfd9b",
+  "latestVoicePlanSnapshotContentHash": "fce2ca2ca3b8fdf01ff308f9d8afad4092c0d3b1360681af9beb8e218da80f36",
+  "latestVoicePlanSnapshotChainIndex": 2,
+  "previousPublishedVoiceHeadDigest": "73e88de1cb1394fdea455121d291f15fe4286957a873e05c8d652876c3af5a08",
+  "publicationVersion": "v1",
+  "publishedAt": "2026-03-08T18:01:25.412Z",
+  "trustProfile": {
+    "trustProfileId": "local_dev",
+    "trustProfileName": "Local Development"
+  },
+  "publicationStatus": "active",
+  "chainContinuitySummary": {
+    "latestIntegrityStatus": "broken_parent_link",
+    "parentVoicePlanSnapshotId": "vps_1772992885386_deedc714",
+    "isChainRoot": false
+  },
+  "voiceChainHeadDigestVersion": "sha256-v1",
+  "voiceChainHeadDigest": "411043ac1cd8de3e16784e06d156b1e07729195519dcbd58cf4ec68b0bbaac9a",
+  "voiceTrustPublicationSignature": null,
+  "voiceTrustPublicationSignatureVersion": "voice-trust-sig-v1",
+  "voiceTrustPublicationSigningKeyId": null,
+  "voiceTrustPublicationSigningAlgorithm": "RSA-SHA256",
+  "voiceTrustPublicationSignatureStatus": "unsigned",
+  "unsignedReason": "missing_key",
+  "signerMetadata": null
+}

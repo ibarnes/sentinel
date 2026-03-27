@@ -1,0 +1,25 @@
+{
+  "id": "fixture_provider_submission_flow",
+  "name": "Provider Submission Fixture",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "s1",
+      "index": 1,
+      "title": "One",
+      "action": "navigate",
+      "intent": "one",
+      "screenshots": {},
+      "annotations": []
+    },
+    {
+      "id": "s2",
+      "index": 2,
+      "title": "Two",
+      "action": "click",
+      "intent": "two",
+      "screenshots": {},
+      "annotations": []
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "fixture_script_flow",
+  "name": "Script Fixture Flow",
+  "description": "Fixture for script generation",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "s1",
+      "index": 1,
+      "title": "Upload CSV File",
+      "action": "upload",
+      "intent": "add customer data for analysis",
+      "target": {
+        "text": "Upload CSV"
+      },
+      "annotations": [
+        {
+          "author": "qa",
+          "text": "Use sample file"
+        }
+      ],
+      "screenshots": {}
+    },
+    {
+      "id": "s2",
+      "index": 2,
+      "title": "Run Analysis",
+      "action": "click",
+      "intent": "generate initial metrics",
+      "target": {
+        "text": "Run Analysis"
+      },
+      "annotations": [],
+      "screenshots": {}
+    }
+  ]
+}

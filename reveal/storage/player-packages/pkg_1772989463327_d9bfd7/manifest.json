@@ -1,0 +1,64 @@
+{
+  "packageFormat": "revealpkg",
+  "packageVersion": 1,
+  "packageType": "reviewed_flow",
+  "flowId": "fixture_script_flow",
+  "snapshotId": null,
+  "reviewVersion": 1,
+  "snapshotChainIndex": null,
+  "createdAt": "2026-03-08T17:04:23.316Z",
+  "contentHash": null,
+  "replayIntegritySummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "sourceType": "live_reviewed",
+  "screenshotCoverageSummary": {
+    "totalSteps": 2,
+    "withBefore": 0,
+    "withAfter": 0,
+    "withHighlight": 0
+  },
+  "includedAssetCounts": {
+    "total": 0,
+    "screenshots": 0,
+    "highlights": 0
+  },
+  "artifacts": [
+    "manifest.json",
+    "reviewed-flow.json",
+    "reviewed-flow.md",
+    "integrity.json"
+  ],
+  "omittedAssets": [],
+  "packageContentHash": "fa5eee08d109f6affee52414eb9ac99ba9b2a055812d0f545bdf44694be7eac0",
+  "packageSignatureVersion": "sig-v1",
+  "packageVerificationScope": [
+    "packageFormat",
+    "packageVersion",
+    "packageType",
+    "flowId",
+    "snapshotId",
+    "reviewVersion",
+    "snapshotChainIndex",
+    "contentHash",
+    "packageContentHash"
+  ],
+  "signingAlgorithm": "RSA-SHA256",
+  "signingKeyId": null,
+  "publicKeyAlgorithm": "RSA",
+  "publicKeyHint": null,
+  "signerKeyFingerprint": null,
+  "trustProfileId": "unsigned_export",
+  "trustProfileName": "Unsigned Export",
+  "trustProfileVersion": 1,
+  "trustProfileType": "unsigned_export",
+  "signerIdentity": "None",
+  "verificationPolicyVersion": "policy-v1",
+  "verifierKeysetVersion": "keyset-v1.7",
+  "signatureStatus": "unsigned",
+  "unsignedReason": "missing_key",
+  "packageSignature": null
+}

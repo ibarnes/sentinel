@@ -1,0 +1,27 @@
+{
+  "id": "fixture_flow_package",
+  "name": "Fixture Package Flow",
+  "appHost": "app.test",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "p1",
+      "index": 1,
+      "title": "Step A",
+      "action": "click",
+      "intent": null,
+      "target": {
+        "elementType": "button",
+        "text": "Open"
+      },
+      "page": {
+        "url": "https://app.test"
+      },
+      "screenshots": {
+        "beforeUrl": "/reveal/storage/assets/missing/a/before.jpg"
+      },
+      "confidence": 0.8,
+      "annotations": []
+    }
+  ]
+}

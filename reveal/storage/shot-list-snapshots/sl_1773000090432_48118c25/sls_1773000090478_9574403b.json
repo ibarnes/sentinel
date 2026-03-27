@@ -1,0 +1,235 @@
+{
+  "shotListSnapshotId": "sls_1773000090478_9574403b",
+  "shotListId": "sl_1773000090432_48118c25",
+  "sourceType": "reviewed_snapshot",
+  "sourceRef": {
+    "flowId": "fixture_shotlist_flow"
+  },
+  "shotListVersion": "v1",
+  "createdAt": "2026-03-08T20:01:30.478Z",
+  "createdBy": "fixture",
+  "sourceScriptId": null,
+  "sourceReviewedSnapshotId": null,
+  "sourceTrustRefs": {
+    "publishGate": null,
+    "trustPublication": null
+  },
+  "manifest": {
+    "shotListSnapshotId": "sls_1773000090478_9574403b",
+    "shotListId": "sl_1773000090432_48118c25",
+    "sceneCount": 1,
+    "shotCount": 4,
+    "changedShotCount": 1,
+    "totalEstimatedDurationMs": 8500,
+    "createdAt": "2026-03-08T20:01:30.478Z"
+  },
+  "frozenShotList": {
+    "shotListId": "sl_1773000090432_48118c25",
+    "sourceType": "reviewed_snapshot",
+    "sourceRef": {
+      "flowId": "fixture_shotlist_flow"
+    },
+    "title": "Shot List — reviewed_snapshot",
+    "description": "Deterministic production shot plan",
+    "createdAt": "2026-03-08T20:01:30.432Z",
+    "shotListVersion": "v1",
+    "styleProfile": null,
+    "totalEstimatedDurationMs": 8500,
+    "scenes": [
+      {
+        "sceneId": "scene_1",
+        "orderIndex": 0,
+        "stepIndexRange": {
+          "start": 0,
+          "end": 1
+        },
+        "title": "Open Dashboard",
+        "objective": "load dashboard",
+        "estimatedDurationMs": 8500,
+        "transitionIn": "none",
+        "transitionOut": "cut",
+        "narrationSectionRefs": [],
+        "visualRefs": {
+          "screenshotBefore": null,
+          "screenshotAfter": null,
+          "highlight": null,
+          "hotspots": [],
+          "overlay": {
+            "title": "Open Dashboard",
+            "body": "load dashboard",
+            "position": "right",
+            "anchorHotspotId": null,
+            "dismissible": true,
+            "showStepCounter": true,
+            "emphasisMode": "none",
+            "progressionMode": "manual",
+            "stepDurationMs": 3000
+          }
+        },
+        "shots": [
+          {
+            "shotId": "shot_1_1",
+            "sceneId": "scene_1",
+            "stepIndex": 0,
+            "shotType": "full_frame",
+            "title": "Establish: Open Dashboard",
+            "purpose": "Set context",
+            "sourceAssetRef": null,
+            "highlightRef": null,
+            "hotspotRefs": [],
+            "overlayRef": {
+              "title": "Open Dashboard",
+              "body": "load dashboard",
+              "position": "right",
+              "anchorHotspotId": null,
+              "dismissible": true,
+              "showStepCounter": true,
+              "emphasisMode": "none",
+              "progressionMode": "manual",
+              "stepDurationMs": 3000
+            },
+            "estimatedDurationMs": 1400,
+            "emphasis": "none",
+            "notes": "Hold intro longer",
+            "metadata": {},
+            "startOffsetMs": 0,
+            "endOffsetMs": 1400,
+            "effectiveDurationMs": 1400
+          },
+          {
+            "shotId": "shot_1_2",
+            "sceneId": "scene_1",
+            "stepIndex": 0,
+            "shotType": "overlay_callout",
+            "title": "Open Dashboard",
+            "purpose": "load dashboard",
+            "sourceAssetRef": null,
+            "highlightRef": null,
+            "hotspotRefs": [],
+            "overlayRef": {
+              "title": "Open Dashboard",
+              "body": "load dashboard",
+              "position": "right",
+              "anchorHotspotId": null,
+              "dismissible": true,
+              "showStepCounter": true,
+              "emphasisMode": "none",
+              "progressionMode": "manual",
+              "stepDurationMs": 3000
+            },
+            "estimatedDurationMs": 3000,
+            "emphasis": "none",
+            "notes": null,
+            "metadata": {
+              "stepIndex": 0
+            },
+            "startOffsetMs": 1400,
+            "endOffsetMs": 4400,
+            "effectiveDurationMs": 3000
+          },
+          {
+            "shotId": "shot_1_3",
+            "sceneId": "scene_1",
+            "stepIndex": 1,
+            "shotType": "zoom_target",
+            "title": "Upload CSV",
+            "purpose": "add customer data",
+            "sourceAssetRef": null,
+            "highlightRef": null,
+            "hotspotRefs": [
+              "hs_1_info_1"
+            ],
+            "overlayRef": {
+              "title": "Upload CSV",
+              "body": "add customer data",
+              "position": "right",
+              "anchorHotspotId": null,
+              "dismissible": true,
+              "showStepCounter": true,
+              "emphasisMode": "none",
+              "progressionMode": "manual",
+              "stepDurationMs": 3000
+            },
+            "estimatedDurationMs": 3000,
+            "emphasis": "none",
+            "notes": "Use sample.csv",
+            "metadata": {
+              "stepIndex": 1
+            },
+            "startOffsetMs": 4400,
+            "endOffsetMs": 7400,
+            "effectiveDurationMs": 3000
+          },
+          {
+            "shotId": "shot_1_4",
+            "sceneId": "scene_1",
+            "stepIndex": 1,
+            "shotType": "annotation_focus",
+            "title": "Annotation: Upload CSV",
+            "purpose": "Call out annotation detail",
+            "sourceAssetRef": null,
+            "highlightRef": null,
+            "hotspotRefs": [],
+            "overlayRef": null,
+            "estimatedDurationMs": 1100,
+            "emphasis": "none",
+            "notes": "Use sample.csv",
+            "metadata": {
+              "stepIndex": 1
+            },
+            "startOffsetMs": 7400,
+            "endOffsetMs": 8500,
+            "effectiveDurationMs": 1100
+          }
+        ],
+        "metadata": {
+          "progressionMode": "manual"
+        },
+        "timeline": {
+          "sceneStartMs": 0,
+          "sceneEndMs": 8500,
+          "timelineOrder": 0,
+          "linkedNarrationDurationMs": 8500,
+          "linkedVisualDurationMs": 8500,
+          "transitionPaddingMs": 0,
+          "progressionMode": "manual"
+        }
+      }
+    ],
+    "metadata": {
+      "sceneCount": 1,
+      "shotCount": 4,
+      "publishReadyMode": false,
+      "sourceApprovalTrust": {
+        "publishGate": null,
+        "trustPublication": null
+      }
+    }
+  },
+  "baselineSummary": {
+    "totalEstimatedDurationMs": 8000,
+    "sceneCount": 1
+  },
+  "editIntents": [
+    {
+      "editIntentId": "ei_1773000090461_81539d",
+      "shotId": "shot_1_1",
+      "type": "hold_extension_ms",
+      "value": 500,
+      "createdAt": "2026-03-08T20:01:30.461Z",
+      "createdBy": "fixture",
+      "rationale": null,
+      "metadata": {}
+    },
+    {
+      "editIntentId": "ei_1773000090462_b20a66",
+      "shotId": "shot_1_1",
+      "type": "note",
+      "value": "Hold intro longer",
+      "createdAt": "2026-03-08T20:01:30.462Z",
+      "createdBy": "fixture",
+      "rationale": null,
+      "metadata": {}
+    }
+  ]
+}

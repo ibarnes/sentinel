@@ -1,0 +1,124 @@
+{
+  "executionReceiptId": "erc_1773062870899_11f7e299",
+  "createdAt": "2026-03-09T13:27:50.899Z",
+  "updatedAt": "2026-03-09T13:27:50.912Z",
+  "receiptVersion": "v1",
+  "providerSubmissionContractId": "psc_1773022291332_9ae71130",
+  "providerAdapterId": "pad_1773022291328_5ed32266",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "submissionDigest": "93b324b7c73ae6f44a3dd8d0865cdca7d66960942162cd9c3e13ab87297d8c21",
+  "submissionStatus": "acknowledged",
+  "schedulerStatus": "provider_acknowledged",
+  "externalExecutionRef": "job-fixture-1",
+  "requestSummary": {
+    "targetSystem": "generic_renderer/default",
+    "requestedAt": "2026-03-09T13:27:50.899Z",
+    "dispatchMode": "handoff_only",
+    "payloadDigest": "93b324b7c73ae6f44a3dd8d0865cdca7d66960942162cd9c3e13ab87297d8c21",
+    "artifactCounts": {
+      "stages": 3,
+      "jobs": 3,
+      "inputs": 5,
+      "outputs": 3
+    }
+  },
+  "responseSummary": {
+    "acknowledgedAt": "2026-03-09T13:27:50.912Z",
+    "externalExecutionRef": "job-fixture-1",
+    "providerMessage": null,
+    "responseCode": null,
+    "errorClass": null,
+    "providerResult": null
+  },
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "ready",
+    "blockingReasons": [],
+    "warnings": []
+  },
+  "blockingReasons": [],
+  "warnings": [],
+  "lifecycleEvents": [
+    {
+      "eventId": "ev_1773062870900_ef19f6",
+      "orderIndex": 1,
+      "eventType": "receipt_created",
+      "timestamp": "2026-03-09T13:27:50.900Z",
+      "actorType": "system",
+      "summary": "Execution receipt created from provider submission contract",
+      "statusBefore": null,
+      "statusAfter": "prepared",
+      "metadata": {
+        "providerSubmissionContractId": "psc_1773022291332_9ae71130"
+      }
+    },
+    {
+      "eventId": "ev_1773062870905_d1e0a5",
+      "orderIndex": 2,
+      "eventType": "dispatch_marked_ready",
+      "timestamp": "2026-03-09T13:27:50.905Z",
+      "actorType": "provider_callback",
+      "summary": "handoff_acknowledged",
+      "statusBefore": "prepared",
+      "statusAfter": "queued",
+      "metadata": {
+        "callbackId": "ecb_1773062870902_0546ff61",
+        "callbackType": "handoff_acknowledged",
+        "callbackOriginStatus": "unsigned"
+      }
+    },
+    {
+      "eventId": "ev_1773062870907_86dc95",
+      "orderIndex": 3,
+      "eventType": "handoff_recorded",
+      "timestamp": "2026-03-09T13:27:50.907Z",
+      "actorType": "provider_callback",
+      "summary": "handoff_acknowledged",
+      "statusBefore": "queued",
+      "statusAfter": "handed_off",
+      "metadata": {
+        "callbackId": "ecb_1773062870902_0546ff61",
+        "callbackType": "handoff_acknowledged",
+        "callbackOriginStatus": "unsigned"
+      }
+    },
+    {
+      "eventId": "ev_1773062870912_8419f2",
+      "orderIndex": 4,
+      "eventType": "provider_acknowledged",
+      "timestamp": "2026-03-09T13:27:50.912Z",
+      "actorType": "provider_callback",
+      "summary": "provider_acknowledged",
+      "statusBefore": "handed_off",
+      "statusAfter": "acknowledged",
+      "metadata": {
+        "callbackId": "ecb_1773062870909_b11bbe43",
+        "callbackType": "provider_acknowledged",
+        "callbackOriginStatus": "trusted"
+      }
+    }
+  ],
+  "lastCallbackId": "ecb_1773062870909_b11bbe43",
+  "lastCallbackType": "provider_acknowledged",
+  "lastCallbackAt": "2026-03-09T13:27:50.909Z",
+  "callbackTrustStatus": "trusted",
+  "callbackCount": 2,
+  "callbackWarningsSummary": [
+    "unsigned_callback_allowed"
+  ],
+  "lastCallbackReplayStatus": "first_seen",
+  "lastCallbackKeyRegistryStatus": "resolved",
+  "lastCallbackOutcome": "ignored",
+  "metadata": {
+    "deterministic": true
+  },
+  "receiptSignature": null,
+  "receiptSignatureVersion": "execution-receipt-sig-v1",
+  "receiptSigningKeyId": null,
+  "receiptSigningAlgorithm": "RSA-SHA256",
+  "receiptSignatureStatus": "unsigned",
+  "receiptSignatureValid": null,
+  "receiptVerificationScope": "execution-receipt-core",
+  "unsignedReason": "missing_key"
+}

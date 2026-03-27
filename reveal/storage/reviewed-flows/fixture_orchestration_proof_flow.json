@@ -1,0 +1,25 @@
+{
+  "id": "fixture_orchestration_proof_flow",
+  "name": "Orchestration Proof Fixture",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "p1",
+      "index": 1,
+      "title": "Open",
+      "action": "navigate",
+      "intent": "open",
+      "screenshots": {},
+      "annotations": []
+    },
+    {
+      "id": "p2",
+      "index": 2,
+      "title": "Upload",
+      "action": "upload",
+      "intent": "upload",
+      "screenshots": {},
+      "annotations": []
+    }
+  ]
+}

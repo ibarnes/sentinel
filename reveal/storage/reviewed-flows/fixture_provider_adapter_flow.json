@@ -1,0 +1,25 @@
+{
+  "id": "fixture_provider_adapter_flow",
+  "name": "Provider Adapter Fixture Flow",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "x1",
+      "index": 1,
+      "title": "Start",
+      "action": "navigate",
+      "intent": "start",
+      "screenshots": {},
+      "annotations": []
+    },
+    {
+      "id": "x2",
+      "index": 2,
+      "title": "Continue",
+      "action": "click",
+      "intent": "continue",
+      "screenshots": {},
+      "annotations": []
+    }
+  ]
+}

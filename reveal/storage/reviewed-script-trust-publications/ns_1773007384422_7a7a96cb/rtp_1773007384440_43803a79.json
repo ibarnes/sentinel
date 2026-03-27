@@ -1,0 +1,29 @@
+{
+  "scriptId": "ns_1773007384422_7a7a96cb",
+  "trustPublicationId": "rtp_1773007384440_43803a79",
+  "latestReviewedSnapshotId": "rss_1773007384435_a35452e7",
+  "latestReviewedSnapshotContentHash": "b69564548fde487770c20a5f12265ea020fdba06564d005a9e91a89d2edaa9de",
+  "latestReviewedSnapshotChainIndex": 1,
+  "chainContinuitySummary": {
+    "latestIntegrityStatus": "match",
+    "parentReviewedSnapshotId": null,
+    "isChainRoot": true
+  },
+  "previousPublishedHeadDigest": null,
+  "publicationVersion": "v1",
+  "publishedAt": "2026-03-08T22:03:04.440Z",
+  "trustProfile": {
+    "trustProfileId": "local_dev",
+    "trustProfileName": "Local Development"
+  },
+  "publicationStatus": "active",
+  "chainHeadDigestVersion": "sha256-v1",
+  "chainHeadDigest": "f5e5b7ea676a78ddf88e21f70582e9960aa3b32c26cf49e54cb1b6ab0038606c",
+  "trustPublicationSignature": null,
+  "trustPublicationSignatureVersion": "sig-v1",
+  "trustPublicationSigningKeyId": null,
+  "trustPublicationSigningAlgorithm": "RSA-SHA256",
+  "trustPublicationSignatureStatus": "unsigned",
+  "unsignedReason": "missing_key",
+  "signerMetadata": null
+}

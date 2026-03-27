@@ -1,0 +1,62 @@
+{
+  "sessionId": "ps_1772984999471_7845e610",
+  "sourceType": "reveal_package",
+  "sourceRef": {
+    "flowId": "fixture_player_session_flow",
+    "snapshotId": null,
+    "packageRef": {
+      "token": "pkg_1772984999471_0c650b"
+    },
+    "sourceRetentionPolicy": "retained_package_copy",
+    "packageSourceType": "retained_copy",
+    "packageSourcePath": "/home/ec2-user/.openclaw/workspace/reveal/storage/player-package-sources/ps_1772984999471_7845e610.revealpkg.zip",
+    "packageOriginalFilename": null,
+    "packageContentHash": "12102cf00493b24b24392c9a10b47ebd2d44d770bb0371427ad1a4e29f2efbed",
+    "retainedUntil": null
+  },
+  "createdAt": "2000-01-01T00:00:00.000Z",
+  "updatedAt": "2026-03-08T15:49:59.484Z",
+  "lastActivityAt": "2026-03-08T15:49:59.477Z",
+  "expiresAt": "2026-03-08T19:49:59.477Z",
+  "currentStepIndex": 0,
+  "autoPlayEnabled": false,
+  "playbackStatus": "expired",
+  "stepCount": 2,
+  "viewerMetadata": null,
+  "cleanupStatus": "cleaned",
+  "model": {
+    "flowId": "fixture_player_session_flow",
+    "sourceType": "reveal_package",
+    "title": "Player Session Fixture",
+    "description": null,
+    "packageToken": "pkg_1772984999471_0c650b",
+    "steps": [
+      {
+        "index": 0,
+        "title": "A",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000
+      },
+      {
+        "index": 1,
+        "title": "B",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000
+      }
+    ]
+  },
+  "cleanupStartedAt": "2026-03-08T15:49:59.484Z",
+  "cleanupCompletedAt": "2026-03-08T15:49:59.486Z"
+}

@@ -1,0 +1,386 @@
+{
+  "chain": [
+    {
+      "keysetVersion": "keyset-v1.1",
+      "publishedAt": "2026-03-08T14:39:33.584Z",
+      "previousKeysetVersion": null,
+      "previousKeysetHash": null,
+      "keysetChainIndex": 1,
+      "keysetHashVersion": "sha256-v1",
+      "keysetContentHash": "abdbd894164f171a631cd7862b185524e6d0e116ee797bbc70709f62acc84bc3",
+      "trustProfiles": [
+        {
+          "trustProfileId": "local_dev",
+          "trustProfileName": "Local Development",
+          "trustProfileVersion": 1,
+          "trustProfileType": "local_dev",
+          "signerIdentity": "Reveal Local Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "internal_verified",
+          "trustProfileName": "Internal Verified",
+          "trustProfileVersion": 1,
+          "trustProfileType": "internal_verified",
+          "signerIdentity": "Reveal Internal Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "unsigned_export",
+          "trustProfileName": "Unsigned Export",
+          "trustProfileVersion": 1,
+          "trustProfileType": "unsigned_export",
+          "signerIdentity": "None",
+          "verificationPolicyVersion": "policy-v1"
+        }
+      ],
+      "keys": [],
+      "lifecycleValidation": {
+        "ok": true,
+        "reasonCodes": []
+      },
+      "keysetSignatureStatus": "unsigned",
+      "keysetSignature": null,
+      "keysetSignatureVersion": "keyset-sig-v1",
+      "keysetSigningKeyId": null,
+      "keysetSigningAlgorithm": "RSA-SHA256",
+      "unsignedReason": "missing_keyset_signing_key"
+    },
+    {
+      "keysetVersion": "keyset-v1.2",
+      "publishedAt": "2026-03-08T14:39:33.663Z",
+      "previousKeysetVersion": "keyset-v1.1",
+      "previousKeysetHash": "abdbd894164f171a631cd7862b185524e6d0e116ee797bbc70709f62acc84bc3",
+      "keysetChainIndex": 2,
+      "keysetHashVersion": "sha256-v1",
+      "keysetContentHash": "e4443e4cc3706d8eea4016b22d970cb53b4c07da4011d12cb4c21c938824fee9",
+      "trustProfiles": [
+        {
+          "trustProfileId": "local_dev",
+          "trustProfileName": "Local Development",
+          "trustProfileVersion": 1,
+          "trustProfileType": "local_dev",
+          "signerIdentity": "Reveal Local Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "internal_verified",
+          "trustProfileName": "Internal Verified",
+          "trustProfileVersion": 1,
+          "trustProfileType": "internal_verified",
+          "signerIdentity": "Reveal Internal Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "unsigned_export",
+          "trustProfileName": "Unsigned Export",
+          "trustProfileVersion": 1,
+          "trustProfileType": "unsigned_export",
+          "signerIdentity": "None",
+          "verificationPolicyVersion": "policy-v1"
+        }
+      ],
+      "keys": [
+        {
+          "signingKeyId": "fixture-key",
+          "signerKeyFingerprint": "3a74b9a85799d1a5faeb1f63ad34a2ee3b84b4767c9953230ca5cd8e3e668bb9",
+          "algorithm": "RSA-SHA256",
+          "publicKeyAlgorithm": "RSA",
+          "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0wNa0jQ7ECWnR+zrYFW4\nszkr4hLkJ2WwYPTS8Yrg4Uy33aWGu23j9FLeaDYHptxYIqrsvWL5StST4I/97T1M\nBbvcao1blDeAbmGEV7N6QRQ7ehD63oBWTFIDFXplscG4btKbRHb4pXWqXuXKu3Fd\nDOYyxlq21sXfRjEsjHiV5N7Xs7URuEExEHcb6+SFX9NSlbpFzLTheI/Id0WucPPw\nLp/aPmxsBW8O/H1/rFHAt1fYWpj6opGD93eHia+apk6R0f238LfyhrGs8R0Nw8Ri\nkesvWOExZ7667pF0lbBQlJn9ktxYpyyAHSenY7zN4+D2/Xgypb0rPbT8skGdC7Qf\nZQIDAQAB\n-----END PUBLIC KEY-----\n",
+          "trustProfileId": "local_dev",
+          "trustProfileName": "Local Development",
+          "status": "active",
+          "keyStatus": "active",
+          "activatedAt": null,
+          "retiresAt": null,
+          "revokedAt": null,
+          "previousKeyId": null,
+          "nextKeyId": null,
+          "rotationGroupId": "default",
+          "verificationUse": "both",
+          "keyHint": "3a74b9a85799"
+        }
+      ],
+      "lifecycleValidation": {
+        "ok": true,
+        "reasonCodes": []
+      },
+      "keysetSignatureStatus": "signed",
+      "keysetSignature": "CefXVmejO+LuAFNvHW4ntw7GEhouADzPr5ajmxfo+aLpbvZCEqB4oSsiWy6n+WRaDO2gZAWcQPqN2IE2x0JHRkOueWdbCRuclY4nVf/tfq7HGTYrI8KKGVpfxNlNhd5l+nqKlMEIn9SiShMy2PHSWJENQy9YejopjgOo9DpEFVQZsCllXFemZbB2k9ZZHZHLu6vE9L2d4t6wAhwDdkQG1kNin3tME2jNddoON0eoWpN9nqgtxo9oC+goICkqh4XzkubfvK41tM6Uq50Ms7yX+DPsghfDUvEsTOdUUX1FZViYSPfg2hrWxieCC9fqYyylpypFgJGRYgtOujqEOUXZ7Q==",
+      "keysetSignatureVersion": "keyset-sig-v1",
+      "keysetSigningKeyId": "3a74b9a85799d1a5",
+      "keysetSigningAlgorithm": "RSA-SHA256",
+      "keysetSigningPublicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0wNa0jQ7ECWnR+zrYFW4\nszkr4hLkJ2WwYPTS8Yrg4Uy33aWGu23j9FLeaDYHptxYIqrsvWL5StST4I/97T1M\nBbvcao1blDeAbmGEV7N6QRQ7ehD63oBWTFIDFXplscG4btKbRHb4pXWqXuXKu3Fd\nDOYyxlq21sXfRjEsjHiV5N7Xs7URuEExEHcb6+SFX9NSlbpFzLTheI/Id0WucPPw\nLp/aPmxsBW8O/H1/rFHAt1fYWpj6opGD93eHia+apk6R0f238LfyhrGs8R0Nw8Ri\nkesvWOExZ7667pF0lbBQlJn9ktxYpyyAHSenY7zN4+D2/Xgypb0rPbT8skGdC7Qf\nZQIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    {
+      "keysetVersion": "keyset-v1.3",
+      "publishedAt": "2026-03-08T14:42:22.943Z",
+      "previousKeysetVersion": "keyset-v1.2",
+      "previousKeysetHash": "e4443e4cc3706d8eea4016b22d970cb53b4c07da4011d12cb4c21c938824fee9",
+      "keysetChainIndex": 3,
+      "keysetHashVersion": "sha256-v1",
+      "keysetContentHash": "abdbd894164f171a631cd7862b185524e6d0e116ee797bbc70709f62acc84bc3",
+      "trustProfiles": [
+        {
+          "trustProfileId": "local_dev",
+          "trustProfileName": "Local Development",
+          "trustProfileVersion": 1,
+          "trustProfileType": "local_dev",
+          "signerIdentity": "Reveal Local Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "internal_verified",
+          "trustProfileName": "Internal Verified",
+          "trustProfileVersion": 1,
+          "trustProfileType": "internal_verified",
+          "signerIdentity": "Reveal Internal Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "unsigned_export",
+          "trustProfileName": "Unsigned Export",
+          "trustProfileVersion": 1,
+          "trustProfileType": "unsigned_export",
+          "signerIdentity": "None",
+          "verificationPolicyVersion": "policy-v1"
+        }
+      ],
+      "keys": [],
+      "lifecycleValidation": {
+        "ok": true,
+        "reasonCodes": []
+      },
+      "keysetSignatureStatus": "unsigned",
+      "keysetSignature": null,
+      "keysetSignatureVersion": "keyset-sig-v1",
+      "keysetSigningKeyId": null,
+      "keysetSigningAlgorithm": "RSA-SHA256",
+      "unsignedReason": "missing_keyset_signing_key"
+    },
+    {
+      "keysetVersion": "keyset-v1.4",
+      "publishedAt": "2026-03-08T14:42:23.344Z",
+      "previousKeysetVersion": "keyset-v1.3",
+      "previousKeysetHash": "abdbd894164f171a631cd7862b185524e6d0e116ee797bbc70709f62acc84bc3",
+      "keysetChainIndex": 4,
+      "keysetHashVersion": "sha256-v1",
+      "keysetContentHash": "831a4d78279d264bfa459f89fecf2fdea22da0dfdd4fcc2490ae036648e474fb",
+      "trustProfiles": [
+        {
+          "trustProfileId": "local_dev",
+          "trustProfileName": "Local Development",
+          "trustProfileVersion": 1,
+          "trustProfileType": "local_dev",
+          "signerIdentity": "Reveal Local Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "internal_verified",
+          "trustProfileName": "Internal Verified",
+          "trustProfileVersion": 1,
+          "trustProfileType": "internal_verified",
+          "signerIdentity": "Reveal Internal Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "unsigned_export",
+          "trustProfileName": "Unsigned Export",
+          "trustProfileVersion": 1,
+          "trustProfileType": "unsigned_export",
+          "signerIdentity": "None",
+          "verificationPolicyVersion": "policy-v1"
+        }
+      ],
+      "keys": [
+        {
+          "signingKeyId": "d9866f0191d37643",
+          "signerKeyFingerprint": "d9866f0191d376430c756e2a77049240b43951aa8029a9c1ac6f174b880237c4",
+          "algorithm": "RSA-SHA256",
+          "publicKeyAlgorithm": "RSA",
+          "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvpNj/UBdJEC60gskErfJ\np33fJAX2gmG7L+0cyTx8I+3lJJOEUAl1SopXpmJ4guvW1nErdHNI9DGwCYzh7L67\nxy56zXbxEo3nqW/mmF8+DIUv7B9M7RXocOSCSC6BhXdh85obv6d1KyGKi8DOHPwK\nZSDbm4ktEkrr4MPpx9UZ4D+nlgjlMFswiPj1XsBYqbEMXqubScrnGPN9vbneh2JR\nnjM4HHvVQShslpXpx27pS9PRIDh0zClKPVX9Z6p/uYyAZrSiPIA7FxF9+Vxz29kE\nUHd2dIy/Xt6joUsbUqchOWqdlYGtH8PPukLsEleMTjs/aQcRaySgxPXWp3o4HeUG\nBwIDAQAB\n-----END PUBLIC KEY-----\n",
+          "trustProfileId": "local_dev",
+          "trustProfileName": "Local Development",
+          "status": "active",
+          "keyStatus": "active",
+          "activatedAt": null,
+          "retiresAt": null,
+          "revokedAt": null,
+          "previousKeyId": null,
+          "nextKeyId": null,
+          "rotationGroupId": "default",
+          "verificationUse": "both",
+          "keyHint": "d9866f0191d3"
+        }
+      ],
+      "lifecycleValidation": {
+        "ok": true,
+        "reasonCodes": []
+      },
+      "keysetSignatureStatus": "signed",
+      "keysetSignature": "iSdpIzTRhJU0n57bIDz9YpWkyNtzKvW/zu4boC3zw4ggQJl1/rRpdwxZ2hKb/Roj6AT0AXmnMzyfw0ZWSrOnxFiaRMwmelApP62azddp/Gu11hMDOZFHjSuIWIrmqzwHhnqxBuUps7gRq+vzwg+qNyh+YFNkSXLB623D/dZ3YNGgrqU6jws435MZ8dq91hZypzWtPm7wWDjzJ7s++pP7H0H1Ut6iZ3hu13a7IUcZSHk6zP5OzFaFGkrddT9ZojTauvyyCzfQPOCYf4v7dgJH7xv8K7hqOzmlbmKUK6iNdWvqEqHZBPtmUk+CvAKbq/3xO+AKSMgI+PrSkDG+Yutpvg==",
+      "keysetSignatureVersion": "keyset-sig-v1",
+      "keysetSigningKeyId": "d9866f0191d37643",
+      "keysetSigningAlgorithm": "RSA-SHA256",
+      "keysetSigningPublicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvpNj/UBdJEC60gskErfJ\np33fJAX2gmG7L+0cyTx8I+3lJJOEUAl1SopXpmJ4guvW1nErdHNI9DGwCYzh7L67\nxy56zXbxEo3nqW/mmF8+DIUv7B9M7RXocOSCSC6BhXdh85obv6d1KyGKi8DOHPwK\nZSDbm4ktEkrr4MPpx9UZ4D+nlgjlMFswiPj1XsBYqbEMXqubScrnGPN9vbneh2JR\nnjM4HHvVQShslpXpx27pS9PRIDh0zClKPVX9Z6p/uYyAZrSiPIA7FxF9+Vxz29kE\nUHd2dIy/Xt6joUsbUqchOWqdlYGtH8PPukLsEleMTjs/aQcRaySgxPXWp3o4HeUG\nBwIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    {
+      "keysetVersion": "keyset-v1.5",
+      "publishedAt": "2026-03-08T14:43:06.276Z",
+      "previousKeysetVersion": "keyset-v1.4",
+      "previousKeysetHash": "831a4d78279d264bfa459f89fecf2fdea22da0dfdd4fcc2490ae036648e474fb",
+      "keysetChainIndex": 5,
+      "keysetHashVersion": "sha256-v1",
+      "keysetContentHash": "abdbd894164f171a631cd7862b185524e6d0e116ee797bbc70709f62acc84bc3",
+      "trustProfiles": [
+        {
+          "trustProfileId": "local_dev",
+          "trustProfileName": "Local Development",
+          "trustProfileVersion": 1,
+          "trustProfileType": "local_dev",
+          "signerIdentity": "Reveal Local Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "internal_verified",
+          "trustProfileName": "Internal Verified",
+          "trustProfileVersion": 1,
+          "trustProfileType": "internal_verified",
+          "signerIdentity": "Reveal Internal Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "unsigned_export",
+          "trustProfileName": "Unsigned Export",
+          "trustProfileVersion": 1,
+          "trustProfileType": "unsigned_export",
+          "signerIdentity": "None",
+          "verificationPolicyVersion": "policy-v1"
+        }
+      ],
+      "keys": [],
+      "lifecycleValidation": {
+        "ok": true,
+        "reasonCodes": []
+      },
+      "keysetSignatureStatus": "unsigned",
+      "keysetSignature": null,
+      "keysetSignatureVersion": "keyset-sig-v1",
+      "keysetSigningKeyId": null,
+      "keysetSigningAlgorithm": "RSA-SHA256",
+      "unsignedReason": "missing_keyset_signing_key"
+    },
+    {
+      "keysetVersion": "keyset-v1.6",
+      "publishedAt": "2026-03-08T14:43:06.668Z",
+      "previousKeysetVersion": "keyset-v1.5",
+      "previousKeysetHash": "abdbd894164f171a631cd7862b185524e6d0e116ee797bbc70709f62acc84bc3",
+      "keysetChainIndex": 6,
+      "keysetHashVersion": "sha256-v1",
+      "keysetContentHash": "bad941a72222cb1d481be7a9c110815c65f70c83e3c20083d909b98db999e055",
+      "trustProfiles": [
+        {
+          "trustProfileId": "local_dev",
+          "trustProfileName": "Local Development",
+          "trustProfileVersion": 1,
+          "trustProfileType": "local_dev",
+          "signerIdentity": "Reveal Local Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "internal_verified",
+          "trustProfileName": "Internal Verified",
+          "trustProfileVersion": 1,
+          "trustProfileType": "internal_verified",
+          "signerIdentity": "Reveal Internal Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "unsigned_export",
+          "trustProfileName": "Unsigned Export",
+          "trustProfileVersion": 1,
+          "trustProfileType": "unsigned_export",
+          "signerIdentity": "None",
+          "verificationPolicyVersion": "policy-v1"
+        }
+      ],
+      "keys": [
+        {
+          "signingKeyId": "d02e5e07eeb1389c",
+          "signerKeyFingerprint": "d02e5e07eeb1389c471f5d347bf03c2b3fda18ab9110624da92bd6e7d2aa7cad",
+          "algorithm": "RSA-SHA256",
+          "publicKeyAlgorithm": "RSA",
+          "publicKeyPem": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArWlTgwDoBoksjPq/o6vH\n1uc8wGWo5UihusOqnEK3bGWXeKxIXejWCNJ5o8/Ak9RLuk/50hBeZXlH1w7o0yuR\nAnUAZF/8Uin9r4HgsEfOKo+tECVqiHusuAFrUvoA648JXi4zzwShDIL/WxKLmUwa\n55ZLECgFvQ7a22ATiYK4e0mGGT1Mq6P/dx9vSs35UgkqiwH27xSuEj2W3wI34Zo6\nQyMhlPvho1PQkfHzjCVUCKvErlyXEVRSAVS76Xd3NzS7q74ftkNaAw7uXD16wwPh\n9cU8kgNhyZuf55wa8rH5u7poEYhrH8/VAB7sMBIrytkuZXUywlK0jM1vbsrFfjIa\nfQIDAQAB\n-----END PUBLIC KEY-----\n",
+          "trustProfileId": "local_dev",
+          "trustProfileName": "Local Development",
+          "status": "active",
+          "keyStatus": "active",
+          "activatedAt": null,
+          "retiresAt": null,
+          "revokedAt": null,
+          "previousKeyId": null,
+          "nextKeyId": null,
+          "rotationGroupId": "default",
+          "verificationUse": "both",
+          "keyHint": "d02e5e07eeb1"
+        }
+      ],
+      "lifecycleValidation": {
+        "ok": true,
+        "reasonCodes": []
+      },
+      "keysetSignatureStatus": "signed",
+      "keysetSignature": "lvW+9Y45y1fEFK7KZ1zRdRHg4IvlLwk7xDNAM7UUv4fPdjDRaXeQfD+fK9IDv2fR9mASvfVPMn8Hv1GkVPBN3XarJDgZgvIHT2UzWQJM1s9Cs9o0BsnlZyfZv44KOd2gmlqkoYfA32NkWMkDFuMw6gaLGMfTtHQX9pzQ7GufhzrtkA2RVru5JF/gc8vkBUtysB5XC0IKP3ReCM3cyD7Q95pIEFKY4m4d0kxBM9UL4snV9//9HD8YL+1HDImBihLtJjTp1DNOFg6hjf85yFtWTUev9ZtEGalKeZ/ErozOweKPv+6VBZaXGg9RgMg2LK0FKn4MrxmVKkQIMF3/hyb2kw==",
+      "keysetSignatureVersion": "keyset-sig-v1",
+      "keysetSigningKeyId": "d02e5e07eeb1389c",
+      "keysetSigningAlgorithm": "RSA-SHA256",
+      "keysetSigningPublicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArWlTgwDoBoksjPq/o6vH\n1uc8wGWo5UihusOqnEK3bGWXeKxIXejWCNJ5o8/Ak9RLuk/50hBeZXlH1w7o0yuR\nAnUAZF/8Uin9r4HgsEfOKo+tECVqiHusuAFrUvoA648JXi4zzwShDIL/WxKLmUwa\n55ZLECgFvQ7a22ATiYK4e0mGGT1Mq6P/dx9vSs35UgkqiwH27xSuEj2W3wI34Zo6\nQyMhlPvho1PQkfHzjCVUCKvErlyXEVRSAVS76Xd3NzS7q74ftkNaAw7uXD16wwPh\n9cU8kgNhyZuf55wa8rH5u7poEYhrH8/VAB7sMBIrytkuZXUywlK0jM1vbsrFfjIa\nfQIDAQAB\n-----END PUBLIC KEY-----\n"
+    },
+    {
+      "keysetVersion": "keyset-v1.7",
+      "publishedAt": "2026-03-08T14:55:57.959Z",
+      "previousKeysetVersion": "keyset-v1.6",
+      "previousKeysetHash": "bad941a72222cb1d481be7a9c110815c65f70c83e3c20083d909b98db999e055",
+      "keysetChainIndex": 7,
+      "keysetHashVersion": "sha256-v1",
+      "keysetContentHash": "abdbd894164f171a631cd7862b185524e6d0e116ee797bbc70709f62acc84bc3",
+      "trustProfiles": [
+        {
+          "trustProfileId": "local_dev",
+          "trustProfileName": "Local Development",
+          "trustProfileVersion": 1,
+          "trustProfileType": "local_dev",
+          "signerIdentity": "Reveal Local Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "internal_verified",
+          "trustProfileName": "Internal Verified",
+          "trustProfileVersion": 1,
+          "trustProfileType": "internal_verified",
+          "signerIdentity": "Reveal Internal Signer",
+          "verificationPolicyVersion": "policy-v1"
+        },
+        {
+          "trustProfileId": "unsigned_export",
+          "trustProfileName": "Unsigned Export",
+          "trustProfileVersion": 1,
+          "trustProfileType": "unsigned_export",
+          "signerIdentity": "None",
+          "verificationPolicyVersion": "policy-v1"
+        }
+      ],
+      "keys": [],
+      "lifecycleValidation": {
+        "ok": true,
+        "reasonCodes": []
+      },
+      "keysetSignatureStatus": "unsigned",
+      "keysetSignature": null,
+      "keysetSignatureVersion": "keyset-sig-v1",
+      "keysetSigningKeyId": null,
+      "keysetSigningAlgorithm": "RSA-SHA256",
+      "unsignedReason": "missing_keyset_signing_key"
+    }
+  ]
+}

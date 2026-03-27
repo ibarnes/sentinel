@@ -1,0 +1,99 @@
+{
+  "sessionId": "ps_1772985414498_8c9a6340",
+  "sourceType": "immutable_snapshot",
+  "sourceRef": {
+    "flowId": "fixture_player_session_flow",
+    "snapshotId": "snap_fixture_player_session_flow_1_1772985414492_474288",
+    "packageRef": null
+  },
+  "createdAt": "2026-03-08T15:56:54.499Z",
+  "updatedAt": "2026-03-09T17:11:42.267Z",
+  "lastActivityAt": "2026-03-08T15:56:54.504Z",
+  "expiresAt": "2026-03-08T19:56:54.499Z",
+  "currentStepIndex": 0,
+  "autoPlayEnabled": false,
+  "playbackStatus": "expired",
+  "stepCount": 2,
+  "viewerMetadata": null,
+  "cleanupStatus": "none",
+  "model": {
+    "flowId": "fixture_player_session_flow",
+    "sourceType": "immutable_snapshot",
+    "title": "Player Session Fixture",
+    "description": null,
+    "steps": [
+      {
+        "index": 0,
+        "title": "A",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [],
+        "overlay": {
+          "title": "A",
+          "body": "Follow this step.",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "manual",
+          "requiresHotspotConfirmation": false,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      },
+      {
+        "index": 1,
+        "title": "B",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [],
+        "overlay": {
+          "title": "B",
+          "body": "Follow this step.",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "manual",
+          "requiresHotspotConfirmation": false,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      }
+    ]
+  },
+  "interactionState": {
+    "0": {
+      "hotspotConfirmed": false,
+      "overlayDismissed": false,
+      "canProceed": true
+    },
+    "1": {
+      "hotspotConfirmed": false,
+      "overlayDismissed": false,
+      "canProceed": true
+    }
+  }
+}

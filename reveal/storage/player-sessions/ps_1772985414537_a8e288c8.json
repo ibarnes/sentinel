@@ -1,0 +1,110 @@
+{
+  "sessionId": "ps_1772985414537_a8e288c8",
+  "sourceType": "reveal_package",
+  "sourceRef": {
+    "flowId": "fixture_player_session_flow",
+    "snapshotId": null,
+    "packageRef": {
+      "token": "pkg_1772985414537_d6c034"
+    },
+    "sourceRetentionPolicy": "retained_package_copy",
+    "packageSourceType": "retained_copy",
+    "packageSourcePath": "/home/ec2-user/.openclaw/workspace/reveal/storage/player-package-sources/ps_1772985414537_a8e288c8.revealpkg.zip",
+    "packageOriginalFilename": null,
+    "packageContentHash": "8353e5a695a2678bc73a82be8d24a45f805ac81f25fbcd7be73d3fb036613fee",
+    "retainedUntil": null
+  },
+  "createdAt": "2000-01-01T00:00:00.000Z",
+  "updatedAt": "2026-03-08T15:56:54.555Z",
+  "lastActivityAt": "2026-03-08T15:56:54.545Z",
+  "expiresAt": "2026-03-08T19:56:54.545Z",
+  "currentStepIndex": 0,
+  "autoPlayEnabled": false,
+  "playbackStatus": "expired",
+  "stepCount": 2,
+  "viewerMetadata": null,
+  "cleanupStatus": "cleaned",
+  "model": {
+    "flowId": "fixture_player_session_flow",
+    "sourceType": "reveal_package",
+    "title": "Player Session Fixture",
+    "description": null,
+    "packageToken": "pkg_1772985414537_d6c034",
+    "steps": [
+      {
+        "index": 0,
+        "title": "A",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [],
+        "overlay": {
+          "title": "A",
+          "body": "Follow this step.",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "manual",
+          "requiresHotspotConfirmation": false,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      },
+      {
+        "index": 1,
+        "title": "B",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [],
+        "overlay": {
+          "title": "B",
+          "body": "Follow this step.",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "manual",
+          "requiresHotspotConfirmation": false,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      }
+    ]
+  },
+  "interactionState": {
+    "0": {
+      "hotspotConfirmed": false,
+      "overlayDismissed": false,
+      "canProceed": true
+    },
+    "1": {
+      "hotspotConfirmed": false,
+      "overlayDismissed": false,
+      "canProceed": true
+    }
+  },
+  "cleanupStartedAt": "2026-03-08T15:56:54.555Z",
+  "cleanupCompletedAt": "2026-03-08T15:56:54.556Z"
+}

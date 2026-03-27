@@ -1,0 +1,19 @@
+{
+  "sessionId": "ps_1772985007810_2d8a30ec",
+  "sourceType": "immutable_snapshot",
+  "flowId": "fixture_player_session_flow",
+  "snapshotId": "snap_fixture_player_session_flow_1_1772985007805_0fbcaf",
+  "packageRef": null,
+  "packageContentHash": null,
+  "packageManifestSummary": {
+    "stepCount": 2,
+    "title": "Player Session Fixture"
+  },
+  "sourceRetentionPolicy": "ephemeral_only",
+  "recoverabilityStatus": "recoverable",
+  "createdAt": "2026-03-08T15:50:07.811Z",
+  "updatedAt": "2026-03-08T15:50:07.812Z",
+  "lastRecoveryAttemptAt": null,
+  "lastRecoveryStatus": null,
+  "recoveryError": null
+}

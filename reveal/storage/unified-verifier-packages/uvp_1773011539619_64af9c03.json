@@ -1,0 +1,116 @@
+{
+  "verifierPackageId": "uvp_1773011539619_64af9c03",
+  "createdAt": "2026-03-08T23:12:19.619Z",
+  "verifierVersion": "v1",
+  "sourceRefs": {
+    "scriptId": "ns_1773011539592_04e42362",
+    "shotListId": "sl_1773011539609_356b6ab1",
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": "vtp_1773011539612_1d6de9d5",
+    "voicePlanSnapshotId": null
+  },
+  "scriptTrustSummary": {
+    "scriptId": "ns_1773011539592_04e42362",
+    "reviewStatus": "approved",
+    "integritySummary": {
+      "totalSnapshots": 1,
+      "matched": 1,
+      "mismatched": 0,
+      "brokenChainLinks": 0,
+      "missingHash": 0,
+      "firstBrokenSnapshotId": null,
+      "rows": [
+        {
+          "scriptId": "ns_1773011539592_04e42362",
+          "reviewedSnapshotId": "rss_1773011539605_6092d536",
+          "reviewedSnapshotChainIndex": 1,
+          "storedContentHash": "40d0e6c06ee8f1517e183879957ca94fd9d73e005685a2f89d545c4036f0d00d",
+          "recomputedContentHash": "40d0e6c06ee8f1517e183879957ca94fd9d73e005685a2f89d545c4036f0d00d",
+          "hashVersion": "sha256-v1",
+          "integrityStatus": "match",
+          "reasonCodes": [
+            "hash_match"
+          ]
+        }
+      ]
+    },
+    "trustPublication": null
+  },
+  "shotTrustSummary": {
+    "shotListId": "sl_1773011539609_356b6ab1",
+    "sourceTrustRefs": {
+      "publishGate": {
+        "canPublish": true,
+        "blockingReasons": [],
+        "warnings": [],
+        "evaluatedAt": "2026-03-08T23:12:19.609Z"
+      },
+      "trustPublication": null
+    }
+  },
+  "voiceTrustSummary": {
+    "voiceTrackPlanId": "vtp_1773011539612_1d6de9d5",
+    "voicePlanSnapshotId": null,
+    "integritySummary": {
+      "totalSnapshots": 0,
+      "matched": 0,
+      "mismatched": 0,
+      "brokenChainLinks": 0,
+      "missingHash": 0,
+      "firstBrokenSnapshotId": null,
+      "rows": []
+    },
+    "trustPublication": null,
+    "latestVoiceSnapshot": null
+  },
+  "subtitleProofSummary": {
+    "voiceTrackPlanId": "vtp_1773011539612_1d6de9d5",
+    "readiness": {
+      "orchestrationPolicyProfile": "production_verified",
+      "policyEvaluationResult": "blocked",
+      "blockingReasons": [
+        "latest_voice_plan_snapshot_missing",
+        "trust_publication_missing"
+      ],
+      "warnings": [],
+      "evaluatedAt": "2026-03-08T23:12:19.618Z"
+    },
+    "signedProofStatus": "unsigned"
+  },
+  "attestationSummary": {
+    "latestAttestationSnapshot": null,
+    "latestAttestationSignatureStatus": null,
+    "latestBundleManifestSignatureStatus": null,
+    "latestAttestationTrustPublication": null
+  },
+  "orchestrationPolicySummary": {
+    "orchestrationPolicyProfile": "internal_verified",
+    "policyManifestVersion": "v1",
+    "policyEvaluationResult": "blocked",
+    "blockingReasons": [
+      "trust_publication_missing"
+    ],
+    "warnings": [
+      "unsigned_proof"
+    ]
+  },
+  "overallVerificationStatus": "missing_required_artifact",
+  "blockingReasons": [
+    "trust_publication_missing"
+  ],
+  "warnings": [
+    "unsigned_proof"
+  ],
+  "attestationRefs": {
+    "policyProfileId": "internal_verified",
+    "policyManifestVersion": "v1"
+  },
+  "metadata": {
+    "domainStatuses": [
+      "verified",
+      "verified",
+      "verified",
+      "warning"
+    ]
+  }
+}

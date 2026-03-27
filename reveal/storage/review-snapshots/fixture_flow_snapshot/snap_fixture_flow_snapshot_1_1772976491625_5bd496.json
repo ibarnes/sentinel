@@ -1,0 +1,68 @@
+{
+  "snapshotId": "snap_fixture_flow_snapshot_1_1772976491625_5bd496",
+  "flowId": "fixture_flow_snapshot",
+  "reviewVersion": 1,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T13:28:11.626Z",
+  "createdBy": "fixture",
+  "sourceReviewedFlowVersion": 1,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "manifest": {
+    "snapshotId": "snap_fixture_flow_snapshot_1_1772976491625_5bd496",
+    "flowId": "fixture_flow_snapshot",
+    "reviewVersion": 1,
+    "stepCount": 1,
+    "annotationCount": 0,
+    "screenshotCoverage": {
+      "total": 1,
+      "withBefore": 0,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T13:28:11.626Z"
+  },
+  "reviewedFlow": {
+    "id": "fixture_flow_snapshot",
+    "name": "Fixture Flow Snapshot",
+    "description": "snapshot fixture",
+    "appHost": "app.test",
+    "version": 1,
+    "reviewVersion": 1,
+    "steps": [
+      {
+        "id": "s1",
+        "index": 1,
+        "title": "Step 1",
+        "action": "click",
+        "intent": null,
+        "target": {
+          "elementType": "button",
+          "text": "A"
+        },
+        "page": {
+          "url": "https://app.test"
+        },
+        "screenshots": {},
+        "confidence": 0.8,
+        "annotations": []
+      }
+    ]
+  }
+}

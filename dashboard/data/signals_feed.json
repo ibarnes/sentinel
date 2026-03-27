@@ -1,5 +1,555 @@
 [
   {
+    "feed_id": "t0ogtq",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Anthropic Supply-Chain-Risk Designation Halted by Judge",
+    "summary": "A judge temporarily blocked the Trump administration’s designation, clearing the way for Anthropic to keep doing business without the label starting next week.",
+    "url": "https://www.wired.com/story/anthropic-supply-chain-risk-designation-injunction/",
+    "image_url": "",
+    "published_at": "2026-03-26T23:33:05.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "xmy0ve",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "Meet the Tech Reporters Using AI to Help Write and Edit Their Stories",
+    "summary": "Independent writers are using AI agents all throughout their reporting process. What’s the value of a human journalist, anyway?",
+    "url": "https://www.wired.com/story/tech-reporters-using-ai-write-edit-stories/",
+    "image_url": "",
+    "published_at": "2026-03-26T18:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "smzexr",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Vanguard’s Own Research Says International Stocks Will Beat the US for the Next Decade. Here Is How to Position.",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/vanguard-own-research-says-international-121803121.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/5b6ac26305a4004febe2cadc670e630e",
+    "published_at": "2026-03-26T12:18:03.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ga5or6",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Braze price target raised to $33 from $30 at DA Davidson",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/braze-price-target-raised-33-121546842.html",
+    "image_url": "https://media.zenfs.com/en/tipranks_452/577482559bcb6140d93fcd95f90a205e",
+    "published_at": "2026-03-26T12:15:46.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "807br9",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "General Mills price target lowered to $32 from $37 at TD Cowen",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/general-mills-price-target-lowered-121325568.html",
+    "image_url": "https://media.zenfs.com/en/tipranks_452/7e41c4543e974cfd5355583e29d3a809",
+    "published_at": "2026-03-26T12:13:25.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "sr5hee",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "SER receives two Queensland exploration grants",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/ser-receives-two-queensland-exploration-121139433.html",
+    "image_url": "https://media.zenfs.com/en/mining_technology_700/45d21a5e95518d7160bc563d0e65b695",
+    "published_at": "2026-03-26T12:11:39.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "1j673q",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Peachtree Group secures $18m in funding for hotel upgrades in US",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/policy/articles/peachtree-group-secures-18m-funding-121103172.html",
+    "image_url": "https://media.zenfs.com/en/hotel_management_network_805/6376c4e1cd4ec4f9f9053ebdb588afa7",
+    "published_at": "2026-03-26T12:11:03.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "y41wlv",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Coinbase, Fannie Mae to Enable Crypto-Backed Mortgages",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/coinbase-fannie-mae-enable-crypto-120846995.html",
+    "image_url": "https://media.zenfs.com/en/decrypt_157/cbbe451f4bf9d1a7f16b8e9c772a8e3c",
+    "published_at": "2026-03-26T12:08:46.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ty7re6",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Middle East tensions push global oil prices up by 2%",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/middle-east-tensions-push-global-120620692.html",
+    "image_url": "https://media.zenfs.com/en/offshore_technology_431/2f2905b700d3823f5c5fe5dd89993f19",
+    "published_at": "2026-03-26T12:06:20.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "5lyqxi",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "GridMarket to secure 5GW of zero-emission power from Arbor Energy",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/gridmarket-secure-5gw-zero-emission-120414799.html",
+    "image_url": "https://media.zenfs.com/en/energy_monitor_411/82ef492063bd072fae20c33ea1d876a7",
+    "published_at": "2026-03-26T12:04:14.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ib3jqr",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Funds Go Nuclear For This IBD 50 Stock With Unique Power. AI Data Centers, U.S. Navy Fuel Growth.",
+    "summary": "",
+    "url": "https://www.investors.com/research/ibd-stock-analysis/bwxt-stock-nuclear-energy-ai-data-center-fuels-growth/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/201e3be4ce2eda102e946cbc0540b26b",
+    "published_at": "2026-03-26T12:01:49.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "9k3g3t",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "The Best ETF Over The Past 10 Years Turned $10,000 To $65,100",
+    "summary": "",
+    "url": "https://www.investors.com/etfs-and-funds/etfs/sp500-best-etf-over-the-past-10-years-will-surprise-you/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/576ac389fc132858215c47f4edc1d5b8",
+    "published_at": "2026-03-26T12:01:45.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "4glxuv",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "This REIT Offers An Eye-Catching Yield With Stable Growth",
+    "summary": "",
+    "url": "https://www.investors.com/research/the-income-investor/reit-stocks-broadstone-net-lease-bnl-real-estate-investment-trust/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/d750f160fa52fa0d4144efe2f690256d",
+    "published_at": "2026-03-26T12:00:53.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "oaybmu",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Chance the Rapper won $35 in a $1 million lawsuit against his ex-manager. How to decide if legal action is worth it",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/chance-rapper-won-35-1-120000786.html",
+    "image_url": "https://media.zenfs.com/en/moneywise_327/472cac113f6bf21a10f666b158d3db55",
+    "published_at": "2026-03-26T12:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ay1rts",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Helium shortage has started impacting tech supply chains, execs say",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/helium-shortage-started-impacting-tech-115914407.html",
+    "image_url": "https://media.zenfs.com/en/reuters-finance.com/232d03e5eaff4c1180f37a6025fadedd",
+    "published_at": "2026-03-26T11:59:14.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "f8uxk3",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Stock Market Today: Dow Slides As Trump Warns Iran To 'Get Serious Soon'; Oil Prices Surge Higher (Live Coverage)",
+    "summary": "",
+    "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-iran-oil-prices-surge/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/8e3f0f90c622d76c522be98b9f3975ee",
+    "published_at": "2026-03-26T11:56:56.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "l9yjrh",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Dow Jones Futures Fall, Oil Prices Rise; Trump Warns Iran To 'Get Serious Before It Is Too Late'",
+    "summary": "",
+    "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-iran-war-deal-hopes-karman/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/af29ffd2755319037ad2b4e57387fc84",
+    "published_at": "2026-03-26T11:55:52.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "gg3dqo",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Daily Spotlight: Stocks Can Survive a Pullback",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_46550_MarketOutlook_1774524185000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-03-26T11:23:05.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "arei0z",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Technical Assessment: Bullish in the Intermediate-Term",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_46549_TechnicalAnalysis_1774524030000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-03-26T11:20:30.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "e5vvv1",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Analyst Report: Sun Life Financial Inc",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_3394_AnalystReport_1774521714000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-03-26T10:41:54.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ithes5",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Analyst Report: Illumina Inc",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_3660_AnalystReport_1774521714000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-03-26T10:41:54.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "nqnhc9",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Analyst Report: Omnicom Group Inc",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_3277_AnalystReport_1774521714000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-03-26T10:41:54.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "udka92",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Analyst Report: AES Corp/The",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_2686_AnalystReport_1774521714000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-03-26T10:41:54.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "hrxamk",
+    "source": "WIRED Business",
+    "source_id": "wired-business",
+    "title": "The Government’s Shittiest Website",
+    "summary": "For more than 30 years, the US Postal Service has sent people who need to change their addresses to MyMove. Experts say the site uses dark patterns to trap visitors in an online purgatory of “deals.”",
+    "url": "https://www.wired.com/story/the-governments-shittiest-website/",
+    "image_url": "",
+    "published_at": "2026-03-26T09:00:00.000Z",
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potential policy/authority shift affecting capital pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "maxx8p",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Stock market today: Dow, S&P 500, Nasdaq futures slide as Wall Street weighs prospects for Iran truce",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-slide-as-wall-street-weighs-prospects-for-iran-truce-225159013.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2026-03/f84c3870-289c-11f1-bdbc-336f207f1a9e",
+    "published_at": "2026-03-25T22:51:59.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "ts7cim",
     "source": "TheCable — CBN IMTO Naira Settlement Directive",
     "source_id": "thecable-cbn-imto-naira-settlement-2026-03-24",
@@ -35,6 +585,28 @@
     "tags": [
       "technology",
       "operations"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "4giaip",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Market Update: HWM, EW, EXC",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_46540_MarketUpdate_1774458873000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-03-25T17:14:33.000Z",
+    "tags": [
+      "markets",
+      "capital"
     ],
     "trust_tier": "tier2",
     "relevance_score": 0,
@@ -2357,6 +2929,28 @@
     ]
   },
   {
+    "feed_id": "j7aleb",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Abbott Earnings Preview: What to Expect",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/abbott-earnings-preview-expect-130616282.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/c45c7663791f2fe119b3401a74163bde",
+    "published_at": "2026-03-25T13:06:16.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "w5u1v0",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -2387,6 +2981,28 @@
     "url": "https://finance.yahoo.com/markets/stocks/articles/5-strategies-high-net-worth-131606675.html",
     "image_url": "https://media.zenfs.com/en/gobankingrates_644/a3f4e88a441f43a0671201e4cc300b17",
     "published_at": "2026-03-25T13:02:04.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "yssaw8",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "HSBC Just Double-Upgraded Arm Stock. Does That Make It a Buy Here?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/hsbc-just-double-upgraded-arm-130002402.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/b3c3513950ae550c77ed9af92c4858ac",
+    "published_at": "2026-03-25T13:00:02.000Z",
     "tags": [
       "markets",
       "capital"
@@ -2467,6 +3083,534 @@
     ]
   },
   {
+    "feed_id": "dkl095",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "What to Expect From Fastenal's Q1 2026 Earnings Report",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/expect-fastenals-q1-2026-earnings-124523024.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/005980acfe390bfc5f98e1de06c207d6",
+    "published_at": "2026-03-25T12:45:23.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qveq1x",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Corn Fading Back Lower on Wednesday",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/corn-fading-back-lower-wednesday-123511846.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/0f5fa08b5c977f0f0ce33666bbd2d2c1",
+    "published_at": "2026-03-25T12:35:11.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "l3gxze",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Soybeans Popping Higher Early on Wednesday",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/soybeans-popping-higher-early-wednesday-123511007.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/f513adc492747a2e9b17902d512f48f1",
+    "published_at": "2026-03-25T12:35:11.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "hz5d9y",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Fennec Pharmaceuticals Inc. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/fennec-pharmaceuticals-inc-q4-2025-123000262.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/d66764941a7ad1d148e12f4875ef622d",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qnqf35",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Achieve Life Sciences, Inc. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/achieve-life-sciences-inc-q4-123000458.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/f4d07a47120445d9d3a539d84aacb707",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jh6zfr",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Concentrix Corporation Q1 2026 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/concentrix-corporation-q1-2026-earnings-123000497.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/b6b33cdb8982fd458eb8370c928c0210",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2koxq",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "MaxCyte, Inc. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/maxcyte-inc-q4-2025-earnings-123000038.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/17fd717c7cd4ece3610c756e57244690",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ahkt6r",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "ACCESS Newswire Inc. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/access-newswire-inc-q4-2025-123000091.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/adfd9981017906b2d8656edac6aee21e",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "uw76dg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Intrusion Inc. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/intrusion-inc-q4-2025-earnings-123000320.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/824da307f6de74cde18e3dc7a2bc2803",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "fvgjdg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "TELA Bio, Inc. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/tela-bio-inc-q4-2025-123000403.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/eacdd44600587db63d75396acc8667e8",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "f7k96o",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Worthington Industries, Inc. Q3 2026 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/worthington-industries-inc-q3-2026-123000651.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/669fb83ce8b2eae8b7d63bddc1e84ed4",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "x8d5o",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "LENZ Therapeutics, Inc. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/lenz-therapeutics-inc-q4-2025-123000346.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/b0a63d1770edcf3f626fc1706783215f",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "hopr6u",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "PaySign, Inc. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/paysign-inc-q4-2025-earnings-123000997.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/8e0f079928edfa98222d1d410b411ba4",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "zd6v9l",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "KB Home Q1 2026 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/kb-home-q1-2026-earnings-123000788.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/fb422c85f2bee35dea8df2b9f67958e6",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "m3ww81",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Vertical Aerospace Ltd. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/vertical-aerospace-ltd-q4-2025-123000397.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/f57e885bd28b3ad751eebf418787be86",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "1s0nyg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Comstock Inc. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/comstock-inc-q4-2025-earnings-123000694.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/5e44ebd86030c8b0b092ebed17801202",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "4j5a0c",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Sanara MedTech Inc. Q4 2025 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/sanara-medtech-inc-q4-2025-123000652.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/413c745a28a1903865db1083452de268",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "kow2i9",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "AAR Corp. Q3 2026 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/aar-corp-q3-2026-earnings-123000449.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/ba0277dc6fef0a2a90b09ba7db42c5c6",
+    "published_at": "2026-03-25T12:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "7xs6pv",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Zhihu Q4 Earnings Call Highlights",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/zhihu-q4-earnings-call-highlights-122734585.html",
+    "image_url": "https://media.zenfs.com/en/marketbeat_955/5d60e3aa54f3cc08743b73cd126c55c6",
+    "published_at": "2026-03-25T12:27:34.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "3obt7f",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Bansk Group to acquire wellness shots brand So Good So You",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/bansk-group-acquire-wellness-shots-122708408.html",
+    "image_url": "https://media.zenfs.com/en/just_drinks_442/3f4ffdf6b38b7fa46e80253c2755cada",
+    "published_at": "2026-03-25T12:27:08.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "pmk04n",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Avoid Deere and Other Expensive Industrial Stocks. 3 To Buy Instead.",
+    "summary": "",
+    "url": "https://www.barrons.com/articles/deere-stock-price-industrials-buy-now-e0f13ba5?siteid=yhoof2&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/Barrons.com/32fd6945babbb4eb80263e431e742296",
+    "published_at": "2026-03-25T12:27:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "5jc8wo",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Morning Minute: Circle Plunges 20% Over Clarity Act Yield Changes",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/morning-minute-circle-plunges-20-122412098.html",
+    "image_url": "https://media.zenfs.com/en/decrypt_157/4272969b00d281021ab68e1d1776e6e3",
+    "published_at": "2026-03-25T12:24:12.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "vsh6uw",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "VALT Bank gets conditional OCC charter",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/policy/articles/valt-bank-receives-conditional-occ-122251433.html",
+    "image_url": "https://media.zenfs.com/en/banking_dive_717/6eef9e6a2f3d8400c0f9208261834141",
+    "published_at": "2026-03-25T12:22:51.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ldsj75",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Trump’s war in Iran threatens to topple the dollar",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/currencies/articles/trump-war-iran-threatens-topple-122146761.html",
+    "image_url": "https://media.zenfs.com/en/the_telegraph_258/11911b703a08b9759c974bf723f8f2a0",
+    "published_at": "2026-03-25T12:21:46.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "vyc1vh",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -2484,6 +3628,28 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jvv2w5",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Recession Fears Are Back: Here Is Why That Should Not Change Your Strategy",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/articles/recession-fears-back-why-not-122000541.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/d39133632822d88012965efc523eeef9",
+    "published_at": "2026-03-25T12:20:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
     ]
@@ -3303,6 +4469,72 @@
     ]
   },
   {
+    "feed_id": "304r4",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "McCormick & Company Earnings Preview: What to Expect",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/mccormick-company-earnings-preview-expect-101302986.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/b63c711a1d81edaea11cbb32b25d904b",
+    "published_at": "2026-03-25T10:13:02.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "clxhts",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Here's What to Expect From Delta Air Lines’ Next Earnings Report",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/heres-expect-delta-air-lines-100834527.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/ff25765316957d609dc066b454e4d7bc",
+    "published_at": "2026-03-25T10:08:34.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "lvr89z",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "What to Expect From Bank of America's Next Quarterly Earnings Report",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/expect-bank-americas-next-quarterly-100357473.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/a753dc8cd09cdc7c421d67c47c3547ef",
+    "published_at": "2026-03-25T10:03:57.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "nhhzv1",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -3355,6 +4587,50 @@
     "url": "https://finance.yahoo.com/research/reports/ARGUS_46532_TopBottomInsiderActivity_1774432995000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
     "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
     "published_at": "2026-03-25T10:03:15.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ivjq31",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Morning Brief: 3 factors have made for big historical stock market losses",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/morning-brief-3-factors-have-made-for-big-historical-stock-market-losses-100036294.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2026-03/37c30200-27ca-11f1-9fbf-0b7ed634e827",
+    "published_at": "2026-03-25T10:00:36.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "7xh1m4",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "3 factors have driven double-digit stock market losses in the last 100 years. They're all in play.",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/3-factors-have-driven-double-digit-stock-market-losses-in-the-last-100-years-theyre-all-in-play-100007909.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2026-03/7165ade0-27bc-11f1-bd9f-bf53cd7465b4",
+    "published_at": "2026-03-25T10:00:07.000Z",
     "tags": [
       "markets",
       "capital"
@@ -3479,6 +4755,820 @@
     ]
   },
   {
+    "feed_id": "1k16xc",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Atlanta single mom, 54, drained $85K from her retirement based on ex-boyfriend’s bad advice. What The Ramsey Show says",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/atlanta-single-mom-54-drained-100000611.html",
+    "image_url": "https://media.zenfs.com/en/moneywise_327/edb031c9e1a3c5c63fd066eb8c0e00cb",
+    "published_at": "2026-03-25T10:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "5k2hyd",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Conagra Brands’ Q3 2026 Earnings: What to Expect",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/conagra-brands-q3-2026-earnings-095835925.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/aa1d55c45346757cee23cd39abd1e7d0",
+    "published_at": "2026-03-25T09:58:35.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "c2z8wi",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Arm shares rally as new AI chip to drive billions in annual revenue",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/arm-jumps-ai-chip-drive-095547968.html",
+    "image_url": "https://media.zenfs.com/en/reuters-finance.com/3700ba2a7f4ae10f1792ade79926cc1d",
+    "published_at": "2026-03-25T09:55:47.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "rovo5p",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "UPS opens $100 million Taiwan logistics hub to meet tech boom demand",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/ups-opens-100-million-taiwan-094857235.html",
+    "image_url": "https://media.zenfs.com/en/reuters-finance.com/6be94cca4b9a6144941f4da4323fb44b",
+    "published_at": "2026-03-25T09:48:57.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qinmpy",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "EnQuest Holds 2026 Output View as Southeast Asia Growth Builds",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/enquest-holds-2026-output-view-093358900.html",
+    "image_url": "https://media.zenfs.com/en/oilprice.com/c34728f6ee4ccf6831ac427e02d12959",
+    "published_at": "2026-03-25T09:33:58.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "bssvw5",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Earnings Preview: What to Expect From Progressive's Report",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/earnings-preview-expect-progressives-report-091415170.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/a326f1d2cca357356774856638518c09",
+    "published_at": "2026-03-25T09:14:15.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "gnt3k3",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "I Have $2.2 Million Invested and Pay a 1% Advisor Fee. Is That Too High?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/2-2-million-invested-advisor-134203276.html",
+    "image_url": "https://media.zenfs.com/en/smartasset_475/55a0868f001ccc92770ae20a2d0f3aec",
+    "published_at": "2026-03-25T09:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "luwpvg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Prediction: The Artificial Intelligence (AI) Stocks That Win in 2026 Won't Be the Same Ones That Won in 2025",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/prediction-artificial-intelligence-ai-stocks-083000263.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/642680c0717e496367ad6b339374f4fd",
+    "published_at": "2026-03-25T08:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ms33k0",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "55% of Billionaire Bill Ackman's Portfolio Is Invested in 4 Preeminent AI Stocks",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/55-billionaire-bill-ackmans-portfolio-082600580.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/8b1aadcf2f2d09f53efdd8bd23813a52",
+    "published_at": "2026-03-25T08:26:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "8gdwlv",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "AI Sell-Off: 3 Stocks Investors Should Load Up On",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/ai-sell-off-3-stocks-082500909.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/11cdbb6bc05786f1f15ff76ba12f753c",
+    "published_at": "2026-03-25T08:25:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jdq7ei",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "What Traders Made of Tuesday’s Uneasy Markets",
+    "summary": "",
+    "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-03-25-2026/card/what-traders-made-of-tuesday-s-uneasy-markets-tq3KqFMmSlNCkND3ZA2L?siteid=yhoof2&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/wsj.com/7b2c285183be07ca3c4e8242b25a59a8",
+    "published_at": "2026-03-25T08:24:42.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "6cdfwj",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Gold Climbs as Oil Retreats on Mideast Diplomacy",
+    "summary": "",
+    "url": "https://www.barrons.com/livecoverage/stock-market-news-today-032526/card/gold-climbs-as-oil-retreats-on-mideast-diplomacy-K5ACoiOllIBfRONDoxrl?siteid=yhoof2&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/Barrons.com/12ea0f43d8f8307249a68d1cb2e0587e",
+    "published_at": "2026-03-25T08:18:07.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "r6e9wq",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "SpaceX targets $75bn in landmark IPO",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/spacex-targets-75bn-landmark-ipo-081500478.html",
+    "image_url": "https://media.zenfs.com/en/proactive_us_504/b285187ee1e2a7a429c2c78f77397481",
+    "published_at": "2026-03-25T08:15:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "3a0jxn",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "88 Energy launches share placing to fund upcoming Alaska oil drilling",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/88-energy-launches-share-placing-081400910.html",
+    "image_url": "https://media.zenfs.com/en/proactive_us_504/aa0e1f5f2b9be4e9d1c569279323a3bb",
+    "published_at": "2026-03-25T08:14:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ng9aag",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Kenya’s flower industry loses millions of dollars weekly due to the Iran war",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/kenya-flower-industry-loses-millions-081213207.html",
+    "image_url": "https://media.zenfs.com/en/ap_finance_articles_694/04ba096defc9f6b85c5e710078429a71",
+    "published_at": "2026-03-25T08:12:13.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "xi5gt",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "What You Need To Know Ahead of Nike’s Earnings Release",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/know-ahead-nike-earnings-release-075035564.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/53ebe5cd5934fa199b621d2f97773dae",
+    "published_at": "2026-03-25T07:50:35.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "x9zbyd",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Wells Fargo's Q1 2026 Earnings: What to Expect",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/wells-fargos-q1-2026-earnings-074215773.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/ffcb364112e9a01ba9e3c8058c26a50a",
+    "published_at": "2026-03-25T07:42:15.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ublm2u",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "I'm 65 With $1.1 Million Saved and $2,800 Monthly Social Security. What's My Retirement Budget?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/articles/im-65-1-1-million-163410320.html",
+    "image_url": "https://media.zenfs.com/en/smartasset_475/b55e664f351cd5dbcf3c2aa19ddbbf6b",
+    "published_at": "2026-03-25T07:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "glx4uf",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "China bars Manus co-founders from leaving country amid Meta deal review, FT reports",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/china-bars-manus-co-founders-044724261.html",
+    "image_url": "https://media.zenfs.com/en/reuters-finance.com/6eca48c7cc568ee1aa8bb09d1d60210a",
+    "published_at": "2026-03-25T04:47:24.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "9uylsu",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Behind the Tanker Shipping ETF Returning 450% YTD",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/behind-tanker-shipping-etf-returning-040300415.html",
+    "image_url": "https://media.zenfs.com/en/the_daily_upside_435/1f604f5e54f339cd037d4b8381df663f",
+    "published_at": "2026-03-25T04:03:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "byl29j",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why the $100M AUM Survival Limit May No Longer Matter",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/options/articles/why-100m-aum-survival-limit-040200201.html",
+    "image_url": "https://media.zenfs.com/en/the_daily_upside_435/8896c14c6547d50c91b5d2fd6dc3f3bc",
+    "published_at": "2026-03-25T04:02:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "q1vwg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "JPMorgan Warns of ‘National Security Risk’ from Aging Power Grid",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/jpmorgan-warns-national-security-risk-040100542.html",
+    "image_url": "https://media.zenfs.com/en/the_daily_upside_435/c844f726d8602031cfcfb417cf83b3f4",
+    "published_at": "2026-03-25T04:01:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "inym7z",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Goldman, BlackRock CEOs Predict Massive Growth in Alternatives",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/goldman-blackrock-ceos-predict-massive-040100990.html",
+    "image_url": "https://media.zenfs.com/en/the_daily_upside_435/55e5d10046b74d397199e7759151acd7",
+    "published_at": "2026-03-25T04:01:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "zdorln",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Shift4 Payments (FOUR) Soars 19% After Record Low",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/shift4-payments-four-soars-19-022920152.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/675c15510cdabb228293a61a1e7a221f",
+    "published_at": "2026-03-25T02:29:20.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "j0ib0k",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Applied Optoelectronics (AAOI) Soars 18.9% on Million-Dollar Deal",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/applied-optoelectronics-aaoi-soars-18-022605063.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/d659e8b497388407a920b3797098b6cb",
+    "published_at": "2026-03-25T02:26:05.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2jlicl",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Lumentum (LITE) Soars to All-Time High on 66% PT Hike",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/lumentum-lite-soars-time-high-022403654.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/4404b267f96b33369a867f817fd52e68",
+    "published_at": "2026-03-25T02:24:03.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "p9igy2",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Corning (GLW) Jumps 8% on AI Optimism, Ahead of Dividends",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/corning-glw-jumps-8-ai-022156323.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/8aac62727b3d0863424162bf0265d466",
+    "published_at": "2026-03-25T02:21:56.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "v5hu58",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Peabody Energy (BTU) Climbs 7.9% on Coal Demand",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/peabody-energy-btu-climbs-7-021828286.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/87a98a4787d0b9cd57eec1e8d40108f1",
+    "published_at": "2026-03-25T02:18:28.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tle6zg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Hewlett Packard (HPE) Climbs 7.77% Ahead of Dividends",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/hewlett-packard-hpe-climbs-7-021443046.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/9312b7eac5ad4aba115b3af93633a64f",
+    "published_at": "2026-03-25T02:14:43.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "s9fzob",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Dell Technologies (DELL) Hits All-Time High as Goldman Hikes PT by 10%",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/dell-technologies-dell-hits-time-021159973.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/9dfcf699ada1d0a8165eef231499be01",
+    "published_at": "2026-03-25T02:11:59.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "odevuf",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "PBF Energy (PBF) Soars to 1-Year High on Energy Rally Spillover",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/pbf-energy-pbf-soars-1-020451031.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/ba03d13ea628b3ff9318a6ada25388ab",
+    "published_at": "2026-03-25T02:04:51.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "k3jd5p",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Viavi Solutions (VIAV) Hits 24-Year High on ‘Buy’ Reco",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/viavi-solutions-viav-hits-24-020154160.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/ba38c191d3c45eaadbc57b340f7cf60d",
+    "published_at": "2026-03-25T02:01:54.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tidogk",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How Is Ares Management's Stock Performance Compared to Other Financial Stocks?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/ares-managements-stock-performance-compared-015945009.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/de3c56ef59782b3aa873c0db6aa67f6c",
+    "published_at": "2026-03-25T01:59:45.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "33if4k",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Coherent (COHR) Climbs 6.78% on S&P 500 Addition",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/coherent-cohr-climbs-6-78-015812201.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/75ee4d68a05943ca558d460400ae66f9",
+    "published_at": "2026-03-25T01:58:12.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "rp3nf5",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Meta boosts top executives' pay with stock options as AI race heats up",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/meta-grants-senior-executives-stock-015707500.html",
+    "image_url": "https://media.zenfs.com/en/reuters-finance.com/9148a3b7d8cc7bc0546cc03511771303",
+    "published_at": "2026-03-25T01:57:07.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "87jjjp",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Braze, Inc. Q4 2026 Earnings Call Summary",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/braze-inc-q4-2026-earnings-014247321.html",
+    "image_url": "https://media.zenfs.com/en/moby_896/eae3218bb4b9bd0e025aaad3ab6ca9d7",
+    "published_at": "2026-03-25T01:42:47.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "fo3nkp",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Oil prices drop on prospect of Middle East ceasefire easing supply disruption",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/us-oil-prices-fall-prospect-232038924.html",
+    "image_url": "https://media.zenfs.com/en/reuters.com/a5aeec31b5f5614e024dfc96b83e6036",
+    "published_at": "2026-03-25T01:31:57.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "5z9pd0",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-news",
@@ -3575,6 +5665,776 @@
     "url": "https://finance.yahoo.com/personal-finance/banking/article/how-are-people-affording-houses-in-todays-market-195928862.html",
     "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-06/8a0cdc30-4dea-11f0-853b-6352d2a30cb4",
     "published_at": "2026-03-24T19:59:28.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "7s70zu",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Small-Cap Stocks Just Entered Correction Territory. Why the Russell 2000 Is the Canary in the Coal Mine for a Stock Market Crash.",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/small-cap-stocks-just-entered-190506731.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/2c1e4668381711bc34527dd1ea9574d3",
+    "published_at": "2026-03-24T19:05:06.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "p413on",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Taiwan Semiconductor's New Fab 4 is Fully Booked Before Construction Even Begins",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/taiwan-semiconductors-fab-4-fully-190312564.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/48711142162b134f8f7680caf42599f6",
+    "published_at": "2026-03-24T19:03:12.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ku6grm",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "As Vertiv Joins S&P 500, Should You Buy Now or Is It Too Late?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/vertiv-joins-p-500-buy-185550753.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/bd5dae34176ee1c2b303d51d54822803",
+    "published_at": "2026-03-24T18:55:50.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "t4zetz",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Brace for a $14 Trillion ‘Debt Wave’: Why Apollo’s Chief Economist Is Warning of Major Changes Ahead for Investors",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/policy/articles/brace-14-trillion-debt-wave-185523964.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/e5e9488445cc08af21c60c38306ff095",
+    "published_at": "2026-03-24T18:55:23.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qyc5su",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Microsoft Hits New Low Amid Weak Outlook; Is The Stock A Buy Or Sell Now?",
+    "summary": "",
+    "url": "https://www.investors.com/research/microsoft-msft-stock-ai-software/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/df8ce425bfd2affbfdca70457ea8b92f",
+    "published_at": "2026-03-24T18:52:48.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "p12my8",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Airport Chaos Mounts: Is It Time to Sell These 2 Airline Stocks?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/airport-chaos-mounts-time-sell-184422789.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/64b4461bdc80795d2d99d82f5b2da99a",
+    "published_at": "2026-03-24T18:44:22.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "17vgrp",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Arm unveils new AI chip, expects it to add billions in annual revenue",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/arm-unveils-ai-chip-expects-184052597.html",
+    "image_url": "https://media.zenfs.com/en/reuters-finance.com/75e898e26c0b9c77c00a5c311f5c410f",
+    "published_at": "2026-03-24T18:40:52.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "1pl49k",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Fear Of Stablecoin Reward Limits Sends Circle’s Stock Down 20%",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/fear-stablecoin-reward-limits-sends-184000848.html",
+    "image_url": "https://media.zenfs.com/en/cryptoprowl_304/1a51d9936e082effa1af903d105d96b9",
+    "published_at": "2026-03-24T18:40:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "5rbwlb",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "High-Conviction Satellite Sleeves Are Modernizing Portfolios",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/high-conviction-satellite-sleeves-modernizing-183907532.html",
+    "image_url": "https://media.zenfs.com/en/indexuniverse.com/cca4faf9de0e2e586fd5d467c866aa8a",
+    "published_at": "2026-03-24T18:39:07.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "iaobw2",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Headcount falls at C.H. Robinson as automation, AI reshape brokerage",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/headcount-falls-c-h-robinson-183902191.html",
+    "image_url": "https://media.zenfs.com/en/freightwaves_373/7396b141015c8e8c2e64bc436cf3ce9a",
+    "published_at": "2026-03-24T18:39:02.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "t6xqza",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is Globe Life Stock Underperforming the Nasdaq?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/globe-life-stock-underperforming-nasdaq-183834462.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/4a4943a24a0b327b61b47b02b4c507b7",
+    "published_at": "2026-03-24T18:38:34.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "a2xhbj",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Strength in Crude Oil Supports Sugar Prices",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/strength-crude-oil-supports-sugar-183338916.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/b70e2fda0aec81aec16cbb2e756b01ab",
+    "published_at": "2026-03-24T18:33:38.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "4er7eb",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Olin Stock Sees Relative Strength Rating Jump To 83",
+    "summary": "",
+    "url": "https://www.investors.com/news/olin-stock-sees-relative-strength-rating-jump-to-83/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/4f55f705c42c63544ad6253ec4f7e290",
+    "published_at": "2026-03-24T18:32:02.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "g9bt6x",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is Advanced Micro Devices (AMD) The Best AI Semiconductor Stock to Buy For The Long Term?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/advanced-micro-devices-amd-best-183101186.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/c21fbacb6c2f871b98f480a40a563913",
+    "published_at": "2026-03-24T18:31:01.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "7kzw6l",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "What Options Data Says Could Come Next for GME Stock After GameStop Reports Earnings Tonight",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/options/articles/options-data-says-could-come-182831977.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/afb30d08729487f50195a256a88c5de6",
+    "published_at": "2026-03-24T18:28:31.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "y1szj3",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is Broadcom (AVGO) The Best AI Chip Stock to Buy According to Jim Cramer?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/broadcom-avgo-best-ai-chip-182618624.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/8b423334d17c305a4010174c2d1bc6bd",
+    "published_at": "2026-03-24T18:26:18.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "hmquw5",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Large Banks Score Major Regulatory Win That Could Free Up Tens of Billions in Capital. Should You Buy JPMorgan Chase Stock?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/policy/articles/large-banks-score-major-regulatory-182500821.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/07941121a5865d8e682b58f54a57e381",
+    "published_at": "2026-03-24T18:25:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "h079d4",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Major gold holder announces first full audit after years of scrutiny",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/major-gold-holder-announces-first-182422779.html",
+    "image_url": "https://media.zenfs.com/en/thestreet_881/2fca71e2a9246c4df0602c47a8c72d4a",
+    "published_at": "2026-03-24T18:24:22.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "o9k72e",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is NVIDIA (NVDA) Still The Best AI Stock in Jim Cramer’s 2026 Portfolio?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-nvda-still-best-ai-182215370.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/24fae12a50d6c03d45b2817539bc9a3a",
+    "published_at": "2026-03-24T18:22:15.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "f4j80i",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "2 Reasons Why Western Digital Stock Could Keep Climbing In 2026",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/2-reasons-why-western-digital-182204704.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/2c03be55463835123fe35a048ff23c1e",
+    "published_at": "2026-03-24T18:22:04.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qt1ypn",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Dow Jones Discount Retailer Walmart Offers Latest Buy Point Amid Market Weakness",
+    "summary": "",
+    "url": "https://www.investors.com/stock-lists/stocks-near-a-buy-zone/dow-jones-walmart-wmt-stock-five-below/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/7383f5f4cc1de4abc7df4479d9fef4e6",
+    "published_at": "2026-03-24T18:22:01.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ozxv2n",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer Thinks Alphabet (GOOGL) Can Hit $400 – Here’s Why",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-thinks-alphabet-googl-182113163.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/c063cb24366da53443f0b1c3f4b218cc",
+    "published_at": "2026-03-24T18:21:13.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "b5fg56",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Mobileye's Manic Monday: A Buy Signal in Auto Tech",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/mobileyes-manic-monday-buy-signal-182100772.html",
+    "image_url": "https://media.zenfs.com/en/marketbeat_955/90d7cf29e4a953c4fc75a1dded56b4f5",
+    "published_at": "2026-03-24T18:21:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tsj1yy",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "2 Artificial Intelligence (AI) Stocks That Wall Street Loves but Most Investors Haven't Heard Of",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/2-artificial-intelligence-ai-stocks-182000914.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/a11311b0a4ac2999417d3716760719ae",
+    "published_at": "2026-03-24T18:20:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "apcu5a",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Are the Market’s Most Loyal Buyers Tapping Out?",
+    "summary": "",
+    "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-03-24-2026/card/are-the-market-s-most-loyal-buyers-tapping-out--nWH8GqOQZov3td40raHr?siteid=yhoof2&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/wsj.com/7b2c285183be07ca3c4e8242b25a59a8",
+    "published_at": "2026-03-24T18:19:09.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "aprsw2",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why Circle Internet Group Stock Was Tumbling Today",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/why-circle-internet-group-stock-181834424.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/38ee8ab6280361ab5ac7ec624a81594e",
+    "published_at": "2026-03-24T18:18:34.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "25wifh",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is MINISO Group Holding Limited (MNSO) A Good Stock To Buy Now?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/miniso-group-holding-limited-mnso-181833853.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/4ee5547a402ce7a3ab3ea4eddc8a30d8",
+    "published_at": "2026-03-24T18:18:33.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "mwwzc2",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Jim Cramer Says Microsoft (MSFT) Is an ‘Elite’ AI Stock to Buy – Here’s Why",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jim-cramer-says-microsoft-msft-181823185.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/5836bb178f6f3392a681b1ce3603e60a",
+    "published_at": "2026-03-24T18:18:23.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jroq74",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Grain Futures Are Looking to Crude Oil for Price Direction. What Comes Next?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/grain-futures-looking-crude-oil-181820677.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/268aaebfc7374268d36f00d2946a3bb0",
+    "published_at": "2026-03-24T18:18:20.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "89e9op",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is Ambarella, Inc. (AMBA) A Good Stock To Buy Now?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/ambarella-inc-amba-good-stock-181758753.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/f992de338fe840cb2493513041a1458d",
+    "published_at": "2026-03-24T18:17:58.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "spk0qw",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is Tractor Supply Company (TSCO) A Good Stock To Buy Now?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/tractor-supply-company-tsco-good-181716651.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/9dc74c50ab8ada54ef81d0724ada2dd8",
+    "published_at": "2026-03-24T18:17:16.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "936fya",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Chick-fil-A is making a $50 million move in key market",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/chick-fil-making-50-million-181700456.html",
+    "image_url": "https://media.zenfs.com/en/thestreet_881/3a9ce208a0527234dafb755fe4333ba1",
+    "published_at": "2026-03-24T18:17:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jhd3q6",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is Texas Pacific Land Corporation (TPL) A Good Stock To Buy Now?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/texas-pacific-land-corporation-tpl-181643227.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/a9c51e6237b89e110d6edbae7aeec83a",
+    "published_at": "2026-03-24T18:16:43.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "j43mt7",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Here’s Why Jim Cramer Likes Amazon (AMZN) in 2026 Despite Unimpressive Performance",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/why-jim-cramer-likes-amazon-181634757.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/956ad207cf893cdfb3bea828279de0c4",
+    "published_at": "2026-03-24T18:16:34.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "e8az85",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is UiPath, Inc. (PATH) A Good Stock To Buy Now?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/uipath-inc-path-good-stock-181623848.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/8e16f59c64a1e98835c2402590a9fb02",
+    "published_at": "2026-03-24T18:16:23.000Z",
     "tags": [
       "markets",
       "capital"
@@ -7682,6 +10542,28 @@
     ]
   },
   {
+    "feed_id": "vakzdg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Tech stocks today: Meta, Google stocks little changed after social media verdict, OpenAI shuts down Sora",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/live/tech-stocks-today-meta-google-stocks-little-changed-after-social-media-verdict-openai-shuts-down-sora-144220087.html",
+    "image_url": "https://s.yimg.com/uu/api/res/1.2/MgS6pHUO4SmSq_ukEjbuyQ--~B/aD03OTg7dz0xMjMyO2FwcGlkPXl0YWNoeW9u/https://d29szjachogqwa.cloudfront.net/images/2026-03/0f49dfc5-ef89-4471-ac95-5bae64971315",
+    "published_at": "2026-03-13T14:42:20.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "5qq42d",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -7733,6 +10615,29 @@
     "title": "AfricAI to roll out Micropolis patrol, farm and border robots in Africa - Stock Titan",
     "summary": "AfricAI to roll out Micropolis patrol, farm and border robots in Africa Stock Titan",
     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQSFhxSkJsNnNxZkc3SmpST0VXdHdFVGVRclJKTzZQRFBVbnp2VWpveHVDUDF2WWg2UWE4TnBhcVFzeGJlMEVIZDJEbW5pUWcxbnZTZXM3NWpVNUxPM1ZjN2N5czVZZDVZalZwTFZpUnlTa2I3alFBeW9DX3Fmb1pFcGpnUWdHbUFxdW96YzJOdU5VN1JNLXFvU1J6Qk5GbXdtUmUyUVRaQm1Uc19oVmZ2Zll2dkhPSUVoNlpVT3JR?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-03-03T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "7co8qo",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "Micropolis Signs $9.3 Million Commercial Development and Multi-Year Distribution Agreement with AfricAI to Expand AI-Driven Autonomous Vehicles Across Africa - Bitget",
+    "summary": "Micropolis Signs $9.3 Million Commercial Development and Multi-Year Distribution Agreement with AfricAI to Expand AI-Driven Autonomous Vehicles Across Africa Bitget",
+    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA3NUJkMnNRS0tiX0kzd0RfY2FNczlOR25QTkJHdTZaeEpRVU9xa3VxMDhodzlERUF2dDN5Ti12M2xZa1dVQjFQbnJhaXRXc0ZhTk9UaGl0YUtfSWJVdjJ5MmVn0gFnQVVfeXFMT2d1dEl0Wmx1c0ZLVHZEamg4OTluMXU0Wm0xaU8yRDhPbmtqTnk4V3o0dTV5aHBHQ1RiMVJKNC05SWR3SWRkQ2RXUnJKaEVUQjc3bEs4MmFjQ1hxdGhWMTV0cW5hcEMtVQ?oc=5&hl=en-US&gl=US&ceid=US:en",
     "image_url": "",
     "published_at": "2026-03-03T08:00:00.000Z",
     "tags": [
@@ -7807,6 +10712,29 @@
     "tags": [
       "google-news",
       "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "gxypa7",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "Violent Extremism in the Sahel | Global Conflict Tracker - Council on Foreign Relations",
+    "summary": "Violent Extremism in the Sahel | Global Conflict Tracker Council on Foreign Relations",
+    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPeUxBdm9lLS1yQ2tiRkRBVjZYRUxfNmw3aHFYYl82dERySGlKb0NsbVdRZk5ZNExfTGwteW1IZnROVEgwMVBoNFlNbndMRHVwOVFEYVVhTjl0bkIxZVcyaktyMGF0OVVMSFhZcUJpR2QtLVowSUozc2pkM1ZJUGN4NnR3?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-02-18T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
       "public-safety"
     ],
     "trust_tier": "tier2",
@@ -8186,6 +11114,29 @@
     ]
   },
   {
+    "feed_id": "g4ihx8",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Oyo police command gets new spokesperson, Ayanlade Olayinka - Punch Newspapers",
+    "summary": "Oyo police command gets new spokesperson, Ayanlade Olayinka Punch Newspapers",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE8wM1JzMzBwMkUtbTdyTEpfYVZQSm1zb1ZoSjVqWTVmenk4TS1hVXdnRnpiNmRRZVBKd2cwb0pCdGk2TXBGMG1FZXZGT0luT201YWYtVXFaclBTdnhoZmhwbER5MVh3VEozMHBKUTNB?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-12-23T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "x9nnaf",
     "source": "Google News — Nigeria Digital Policing",
     "source_id": "google-news-nigeria-policing-digital",
@@ -8224,6 +11175,29 @@
     ],
     "trust_tier": "tier2",
     "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "xaiok8",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "‘I’m sorry Nigerians, I will never do that again’ – Peller apologises - Daily Post Nigeria",
+    "summary": "‘I’m sorry Nigerians, I will never do that again’ – Peller apologises Daily Post Nigeria",
+    "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPYWNnMXNLbzZ2MEhGU2Rsay13MGhnR0FMLVc1TDQ1YWVjRHhjNkJxVFptS3hwbFlBSVVLWGRSRnR4cHlxTWdZSEh2eWtGZmdhMkp5X1I2MDlKaFllM1VmSVdjLWIteEhLYzN4RkgzcFI3aU5IYjZDVjRSbEppRmY2aGl6bFhNX0VSdU00dGhWcUxWU2N4Zng3cUhXdjg?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-12-19T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
@@ -8293,6 +11267,52 @@
     ],
     "trust_tier": "tier2",
     "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "9htz0",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Bauchi police command gets new spokesperson - Punch Newspapers",
+    "summary": "Bauchi police command gets new spokesperson Punch Newspapers",
+    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9kUTZ6UzRza3J2blMtSkhlYllpT2kxR19SZmtJWEJtNEJFQ1FEcXBsTlQ2NFN2cW13TEdhVUdYdGh1aGx1ZEVydkpMSFNKdGFJRGo1aldFVm9xN2ZRUUJSNm5XbzVBa01wY19iMVAwekhrUQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-12-15T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "9h3nex",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "ADF-17 Replenishment: In historic move, African countries race to contribute to continent’s development - African Development Bank Group",
+    "summary": "ADF-17 Replenishment: In historic move, African countries race to contribute to continent’s development African Development Bank Group",
+    "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNcUxfYUVtWDM4MnY1dHNlS3Q0NzVEd09tWFZmOEtsbTFyMVBLVy04a3E2alkxdU9UZG15Y1Uwb05OZ2xqWERqbjFkcDVNMEZabW1QdGEybkp6NkdnYmd5czBkdk9RZnVmUGt3NVpfN0dxdVpjMnNjY3BkeHBub0NfMFZPRjlqZk1OTUNoZVlteHo2LU5Rb0dSTUxQSDRuZGJUdTRFNC1JbzhZNHdaWUEyQ3NkZ3QxbV8tWFhoanV3OHlMZFM0U0llMTVMV1N1MnBpXzU5WExoTWVCNnFNT0lOX1FtZGR6ems?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-12-15T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
@@ -8853,6 +11873,29 @@
     ]
   },
   {
+    "feed_id": "sai47k",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Police begin probe after lady accuses InDrive driver of robbery - The Guardian Nigeria News",
+    "summary": "Police begin probe after lady accuses InDrive driver of robbery The Guardian Nigeria News",
+    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQOTM0azNXN21lMGktQ1kzR2RadVdVN2RLUkt1ZHRoZTNVSGF2c2dOaGdna0xqSDNMNVJ1REZjT1dEUFMzY29zel9zNTVJN0JaZW1oWlkxNnl2cnR3eFdqWjQweVlsNEtGZUswR3VhWVozMnlrTHVpZzhDcGdLWkxBWTBmcWhBR1BySWQwbGRiVUx2aVNFTHpmSGlLaEJVNHY0TXNaTmN3?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-10-17T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "c8mbus",
     "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
@@ -8871,6 +11914,28 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "7fmcvf",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "The best 0% APR credit cards for March 2026: Avoid paying interest for up to 24 months on purchases and balance transfers",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/the-best-0-apr-credit-cards-for-march-2026-avoid-paying-interest-for-up-to-24-months-on-purchases-and-balance-transfers-181718599.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-03/8bf8f4a0-f9ff-11ef-bb7f-42840b037b31",
+    "published_at": "2025-10-15T18:17:18.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
     "initiative_ids": [
       "USG"
     ]
@@ -8957,6 +12022,29 @@
       "google-news",
       "capital",
       "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "r5twc6",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "CCTV, drones, and command centres: The missing links in Nigeria’s security - TheCable",
+    "summary": "CCTV, drones, and command centres: The missing links in Nigeria’s security TheCable",
+    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPcFAtODZLajBYY29HOHBQcF9OcHhvN09GRkVyWlMyZlJLTVhyWWdNMGNYdHdhOEJoUTB5Ql8wV29aaW0tMzZDRk1jcXBjSmpSZmJCNjY2TzdRa0lMQkdhcEJqRUlEQlc5dVQ1UzN0X1UtSHFMUmFUeU53dUlHeGFUYVlyYmhJeFVwNUY2LXFERG5OOWVaOWoyN2FhMA?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-10-08T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
     ],
     "trust_tier": "tier2",
     "relevance_score": 8,
@@ -9170,6 +12258,51 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "9j4rrr",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Police Arrest “Obi of Lagos”, Foils Installation Plan - TVC News",
+    "summary": "Police Arrest “Obi of Lagos”, Foils Installation Plan TVC News",
+    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1JbDRsc3htc2EyUkdDQm5zM3NlSmx0T1RzLV9wZVFQUmlOVkRPSkJDMTNzbzhBNkNHbzhqc2xZOGZyblJvalNaa3U0U0tNZEd1Q2hncXI1UjNuWlQ1OUVLSEg4RWJUVnhoTWZObUFPWmZyQkhjT1lFYjR1Q0gtbUE?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-09-11T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qztq08",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "The best balance transfer credit cards for March 2026: Don't pay any interest until 2027",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/best-balance-transfer-credit-cards-123841213.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-06/ba607ca0-3fc8-11f0-acff-f1e51286ad06",
+    "published_at": "2025-09-08T19:03:15.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
     "initiative_ids": [
       "USG"
     ]
@@ -10437,6 +13570,28 @@
     ]
   },
   {
+    "feed_id": "82c6j7",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Best credit cards with no annual fee for March 2026",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/best-credit-cards-with-no-annual-fee-204747522.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2021-11/05e25e20-3de1-11ec-9bce-04922239121e",
+    "published_at": "2024-11-25T20:47:47.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "am4irr",
     "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
@@ -10711,6 +13866,28 @@
     ]
   },
   {
+    "feed_id": "qpgr57",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Best credit cards for gas for March 2026",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/best-credit-cards-for-gas-234013440.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2026-01/d0140030-fc6a-11f0-ad52-299a443e89de",
+    "published_at": "2024-09-13T21:31:17.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "m6f0o9",
     "source": "Google News — ECOWAS Public Safety",
     "source_id": "google-news-ecowas-public-safety",
@@ -10752,6 +13929,28 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "mx5sxg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How to find the best credit card interest rates: Excellent credit is key",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/best-credit-card-interest-rates-193519877.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2023-05/9ea723b0-f97f-11ed-ad5f-72c59a620b2f",
+    "published_at": "2024-08-22T21:41:29.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
     "initiative_ids": [
       "USG"
     ]
@@ -11309,6 +14508,75 @@
     ]
   },
   {
+    "feed_id": "29xb3v",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Four officers, three suspected IPOB members killed in another attack on police facility - Premium Times Nigeria",
+    "summary": "Four officers, three suspected IPOB members killed in another attack on police facility Premium Times Nigeria",
+    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxORXJiWnRycE0zT2U4Q3ZpMWktX0tlcVJHczQ4bUtvY3ZjZWNyeUNuUHA0cWJJNWVCWFJxTl94cE5IU01LRjBxM2diM3pkX2liZllEeGRqOW1NZ014dExIcTMwcHc5bmtVbDVfS3VFWldyYUVrNmZmOTJ1S0I4eUpqLUs5blhRYVo1RFFrMXFYVTFGR3A4ZmMzQlpQSFc5OHRjTjVZaUpXM2JOUVg1MTNIZk1yRUljS19saUduRVZEMzRER2hINnMzMWhJYm9RT3J2b29VcVFiUW40YkRS?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2023-02-20T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ruprpg",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Again, gunmen bomb police facility in South-east, kill three officers - Premium Times Nigeria",
+    "summary": "Again, gunmen bomb police facility in South-east, kill three officers Premium Times Nigeria",
+    "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPU3E2TVM3RFFmOWJlYTdMbUMwWlVIUHZUejJ0QWNDMkVxN0Q1R3p3X08wbXZQemkxOWFNbktsSjRJZFpsM2p0YVNvNVdmcjhULWhETENMMGxmUDFxRk91V05FcFpiX281Wm82WTFZdzMzMGRXU2VnM1VFUFl6Z293NUxLaDh2Q2tGY1l2T1ozbi1CNVhIY0IyU3owVkg2Qkc0cGczSFgtb1lHMFdVcEtTZWhBYVo1QW1oVzB5YlR6TWZaOHd3cXZ3SWlJNUxtWnRQSURtVElKdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2023-02-18T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jtdmnc",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "Dakar Financing Summit: $160 billion worth of infrastructure projects for Africa - African Development Bank Group",
+    "summary": "Dakar Financing Summit: $160 billion worth of infrastructure projects for Africa African Development Bank Group",
+    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQaXkwem5kUUYwV0NmcV9QdTVSdHdJWF9WUlJWOXJTdFIyeVpmYjJXOFg0WnlZMXo4Q2ljM1BzbHRpWklwUk16Mm10LVh2OXFwMFJKcHU5VkZ4MERhZ2I0QzBQWHY3MUN5MWl6VDlzRFlhb2FYNmxaMFkxOUpmNFZuVlQwX1phUEtnUmE0TWd0NlhBNVJqT1kwMXlvbDZvMVRiMDRTU3dBQWJzX2FwMVRPeGk4YnlQSlBF?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2023-02-02T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "obf7yh",
     "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
@@ -11324,6 +14592,29 @@
     ],
     "trust_tier": "tier2",
     "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "14yw6r",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Nigerian Army Foils Attack On Police Command, Kills 11 Separatist Fighters - HumAngle",
+    "summary": "Nigerian Army Foils Attack On Police Command, Kills 11 Separatist Fighters HumAngle",
+    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPYUc0WmpyVS1JWEM1NS0tOWJkaDZ6SnBoTkIwZHphWWNaZjl3WFZ6cVQxSWVCYjRxMVBNRENsUEVuYy12TnZHSEV0UExVUm1HNXVqTldhbWtlWmNKRFJOX3BpUzViOU9qM2ZlRlRzVDhlbUpmQmpjTUo3TmxkandjdElGb1dmR3d1M21UZU5tZ2EyYS01UnBYMmMwUjd1VjVJZkE?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2021-05-08T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",

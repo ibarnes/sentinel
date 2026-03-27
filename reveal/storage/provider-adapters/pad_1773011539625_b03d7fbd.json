@@ -1,0 +1,330 @@
+{
+  "providerAdapterId": "pad_1773011539625_b03d7fbd",
+  "createdAt": "2026-03-08T23:12:19.625Z",
+  "adapterVersion": "v1",
+  "providerType": "generic_renderer",
+  "providerProfile": {
+    "providerProfileId": "default",
+    "capabilityVersion": "v1"
+  },
+  "sourceRenderAdapterContractId": "rac_1773011539623_edd6c8e5",
+  "sourceRefs": {
+    "verifierPackageId": "uvp_1773011539619_64af9c03",
+    "externalVerifierProfileId": null,
+    "shotListId": "sl_1773011539609_356b6ab1",
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": "vtp_1773011539612_1d6de9d5",
+    "renderPlanId": null
+  },
+  "readinessState": "ready",
+  "capabilitySummary": {
+    "supportedStageTypes": [
+      "composite_manifest",
+      "visual_assembly",
+      "subtitle_generation",
+      "narration_plan",
+      "storyboard_assembly"
+    ],
+    "supportedJobTypes": [
+      "composite_manifest",
+      "visual_assembly",
+      "subtitle_generation",
+      "narration_plan",
+      "storyboard_assembly"
+    ],
+    "supportedOutputTargets": [
+      "composite_job_manifest",
+      "assembly_bundle",
+      "subtitle_track",
+      "narration_plan",
+      "storyboard_json",
+      "edit_decision_list"
+    ],
+    "unsupportedFeatures": []
+  },
+  "providerManifest": {
+    "manifestType": "provider_execution_manifest",
+    "manifestVersion": "v1",
+    "providerType": "generic_renderer",
+    "providerProfileId": "default",
+    "sourceRenderAdapterContractId": "rac_1773011539623_edd6c8e5",
+    "executionStages": [
+      {
+        "stageId": "stage_narration",
+        "stageType": "narration_plan",
+        "orderIndex": 0,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_1"
+        ],
+        "dependencyStageIds": [],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      },
+      {
+        "stageId": "stage_subtitle",
+        "stageType": "subtitle_generation",
+        "orderIndex": 1,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_2"
+        ],
+        "dependencyStageIds": [
+          "stage_narration"
+        ],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      },
+      {
+        "stageId": "stage_compose",
+        "stageType": "composite_manifest",
+        "orderIndex": 2,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_3"
+        ],
+        "dependencyStageIds": [
+          "stage_subtitle"
+        ],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      }
+    ],
+    "executionJobs": [
+      {
+        "jobId": "job_1",
+        "jobType": "narration_plan",
+        "stageId": "stage_narration",
+        "orderIndex": 0,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_1"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      },
+      {
+        "jobId": "job_2",
+        "jobType": "subtitle_generation",
+        "stageId": "stage_subtitle",
+        "orderIndex": 1,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_2"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      },
+      {
+        "jobId": "job_3",
+        "jobType": "composite_manifest",
+        "stageId": "stage_compose",
+        "orderIndex": 2,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_3"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      }
+    ],
+    "inputArtifactMap": [
+      {
+        "artifactId": "a_unified",
+        "artifactType": "unified_verifier_package",
+        "artifactRef": {
+          "verifierPackageId": "uvp_1773011539619_64af9c03"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "as_reported",
+        "integrityState": "as_reported",
+        "notes": null
+      },
+      {
+        "artifactId": "a_script",
+        "artifactType": "reviewed_script",
+        "artifactRef": {
+          "scriptId": "ns_1773011539592_04e42362"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "untrusted",
+        "integrityState": "pass",
+        "notes": null
+      },
+      {
+        "artifactId": "a_voice",
+        "artifactType": "voice_track_plan",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773011539612_1d6de9d5"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "untrusted",
+        "integrityState": "pass",
+        "notes": null
+      },
+      {
+        "artifactId": "a_shot",
+        "artifactType": "shot_list",
+        "artifactRef": {
+          "shotListId": "sl_1773011539609_356b6ab1"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "unknown",
+        "integrityState": "unknown",
+        "notes": null
+      },
+      {
+        "artifactId": "a_voice_plan",
+        "artifactType": "voice_track_plan",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773011539612_1d6de9d5"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "unknown",
+        "integrityState": "unknown",
+        "notes": null
+      }
+    ],
+    "outputTargetMap": [
+      {
+        "outputTargetId": "ot_1",
+        "outputType": "narration_plan",
+        "format": "json",
+        "pathHint": "/outputs/narration_plan.json",
+        "requiredProducerStageId": "stage_narration",
+        "readinessRequirements": [],
+        "metadata": {}
+      },
+      {
+        "outputTargetId": "ot_2",
+        "outputType": "subtitle_track",
+        "format": "vtt",
+        "pathHint": "/outputs/subtitle_track.vtt",
+        "requiredProducerStageId": "stage_subtitle",
+        "readinessRequirements": [],
+        "metadata": {}
+      },
+      {
+        "outputTargetId": "ot_3",
+        "outputType": "composite_job_manifest",
+        "format": "json",
+        "pathHint": "/outputs/composite_job_manifest.json",
+        "requiredProducerStageId": "stage_compose",
+        "readinessRequirements": [],
+        "metadata": {}
+      }
+    ],
+    "timingHints": {
+      "expectedDurationMs": 0,
+      "deterministic": true
+    },
+    "capabilityMappingSummary": {
+      "supportedStageCount": 3,
+      "skippedStageCount": 0,
+      "supportedJobCount": 3,
+      "skippedJobCount": 0,
+      "supportedInputCount": 5,
+      "skippedInputCount": 0,
+      "supportedOutputCount": 3,
+      "skippedOutputCount": 0
+    },
+    "policySummary": {
+      "orchestrationProfile": "internal_verified",
+      "readinessState": "ready",
+      "blockingReasons": [],
+      "warnings": []
+    },
+    "trustRefs": {
+      "sourceRefs": {
+        "verifierPackageId": "uvp_1773011539619_64af9c03",
+        "externalVerifierProfileId": null,
+        "shotListId": "sl_1773011539609_356b6ab1",
+        "shotListSnapshotId": null,
+        "voiceTrackPlanId": "vtp_1773011539612_1d6de9d5",
+        "renderPlanId": null
+      },
+      "policyEvaluation": {
+        "readinessState": "blocked",
+        "blockingReasons": [
+          "trust_publication_missing"
+        ],
+        "warnings": [
+          "unsigned_proof"
+        ]
+      }
+    },
+    "metadata": {
+      "deterministic": true
+    }
+  },
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "ready",
+    "blockingReasons": [],
+    "warnings": []
+  },
+  "blockingReasons": [],
+  "warnings": [],
+  "metadata": {
+    "deterministic": true
+  }
+}

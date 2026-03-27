@@ -1,0 +1,70 @@
+{
+  "scriptId": "ns_1772999616104_efccb915",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_voice_flow"
+  },
+  "title": "Voice Fixture Flow",
+  "description": null,
+  "createdAt": "2026-03-08T19:53:36.104Z",
+  "createdBy": null,
+  "scriptVersion": "v1",
+  "styleProfile": "neutral_walkthrough",
+  "totalEstimatedDurationMs": 7621,
+  "sections": [
+    {
+      "sectionId": "sec_0_b6589fc6",
+      "stepIndex": 0,
+      "title": "Open Dashboard",
+      "narrationText": "Navigate Open Dashboard to open dashboard view.",
+      "onScreenText": "Open Dashboard",
+      "timing": {
+        "estimatedDurationMs": 3397,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "open dashboard view",
+      "metadata": {
+        "action": "navigate",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    },
+    {
+      "sectionId": "sec_1_356a192b",
+      "stepIndex": 1,
+      "title": "Upload CSV",
+      "narrationText": "Upload Upload CSV to upload customer csv for analysis.",
+      "onScreenText": "Upload CSV",
+      "timing": {
+        "estimatedDurationMs": 4224,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "upload customer csv for analysis",
+      "metadata": {
+        "action": "upload",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    }
+  ],
+  "metadata": {
+    "flowId": "fixture_voice_flow",
+    "stepCount": 2
+  }
+}

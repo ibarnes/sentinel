@@ -1,0 +1,164 @@
+{
+  "voicePlanSnapshotId": "vps_1772999615877_da486c5b",
+  "voiceTrackPlanId": "vtp_1772999615875_de86e08e",
+  "sourceType": "reviewed_script",
+  "sourceRef": {
+    "scriptId": "ns_1772999615850_db82d5ed"
+  },
+  "voiceTrackPlanVersion": "v1",
+  "createdAt": "2026-03-08T19:53:35.877Z",
+  "createdBy": "fixture",
+  "sourceScriptId": "ns_1772999615850_db82d5ed",
+  "sourceReviewedSnapshotId": null,
+  "sourceShotListId": null,
+  "sourceShotListSnapshotId": null,
+  "sourceTrustRefs": {
+    "reviewStatus": "approved"
+  },
+  "parentVoicePlanSnapshotId": null,
+  "parentVoicePlanSnapshotContentHash": null,
+  "voicePlanSnapshotChainIndex": 1,
+  "voicePlanSnapshotHashVersion": "sha256-v1",
+  "frozenVoiceTrackPlan": {
+    "voiceTrackPlanId": "vtp_1772999615875_de86e08e",
+    "sourceType": "reviewed_script",
+    "sourceRef": {
+      "scriptId": "ns_1772999615850_db82d5ed"
+    },
+    "title": "Voice Track Plan — reviewed_script",
+    "description": "Deterministic narration and caption timing plan",
+    "createdAt": "2026-03-08T19:53:35.875Z",
+    "voiceTrackPlanVersion": "v1",
+    "styleProfile": null,
+    "totalEstimatedDurationMs": 5658,
+    "segments": [
+      {
+        "segmentId": "seg_1",
+        "orderIndex": 0,
+        "sectionRef": "sec_0_b6589fc6",
+        "sceneRef": null,
+        "shotRef": null,
+        "speakerProfile": "narrator_default",
+        "narrationText": "Navigate Open to open page.",
+        "pronunciationNotes": "open page",
+        "emphasisMarkers": [
+          "none"
+        ],
+        "pauseBeforeMs": 120,
+        "pauseAfterMs": 140,
+        "estimatedDurationMs": 2569,
+        "startOffsetMs": 120,
+        "endOffsetMs": 2689,
+        "onScreenTextRef": "Open",
+        "captionRefs": [
+          "cap_1"
+        ],
+        "metadata": {}
+      },
+      {
+        "segmentId": "seg_2",
+        "orderIndex": 1,
+        "sectionRef": "sec_1_356a192b",
+        "sceneRef": null,
+        "shotRef": null,
+        "speakerProfile": "narrator_default",
+        "narrationText": "Upload Upload to upload file.",
+        "pronunciationNotes": "upload file",
+        "emphasisMarkers": [
+          "none"
+        ],
+        "pauseBeforeMs": 120,
+        "pauseAfterMs": 140,
+        "estimatedDurationMs": 2569,
+        "startOffsetMs": 2949,
+        "endOffsetMs": 5518,
+        "onScreenTextRef": "Upload",
+        "captionRefs": [
+          "cap_2"
+        ],
+        "metadata": {}
+      }
+    ],
+    "captions": [
+      {
+        "captionId": "cap_1",
+        "orderIndex": 0,
+        "sourceSegmentId": "seg_1",
+        "text": "Navigate Open to open page.",
+        "startOffsetMs": 120,
+        "endOffsetMs": 2689,
+        "lineIndex": 0,
+        "styleHint": "default",
+        "metadata": {}
+      },
+      {
+        "captionId": "cap_2",
+        "orderIndex": 1,
+        "sourceSegmentId": "seg_2",
+        "text": "Upload Upload to upload file.",
+        "startOffsetMs": 2949,
+        "endOffsetMs": 5518,
+        "lineIndex": 0,
+        "styleHint": "default",
+        "metadata": {}
+      }
+    ],
+    "subtitleTracks": [
+      {
+        "trackId": "default-en",
+        "locale": "en",
+        "formatSupport": [
+          "srt",
+          "vtt",
+          "json"
+        ],
+        "totalCueCount": 2,
+        "totalDurationMs": 5518
+      }
+    ],
+    "metadata": {
+      "locale": "en",
+      "sourceApprovalTrust": {
+        "reviewStatus": "approved"
+      }
+    }
+  },
+  "voicePlanSnapshotContentHash": "0debed14e0fb74cfc0715b8a587b6f7691a763c6307a7b2f2b223bc976b2e5b0",
+  "manifest": {
+    "voicePlanSnapshotId": "vps_1772999615877_da486c5b",
+    "voiceTrackPlanId": "vtp_1772999615875_de86e08e",
+    "voiceTrackPlanVersion": "v1",
+    "totalSegmentCount": 2,
+    "totalCaptionCount": 2,
+    "subtitleTrackSummary": [
+      {
+        "trackId": "default-en",
+        "locale": "en",
+        "formatSupport": [
+          "srt",
+          "vtt",
+          "json"
+        ],
+        "totalCueCount": 2,
+        "totalDurationMs": 5518
+      }
+    ],
+    "totalEstimatedDurationMs": 5658,
+    "sourceApprovalTrust": {
+      "reviewStatus": "approved"
+    },
+    "voicePlanSnapshotContentHash": "0debed14e0fb74cfc0715b8a587b6f7691a763c6307a7b2f2b223bc976b2e5b0",
+    "voicePlanSnapshotHashVersion": "sha256-v1",
+    "parentVoicePlanSnapshotId": null,
+    "parentVoicePlanSnapshotContentHash": null,
+    "voicePlanSnapshotChainIndex": 1,
+    "exportAvailability": {
+      "json": true,
+      "markdown": true,
+      "srt": true,
+      "vtt": true,
+      "subtitle_bundle": true
+    },
+    "createdAt": "2026-03-08T19:53:35.877Z"
+  }
+}

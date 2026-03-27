@@ -1,0 +1,226 @@
+{
+  "renderAdapterContractId": "rac_1773008736498_4cade7d8",
+  "createdAt": "2026-03-08T22:25:36.498Z",
+  "contractVersion": "v1",
+  "adapterType": "composite_render",
+  "orchestrationProfile": "internal_verified",
+  "targetRef": {
+    "renderAdapterContractId": "rac_1773008736498_4cade7d8"
+  },
+  "sourceRefs": {
+    "verifierPackageId": "uvp_1773008736495_52caee2c",
+    "externalVerifierProfileId": null,
+    "shotListId": "sl_1773008736485_75f74f81",
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": "vtp_1773008736487_958df928",
+    "renderPlanId": null
+  },
+  "readinessState": "blocked",
+  "executionPlan": {
+    "stages": [
+      {
+        "stageId": "stage_compose",
+        "stageType": "composite_manifest",
+        "orderIndex": 0,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_1",
+          "ot_2"
+        ],
+        "dependencyStageIds": [],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      }
+    ],
+    "jobs": [
+      {
+        "jobId": "job_1",
+        "jobType": "composite_manifest",
+        "stageId": "stage_compose",
+        "orderIndex": 0,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_1",
+          "ot_2"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      }
+    ],
+    "dependencies": [],
+    "timingPlan": {
+      "expectedDurationMs": 0,
+      "deterministic": true
+    },
+    "assetMap": [
+      {
+        "artifactId": "a_unified",
+        "artifactRef": {
+          "verifierPackageId": "uvp_1773008736495_52caee2c"
+        }
+      },
+      {
+        "artifactId": "a_script",
+        "artifactRef": {
+          "scriptId": "ns_1773008736466_1fe89c37"
+        }
+      },
+      {
+        "artifactId": "a_voice",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773008736487_958df928"
+        }
+      },
+      {
+        "artifactId": "a_shot",
+        "artifactRef": {
+          "shotListId": "sl_1773008736485_75f74f81"
+        }
+      },
+      {
+        "artifactId": "a_voice_plan",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773008736487_958df928"
+        }
+      }
+    ],
+    "outputPlan": [
+      {
+        "outputTargetId": "ot_1",
+        "outputType": "composite_job_manifest",
+        "format": "json",
+        "pathHint": "/outputs/composite_job_manifest.json",
+        "requiredProducerStageId": "stage_compose",
+        "readinessRequirements": [],
+        "metadata": {}
+      },
+      {
+        "outputTargetId": "ot_2",
+        "outputType": "assembly_bundle",
+        "format": "json",
+        "pathHint": "/outputs/assembly_bundle.json",
+        "requiredProducerStageId": "stage_compose",
+        "readinessRequirements": [],
+        "metadata": {}
+      }
+    ]
+  },
+  "inputArtifacts": [
+    {
+      "artifactId": "a_unified",
+      "artifactType": "unified_verifier_package",
+      "artifactRef": {
+        "verifierPackageId": "uvp_1773008736495_52caee2c"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "as_reported",
+      "integrityState": "as_reported",
+      "notes": null
+    },
+    {
+      "artifactId": "a_script",
+      "artifactType": "reviewed_script",
+      "artifactRef": {
+        "scriptId": "ns_1773008736466_1fe89c37"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "untrusted",
+      "integrityState": "pass",
+      "notes": null
+    },
+    {
+      "artifactId": "a_voice",
+      "artifactType": "voice_track_plan",
+      "artifactRef": {
+        "voiceTrackPlanId": "vtp_1773008736487_958df928"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "untrusted",
+      "integrityState": "pass",
+      "notes": null
+    },
+    {
+      "artifactId": "a_shot",
+      "artifactType": "shot_list",
+      "artifactRef": {
+        "shotListId": "sl_1773008736485_75f74f81"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "unknown",
+      "integrityState": "unknown",
+      "notes": null
+    },
+    {
+      "artifactId": "a_voice_plan",
+      "artifactType": "voice_track_plan",
+      "artifactRef": {
+        "voiceTrackPlanId": "vtp_1773008736487_958df928"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "unknown",
+      "integrityState": "unknown",
+      "notes": null
+    }
+  ],
+  "outputTargets": [
+    {
+      "outputTargetId": "ot_1",
+      "outputType": "composite_job_manifest",
+      "format": "json",
+      "pathHint": "/outputs/composite_job_manifest.json",
+      "requiredProducerStageId": "stage_compose",
+      "readinessRequirements": [],
+      "metadata": {}
+    },
+    {
+      "outputTargetId": "ot_2",
+      "outputType": "assembly_bundle",
+      "format": "json",
+      "pathHint": "/outputs/assembly_bundle.json",
+      "requiredProducerStageId": "stage_compose",
+      "readinessRequirements": [],
+      "metadata": {}
+    }
+  ],
+  "policyEvaluation": {
+    "readinessState": "blocked",
+    "blockingReasons": [
+      "trust_publication_missing"
+    ],
+    "warnings": [
+      "unsigned_proof"
+    ]
+  },
+  "blockingReasons": [
+    "trust_publication_missing"
+  ],
+  "warnings": [
+    "unsigned_proof"
+  ],
+  "metadata": {
+    "deterministic": true
+  }
+}

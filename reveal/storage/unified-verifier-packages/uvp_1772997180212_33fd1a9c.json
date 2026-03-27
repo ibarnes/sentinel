@@ -1,0 +1,137 @@
+{
+  "verifierPackageId": "uvp_1772997180212_33fd1a9c",
+  "createdAt": "2026-03-08T19:13:00.212Z",
+  "verifierVersion": "v1",
+  "sourceRefs": {
+    "scriptId": "ns_1772997180171_caa33c2a",
+    "shotListId": "sl_1772997180193_25613b40",
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": "vtp_1772997180196_b1e2b1d2",
+    "voicePlanSnapshotId": null
+  },
+  "scriptTrustSummary": {
+    "scriptId": "ns_1772997180171_caa33c2a",
+    "reviewStatus": "approved",
+    "integritySummary": {
+      "totalSnapshots": 1,
+      "matched": 1,
+      "mismatched": 0,
+      "brokenChainLinks": 0,
+      "missingHash": 0,
+      "firstBrokenSnapshotId": null,
+      "rows": [
+        {
+          "scriptId": "ns_1772997180171_caa33c2a",
+          "reviewedSnapshotId": "rss_1772997180185_a57a65bd",
+          "reviewedSnapshotChainIndex": 1,
+          "storedContentHash": "e3791571685defac9167e7b9c7a800618af6720036dc013fcc6ad4fa004aef8f",
+          "recomputedContentHash": "e3791571685defac9167e7b9c7a800618af6720036dc013fcc6ad4fa004aef8f",
+          "hashVersion": "sha256-v1",
+          "integrityStatus": "match",
+          "reasonCodes": [
+            "hash_match"
+          ]
+        }
+      ]
+    },
+    "trustPublication": {
+      "trustPublicationId": "rtp_1772997180189_12ac1999",
+      "signatureStatus": "unsigned",
+      "chainHeadDigest": "0f97504789b751004a710dcf6917f6081b5732df102f95cb3ae39de53433c790"
+    }
+  },
+  "shotTrustSummary": {
+    "shotListId": "sl_1772997180193_25613b40",
+    "sourceTrustRefs": {
+      "publishGate": {
+        "canPublish": true,
+        "blockingReasons": [],
+        "warnings": [],
+        "evaluatedAt": "2026-03-08T19:13:00.192Z"
+      },
+      "trustPublication": null
+    }
+  },
+  "voiceTrustSummary": {
+    "voiceTrackPlanId": "vtp_1772997180196_b1e2b1d2",
+    "voicePlanSnapshotId": null,
+    "integritySummary": {
+      "totalSnapshots": 1,
+      "matched": 1,
+      "mismatched": 0,
+      "brokenChainLinks": 0,
+      "missingHash": 0,
+      "firstBrokenSnapshotId": null,
+      "rows": [
+        {
+          "voiceTrackPlanId": "vtp_1772997180196_b1e2b1d2",
+          "voicePlanSnapshotId": "vps_1772997180198_ca41bc8f",
+          "voicePlanSnapshotChainIndex": 1,
+          "storedContentHash": "9fa7e2f1f4471f0b3c66bdaa1d82f9135c0744394d3f052d15d61711864e3ba0",
+          "recomputedContentHash": "9fa7e2f1f4471f0b3c66bdaa1d82f9135c0744394d3f052d15d61711864e3ba0",
+          "hashVersion": "sha256-v1",
+          "integrityStatus": "match",
+          "reasonCodes": [
+            "hash_match"
+          ]
+        }
+      ]
+    },
+    "trustPublication": {
+      "voiceTrustPublicationId": "vtpub_1772997180202_558d4004",
+      "signatureStatus": "unsigned",
+      "voiceChainHeadDigest": "31d937a1d059da6bbd3b94d9a56be662e59f81aa5b03df3844cc3182d5dda595"
+    },
+    "latestVoiceSnapshot": {
+      "voiceTrackPlanId": "vtp_1772997180196_b1e2b1d2",
+      "voicePlanSnapshotId": "vps_1772997180198_ca41bc8f",
+      "voicePlanSnapshotChainIndex": 1,
+      "storedContentHash": "9fa7e2f1f4471f0b3c66bdaa1d82f9135c0744394d3f052d15d61711864e3ba0",
+      "recomputedContentHash": "9fa7e2f1f4471f0b3c66bdaa1d82f9135c0744394d3f052d15d61711864e3ba0",
+      "hashVersion": "sha256-v1",
+      "integrityStatus": "match",
+      "reasonCodes": [
+        "hash_match"
+      ]
+    }
+  },
+  "subtitleProofSummary": {
+    "voiceTrackPlanId": "vtp_1772997180196_b1e2b1d2",
+    "readiness": {
+      "orchestrationPolicyProfile": "production_verified",
+      "policyEvaluationResult": "blocked",
+      "blockingReasons": [
+        "latest_voice_trust_publication_unsigned"
+      ],
+      "warnings": [],
+      "evaluatedAt": "2026-03-08T19:13:00.212Z"
+    },
+    "signedProofStatus": "unsigned"
+  },
+  "orchestrationPolicySummary": {
+    "orchestrationPolicyProfile": "internal_verified",
+    "policyManifestVersion": "v1",
+    "policyEvaluationResult": "warning",
+    "blockingReasons": [],
+    "warnings": [
+      "unsigned_proof"
+    ]
+  },
+  "overallVerificationStatus": "partially_verified",
+  "blockingReasons": [],
+  "warnings": [
+    "unsigned_proof"
+  ],
+  "attestationRefs": {
+    "policyProfileId": "internal_verified",
+    "policyManifestVersion": "v1"
+  },
+  "metadata": {
+    "domainStatuses": [
+      "verified",
+      "verified",
+      "verified",
+      "warning"
+    ]
+  }
+}

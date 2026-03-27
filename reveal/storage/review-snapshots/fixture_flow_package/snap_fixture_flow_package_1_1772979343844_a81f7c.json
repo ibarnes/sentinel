@@ -1,0 +1,125 @@
+{
+  "snapshotId": "snap_fixture_flow_package_1_1772979343844_a81f7c",
+  "flowId": "fixture_flow_package",
+  "reviewVersion": 1,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T14:15:43.845Z",
+  "createdBy": "fixture",
+  "sourceReviewedFlowVersion": 1,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "parentSnapshotId": null,
+  "parentSnapshotContentHash": null,
+  "snapshotChainIndex": 1,
+  "reviewedFlow": {
+    "id": "fixture_flow_package",
+    "name": "Fixture Package Flow",
+    "appHost": "app.test",
+    "reviewVersion": 1,
+    "steps": [
+      {
+        "id": "p1",
+        "index": 1,
+        "title": "Step A",
+        "action": "click",
+        "intent": null,
+        "target": {
+          "elementType": "button",
+          "text": "Open"
+        },
+        "page": {
+          "url": "https://app.test"
+        },
+        "screenshots": {
+          "beforeUrl": "/reveal/storage/assets/missing/a/before.jpg"
+        },
+        "confidence": 0.8,
+        "annotations": []
+      }
+    ]
+  },
+  "snapshotContentHash": "907377a7471f9ad4e8192110678a4b6dc01cbc645be05632ea522924813bf638",
+  "snapshotHashVersion": "sha256-v1",
+  "snapshotHashCanonicalPayload": {
+    "createdAt": "2026-03-08T14:15:43.845Z",
+    "createdBy": "fixture",
+    "flowId": "fixture_flow_package",
+    "parentSnapshotContentHash": null,
+    "parentSnapshotId": null,
+    "reviewVersion": 1,
+    "reviewedFlow": {
+      "appHost": "app.test",
+      "id": "fixture_flow_package",
+      "name": "Fixture Package Flow",
+      "reviewVersion": 1,
+      "steps": [
+        {
+          "action": "click",
+          "annotations": [],
+          "confidence": 0.8,
+          "id": "p1",
+          "index": 1,
+          "intent": null,
+          "page": {
+            "url": "https://app.test"
+          },
+          "screenshots": {
+            "beforeUrl": "/reveal/storage/assets/missing/a/before.jpg"
+          },
+          "target": {
+            "elementType": "button",
+            "text": "Open"
+          },
+          "title": "Step A"
+        }
+      ]
+    },
+    "snapshotChainIndex": 1,
+    "snapshotId": "snap_fixture_flow_package_1_1772979343844_a81f7c",
+    "snapshotVersion": 1,
+    "sourceNormalizedFlowVersion": 1,
+    "sourceReplayChecksumSummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "missing": 0,
+      "unreplayable": 0
+    },
+    "sourceReviewedFlowVersion": 1,
+    "status": "frozen"
+  },
+  "manifest": {
+    "snapshotId": "snap_fixture_flow_package_1_1772979343844_a81f7c",
+    "flowId": "fixture_flow_package",
+    "reviewVersion": 1,
+    "stepCount": 1,
+    "annotationCount": 0,
+    "screenshotCoverage": {
+      "total": 1,
+      "withBefore": 1,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "snapshotContentHash": "907377a7471f9ad4e8192110678a4b6dc01cbc645be05632ea522924813bf638",
+    "snapshotHashVersion": "sha256-v1",
+    "parentSnapshotId": null,
+    "parentSnapshotContentHash": null,
+    "snapshotChainIndex": 1,
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T14:15:43.845Z"
+  }
+}

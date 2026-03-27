@@ -1,0 +1,11 @@
+{
+  "file": "/home/ec2-user/.openclaw/workspace/mission-control/evidence/pipeline-run/2026-03-09-auth-smoke-preflight.md",
+  "checks": {
+    "has201": true,
+    "has400": true,
+    "hasRunId": true,
+    "hasStarted": true,
+    "hasEvidencePath": true
+  },
+  "pass": true
+}

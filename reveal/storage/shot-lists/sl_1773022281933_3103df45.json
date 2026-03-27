@@ -1,0 +1,137 @@
+{
+  "shotListId": "sl_1773022281933_3103df45",
+  "sourceType": "reviewed_script",
+  "sourceRef": {
+    "scriptId": "ns_1773022281913_68a69d9e"
+  },
+  "title": "Shot List — reviewed_script",
+  "description": "Deterministic production shot plan",
+  "createdAt": "2026-03-09T02:11:21.933Z",
+  "shotListVersion": "v1",
+  "styleProfile": null,
+  "totalEstimatedDurationMs": 5210,
+  "scenes": [
+    {
+      "sceneId": "scene_1",
+      "orderIndex": 0,
+      "stepIndexRange": {
+        "start": 0,
+        "end": 1
+      },
+      "title": "Start",
+      "objective": "Navigate Start to start.",
+      "estimatedDurationMs": 5210,
+      "transitionIn": "none",
+      "transitionOut": "cut",
+      "narrationSectionRefs": [
+        "sec_0_b6589fc6",
+        "sec_1_356a192b"
+      ],
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspots": [],
+        "overlay": {
+          "progressionMode": "manual",
+          "emphasisMode": "none"
+        }
+      },
+      "shots": [
+        {
+          "shotId": "shot_1_1",
+          "sceneId": "scene_1",
+          "stepIndex": 0,
+          "shotType": "full_frame",
+          "title": "Establish: Start",
+          "purpose": "Set context",
+          "sourceAssetRef": null,
+          "highlightRef": null,
+          "hotspotRefs": [],
+          "overlayRef": {
+            "progressionMode": "manual",
+            "emphasisMode": "none"
+          },
+          "estimatedDurationMs": 900,
+          "emphasis": "none",
+          "notes": null,
+          "metadata": {},
+          "startOffsetMs": 0,
+          "endOffsetMs": 900
+        },
+        {
+          "shotId": "shot_1_2",
+          "sceneId": "scene_1",
+          "stepIndex": 0,
+          "shotType": "overlay_callout",
+          "title": "Start",
+          "purpose": "Navigate Start to start.",
+          "sourceAssetRef": null,
+          "highlightRef": null,
+          "hotspotRefs": [],
+          "overlayRef": {
+            "progressionMode": "manual",
+            "emphasisMode": "none"
+          },
+          "estimatedDurationMs": 2155,
+          "emphasis": "none",
+          "notes": null,
+          "metadata": {
+            "stepIndex": 0
+          },
+          "startOffsetMs": 900,
+          "endOffsetMs": 3055
+        },
+        {
+          "shotId": "shot_1_3",
+          "sceneId": "scene_1",
+          "stepIndex": 1,
+          "shotType": "overlay_callout",
+          "title": "Next",
+          "purpose": "Click Next to next.",
+          "sourceAssetRef": null,
+          "highlightRef": null,
+          "hotspotRefs": [],
+          "overlayRef": {
+            "progressionMode": "manual",
+            "emphasisMode": "none"
+          },
+          "estimatedDurationMs": 2155,
+          "emphasis": "none",
+          "notes": null,
+          "metadata": {
+            "stepIndex": 1
+          },
+          "startOffsetMs": 3055,
+          "endOffsetMs": 5210
+        }
+      ],
+      "metadata": {
+        "progressionMode": "manual"
+      },
+      "timeline": {
+        "sceneStartMs": 0,
+        "sceneEndMs": 5210,
+        "timelineOrder": 0,
+        "linkedNarrationDurationMs": 5210,
+        "linkedVisualDurationMs": 5210,
+        "transitionPaddingMs": 0,
+        "progressionMode": "manual"
+      }
+    }
+  ],
+  "metadata": {
+    "sceneCount": 1,
+    "shotCount": 3,
+    "publishReadyMode": true,
+    "sourceApprovalTrust": {
+      "publishGate": {
+        "canPublish": true,
+        "blockingReasons": [],
+        "warnings": [],
+        "evaluatedAt": "2026-03-09T02:11:21.932Z"
+      },
+      "trustPublication": null
+    }
+  }
+}

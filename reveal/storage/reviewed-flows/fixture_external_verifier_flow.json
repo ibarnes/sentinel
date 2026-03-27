@@ -1,0 +1,25 @@
+{
+  "id": "fixture_external_verifier_flow",
+  "name": "External Verifier Fixture",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "e1",
+      "index": 1,
+      "title": "Open",
+      "action": "navigate",
+      "intent": "open",
+      "screenshots": {},
+      "annotations": []
+    },
+    {
+      "id": "e2",
+      "index": 2,
+      "title": "Upload",
+      "action": "upload",
+      "intent": "upload",
+      "screenshots": {},
+      "annotations": []
+    }
+  ]
+}

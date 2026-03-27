@@ -1,0 +1,170 @@
+{
+  "providerAdapterId": "pad_1773011539807_02451722",
+  "createdAt": "2026-03-08T23:12:19.807Z",
+  "adapterVersion": "v1",
+  "providerType": "subtitle_compositor",
+  "providerProfile": {
+    "providerProfileId": "default",
+    "capabilityVersion": "v1"
+  },
+  "sourceRenderAdapterContractId": "rac_1773011539803_eac6686e",
+  "sourceRefs": {
+    "verifierPackageId": "uvp_1773011539800_984336a7",
+    "externalVerifierProfileId": null,
+    "shotListId": "sl_1773011539790_4bb313a7",
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": "vtp_1773011539792_e1b964d5",
+    "renderPlanId": null
+  },
+  "readinessState": "unsupported_output_target",
+  "capabilitySummary": {
+    "supportedStageTypes": [
+      "subtitle_generation"
+    ],
+    "supportedJobTypes": [
+      "subtitle_generation"
+    ],
+    "supportedOutputTargets": [
+      "subtitle_track"
+    ],
+    "unsupportedFeatures": [
+      "composite_manifest",
+      "storyboard_assembly",
+      "visual_assembly"
+    ]
+  },
+  "providerManifest": {
+    "manifestType": "provider_execution_manifest",
+    "manifestVersion": "v1",
+    "providerType": "subtitle_compositor",
+    "providerProfileId": "default",
+    "sourceRenderAdapterContractId": "rac_1773011539803_eac6686e",
+    "executionStages": [],
+    "executionJobs": [],
+    "inputArtifactMap": [
+      {
+        "artifactId": "a_script",
+        "artifactType": "reviewed_script",
+        "artifactRef": {
+          "scriptId": "ns_1773011539771_33d26004"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "untrusted",
+        "integrityState": "pass",
+        "notes": null
+      },
+      {
+        "artifactId": "a_voice",
+        "artifactType": "voice_track_plan",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773011539792_e1b964d5"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "untrusted",
+        "integrityState": "pass",
+        "notes": null
+      },
+      {
+        "artifactId": "a_shot",
+        "artifactType": "shot_list",
+        "artifactRef": {
+          "shotListId": "sl_1773011539790_4bb313a7"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "unknown",
+        "integrityState": "unknown",
+        "notes": null
+      },
+      {
+        "artifactId": "a_voice_plan",
+        "artifactType": "voice_track_plan",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773011539792_e1b964d5"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "unknown",
+        "integrityState": "unknown",
+        "notes": null
+      }
+    ],
+    "outputTargetMap": [],
+    "timingHints": {
+      "expectedDurationMs": 0,
+      "deterministic": true
+    },
+    "capabilityMappingSummary": {
+      "supportedStageCount": 0,
+      "skippedStageCount": 1,
+      "supportedJobCount": 0,
+      "skippedJobCount": 1,
+      "supportedInputCount": 4,
+      "skippedInputCount": 1,
+      "supportedOutputCount": 0,
+      "skippedOutputCount": 2
+    },
+    "policySummary": {
+      "orchestrationProfile": "internal_verified",
+      "readinessState": "unsupported_output_target",
+      "blockingReasons": [
+        "unsupported_stage_type",
+        "unsupported_job_type",
+        "unsupported_output_target",
+        "missing_required_output_target"
+      ],
+      "warnings": [
+        "unsupported_input_artifact_pruned"
+      ]
+    },
+    "trustRefs": {
+      "sourceRefs": {
+        "verifierPackageId": "uvp_1773011539800_984336a7",
+        "externalVerifierProfileId": null,
+        "shotListId": "sl_1773011539790_4bb313a7",
+        "shotListSnapshotId": null,
+        "voiceTrackPlanId": "vtp_1773011539792_e1b964d5",
+        "renderPlanId": null
+      },
+      "policyEvaluation": {
+        "readinessState": "blocked",
+        "blockingReasons": [
+          "trust_publication_missing"
+        ],
+        "warnings": [
+          "unsigned_proof"
+        ]
+      }
+    },
+    "metadata": {
+      "deterministic": true
+    }
+  },
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "unsupported_output_target",
+    "blockingReasons": [
+      "unsupported_stage_type",
+      "unsupported_job_type",
+      "unsupported_output_target",
+      "missing_required_output_target"
+    ],
+    "warnings": [
+      "unsupported_input_artifact_pruned"
+    ]
+  },
+  "blockingReasons": [
+    "unsupported_stage_type",
+    "unsupported_job_type",
+    "unsupported_output_target",
+    "missing_required_output_target"
+  ],
+  "warnings": [
+    "unsupported_input_artifact_pruned"
+  ],
+  "metadata": {
+    "deterministic": true
+  }
+}

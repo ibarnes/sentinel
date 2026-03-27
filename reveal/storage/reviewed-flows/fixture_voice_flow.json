@@ -1,0 +1,30 @@
+{
+  "id": "fixture_voice_flow",
+  "name": "Voice Fixture Flow",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "v1",
+      "index": 1,
+      "title": "Open Dashboard",
+      "action": "navigate",
+      "intent": "open dashboard view",
+      "screenshots": {},
+      "annotations": []
+    },
+    {
+      "id": "v2",
+      "index": 2,
+      "title": "Upload CSV",
+      "action": "upload",
+      "intent": "upload customer csv for analysis",
+      "screenshots": {},
+      "annotations": [
+        {
+          "author": "qa",
+          "text": "Use sample"
+        }
+      ]
+    }
+  ]
+}

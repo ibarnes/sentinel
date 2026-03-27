@@ -1,3 +1,8 @@
+---
+status: Approved
+architect_decision: Approve
+architect_notes: Done
+---
 # Review Packet — Signal Pressure Monitor (2026-03-08T04:22:29.614Z)
 
 ## Observations

@@ -1,0 +1,104 @@
+{
+  "voiceTrackPlanId": "vtp_1773008736759_c9743cb2",
+  "sourceType": "reviewed_script",
+  "sourceRef": {
+    "scriptId": "ns_1773008736735_7aaf8cde"
+  },
+  "title": "Voice Track Plan — reviewed_script",
+  "description": "Deterministic narration and caption timing plan",
+  "createdAt": "2026-03-08T22:25:36.759Z",
+  "voiceTrackPlanVersion": "v1",
+  "styleProfile": null,
+  "totalEstimatedDurationMs": 4830,
+  "segments": [
+    {
+      "segmentId": "seg_1",
+      "orderIndex": 0,
+      "sectionRef": "sec_0_b6589fc6",
+      "sceneRef": null,
+      "shotRef": null,
+      "speakerProfile": "narrator_default",
+      "narrationText": "Navigate Open to open.",
+      "pronunciationNotes": "open",
+      "emphasisMarkers": [
+        "none"
+      ],
+      "pauseBeforeMs": 120,
+      "pauseAfterMs": 140,
+      "estimatedDurationMs": 2155,
+      "startOffsetMs": 120,
+      "endOffsetMs": 2275,
+      "onScreenTextRef": "Open",
+      "captionRefs": [
+        "cap_1"
+      ],
+      "metadata": {}
+    },
+    {
+      "segmentId": "seg_2",
+      "orderIndex": 1,
+      "sectionRef": "sec_1_356a192b",
+      "sceneRef": null,
+      "shotRef": null,
+      "speakerProfile": "narrator_default",
+      "narrationText": "Upload Upload to upload.",
+      "pronunciationNotes": "upload",
+      "emphasisMarkers": [
+        "none"
+      ],
+      "pauseBeforeMs": 120,
+      "pauseAfterMs": 140,
+      "estimatedDurationMs": 2155,
+      "startOffsetMs": 2535,
+      "endOffsetMs": 4690,
+      "onScreenTextRef": "Upload",
+      "captionRefs": [
+        "cap_2"
+      ],
+      "metadata": {}
+    }
+  ],
+  "captions": [
+    {
+      "captionId": "cap_1",
+      "orderIndex": 0,
+      "sourceSegmentId": "seg_1",
+      "text": "Navigate Open to open.",
+      "startOffsetMs": 120,
+      "endOffsetMs": 2275,
+      "lineIndex": 0,
+      "styleHint": "default",
+      "metadata": {}
+    },
+    {
+      "captionId": "cap_2",
+      "orderIndex": 1,
+      "sourceSegmentId": "seg_2",
+      "text": "Upload Upload to upload.",
+      "startOffsetMs": 2535,
+      "endOffsetMs": 4690,
+      "lineIndex": 0,
+      "styleHint": "default",
+      "metadata": {}
+    }
+  ],
+  "subtitleTracks": [
+    {
+      "trackId": "default-en",
+      "locale": "en",
+      "formatSupport": [
+        "srt",
+        "vtt",
+        "json"
+      ],
+      "totalCueCount": 2,
+      "totalDurationMs": 4690
+    }
+  ],
+  "metadata": {
+    "locale": "en",
+    "sourceApprovalTrust": {
+      "reviewStatus": "approved"
+    }
+  }
+}

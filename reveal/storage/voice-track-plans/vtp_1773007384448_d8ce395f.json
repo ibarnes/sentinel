@@ -1,0 +1,149 @@
+{
+  "voiceTrackPlanId": "vtp_1773007384448_d8ce395f",
+  "sourceType": "shot_list",
+  "sourceRef": {
+    "shotListId": "sl_1773007384446_8dcc9d00"
+  },
+  "title": "Voice Track Plan — shot_list",
+  "description": "Deterministic narration and caption timing plan",
+  "createdAt": "2026-03-08T22:03:04.449Z",
+  "voiceTrackPlanVersion": "v1",
+  "styleProfile": null,
+  "totalEstimatedDurationMs": 9181,
+  "segments": [
+    {
+      "segmentId": "seg_1",
+      "orderIndex": 0,
+      "sectionRef": null,
+      "sceneRef": "scene_1",
+      "shotRef": "shot_1_1",
+      "speakerProfile": "narrator_default",
+      "narrationText": "Set context",
+      "pronunciationNotes": null,
+      "emphasisMarkers": [
+        "none"
+      ],
+      "pauseBeforeMs": 100,
+      "pauseAfterMs": 120,
+      "estimatedDurationMs": 900,
+      "startOffsetMs": 100,
+      "endOffsetMs": 1000,
+      "onScreenTextRef": "Establish: Open Dashboard",
+      "captionRefs": [
+        "cap_1"
+      ],
+      "metadata": {}
+    },
+    {
+      "segmentId": "seg_2",
+      "orderIndex": 1,
+      "sectionRef": null,
+      "sceneRef": "scene_1",
+      "shotRef": "shot_1_2",
+      "speakerProfile": "narrator_default",
+      "narrationText": "Navigate Open Dashboard to open dashboard view.",
+      "pronunciationNotes": null,
+      "emphasisMarkers": [
+        "none"
+      ],
+      "pauseBeforeMs": 100,
+      "pauseAfterMs": 120,
+      "estimatedDurationMs": 3397,
+      "startOffsetMs": 1220,
+      "endOffsetMs": 4617,
+      "onScreenTextRef": "Open Dashboard",
+      "captionRefs": [
+        "cap_2"
+      ],
+      "metadata": {}
+    },
+    {
+      "segmentId": "seg_3",
+      "orderIndex": 2,
+      "sectionRef": null,
+      "sceneRef": "scene_1",
+      "shotRef": "shot_1_3",
+      "speakerProfile": "narrator_default",
+      "narrationText": "Upload Upload CSV to upload customer csv for analysis.",
+      "pronunciationNotes": null,
+      "emphasisMarkers": [
+        "none"
+      ],
+      "pauseBeforeMs": 100,
+      "pauseAfterMs": 120,
+      "estimatedDurationMs": 4224,
+      "startOffsetMs": 4837,
+      "endOffsetMs": 9061,
+      "onScreenTextRef": "Upload CSV",
+      "captionRefs": [
+        "cap_3"
+      ],
+      "metadata": {}
+    }
+  ],
+  "captions": [
+    {
+      "captionId": "cap_1",
+      "orderIndex": 0,
+      "sourceSegmentId": "seg_1",
+      "text": "Set context",
+      "startOffsetMs": 100,
+      "endOffsetMs": 1000,
+      "lineIndex": 0,
+      "styleHint": "default",
+      "metadata": {}
+    },
+    {
+      "captionId": "cap_2",
+      "orderIndex": 1,
+      "sourceSegmentId": "seg_2",
+      "text": "Navigate Open Dashboard to open dashboard view.",
+      "startOffsetMs": 1220,
+      "endOffsetMs": 4617,
+      "lineIndex": 0,
+      "styleHint": "default",
+      "metadata": {}
+    },
+    {
+      "captionId": "cap_3",
+      "orderIndex": 2,
+      "sourceSegmentId": "seg_3",
+      "text": "Upload Upload CSV to upload customer csv for analysis.",
+      "startOffsetMs": 4837,
+      "endOffsetMs": 9061,
+      "lineIndex": 0,
+      "styleHint": "default",
+      "metadata": {}
+    }
+  ],
+  "subtitleTracks": [
+    {
+      "trackId": "default-en",
+      "locale": "en",
+      "formatSupport": [
+        "srt",
+        "vtt",
+        "json"
+      ],
+      "totalCueCount": 3,
+      "totalDurationMs": 9061
+    }
+  ],
+  "metadata": {
+    "locale": "en",
+    "sourceApprovalTrust": {
+      "sceneCount": 1,
+      "shotCount": 3,
+      "publishReadyMode": true,
+      "sourceApprovalTrust": {
+        "publishGate": {
+          "canPublish": true,
+          "blockingReasons": [],
+          "warnings": [],
+          "evaluatedAt": "2026-03-08T22:03:04.445Z"
+        },
+        "trustPublication": null
+      }
+    }
+  }
+}

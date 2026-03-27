@@ -155,5 +155,122 @@
         }
       ]
     }
-  ]
+  ],
+  "buyer_access_last": {
+    "top10": [
+      "Public Investment Fund",
+      "Gulf Investment Corporation",
+      "Africa Finance Corporation",
+      "Nigeria Sovereign Investment Authority",
+      "Federal Ministry of Finance (Nigeria)",
+      "Abu Dhabi Fund for Development",
+      "Saudi Fund for Development",
+      "African Development Bank",
+      "International Finance Corporation",
+      "Mubadala Investment Company"
+    ],
+    "missing_decision_coverage": [
+      "Public Investment Fund",
+      "Gulf Investment Corporation",
+      "Africa Finance Corporation",
+      "Nigeria Sovereign Investment Authority",
+      "Federal Ministry of Finance (Nigeria)",
+      "Abu Dhabi Fund for Development",
+      "Saudi Fund for Development",
+      "African Development Bank",
+      "International Finance Corporation",
+      "Mubadala Investment Company"
+    ],
+    "stale_contact_paths": [
+      {
+        "buyer": "TAFF",
+        "status": "Warming",
+        "age_days": 20
+      }
+    ],
+    "high_influence_no_path": [],
+    "metadata_drift": [
+      {
+        "buyer": "Public Investment Fund",
+        "missing": [
+          "buyer_name",
+          "hq",
+          "region"
+        ]
+      },
+      {
+        "buyer": "Gulf Investment Corporation",
+        "missing": [
+          "buyer_name",
+          "hq",
+          "region"
+        ]
+      },
+      {
+        "buyer": "Africa Finance Corporation",
+        "missing": [
+          "buyer_name",
+          "hq",
+          "region"
+        ]
+      },
+      {
+        "buyer": "Nigeria Sovereign Investment Authority",
+        "missing": [
+          "buyer_name",
+          "hq",
+          "region"
+        ]
+      },
+      {
+        "buyer": "Federal Ministry of Finance (Nigeria)",
+        "missing": [
+          "buyer_name",
+          "hq",
+          "region"
+        ]
+      },
+      {
+        "buyer": "Abu Dhabi Fund for Development",
+        "missing": [
+          "buyer_name",
+          "hq",
+          "region"
+        ]
+      },
+      {
+        "buyer": "Saudi Fund for Development",
+        "missing": [
+          "buyer_name",
+          "hq",
+          "region"
+        ]
+      },
+      {
+        "buyer": "African Development Bank",
+        "missing": [
+          "buyer_name",
+          "hq",
+          "region"
+        ]
+      },
+      {
+        "buyer": "International Finance Corporation",
+        "missing": [
+          "buyer_name",
+          "hq",
+          "region"
+        ]
+      },
+      {
+        "buyer": "Mubadala Investment Company",
+        "missing": [
+          "buyer_name",
+          "hq",
+          "region"
+        ]
+      }
+    ]
+  },
+  "buyer_access_last_checked_at": "2026-03-26T14:57:58.387059+00:00"
 }

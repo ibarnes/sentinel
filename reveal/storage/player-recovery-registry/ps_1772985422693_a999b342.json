@@ -1,0 +1,19 @@
+{
+  "sessionId": "ps_1772985422693_a999b342",
+  "sourceType": "reviewed_flow",
+  "flowId": "fixture_player_interaction_flow",
+  "snapshotId": null,
+  "packageRef": null,
+  "packageContentHash": null,
+  "packageManifestSummary": {
+    "stepCount": 2,
+    "title": "Interaction Fixture"
+  },
+  "sourceRetentionPolicy": "ephemeral_only",
+  "recoverabilityStatus": "recoverable",
+  "createdAt": "2026-03-08T15:57:02.695Z",
+  "updatedAt": "2026-03-08T15:57:02.701Z",
+  "lastRecoveryAttemptAt": null,
+  "lastRecoveryStatus": null,
+  "recoveryError": null
+}

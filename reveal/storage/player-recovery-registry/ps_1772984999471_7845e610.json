@@ -1,0 +1,21 @@
+{
+  "sessionId": "ps_1772984999471_7845e610",
+  "sourceType": "reveal_package",
+  "flowId": "fixture_player_session_flow",
+  "snapshotId": null,
+  "packageRef": {
+    "token": "pkg_1772984999471_0c650b"
+  },
+  "packageContentHash": "12102cf00493b24b24392c9a10b47ebd2d44d770bb0371427ad1a4e29f2efbed",
+  "packageManifestSummary": {
+    "stepCount": 2,
+    "title": "Player Session Fixture"
+  },
+  "sourceRetentionPolicy": "retained_package_copy",
+  "recoverabilityStatus": "recoverable",
+  "createdAt": "2026-03-08T15:49:59.477Z",
+  "updatedAt": "2026-03-08T15:49:59.478Z",
+  "lastRecoveryAttemptAt": null,
+  "lastRecoveryStatus": null,
+  "recoveryError": null
+}

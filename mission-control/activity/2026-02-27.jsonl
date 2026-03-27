@@ -1,0 +1,18 @@
+{"ts":"2026-02-27T01:36:42.655Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-02-27T13:25:34.601Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-02-27T16:24:35.675Z","actor":"unknown","role":"anonymous","event_type":"permission.denied","entity_type":"route","entity_id":"/api/buyers/AFC/upgrade-status","meta":{"required_roles":["architect","editor"]}}
+{"ts":"2026-02-27T17:21:31.463Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-02-27T18:24:36.182Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-02-27T18:24:38.803Z","actor":"isaac","role":"architect","event_type":"task.move","entity_type":"task","entity_id":"TASK-0001","meta":{"before":{"status":"Backlog","review_packet_id":null},"after":{"status":"Doing","review_packet_id":null}}}
+{"ts":"2026-02-27T18:24:40.621Z","actor":"isaac","role":"architect","event_type":"task.move","entity_type":"task","entity_id":"TASK-0001","meta":{"before":{"status":"Doing","review_packet_id":null},"after":{"status":"Backlog","review_packet_id":null}}}
+{"ts":"2026-02-27T19:14:23.628Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-02-27T19:14:26.880Z","actor":"isaac","role":"architect","event_type":"task.move","entity_type":"task","entity_id":"TASK-0001","meta":{"before":{"status":"Backlog","review_packet_id":null},"after":{"status":"Backlog","review_packet_id":null}}}
+{"ts":"2026-02-27T19:37:19.892Z","actor":"isaac","role":"architect","event_type":"task.move","entity_type":"task","entity_id":"TASK-0001","meta":{"before":{"status":"Backlog","review_packet_id":null},"after":{"status":"Doing","review_packet_id":null}}}
+{"ts":"2026-02-27T19:37:21.367Z","actor":"isaac","role":"architect","event_type":"task.move","entity_type":"task","entity_id":"TASK-0001","meta":{"before":{"status":"Doing","review_packet_id":null},"after":{"status":"Backlog","review_packet_id":null}}}
+{"ts":"2026-02-27T19:37:37.242Z","actor":"isaac","role":"architect","event_type":"task.move","entity_type":"task","entity_id":"TASK-0002","meta":{"before":{"status":"Backlog","review_packet_id":null},"after":{"status":"Backlog","review_packet_id":null}}}
+{"ts":"2026-02-27T20:58:57.062Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-02-27T20:58:57.615Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-02-27T22:34:13.437Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-02-27T22:42:25.124Z","actor":"isaac","role":"architect","event_type":"initiative.gate.update","entity_type":"initiative","entity_id":"INIT-001","meta":{"gate_stage":"Gate 2"}}
+{"ts":"2026-02-27T22:54:38.513Z","actor":"isaac","role":"architect","event_type":"initiative.gate.update","entity_type":"initiative","entity_id":"INIT-001","meta":{"gate_stage":"Gate 1"}}
+{"ts":"2026-02-27T23:11:41.433Z","actor":"isaac","role":"architect","event_type":"workflow.run","entity_type":"initiative_suggestion","entity_id":"NSIA","meta":{"count":5}}

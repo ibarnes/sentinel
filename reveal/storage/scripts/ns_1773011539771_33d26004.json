@@ -1,0 +1,70 @@
+{
+  "scriptId": "ns_1773011539771_33d26004",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_provider_adapter_flow"
+  },
+  "title": "Provider Adapter Fixture Flow",
+  "description": null,
+  "createdAt": "2026-03-08T23:12:19.771Z",
+  "createdBy": null,
+  "scriptVersion": "v1",
+  "styleProfile": "neutral_walkthrough",
+  "totalEstimatedDurationMs": 4310,
+  "sections": [
+    {
+      "sectionId": "sec_0_b6589fc6",
+      "stepIndex": 0,
+      "title": "Start",
+      "narrationText": "Navigate Start to start.",
+      "onScreenText": "Start",
+      "timing": {
+        "estimatedDurationMs": 2155,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "start",
+      "metadata": {
+        "action": "navigate",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    },
+    {
+      "sectionId": "sec_1_356a192b",
+      "stepIndex": 1,
+      "title": "Continue",
+      "narrationText": "Click Continue to continue.",
+      "onScreenText": "Continue",
+      "timing": {
+        "estimatedDurationMs": 2155,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "continue",
+      "metadata": {
+        "action": "click",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    }
+  ],
+  "metadata": {
+    "flowId": "fixture_provider_adapter_flow",
+    "stepCount": 2
+  }
+}

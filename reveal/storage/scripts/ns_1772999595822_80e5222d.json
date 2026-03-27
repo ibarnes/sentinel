@@ -1,0 +1,70 @@
+{
+  "scriptId": "ns_1772999595822_80e5222d",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_external_verifier_flow"
+  },
+  "title": "External Verifier Fixture",
+  "description": null,
+  "createdAt": "2026-03-08T19:53:15.823Z",
+  "createdBy": null,
+  "scriptVersion": "v1",
+  "styleProfile": "neutral_walkthrough",
+  "totalEstimatedDurationMs": 4310,
+  "sections": [
+    {
+      "sectionId": "sec_0_b6589fc6",
+      "stepIndex": 0,
+      "title": "Open",
+      "narrationText": "Navigate Open to open.",
+      "onScreenText": "Open",
+      "timing": {
+        "estimatedDurationMs": 2155,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "open",
+      "metadata": {
+        "action": "navigate",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    },
+    {
+      "sectionId": "sec_1_356a192b",
+      "stepIndex": 1,
+      "title": "Upload",
+      "narrationText": "Upload Upload to upload.",
+      "onScreenText": "Upload",
+      "timing": {
+        "estimatedDurationMs": 2155,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "upload",
+      "metadata": {
+        "action": "upload",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    }
+  ],
+  "metadata": {
+    "flowId": "fixture_external_verifier_flow",
+    "stepCount": 2
+  }
+}

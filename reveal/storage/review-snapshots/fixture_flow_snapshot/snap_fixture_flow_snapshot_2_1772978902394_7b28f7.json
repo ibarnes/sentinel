@@ -1,0 +1,159 @@
+{
+  "snapshotId": "snap_fixture_flow_snapshot_2_1772978902394_7b28f7",
+  "flowId": "fixture_flow_snapshot",
+  "reviewVersion": 2,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T14:08:22.396Z",
+  "createdBy": "fixture",
+  "sourceReviewedFlowVersion": 2,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "parentSnapshotId": "snap_fixture_flow_snapshot_1_1772978902384_28f7f6",
+  "parentSnapshotContentHash": "broken-parent-hash",
+  "snapshotChainIndex": 2,
+  "reviewedFlow": {
+    "id": "fixture_flow_snapshot",
+    "name": "Fixture Flow Snapshot",
+    "description": "snapshot fixture",
+    "appHost": "app.test",
+    "version": 1,
+    "reviewVersion": 2,
+    "steps": [
+      {
+        "id": "s1",
+        "index": 1,
+        "title": "Step 1",
+        "action": "click",
+        "intent": null,
+        "target": {
+          "elementType": "button",
+          "text": "A"
+        },
+        "page": {
+          "url": "https://app.test"
+        },
+        "screenshots": {},
+        "confidence": 0.8,
+        "annotations": []
+      },
+      {
+        "id": "s2",
+        "index": 2,
+        "title": "Step 2",
+        "action": "submit",
+        "intent": null,
+        "target": {
+          "elementType": "submit_action",
+          "text": "B"
+        },
+        "page": {
+          "url": "https://app.test/b"
+        },
+        "screenshots": {},
+        "confidence": 0.7,
+        "annotations": []
+      }
+    ]
+  },
+  "snapshotContentHash": "09ebb5640b41973b2758f1903042b7176c59211c7ef20b69852bd88200b8ab59",
+  "snapshotHashVersion": "sha256-v1",
+  "snapshotHashCanonicalPayload": {
+    "createdAt": "2026-03-08T14:08:22.396Z",
+    "createdBy": "fixture",
+    "flowId": "fixture_flow_snapshot",
+    "parentSnapshotContentHash": "57046a6cdbc177b48acd1fcd3594dfe12ef858aa3a2b9e3194287151c7ef3a5b",
+    "parentSnapshotId": "snap_fixture_flow_snapshot_1_1772978902384_28f7f6",
+    "reviewVersion": 2,
+    "reviewedFlow": {
+      "appHost": "app.test",
+      "description": "snapshot fixture",
+      "id": "fixture_flow_snapshot",
+      "name": "Fixture Flow Snapshot",
+      "reviewVersion": 2,
+      "steps": [
+        {
+          "action": "click",
+          "annotations": [],
+          "confidence": 0.8,
+          "id": "s1",
+          "index": 1,
+          "intent": null,
+          "page": {
+            "url": "https://app.test"
+          },
+          "screenshots": {},
+          "target": {
+            "elementType": "button",
+            "text": "A"
+          },
+          "title": "Step 1"
+        },
+        {
+          "action": "submit",
+          "annotations": [],
+          "confidence": 0.7,
+          "id": "s2",
+          "index": 2,
+          "intent": null,
+          "page": {
+            "url": "https://app.test/b"
+          },
+          "screenshots": {},
+          "target": {
+            "elementType": "submit_action",
+            "text": "B"
+          },
+          "title": "Step 2"
+        }
+      ],
+      "version": 1
+    },
+    "snapshotChainIndex": 2,
+    "snapshotId": "snap_fixture_flow_snapshot_2_1772978902394_7b28f7",
+    "snapshotVersion": 1,
+    "sourceNormalizedFlowVersion": 1,
+    "sourceReplayChecksumSummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "missing": 0,
+      "unreplayable": 0
+    },
+    "sourceReviewedFlowVersion": 2,
+    "status": "frozen"
+  },
+  "manifest": {
+    "snapshotId": "snap_fixture_flow_snapshot_2_1772978902394_7b28f7",
+    "flowId": "fixture_flow_snapshot",
+    "reviewVersion": 2,
+    "stepCount": 2,
+    "annotationCount": 0,
+    "screenshotCoverage": {
+      "total": 2,
+      "withBefore": 0,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "snapshotContentHash": "09ebb5640b41973b2758f1903042b7176c59211c7ef20b69852bd88200b8ab59",
+    "snapshotHashVersion": "sha256-v1",
+    "parentSnapshotId": "snap_fixture_flow_snapshot_1_1772978902384_28f7f6",
+    "parentSnapshotContentHash": "57046a6cdbc177b48acd1fcd3594dfe12ef858aa3a2b9e3194287151c7ef3a5b",
+    "snapshotChainIndex": 2,
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T14:08:22.396Z"
+  }
+}

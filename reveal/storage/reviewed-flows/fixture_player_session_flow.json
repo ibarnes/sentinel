@@ -1,0 +1,23 @@
+{
+  "id": "fixture_player_session_flow",
+  "name": "Player Session Fixture",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "s1",
+      "index": 1,
+      "title": "A",
+      "action": "click",
+      "screenshots": {},
+      "annotations": []
+    },
+    {
+      "id": "s2",
+      "index": 2,
+      "title": "B",
+      "action": "click",
+      "screenshots": {},
+      "annotations": []
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "attestationSnapshotId": "ats_1773003319075_ad02c89b",
+  "verifierPackageId": "uvp_1773003319053_8983a2d4",
+  "attestationReportId": "ar_1773003319074_f9d7225f",
+  "createdAt": "2026-03-08T20:55:19.075Z",
+  "createdBy": "fixture",
+  "policyProfile": "internal_verified",
+  "overallVerificationStatus": "partially_verified",
+  "parentAttestationSnapshotId": null,
+  "parentAttestationSnapshotContentHash": null,
+  "attestationSnapshotChainIndex": 1,
+  "attestationSnapshotHashVersion": "sha256-v1",
+  "frozenAttestation": {
+    "attestationReportId": "ar_1773003319074_f9d7225f",
+    "verifierPackageId": "uvp_1773003319053_8983a2d4",
+    "createdAt": "2026-03-08T20:55:19.074Z",
+    "sourceRefs": {
+      "scriptId": "ns_1773003319011_7f5717a3",
+      "shotListId": "sl_1773003319035_b9f17ac3",
+      "shotListSnapshotId": null,
+      "voiceTrackPlanId": "vtp_1773003319037_45dca491",
+      "voicePlanSnapshotId": null
+    },
+    "policyProfile": "internal_verified",
+    "domainResults": {
+      "script": {
+        "scriptId": "ns_1773003319011_7f5717a3",
+        "reviewStatus": "approved",
+        "integritySummary": {
+          "totalSnapshots": 1,
+          "matched": 1,
+          "mismatched": 0,
+          "brokenChainLinks": 0,
+          "missingHash": 0,
+          "firstBrokenSnapshotId": null,
+          "rows": [
+            {
+              "scriptId": "ns_1773003319011_7f5717a3",
+              "reviewedSnapshotId": "rss_1773003319027_22c89860",
+              "reviewedSnapshotChainIndex": 1,
+              "storedContentHash": "42b263e35acaa2e78d5edf3df5ceaed36d398357f9384ad675038f08c85416bc",
+              "recomputedContentHash": "42b263e35acaa2e78d5edf3df5ceaed36d398357f9384ad675038f08c85416bc",
+              "hashVersion": "sha256-v1",
+              "integrityStatus": "match",
+              "reasonCodes": [
+                "hash_match"
+              ]
+            }
+          ]
+        },
+        "trustPublication": {
+          "trustPublicationId": "rtp_1773003319031_c1259fcd",
+          "signatureStatus": "unsigned",
+          "chainHeadDigest": "11497260c2379d5f959f35e725a6bb99b53a2201fde441dca535cf7e85aa75cc"
+        }
+      },
+      "shot": {
+        "shotListId": "sl_1773003319035_b9f17ac3",
+        "sourceTrustRefs": {
+          "publishGate": {
+            "canPublish": true,
+            "blockingReasons": [],
+            "warnings": [],
+            "evaluatedAt": "2026-03-08T20:55:19.034Z"
+          },
+          "trustPublication": null
+        }
+      },
+      "voice": {
+        "voiceTrackPlanId": "vtp_1773003319037_45dca491",
+        "voicePlanSnapshotId": null,
+        "integritySummary": {
+          "totalSnapshots": 1,
+          "matched": 1,
+          "mismatched": 0,
+          "brokenChainLinks": 0,
+          "missingHash": 0,
+          "firstBrokenSnapshotId": null,
+          "rows": [
+            {
+              "voiceTrackPlanId": "vtp_1773003319037_45dca491",
+              "voicePlanSnapshotId": "vps_1773003319039_fb73275a",
+              "voicePlanSnapshotChainIndex": 1,
+              "storedContentHash": "47bbcfd18127d7f5ea88859ffaede032368766ea7e5b60c7f632e3a81fde515d",
+              "recomputedContentHash": "47bbcfd18127d7f5ea88859ffaede032368766ea7e5b60c7f632e3a81fde515d",
+              "hashVersion": "sha256-v1",
+              "integrityStatus": "match",
+              "reasonCodes": [
+                "hash_match"
+              ]
+            }
+          ]
+        },
+        "trustPublication": {
+          "voiceTrustPublicationId": "vtpub_1773003319042_c21159df",
+          "signatureStatus": "unsigned",
+          "voiceChainHeadDigest": "5bc2e3efc8e15b910c765cba46ec5563756b2b557ffadb79e94948cd8b9a0cea"
+        },
+        "latestVoiceSnapshot": {
+          "voiceTrackPlanId": "vtp_1773003319037_45dca491",
+          "voicePlanSnapshotId": "vps_1773003319039_fb73275a",
+          "voicePlanSnapshotChainIndex": 1,
+          "storedContentHash": "47bbcfd18127d7f5ea88859ffaede032368766ea7e5b60c7f632e3a81fde515d",
+          "recomputedContentHash": "47bbcfd18127d7f5ea88859ffaede032368766ea7e5b60c7f632e3a81fde515d",
+          "hashVersion": "sha256-v1",
+          "integrityStatus": "match",
+          "reasonCodes": [
+            "hash_match"
+          ]
+        }
+      },
+      "subtitle": {
+        "voiceTrackPlanId": "vtp_1773003319037_45dca491",
+        "readiness": {
+          "orchestrationPolicyProfile": "production_verified",
+          "policyEvaluationResult": "blocked",
+          "blockingReasons": [
+            "latest_voice_trust_publication_unsigned"
+          ],
+          "warnings": [],
+          "evaluatedAt": "2026-03-08T20:55:19.052Z"
+        },
+        "signedProofStatus": "unsigned"
+      }
+    },
+    "overallVerificationStatus": "partially_verified",
+    "blockingReasons": [],
+    "warnings": [
+      "unsigned_proof"
+    ],
+    "trustPublications": {
+      "script": {
+        "trustPublicationId": "rtp_1773003319031_c1259fcd",
+        "signatureStatus": "unsigned",
+        "chainHeadDigest": "11497260c2379d5f959f35e725a6bb99b53a2201fde441dca535cf7e85aa75cc"
+      },
+      "voice": {
+        "voiceTrustPublicationId": "vtpub_1773003319042_c21159df",
+        "signatureStatus": "unsigned",
+        "voiceChainHeadDigest": "5bc2e3efc8e15b910c765cba46ec5563756b2b557ffadb79e94948cd8b9a0cea"
+      }
+    },
+    "integritySummaries": {
+      "script": {
+        "totalSnapshots": 1,
+        "matched": 1,
+        "mismatched": 0,
+        "brokenChainLinks": 0,
+        "missingHash": 0,
+        "firstBrokenSnapshotId": null,
+        "rows": [
+          {
+            "scriptId": "ns_1773003319011_7f5717a3",
+            "reviewedSnapshotId": "rss_1773003319027_22c89860",
+            "reviewedSnapshotChainIndex": 1,
+            "storedContentHash": "42b263e35acaa2e78d5edf3df5ceaed36d398357f9384ad675038f08c85416bc",
+            "recomputedContentHash": "42b263e35acaa2e78d5edf3df5ceaed36d398357f9384ad675038f08c85416bc",
+            "hashVersion": "sha256-v1",
+            "integrityStatus": "match",
+            "reasonCodes": [
+              "hash_match"
+            ]
+          }
+        ]
+      },
+      "voice": {
+        "totalSnapshots": 1,
+        "matched": 1,
+        "mismatched": 0,
+        "brokenChainLinks": 0,
+        "missingHash": 0,
+        "firstBrokenSnapshotId": null,
+        "rows": [
+          {
+            "voiceTrackPlanId": "vtp_1773003319037_45dca491",
+            "voicePlanSnapshotId": "vps_1773003319039_fb73275a",
+            "voicePlanSnapshotChainIndex": 1,
+            "storedContentHash": "47bbcfd18127d7f5ea88859ffaede032368766ea7e5b60c7f632e3a81fde515d",
+            "recomputedContentHash": "47bbcfd18127d7f5ea88859ffaede032368766ea7e5b60c7f632e3a81fde515d",
+            "hashVersion": "sha256-v1",
+            "integrityStatus": "match",
+            "reasonCodes": [
+              "hash_match"
+            ]
+          }
+        ]
+      }
+    },
+    "signatureSummaries": {
+      "policyManifestSignatureStatus": "unsigned",
+      "scriptTrustSignatureStatus": "unsigned",
+      "voiceTrustSignatureStatus": "unsigned"
+    },
+    "attestationDigest": "40435f72de0f519e8459aa638933e2491dde5c6a10efe6019ccb92116c2cd8ee",
+    "metadata": {
+      "verifierVersion": "v1"
+    },
+    "attestationSignature": null,
+    "attestationSignatureVersion": "attestation-sig-v1",
+    "attestationSigningKeyId": null,
+    "attestationSigningAlgorithm": "RSA-SHA256",
+    "attestationSignatureStatus": "unsigned",
+    "attestationVerificationScope": "attestation-report-core",
+    "attestationSignatureValid": null,
+    "unsignedReason": "missing_key"
+  },
+  "attestationSnapshotContentHash": "fce6fbead88185fadaf112340e54306cb79765793d8ed0ebdfa2a4baf540875f",
+  "manifest": {
+    "attestationSnapshotId": "ats_1773003319075_ad02c89b",
+    "verifierPackageId": "uvp_1773003319053_8983a2d4",
+    "attestationReportId": "ar_1773003319074_f9d7225f",
+    "policyProfile": "internal_verified",
+    "overallVerificationStatus": "partially_verified",
+    "attestationSnapshotContentHash": "fce6fbead88185fadaf112340e54306cb79765793d8ed0ebdfa2a4baf540875f",
+    "attestationSnapshotHashVersion": "sha256-v1",
+    "parentAttestationSnapshotId": null,
+    "parentAttestationSnapshotContentHash": null,
+    "attestationSnapshotChainIndex": 1,
+    "attestationSignatureStatus": "unsigned",
+    "bundleManifestSignatureStatus": null,
+    "createdAt": "2026-03-08T20:55:19.075Z"
+  }
+}

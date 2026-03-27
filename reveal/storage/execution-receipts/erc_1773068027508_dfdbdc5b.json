@@ -1,0 +1,190 @@
+{
+  "executionReceiptId": "erc_1773068027508_dfdbdc5b",
+  "createdAt": "2026-03-09T14:53:47.503Z",
+  "updatedAt": "2026-03-09T14:53:47.556Z",
+  "receiptVersion": "v1",
+  "providerSubmissionContractId": "psc_1773022291332_9ae71130",
+  "providerAdapterId": "pad_1773022291328_5ed32266",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "submissionDigest": "93b324b7c73ae6f44a3dd8d0865cdca7d66960942162cd9c3e13ab87297d8c21",
+  "submissionStatus": "prepared",
+  "schedulerStatus": "not_dispatched",
+  "externalExecutionRef": null,
+  "requestSummary": {
+    "targetSystem": "generic_renderer/default",
+    "requestedAt": "2026-03-09T14:53:47.503Z",
+    "dispatchMode": "handoff_only",
+    "payloadDigest": "93b324b7c73ae6f44a3dd8d0865cdca7d66960942162cd9c3e13ab87297d8c21",
+    "artifactCounts": {
+      "stages": 3,
+      "jobs": 3,
+      "inputs": 5,
+      "outputs": 3
+    }
+  },
+  "responseSummary": null,
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "ready",
+    "blockingReasons": [],
+    "warnings": []
+  },
+  "blockingReasons": [],
+  "warnings": [],
+  "lifecycleEvents": [
+    {
+      "eventId": "ev_1773068027508_eb9b63",
+      "orderIndex": 1,
+      "eventType": "receipt_created",
+      "timestamp": "2026-03-09T14:53:47.509Z",
+      "actorType": "system",
+      "summary": "Execution receipt created from provider submission contract",
+      "statusBefore": null,
+      "statusAfter": "prepared",
+      "metadata": {
+        "providerSubmissionContractId": "psc_1773022291332_9ae71130"
+      }
+    },
+    {
+      "eventId": "ev_1773068027513_61f7e9",
+      "orderIndex": 2,
+      "eventType": "note_added",
+      "timestamp": "2026-03-09T14:53:47.513Z",
+      "actorType": "result_artifact_ingest",
+      "summary": "result_artifact_ingested:subtitle_output",
+      "statusBefore": "prepared",
+      "statusAfter": "prepared",
+      "metadata": {
+        "executionResultArtifactId": "era_1773068027512_ce751141",
+        "artifactType": "subtitle_output",
+        "artifactDigest": "cf739ef882acd2501b52cc5da1e05660ff59460738f0e003e83bd3185b82b093"
+      }
+    },
+    {
+      "eventId": "ev_1773068027518_dfaf96",
+      "orderIndex": 3,
+      "eventType": "note_added",
+      "timestamp": "2026-03-09T14:53:47.518Z",
+      "actorType": "result_artifact_ingest",
+      "summary": "result_artifact_ingested:execution_result_summary",
+      "statusBefore": "prepared",
+      "statusAfter": "prepared",
+      "metadata": {
+        "executionResultArtifactId": "era_1773068027517_c11421b6",
+        "artifactType": "execution_result_summary",
+        "artifactDigest": "49d7d16c478609e1c38784dad73c98c88e330fdbe003f1822b81235604b51d72"
+      }
+    },
+    {
+      "eventId": "ev_1773068027520_88464e",
+      "orderIndex": 4,
+      "eventType": "note_added",
+      "timestamp": "2026-03-09T14:53:47.520Z",
+      "actorType": "result_artifact_ingest",
+      "summary": "result_artifact_ingested:render_manifest_output",
+      "statusBefore": "prepared",
+      "statusAfter": "prepared",
+      "metadata": {
+        "executionResultArtifactId": "era_1773068027519_32cdf0c7",
+        "artifactType": "render_manifest_output",
+        "artifactDigest": "f9bdfc5868da75c73d3c3fdeb3e43dab83ffd8513b1857619ad9d6a158162177"
+      }
+    },
+    {
+      "eventId": "ev_1773068027531_0f70f3",
+      "orderIndex": 5,
+      "eventType": "note_added",
+      "timestamp": "2026-03-09T14:53:47.531Z",
+      "actorType": "result_trust_publication",
+      "summary": "result_trust_publication:rtpub_1773068027530_c9615838",
+      "statusBefore": "prepared",
+      "statusAfter": "prepared",
+      "metadata": {
+        "resultHeadDigest": "a7701a76389a3d4440a2d39f6ee35879cd396c1ced8f80b89d267e9d0a4961f2"
+      }
+    },
+    {
+      "eventId": "ev_1773068027540_393878",
+      "orderIndex": 6,
+      "eventType": "note_added",
+      "timestamp": "2026-03-09T14:53:47.540Z",
+      "actorType": "result_trust_publication",
+      "summary": "result_trust_publication:rtpub_1773068027539_2020c11c",
+      "statusBefore": "prepared",
+      "statusAfter": "prepared",
+      "metadata": {
+        "resultHeadDigest": "b2699b6274988801f9b267a74689ed48b3acf379be80fb84a43a96c78a97e3b5"
+      }
+    },
+    {
+      "eventId": "ev_1773068027556_2d933f",
+      "orderIndex": 7,
+      "eventType": "note_added",
+      "timestamp": "2026-03-09T14:53:47.556Z",
+      "actorType": "produced_output_verifier",
+      "summary": "produced_output_verifier:invalid_publication_signature",
+      "statusBefore": "prepared",
+      "statusAfter": "prepared",
+      "metadata": {
+        "producedOutputVerifierId": "pov_1773068027555_e760f1e6"
+      }
+    }
+  ],
+  "lastCallbackId": null,
+  "lastCallbackType": null,
+  "lastCallbackAt": null,
+  "callbackTrustStatus": "none",
+  "callbackCount": 0,
+  "callbackWarningsSummary": [],
+  "lastCallbackReplayStatus": null,
+  "lastCallbackKeyRegistryStatus": null,
+  "lastCallbackOutcome": null,
+  "ingestedArtifactCount": 3,
+  "latestResultArtifactId": "era_1773068027519_32cdf0c7",
+  "latestResultArtifactType": "render_manifest_output",
+  "latestResultArtifactAt": "2026-03-09T14:53:47.519Z",
+  "resultArtifactTrustStatus": "unsigned",
+  "availableOutputTypes": [
+    "subtitle_output",
+    "execution_result_summary",
+    "render_manifest_output"
+  ],
+  "resultArtifactWarningsSummary": [
+    "unsigned_artifact_allowed_by_policy"
+  ],
+  "latestResultTrustPublicationId": "rtpub_1773068027539_2020c11c",
+  "latestResultHeadDigest": "b2699b6274988801f9b267a74689ed48b3acf379be80fb84a43a96c78a97e3b5",
+  "latestProducedOutputVerdict": "invalid_publication_signature",
+  "outputAvailabilitySummary": {
+    "availableOutputTypes": [
+      "execution_result_summary",
+      "render_manifest_output",
+      "subtitle_output"
+    ],
+    "latestOutputRefs": {
+      "subtitle_output": "s3://x/sub.srt"
+    },
+    "outputCount": 4,
+    "requiredOutputTypes": [],
+    "missingRequiredOutputs": [],
+    "trustQualifiedOutputTypes": [
+      "execution_result_summary"
+    ],
+    "untrustedOutputTypes": [
+      "render_manifest_output",
+      "subtitle_output"
+    ]
+  },
+  "metadata": {
+    "deterministic": true
+  },
+  "receiptSignature": null,
+  "receiptSignatureVersion": "execution-receipt-sig-v1",
+  "receiptSigningKeyId": null,
+  "receiptSigningAlgorithm": "RSA-SHA256",
+  "receiptSignatureStatus": "unsigned",
+  "receiptSignatureValid": null,
+  "receiptVerificationScope": "execution-receipt-core",
+  "unsignedReason": "missing_key"
+}

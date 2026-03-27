@@ -1,0 +1,932 @@
+{
+  "deckPlan": {
+    "constraints": {
+      "framework": [
+        "Gravity",
+        "Mandate Mirror",
+        "Controlled Activation"
+      ],
+      "target_grade_level": "8-9",
+      "max_bullets": 6,
+      "max_words_per_bullet": 12
+    },
+    "audience": "internal",
+    "template_id": "sovereign-memo",
+    "slide_count": 15,
+    "deck_type": "utc-internal",
+    "initiative_id": "INIT-653305",
+    "buyer_id": "PIF",
+    "prompt": "MENA Cross-Border Infrastructure Activation Program\n\n(8–9th grade reading level. Clear. Structural. No hype.)\n\n⸻\n\nSlide 1 — The Shift Is Already Happening\n\nTitle: The Region Is Entering a Structural Shift\n\t•\tEnergy corridors are exposed.\n\t•\tDigital systems are fragile.\n\t•\tTrade routes are being rebalanced.\n\t•\tSovereign cooperation is increasing.\n\nClosing line:\nThis is not a temporary cycle. It is a structural adjustment.\n\n⸻\n\nSlide 2 — The Real Constraint\n\nTitle: Capital Is Not the Constraint\n\t•\tTrillions in sovereign capital exist.\n\t•\tStrategic intent is clear.\n\t•\tProjects are identified.\n\nThe problem:\nCross-border activation fails at governance and alignment.\n\nMoney waits.\nProjects stall.\nMomentum fades.\n\n⸻\n\nSlide 3 — What War Accelerates\n\nTitle: Pressure Creates Irreversibility\n\nConflict increases:\n\t•\tNeed for energy redundancy\n\t•\tNeed for digital sovereignty\n\t•\tNeed for alternative trade corridors\n\t•\tNeed for regional coordination\n\nThese needs do not reverse when headlines fade.\n\n⸻\n\nSlide 4 — The Activation Gap\n\nTitle: Why Major Infrastructure Stalls\n\nMost cross-border projects fail because:\n\t•\tMandates are unclear\n\t•\tRisk allocation is fragmented\n\t•\tCapital stacks are misaligned\n\t•\tGovernance is not harmonized\n\nExecution exists.\nCapital exists.\nActivation architecture does not.\n\n⸻\n\nSlide 5 — The Solution\n\nTitle: MENA Cross-Border Infrastructure Activation Program\n\nA structured activation layer that:\n\t•\tAligns sovereign mandates\n\t•\tDesigns governance architecture\n\t•\tStructures capital stacks\n\t•\tAccelerates projects to FID\n\nThis is not a fund.\nIt is a regional activation platform.\n\n⸻\n\nSlide 6 — Pillar 1: Energy Redundancy Corridors\n\t•\tCross-border gas-to-power\n\t•\tGrid interconnection hardening\n\t•\tIndustrial energy clusters\n\nGoal:\nPermanent regional energy stability.\n\n⸻\n\nSlide 7 — Pillar 2: Digital Sovereignty Backbone\n\t•\tCross-border fiber corridors\n\t•\tSovereign AI compute hubs\n\t•\tCyber-resilient digital infrastructure\n\nGoal:\nRegional digital control and resilience.\n\n⸻\n\nSlide 8 — Pillar 3: Trade & Logistics Integration\n\t•\tRail corridor integration\n\t•\tSmart ports\n\t•\tIndustrial corridor zones\n\nGoal:\nReduce reliance on unstable chokepoints.\n\n⸻\n\nSlide 9 — Pillar 4: Activation Architecture\n\nThis is the differentiator.\n\t•\tMandate pathway design\n\t•\tGovernance harmonization\n\t•\tCapital stack clarity\n\t•\tRisk containment structure\n\t•\tPre-FID acceleration\n\nWithout this layer, projects remain concepts.\n\n⸻\n\nSlide 10 — Why This Platform Now\n\nThis moment presents:\n\t•\tInstitutional discomfort\n\t•\tQuiet capital movement\n\t•\tRegional alignment pressure\n\t•\tStrategic timing advantage\n\nEarly structure creates permanent leverage.\n\n⸻\n\nSlide 11 — Anchor Sovereign Advantage\n\nIf anchored by a leading sovereign:\n\t•\tRegional leadership is strengthened\n\t•\tCapital flows consolidate\n\t•\tGovernance standards set the model\n\t•\tLong-term corridor influence increases\n\nPlatform control > individual asset ownership.\n\n⸻\n\nSlide 12 — Capital Structure Framework\n\nThe program enables:\n\t•\tPre-FID structuring mandates\n\t•\tDevelopment allocation pathways\n\t•\tBlended sovereign + multilateral capital\n\t•\tStructured promote at FID\n\t•\tRecurring platform economics\n\nAligned incentives.\nClear transfer chain.\nDefined approval authority.\n\n⸻\n\nSlide 13 — Phased Activation Roadmap\n\nPhase 1 — Prototype Corridors\n\t•\t2–3 pilot initiatives\n\t•\tDefined mandate pathways\n\t•\tGovernance template set\n\nPhase 2 — Regional Scaling\n\t•\tAdditional corridors\n\t•\tCross-border replication\n\t•\tInstitutionalization of standards\n\nPhase 3 — Permanent Platform\n\t•\tOngoing activation capability\n\t•\tRecurring regional leverage\n\n⸻\n\nSlide 14 — The Structural Outcome\n\nEnergy becomes resilient.\nDigital becomes sovereign.\nTrade becomes integrated.\nGovernance becomes aligned.\n\nThe region moves from reaction to permanence.\n\nClosing line:\nThe question is not whether this platform forms.\nThe question is who anchors it.",
+    "storyline": {
+      "narrative_arc": [
+        "Context",
+        "Constraint",
+        "Control",
+        "Decision"
+      ],
+      "continuity_anchor": "MENA Cross-Border Infrastructure Activation Program"
+    },
+    "visual_grammar": {
+      "whitespace_rule": "max_6_bullets",
+      "hierarchy_rule": "single_primary_claim_per_slide",
+      "contrast_rule": "template-first with restrained accent"
+    }
+  },
+  "slides": [
+    {
+      "slide_id": "001",
+      "purpose": "Open the deck",
+      "layout": "title",
+      "copy": {
+        "kicker": "Context",
+        "title": "MENA Cross-Border Infrastructure Activation Program",
+        "subtitle": "MENA Cross-Border Infrastructure Activation Program (8–9th grade reading level. Clear. Structural. No",
+        "footer": "INIT-653305 • utc-internal",
+        "bullets": [
+          "The Shift Is Already Happening"
+        ]
+      },
+      "title": "MENA Cross-Border Infrastructure Activation Program",
+      "bullets": [
+        "The Shift Is Already Happening"
+      ],
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "",
+          "provider": "placeholder",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/001-img-001.png"
+        }
+      ],
+      "continuity": {
+        "to_next": "— The Shift Is Already Happening"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {},
+      "revisions_count": 0,
+      "template_id": "cover-hero"
+    },
+    {
+      "slide_id": "002",
+      "purpose": "Prove structural inevitability",
+      "layout": "section",
+      "copy": {
+        "kicker": "Context",
+        "title": "The Shift Is Already Happening",
+        "bullets": [
+          "The Region Is Entering a Structural Shift",
+          "Energy corridors are exposed.",
+          "Digital systems are fragile.",
+          "Trade routes are being rebalanced.",
+          "Sovereign cooperation is increasing."
+        ],
+        "subtitle": "",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "The Shift Is Already Happening",
+      "bullets": [
+        "The Region Is Entering a Structural Shift",
+        "Energy corridors are exposed.",
+        "Digital systems are fragile.",
+        "Trade routes are being rebalanced.",
+        "Sovereign cooperation is increasing."
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — The Shift Is Already Happening. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/002-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "MENA Cross-Border Infrastructure Activation Program",
+        "to_next": "— The Real Constraint",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 11.636450216450214,
+        "density_score": 0.36666666666666664,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3,
+      "template_id": "two-col-bullets"
+    },
+    {
+      "slide_id": "003",
+      "purpose": "Prove mandate fit",
+      "layout": "section",
+      "copy": {
+        "kicker": "Context",
+        "title": "— The Real Constraint",
+        "bullets": [
+          "Title: Capital Is Not the Constraint",
+          "Trillions in sovereign capital exist.",
+          "Strategic intent is clear.",
+          "Projects are identified.",
+          "The problem:",
+          "Cross-border activation fails at governance and alignment."
+        ],
+        "subtitle": "Builds on: — The Shift Is Already Happening",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— The Real Constraint",
+      "bullets": [
+        "Title: Capital Is Not the Constraint",
+        "Trillions in sovereign capital exist.",
+        "Strategic intent is clear.",
+        "Projects are identified.",
+        "The problem:",
+        "Cross-border activation fails at governance and alignment."
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — The Real Constraint. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/003-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— The Shift Is Already Happening",
+        "to_next": "— What War Accelerates",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 9.35649769585254,
+        "density_score": 0.34444444444444444,
+        "overflow_risk": "low",
+        "pass": true,
+        "fail": []
+      },
+      "revisions_count": 0
+    },
+    {
+      "slide_id": "004",
+      "purpose": "Prove controlled activation",
+      "layout": "section",
+      "copy": {
+        "kicker": "Context",
+        "title": "— What War Accelerates",
+        "bullets": [
+          "Title: Pressure Creates Irreversibility",
+          "Conflict increases:",
+          "Need for energy redundancy",
+          "Need for digital sovereignty",
+          "Need for alternative trade corridors",
+          "Need for regional coordination"
+        ],
+        "subtitle": "Builds on: — The Real Constraint",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— What War Accelerates",
+      "bullets": [
+        "Title: Pressure Creates Irreversibility",
+        "Conflict increases:",
+        "Need for energy redundancy",
+        "Need for digital sovereignty",
+        "Need for alternative trade corridors",
+        "Need for regional coordination"
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — What War Accelerates. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/004-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— The Real Constraint",
+        "to_next": "— The Activation Gap",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 14.758730158730163,
+        "density_score": 0.3,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "005",
+      "purpose": "Prove structural progression",
+      "layout": "proof",
+      "copy": {
+        "kicker": "Context",
+        "title": "— The Activation Gap",
+        "bullets": [
+          "Title: Why Major Infrastructure Stalls",
+          "Most cross-border projects fail because:",
+          "Mandates are unclear",
+          "Risk allocation is fragmented",
+          "Capital stacks are misaligned",
+          "Governance is not harmonized"
+        ],
+        "subtitle": "Builds on: — What War Accelerates",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— The Activation Gap",
+      "bullets": [
+        "Title: Why Major Infrastructure Stalls",
+        "Most cross-border projects fail because:",
+        "Mandates are unclear",
+        "Risk allocation is fragmented",
+        "Capital stacks are misaligned",
+        "Governance is not harmonized"
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — The Activation Gap. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/005-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— What War Accelerates",
+        "to_next": "— The Solution",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 12.067093596059117,
+        "density_score": 0.32222222222222224,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "006",
+      "purpose": "Prove structural progression",
+      "layout": "section",
+      "copy": {
+        "kicker": "Constraint",
+        "title": "— The Solution",
+        "bullets": [
+          "Title: MENA Cross-Border Infrastructure Activation Program",
+          "A structured activation layer that:",
+          "Aligns sovereign mandates",
+          "Designs governance architecture",
+          "Structures capital stacks",
+          "Accelerates projects to FID"
+        ],
+        "subtitle": "Builds on: — The Activation Gap",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— The Solution",
+      "bullets": [
+        "Title: MENA Cross-Border Infrastructure Activation Program",
+        "A structured activation layer that:",
+        "Aligns sovereign mandates",
+        "Designs governance architecture",
+        "Structures capital stacks",
+        "Accelerates projects to FID"
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — The Solution. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/006-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— The Activation Gap",
+        "to_next": "— Pillar 1: Energy Redundancy Corridors",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 15.632804232804236,
+        "density_score": 0.3,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "007",
+      "purpose": "Prove structural progression",
+      "layout": "section",
+      "copy": {
+        "kicker": "Constraint",
+        "title": "— Pillar 1: Energy Redundancy Corridors",
+        "bullets": [
+          "Cross-border gas-to-power",
+          "Grid interconnection hardening",
+          "Industrial energy clusters",
+          "Goal:",
+          "Permanent regional energy stability."
+        ],
+        "subtitle": "Builds on: — The Solution",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— Pillar 1: Energy Redundancy Corridors",
+      "bullets": [
+        "Cross-border gas-to-power",
+        "Grid interconnection hardening",
+        "Industrial energy clusters",
+        "Goal:",
+        "Permanent regional energy stability."
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — Pillar 1: Energy Redundancy Corridors. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/007-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— The Solution",
+        "to_next": "— Pillar 2: Digital Sovereignty Backbone",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 17.939736842105265,
+        "density_score": 0.2111111111111111,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "008",
+      "purpose": "Prove structural progression",
+      "layout": "proof",
+      "copy": {
+        "kicker": "Constraint",
+        "title": "— Pillar 2: Digital Sovereignty Backbone",
+        "bullets": [
+          "Cross-border fiber corridors",
+          "Sovereign AI compute hubs",
+          "Cyber-resilient digital infrastructure",
+          "Goal:",
+          "Regional digital control and resilience."
+        ],
+        "subtitle": "Builds on: — Pillar 1: Energy Redundancy Corridors",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— Pillar 2: Digital Sovereignty Backbone",
+      "bullets": [
+        "Cross-border fiber corridors",
+        "Sovereign AI compute hubs",
+        "Cyber-resilient digital infrastructure",
+        "Goal:",
+        "Regional digital control and resilience."
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — Pillar 2: Digital Sovereignty Backbone. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/008-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— Pillar 1: Energy Redundancy Corridors",
+        "to_next": "— Pillar 3: Trade & Logistics Integration",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 16.412727272727277,
+        "density_score": 0.24444444444444444,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "009",
+      "purpose": "Prove structural progression",
+      "layout": "diagram",
+      "copy": {
+        "kicker": "Control",
+        "title": "— Pillar 3: Trade & Logistics Integration",
+        "bullets": [
+          "Rail corridor integration",
+          "Smart ports",
+          "Industrial corridor zones",
+          "Goal:",
+          "Reduce reliance on unstable chokepoints."
+        ],
+        "subtitle": "Builds on: — Pillar 2: Digital Sovereignty Backbone",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— Pillar 3: Trade & Logistics Integration",
+      "bullets": [
+        "Rail corridor integration",
+        "Smart ports",
+        "Industrial corridor zones",
+        "Goal:",
+        "Reduce reliance on unstable chokepoints."
+      ],
+      "visualSpec": {
+        "diagram_type": "flow-map",
+        "caption": "Sequenced controls reduce execution risk while preserving speed.",
+        "nodes": [
+          "Pressure Surface",
+          "Mandate Fit",
+          "Execution Gate",
+          "Capital Release"
+        ],
+        "edges": [
+          [
+            "Pressure Surface",
+            "Mandate Fit"
+          ],
+          [
+            "Mandate Fit",
+            "Execution Gate"
+          ],
+          [
+            "Execution Gate",
+            "Capital Release"
+          ]
+        ],
+        "palette_hint": "neutral-slate"
+      },
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — Pillar 3: Trade & Logistics Integration. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/009-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— Pillar 2: Digital Sovereignty Backbone",
+        "to_next": "— Pillar 4: Activation Architecture",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 11.62261904761905,
+        "density_score": 0.23333333333333334,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "010",
+      "purpose": "Prove structural progression",
+      "layout": "section",
+      "copy": {
+        "kicker": "Control",
+        "title": "— Pillar 4: Activation Architecture",
+        "bullets": [
+          "This is the differentiator.",
+          "Mandate pathway design",
+          "Governance harmonization",
+          "Capital stack clarity",
+          "Risk containment structure",
+          "Pre-FID acceleration"
+        ],
+        "subtitle": "Builds on: — Pillar 3: Trade & Logistics Integration",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— Pillar 4: Activation Architecture",
+      "bullets": [
+        "This is the differentiator.",
+        "Mandate pathway design",
+        "Governance harmonization",
+        "Capital stack clarity",
+        "Risk containment structure",
+        "Pre-FID acceleration"
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — Pillar 4: Activation Architecture. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/010-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— Pillar 3: Trade & Logistics Integration",
+        "to_next": "— Why This Platform Now",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 16.744805194805192,
+        "density_score": 0.24444444444444444,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "011",
+      "purpose": "Prove structural progression",
+      "layout": "proof",
+      "copy": {
+        "kicker": "Control",
+        "title": "— Why This Platform Now",
+        "bullets": [
+          "This moment presents:",
+          "Institutional discomfort",
+          "Quiet capital movement",
+          "Regional alignment pressure",
+          "Strategic timing advantage",
+          "Early structure creates permanent leverage."
+        ],
+        "subtitle": "Builds on: — Pillar 4: Activation Architecture",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— Why This Platform Now",
+      "bullets": [
+        "This moment presents:",
+        "Institutional discomfort",
+        "Quiet capital movement",
+        "Regional alignment pressure",
+        "Strategic timing advantage",
+        "Early structure creates permanent leverage."
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — Why This Platform Now. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/011-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— Pillar 4: Activation Architecture",
+        "to_next": "— Anchor Sovereign Advantage",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 14.263809523809524,
+        "density_score": 0.26666666666666666,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "012",
+      "purpose": "Prove structural progression",
+      "layout": "section",
+      "copy": {
+        "kicker": "Decision",
+        "title": "— Anchor Sovereign Advantage",
+        "bullets": [
+          "If anchored by a leading sovereign:",
+          "Regional leadership is strengthened",
+          "Capital flows consolidate",
+          "Governance standards set the model",
+          "Long-term corridor influence increases",
+          "Platform control > individual asset ownership."
+        ],
+        "subtitle": "Builds on: — Why This Platform Now",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— Anchor Sovereign Advantage",
+      "bullets": [
+        "If anchored by a leading sovereign:",
+        "Regional leadership is strengthened",
+        "Capital flows consolidate",
+        "Governance standards set the model",
+        "Long-term corridor influence increases",
+        "Platform control > individual asset ownership."
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — Anchor Sovereign Advantage. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/012-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— Why This Platform Now",
+        "to_next": "— Capital Structure Framework",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 13.849107142857143,
+        "density_score": 0.35555555555555557,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "013",
+      "purpose": "Prove structural progression",
+      "layout": "section",
+      "copy": {
+        "kicker": "Decision",
+        "title": "— Capital Structure Framework",
+        "bullets": [
+          "The program enables:",
+          "Pre-FID structuring mandates",
+          "Development allocation pathways",
+          "Blended sovereign + multilateral capital",
+          "Structured promote at FID",
+          "Recurring platform economics"
+        ],
+        "subtitle": "Builds on: — Anchor Sovereign Advantage",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— Capital Structure Framework",
+      "bullets": [
+        "The program enables:",
+        "Pre-FID structuring mandates",
+        "Development allocation pathways",
+        "Blended sovereign + multilateral capital",
+        "Structured promote at FID",
+        "Recurring platform economics"
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — Capital Structure Framework. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/013-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— Anchor Sovereign Advantage",
+        "to_next": "— Phased Activation Roadmap",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 16.482857142857146,
+        "density_score": 0.2777777777777778,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "014",
+      "purpose": "Prove structural progression",
+      "layout": "proof",
+      "copy": {
+        "kicker": "Decision",
+        "title": "— Phased Activation Roadmap",
+        "bullets": [
+          "Phase 1 — Prototype Corridors",
+          "2–3 pilot initiatives",
+          "Defined mandate pathways",
+          "Governance template set",
+          "Phase 2 — Regional Scaling",
+          "Additional corridors"
+        ],
+        "subtitle": "Builds on: — Capital Structure Framework",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— Phased Activation Roadmap",
+      "bullets": [
+        "Phase 1 — Prototype Corridors",
+        "2–3 pilot initiatives",
+        "Defined mandate pathways",
+        "Governance template set",
+        "Phase 2 — Regional Scaling",
+        "Additional corridors"
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — Phased Activation Roadmap. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/014-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— Capital Structure Framework",
+        "to_next": "— The Structural Outcome",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 14.122857142857143,
+        "density_score": 0.2777777777777778,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    },
+    {
+      "slide_id": "015",
+      "purpose": "Prove structural progression",
+      "layout": "proof",
+      "copy": {
+        "kicker": "Decision",
+        "title": "— The Structural Outcome",
+        "bullets": [
+          "Energy becomes resilient.",
+          "Digital becomes sovereign.",
+          "Trade becomes integrated.",
+          "Governance becomes aligned.",
+          "The region moves from reaction to permanence.",
+          "Closing line:"
+        ],
+        "subtitle": "Builds on: — Phased Activation Roadmap",
+        "footer": "INIT-653305 • utc-internal"
+      },
+      "title": "— The Structural Outcome",
+      "bullets": [
+        "Energy becomes resilient.",
+        "Digital becomes sovereign.",
+        "Trade becomes integrated.",
+        "Governance becomes aligned.",
+        "The region moves from reaction to permanence.",
+        "Closing line:"
+      ],
+      "visualSpec": null,
+      "images": [
+        {
+          "slot_id": "img-001",
+          "prompt": "Minimal infographic for — The Structural Outcome. No text, strong hierarchy, clear negative space.",
+          "provider": "openai",
+          "output_path": "presentations/INIT-653305/decks/utc-internal/assets/015-img-001.png"
+        }
+      ],
+      "continuity": {
+        "from_prev": "— Phased Activation Roadmap",
+        "to_next": "Decision Gate",
+        "anchor": "MENA Cross-Border Infrastructure Activation Program"
+      },
+      "constraints": {
+        "max_bullets": 6,
+        "max_words_per_bullet": 12,
+        "target_grade_level": "8-9"
+      },
+      "provenance": {
+        "sources": []
+      },
+      "qa": {
+        "readability_score": 15.066857142857145,
+        "density_score": 0.2777777777777778,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      },
+      "revisions_count": 3
+    }
+  ]
+}

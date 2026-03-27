@@ -1,0 +1,30 @@
+{
+  "id": "fixture_shotlist_flow",
+  "name": "ShotList Fixture",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "a",
+      "index": 1,
+      "title": "Open Dashboard",
+      "action": "navigate",
+      "intent": "load dashboard",
+      "screenshots": {},
+      "annotations": []
+    },
+    {
+      "id": "b",
+      "index": 2,
+      "title": "Upload CSV",
+      "action": "upload",
+      "intent": "add customer data",
+      "annotations": [
+        {
+          "author": "qa",
+          "text": "Use sample.csv"
+        }
+      ],
+      "screenshots": {}
+    }
+  ]
+}

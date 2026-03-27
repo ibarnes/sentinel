@@ -1,0 +1,44 @@
+{
+  "executionResultArtifactId": "era_1773067653562_d6785dc5",
+  "createdAt": "2026-03-09T14:47:33.562Z",
+  "artifactVersion": "v1",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "artifactType": "execution_result_summary",
+  "sourceExecutionReceiptId": "erc_missing",
+  "sourceProviderSubmissionContractId": null,
+  "sourceExternalExecutionRef": null,
+  "artifactPayload": {
+    "completedAt": "2026-03-09T14:47:33.555Z",
+    "message": "done",
+    "outputCount": 2,
+    "status": "completed"
+  },
+  "artifactDigest": "c30f5510c9d0b4f6bd31435088a66eca6742c31508aad9b7594412716b967040",
+  "artifactDigestVersion": "sha256-v1",
+  "trustMetadata": {
+    "artifactSignatureStatus": "unsigned",
+    "artifactSignatureValid": true,
+    "artifactSigningKeyId": null,
+    "artifactSigningAlgorithm": "HMAC-SHA256",
+    "artifactVerificationScope": "result-artifact-payload-core",
+    "trustProfile": "external_result_artifact_v1",
+    "artifactOriginStatus": "unsigned",
+    "artifactDigest": "c30f5510c9d0b4f6bd31435088a66eca6742c31508aad9b7594412716b967040",
+    "artifactDigestVersion": "sha256-v1",
+    "keyRegistryStatus": "not_evaluated",
+    "warnings": [
+      "unsigned_artifact_allowed_by_policy"
+    ]
+  },
+  "ingestionStatus": "target_not_found",
+  "blockingReasons": [
+    "execution_receipt_not_found"
+  ],
+  "warnings": [
+    "unsigned_artifact_allowed_by_policy"
+  ],
+  "metadata": {
+    "deterministic": true
+  }
+}

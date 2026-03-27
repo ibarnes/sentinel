@@ -1,0 +1,51 @@
+{
+  "sessionId": "ps_1772985071039_e2809b03",
+  "sourceType": "immutable_snapshot",
+  "sourceRef": {
+    "flowId": "fixture_player_session_flow",
+    "snapshotId": "snap_fixture_player_session_flow_1_1772985071035_f85ad3",
+    "packageRef": null
+  },
+  "createdAt": "2026-03-08T15:51:11.040Z",
+  "updatedAt": "2026-03-09T17:11:42.262Z",
+  "lastActivityAt": "2026-03-08T15:51:11.044Z",
+  "expiresAt": "2026-03-08T19:51:11.040Z",
+  "currentStepIndex": 0,
+  "autoPlayEnabled": false,
+  "playbackStatus": "expired",
+  "stepCount": 2,
+  "viewerMetadata": null,
+  "cleanupStatus": "none",
+  "model": {
+    "flowId": "fixture_player_session_flow",
+    "sourceType": "immutable_snapshot",
+    "title": "Player Session Fixture",
+    "description": null,
+    "steps": [
+      {
+        "index": 0,
+        "title": "A",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000
+      },
+      {
+        "index": 1,
+        "title": "B",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000
+      }
+    ]
+  }
+}

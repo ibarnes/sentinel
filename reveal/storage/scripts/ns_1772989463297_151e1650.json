@@ -1,0 +1,70 @@
+{
+  "scriptId": "ns_1772989463297_151e1650",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_script_flow"
+  },
+  "title": "Script Fixture Flow",
+  "description": "Fixture for script generation",
+  "createdAt": "2026-03-08T17:04:23.297Z",
+  "createdBy": null,
+  "scriptVersion": "v1",
+  "styleProfile": "neutral_walkthrough",
+  "totalEstimatedDurationMs": 8035,
+  "sections": [
+    {
+      "sectionId": "sec_0_b6589fc6",
+      "stepIndex": 0,
+      "title": "Upload CSV File",
+      "narrationText": "Upload Upload CSV File to add customer data for analysis.",
+      "onScreenText": "Upload CSV File",
+      "timing": {
+        "estimatedDurationMs": 4638,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "add customer data for analysis",
+      "metadata": {
+        "action": "upload",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    },
+    {
+      "sectionId": "sec_1_356a192b",
+      "stepIndex": 1,
+      "title": "Run Analysis",
+      "narrationText": "Click Run Analysis to generate initial metrics.",
+      "onScreenText": "Run Analysis",
+      "timing": {
+        "estimatedDurationMs": 3397,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "generate initial metrics",
+      "metadata": {
+        "action": "click",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    }
+  ],
+  "metadata": {
+    "flowId": "fixture_script_flow",
+    "stepCount": 2
+  }
+}

@@ -96,3 +96,27 @@
 - Snapshot reason: presentation.pipeline_v2.generate
 - Snapshot: `dashboard/snapshots/2026-02-25T16-51-16-460Z.json`
 
+## 2026-03-20T15:36:04.562Z
+- Snapshot reason: rp.approve
+- Snapshot: `dashboard/snapshots/2026-03-20T15-36-04-561Z.json`
+
+## 2026-03-20T18:20:35.572Z
+- Snapshot reason: rp.approve
+- Snapshot: `dashboard/snapshots/2026-03-20T18-20-35-572Z.json`
+
+## 2026-03-20T18:20:41.881Z
+- Snapshot reason: rp.approve
+- Snapshot: `dashboard/snapshots/2026-03-20T18-20-41-880Z.json`
+
+## 2026-03-23T16:40:03.317Z
+- Snapshot reason: rp.approve
+- Snapshot: `dashboard/snapshots/2026-03-23T16-40-03-316Z.json`
+
+## 2026-03-23T16:40:17.407Z
+- Snapshot reason: rp.approve
+- Snapshot: `dashboard/snapshots/2026-03-23T16-40-17-406Z.json`
+
+## 2026-03-23T16:40:26.336Z
+- Snapshot reason: rp.approve
+- Snapshot: `dashboard/snapshots/2026-03-23T16-40-26-335Z.json`
+

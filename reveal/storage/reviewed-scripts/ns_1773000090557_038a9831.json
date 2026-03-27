@@ -1,0 +1,165 @@
+{
+  "reviewedScriptId": "rs_ns_1773000090557_038a9831_f55196",
+  "scriptId": "ns_1773000090557_038a9831",
+  "reviewVersion": 8,
+  "reviewStatus": "published_ready",
+  "createdAt": "2026-03-08T20:01:30.564Z",
+  "updatedAt": "2026-03-08T20:01:30.624Z",
+  "createdBy": "fixture",
+  "lastEditedBy": "fixture",
+  "editHistory": [
+    {
+      "ts": "2026-03-08T20:01:30.564Z",
+      "actor": "fixture",
+      "action": "init_review"
+    },
+    {
+      "ts": "2026-03-08T20:01:30.567Z",
+      "actor": "fixture",
+      "action": "update_section",
+      "payload": {
+        "sectionId": "sec_0_b6589fc6",
+        "changed": [
+          "narrationText",
+          "timing"
+        ]
+      }
+    },
+    {
+      "ts": "2026-03-08T20:01:30.570Z",
+      "actor": "fixture",
+      "action": "add_note",
+      "payload": {
+        "sectionId": "sec_0_b6589fc6"
+      }
+    },
+    {
+      "ts": "2026-03-08T20:01:30.573Z",
+      "actor": "fixture",
+      "action": "reorder_sections",
+      "payload": {
+        "orderedSectionIds": [
+          "sec_1_356a192b",
+          "sec_0_b6589fc6"
+        ]
+      }
+    },
+    {
+      "ts": "2026-03-08T20:01:30.575Z",
+      "actor": "fixture",
+      "action": "status_transition",
+      "payload": {
+        "targetStatus": "in_review",
+        "reason": null
+      }
+    },
+    {
+      "ts": "2026-03-08T20:01:30.577Z",
+      "actor": "fixture",
+      "action": "status_transition",
+      "payload": {
+        "targetStatus": "approved",
+        "reason": null
+      }
+    },
+    {
+      "ts": "2026-03-08T20:01:30.583Z",
+      "actor": "fixture",
+      "action": "update_section",
+      "payload": {
+        "sectionId": "sec_0_b6589fc6",
+        "changed": [
+          "narrationText"
+        ]
+      }
+    },
+    {
+      "ts": "2026-03-08T20:01:30.624Z",
+      "actor": "fixture",
+      "action": "status_transition",
+      "payload": {
+        "targetStatus": "published_ready",
+        "reason": null
+      }
+    }
+  ],
+  "approvalMetadata": {
+    "approvedAt": "2026-03-08T20:01:30.577Z",
+    "approvedBy": "fixture",
+    "publishedReadyAt": "2026-03-08T20:01:30.624Z",
+    "publishedReadyBy": "fixture"
+  },
+  "sections": [
+    {
+      "sectionId": "sec_1_356a192b",
+      "stepIndex": 0,
+      "title": "Dashboard",
+      "narrationText": "Navigate Dashboard to open dashboard.",
+      "onScreenText": "Dashboard",
+      "timing": {
+        "estimatedDurationMs": 2569,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "open dashboard",
+      "metadata": {
+        "action": "navigate",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      },
+      "annotations": [],
+      "changeMetadata": {
+        "lastChangedAt": null,
+        "lastChangedBy": null,
+        "changedFields": []
+      }
+    },
+    {
+      "sectionId": "sec_0_b6589fc6",
+      "stepIndex": 1,
+      "title": "Login",
+      "narrationText": "Updated after snapshot.",
+      "onScreenText": "Login",
+      "timing": {
+        "estimatedDurationMs": 2200,
+        "leadInMs": 200,
+        "leadOutMs": 200
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "authenticate",
+      "metadata": {
+        "action": "click",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      },
+      "annotations": [
+        {
+          "note": "Pronounce as log-in.",
+          "actor": "fixture",
+          "at": "2026-03-08T20:01:30.570Z"
+        }
+      ],
+      "changeMetadata": {
+        "lastChangedAt": "2026-03-08T20:01:30.583Z",
+        "lastChangedBy": "fixture",
+        "changedFields": [
+          "narrationText",
+          "timing"
+        ]
+      }
+    }
+  ]
+}

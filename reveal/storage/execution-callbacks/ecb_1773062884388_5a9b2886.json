@@ -1,0 +1,41 @@
+{
+  "executionCallbackId": "ecb_1773062884388_5a9b2886",
+  "createdAt": "2026-03-09T13:28:04.388Z",
+  "callbackVersion": "v1",
+  "callbackPolicyProfile": "production_verified",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "callbackType": "provider_acknowledged",
+  "sourceSystem": "external_provider",
+  "targetExecutionReceiptId": "erc_1773062884306_1c0ad0cd",
+  "targetProviderSubmissionContractId": null,
+  "externalExecutionRef": "job-fixture-2",
+  "callbackPayload": {
+    "eventAt": "2026-03-09T13:28:04.219Z",
+    "externalExecutionRef": "job-fixture-1",
+    "status": "accepted"
+  },
+  "callbackDigest": "0f1a21318a903888626d39aeb61885fe323d4f277ded5902f33b710ab317cead",
+  "callbackDigestVersion": "sha256-v1",
+  "trustMetadata": {
+    "callbackSignatureStatus": "unsigned",
+    "callbackSignatureValid": null,
+    "callbackSigningKeyId": null,
+    "callbackSigningAlgorithm": "HMAC-SHA256",
+    "callbackVerificationScope": "callback-payload-core",
+    "trustProfile": "external_callback_v1",
+    "callbackOriginStatus": "unknown_origin",
+    "keyRegistryStatus": "not_evaluated"
+  },
+  "policyEvaluationResult": "block",
+  "replayStatus": "ignored_by_policy",
+  "replayDecision": "block",
+  "reconciliationStatus": "malformed_callback",
+  "blockingReasons": [
+    "missing_required_trust_fields"
+  ],
+  "warnings": [],
+  "metadata": {
+    "deterministic": true
+  }
+}

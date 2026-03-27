@@ -1,0 +1,44 @@
+{
+  "replayIntegritySummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "verificationMetadata": {
+    "signatureStatus": "unsigned",
+    "signingKeyId": null,
+    "signerKeyFingerprint": null,
+    "signingAlgorithm": "RSA-SHA256",
+    "publicKeyAlgorithm": "RSA",
+    "publicKeyHint": null,
+    "trustProfileId": "unsigned_export",
+    "trustProfileName": "Unsigned Export",
+    "trustProfileVersion": 1,
+    "trustProfileType": "unsigned_export",
+    "verificationPolicyVersion": "policy-v1",
+    "verifierKeysetVersion": "keyset-v1.7",
+    "packageSignatureVersion": "sig-v1",
+    "packageSignature": null,
+    "packageVerificationScope": [
+      "packageFormat",
+      "packageVersion",
+      "packageType",
+      "flowId",
+      "snapshotId",
+      "reviewVersion",
+      "snapshotChainIndex",
+      "contentHash",
+      "packageContentHash"
+    ],
+    "packageContentHash": "fa5eee08d109f6affee52414eb9ac99ba9b2a055812d0f545bdf44694be7eac0",
+    "integrityPackageContentHash": "fa5eee08d109f6affee52414eb9ac99ba9b2a055812d0f545bdf44694be7eac0"
+  },
+  "verificationResult": {
+    "status": "unsigned",
+    "reasonCodes": [
+      "missing_key"
+    ],
+    "keysetVersion": "keyset-v1.7"
+  }
+}

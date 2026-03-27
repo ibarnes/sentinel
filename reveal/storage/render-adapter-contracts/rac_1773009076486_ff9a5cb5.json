@@ -1,0 +1,339 @@
+{
+  "renderAdapterContractId": "rac_1773009076486_ff9a5cb5",
+  "createdAt": "2026-03-08T22:31:16.486Z",
+  "contractVersion": "v1",
+  "adapterType": "narrated_walkthrough",
+  "orchestrationProfile": "internal_verified",
+  "targetRef": {
+    "renderAdapterContractId": "rac_1773009076486_ff9a5cb5"
+  },
+  "sourceRefs": {
+    "verifierPackageId": "uvp_1773009076483_cc2e0ead",
+    "externalVerifierProfileId": null,
+    "shotListId": "sl_1773009076473_6e92ad85",
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": "vtp_1773009076475_940806d5",
+    "renderPlanId": null
+  },
+  "readinessState": "blocked",
+  "executionPlan": {
+    "stages": [
+      {
+        "stageId": "stage_narration",
+        "stageType": "narration_plan",
+        "orderIndex": 0,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_1"
+        ],
+        "dependencyStageIds": [],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      },
+      {
+        "stageId": "stage_subtitle",
+        "stageType": "subtitle_generation",
+        "orderIndex": 1,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_2"
+        ],
+        "dependencyStageIds": [
+          "stage_narration"
+        ],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      },
+      {
+        "stageId": "stage_compose",
+        "stageType": "composite_manifest",
+        "orderIndex": 2,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_3"
+        ],
+        "dependencyStageIds": [
+          "stage_subtitle"
+        ],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      }
+    ],
+    "jobs": [
+      {
+        "jobId": "job_1",
+        "jobType": "narration_plan",
+        "stageId": "stage_narration",
+        "orderIndex": 0,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_1"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      },
+      {
+        "jobId": "job_2",
+        "jobType": "subtitle_generation",
+        "stageId": "stage_subtitle",
+        "orderIndex": 1,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_2"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      },
+      {
+        "jobId": "job_3",
+        "jobType": "composite_manifest",
+        "stageId": "stage_compose",
+        "orderIndex": 2,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_3"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      }
+    ],
+    "dependencies": [
+      {
+        "from": "stage_narration",
+        "to": "stage_subtitle"
+      },
+      {
+        "from": "stage_subtitle",
+        "to": "stage_compose"
+      }
+    ],
+    "timingPlan": {
+      "expectedDurationMs": 0,
+      "deterministic": true
+    },
+    "assetMap": [
+      {
+        "artifactId": "a_unified",
+        "artifactRef": {
+          "verifierPackageId": "uvp_1773009076483_cc2e0ead"
+        }
+      },
+      {
+        "artifactId": "a_script",
+        "artifactRef": {
+          "scriptId": "ns_1773009076454_2f98f684"
+        }
+      },
+      {
+        "artifactId": "a_voice",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773009076475_940806d5"
+        }
+      },
+      {
+        "artifactId": "a_shot",
+        "artifactRef": {
+          "shotListId": "sl_1773009076473_6e92ad85"
+        }
+      },
+      {
+        "artifactId": "a_voice_plan",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773009076475_940806d5"
+        }
+      }
+    ],
+    "outputPlan": [
+      {
+        "outputTargetId": "ot_1",
+        "outputType": "narration_plan",
+        "format": "json",
+        "pathHint": "/outputs/narration_plan.json",
+        "requiredProducerStageId": "stage_narration",
+        "readinessRequirements": [],
+        "metadata": {}
+      },
+      {
+        "outputTargetId": "ot_2",
+        "outputType": "subtitle_track",
+        "format": "vtt",
+        "pathHint": "/outputs/subtitle_track.vtt",
+        "requiredProducerStageId": "stage_subtitle",
+        "readinessRequirements": [],
+        "metadata": {}
+      },
+      {
+        "outputTargetId": "ot_3",
+        "outputType": "composite_job_manifest",
+        "format": "json",
+        "pathHint": "/outputs/composite_job_manifest.json",
+        "requiredProducerStageId": "stage_compose",
+        "readinessRequirements": [],
+        "metadata": {}
+      }
+    ]
+  },
+  "inputArtifacts": [
+    {
+      "artifactId": "a_unified",
+      "artifactType": "unified_verifier_package",
+      "artifactRef": {
+        "verifierPackageId": "uvp_1773009076483_cc2e0ead"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "as_reported",
+      "integrityState": "as_reported",
+      "notes": null
+    },
+    {
+      "artifactId": "a_script",
+      "artifactType": "reviewed_script",
+      "artifactRef": {
+        "scriptId": "ns_1773009076454_2f98f684"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "untrusted",
+      "integrityState": "pass",
+      "notes": null
+    },
+    {
+      "artifactId": "a_voice",
+      "artifactType": "voice_track_plan",
+      "artifactRef": {
+        "voiceTrackPlanId": "vtp_1773009076475_940806d5"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "untrusted",
+      "integrityState": "pass",
+      "notes": null
+    },
+    {
+      "artifactId": "a_shot",
+      "artifactType": "shot_list",
+      "artifactRef": {
+        "shotListId": "sl_1773009076473_6e92ad85"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "unknown",
+      "integrityState": "unknown",
+      "notes": null
+    },
+    {
+      "artifactId": "a_voice_plan",
+      "artifactType": "voice_track_plan",
+      "artifactRef": {
+        "voiceTrackPlanId": "vtp_1773009076475_940806d5"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "unknown",
+      "integrityState": "unknown",
+      "notes": null
+    }
+  ],
+  "outputTargets": [
+    {
+      "outputTargetId": "ot_1",
+      "outputType": "narration_plan",
+      "format": "json",
+      "pathHint": "/outputs/narration_plan.json",
+      "requiredProducerStageId": "stage_narration",
+      "readinessRequirements": [],
+      "metadata": {}
+    },
+    {
+      "outputTargetId": "ot_2",
+      "outputType": "subtitle_track",
+      "format": "vtt",
+      "pathHint": "/outputs/subtitle_track.vtt",
+      "requiredProducerStageId": "stage_subtitle",
+      "readinessRequirements": [],
+      "metadata": {}
+    },
+    {
+      "outputTargetId": "ot_3",
+      "outputType": "composite_job_manifest",
+      "format": "json",
+      "pathHint": "/outputs/composite_job_manifest.json",
+      "requiredProducerStageId": "stage_compose",
+      "readinessRequirements": [],
+      "metadata": {}
+    }
+  ],
+  "policyEvaluation": {
+    "readinessState": "blocked",
+    "blockingReasons": [
+      "trust_publication_missing"
+    ],
+    "warnings": [
+      "unsigned_proof"
+    ]
+  },
+  "blockingReasons": [
+    "trust_publication_missing"
+  ],
+  "warnings": [
+    "unsigned_proof"
+  ],
+  "metadata": {
+    "deterministic": true
+  }
+}

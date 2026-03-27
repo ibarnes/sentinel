@@ -1,0 +1,39 @@
+{
+  "executionCallbackId": "ecb_1773062894857_197760de",
+  "createdAt": "2026-03-09T13:28:14.857Z",
+  "callbackVersion": "v1",
+  "callbackPolicyProfile": "internal_verified",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "callbackType": "provider_acknowledged",
+  "sourceSystem": "external_provider",
+  "targetExecutionReceiptId": "erc_1773062894846_2cfdccb8",
+  "targetProviderSubmissionContractId": "psc_1773022291332_9ae71130",
+  "externalExecutionRef": "job-fixture-1",
+  "callbackPayload": {
+    "eventAt": "2026-03-09T13:28:14.815Z",
+    "externalExecutionRef": "job-fixture-1",
+    "status": "accepted"
+  },
+  "callbackDigest": "e36126fdb69cf11d4f05282bb5d4d6398066e8da87e2beac1ddf0c33f98ceb36",
+  "callbackDigestVersion": "sha256-v1",
+  "trustMetadata": {
+    "callbackSignatureStatus": "signed",
+    "callbackSignatureValid": true,
+    "callbackSigningKeyId": "cbk_generic_default_v1",
+    "callbackSigningAlgorithm": "HMAC-SHA256",
+    "callbackVerificationScope": "callback-payload-core",
+    "trustProfile": "external_callback_v1",
+    "callbackOriginStatus": "trusted",
+    "keyRegistryStatus": "resolved"
+  },
+  "policyEvaluationResult": "apply",
+  "replayStatus": "first_seen",
+  "replayDecision": "apply",
+  "reconciliationStatus": "applied",
+  "blockingReasons": [],
+  "warnings": [],
+  "metadata": {
+    "deterministic": true
+  }
+}

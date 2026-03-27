@@ -1,0 +1,15 @@
+{
+  "id": "fixture_share_flow",
+  "name": "Share Fixture",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "s1",
+      "index": 1,
+      "title": "A",
+      "action": "click",
+      "screenshots": {},
+      "annotations": []
+    }
+  ]
+}

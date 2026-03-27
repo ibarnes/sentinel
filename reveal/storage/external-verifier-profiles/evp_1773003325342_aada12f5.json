@@ -1,0 +1,134 @@
+{
+  "externalVerifierProfileId": "evp_1773003325342_aada12f5",
+  "createdAt": "2026-03-08T20:55:25.342Z",
+  "verifierVersion": "v1",
+  "targetRef": {
+    "verifierPackageId": "uvp_1773003325339_ea50b261"
+  },
+  "policyProfileId": "dev",
+  "policyProfileName": "Development",
+  "evaluatedArtifactRefs": {
+    "scriptId": "ns_1773003325308_0996b702",
+    "shotListId": "sl_1773003325329_a02421f4",
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": "vtp_1773003325331_5019c695",
+    "voicePlanSnapshotId": null
+  },
+  "unifiedPackageSummary": {
+    "verifierPackageId": "uvp_1773003325339_ea50b261",
+    "overallVerificationStatus": "missing_required_artifact"
+  },
+  "attestationSnapshotSummary": {
+    "latestAttestationSnapshotId": null,
+    "latestAttestationSnapshotChainIndex": null,
+    "latestAttestationSnapshotContentHash": null
+  },
+  "attestationTrustPublicationSummary": {
+    "status": "missing_publication"
+  },
+  "policyManifestSummary": {
+    "policyProfileId": "dev",
+    "version": "v1",
+    "signatureStatus": "unsigned",
+    "validityStatus": "unsigned"
+  },
+  "sourceTrustSummary": {
+    "script": {
+      "scriptId": "ns_1773003325308_0996b702",
+      "reviewStatus": "approved",
+      "integritySummary": {
+        "totalSnapshots": 1,
+        "matched": 1,
+        "mismatched": 0,
+        "brokenChainLinks": 0,
+        "missingHash": 0,
+        "firstBrokenSnapshotId": null,
+        "rows": [
+          {
+            "scriptId": "ns_1773003325308_0996b702",
+            "reviewedSnapshotId": "rss_1773003325321_693c5b5f",
+            "reviewedSnapshotChainIndex": 1,
+            "storedContentHash": "1487074d94c666ed851cdc20edf8922b9fa2fcd2042d9ecc21366a17eacf5bf9",
+            "recomputedContentHash": "1487074d94c666ed851cdc20edf8922b9fa2fcd2042d9ecc21366a17eacf5bf9",
+            "hashVersion": "sha256-v1",
+            "integrityStatus": "match",
+            "reasonCodes": [
+              "hash_match"
+            ]
+          }
+        ]
+      },
+      "trustPublication": {
+        "trustPublicationId": "rtp_1773003325326_d77562b2",
+        "signatureStatus": "unsigned",
+        "chainHeadDigest": "8cbe378ce29f7449586e2e985a784cafd0779fc1607a7bae5a21e96160dd5bac"
+      }
+    },
+    "shot": {
+      "shotListId": "sl_1773003325329_a02421f4",
+      "sourceTrustRefs": {
+        "publishGate": {
+          "canPublish": true,
+          "blockingReasons": [],
+          "warnings": [],
+          "evaluatedAt": "2026-03-08T20:55:25.328Z"
+        },
+        "trustPublication": null
+      }
+    },
+    "voice": {
+      "voiceTrackPlanId": "vtp_1773003325331_5019c695",
+      "voicePlanSnapshotId": null,
+      "integritySummary": {
+        "totalSnapshots": 0,
+        "matched": 0,
+        "mismatched": 0,
+        "brokenChainLinks": 0,
+        "missingHash": 0,
+        "firstBrokenSnapshotId": null,
+        "rows": []
+      },
+      "trustPublication": null,
+      "latestVoiceSnapshot": null
+    },
+    "subtitle": {
+      "voiceTrackPlanId": "vtp_1773003325331_5019c695",
+      "readiness": {
+        "orchestrationPolicyProfile": "production_verified",
+        "policyEvaluationResult": "blocked",
+        "blockingReasons": [
+          "latest_voice_plan_snapshot_missing",
+          "trust_publication_missing"
+        ],
+        "warnings": [],
+        "evaluatedAt": "2026-03-08T20:55:25.338Z"
+      },
+      "signedProofStatus": "unsigned"
+    },
+    "voiceVerifier": null
+  },
+  "overallVerdict": "missing_required_artifact",
+  "blockingReasons": [
+    "trust_publication_missing",
+    "attestation_trust_publication_missing"
+  ],
+  "warnings": [
+    "unsigned_proof"
+  ],
+  "admissionDecision": "deny",
+  "metadata": {
+    "mode": "explicit_refs",
+    "policyEvaluationResult": {
+      "orchestrationPolicyProfile": "internal_verified",
+      "policyManifestVersion": "v1",
+      "policyEvaluationResult": "blocked",
+      "blockingReasons": [
+        "trust_publication_missing"
+      ],
+      "warnings": [
+        "unsigned_proof"
+      ]
+    },
+    "evaluatedAt": "2026-03-08T20:55:25.342Z"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "fixture_player_flow",
+  "name": "Player Fixture",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "a",
+      "index": 1,
+      "title": "Login",
+      "action": "click",
+      "intent": "Login",
+      "screenshots": {
+        "beforeUrl": null,
+        "afterUrl": null,
+        "highlightedUrl": null
+      },
+      "annotations": [],
+      "confidence": 0.8
+    },
+    {
+      "id": "b",
+      "index": 2,
+      "title": "Open Dashboard",
+      "action": "navigate",
+      "intent": null,
+      "screenshots": {
+        "beforeUrl": null,
+        "afterUrl": null,
+        "highlightedUrl": null
+      },
+      "annotations": [
+        {
+          "author": "x",
+          "text": "good"
+        }
+      ],
+      "confidence": 0.7
+    }
+  ]
+}

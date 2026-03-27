@@ -1,0 +1,28 @@
+{
+  "shareId": "sh_1772987078915_540aecb679d5",
+  "targetType": "flow",
+  "targetRef": "fixture_share_flow",
+  "createdAt": "2026-03-08T16:24:38.915Z",
+  "createdBy": null,
+  "expiresAt": "2000-01-01T00:00:00.000Z",
+  "accessMode": "public_token",
+  "embed": {
+    "embedMode": "standard_embed",
+    "showControls": true,
+    "showStepCounter": true,
+    "showAnnotations": true,
+    "showOverlay": true,
+    "allowRestart": true,
+    "allowManualNavigation": true,
+    "autoPlayEnabled": false,
+    "theme": "dark"
+  },
+  "playbackDefaults": {
+    "step": 0,
+    "autoPlayEnabled": false,
+    "autoSession": true
+  },
+  "status": "active",
+  "lastAccessAt": null,
+  "accessCount": 0
+}

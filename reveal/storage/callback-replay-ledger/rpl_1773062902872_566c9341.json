@@ -1,0 +1,23 @@
+{
+  "replayLedgerId": "rpl_1773062902872_566c9341",
+  "executionCallbackId": "ecb_1773062902868_31abbe4d",
+  "callbackDigest": "d06b899f6c625a59929f644a30e7c6e7fd942f7dfb93d1cb9f5f38ec32c8e76b",
+  "callbackDigestVersion": "sha256-v1",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "callbackType": "handoff_acknowledged",
+  "targetExecutionReceiptId": "erc_1773062902865_88960b2c",
+  "targetProviderSubmissionContractId": "psc_1773022291332_9ae71130",
+  "externalExecutionRef": "job-fixture-1",
+  "firstSeenAt": "2026-03-09T13:28:22.868Z",
+  "lastSeenAt": "2026-03-09T13:28:22.868Z",
+  "replayCount": 1,
+  "replayStatus": "conflicting_replay",
+  "replayWindowPolicy": {
+    "windowSeconds": 3600,
+    "profile": "dev"
+  },
+  "metadata": {
+    "deterministic": true
+  }
+}

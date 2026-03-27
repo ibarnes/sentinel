@@ -1,0 +1,55 @@
+{
+  "id": "fixture_player_interaction_flow",
+  "name": "Interaction Fixture",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "i1",
+      "index": 1,
+      "title": "Target Step",
+      "action": "click",
+      "intent": "Click target",
+      "target": {
+        "text": "Upload",
+        "elementBox": {
+          "x": 100,
+          "y": 100,
+          "width": 200,
+          "height": 80
+        }
+      },
+      "metadata": {
+        "normalizedHighlightBox": {
+          "x": 100,
+          "y": 100,
+          "width": 200,
+          "height": 80,
+          "normalizedViewport": {
+            "width": 1000,
+            "height": 800
+          }
+        }
+      },
+      "annotations": [
+        {
+          "author": "a",
+          "text": "Important target"
+        }
+      ],
+      "screenshots": {}
+    },
+    {
+      "id": "i2",
+      "index": 2,
+      "title": "Auto Step",
+      "action": "navigate",
+      "intent": null,
+      "annotations": [],
+      "screenshots": {},
+      "overlay": {
+        "progressionMode": "auto",
+        "stepDurationMs": 2500
+      }
+    }
+  ]
+}

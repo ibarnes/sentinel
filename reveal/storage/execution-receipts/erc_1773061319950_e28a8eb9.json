@@ -1,0 +1,138 @@
+{
+  "executionReceiptId": "erc_1773061319950_e28a8eb9",
+  "createdAt": "2026-03-09T13:01:59.950Z",
+  "updatedAt": "2026-03-09T13:01:59.962Z",
+  "receiptVersion": "v1",
+  "providerSubmissionContractId": "psc_1773022291332_9ae71130",
+  "providerAdapterId": "pad_1773022291328_5ed32266",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "submissionDigest": "93b324b7c73ae6f44a3dd8d0865cdca7d66960942162cd9c3e13ab87297d8c21",
+  "submissionStatus": "closed",
+  "schedulerStatus": "closed",
+  "externalExecutionRef": null,
+  "requestSummary": {
+    "targetSystem": "generic_renderer/default",
+    "requestedAt": "2026-03-09T13:01:59.950Z",
+    "dispatchMode": "handoff_only",
+    "payloadDigest": "93b324b7c73ae6f44a3dd8d0865cdca7d66960942162cd9c3e13ab87297d8c21",
+    "artifactCounts": {
+      "stages": 3,
+      "jobs": 3,
+      "inputs": 5,
+      "outputs": 3
+    }
+  },
+  "responseSummary": {
+    "acknowledgedAt": "2026-03-09T13:01:59.962Z",
+    "externalExecutionRef": null,
+    "providerMessage": null,
+    "responseCode": null,
+    "errorClass": null,
+    "providerResult": {
+      "output": "ok"
+    }
+  },
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "ready",
+    "blockingReasons": [],
+    "warnings": []
+  },
+  "blockingReasons": [],
+  "warnings": [],
+  "lifecycleEvents": [
+    {
+      "eventId": "ev_1773061319950_defcc0",
+      "orderIndex": 1,
+      "eventType": "receipt_created",
+      "timestamp": "2026-03-09T13:01:59.950Z",
+      "actorType": "system",
+      "summary": "Execution receipt created from provider submission contract",
+      "statusBefore": null,
+      "statusAfter": "prepared",
+      "metadata": {
+        "providerSubmissionContractId": "psc_1773022291332_9ae71130"
+      }
+    },
+    {
+      "eventId": "ev_1773061319955_6aef89",
+      "orderIndex": 2,
+      "eventType": "dispatch_marked_ready",
+      "timestamp": "2026-03-09T13:01:59.955Z",
+      "actorType": "provider_callback",
+      "summary": "handoff_acknowledged",
+      "statusBefore": "prepared",
+      "statusAfter": "queued",
+      "metadata": {
+        "callbackId": "ecb_1773061319952_3043d5c3",
+        "callbackType": "handoff_acknowledged",
+        "callbackOriginStatus": "unsigned"
+      }
+    },
+    {
+      "eventId": "ev_1773061319957_27b131",
+      "orderIndex": 3,
+      "eventType": "handoff_recorded",
+      "timestamp": "2026-03-09T13:01:59.957Z",
+      "actorType": "provider_callback",
+      "summary": "handoff_acknowledged",
+      "statusBefore": "queued",
+      "statusAfter": "handed_off",
+      "metadata": {
+        "callbackId": "ecb_1773061319952_3043d5c3",
+        "callbackType": "handoff_acknowledged",
+        "callbackOriginStatus": "unsigned"
+      }
+    },
+    {
+      "eventId": "ev_1773061319960_43864d",
+      "orderIndex": 4,
+      "eventType": "provider_acknowledged",
+      "timestamp": "2026-03-09T13:01:59.960Z",
+      "actorType": "provider_callback",
+      "summary": "provider_acknowledged",
+      "statusBefore": "handed_off",
+      "statusAfter": "acknowledged",
+      "metadata": {
+        "callbackId": "ecb_1773061319959_49933910",
+        "callbackType": "provider_acknowledged",
+        "callbackOriginStatus": "unsigned"
+      }
+    },
+    {
+      "eventId": "ev_1773061319962_4957c7",
+      "orderIndex": 5,
+      "eventType": "execution_completed",
+      "timestamp": "2026-03-09T13:01:59.962Z",
+      "actorType": "provider_callback",
+      "summary": "execution_completed",
+      "statusBefore": "acknowledged",
+      "statusAfter": "closed",
+      "metadata": {
+        "callbackId": "ecb_1773061319961_0520846f",
+        "callbackType": "execution_completed",
+        "callbackOriginStatus": "unsigned"
+      }
+    }
+  ],
+  "lastCallbackId": "ecb_1773061319961_0520846f",
+  "lastCallbackType": "execution_completed",
+  "lastCallbackAt": "2026-03-09T13:01:59.961Z",
+  "callbackTrustStatus": "unsigned",
+  "callbackCount": 3,
+  "callbackWarningsSummary": [
+    "unsigned_callback_allowed_by_policy"
+  ],
+  "metadata": {
+    "deterministic": true
+  },
+  "receiptSignature": null,
+  "receiptSignatureVersion": "execution-receipt-sig-v1",
+  "receiptSigningKeyId": null,
+  "receiptSigningAlgorithm": "RSA-SHA256",
+  "receiptSignatureStatus": "unsigned",
+  "receiptSignatureValid": null,
+  "receiptVerificationScope": "execution-receipt-core",
+  "unsignedReason": "missing_key"
+}

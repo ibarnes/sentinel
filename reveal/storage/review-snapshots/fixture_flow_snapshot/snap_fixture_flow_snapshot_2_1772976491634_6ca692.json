@@ -1,0 +1,85 @@
+{
+  "snapshotId": "snap_fixture_flow_snapshot_2_1772976491634_6ca692",
+  "flowId": "fixture_flow_snapshot",
+  "reviewVersion": 2,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T13:28:11.634Z",
+  "createdBy": "fixture",
+  "sourceReviewedFlowVersion": 2,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "manifest": {
+    "snapshotId": "snap_fixture_flow_snapshot_2_1772976491634_6ca692",
+    "flowId": "fixture_flow_snapshot",
+    "reviewVersion": 2,
+    "stepCount": 2,
+    "annotationCount": 0,
+    "screenshotCoverage": {
+      "total": 2,
+      "withBefore": 0,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T13:28:11.634Z"
+  },
+  "reviewedFlow": {
+    "id": "fixture_flow_snapshot",
+    "name": "Fixture Flow Snapshot",
+    "description": "snapshot fixture",
+    "appHost": "app.test",
+    "version": 1,
+    "reviewVersion": 2,
+    "steps": [
+      {
+        "id": "s1",
+        "index": 1,
+        "title": "Step 1",
+        "action": "click",
+        "intent": null,
+        "target": {
+          "elementType": "button",
+          "text": "A"
+        },
+        "page": {
+          "url": "https://app.test"
+        },
+        "screenshots": {},
+        "confidence": 0.8,
+        "annotations": []
+      },
+      {
+        "id": "s2",
+        "index": 2,
+        "title": "Step 2",
+        "action": "submit",
+        "intent": null,
+        "target": {
+          "elementType": "submit_action",
+          "text": "B"
+        },
+        "page": {
+          "url": "https://app.test/b"
+        },
+        "screenshots": {},
+        "confidence": 0.7,
+        "annotations": []
+      }
+    ]
+  }
+}

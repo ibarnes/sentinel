@@ -1,0 +1,102 @@
+{
+  "providerExecutionAdapterId": "pea_1773022291136_adf33b86",
+  "createdAt": "2026-03-09T02:11:31.136Z",
+  "adapterVersion": "v1",
+  "providerType": "narration_pipeline",
+  "providerProfileId": "default",
+  "sourceProviderSubmissionContractId": "psc_1773022291038_f582b9b1",
+  "sourceRenderAdapterContractId": "rac_1773022291034_323d2814",
+  "sourceRefs": {
+    "providerSubmissionContractId": "psc_1773022291038_f582b9b1",
+    "renderAdapterContractId": "rac_1773022291034_323d2814",
+    "executionReceiptId": null,
+    "schedulerBoardId": "sbrd_1773022291135_4354b142",
+    "schedulerBoardDigest": "632bd6084b17d34c11fa17ccd233e9c347a1dc9a4290b1755afedfdebe65108c"
+  },
+  "readinessState": "unsupported_output_target",
+  "providerExecutionPayload": {
+    "payloadType": "provider_execution_payload",
+    "payloadVersion": "v1",
+    "providerType": "narration_pipeline",
+    "providerProfileId": "default",
+    "executionRef": {
+      "providerSubmissionContractId": "psc_1773022291038_f582b9b1",
+      "providerAdapterId": "pad_1773022291036_a28bac74",
+      "sourceRenderAdapterContractId": "rac_1773022291034_323d2814"
+    },
+    "executionStages": [],
+    "executionJobs": [],
+    "inputArtifactMap": [],
+    "outputTargetMap": [],
+    "timingPlan": {
+      "expectedDurationMs": 0,
+      "deterministic": true
+    },
+    "trustRefs": {
+      "sourceRefs": {
+        "verifierPackageId": "uvp_1773022291031_d186acbb",
+        "externalVerifierProfileId": null,
+        "shotListId": "sl_1773022291019_3889b672",
+        "shotListSnapshotId": null,
+        "voiceTrackPlanId": "vtp_1773022291021_03b493fb",
+        "renderPlanId": null
+      },
+      "policyEvaluation": {
+        "readinessState": "blocked",
+        "blockingReasons": [
+          "trust_publication_missing"
+        ],
+        "warnings": [
+          "unsigned_proof"
+        ]
+      }
+    },
+    "admissionRefs": {
+      "externalVerifierProfileId": null,
+      "verifierPackageId": "uvp_1773022291031_d186acbb"
+    },
+    "schedulerRefs": {
+      "schedulerBoardId": "sbrd_1773022291135_4354b142",
+      "schedulerBoardDigest": "632bd6084b17d34c11fa17ccd233e9c347a1dc9a4290b1755afedfdebe65108c",
+      "executionReceiptId": null,
+      "submissionDigest": "bb1f20f3bee74449290c1c3d4d251db365b13b5e5756e14e9ce03f79d72aa45a"
+    },
+    "executionHints": {
+      "submissionMode": "handoff_only",
+      "targetEndpointProfile": "generic_renderer/default",
+      "deterministic": true
+    },
+    "metadata": {
+      "deterministic": true
+    }
+  },
+  "providerExecutionPayloadDigest": "ae852b9aeb6f190c779f25c5edfb2f04d4916f61f0a1de0298c92c217ea334b6",
+  "capabilityMappingSummary": {
+    "providerType": "narration_pipeline",
+    "providerProfileId": "default",
+    "supportedStageCount": 0,
+    "supportedJobCount": 0,
+    "supportedInputCount": 0,
+    "supportedOutputCount": 0,
+    "unsupportedStageCount": 0,
+    "unsupportedJobCount": 0,
+    "unsupportedOutputCount": 0
+  },
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "submissionMode": "handoff_only",
+    "submissionSignatureStatus": "unsigned",
+    "receiptSignatureStatus": null,
+    "schedulerBoardDecision": "do_not_dispatch",
+    "sourceReadinessState": "ready"
+  },
+  "blockingReasons": [
+    "missing_required_input",
+    "unsupported_output_target"
+  ],
+  "warnings": [],
+  "metadata": {
+    "deterministic": true,
+    "sourceRenderAdapterContractFound": true
+  }
+}

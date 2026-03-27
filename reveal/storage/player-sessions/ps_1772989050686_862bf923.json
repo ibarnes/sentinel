@@ -1,0 +1,124 @@
+{
+  "sessionId": "ps_1772989050686_862bf923",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_script_flow",
+    "snapshotId": null,
+    "packageRef": null
+  },
+  "createdAt": "2026-03-08T16:57:30.686Z",
+  "updatedAt": "2026-03-09T17:11:42.275Z",
+  "lastActivityAt": "2026-03-08T16:57:30.686Z",
+  "expiresAt": "2026-03-08T20:57:30.686Z",
+  "currentStepIndex": 0,
+  "autoPlayEnabled": false,
+  "playbackStatus": "expired",
+  "stepCount": 2,
+  "viewerMetadata": null,
+  "cleanupStatus": "none",
+  "model": {
+    "flowId": "fixture_script_flow",
+    "sourceType": "reviewed_flow",
+    "title": "Script Fixture Flow",
+    "description": "Fixture for script generation",
+    "steps": [
+      {
+        "index": 0,
+        "title": "Upload CSV File",
+        "action": "upload",
+        "intent": "add customer data for analysis",
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [
+          {
+            "author": "qa",
+            "text": "Use sample file"
+          }
+        ],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [
+          {
+            "hotspotId": "hs_0_info_1",
+            "stepIndex": 0,
+            "type": "info",
+            "label": "Note",
+            "description": "Use sample file",
+            "x": 4,
+            "y": 4,
+            "width": 30,
+            "height": 12,
+            "targetAction": "show_info",
+            "targetStepIndex": null,
+            "interactionMode": "click",
+            "priority": 2,
+            "visible": true,
+            "metadata": {
+              "from": "annotation"
+            }
+          }
+        ],
+        "overlay": {
+          "title": "Upload CSV File",
+          "body": "add customer data for analysis",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "manual",
+          "requiresHotspotConfirmation": false,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      },
+      {
+        "index": 1,
+        "title": "Run Analysis",
+        "action": "click",
+        "intent": "generate initial metrics",
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [],
+        "overlay": {
+          "title": "Run Analysis",
+          "body": "generate initial metrics",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "manual",
+          "requiresHotspotConfirmation": false,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      }
+    ]
+  },
+  "interactionState": {
+    "0": {
+      "hotspotConfirmed": false,
+      "overlayDismissed": false,
+      "canProceed": true
+    },
+    "1": {
+      "hotspotConfirmed": false,
+      "overlayDismissed": false,
+      "canProceed": true
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "snapshotId": "snap_fixture_player_flow_1_1772981757944_a7c65e",
+  "flowId": "fixture_player_flow",
+  "reviewVersion": 1,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T14:55:57.945Z",
+  "createdBy": "fixture",
+  "sourceReviewedFlowVersion": 1,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "parentSnapshotId": null,
+  "parentSnapshotContentHash": null,
+  "snapshotChainIndex": 1,
+  "reviewedFlow": {
+    "id": "fixture_player_flow",
+    "name": "Player Fixture",
+    "reviewVersion": 1,
+    "steps": [
+      {
+        "id": "a",
+        "index": 1,
+        "title": "Login",
+        "action": "click",
+        "intent": "Login",
+        "screenshots": {
+          "beforeUrl": null,
+          "afterUrl": null,
+          "highlightedUrl": null
+        },
+        "annotations": [],
+        "confidence": 0.8
+      },
+      {
+        "id": "b",
+        "index": 2,
+        "title": "Open Dashboard",
+        "action": "navigate",
+        "intent": null,
+        "screenshots": {
+          "beforeUrl": null,
+          "afterUrl": null,
+          "highlightedUrl": null
+        },
+        "annotations": [
+          {
+            "author": "x",
+            "text": "good"
+          }
+        ],
+        "confidence": 0.7
+      }
+    ]
+  },
+  "snapshotContentHash": "7714aeaf91379bde0f43d43debd14d5acee35463d90d886bf9213c2d9a9fdc3f",
+  "snapshotHashVersion": "sha256-v1",
+  "snapshotHashCanonicalPayload": {
+    "createdAt": "2026-03-08T14:55:57.945Z",
+    "createdBy": "fixture",
+    "flowId": "fixture_player_flow",
+    "parentSnapshotContentHash": null,
+    "parentSnapshotId": null,
+    "reviewVersion": 1,
+    "reviewedFlow": {
+      "id": "fixture_player_flow",
+      "name": "Player Fixture",
+      "reviewVersion": 1,
+      "steps": [
+        {
+          "action": "click",
+          "annotations": [],
+          "confidence": 0.8,
+          "id": "a",
+          "index": 1,
+          "intent": "Login",
+          "screenshots": {
+            "afterUrl": null,
+            "beforeUrl": null,
+            "highlightedUrl": null
+          },
+          "title": "Login"
+        },
+        {
+          "action": "navigate",
+          "annotations": [
+            {
+              "author": "x",
+              "text": "good"
+            }
+          ],
+          "confidence": 0.7,
+          "id": "b",
+          "index": 2,
+          "intent": null,
+          "screenshots": {
+            "afterUrl": null,
+            "beforeUrl": null,
+            "highlightedUrl": null
+          },
+          "title": "Open Dashboard"
+        }
+      ]
+    },
+    "snapshotChainIndex": 1,
+    "snapshotId": "snap_fixture_player_flow_1_1772981757944_a7c65e",
+    "snapshotVersion": 1,
+    "sourceNormalizedFlowVersion": 1,
+    "sourceReplayChecksumSummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "missing": 0,
+      "unreplayable": 0
+    },
+    "sourceReviewedFlowVersion": 1,
+    "status": "frozen"
+  },
+  "manifest": {
+    "snapshotId": "snap_fixture_player_flow_1_1772981757944_a7c65e",
+    "flowId": "fixture_player_flow",
+    "reviewVersion": 1,
+    "stepCount": 2,
+    "annotationCount": 1,
+    "screenshotCoverage": {
+      "total": 2,
+      "withBefore": 0,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "snapshotContentHash": "7714aeaf91379bde0f43d43debd14d5acee35463d90d886bf9213c2d9a9fdc3f",
+    "snapshotHashVersion": "sha256-v1",
+    "parentSnapshotId": null,
+    "parentSnapshotContentHash": null,
+    "snapshotChainIndex": 1,
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T14:55:57.945Z"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "producedOutputVerifierId": "pov_1773068038520_8de63889",
+  "createdAt": "2026-03-09T14:53:58.520Z",
+  "verifierVersion": "v1",
+  "targetRef": {
+    "executionReceiptId": "erc_1773068038471_3a0a572c",
+    "providerSubmissionContractId": "psc_1773022291332_9ae71130",
+    "latestResultArtifactId": "era_1773068038485_b51ea7f9",
+    "policyProfileId": "internal_verified",
+    "mode": "latest"
+  },
+  "providerType": "subtitle_compositor",
+  "providerProfileId": "default",
+  "latestResultArtifactSummary": {
+    "executionResultArtifactId": "era_1773068038485_b51ea7f9",
+    "artifactType": "execution_result_summary",
+    "artifactDigest": "24c411e281ac8d63ebd2f3508b34340b787ccf759e1c9361ce6e86f88b366aca",
+    "ingestionStatus": "blocked",
+    "trustStatus": "unsigned",
+    "signatureStatus": "unsigned"
+  },
+  "resultTrustPublicationSummary": {
+    "resultTrustPublicationId": "rtpub_1773068038503_14fc6dbe",
+    "resultHeadDigest": "7c5bc9991593d485abf93fac8852e8b6df91e21b5cfe922f0292704b8afc4dbd",
+    "resultHeadDigestVersion": "sha256-v1",
+    "signatureStatus": "unsigned"
+  },
+  "receiptSummary": {
+    "executionReceiptId": "erc_1773068038471_3a0a572c",
+    "submissionStatus": "prepared",
+    "schedulerStatus": "not_dispatched"
+  },
+  "submissionSummary": {
+    "providerSubmissionContractId": "psc_1773022291332_9ae71130",
+    "readinessState": "ready"
+  },
+  "policyEvaluation": {
+    "policyProfileId": "internal_verified",
+    "requireSignedResultArtifact": false,
+    "requireSignedResultTrustPublication": true,
+    "requireProducedOutputVerifierPass": true,
+    "requiredOutputTypes": []
+  },
+  "overallOutputVerdict": "invalid_publication_signature",
+  "blockingReasons": [
+    "result_trust_publication_invalid"
+  ],
+  "warnings": [
+    "untrusted_output_types_present"
+  ],
+  "outputAvailabilitySummary": {
+    "availableOutputTypes": [
+      "execution_result_summary",
+      "render_manifest_output",
+      "subtitle_output"
+    ],
+    "latestOutputRefs": {
+      "subtitle_output": "s3://x/sub.srt"
+    },
+    "outputCount": 4,
+    "requiredOutputTypes": [],
+    "missingRequiredOutputs": [],
+    "trustQualifiedOutputTypes": [
+      "execution_result_summary"
+    ],
+    "untrustedOutputTypes": [
+      "render_manifest_output",
+      "subtitle_output"
+    ]
+  },
+  "metadata": {
+    "deterministic": true
+  }
+}

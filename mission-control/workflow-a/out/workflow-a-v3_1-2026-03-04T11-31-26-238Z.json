@@ -1,0 +1,800 @@
+{
+  "generatedAt": "2026-03-04T11:31:26.239Z",
+  "rows": [
+    {
+      "buyer": "PIF",
+      "sourceTried": [
+        "https://www.pif.gov.sa/en/news-and-insights/",
+        "https://www.pif.gov.sa/en/"
+      ],
+      "sourceUsed": "https://www.pif.gov.sa/en/news-and-insights/",
+      "fetchStatus": "HTTP_403",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "$40 billion",
+      "sector": "infrastructure",
+      "geography": "Saudi Arabia",
+      "mandateLanguage": "investment strategy",
+      "leadershipStatement": "CEO",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "27;s official trip to Saudi Arabia, PIF announced plans to &quot;<strong>invest $40 billion in infrastructure projects, mostly in the U.S.&quot;</strong> Blackstone Inc., ",
+        "sector": "rip to Saudi Arabia, PIF announced plans to &quot;<strong>invest $40 billion in infrastructure projects, mostly in the U.S.&quot;</strong> Blackstone Inc., whose CEO and foun",
+        "geography": "–US CEO Forum, which was part of President Donald Trump&#x27;s official trip to Saudi Arabia, PIF announced plans to &quot;<strong>invest $40 billion in infrastructure proj",
+        "mandateLanguage": " Public Investment Fund In his capacity, he oversees PIF’s domestic real estate investment strategy, including the development and execution of giga-projects and large-scale real ",
+        "leadershipStatement": "Public Investment Fund - Wikipedia During the 2017 Saudi–US CEO Forum, which was part of President Donald Trump&#x27;s official trip to Saudi A"
+      },
+      "signalScore": 2.6,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "search_derived",
+        "sector": "search_derived",
+        "geography": "search_derived",
+        "mandateLanguage": "search_derived",
+        "leadershipStatement": "search_derived"
+      },
+      "overallConfidence": "medium",
+      "missingInputs": [
+        "date"
+      ]
+    },
+    {
+      "buyer": "AFC",
+      "sourceTried": [
+        "https://www.africafc.org/media-centre/",
+        "https://www.africafc.org/"
+      ],
+      "sourceUsed": "https://www.africafc.org/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "February 14, 2025",
+      "capitalAmount": "$ 17bn",
+      "sector": "Infrastructure",
+      "geography": "MISSING",
+      "mandateLanguage": "platform",
+      "leadershipStatement": "President",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "s Ababa, Ethiopia – 18 February 2026 — African Heads of State and Government on February 14, 2025, formally launched the Africa Infrastructure Financing Facility (AIFF), a coord",
+        "capitalAmount": "elp address Africa’s infrastructure needs and challenges: 48 member countries US$ 17bn disbursed to projects across 36 countries Investee Companies As a leading instr",
+        "sector": "pital Partners Careers Contact Search Search --> --> --> Back Back Instrumental Infrastructure. Instrumental Africa. Read More --> Compendium of Africa’s Strategic Minerals 2",
+        "geography": "MISSING",
+        "mandateLanguage": " the Africa Infrastructure Financing Facility (AIFF), a coordinated, Africa-led platform designed to accelerate the preparation and facilitation of financing for priori",
+        "leadershipStatement": "e Karekezi as Chairperson of its Governing Council, succeeding Samaila Zubairu, President and Chief Executive Officer of the Africa Finance Corporation (AFC), who served"
+      },
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "verified_source",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "geography"
+      ]
+    },
+    {
+      "buyer": "AfDB",
+      "sourceTried": [
+        "https://www.afdb.org/en/news-and-events",
+        "https://www.afdb.org/en"
+      ],
+      "sourceUsed": "https://www.afdb.org/en/news-and-events",
+      "fetchStatus": "HTTP_403",
+      "braveStatus": "BRAVE_HTTP_429",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "NSIA",
+      "sourceTried": [
+        "https://nsia.com.ng/news/",
+        "https://nsia.com.ng/"
+      ],
+      "sourceUsed": "https://nsia.com.ng/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "$50 M",
+      "sector": "Infrastructure",
+      "geography": "MISSING",
+      "mandateLanguage": "Mandate",
+      "leadershipStatement": "President",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": " &#8594; Grievance Redress Tool &#8594; Search NSIA &#038; JICA Set to Launch US$50 Million Impact Innovation Fund to Empower Nigerian Startups Learn more NSIA &#038",
+        "sector": "cale to stimulate economic growth. NSIA Funds &#8594; Portfolio &#8594; Nigeria Infrastructure Fund &#8594; Direct Investments &#8594; Future Generations Fund &#8594; Third P",
+        "geography": "MISSING",
+        "mandateLanguage": "deration set up to manage funds in excess of budgeted hydrocarbon revenues. Our Mandate &#8594; Governance &#8594; Our History &#8594; Our Investment Our Investments &",
+        "leadershipStatement": "Window (NSW) project alongside the Federal Inland Revenue Service (FIRS) by HE, President Bola Ahmed Tinubu. &#xf5f1; &nbsp; Signed strategic partnership agreement with "
+      },
+      "signalScore": 2.6,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "geography"
+      ]
+    },
+    {
+      "buyer": "IFC",
+      "sourceTried": [
+        "https://www.ifc.org/en/pressroom",
+        "https://www.ifc.org/"
+      ],
+      "sourceUsed": "https://www.ifc.org/en/pressroom",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_HTTP_429",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "Infrastructure",
+      "geography": "MISSING",
+      "mandateLanguage": "mandate",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "amp; Forestry Creative Industries Education Financial Institutions Funds Health Infrastructure Manufacturing Public-Private Partnerships Tourism, Retail &amp; Property Trade ",
+        "geography": "MISSING",
+        "mandateLanguage": "e world’s most challenging markets. Including a history of innovation, a global mandate, and a determination to achieve measurable development impact. Our Impact Overv",
+        "leadershipStatement": "ent, creates jobs and improves the lives of people. More About Us About IFC Our Leadership Development Partners Diversity, Equity and Inclusion Accountability Learn more "
+      },
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "geography"
+      ]
+    },
+    {
+      "buyer": "GIC",
+      "sourceTried": [
+        "https://www.gic.com.kw/en/media-center/",
+        "https://www.gic.com.kw/"
+      ],
+      "sourceUsed": "https://www.gic.com.kw/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "infrastructure",
+      "geography": "Kuwait",
+      "mandateLanguage": "allocation",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": true,
+      "evidence": {
+        "date": "Filtered as stale (>24m old) for pressure events",
+        "capitalAmount": "MISSING",
+        "sector": ". Disclamer | Privacy Policy FAQs | GIC Managing cybersecurity, technology, ... infrastructure; Managing counterparty credit risks to minimise the impact to GIC if any counte",
+        "geography": "An investment company incorporated in the State of Kuwait. - Gulf Investment Corporation % Skip to content Skip to footer Home Principal ",
+        "mandateLanguage": " Find out more. The GIC Board approves the Policy Portfolio which specifies the allocation of funds to ... Our governance - GIC The Government gives GIC an investment man",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "FMF-NG",
+      "sourceTried": [
+        "https://www.finance.gov.ng/category/press-release/",
+        "https://www.finance.gov.ng/"
+      ],
+      "sourceUsed": "https://www.finance.gov.ng/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "March 4, 2026",
+      "capitalAmount": "$1",
+      "sector": "Infrastructure",
+      "geography": "MISSING",
+      "mandateLanguage": "MANDATE",
+      "leadershipStatement": "leadership",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": " for our people, our industries, and our investors. News Ministerial Activities March 4, 2026 The Minister of Finance Signs Presumptive Tax Regulations Framework The Honoura",
+        "capitalAmount": "e Economy, Mr Wale Edun today ... Read More FG Targets 12% Annual Growth To Hit $1 Trillion Economy Landmark – Uzoka-Anite The Federal Government has outlined a r",
+        "sector": "cal Commission (RMAFC) to effectively carry out its statutory mandates. Nigeria Infrastructure Fund | NSIA The Fund’s mandate is <strong>to catalyse growth in the stock of in",
+        "geography": "MISSING",
+        "mandateLanguage": "r Finance Dr Doris Uzoka-Anite today in her office in Abuja recei ... Read More MANDATE Our goals are To manage the nation's finances in an open, transparent, accounta",
+        "leadershipStatement": "aster plan. Meet The Team A Ministry is as Good as its Team Together, under the leadership of the Honorable Minister, we work with a renewed hope of a greater Nigeria Vie"
+      },
+      "signalScore": 2.6,
+      "fieldProvenance": {
+        "date": "verified_source",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "geography"
+      ]
+    },
+    {
+      "buyer": "ADFD",
+      "sourceTried": [
+        "https://www.adfd.ae/media-centre/",
+        "https://www.adfd.ae/"
+      ],
+      "sourceUsed": "https://www.adfd.ae/media-centre/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "Allocation",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "otline +971 80070 U.S. Department of Transportation SUBMITTED FOR THE USE OF 4/ Allocation from the Federal Highway Administration Mandate for Leadership | A Product of T",
+        "leadershipStatement": "OR THE USE OF 4/ Allocation from the Federal Highway Administration Mandate for Leadership | A Product of The Heritage Foundation Order your copy of Mandate for Leadershi"
+      },
+      "signalScore": 1.8,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography"
+      ]
+    },
+    {
+      "buyer": "SFD",
+      "sourceTried": [
+        "https://www.sfd.gov.sa/en/media-center/",
+        "https://www.sfd.gov.sa/en"
+      ],
+      "sourceUsed": "https://www.sfd.gov.sa/en/media-center/",
+      "fetchStatus": "FETCH_fetch failed",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "$20 Billion",
+      "sector": "Infrastructure",
+      "geography": "MISSING",
+      "mandateLanguage": "commitment",
+      "leadershipStatement": "leadership",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "ions. Saudi Fund for Development Celebrates 50 Years of Global Impact with Over $20 Billion in Development Contributions Equally, <strong>we focus on critical infrastructu",
+        "sector": ";solidarity with developing nations&quot; ... Saudi Fund for Development (SFD): Infrastructure, health, education, humanitarian relief. - fundsforNGOs The SFD operates under ",
+        "geography": "MISSING",
+        "mandateLanguage": "tes under the auspices of the Kingdom of Saudi Arabia, reflecting the country’s commitment to fostering global development and cooperation. By focusing on sustainable pro",
+        "leadershipStatement": "Saudi Fund for Development - Wikipedia M/48 on 1 September 1974, under the leadership of <strong>King Faisal bin Abdulaziz Al Saud</strong>. The decision followed th"
+      },
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "search_derived",
+        "sector": "search_derived",
+        "geography": "missing",
+        "mandateLanguage": "search_derived",
+        "leadershipStatement": "search_derived"
+      },
+      "overallConfidence": "medium",
+      "missingInputs": [
+        "date",
+        "geography"
+      ]
+    },
+    {
+      "buyer": "MUBADALA",
+      "sourceTried": [
+        "https://www.mubadala.com/en/news",
+        "https://www.mubadala.com/"
+      ],
+      "sourceUsed": "https://www.mubadala.com/en/news",
+      "fetchStatus": "FETCH_fetch failed",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "Infrastructure",
+      "geography": "MISSING",
+      "mandateLanguage": "mandate",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "Mubadala's push into infra is just getting started - ION Analytics “[Infrastructure] sits at the centre of Mubadala’s mandate to <strong>invest in sectors that ena",
+        "geography": "MISSING",
+        "mandateLanguage": "ting started - ION Analytics “[Infrastructure] sits at the centre of Mubadala’s mandate to <strong>invest in sectors that enable long-term economic progress while deli",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1.4,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "search_derived",
+        "geography": "missing",
+        "mandateLanguage": "search_derived",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "medium",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "geography",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "TPO",
+      "sourceTried": [
+        "https://pritzkerorg.com/",
+        "https://pritzkerorg.com/investment-criteria/"
+      ],
+      "sourceUsed": "https://pritzkerorg.com/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_HTTP_429",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "HCC",
+      "sourceTried": [
+        "https://www.henrycrown.com/"
+      ],
+      "sourceUsed": "https://www.henrycrown.com/",
+      "fetchStatus": "FETCH_fetch failed",
+      "braveStatus": "BRAVE_HTTP_429",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "low",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "ANSCHUTZ",
+      "sourceTried": [
+        "https://www.anschutz.com/"
+      ],
+      "sourceUsed": "https://www.anschutz.com/",
+      "fetchStatus": "FETCH_fetch failed",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "infrastructure",
+      "geography": "MISSING",
+      "mandateLanguage": "Platform",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "o explore the full profile. The Anschutz Foundation <strong>Developing Colorado infrastructure and strong cultural institutions and programs to improve quality of life</stron",
+        "geography": "MISSING",
+        "mandateLanguage": " preferences, team and board members for Anschutz Foundation. Use the PitchBook Platform to explore the full profile. Anschutz Family Foundation Profile: Commitments & ",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1.4,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "search_derived",
+        "geography": "missing",
+        "mandateLanguage": "search_derived",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "medium",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "geography",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "KOCH",
+      "sourceTried": [
+        "https://www.kochind.com/newsroom/",
+        "https://www.kochind.com/"
+      ],
+      "sourceUsed": "https://www.kochind.com/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_HTTP_429",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "MISSING",
+      "sector": "Energy",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "MISSING",
+        "sector": "s Resources Georgia-Pacific Guardian Industries Infor INVISTA KBX Koch Ag &amp; Energy Solutions Koch Engineered Solutions Koch Minerals &amp; Trading Molex Koch Inve",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "missing",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "capitalAmount",
+        "geography",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    },
+    {
+      "buyer": "COX",
+      "sourceTried": [
+        "https://www.coxenterprises.com/news/",
+        "https://www.coxenterprises.com/"
+      ],
+      "sourceUsed": "https://www.coxenterprises.com/news/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "April 3, 2025",
+      "capitalAmount": "$10",
+      "sector": "Digital",
+      "geography": "MISSING",
+      "mandateLanguage": "commitment",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "X ENTERPRISES, INC To use web better, please enable Javascript. 1 Hearing Date: April 3, 2025 Andrew D. Cox President, Fourspoke, LLC infrastructure built by the government ",
+        "capitalAmount": "any? – PortersFiveForce.com Cox’s statements guide multiyear programs such as a $10B+ fiber and 10G upgrade and scaled auto marketplaces influencing tens of millio",
+        "sector": "ns Cox Automotive Cox Farms Our Story Why Choose Us Growth Operations Cleantech Digital Media Public Sector Healthcare Socium Ventures People Benefits Medical Plans Pr",
+        "geography": "MISSING",
+        "mandateLanguage": "onservation&#45;Minded Families 12/08/2025 This acquisition will bolster KUIU’s commitment to its customers, employees and innovation. Learn More Cox Enterprises Cox Ente",
+        "leadershipStatement": "Cox Enterprises News | Cox Enterprises --> Search anytime by typing About Us Leadership Message What We Stand For History Inclusion &amp; Engagement Inclusion Partners"
+      },
+      "signalScore": 2.2,
+      "fieldProvenance": {
+        "date": "verified_source",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "missing",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "geography"
+      ]
+    },
+    {
+      "buyer": "DFC",
+      "sourceTried": [
+        "https://www.dfc.gov/media/press-releases",
+        "https://www.dfc.gov/our-work"
+      ],
+      "sourceUsed": "https://www.dfc.gov/media/press-releases",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_HTTP_429",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "March 3, 2026",
+      "capitalAmount": "MISSING",
+      "sector": "MISSING",
+      "geography": "MISSING",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": " Affairs Benefits FAQs Fair Chance Act Search... Search Keywords Apply Newsroom March 3, 2026 Media Release DFC’s Political Risk Insurance and Guaranty Products Will Support",
+        "capitalAmount": "MISSING",
+        "sector": "MISSING",
+        "geography": "MISSING",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "sperity, and Critical Mineral Supply Chains February 18, 2026 Media Release DFC Leadership Lays the Foundation for Investment Partnership with Uzbekistan February 4, 2026"
+      },
+      "signalScore": 1.4,
+      "fieldProvenance": {
+        "date": "verified_source",
+        "capitalAmount": "missing",
+        "sector": "missing",
+        "geography": "missing",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "capitalAmount",
+        "sector",
+        "geography",
+        "mandateLanguage"
+      ]
+    },
+    {
+      "buyer": "Brookfield",
+      "sourceTried": [
+        "https://bep.brookfield.com/press-releases",
+        "https://bep.brookfield.com/"
+      ],
+      "sourceUsed": "https://bep.brookfield.com/press-releases",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "March 21, 2025",
+      "capitalAmount": "$10 Billion",
+      "sector": "Renewable",
+      "geography": "Us",
+      "mandateLanguage": "mandate",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 3,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": " cash‑flow profile. BROOKFIELD INFRASTRUCTURE INCOME FUND INC. Supplement dated March 21, 2025, the infrastructure industry, generally on a secondary basis from existing inve",
+        "capitalAmount": "etirement Services Image Brookfield Launches New Strategy Brookfield is raising $10 Billion for new AI infrastructure fund. Image Bruce Flatt on the Future of Nuclear Ener",
+        "sector": "404 | Brookfield Renewable Partners Skip to main content Open menu About Us Long-term thinking. Real world",
+        "geography": "404 | Brookfield Renewable Partners Skip to main content Open menu About Us Long-term thinking. Real world impact. Company Who We Are Global Presence The E",
+        "mandateLanguage": "teran of Morgan Stanley, to provide tailored multi-asset solutions. The group’s mandate—leveraging Brookfield’s expertise in sectors like renewable ... Brookfield Asse",
+        "leadershipStatement": "m thinking. Real world impact. Company Who We Are Global Presence The Ecosystem Leadership Sustainability Businesses Asset Management Wealth Solutions Capabilities Asset "
+      },
+      "signalScore": 3,
+      "fieldProvenance": {
+        "date": "verified_source",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": []
+    },
+    {
+      "buyer": "GIP",
+      "sourceTried": [
+        "https://www.global-infra.com/news/",
+        "https://www.global-infra.com/"
+      ],
+      "sourceUsed": "https://www.global-infra.com/",
+      "fetchStatus": "OK",
+      "braveStatus": "OK",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "$25 billion",
+      "sector": "Infrastructure",
+      "geography": "Global",
+      "mandateLanguage": "platform",
+      "leadershipStatement": "Leadership",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "ns to facilitate regional development. Financial Strength Having secured nearly $25 billion in financing for new funds and managing approximately $103 billion in assets, G",
+        "sector": "Global Infrastructure Partners - A leading infrastructure investor. Skip to content Clear Search ABOU",
+        "geography": "Global Infrastructure Partners - A leading infrastructure investor. Skip to content Cl",
+        "mandateLanguage": "Emerging Markets strategies. Additionally, our Separately Managed Account (SMA) platform provides tailored risk and return solutions to a group of select institutional ",
+        "leadershipStatement": "s Disclaimer LinkedIn Employee Login LP Access Global Infrastructure Partners - Leadership Team | The Org The Leadership Team at Global Infrastructure Partners (GIP) is <"
+      },
+      "signalScore": 2.6,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "verified_source",
+        "leadershipStatement": "verified_source"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date"
+      ]
+    },
+    {
+      "buyer": "NigeriaMortgageFund",
+      "sourceTried": [
+        "https://www.mreif.com.ng/",
+        "https://www.mreif.com.ng/category/news/"
+      ],
+      "sourceUsed": "https://www.mreif.com.ng/",
+      "fetchStatus": "OK",
+      "braveStatus": "BRAVE_HTTP_429",
+      "chromiumStatus": "PENDING_INTEGRATION",
+      "date": "MISSING",
+      "capitalAmount": "1 Million",
+      "sector": "housing",
+      "geography": "Nigeria",
+      "mandateLanguage": "MISSING",
+      "leadershipStatement": "MISSING",
+      "urgencyIndicator": 1,
+      "staleDateFiltered": false,
+      "evidence": {
+        "date": "MISSING",
+        "capitalAmount": "ic growth, ultimately improving living conditions and national competitiveness. 1 Million Houses 25,000 Units Delivered 11,700 Units Sold 5 States Abuja, Lagos, Port Har",
+        "sector": "ting Banks: How MREIF Works For: homebuyer MREIF is designed to make affordable housing accessible through streamlined processes and tailored mortgage solutions. Creat",
+        "geography": " a property from our list of verified properties from leading developers across Nigeria, or upload your own property. Click to see properties Get Pre-approved Apply an",
+        "mandateLanguage": "MISSING",
+        "leadershipStatement": "MISSING"
+      },
+      "signalScore": 1.8,
+      "fieldProvenance": {
+        "date": "missing",
+        "capitalAmount": "verified_source",
+        "sector": "verified_source",
+        "geography": "verified_source",
+        "mandateLanguage": "missing",
+        "leadershipStatement": "missing"
+      },
+      "overallConfidence": "high",
+      "missingInputs": [
+        "date",
+        "mandateLanguage",
+        "leadershipStatement"
+      ]
+    }
+  ]
+}

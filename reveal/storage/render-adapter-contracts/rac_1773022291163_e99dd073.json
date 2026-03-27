@@ -1,0 +1,206 @@
+{
+  "renderAdapterContractId": "rac_1773022291163_e99dd073",
+  "createdAt": "2026-03-09T02:11:31.163Z",
+  "contractVersion": "v1",
+  "adapterType": "storyboard_export",
+  "orchestrationProfile": "dev",
+  "targetRef": {
+    "renderAdapterContractId": "rac_1773022291163_e99dd073"
+  },
+  "sourceRefs": {
+    "verifierPackageId": "uvp_1773022291031_d186acbb",
+    "externalVerifierProfileId": null,
+    "shotListId": "sl_1773022291019_3889b672",
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": null,
+    "renderPlanId": null
+  },
+  "readinessState": "ready_with_warnings",
+  "executionPlan": {
+    "stages": [
+      {
+        "stageId": "stage_storyboard",
+        "stageType": "storyboard_assembly",
+        "orderIndex": 0,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot"
+        ],
+        "producedOutputs": [
+          "ot_1",
+          "ot_2"
+        ],
+        "dependencyStageIds": [],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      }
+    ],
+    "jobs": [
+      {
+        "jobId": "job_1",
+        "jobType": "storyboard_assembly",
+        "stageId": "stage_storyboard",
+        "orderIndex": 0,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot"
+        ],
+        "outputRefs": [
+          "ot_1",
+          "ot_2"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      }
+    ],
+    "dependencies": [],
+    "timingPlan": {
+      "expectedDurationMs": 0,
+      "deterministic": true
+    },
+    "assetMap": [
+      {
+        "artifactId": "a_unified",
+        "artifactRef": {
+          "verifierPackageId": "uvp_1773022291031_d186acbb"
+        }
+      },
+      {
+        "artifactId": "a_script",
+        "artifactRef": {
+          "scriptId": "ns_1773022290999_9f6c9aae"
+        }
+      },
+      {
+        "artifactId": "a_voice",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773022291021_03b493fb"
+        }
+      },
+      {
+        "artifactId": "a_shot",
+        "artifactRef": {
+          "shotListId": "sl_1773022291019_3889b672"
+        }
+      }
+    ],
+    "outputPlan": [
+      {
+        "outputTargetId": "ot_1",
+        "outputType": "storyboard_json",
+        "format": "json",
+        "pathHint": "/outputs/storyboard_json.json",
+        "requiredProducerStageId": "stage_storyboard",
+        "readinessRequirements": [],
+        "metadata": {}
+      },
+      {
+        "outputTargetId": "ot_2",
+        "outputType": "edit_decision_list",
+        "format": "json",
+        "pathHint": "/outputs/edit_decision_list.json",
+        "requiredProducerStageId": "stage_storyboard",
+        "readinessRequirements": [],
+        "metadata": {}
+      }
+    ]
+  },
+  "inputArtifacts": [
+    {
+      "artifactId": "a_unified",
+      "artifactType": "unified_verifier_package",
+      "artifactRef": {
+        "verifierPackageId": "uvp_1773022291031_d186acbb"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "as_reported",
+      "integrityState": "as_reported",
+      "notes": null
+    },
+    {
+      "artifactId": "a_script",
+      "artifactType": "reviewed_script",
+      "artifactRef": {
+        "scriptId": "ns_1773022290999_9f6c9aae"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "untrusted",
+      "integrityState": "pass",
+      "notes": null
+    },
+    {
+      "artifactId": "a_voice",
+      "artifactType": "voice_track_plan",
+      "artifactRef": {
+        "voiceTrackPlanId": "vtp_1773022291021_03b493fb"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "untrusted",
+      "integrityState": "pass",
+      "notes": null
+    },
+    {
+      "artifactId": "a_shot",
+      "artifactType": "shot_list",
+      "artifactRef": {
+        "shotListId": "sl_1773022291019_3889b672"
+      },
+      "required": true,
+      "available": true,
+      "trustState": "unknown",
+      "integrityState": "unknown",
+      "notes": null
+    }
+  ],
+  "outputTargets": [
+    {
+      "outputTargetId": "ot_1",
+      "outputType": "storyboard_json",
+      "format": "json",
+      "pathHint": "/outputs/storyboard_json.json",
+      "requiredProducerStageId": "stage_storyboard",
+      "readinessRequirements": [],
+      "metadata": {}
+    },
+    {
+      "outputTargetId": "ot_2",
+      "outputType": "edit_decision_list",
+      "format": "json",
+      "pathHint": "/outputs/edit_decision_list.json",
+      "requiredProducerStageId": "stage_storyboard",
+      "readinessRequirements": [],
+      "metadata": {}
+    }
+  ],
+  "policyEvaluation": {
+    "readinessState": "ready_with_warnings",
+    "blockingReasons": [
+      "trust_publication_missing"
+    ],
+    "warnings": [
+      "unsigned_proof"
+    ]
+  },
+  "blockingReasons": [
+    "trust_publication_missing"
+  ],
+  "warnings": [
+    "unsigned_proof"
+  ],
+  "metadata": {
+    "deterministic": true
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "providerSubmissionContractId": "psc_1773022291038_f582b9b1",
+  "createdAt": "2026-03-09T02:11:31.038Z",
+  "contractVersion": "v1",
+  "providerAdapterId": "pad_1773022291036_a28bac74",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "submissionMode": "handoff_only",
+  "targetEndpointProfile": "generic_renderer/default",
+  "readinessState": "ready",
+  "submissionPayload": {
+    "providerType": "generic_renderer",
+    "providerProfileId": "default",
+    "manifestRef": {
+      "providerAdapterId": "pad_1773022291036_a28bac74",
+      "sourceRenderAdapterContractId": "rac_1773022291034_323d2814"
+    },
+    "manifestDigest": "aa4815906c642375578147a04307031f891848cb0a00be961c90cb0e7390a3de",
+    "executionStages": [
+      {
+        "stageId": "stage_narration",
+        "stageType": "narration_plan",
+        "orderIndex": 0,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_1"
+        ],
+        "dependencyStageIds": [],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      },
+      {
+        "stageId": "stage_subtitle",
+        "stageType": "subtitle_generation",
+        "orderIndex": 1,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_2"
+        ],
+        "dependencyStageIds": [
+          "stage_narration"
+        ],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      },
+      {
+        "stageId": "stage_compose",
+        "stageType": "composite_manifest",
+        "orderIndex": 2,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_3"
+        ],
+        "dependencyStageIds": [
+          "stage_subtitle"
+        ],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      }
+    ],
+    "executionJobs": [
+      {
+        "jobId": "job_1",
+        "jobType": "narration_plan",
+        "stageId": "stage_narration",
+        "orderIndex": 0,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_1"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      },
+      {
+        "jobId": "job_2",
+        "jobType": "subtitle_generation",
+        "stageId": "stage_subtitle",
+        "orderIndex": 1,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_2"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      },
+      {
+        "jobId": "job_3",
+        "jobType": "composite_manifest",
+        "stageId": "stage_compose",
+        "orderIndex": 2,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_3"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      }
+    ],
+    "inputArtifactRefs": [
+      {
+        "artifactId": "a_unified",
+        "artifactType": "unified_verifier_package",
+        "artifactRef": {
+          "verifierPackageId": "uvp_1773022291031_d186acbb"
+        }
+      },
+      {
+        "artifactId": "a_script",
+        "artifactType": "reviewed_script",
+        "artifactRef": {
+          "scriptId": "ns_1773022290999_9f6c9aae"
+        }
+      },
+      {
+        "artifactId": "a_voice",
+        "artifactType": "voice_track_plan",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773022291021_03b493fb"
+        }
+      },
+      {
+        "artifactId": "a_shot",
+        "artifactType": "shot_list",
+        "artifactRef": {
+          "shotListId": "sl_1773022291019_3889b672"
+        }
+      },
+      {
+        "artifactId": "a_voice_plan",
+        "artifactType": "voice_track_plan",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773022291021_03b493fb"
+        }
+      }
+    ],
+    "outputTargetRefs": [
+      {
+        "outputTargetId": "ot_1",
+        "outputType": "narration_plan",
+        "format": "json",
+        "pathHint": "/outputs/narration_plan.json"
+      },
+      {
+        "outputTargetId": "ot_2",
+        "outputType": "subtitle_track",
+        "format": "vtt",
+        "pathHint": "/outputs/subtitle_track.vtt"
+      },
+      {
+        "outputTargetId": "ot_3",
+        "outputType": "composite_job_manifest",
+        "format": "json",
+        "pathHint": "/outputs/composite_job_manifest.json"
+      }
+    ],
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "ready",
+    "trustRefs": {
+      "sourceRefs": {
+        "verifierPackageId": "uvp_1773022291031_d186acbb",
+        "externalVerifierProfileId": null,
+        "shotListId": "sl_1773022291019_3889b672",
+        "shotListSnapshotId": null,
+        "voiceTrackPlanId": "vtp_1773022291021_03b493fb",
+        "renderPlanId": null
+      },
+      "policyEvaluation": {
+        "readinessState": "blocked",
+        "blockingReasons": [
+          "trust_publication_missing"
+        ],
+        "warnings": [
+          "unsigned_proof"
+        ]
+      }
+    },
+    "admissionRefs": {
+      "externalVerifierProfileId": null,
+      "verifierPackageId": "uvp_1773022291031_d186acbb"
+    },
+    "handoffRefs": {
+      "providerAdapterId": "pad_1773022291036_a28bac74"
+    },
+    "metadata": {
+      "deterministic": true
+    }
+  },
+  "payloadDigest": "bb1f20f3bee74449290c1c3d4d251db365b13b5e5756e14e9ce03f79d72aa45a",
+  "payloadDigestVersion": "sha256-v1",
+  "trustRefs": {
+    "sourceRefs": {
+      "verifierPackageId": "uvp_1773022291031_d186acbb",
+      "externalVerifierProfileId": null,
+      "shotListId": "sl_1773022291019_3889b672",
+      "shotListSnapshotId": null,
+      "voiceTrackPlanId": "vtp_1773022291021_03b493fb",
+      "renderPlanId": null
+    },
+    "policyEvaluation": {
+      "readinessState": "blocked",
+      "blockingReasons": [
+        "trust_publication_missing"
+      ],
+      "warnings": [
+        "unsigned_proof"
+      ]
+    }
+  },
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "ready",
+    "blockingReasons": [],
+    "warnings": []
+  },
+  "blockingReasons": [],
+  "warnings": [],
+  "requestSummary": null,
+  "metadata": {
+    "deterministic": true
+  },
+  "submissionSignature": null,
+  "submissionSignatureVersion": "submission-sig-v1",
+  "submissionSigningKeyId": null,
+  "submissionSigningAlgorithm": "RSA-SHA256",
+  "submissionSignatureStatus": "unsigned",
+  "submissionSignatureValid": null,
+  "submissionVerificationScope": "submission-contract-core",
+  "unsignedReason": "missing_key"
+}

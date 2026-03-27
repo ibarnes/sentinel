@@ -1,4 +1,19 @@
 {
   "version": 2,
-  "decks": []
+  "decks": [
+    {
+      "deckId": "INIT-001::utc-internal::none",
+      "initiativeId": "INIT-001",
+      "buyerId": null,
+      "deckType": "utc-internal",
+      "globalTemplateTheme": "sovereign-memo",
+      "styleMode": "professional",
+      "copyProvider": "local",
+      "imageProvider": "placeholder",
+      "slideOrder": [],
+      "createdAt": "2026-03-19T16:53:05.358Z",
+      "updatedAt": "2026-03-19T16:53:05.358Z",
+      "currentSavePointId": null
+    }
+  ]
 }

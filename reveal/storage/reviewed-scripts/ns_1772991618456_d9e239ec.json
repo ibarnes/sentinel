@@ -1,0 +1,103 @@
+{
+  "reviewedScriptId": "rs_ns_1772991618456_d9e239ec_858445",
+  "scriptId": "ns_1772991618456_d9e239ec",
+  "reviewVersion": 3,
+  "reviewStatus": "approved",
+  "createdAt": "2026-03-08T17:40:18.464Z",
+  "updatedAt": "2026-03-08T17:40:18.469Z",
+  "createdBy": "fixture",
+  "lastEditedBy": "fixture",
+  "editHistory": [
+    {
+      "ts": "2026-03-08T17:40:18.464Z",
+      "actor": "fixture",
+      "action": "init_review"
+    },
+    {
+      "ts": "2026-03-08T17:40:18.466Z",
+      "actor": "fixture",
+      "action": "status_transition",
+      "payload": {
+        "targetStatus": "in_review",
+        "reason": null
+      }
+    },
+    {
+      "ts": "2026-03-08T17:40:18.469Z",
+      "actor": "fixture",
+      "action": "status_transition",
+      "payload": {
+        "targetStatus": "approved",
+        "reason": null
+      }
+    }
+  ],
+  "approvalMetadata": {
+    "approvedAt": "2026-03-08T17:40:18.469Z",
+    "approvedBy": "fixture"
+  },
+  "sections": [
+    {
+      "sectionId": "sec_0_b6589fc6",
+      "stepIndex": 0,
+      "title": "Open Dashboard",
+      "narrationText": "Navigate Open Dashboard to open dashboard view.",
+      "onScreenText": "Open Dashboard",
+      "timing": {
+        "estimatedDurationMs": 3397,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "open dashboard view",
+      "metadata": {
+        "action": "navigate",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      },
+      "annotations": [],
+      "changeMetadata": {
+        "lastChangedAt": null,
+        "lastChangedBy": null,
+        "changedFields": []
+      }
+    },
+    {
+      "sectionId": "sec_1_356a192b",
+      "stepIndex": 1,
+      "title": "Upload CSV",
+      "narrationText": "Upload Upload CSV to upload customer csv for analysis.",
+      "onScreenText": "Upload CSV",
+      "timing": {
+        "estimatedDurationMs": 4224,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "upload customer csv for analysis",
+      "metadata": {
+        "action": "upload",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      },
+      "annotations": [],
+      "changeMetadata": {
+        "lastChangedAt": null,
+        "lastChangedBy": null,
+        "changedFields": []
+      }
+    }
+  ]
+}

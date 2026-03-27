@@ -1,0 +1,141 @@
+{
+  "sessionId": "ps_1772985422693_a999b342",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_player_interaction_flow",
+    "snapshotId": null,
+    "packageRef": null
+  },
+  "createdAt": "2026-03-08T15:57:02.695Z",
+  "updatedAt": "2026-03-09T17:11:42.270Z",
+  "lastActivityAt": "2026-03-08T15:57:02.707Z",
+  "expiresAt": "2026-03-08T19:57:02.695Z",
+  "currentStepIndex": 1,
+  "autoPlayEnabled": false,
+  "playbackStatus": "expired",
+  "stepCount": 2,
+  "viewerMetadata": null,
+  "cleanupStatus": "none",
+  "model": {
+    "flowId": "fixture_player_interaction_flow",
+    "sourceType": "reviewed_flow",
+    "title": "Interaction Fixture",
+    "description": null,
+    "steps": [
+      {
+        "index": 0,
+        "title": "Target Step",
+        "action": "click",
+        "intent": "Click target",
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [
+          {
+            "author": "a",
+            "text": "Important target"
+          }
+        ],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [
+          {
+            "hotspotId": "hs_0_primary",
+            "stepIndex": 0,
+            "type": "primary_target",
+            "label": "Upload",
+            "description": "Click target",
+            "x": 10,
+            "y": 12.5,
+            "width": 20,
+            "height": 10,
+            "targetAction": "confirm_target",
+            "targetStepIndex": null,
+            "interactionMode": "click",
+            "priority": 1,
+            "visible": true,
+            "metadata": {}
+          },
+          {
+            "hotspotId": "hs_0_info_1",
+            "stepIndex": 0,
+            "type": "info",
+            "label": "Note",
+            "description": "Important target",
+            "x": 4,
+            "y": 4,
+            "width": 30,
+            "height": 12,
+            "targetAction": "show_info",
+            "targetStepIndex": null,
+            "interactionMode": "click",
+            "priority": 2,
+            "visible": true,
+            "metadata": {
+              "from": "annotation"
+            }
+          }
+        ],
+        "overlay": {
+          "title": "Target Step",
+          "body": "Click target",
+          "position": "right",
+          "anchorHotspotId": "hs_0_primary",
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "dim_background",
+          "progressionMode": "hotspot_click",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "hotspot_click",
+          "requiresHotspotConfirmation": true,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      },
+      {
+        "index": 1,
+        "title": "Auto Step",
+        "action": "navigate",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000,
+        "hotspots": [],
+        "overlay": {
+          "title": "Auto Step",
+          "body": "Follow this step.",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        },
+        "progression": {
+          "progressionMode": "manual",
+          "requiresHotspotConfirmation": false,
+          "canAutoAdvance": false,
+          "stepDurationMs": 3000
+        }
+      }
+    ]
+  },
+  "interactionState": {
+    "0": {
+      "hotspotConfirmed": true,
+      "overlayDismissed": false,
+      "canProceed": true
+    },
+    "1": {
+      "hotspotConfirmed": false,
+      "overlayDismissed": true,
+      "canProceed": true
+    }
+  }
+}

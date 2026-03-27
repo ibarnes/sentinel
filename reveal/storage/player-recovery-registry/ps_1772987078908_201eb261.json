@@ -1,0 +1,19 @@
+{
+  "sessionId": "ps_1772987078908_201eb261",
+  "sourceType": "reviewed_flow",
+  "flowId": "fixture_share_flow",
+  "snapshotId": null,
+  "packageRef": null,
+  "packageContentHash": null,
+  "packageManifestSummary": {
+    "stepCount": 1,
+    "title": "Share Fixture"
+  },
+  "sourceRetentionPolicy": "ephemeral_only",
+  "recoverabilityStatus": "recoverable",
+  "createdAt": "2026-03-08T16:24:38.908Z",
+  "updatedAt": "2026-03-08T16:24:38.910Z",
+  "lastRecoveryAttemptAt": null,
+  "lastRecoveryStatus": null,
+  "recoveryError": null
+}

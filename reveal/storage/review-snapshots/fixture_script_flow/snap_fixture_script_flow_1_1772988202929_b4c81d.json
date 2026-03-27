@@ -1,0 +1,145 @@
+{
+  "snapshotId": "snap_fixture_script_flow_1_1772988202929_b4c81d",
+  "flowId": "fixture_script_flow",
+  "reviewVersion": 1,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T16:43:22.930Z",
+  "createdBy": "fixture",
+  "sourceReviewedFlowVersion": 1,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "parentSnapshotId": null,
+  "parentSnapshotContentHash": null,
+  "snapshotChainIndex": 1,
+  "reviewedFlow": {
+    "id": "fixture_script_flow",
+    "name": "Script Fixture Flow",
+    "description": "Fixture for script generation",
+    "reviewVersion": 1,
+    "steps": [
+      {
+        "id": "s1",
+        "index": 1,
+        "title": "Upload CSV File",
+        "action": "upload",
+        "intent": "add customer data for analysis",
+        "target": {
+          "text": "Upload CSV"
+        },
+        "annotations": [
+          {
+            "author": "qa",
+            "text": "Use sample file"
+          }
+        ],
+        "screenshots": {}
+      },
+      {
+        "id": "s2",
+        "index": 2,
+        "title": "Run Analysis",
+        "action": "click",
+        "intent": "generate initial metrics",
+        "target": {
+          "text": "Run Analysis"
+        },
+        "annotations": [],
+        "screenshots": {}
+      }
+    ]
+  },
+  "snapshotContentHash": "0a651b4875605651332a76087da42f0eb3eae07816018762cd6f8c50a2ad9737",
+  "snapshotHashVersion": "sha256-v1",
+  "snapshotHashCanonicalPayload": {
+    "createdAt": "2026-03-08T16:43:22.930Z",
+    "createdBy": "fixture",
+    "flowId": "fixture_script_flow",
+    "parentSnapshotContentHash": null,
+    "parentSnapshotId": null,
+    "reviewVersion": 1,
+    "reviewedFlow": {
+      "description": "Fixture for script generation",
+      "id": "fixture_script_flow",
+      "name": "Script Fixture Flow",
+      "reviewVersion": 1,
+      "steps": [
+        {
+          "action": "upload",
+          "annotations": [
+            {
+              "author": "qa",
+              "text": "Use sample file"
+            }
+          ],
+          "id": "s1",
+          "index": 1,
+          "intent": "add customer data for analysis",
+          "screenshots": {},
+          "target": {
+            "text": "Upload CSV"
+          },
+          "title": "Upload CSV File"
+        },
+        {
+          "action": "click",
+          "annotations": [],
+          "id": "s2",
+          "index": 2,
+          "intent": "generate initial metrics",
+          "screenshots": {},
+          "target": {
+            "text": "Run Analysis"
+          },
+          "title": "Run Analysis"
+        }
+      ]
+    },
+    "snapshotChainIndex": 1,
+    "snapshotId": "snap_fixture_script_flow_1_1772988202929_b4c81d",
+    "snapshotVersion": 1,
+    "sourceNormalizedFlowVersion": 1,
+    "sourceReplayChecksumSummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "missing": 0,
+      "unreplayable": 0
+    },
+    "sourceReviewedFlowVersion": 1,
+    "status": "frozen"
+  },
+  "manifest": {
+    "snapshotId": "snap_fixture_script_flow_1_1772988202929_b4c81d",
+    "flowId": "fixture_script_flow",
+    "reviewVersion": 1,
+    "stepCount": 2,
+    "annotationCount": 1,
+    "screenshotCoverage": {
+      "total": 2,
+      "withBefore": 0,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "snapshotContentHash": "0a651b4875605651332a76087da42f0eb3eae07816018762cd6f8c50a2ad9737",
+    "snapshotHashVersion": "sha256-v1",
+    "parentSnapshotId": null,
+    "parentSnapshotContentHash": null,
+    "snapshotChainIndex": 1,
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T16:43:22.930Z"
+  }
+}

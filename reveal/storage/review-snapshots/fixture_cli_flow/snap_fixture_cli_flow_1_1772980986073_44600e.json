@@ -1,0 +1,115 @@
+{
+  "snapshotId": "snap_fixture_cli_flow_1_1772980986073_44600e",
+  "flowId": "fixture_cli_flow",
+  "reviewVersion": 1,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T14:43:06.074Z",
+  "createdBy": "reveal-cli",
+  "sourceReviewedFlowVersion": 1,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "parentSnapshotId": "snap_fixture_cli_flow_1_1772980942738_179b65",
+  "parentSnapshotContentHash": "6ca7929be8e3bea80d57a33e14ffd187d96882f08a4dedf3871c2b6c159a01ad",
+  "snapshotChainIndex": 2,
+  "reviewedFlow": {
+    "id": "fixture_cli_flow",
+    "name": "CLI Flow",
+    "reviewVersion": 1,
+    "steps": [
+      {
+        "id": "c1",
+        "index": 1,
+        "title": "S",
+        "action": "click",
+        "target": {
+          "elementType": "button",
+          "text": "X"
+        },
+        "page": {
+          "url": "https://app.test"
+        },
+        "screenshots": {},
+        "annotations": []
+      }
+    ]
+  },
+  "snapshotContentHash": "fa016022f74449ccbb72ed199e2d2910d35b9df68c71c677f6ff37e8f55372e6",
+  "snapshotHashVersion": "sha256-v1",
+  "snapshotHashCanonicalPayload": {
+    "createdAt": "2026-03-08T14:43:06.074Z",
+    "createdBy": "reveal-cli",
+    "flowId": "fixture_cli_flow",
+    "parentSnapshotContentHash": "6ca7929be8e3bea80d57a33e14ffd187d96882f08a4dedf3871c2b6c159a01ad",
+    "parentSnapshotId": "snap_fixture_cli_flow_1_1772980942738_179b65",
+    "reviewVersion": 1,
+    "reviewedFlow": {
+      "id": "fixture_cli_flow",
+      "name": "CLI Flow",
+      "reviewVersion": 1,
+      "steps": [
+        {
+          "action": "click",
+          "annotations": [],
+          "id": "c1",
+          "index": 1,
+          "page": {
+            "url": "https://app.test"
+          },
+          "screenshots": {},
+          "target": {
+            "elementType": "button",
+            "text": "X"
+          },
+          "title": "S"
+        }
+      ]
+    },
+    "snapshotChainIndex": 2,
+    "snapshotId": "snap_fixture_cli_flow_1_1772980986073_44600e",
+    "snapshotVersion": 1,
+    "sourceNormalizedFlowVersion": 1,
+    "sourceReplayChecksumSummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "missing": 0,
+      "unreplayable": 0
+    },
+    "sourceReviewedFlowVersion": 1,
+    "status": "frozen"
+  },
+  "manifest": {
+    "snapshotId": "snap_fixture_cli_flow_1_1772980986073_44600e",
+    "flowId": "fixture_cli_flow",
+    "reviewVersion": 1,
+    "stepCount": 1,
+    "annotationCount": 0,
+    "screenshotCoverage": {
+      "total": 1,
+      "withBefore": 0,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "snapshotContentHash": "fa016022f74449ccbb72ed199e2d2910d35b9df68c71c677f6ff37e8f55372e6",
+    "snapshotHashVersion": "sha256-v1",
+    "parentSnapshotId": "snap_fixture_cli_flow_1_1772980942738_179b65",
+    "parentSnapshotContentHash": "6ca7929be8e3bea80d57a33e14ffd187d96882f08a4dedf3871c2b6c159a01ad",
+    "snapshotChainIndex": 2,
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T14:43:06.074Z"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "executionReceiptId": "erc_1773011528878_e53af1f4",
+  "createdAt": "2026-03-08T23:12:08.878Z",
+  "updatedAt": "2026-03-08T23:12:08.884Z",
+  "receiptVersion": "v1",
+  "providerSubmissionContractId": "psc_1773011528874_ada9ceaf",
+  "providerAdapterId": "pad_1773011528872_a39f604d",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "submissionDigest": "042637b050c78f9bcba667dc6140de830c5fcf972a05a5f02d00eb84c8285685",
+  "submissionStatus": "acknowledged",
+  "schedulerStatus": "provider_acknowledged",
+  "externalExecutionRef": "ext_1",
+  "requestSummary": {
+    "targetSystem": "generic_renderer/default",
+    "requestedAt": "2026-03-08T23:12:08.878Z",
+    "dispatchMode": "handoff_only",
+    "payloadDigest": "042637b050c78f9bcba667dc6140de830c5fcf972a05a5f02d00eb84c8285685",
+    "artifactCounts": {
+      "stages": 3,
+      "jobs": 3,
+      "inputs": 5,
+      "outputs": 3
+    }
+  },
+  "responseSummary": {
+    "acknowledgedAt": "2026-03-08T23:12:08.883Z",
+    "externalExecutionRef": "ext_1",
+    "providerMessage": "ok",
+    "responseCode": "202",
+    "errorClass": null
+  },
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "ready",
+    "blockingReasons": [],
+    "warnings": []
+  },
+  "blockingReasons": [],
+  "warnings": [],
+  "lifecycleEvents": [
+    {
+      "eventId": "ev_1773011528879_3db6b6",
+      "orderIndex": 1,
+      "eventType": "receipt_created",
+      "timestamp": "2026-03-08T23:12:08.879Z",
+      "actorType": "system",
+      "summary": "Execution receipt created from provider submission contract",
+      "statusBefore": null,
+      "statusAfter": "prepared",
+      "metadata": {
+        "providerSubmissionContractId": "psc_1773011528874_ada9ceaf"
+      }
+    },
+    {
+      "eventId": "ev_1773011528881_a3babc",
+      "orderIndex": 2,
+      "eventType": "dispatch_marked_ready",
+      "timestamp": "2026-03-08T23:12:08.881Z",
+      "actorType": "operator",
+      "summary": "markDispatchReady",
+      "statusBefore": "prepared",
+      "statusAfter": "queued",
+      "metadata": {}
+    },
+    {
+      "eventId": "ev_1773011528882_5394df",
+      "orderIndex": 3,
+      "eventType": "handoff_recorded",
+      "timestamp": "2026-03-08T23:12:08.882Z",
+      "actorType": "operator",
+      "summary": "recordHandoff",
+      "statusBefore": "queued",
+      "statusAfter": "handed_off",
+      "metadata": {}
+    },
+    {
+      "eventId": "ev_1773011528884_8c526a",
+      "orderIndex": 4,
+      "eventType": "provider_acknowledged",
+      "timestamp": "2026-03-08T23:12:08.884Z",
+      "actorType": "operator",
+      "summary": "recordAcknowledgement",
+      "statusBefore": "handed_off",
+      "statusAfter": "acknowledged",
+      "metadata": {}
+    }
+  ],
+  "metadata": {
+    "deterministic": true
+  },
+  "receiptSignature": null,
+  "receiptSignatureVersion": "execution-receipt-sig-v1",
+  "receiptSigningKeyId": null,
+  "receiptSigningAlgorithm": "RSA-SHA256",
+  "receiptSignatureStatus": "unsigned",
+  "receiptSignatureValid": null,
+  "receiptVerificationScope": "execution-receipt-core",
+  "unsignedReason": "missing_key"
+}

@@ -1,0 +1,50 @@
+{
+  "schedulerBoardId": "sbrd_1773022281998_a4361ae4",
+  "createdAt": "2026-03-09T02:11:21.998Z",
+  "boardVersion": "v1",
+  "targetRef": {
+    "renderAdapterContractId": "rac_1773022281947_dc6c2d18",
+    "providerSubmissionContractId": "psc_1773022281951_49af9b79",
+    "executionReceiptId": "erc_1773011539631_a486714e",
+    "orchestrationProofCertificateId": "opc_1773022281989_577b4ae1"
+  },
+  "policyProfileId": "internal_verified",
+  "orchestrationProofSummary": {
+    "orchestrationProofCertificateId": "opc_1773022281989_577b4ae1",
+    "proofDigest": "ca4e7be2c59d1be5e0ae9cac3f7ad622c8233928f48057fb28648599e7b25cc0",
+    "startDecision": "no_start",
+    "overallVerdict": "deny"
+  },
+  "providerSubmissionSummary": {
+    "providerSubmissionContractId": "psc_1773022281951_49af9b79",
+    "payloadDigest": "4e46e29fad7743e5a28f76f03395c5d04b13b4525e2340ebd38a935f51716ee0",
+    "readinessState": "ready",
+    "submissionSignatureStatus": "unsigned"
+  },
+  "executionReceiptSummary": {
+    "executionReceiptId": "erc_1773011539631_a486714e",
+    "receiptDigest": "31e75ad0b3578b499f1ab3fbc07bf87249a729d585a53c312173cf6fba5280ef",
+    "submissionStatus": "acknowledged",
+    "schedulerStatus": "provider_acknowledged",
+    "receiptSignatureStatus": "unsigned"
+  },
+  "submissionTrustPublicationSummary": null,
+  "receiptTrustPublicationSummary": {
+    "receiptTrustPublicationId": "rtpub_1773011539640_5596dfaf",
+    "receiptHeadDigest": "7bbfe51ec13785ffc1fac71aa8e4c722d87b699185626928ea8af9d70f09801f",
+    "receiptHeadDigestVersion": "sha256-v1",
+    "signatureStatus": "unsigned"
+  },
+  "overallDispatchReadiness": "blocked",
+  "dispatchDecision": "do_not_dispatch",
+  "blockingReasons": [
+    "proof_submission_mismatch",
+    "submission_receipt_mismatch"
+  ],
+  "warnings": [],
+  "boardDigest": "2d146c2ca5d4337323a829c2f4bd2ba9ad3dd9e397d69334576d5e16a482a974",
+  "boardDigestVersion": "sha256-v1",
+  "metadata": {
+    "deterministic": true
+  }
+}

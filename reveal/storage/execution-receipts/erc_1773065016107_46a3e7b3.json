@@ -1,0 +1,128 @@
+{
+  "executionReceiptId": "erc_1773065016107_46a3e7b3",
+  "createdAt": "2026-03-09T14:03:36.102Z",
+  "updatedAt": "2026-03-09T14:03:36.120Z",
+  "receiptVersion": "v1",
+  "providerSubmissionContractId": "psc_1773022291332_9ae71130",
+  "providerAdapterId": "pad_1773022291328_5ed32266",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "submissionDigest": "93b324b7c73ae6f44a3dd8d0865cdca7d66960942162cd9c3e13ab87297d8c21",
+  "submissionStatus": "prepared",
+  "schedulerStatus": "not_dispatched",
+  "externalExecutionRef": null,
+  "requestSummary": {
+    "targetSystem": "generic_renderer/default",
+    "requestedAt": "2026-03-09T14:03:36.102Z",
+    "dispatchMode": "handoff_only",
+    "payloadDigest": "93b324b7c73ae6f44a3dd8d0865cdca7d66960942162cd9c3e13ab87297d8c21",
+    "artifactCounts": {
+      "stages": 3,
+      "jobs": 3,
+      "inputs": 5,
+      "outputs": 3
+    }
+  },
+  "responseSummary": null,
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "ready",
+    "blockingReasons": [],
+    "warnings": []
+  },
+  "blockingReasons": [],
+  "warnings": [],
+  "lifecycleEvents": [
+    {
+      "eventId": "ev_1773065016107_8708b8",
+      "orderIndex": 1,
+      "eventType": "receipt_created",
+      "timestamp": "2026-03-09T14:03:36.107Z",
+      "actorType": "system",
+      "summary": "Execution receipt created from provider submission contract",
+      "statusBefore": null,
+      "statusAfter": "prepared",
+      "metadata": {
+        "providerSubmissionContractId": "psc_1773022291332_9ae71130"
+      }
+    },
+    {
+      "eventId": "ev_1773065016112_eb2092",
+      "orderIndex": 2,
+      "eventType": "note_added",
+      "timestamp": "2026-03-09T14:03:36.113Z",
+      "actorType": "result_artifact_ingest",
+      "summary": "result_artifact_ingested:subtitle_output",
+      "statusBefore": "prepared",
+      "statusAfter": "prepared",
+      "metadata": {
+        "executionResultArtifactId": "era_1773065016111_22909e0a",
+        "artifactType": "subtitle_output",
+        "artifactDigest": "cf739ef882acd2501b52cc5da1e05660ff59460738f0e003e83bd3185b82b093"
+      }
+    },
+    {
+      "eventId": "ev_1773065016118_becd15",
+      "orderIndex": 3,
+      "eventType": "note_added",
+      "timestamp": "2026-03-09T14:03:36.118Z",
+      "actorType": "result_artifact_ingest",
+      "summary": "result_artifact_ingested:execution_result_summary",
+      "statusBefore": "prepared",
+      "statusAfter": "prepared",
+      "metadata": {
+        "executionResultArtifactId": "era_1773065016117_a6872f76",
+        "artifactType": "execution_result_summary",
+        "artifactDigest": "1fb0f8aec65ab0c160e04d8636887c6b480b9637b138d4ec04786fae3d6469dc"
+      }
+    },
+    {
+      "eventId": "ev_1773065016120_b41e77",
+      "orderIndex": 4,
+      "eventType": "note_added",
+      "timestamp": "2026-03-09T14:03:36.120Z",
+      "actorType": "result_artifact_ingest",
+      "summary": "result_artifact_ingested:render_manifest_output",
+      "statusBefore": "prepared",
+      "statusAfter": "prepared",
+      "metadata": {
+        "executionResultArtifactId": "era_1773065016119_277ebffb",
+        "artifactType": "render_manifest_output",
+        "artifactDigest": "f9bdfc5868da75c73d3c3fdeb3e43dab83ffd8513b1857619ad9d6a158162177"
+      }
+    }
+  ],
+  "lastCallbackId": null,
+  "lastCallbackType": null,
+  "lastCallbackAt": null,
+  "callbackTrustStatus": "none",
+  "callbackCount": 0,
+  "callbackWarningsSummary": [],
+  "lastCallbackReplayStatus": null,
+  "lastCallbackKeyRegistryStatus": null,
+  "lastCallbackOutcome": null,
+  "ingestedArtifactCount": 3,
+  "latestResultArtifactId": "era_1773065016119_277ebffb",
+  "latestResultArtifactType": "render_manifest_output",
+  "latestResultArtifactAt": "2026-03-09T14:03:36.119Z",
+  "resultArtifactTrustStatus": "unsigned",
+  "availableOutputTypes": [
+    "subtitle_output",
+    "execution_result_summary",
+    "render_manifest_output"
+  ],
+  "resultArtifactWarningsSummary": [
+    "unsigned_artifact_allowed_by_policy"
+  ],
+  "metadata": {
+    "deterministic": true
+  },
+  "receiptSignature": null,
+  "receiptSignatureVersion": "execution-receipt-sig-v1",
+  "receiptSigningKeyId": null,
+  "receiptSigningAlgorithm": "RSA-SHA256",
+  "receiptSignatureStatus": "unsigned",
+  "receiptSignatureValid": null,
+  "receiptVerificationScope": "execution-receipt-core",
+  "unsignedReason": "missing_key"
+}

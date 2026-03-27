@@ -1,0 +1,38 @@
+{
+  "executionResultArtifactId": "era_1773065016117_a6872f76",
+  "createdAt": "2026-03-09T14:03:36.117Z",
+  "artifactVersion": "v1",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "artifactType": "execution_result_summary",
+  "sourceExecutionReceiptId": "erc_1773065016107_46a3e7b3",
+  "sourceProviderSubmissionContractId": "psc_1773022291332_9ae71130",
+  "sourceExternalExecutionRef": null,
+  "artifactPayload": {
+    "completedAt": "2026-03-09T14:03:36.115Z",
+    "message": "done",
+    "outputCount": 2,
+    "status": "completed"
+  },
+  "artifactDigest": "1fb0f8aec65ab0c160e04d8636887c6b480b9637b138d4ec04786fae3d6469dc",
+  "artifactDigestVersion": "sha256-v1",
+  "trustMetadata": {
+    "artifactSignatureStatus": "signed",
+    "artifactSignatureValid": true,
+    "artifactSigningKeyId": "cbk_generic_default_v1",
+    "artifactSigningAlgorithm": "HMAC-SHA256",
+    "artifactVerificationScope": "result-artifact-payload-core",
+    "trustProfile": "external_result_artifact_v1",
+    "artifactOriginStatus": "trusted",
+    "artifactDigest": "1fb0f8aec65ab0c160e04d8636887c6b480b9637b138d4ec04786fae3d6469dc",
+    "artifactDigestVersion": "sha256-v1",
+    "keyRegistryStatus": "resolved",
+    "warnings": []
+  },
+  "ingestionStatus": "applied",
+  "blockingReasons": [],
+  "warnings": [],
+  "metadata": {
+    "deterministic": true
+  }
+}

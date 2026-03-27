@@ -1,0 +1,70 @@
+{
+  "scriptId": "ns_1773003331952_6d511712",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_script_review_flow"
+  },
+  "title": "Script Review Fixture Flow",
+  "description": null,
+  "createdAt": "2026-03-08T20:55:31.952Z",
+  "createdBy": null,
+  "scriptVersion": "v1",
+  "styleProfile": "neutral_walkthrough",
+  "totalEstimatedDurationMs": 4724,
+  "sections": [
+    {
+      "sectionId": "sec_0_b6589fc6",
+      "stepIndex": 0,
+      "title": "Login",
+      "narrationText": "Click Login to authenticate.",
+      "onScreenText": "Login",
+      "timing": {
+        "estimatedDurationMs": 2155,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "authenticate",
+      "metadata": {
+        "action": "click",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    },
+    {
+      "sectionId": "sec_1_356a192b",
+      "stepIndex": 1,
+      "title": "Dashboard",
+      "narrationText": "Navigate Dashboard to open dashboard.",
+      "onScreenText": "Dashboard",
+      "timing": {
+        "estimatedDurationMs": 2569,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "open dashboard",
+      "metadata": {
+        "action": "navigate",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    }
+  ],
+  "metadata": {
+    "flowId": "fixture_script_review_flow",
+    "stepCount": 2
+  }
+}

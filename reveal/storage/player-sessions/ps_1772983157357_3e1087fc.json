@@ -1,0 +1,51 @@
+{
+  "sessionId": "ps_1772983157357_3e1087fc",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_player_session_flow",
+    "snapshotId": null,
+    "packageRef": null
+  },
+  "createdAt": "2026-03-08T15:19:17.358Z",
+  "updatedAt": "2026-03-09T17:11:42.244Z",
+  "lastActivityAt": "2026-03-08T15:19:17.369Z",
+  "expiresAt": "2026-03-08T19:19:17.358Z",
+  "currentStepIndex": 0,
+  "autoPlayEnabled": true,
+  "playbackStatus": "expired",
+  "stepCount": 2,
+  "viewerMetadata": null,
+  "cleanupStatus": "none",
+  "model": {
+    "flowId": "fixture_player_session_flow",
+    "sourceType": "reviewed_flow",
+    "title": "Player Session Fixture",
+    "description": null,
+    "steps": [
+      {
+        "index": 0,
+        "title": "A",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000
+      },
+      {
+        "index": 1,
+        "title": "B",
+        "action": "click",
+        "intent": null,
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "annotations": [],
+        "confidence": null,
+        "stepDurationMs": 3000
+      }
+    ]
+  }
+}

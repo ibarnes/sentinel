@@ -1,0 +1,70 @@
+{
+  "scriptId": "ns_1773007384244_d741c977",
+  "sourceType": "reviewed_flow",
+  "sourceRef": {
+    "flowId": "fixture_unified_verifier_flow"
+  },
+  "title": "Unified Verifier Fixture Flow",
+  "description": null,
+  "createdAt": "2026-03-08T22:03:04.244Z",
+  "createdBy": null,
+  "scriptVersion": "v1",
+  "styleProfile": "neutral_walkthrough",
+  "totalEstimatedDurationMs": 5138,
+  "sections": [
+    {
+      "sectionId": "sec_0_b6589fc6",
+      "stepIndex": 0,
+      "title": "Open",
+      "narrationText": "Navigate Open to open page.",
+      "onScreenText": "Open",
+      "timing": {
+        "estimatedDurationMs": 2569,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "open page",
+      "metadata": {
+        "action": "navigate",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    },
+    {
+      "sectionId": "sec_1_356a192b",
+      "stepIndex": 1,
+      "title": "Upload",
+      "narrationText": "Upload Upload to upload file.",
+      "onScreenText": "Upload",
+      "timing": {
+        "estimatedDurationMs": 2569,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "upload file",
+      "metadata": {
+        "action": "upload",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      }
+    }
+  ],
+  "metadata": {
+    "flowId": "fixture_unified_verifier_flow",
+    "stepCount": 2
+  }
+}

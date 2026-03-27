@@ -1,0 +1,52 @@
+{
+  "callbackKeys": [
+    {
+      "callbackSigningKeyId": "cbk_generic_default_v1",
+      "providerType": "generic_renderer",
+      "providerProfileId": "default",
+      "keyType": "hmac_secret",
+      "algorithm": "HMAC-SHA256",
+      "keyMaterialRef": "inline",
+      "secret": "generic-renderer-secret-v1",
+      "keyStatus": "active",
+      "activatedAt": "2026-01-01T00:00:00.000Z",
+      "retiresAt": null,
+      "trustProfile": "internal_verified",
+      "metadata": {
+        "deterministic": true
+      }
+    },
+    {
+      "callbackSigningKeyId": "cbk_generic_retired_v0",
+      "providerType": "generic_renderer",
+      "providerProfileId": "default",
+      "keyType": "hmac_secret",
+      "algorithm": "HMAC-SHA256",
+      "keyMaterialRef": "inline",
+      "secret": "generic-renderer-secret-old",
+      "keyStatus": "retired",
+      "activatedAt": "2025-01-01T00:00:00.000Z",
+      "retiresAt": "2026-02-01T00:00:00.000Z",
+      "trustProfile": "internal_verified",
+      "metadata": {
+        "deterministic": true
+      }
+    },
+    {
+      "callbackSigningKeyId": "cbk_generic_revoked_vx",
+      "providerType": "generic_renderer",
+      "providerProfileId": "default",
+      "keyType": "hmac_secret",
+      "algorithm": "HMAC-SHA256",
+      "keyMaterialRef": "inline",
+      "secret": "revoked-secret",
+      "keyStatus": "revoked",
+      "activatedAt": "2024-01-01T00:00:00.000Z",
+      "retiresAt": null,
+      "trustProfile": "production_verified",
+      "metadata": {
+        "deterministic": true
+      }
+    }
+  ]
+}

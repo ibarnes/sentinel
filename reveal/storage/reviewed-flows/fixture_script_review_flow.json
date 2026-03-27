@@ -1,0 +1,25 @@
+{
+  "id": "fixture_script_review_flow",
+  "name": "Script Review Fixture Flow",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "r1",
+      "index": 1,
+      "title": "Login",
+      "action": "click",
+      "intent": "authenticate",
+      "screenshots": {},
+      "annotations": []
+    },
+    {
+      "id": "r2",
+      "index": 2,
+      "title": "Dashboard",
+      "action": "navigate",
+      "intent": "open dashboard",
+      "screenshots": {},
+      "annotations": []
+    }
+  ]
+}

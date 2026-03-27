@@ -1,0 +1,82 @@
+{
+  "reviewedScriptId": "rs_ns_1772992885436_472e2f86_9ce16f",
+  "scriptId": "ns_1772992885436_472e2f86",
+  "reviewVersion": 1,
+  "reviewStatus": "draft",
+  "createdAt": "2026-03-08T18:01:25.437Z",
+  "updatedAt": "2026-03-08T18:01:25.437Z",
+  "createdBy": "fixture",
+  "lastEditedBy": "fixture",
+  "editHistory": [
+    {
+      "ts": "2026-03-08T18:01:25.437Z",
+      "actor": "fixture",
+      "action": "init_review"
+    }
+  ],
+  "approvalMetadata": {},
+  "sections": [
+    {
+      "sectionId": "sec_0_b6589fc6",
+      "stepIndex": 0,
+      "title": "Open Dashboard",
+      "narrationText": "Navigate Open Dashboard to open dashboard view.",
+      "onScreenText": "Open Dashboard",
+      "timing": {
+        "estimatedDurationMs": 3397,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "open dashboard view",
+      "metadata": {
+        "action": "navigate",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      },
+      "annotations": [],
+      "changeMetadata": {
+        "lastChangedAt": null,
+        "lastChangedBy": null,
+        "changedFields": []
+      }
+    },
+    {
+      "sectionId": "sec_1_356a192b",
+      "stepIndex": 1,
+      "title": "Upload CSV",
+      "narrationText": "Upload Upload CSV to upload customer csv for analysis.",
+      "onScreenText": "Upload CSV",
+      "timing": {
+        "estimatedDurationMs": 4224,
+        "leadInMs": 250,
+        "leadOutMs": 250
+      },
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspotIds": []
+      },
+      "emphasis": "none",
+      "notes": "upload customer csv for analysis",
+      "metadata": {
+        "action": "upload",
+        "progressionMode": "manual",
+        "interactionComplexity": "low"
+      },
+      "annotations": [],
+      "changeMetadata": {
+        "lastChangedAt": null,
+        "lastChangedBy": null,
+        "changedFields": []
+      }
+    }
+  ]
+}

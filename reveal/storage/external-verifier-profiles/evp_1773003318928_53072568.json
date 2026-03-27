@@ -1,0 +1,189 @@
+{
+  "externalVerifierProfileId": "evp_1773003318928_53072568",
+  "createdAt": "2026-03-08T20:55:18.928Z",
+  "verifierVersion": "v1",
+  "targetRef": {
+    "verifierPackageId": "uvp_1773003318885_deaef847"
+  },
+  "policyProfileId": "production_verified",
+  "policyProfileName": "Production Verified",
+  "evaluatedArtifactRefs": {
+    "scriptId": "ns_1773003318843_ffc27347",
+    "shotListId": "sl_1773003318867_f229118b",
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": "vtp_1773003318869_42774965",
+    "voicePlanSnapshotId": null
+  },
+  "unifiedPackageSummary": {
+    "verifierPackageId": "uvp_1773003318885_deaef847",
+    "overallVerificationStatus": "partially_verified"
+  },
+  "attestationSnapshotSummary": {
+    "latestAttestationSnapshotId": "ats_1773003318888_222f224e",
+    "latestAttestationSnapshotChainIndex": 1,
+    "latestAttestationSnapshotContentHash": "6eb2abb42abcbf97b504b6102dd0ffac32ee094d1e4ef693c3b8b22e9eb1faf6"
+  },
+  "attestationTrustPublicationSummary": {
+    "status": "unsigned",
+    "attestationTrustPublicationId": "atpub_1773003318891_5233d9f2",
+    "attestationChainHeadDigest": "0c64685a20e320e8e4352b2770bf55ca367e0f9419963dd99d8dd1bc357dea1f",
+    "signatureStatus": "unsigned"
+  },
+  "policyManifestSummary": {
+    "policyProfileId": "production_verified",
+    "version": "v1",
+    "signatureStatus": "unsigned",
+    "validityStatus": "unsigned"
+  },
+  "sourceTrustSummary": {
+    "script": {
+      "scriptId": "ns_1773003318843_ffc27347",
+      "reviewStatus": "approved",
+      "integritySummary": {
+        "totalSnapshots": 1,
+        "matched": 1,
+        "mismatched": 0,
+        "brokenChainLinks": 0,
+        "missingHash": 0,
+        "firstBrokenSnapshotId": null,
+        "rows": [
+          {
+            "scriptId": "ns_1773003318843_ffc27347",
+            "reviewedSnapshotId": "rss_1773003318859_e55889d0",
+            "reviewedSnapshotChainIndex": 1,
+            "storedContentHash": "46d3fff2b5147e25a8e7dc9a8e77380fc2668243dda62fcdbd4365ca370a353b",
+            "recomputedContentHash": "46d3fff2b5147e25a8e7dc9a8e77380fc2668243dda62fcdbd4365ca370a353b",
+            "hashVersion": "sha256-v1",
+            "integrityStatus": "match",
+            "reasonCodes": [
+              "hash_match"
+            ]
+          }
+        ]
+      },
+      "trustPublication": {
+        "trustPublicationId": "rtp_1773003318863_5612b213",
+        "signatureStatus": "unsigned",
+        "chainHeadDigest": "801408ab7c0ceeff438bc018217787df62262b9da74ab8e42870af0778e3f9fc"
+      }
+    },
+    "shot": {
+      "shotListId": "sl_1773003318867_f229118b",
+      "sourceTrustRefs": {
+        "publishGate": {
+          "canPublish": true,
+          "blockingReasons": [],
+          "warnings": [],
+          "evaluatedAt": "2026-03-08T20:55:18.866Z"
+        },
+        "trustPublication": null
+      }
+    },
+    "voice": {
+      "voiceTrackPlanId": "vtp_1773003318869_42774965",
+      "voicePlanSnapshotId": null,
+      "integritySummary": {
+        "totalSnapshots": 1,
+        "matched": 1,
+        "mismatched": 0,
+        "brokenChainLinks": 0,
+        "missingHash": 0,
+        "firstBrokenSnapshotId": null,
+        "rows": [
+          {
+            "voiceTrackPlanId": "vtp_1773003318869_42774965",
+            "voicePlanSnapshotId": "vps_1773003318871_d80e1968",
+            "voicePlanSnapshotChainIndex": 1,
+            "storedContentHash": "0573a07d28e38792641c7797fcc621db2b87558fb40f386a8f9496db7c42e77c",
+            "recomputedContentHash": "0573a07d28e38792641c7797fcc621db2b87558fb40f386a8f9496db7c42e77c",
+            "hashVersion": "sha256-v1",
+            "integrityStatus": "match",
+            "reasonCodes": [
+              "hash_match"
+            ]
+          }
+        ]
+      },
+      "trustPublication": {
+        "voiceTrustPublicationId": "vtpub_1773003318875_704f8fd0",
+        "signatureStatus": "unsigned",
+        "voiceChainHeadDigest": "b9988e161b639d5d1c2f2f1b2e5479728f8cefe00f3f7ada4f888ec07e19bc2a"
+      },
+      "latestVoiceSnapshot": {
+        "voiceTrackPlanId": "vtp_1773003318869_42774965",
+        "voicePlanSnapshotId": "vps_1773003318871_d80e1968",
+        "voicePlanSnapshotChainIndex": 1,
+        "storedContentHash": "0573a07d28e38792641c7797fcc621db2b87558fb40f386a8f9496db7c42e77c",
+        "recomputedContentHash": "0573a07d28e38792641c7797fcc621db2b87558fb40f386a8f9496db7c42e77c",
+        "hashVersion": "sha256-v1",
+        "integrityStatus": "match",
+        "reasonCodes": [
+          "hash_match"
+        ]
+      }
+    },
+    "subtitle": {
+      "voiceTrackPlanId": "vtp_1773003318869_42774965",
+      "readiness": {
+        "orchestrationPolicyProfile": "production_verified",
+        "policyEvaluationResult": "blocked",
+        "blockingReasons": [
+          "latest_voice_trust_publication_unsigned"
+        ],
+        "warnings": [],
+        "evaluatedAt": "2026-03-08T20:55:18.884Z"
+      },
+      "signedProofStatus": "unsigned"
+    },
+    "voiceVerifier": {
+      "voiceTrackPlanId": "vtp_1773003318869_42774965",
+      "latestVoicePlanSnapshotId": "vps_1773003318871_d80e1968",
+      "latestVoicePlanSnapshotContentHash": "0573a07d28e38792641c7797fcc621db2b87558fb40f386a8f9496db7c42e77c",
+      "latestVoicePlanSnapshotChainIndex": 1,
+      "voiceChainHeadDigest": "b9988e161b639d5d1c2f2f1b2e5479728f8cefe00f3f7ada4f888ec07e19bc2a",
+      "voiceChainHeadDigestVersion": "sha256-v1",
+      "voiceTrustPublicationSignatureStatus": "unsigned",
+      "voiceTrustPublicationSignatureValid": null,
+      "voiceTrustPublicationSigningKeyId": null,
+      "voiceTrustPublicationSigningAlgorithm": "RSA-SHA256",
+      "trustProfile": {
+        "trustProfileId": "local_dev",
+        "trustProfileName": "Local Development"
+      },
+      "integritySummary": {
+        "voiceTrackPlanId": "vtp_1773003318869_42774965",
+        "voicePlanSnapshotId": "vps_1773003318871_d80e1968",
+        "voicePlanSnapshotChainIndex": 1,
+        "storedContentHash": "0573a07d28e38792641c7797fcc621db2b87558fb40f386a8f9496db7c42e77c",
+        "recomputedContentHash": "0573a07d28e38792641c7797fcc621db2b87558fb40f386a8f9496db7c42e77c",
+        "hashVersion": "sha256-v1",
+        "integrityStatus": "match",
+        "reasonCodes": [
+          "hash_match"
+        ]
+      },
+      "publicationVersion": "v1",
+      "publishedAt": "2026-03-08T20:55:18.875Z",
+      "voiceTrustPublicationId": "vtpub_1773003318875_704f8fd0"
+    }
+  },
+  "overallVerdict": "admit_with_warnings",
+  "blockingReasons": [],
+  "warnings": [
+    "unsigned_proof"
+  ],
+  "admissionDecision": "admit_with_warnings",
+  "metadata": {
+    "mode": "latest",
+    "policyEvaluationResult": {
+      "orchestrationPolicyProfile": "internal_verified",
+      "policyManifestVersion": "v1",
+      "policyEvaluationResult": "warning",
+      "blockingReasons": [],
+      "warnings": [
+        "unsigned_proof"
+      ]
+    },
+    "evaluatedAt": "2026-03-08T20:55:18.928Z"
+  }
+}

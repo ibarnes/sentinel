@@ -1,0 +1,196 @@
+{
+  "deck": "presentations/INIT-653305/decks/utc-internal",
+  "generated_at": "2026-03-01T03:14:58.734Z",
+  "slides": [
+    {
+      "slide_id": "001",
+      "title": "MENA Cross-Border Infrastructure Activation Program",
+      "qa": {}
+    },
+    {
+      "slide_id": "002",
+      "title": "— The Shift Is Already Happening",
+      "qa": {
+        "readability_score": 11.636450216450214,
+        "density_score": 0.36666666666666664,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "003",
+      "title": "— The Real Constraint",
+      "qa": {
+        "readability_score": 9.35649769585254,
+        "density_score": 0.34444444444444444,
+        "overflow_risk": "low",
+        "pass": true,
+        "fail": []
+      }
+    },
+    {
+      "slide_id": "004",
+      "title": "— What War Accelerates",
+      "qa": {
+        "readability_score": 14.758730158730163,
+        "density_score": 0.3,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "005",
+      "title": "— The Activation Gap",
+      "qa": {
+        "readability_score": 12.067093596059117,
+        "density_score": 0.32222222222222224,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "006",
+      "title": "— The Solution",
+      "qa": {
+        "readability_score": 15.632804232804236,
+        "density_score": 0.3,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "007",
+      "title": "— Pillar 1: Energy Redundancy Corridors",
+      "qa": {
+        "readability_score": 17.939736842105265,
+        "density_score": 0.2111111111111111,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "008",
+      "title": "— Pillar 2: Digital Sovereignty Backbone",
+      "qa": {
+        "readability_score": 16.412727272727277,
+        "density_score": 0.24444444444444444,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "009",
+      "title": "— Pillar 3: Trade & Logistics Integration",
+      "qa": {
+        "readability_score": 11.62261904761905,
+        "density_score": 0.23333333333333334,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "010",
+      "title": "— Pillar 4: Activation Architecture",
+      "qa": {
+        "readability_score": 16.744805194805192,
+        "density_score": 0.24444444444444444,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "011",
+      "title": "— Why This Platform Now",
+      "qa": {
+        "readability_score": 14.263809523809524,
+        "density_score": 0.26666666666666666,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "012",
+      "title": "— Anchor Sovereign Advantage",
+      "qa": {
+        "readability_score": 13.849107142857143,
+        "density_score": 0.35555555555555557,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "013",
+      "title": "— Capital Structure Framework",
+      "qa": {
+        "readability_score": 16.482857142857146,
+        "density_score": 0.2777777777777778,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "014",
+      "title": "— Phased Activation Roadmap",
+      "qa": {
+        "readability_score": 14.122857142857143,
+        "density_score": 0.2777777777777778,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    },
+    {
+      "slide_id": "015",
+      "title": "— The Structural Outcome",
+      "qa": {
+        "readability_score": 15.066857142857145,
+        "density_score": 0.2777777777777778,
+        "overflow_risk": "low",
+        "pass": false,
+        "fail": [
+          "readability_high"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "total": 15,
+    "pass": 2,
+    "fail": 13
+  }
+}

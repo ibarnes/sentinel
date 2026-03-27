@@ -1,0 +1,25 @@
+{
+  "id": "fixture_provider_exec_adapter_flow",
+  "name": "Provider Execution Adapter Fixture",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "e1",
+      "index": 1,
+      "title": "Start",
+      "action": "navigate",
+      "intent": "start",
+      "screenshots": {},
+      "annotations": []
+    },
+    {
+      "id": "e2",
+      "index": 2,
+      "title": "Next",
+      "action": "click",
+      "intent": "next",
+      "screenshots": {},
+      "annotations": []
+    }
+  ]
+}

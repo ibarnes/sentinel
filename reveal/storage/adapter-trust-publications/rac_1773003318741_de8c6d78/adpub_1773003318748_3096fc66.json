@@ -1,0 +1,19 @@
+{
+  "adapterTrustPublicationId": "adpub_1773003318748_3096fc66",
+  "renderAdapterContractId": "rac_1773003318741_de8c6d78",
+  "latestAdapterManifestDigest": "63ded82a33201a8c5d7c2187cb9e55511ec9923b85793fd490276e851685f6a5",
+  "adapterType": "composite_render",
+  "orchestrationProfile": "internal_verified",
+  "previousPublishedAdapterHeadDigest": null,
+  "publicationVersion": "v1",
+  "publishedAt": "2026-03-08T20:55:18.748Z",
+  "trustProfile": {
+    "trustProfileId": "local_dev",
+    "trustProfileName": "Local Development"
+  },
+  "publicationStatus": "active",
+  "adapterManifestSignatureStatus": "unsigned",
+  "adapterManifestSignatureValid": null,
+  "adapterChainHeadDigestVersion": "sha256-v1",
+  "adapterChainHeadDigest": "8a6246d814f4b078ca88116c3f72f62b11ba95eb39885ad253398cb06e038cab"
+}

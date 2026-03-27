@@ -1,0 +1,101 @@
+{
+  "snapshotId": "snap_fixture_share_flow_1_1772987078903_c55eac",
+  "flowId": "fixture_share_flow",
+  "reviewVersion": 1,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T16:24:38.904Z",
+  "createdBy": "fixture",
+  "sourceReviewedFlowVersion": 1,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "parentSnapshotId": null,
+  "parentSnapshotContentHash": null,
+  "snapshotChainIndex": 1,
+  "reviewedFlow": {
+    "id": "fixture_share_flow",
+    "name": "Share Fixture",
+    "reviewVersion": 1,
+    "steps": [
+      {
+        "id": "s1",
+        "index": 1,
+        "title": "A",
+        "action": "click",
+        "screenshots": {},
+        "annotations": []
+      }
+    ]
+  },
+  "snapshotContentHash": "076031b5a13b8ebc539aeb6f757cfae870b048b6c5a7687592bca517735c5276",
+  "snapshotHashVersion": "sha256-v1",
+  "snapshotHashCanonicalPayload": {
+    "createdAt": "2026-03-08T16:24:38.904Z",
+    "createdBy": "fixture",
+    "flowId": "fixture_share_flow",
+    "parentSnapshotContentHash": null,
+    "parentSnapshotId": null,
+    "reviewVersion": 1,
+    "reviewedFlow": {
+      "id": "fixture_share_flow",
+      "name": "Share Fixture",
+      "reviewVersion": 1,
+      "steps": [
+        {
+          "action": "click",
+          "annotations": [],
+          "id": "s1",
+          "index": 1,
+          "screenshots": {},
+          "title": "A"
+        }
+      ]
+    },
+    "snapshotChainIndex": 1,
+    "snapshotId": "snap_fixture_share_flow_1_1772987078903_c55eac",
+    "snapshotVersion": 1,
+    "sourceNormalizedFlowVersion": 1,
+    "sourceReplayChecksumSummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "missing": 0,
+      "unreplayable": 0
+    },
+    "sourceReviewedFlowVersion": 1,
+    "status": "frozen"
+  },
+  "manifest": {
+    "snapshotId": "snap_fixture_share_flow_1_1772987078903_c55eac",
+    "flowId": "fixture_share_flow",
+    "reviewVersion": 1,
+    "stepCount": 1,
+    "annotationCount": 0,
+    "screenshotCoverage": {
+      "total": 1,
+      "withBefore": 0,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "snapshotContentHash": "076031b5a13b8ebc539aeb6f757cfae870b048b6c5a7687592bca517735c5276",
+    "snapshotHashVersion": "sha256-v1",
+    "parentSnapshotId": null,
+    "parentSnapshotContentHash": null,
+    "snapshotChainIndex": 1,
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T16:24:38.904Z"
+  }
+}

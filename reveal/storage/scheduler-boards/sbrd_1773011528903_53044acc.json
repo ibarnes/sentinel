@@ -1,0 +1,54 @@
+{
+  "schedulerBoardId": "sbrd_1773011528903_53044acc",
+  "createdAt": "2026-03-08T23:12:08.903Z",
+  "boardVersion": "v1",
+  "targetRef": {
+    "renderAdapterContractId": "rac_1773011528870_278374a4",
+    "providerSubmissionContractId": "psc_1773011528874_ada9ceaf",
+    "executionReceiptId": "erc_1773011528878_e53af1f4",
+    "orchestrationProofCertificateId": "opc_1773011528899_1bdc9c90"
+  },
+  "policyProfileId": "internal_verified",
+  "orchestrationProofSummary": {
+    "orchestrationProofCertificateId": "opc_1773011528899_1bdc9c90",
+    "proofDigest": "7aaa6ba5dcd5f133dbd660bf5bcc8f5c970f9f4cea2d843f1e5ea828bf0f4768",
+    "startDecision": "no_start",
+    "overallVerdict": "deny"
+  },
+  "providerSubmissionSummary": {
+    "providerSubmissionContractId": "psc_1773011528874_ada9ceaf",
+    "payloadDigest": "042637b050c78f9bcba667dc6140de830c5fcf972a05a5f02d00eb84c8285685",
+    "readinessState": "ready",
+    "submissionSignatureStatus": "unsigned"
+  },
+  "executionReceiptSummary": {
+    "executionReceiptId": "erc_1773011528878_e53af1f4",
+    "receiptDigest": "9e6a9cb402429c50983ef8c8dd84064331f430888d2073f5714ffae30d7effe7",
+    "submissionStatus": "acknowledged",
+    "schedulerStatus": "provider_acknowledged",
+    "receiptSignatureStatus": "unsigned"
+  },
+  "submissionTrustPublicationSummary": {
+    "submissionTrustPublicationId": "stpub_1773011528885_66d310e0",
+    "submissionHeadDigest": "ff4a1edbd9963a485d0af30f68a41c37a04e02c39c9e0a1bc00ce318105dda76",
+    "submissionHeadDigestVersion": "sha256-v1",
+    "signatureStatus": "unsigned"
+  },
+  "receiptTrustPublicationSummary": {
+    "receiptTrustPublicationId": "rtpub_1773011528887_5f46f032",
+    "receiptHeadDigest": "1f9172250f7c8952143b70a10734979a340f0d4462c49fcf1263cf91a5100a7f",
+    "receiptHeadDigestVersion": "sha256-v1",
+    "signatureStatus": "unsigned"
+  },
+  "overallDispatchReadiness": "blocked",
+  "dispatchDecision": "do_not_dispatch",
+  "blockingReasons": [
+    "proof_submission_mismatch"
+  ],
+  "warnings": [],
+  "boardDigest": "37822d690205fcf26e42c7af61ed22f5f4f8eabcdaf71852c5f5fcda0b425292",
+  "boardDigestVersion": "sha256-v1",
+  "metadata": {
+    "deterministic": true
+  }
+}

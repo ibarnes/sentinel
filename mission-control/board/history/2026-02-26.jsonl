@@ -1,0 +1,1 @@
+{"ts":"2026-02-26T22:46:06.789Z","actor":"isaac","role":"architect","event_type":"task.move","entity_type":"task","entity_id":"TASK-0001","meta":{"before":{"status":"Backlog","review_packet_id":null},"after":{"status":"Backlog","review_packet_id":null}}}

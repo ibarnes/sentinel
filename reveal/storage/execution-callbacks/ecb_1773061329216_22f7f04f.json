@@ -1,0 +1,38 @@
+{
+  "executionCallbackId": "ecb_1773061329216_22f7f04f",
+  "createdAt": "2026-03-09T13:02:09.216Z",
+  "callbackVersion": "v1",
+  "providerType": "generic_renderer",
+  "providerProfileId": "default",
+  "callbackType": "provider_note",
+  "sourceSystem": "external_provider",
+  "targetExecutionReceiptId": null,
+  "targetProviderSubmissionContractId": null,
+  "externalExecutionRef": null,
+  "callbackPayload": {
+    "eventAt": "2026-03-09T13:02:09.216Z",
+    "message": "x",
+    "status": "note"
+  },
+  "callbackDigest": "defef6435f81bd99ecc3572903e0f7c1c7198a624c3aec970ee20b51312ce50f",
+  "callbackDigestVersion": "sha256-v1",
+  "trustMetadata": {
+    "callbackSignatureStatus": "unsigned",
+    "callbackSignatureValid": true,
+    "callbackSigningKeyId": null,
+    "callbackSigningAlgorithm": "HMAC-SHA256",
+    "callbackVerificationScope": "callback-payload-core",
+    "trustProfile": "external_callback_v1",
+    "callbackOriginStatus": "unsigned"
+  },
+  "reconciliationStatus": "target_not_found",
+  "blockingReasons": [
+    "missing_target_refs"
+  ],
+  "warnings": [
+    "unsigned_callback_allowed_by_policy"
+  ],
+  "metadata": {
+    "deterministic": true
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "providerAdapterId": "pad_1773011539805_0b6e0784",
+  "createdAt": "2026-03-08T23:12:19.805Z",
+  "adapterVersion": "v1",
+  "providerType": "generic_renderer",
+  "providerProfile": {
+    "providerProfileId": "default",
+    "capabilityVersion": "v1"
+  },
+  "sourceRenderAdapterContractId": "rac_1773011539803_eac6686e",
+  "sourceRefs": {
+    "verifierPackageId": "uvp_1773011539800_984336a7",
+    "externalVerifierProfileId": null,
+    "shotListId": "sl_1773011539790_4bb313a7",
+    "shotListSnapshotId": null,
+    "voiceTrackPlanId": "vtp_1773011539792_e1b964d5",
+    "renderPlanId": null
+  },
+  "readinessState": "ready",
+  "capabilitySummary": {
+    "supportedStageTypes": [
+      "composite_manifest",
+      "visual_assembly",
+      "subtitle_generation",
+      "narration_plan",
+      "storyboard_assembly"
+    ],
+    "supportedJobTypes": [
+      "composite_manifest",
+      "visual_assembly",
+      "subtitle_generation",
+      "narration_plan",
+      "storyboard_assembly"
+    ],
+    "supportedOutputTargets": [
+      "composite_job_manifest",
+      "assembly_bundle",
+      "subtitle_track",
+      "narration_plan",
+      "storyboard_json",
+      "edit_decision_list"
+    ],
+    "unsupportedFeatures": []
+  },
+  "providerManifest": {
+    "manifestType": "provider_execution_manifest",
+    "manifestVersion": "v1",
+    "providerType": "generic_renderer",
+    "providerProfileId": "default",
+    "sourceRenderAdapterContractId": "rac_1773011539803_eac6686e",
+    "executionStages": [
+      {
+        "stageId": "stage_compose",
+        "stageType": "composite_manifest",
+        "orderIndex": 0,
+        "requiredInputs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "producedOutputs": [
+          "ot_1",
+          "ot_2"
+        ],
+        "dependencyStageIds": [],
+        "executionHints": {},
+        "statusRequirements": [
+          "ready"
+        ],
+        "metadata": {}
+      }
+    ],
+    "executionJobs": [
+      {
+        "jobId": "job_1",
+        "jobType": "composite_manifest",
+        "stageId": "stage_compose",
+        "orderIndex": 0,
+        "inputRefs": [
+          "a_unified",
+          "a_script",
+          "a_voice",
+          "a_shot",
+          "a_voice_plan"
+        ],
+        "outputRefs": [
+          "ot_1",
+          "ot_2"
+        ],
+        "executionHints": {
+          "deterministic": true
+        },
+        "fallbackPolicy": "fail_fast",
+        "metadata": {}
+      }
+    ],
+    "inputArtifactMap": [
+      {
+        "artifactId": "a_unified",
+        "artifactType": "unified_verifier_package",
+        "artifactRef": {
+          "verifierPackageId": "uvp_1773011539800_984336a7"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "as_reported",
+        "integrityState": "as_reported",
+        "notes": null
+      },
+      {
+        "artifactId": "a_script",
+        "artifactType": "reviewed_script",
+        "artifactRef": {
+          "scriptId": "ns_1773011539771_33d26004"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "untrusted",
+        "integrityState": "pass",
+        "notes": null
+      },
+      {
+        "artifactId": "a_voice",
+        "artifactType": "voice_track_plan",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773011539792_e1b964d5"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "untrusted",
+        "integrityState": "pass",
+        "notes": null
+      },
+      {
+        "artifactId": "a_shot",
+        "artifactType": "shot_list",
+        "artifactRef": {
+          "shotListId": "sl_1773011539790_4bb313a7"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "unknown",
+        "integrityState": "unknown",
+        "notes": null
+      },
+      {
+        "artifactId": "a_voice_plan",
+        "artifactType": "voice_track_plan",
+        "artifactRef": {
+          "voiceTrackPlanId": "vtp_1773011539792_e1b964d5"
+        },
+        "required": true,
+        "available": true,
+        "trustState": "unknown",
+        "integrityState": "unknown",
+        "notes": null
+      }
+    ],
+    "outputTargetMap": [
+      {
+        "outputTargetId": "ot_1",
+        "outputType": "composite_job_manifest",
+        "format": "json",
+        "pathHint": "/outputs/composite_job_manifest.json",
+        "requiredProducerStageId": "stage_compose",
+        "readinessRequirements": [],
+        "metadata": {}
+      },
+      {
+        "outputTargetId": "ot_2",
+        "outputType": "assembly_bundle",
+        "format": "json",
+        "pathHint": "/outputs/assembly_bundle.json",
+        "requiredProducerStageId": "stage_compose",
+        "readinessRequirements": [],
+        "metadata": {}
+      }
+    ],
+    "timingHints": {
+      "expectedDurationMs": 0,
+      "deterministic": true
+    },
+    "capabilityMappingSummary": {
+      "supportedStageCount": 1,
+      "skippedStageCount": 0,
+      "supportedJobCount": 1,
+      "skippedJobCount": 0,
+      "supportedInputCount": 5,
+      "skippedInputCount": 0,
+      "supportedOutputCount": 2,
+      "skippedOutputCount": 0
+    },
+    "policySummary": {
+      "orchestrationProfile": "internal_verified",
+      "readinessState": "ready",
+      "blockingReasons": [],
+      "warnings": []
+    },
+    "trustRefs": {
+      "sourceRefs": {
+        "verifierPackageId": "uvp_1773011539800_984336a7",
+        "externalVerifierProfileId": null,
+        "shotListId": "sl_1773011539790_4bb313a7",
+        "shotListSnapshotId": null,
+        "voiceTrackPlanId": "vtp_1773011539792_e1b964d5",
+        "renderPlanId": null
+      },
+      "policyEvaluation": {
+        "readinessState": "blocked",
+        "blockingReasons": [
+          "trust_publication_missing"
+        ],
+        "warnings": [
+          "unsigned_proof"
+        ]
+      }
+    },
+    "metadata": {
+      "deterministic": true
+    }
+  },
+  "policyEvaluation": {
+    "orchestrationProfile": "internal_verified",
+    "readinessState": "ready",
+    "blockingReasons": [],
+    "warnings": []
+  },
+  "blockingReasons": [],
+  "warnings": [],
+  "metadata": {
+    "deterministic": true
+  }
+}

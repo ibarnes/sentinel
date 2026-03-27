@@ -1,0 +1,22 @@
+{
+  "id": "fixture_cli_flow",
+  "name": "CLI Flow",
+  "reviewVersion": 1,
+  "steps": [
+    {
+      "id": "c1",
+      "index": 1,
+      "title": "S",
+      "action": "click",
+      "target": {
+        "elementType": "button",
+        "text": "X"
+      },
+      "page": {
+        "url": "https://app.test"
+      },
+      "screenshots": {},
+      "annotations": []
+    }
+  ]
+}

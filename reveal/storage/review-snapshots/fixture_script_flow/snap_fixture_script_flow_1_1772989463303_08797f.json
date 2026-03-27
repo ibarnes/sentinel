@@ -1,0 +1,145 @@
+{
+  "snapshotId": "snap_fixture_script_flow_1_1772989463303_08797f",
+  "flowId": "fixture_script_flow",
+  "reviewVersion": 1,
+  "snapshotVersion": 1,
+  "createdAt": "2026-03-08T17:04:23.305Z",
+  "createdBy": "fixture",
+  "sourceReviewedFlowVersion": 1,
+  "sourceNormalizedFlowVersion": 1,
+  "sourceReplayChecksumSummary": {
+    "matched": 0,
+    "mismatched": 0,
+    "unreplayable": 0,
+    "missing": 0
+  },
+  "status": "frozen",
+  "parentSnapshotId": "snap_fixture_script_flow_1_1772989050681_3c9d73",
+  "parentSnapshotContentHash": "2b7abb42225cabc21ff98e49f302d2e6fe4d902184b5179dd194a83d918df70c",
+  "snapshotChainIndex": 3,
+  "reviewedFlow": {
+    "id": "fixture_script_flow",
+    "name": "Script Fixture Flow",
+    "description": "Fixture for script generation",
+    "reviewVersion": 1,
+    "steps": [
+      {
+        "id": "s1",
+        "index": 1,
+        "title": "Upload CSV File",
+        "action": "upload",
+        "intent": "add customer data for analysis",
+        "target": {
+          "text": "Upload CSV"
+        },
+        "annotations": [
+          {
+            "author": "qa",
+            "text": "Use sample file"
+          }
+        ],
+        "screenshots": {}
+      },
+      {
+        "id": "s2",
+        "index": 2,
+        "title": "Run Analysis",
+        "action": "click",
+        "intent": "generate initial metrics",
+        "target": {
+          "text": "Run Analysis"
+        },
+        "annotations": [],
+        "screenshots": {}
+      }
+    ]
+  },
+  "snapshotContentHash": "5d9fbb38b4f5c72fa4bd0851630659b1f98f81deda911a5997145629c1ecc71f",
+  "snapshotHashVersion": "sha256-v1",
+  "snapshotHashCanonicalPayload": {
+    "createdAt": "2026-03-08T17:04:23.305Z",
+    "createdBy": "fixture",
+    "flowId": "fixture_script_flow",
+    "parentSnapshotContentHash": "2b7abb42225cabc21ff98e49f302d2e6fe4d902184b5179dd194a83d918df70c",
+    "parentSnapshotId": "snap_fixture_script_flow_1_1772989050681_3c9d73",
+    "reviewVersion": 1,
+    "reviewedFlow": {
+      "description": "Fixture for script generation",
+      "id": "fixture_script_flow",
+      "name": "Script Fixture Flow",
+      "reviewVersion": 1,
+      "steps": [
+        {
+          "action": "upload",
+          "annotations": [
+            {
+              "author": "qa",
+              "text": "Use sample file"
+            }
+          ],
+          "id": "s1",
+          "index": 1,
+          "intent": "add customer data for analysis",
+          "screenshots": {},
+          "target": {
+            "text": "Upload CSV"
+          },
+          "title": "Upload CSV File"
+        },
+        {
+          "action": "click",
+          "annotations": [],
+          "id": "s2",
+          "index": 2,
+          "intent": "generate initial metrics",
+          "screenshots": {},
+          "target": {
+            "text": "Run Analysis"
+          },
+          "title": "Run Analysis"
+        }
+      ]
+    },
+    "snapshotChainIndex": 3,
+    "snapshotId": "snap_fixture_script_flow_1_1772989463303_08797f",
+    "snapshotVersion": 1,
+    "sourceNormalizedFlowVersion": 1,
+    "sourceReplayChecksumSummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "missing": 0,
+      "unreplayable": 0
+    },
+    "sourceReviewedFlowVersion": 1,
+    "status": "frozen"
+  },
+  "manifest": {
+    "snapshotId": "snap_fixture_script_flow_1_1772989463303_08797f",
+    "flowId": "fixture_script_flow",
+    "reviewVersion": 1,
+    "stepCount": 2,
+    "annotationCount": 1,
+    "screenshotCoverage": {
+      "total": 2,
+      "withBefore": 0,
+      "withAfter": 0,
+      "withHighlight": 0
+    },
+    "replayIntegritySummary": {
+      "matched": 0,
+      "mismatched": 0,
+      "unreplayable": 0,
+      "missing": 0
+    },
+    "snapshotContentHash": "5d9fbb38b4f5c72fa4bd0851630659b1f98f81deda911a5997145629c1ecc71f",
+    "snapshotHashVersion": "sha256-v1",
+    "parentSnapshotId": "snap_fixture_script_flow_1_1772989050681_3c9d73",
+    "parentSnapshotContentHash": "2b7abb42225cabc21ff98e49f302d2e6fe4d902184b5179dd194a83d918df70c",
+    "snapshotChainIndex": 3,
+    "exportAvailability": [
+      "json",
+      "markdown"
+    ],
+    "createdAt": "2026-03-08T17:04:23.305Z"
+  }
+}

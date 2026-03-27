@@ -1,0 +1,179 @@
+{
+  "shotListId": "sl_1772991618612_b99cc696",
+  "sourceType": "reviewed_snapshot",
+  "sourceRef": {
+    "flowId": "fixture_shotlist_flow"
+  },
+  "title": "Shot List — reviewed_snapshot",
+  "description": "Deterministic production shot plan",
+  "createdAt": "2026-03-08T17:40:18.612Z",
+  "shotListVersion": "v1",
+  "styleProfile": null,
+  "totalEstimatedDurationMs": 8000,
+  "scenes": [
+    {
+      "sceneId": "scene_1",
+      "orderIndex": 0,
+      "stepIndexRange": {
+        "start": 0,
+        "end": 1
+      },
+      "title": "Open Dashboard",
+      "objective": "load dashboard",
+      "estimatedDurationMs": 8000,
+      "transitionIn": "none",
+      "transitionOut": "cut",
+      "narrationSectionRefs": [],
+      "visualRefs": {
+        "screenshotBefore": null,
+        "screenshotAfter": null,
+        "highlight": null,
+        "hotspots": [],
+        "overlay": {
+          "title": "Open Dashboard",
+          "body": "load dashboard",
+          "position": "right",
+          "anchorHotspotId": null,
+          "dismissible": true,
+          "showStepCounter": true,
+          "emphasisMode": "none",
+          "progressionMode": "manual",
+          "stepDurationMs": 3000
+        }
+      },
+      "shots": [
+        {
+          "shotId": "shot_1_1",
+          "sceneId": "scene_1",
+          "stepIndex": 0,
+          "shotType": "full_frame",
+          "title": "Establish: Open Dashboard",
+          "purpose": "Set context",
+          "sourceAssetRef": null,
+          "highlightRef": null,
+          "hotspotRefs": [],
+          "overlayRef": {
+            "title": "Open Dashboard",
+            "body": "load dashboard",
+            "position": "right",
+            "anchorHotspotId": null,
+            "dismissible": true,
+            "showStepCounter": true,
+            "emphasisMode": "none",
+            "progressionMode": "manual",
+            "stepDurationMs": 3000
+          },
+          "estimatedDurationMs": 900,
+          "emphasis": "none",
+          "notes": null,
+          "metadata": {},
+          "startOffsetMs": 0,
+          "endOffsetMs": 900
+        },
+        {
+          "shotId": "shot_1_2",
+          "sceneId": "scene_1",
+          "stepIndex": 0,
+          "shotType": "overlay_callout",
+          "title": "Open Dashboard",
+          "purpose": "load dashboard",
+          "sourceAssetRef": null,
+          "highlightRef": null,
+          "hotspotRefs": [],
+          "overlayRef": {
+            "title": "Open Dashboard",
+            "body": "load dashboard",
+            "position": "right",
+            "anchorHotspotId": null,
+            "dismissible": true,
+            "showStepCounter": true,
+            "emphasisMode": "none",
+            "progressionMode": "manual",
+            "stepDurationMs": 3000
+          },
+          "estimatedDurationMs": 3000,
+          "emphasis": "none",
+          "notes": null,
+          "metadata": {
+            "stepIndex": 0
+          },
+          "startOffsetMs": 900,
+          "endOffsetMs": 3900
+        },
+        {
+          "shotId": "shot_1_3",
+          "sceneId": "scene_1",
+          "stepIndex": 1,
+          "shotType": "zoom_target",
+          "title": "Upload CSV",
+          "purpose": "add customer data",
+          "sourceAssetRef": null,
+          "highlightRef": null,
+          "hotspotRefs": [
+            "hs_1_info_1"
+          ],
+          "overlayRef": {
+            "title": "Upload CSV",
+            "body": "add customer data",
+            "position": "right",
+            "anchorHotspotId": null,
+            "dismissible": true,
+            "showStepCounter": true,
+            "emphasisMode": "none",
+            "progressionMode": "manual",
+            "stepDurationMs": 3000
+          },
+          "estimatedDurationMs": 3000,
+          "emphasis": "none",
+          "notes": "Use sample.csv",
+          "metadata": {
+            "stepIndex": 1
+          },
+          "startOffsetMs": 3900,
+          "endOffsetMs": 6900
+        },
+        {
+          "shotId": "shot_1_4",
+          "sceneId": "scene_1",
+          "stepIndex": 1,
+          "shotType": "annotation_focus",
+          "title": "Annotation: Upload CSV",
+          "purpose": "Call out annotation detail",
+          "sourceAssetRef": null,
+          "highlightRef": null,
+          "hotspotRefs": [],
+          "overlayRef": null,
+          "estimatedDurationMs": 1100,
+          "emphasis": "none",
+          "notes": "Use sample.csv",
+          "metadata": {
+            "stepIndex": 1
+          },
+          "startOffsetMs": 6900,
+          "endOffsetMs": 8000
+        }
+      ],
+      "metadata": {
+        "progressionMode": "manual"
+      },
+      "timeline": {
+        "sceneStartMs": 0,
+        "sceneEndMs": 8000,
+        "timelineOrder": 0,
+        "linkedNarrationDurationMs": 8000,
+        "linkedVisualDurationMs": 8000,
+        "transitionPaddingMs": 0,
+        "progressionMode": "manual"
+      }
+    }
+  ],
+  "metadata": {
+    "sceneCount": 1,
+    "shotCount": 4,
+    "publishReadyMode": false,
+    "sourceApprovalTrust": {
+      "publishGate": null,
+      "trustPublication": null
+    }
+  }
+}
