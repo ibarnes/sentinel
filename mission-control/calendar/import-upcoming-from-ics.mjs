@@ -153,7 +153,27 @@ function parseEvents(rawIcs) {
   return events;
 }
 
+
+async function loadEnvFromFile(filePath) {
+  try {
+    const raw = await fs.readFile(filePath, 'utf8');
+    for (const line of raw.split(/\r?\n/)) {
+      const trimmed = String(line || '').trim();
+      if (!trimmed || trimmed.startsWith('#')) continue;
+      const eq = trimmed.indexOf('=');
+      if (eq <= 0) continue;
+      const key = trimmed.slice(0, eq).trim();
+      const value = trimmed.slice(eq + 1).trim();
+      if (key && !(key in process.env)) process.env[key] = value;
+    }
+  } catch (_) {
+    // file missing is fine
+  }
+}
+
 async function main() {
+  await loadEnvFromFile(path.join(ROOT, 'admin-server/.env'));
+  await loadEnvFromFile(path.join(ROOT, '.env'));
   const url = process.argv[2] || process.env.GCAL_ICS_URL || process.env.CALENDAR_ICS_URL;
   const windowDays = Number(process.argv[3] || process.env.CALENDAR_WINDOW_DAYS || '21');
 
