@@ -1,0 +1,425 @@
+[
+  {
+    "commit": "abc4de0e4405722230e152260fe73a71f4774229",
+    "short": "abc4de0e",
+    "date": "2026-02-24",
+    "subject": "Organize memory files: add curated MEMORY.md and normalize daily log",
+    "sha256": "62a92ba230c44deb05fd5767cef2652f33ef2b2a66d2cc250650372ff08fcbfa",
+    "file": "memory/backups/memory-md-git/001_2026-02-24_abc4de0e.md",
+    "dedup": false
+  },
+  {
+    "commit": "81ee49754cb70499ea1b20132a2aba2407212a20",
+    "short": "81ee4975",
+    "date": "2026-02-24",
+    "subject": "Add role memory and log cron schedule activation",
+    "sha256": "889f2fd1954b3b12f9f4e9b9f91aacb564b90453ec75c9c5ec28437c8bbad8b9",
+    "file": "memory/backups/memory-md-git/002_2026-02-24_81ee4975.md",
+    "dedup": false
+  },
+  {
+    "commit": "9436e355c63998693d8b39d2c6fbee77acf8c1eb",
+    "short": "9436e355",
+    "date": "2026-02-24",
+    "subject": "Restructure MEMORY.md with buyer shortlist, operating rules, and projects",
+    "sha256": "73ff4e32e1e776715c2f42415574360d72d9bd16dacde34d1fa8fb359ba20a6e",
+    "file": "memory/backups/memory-md-git/003_2026-02-24_9436e355.md",
+    "dedup": false
+  },
+  {
+    "commit": "a58f51d0ded0e579bac1ac28bf92d4c142f05cb2",
+    "short": "a58f51d0",
+    "date": "2026-02-24",
+    "subject": "Add Isaac operating charter, safety constraints, and workflow rhythm to memory",
+    "sha256": "f6869f36891b183170a90ecf2d5cb7cdd10557d96ee5cd4498be414d75cc4dae",
+    "file": "memory/backups/memory-md-git/004_2026-02-24_a58f51d0.md",
+    "dedup": false
+  },
+  {
+    "commit": "b908a7b80b3c710094dd6bc89eda77cd089db3e1",
+    "short": "b908a7b8",
+    "date": "2026-02-24",
+    "subject": "Record workflow A/B/C definitions, outputs, and ET schedule",
+    "sha256": "b452f1fa1f302117db07bffe6b93af0b4a7b9486a390121ac5f47049b0bad232",
+    "file": "memory/backups/memory-md-git/005_2026-02-24_b908a7b8.md",
+    "dedup": false
+  },
+  {
+    "commit": "3e48350a1f4c9bff6af59305e885a79c8331af6e",
+    "short": "3e48350a",
+    "date": "2026-02-24",
+    "subject": "Add scoring policy, hard gates, timing rubric, and Tier 1 trigger to memory",
+    "sha256": "46e08fcef2143303aa774cf61ad6c695ef5aee38022f37980d1f24411087cce4",
+    "file": "memory/backups/memory-md-git/006_2026-02-24_3e48350a.md",
+    "dedup": false
+  },
+  {
+    "commit": "96c77f07338c332b91b3e920e86b10c84f751d7c",
+    "short": "96c77f07",
+    "date": "2026-02-24",
+    "subject": "Update operating charter to Capital & Workflow Operator and add decision standard",
+    "sha256": "2408f21bf6647a786cfcb9d08c13434c84eeebc57431dd000336e6543d262324",
+    "file": "memory/backups/memory-md-git/007_2026-02-24_96c77f07.md",
+    "dedup": false
+  },
+  {
+    "commit": "d0dd49d11aa027fc4526a936a401fc2804126efe",
+    "short": "d0dd49d1",
+    "date": "2026-02-24",
+    "subject": "Add Structural Priorities section in MEMORY.md",
+    "sha256": "f7b6cf97e2da3ad146b4017596a064c7246b1ad6d2fbed2843a09c13872ec313",
+    "file": "memory/backups/memory-md-git/008_2026-02-24_d0dd49d1.md",
+    "dedup": false
+  },
+  {
+    "commit": "74f3c8caecf1f21c33b0d988a61299b6725e56cb",
+    "short": "74f3c8ca",
+    "date": "2026-02-24",
+    "subject": "Add sovereign update verification threshold to operating rules",
+    "sha256": "2178c82031d97ae9014f35246858175c0fc99b68885ecf1d2e76d37d1e16a53c",
+    "file": "memory/backups/memory-md-git/009_2026-02-24_74f3c8ca.md",
+    "dedup": false
+  },
+  {
+    "commit": "1394d839e6b8f451944a357048a8d60ba427cb31",
+    "short": "1394d839",
+    "date": "2026-02-28",
+    "subject": "chore(memory): nightly maintenance update for 2026-02-28",
+    "sha256": "c0e354003afe0411e565d5fc102511b8543cd96fc9b61ef696e56bfe47458e2c",
+    "file": "memory/backups/memory-md-git/010_2026-02-28_1394d839.md",
+    "dedup": false
+  },
+  {
+    "commit": "c9ee9de51ca560e8e4be3d1c4ab7ed3f39366774",
+    "short": "c9ee9de5",
+    "date": "2026-03-01",
+    "subject": "nightly memory maintenance for 2026-03-01",
+    "sha256": "beae886c2a366210d68dd8d1ccc16cc02861290598592a750b8cf0e211e1f8d7",
+    "file": "memory/backups/memory-md-git/011_2026-03-01_c9ee9de5.md",
+    "dedup": false
+  },
+  {
+    "commit": "96575c82f06754c98359fb81ddec3c9d6d2b850c",
+    "short": "96575c82",
+    "date": "2026-03-02",
+    "subject": "Nightly memory maintenance: update durable status for 2026-03-02",
+    "sha256": "81b2f04dee8c3c4d16d14f28e74ea6dc238bb5f9ee58e4c0cd343ecbe6c1f8d0",
+    "file": "memory/backups/memory-md-git/012_2026-03-02_96575c82.md",
+    "dedup": false
+  },
+  {
+    "commit": "e47d69fe05e9eb087bf3b521ea45ce2fe229f989",
+    "short": "e47d69fe",
+    "date": "2026-03-03",
+    "subject": "Update memory: buyer ranking source-of-truth is buyers.json",
+    "sha256": "8edebb1dc9add6ef35fa48db7cbd4b453f3079fbfa3837e46dbf3e696131607a",
+    "file": "memory/backups/memory-md-git/013_2026-03-03_e47d69fe.md",
+    "dedup": false
+  },
+  {
+    "commit": "9f685bec3761926a41ab37fb0ec59e79fbc0f013",
+    "short": "9f685bec",
+    "date": "2026-03-03",
+    "subject": "Nightly memory maintenance for 2026-03-03",
+    "sha256": "5ba9ffb2b0227d2f5505e66d6a2f98f27a1849ece17ad434d02327f93bb41068",
+    "file": "memory/backups/memory-md-git/014_2026-03-03_9f685bec.md",
+    "dedup": false
+  },
+  {
+    "commit": "d56faf68aab813696337053bc991ef4079c54e38",
+    "short": "d56faf68",
+    "date": "2026-03-04",
+    "subject": "Nightly memory maintenance: roll project snapshot to 2026-03-04",
+    "sha256": "cbe6610d575b19eb2f9f479cc2a62a07b1cf8ffaec6f93291d77810559b59cf6",
+    "file": "memory/backups/memory-md-git/015_2026-03-04_d56faf68.md",
+    "dedup": false
+  },
+  {
+    "commit": "25e49fc5a1e3c67dd59328de2807d3ff5524fa94",
+    "short": "25e49fc5",
+    "date": "2026-03-05",
+    "subject": "ops: adopt 30-minute execution cadence and fast-lane updates",
+    "sha256": "022744a15d747ef1fabf281e1093fb4fd1bff98050d96b210dd8dacb7570328f",
+    "file": "memory/backups/memory-md-git/016_2026-03-05_25e49fc5.md",
+    "dedup": false
+  },
+  {
+    "commit": "a576f6699262987310e19724cba198106bd96a82",
+    "short": "a576f669",
+    "date": "2026-03-05",
+    "subject": "Nightly memory maintenance: update 2026-03-05 snapshot",
+    "sha256": "6f9754e60041b5a85276919eb458f669821c4662679e6ef281216d986ca2e521",
+    "file": "memory/backups/memory-md-git/017_2026-03-05_a576f669.md",
+    "dedup": false
+  },
+  {
+    "commit": "52437cf9d0660b0b518babb771d3416c8378ea60",
+    "short": "52437cf9",
+    "date": "2026-03-06",
+    "subject": "Generate 2026-03-06 morning brief and roll memory snapshot",
+    "sha256": "957e997ba2052e40bb5f840527fc5fa14a348ebebcbd9cee53e299e7c70dbeec",
+    "file": "memory/backups/memory-md-git/018_2026-03-06_52437cf9.md",
+    "dedup": false
+  },
+  {
+    "commit": "9ce63b44392fc8b8b3aeca19206e633eb6a6cc24",
+    "short": "9ce63b44",
+    "date": "2026-03-07",
+    "subject": "Nightly memory maintenance: roll snapshot to 2026-03-07",
+    "sha256": "dfa04d05f98731d3de0e50fa1b2c142a6c08cec681d510a7c9dc9a55c17f39ca",
+    "file": "memory/backups/memory-md-git/019_2026-03-07_9ce63b44.md",
+    "dedup": false
+  },
+  {
+    "commit": "af83d08dc7720e4ba33c2d2f95f1e95bfd182a6a",
+    "short": "af83d08d",
+    "date": "2026-03-07",
+    "subject": "Add signal provenance rule for Isaac-provided vs system-discovered",
+    "sha256": "196873d8cd8995e41820bbfdc8878d5c4f73822dfb5a0cc6555167fc6cee65a2",
+    "file": "memory/backups/memory-md-git/020_2026-03-07_af83d08d.md",
+    "dedup": false
+  },
+  {
+    "commit": "5d6cf6df48f7140e09d6024b92a0864af7326042",
+    "short": "5d6cf6df",
+    "date": "2026-03-08",
+    "subject": "Add DMCC Tea Centre signal and record Ahmed Bin Sulayem USG ally context",
+    "sha256": "87377cfb30e1f79e11d1e50d8f1e7aeffd2fd9b4080008418fe89610e12186b9",
+    "file": "memory/backups/memory-md-git/021_2026-03-08_5d6cf6df.md",
+    "dedup": false
+  },
+  {
+    "commit": "271060e487464d54549e92463fad9047bb7a7c66",
+    "short": "271060e4",
+    "date": "2026-03-08",
+    "subject": "Nightly memory maintenance for 2026-03-08",
+    "sha256": "230c50060a48917e8617e9a907b329f41b4e9bb373e81e277e8d15b8e7e05b7c",
+    "file": "memory/backups/memory-md-git/022_2026-03-08_271060e4.md",
+    "dedup": false
+  },
+  {
+    "commit": "39293108391076d422e4f9dc68653220e2ddb9d8",
+    "short": "39293108",
+    "date": "2026-03-09",
+    "subject": "Nightly memory maintenance for 2026-03-09",
+    "sha256": "cd6461d4fae170ed18ac055502989a3463b9f9ea4bfdadb414191bec2c7b44d5",
+    "file": "memory/backups/memory-md-git/023_2026-03-09_39293108.md",
+    "dedup": false
+  },
+  {
+    "commit": "38b42eb1505c77eacd010e9e3aebc59d97084595",
+    "short": "38b42eb1",
+    "date": "2026-03-10",
+    "subject": "memory: nightly maintenance update for 2026-03-10",
+    "sha256": "4f1bb09801bcc4c85b40459eb3e177e039bf82de13dce0d78e39968f328b9d40",
+    "file": "memory/backups/memory-md-git/024_2026-03-10_38b42eb1.md",
+    "dedup": false
+  },
+  {
+    "commit": "78767eed4d298be464f7411f5a8f08dbe77c349c",
+    "short": "78767eed",
+    "date": "2026-03-11",
+    "subject": "nightly memory maintenance: add 2026-03-11 snapshot and durable updates",
+    "sha256": "a69b411a32dc59b1a3636376e46a9cd72bc6618e42e466f2ee01f8add9187342",
+    "file": "memory/backups/memory-md-git/025_2026-03-11_78767eed.md",
+    "dedup": false
+  },
+  {
+    "commit": "2963d5e25940f633b740b4c71256d5562c1a2bd0",
+    "short": "2963d5e2",
+    "date": "2026-03-11",
+    "subject": "memory: require verbatim public source URLs in signal records when provided by Isaac",
+    "sha256": "98f25f7c189cd623a7cffe79d6e5de939c600fa71572f0a9483591bb88e53330",
+    "file": "memory/backups/memory-md-git/026_2026-03-11_2963d5e2.md",
+    "dedup": false
+  },
+  {
+    "commit": "9fe424bc12a71b94640d3099d99e571f980c6df7",
+    "short": "9fe424bc",
+    "date": "2026-03-12",
+    "subject": "memory: nightly maintenance snapshot for 2026-03-12",
+    "sha256": "73b34557c24502b97f06c5b7abbe348e1a1d2d5b503d17002c1a6e4445a12624",
+    "file": "memory/backups/memory-md-git/027_2026-03-12_9fe424bc.md",
+    "dedup": false
+  },
+  {
+    "commit": "dd36cdeb61684a329e20076d2d1398a14c9f051b",
+    "short": "dd36cdeb",
+    "date": "2026-03-12",
+    "subject": "memory: record canonical USG 7-step signal model integration rule",
+    "sha256": "f85dc99688025bf59b71911b0ad699d01a484d9bdbcfa694d80a60cdf24b6483",
+    "file": "memory/backups/memory-md-git/028_2026-03-12_dd36cdeb.md",
+    "dedup": false
+  },
+  {
+    "commit": "ec51667663899d545180d53906a4c0a62dc680d8",
+    "short": "ec516676",
+    "date": "2026-03-12",
+    "subject": "memory: store Gmail SMTP profile and secret-handling rule",
+    "sha256": "ed7ad87116450a812721ba544dc0c43b118370fb6712e5f1940ca799f8f90409",
+    "file": "memory/backups/memory-md-git/029_2026-03-12_ec516676.md",
+    "dedup": false
+  },
+  {
+    "commit": "ddc996eeacb9e3e436adefa5208b1b8faa6fc6ac",
+    "short": "ddc996ee",
+    "date": "2026-03-13",
+    "subject": "Nightly memory maintenance: distill 2026-03-13 status into MEMORY",
+    "sha256": "ddb565bc7da480c2c7f520b57643b423dcffd2c14af086b6636106eb117caede",
+    "file": "memory/backups/memory-md-git/030_2026-03-13_ddc996ee.md",
+    "dedup": false
+  },
+  {
+    "commit": "980293fd6cd08674700152229d994a0ba4674bc8",
+    "short": "980293fd",
+    "date": "2026-03-14",
+    "subject": "memory: nightly maintenance for 2026-03-14",
+    "sha256": "9bae1ba6486e365a73ad55e3bb68e8abe5d0dbe32da0a269473af7fa4630285e",
+    "file": "memory/backups/memory-md-git/031_2026-03-14_980293fd.md",
+    "dedup": false
+  },
+  {
+    "commit": "90a7d444e1ed2169442fa0551d2b360d2f622f8b",
+    "short": "90a7d444",
+    "date": "2026-03-15",
+    "subject": "memory: nightly maintenance snapshot for 2026-03-15",
+    "sha256": "804a8ed420546cec6d3647a3ba1306e4197bc6e338fe9043e0a0400964b11d96",
+    "file": "memory/backups/memory-md-git/032_2026-03-15_90a7d444.md",
+    "dedup": false
+  },
+  {
+    "commit": "05138bd11aca7f4f8475651d143e619fcdb587cf",
+    "short": "05138bd1",
+    "date": "2026-03-16",
+    "subject": "memory: nightly maintenance snapshot for 2026-03-16",
+    "sha256": "e8168de13d8101d10f3c412a403a85423e024fb559eac9950f8756018da6a585",
+    "file": "memory/backups/memory-md-git/033_2026-03-16_05138bd1.md",
+    "dedup": false
+  },
+  {
+    "commit": "2f98fd078a22ba20ba806b604463590bf0d81b85",
+    "short": "2f98fd07",
+    "date": "2026-03-17",
+    "subject": "Nightly memory maintenance: distill 2026-03-16 into durable snapshot",
+    "sha256": "c31557f267b7906e52c36d91f9db94337c4e3e3f7e938e7df893b28966f8df6a",
+    "file": "memory/backups/memory-md-git/034_2026-03-17_2f98fd07.md",
+    "dedup": false
+  },
+  {
+    "commit": "9f29262d9bea8be545df917dcff8537a0898d8a2",
+    "short": "9f29262d",
+    "date": "2026-03-18",
+    "subject": "Nightly memory maintenance: add 2026-03-18 snapshot and daily log",
+    "sha256": "92d321d2c573a67e7d7ce5bc7d6f3d866cb1be0dc7c3bc9b1b3543e44c150c85",
+    "file": "memory/backups/memory-md-git/035_2026-03-18_9f29262d.md",
+    "dedup": false
+  },
+  {
+    "commit": "de20b2438d366de3dff5203cea53b39d4adbe736",
+    "short": "de20b243",
+    "date": "2026-03-19",
+    "subject": "chore(memory): nightly maintenance snapshot for 2026-03-19",
+    "sha256": "5707b0551ad12ab4923ce6f75da06c2d64453d706bc796a9563adcf6b70975a6",
+    "file": "memory/backups/memory-md-git/036_2026-03-19_de20b243.md",
+    "dedup": false
+  },
+  {
+    "commit": "6ff0501bed8d1b0b0ac8fe6bbfb6175319c120a1",
+    "short": "6ff0501b",
+    "date": "2026-03-19",
+    "subject": "Add weekly team email cadence protocol to memory",
+    "sha256": "9677be9300d6a5dbf51303c919f7bf428846e5ee108323a85a05807b87560586",
+    "file": "memory/backups/memory-md-git/037_2026-03-19_6ff0501b.md",
+    "dedup": false
+  },
+  {
+    "commit": "7af6eeb53aa57d6f50ba4530347a433221ce0e2c",
+    "short": "7af6eeb5",
+    "date": "2026-03-19",
+    "subject": "Harden weekly team email protocol with operator-language quality rules",
+    "sha256": "ac0a371d6b1e000d482e61c63cd829d4ffeaf143bbd51b2ccbbcbd1683c9d145",
+    "file": "memory/backups/memory-md-git/038_2026-03-19_7af6eeb5.md",
+    "dedup": false
+  },
+  {
+    "commit": "46adb2c489815692975f419bc3f1616b4e5b4e15",
+    "short": "46adb2c4",
+    "date": "2026-03-19",
+    "subject": "Add five new signals including Atlanta local watch lane",
+    "sha256": "d85d44f51f57dfb215c4297afaa8ff4d953d8f21aec21fc46f1b9c5b3a6884e1",
+    "file": "memory/backups/memory-md-git/039_2026-03-19_46adb2c4.md",
+    "dedup": false
+  },
+  {
+    "commit": "902a681431ab63f88f4cf8a858e78f02ef3adadd",
+    "short": "902a6814",
+    "date": "2026-03-20",
+    "subject": "memory: run nightly maintenance for 2026-03-20",
+    "sha256": "0d13a0f875febf42ed66b7de2079897120b0fc4573ba865473dc7c39c231910f",
+    "file": "memory/backups/memory-md-git/040_2026-03-20_902a6814.md",
+    "dedup": false
+  },
+  {
+    "commit": "be3be1ebb73fb276a4abe8f1799a4795d3c5b804",
+    "short": "be3be1eb",
+    "date": "2026-03-21",
+    "subject": "Add canonical gate control model and reality-first gate framing rule",
+    "sha256": "650d7653b3c58ddb5df8f70a8326a98fc6f38dba27436afdefb5e5618d2c3c6c",
+    "file": "memory/backups/memory-md-git/041_2026-03-21_be3be1eb.md",
+    "dedup": false
+  },
+  {
+    "commit": "7ae9f432398f9a7b66b214e092451063b2f37eb5",
+    "short": "7ae9f432",
+    "date": "2026-03-21",
+    "subject": "memory: nightly maintenance for 2026-03-21",
+    "sha256": "88cac447d98b998080b32c12ba28ef280ec51971a515072d301fd10dec821b65",
+    "file": "memory/backups/memory-md-git/042_2026-03-21_7ae9f432.md",
+    "dedup": false
+  },
+  {
+    "commit": "894d4ce4139c388a9da278a9af3d51d82ebe536a",
+    "short": "894d4ce4",
+    "date": "2026-03-22",
+    "subject": "memory: nightly maintenance snapshot for 2026-03-22",
+    "sha256": "60dba73efb5800a12c93169af9637c9e4886d23f112cee5a6782a38fda30c41d",
+    "file": "memory/backups/memory-md-git/043_2026-03-22_894d4ce4.md",
+    "dedup": false
+  },
+  {
+    "commit": "448397f5e3518314d6e516053ce09a051c3775fc",
+    "short": "448397f5",
+    "date": "2026-03-23",
+    "subject": "memory: nightly maintenance for 2026-03-23",
+    "sha256": "c8c2b7ec415bf94870bfc79b005469856a24731c0494b84ada902af10a6ba1ba",
+    "file": "memory/backups/memory-md-git/044_2026-03-23_448397f5.md",
+    "dedup": false
+  },
+  {
+    "commit": "3447af747fb7462171e5b0d58a5553d2f943da3a",
+    "short": "3447af74",
+    "date": "2026-03-24",
+    "subject": "memory: nightly maintenance distill for 2026-03-24",
+    "sha256": "eab9abd11c6e74eddb4fe7b312d40db9da05dc1e00922fefb2db826e0f00c78c",
+    "file": "memory/backups/memory-md-git/045_2026-03-24_3447af74.md",
+    "dedup": false
+  },
+  {
+    "commit": "6f649083045ad0366e2ad341aace3cedc9cb3931",
+    "short": "6f649083",
+    "date": "2026-03-25",
+    "subject": "memory: nightly maintenance snapshot for 2026-03-25",
+    "sha256": "07ba99ffee43ead52bbb9886d72f4774158eeae6f51714394ba9e29beb18e878",
+    "file": "memory/backups/memory-md-git/046_2026-03-25_6f649083.md",
+    "dedup": false
+  },
+  {
+    "commit": "37e6efd2d65cf436a049c3ad929e3e46e9607fc0",
+    "short": "37e6efd2",
+    "date": "2026-03-26",
+    "subject": "memory: nightly maintenance snapshot for 2026-03-26",
+    "sha256": "a79ce8c73f4296cbab023e93f9d7fff54f9a173f9e1748dff14f675ba127b395",
+    "file": "memory/backups/memory-md-git/047_2026-03-26_37e6efd2.md",
+    "dedup": false
+  }
+]

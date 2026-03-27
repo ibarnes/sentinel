@@ -737,6 +737,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('signals-feed')}" href="/dashboard/signals-feed" title="Signals Feed"><i data-lucide="newspaper" class="nav-icon"></i><span class="nav-label">Signals Feed</span></a>
       <a class="nav-link ${is('state-transitions')}" href="/dashboard/state-transitions" title="State Transitions"><i data-lucide="git-compare-arrows" class="nav-icon"></i><span class="nav-label">State Transitions</span></a>
       <a class="nav-link ${is('meetings')}" href="/dashboard/meetings" title="Meetings"><i data-lucide="notebook-text" class="nav-icon"></i><span class="nav-label">Meetings</span></a>
+      <a class="nav-link ${is('actions')}" href="/dashboard/actions" title="Actions"><i data-lucide="list-todo" class="nav-icon"></i><span class="nav-label">Actions</span></a>
       <a class="nav-link ${is('platform-pressure')}" href="/dashboard/platform-pressure" title="Platforms"><i data-lucide="radar" class="nav-icon"></i><span class="nav-label">Platforms</span></a>
       <a class="nav-link ${is('beacons')}" href="/dashboard/beacons" title="Beacons"><i data-lucide="satellite" class="nav-icon"></i><span class="nav-label">Beacons</span></a>
 
@@ -2904,6 +2905,177 @@ app.get('/dashboard/state-transition/:id', async (req, res) => {
   const dt = String(t.timestamp || t.created_at || '').slice(0, 19).replace('T', ' ');
   const li = (arr) => (Array.isArray(arr) && arr.length) ? arr.map((v)=>`<li>${escapeHtml(typeof v === 'string' ? v : JSON.stringify(v))}</li>`).join('') : '<li class="text-muted">None</li>';
   res.type('html').send(`<!doctype html><html><head>${uiHead('State Transition Detail')}</head><body><div class="app-shell">${dashboardNav('state-transitions')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/state-transitions">← State Transitions</a><h3 class="mb-1">${escapeHtml(String(t.summary || t.id || 'State Transition'))}</h3><div class="small text-muted mono mb-3">${escapeHtml(String(t.id || ''))} · ${escapeHtml(dt || '—')}</div><div class="card mb-3"><div class="card-body"><div><strong>From:</strong> ${escapeHtml(String(t.from_state || '—'))}</div><div><strong>To:</strong> ${escapeHtml(String(t.to_state || '—'))}</div><div><strong>Type:</strong> ${escapeHtml(String(t.transition_type || '—'))}</div><div><strong>Confidence:</strong> ${escapeHtml(String(t.confidence ?? '—'))}</div><div><strong>Initiatives:</strong> ${escapeHtml((t.initiative_ids || []).join(', ') || '—')}</div><div><strong>Signals:</strong> ${escapeHtml((t.trigger_signal_ids || []).join(', ') || '—')}</div></div></div><div class="card mb-3"><div class="card-body"><h6>Constraints Resolved</h6><ul class="mb-0">${li(t.constraints_resolved)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Constraints Remaining</h6><ul class="mb-0">${li(t.constraints_remaining)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Evidence</h6><ul class="mb-0">${li(t.evidence)}</ul></div></div><div class="card"><div class="card-body"><h6>Raw JSON</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(JSON.stringify(t, null, 2))}</pre></div></div></div></body></html>`);
+});
+
+
+function flattenMeetingActions(meetings = []) {
+  const now = new Date();
+  const nowDate = now.toISOString().slice(0, 10);
+  const in7 = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const dayMs = 24 * 60 * 60 * 1000;
+
+  const rows = [];
+  for (const m of (Array.isArray(meetings) ? meetings : [])) {
+    const meetingId = String(m?.meeting_id || '').trim();
+    const meetingTitle = String(m?.title || m?.meeting_id || 'Meeting').trim();
+    const meetingTs = String(m?.date_time || m?.created_at || '').trim();
+    const meetingDate = meetingTs ? String(meetingTs).slice(0, 10) : '';
+    const meetingDateObj = meetingTs ? new Date(meetingTs) : null;
+    const nextActions = Array.isArray(m?.next_actions) ? m.next_actions : [];
+
+    for (let idx = 0; idx < nextActions.length; idx += 1) {
+      const a = nextActions[idx] || {};
+      const actionText = String(a.action || '').trim();
+      const owner = String(a.owner || '').trim();
+      const due = String(a.due || '').trim();
+      const statusRaw = String(a.status || 'open').trim().toLowerCase();
+      const status = ['open', 'in_progress', 'blocked', 'done'].includes(statusRaw) ? statusRaw : 'open';
+      const doneLike = status === 'done';
+
+      const dueObj = due ? new Date(`${due}T00:00:00Z`) : null;
+      const ageRef = dueObj || meetingDateObj;
+      const ageDays = ageRef && Number.isFinite(ageRef.getTime())
+        ? Math.max(0, Math.floor((now.getTime() - ageRef.getTime()) / dayMs))
+        : null;
+
+      const overdue = Boolean(due && due < nowDate && !doneLike);
+      const dueSoon = Boolean(due && due >= nowDate && due <= in7 && !doneLike);
+      const missingOwner = !owner;
+      const missingDue = !due && !doneLike;
+
+      rows.push({
+        action_id: `${meetingId || 'meeting'}::${idx + 1}`,
+        meeting_id: meetingId,
+        meeting_title: meetingTitle,
+        meeting_date: meetingDate,
+        action: actionText || '(missing action text)',
+        owner,
+        due,
+        status,
+        overdue,
+        dueSoon,
+        missingOwner,
+        missingDue,
+        ageDays,
+      });
+    }
+  }
+
+  return rows;
+}
+
+app.get('/dashboard/actions', async (req, res) => {
+  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  const allRows = flattenMeetingActions(meetings);
+
+  const q = String(req.query.q || '').trim().toLowerCase();
+  const ownerFilter = String(req.query.owner || '').trim();
+  const statusFilter = String(req.query.status || 'all').trim().toLowerCase();
+  const windowFilter = String(req.query.window || 'all').trim().toLowerCase();
+
+  const owners = [...new Set(allRows.map((r) => r.owner).filter(Boolean))].sort((a, b) => a.localeCompare(b));
+
+  const filtered = allRows.filter((r) => {
+    if (ownerFilter && r.owner !== ownerFilter) return false;
+    if (statusFilter !== 'all' && r.status !== statusFilter) return false;
+
+    if (windowFilter === 'overdue' && !r.overdue) return false;
+    if (windowFilter === 'due7' && !r.dueSoon) return false;
+    if (windowFilter === 'missing' && !(r.missingOwner || r.missingDue)) return false;
+    if (windowFilter === 'open' && !['open', 'in_progress'].includes(r.status)) return false;
+    if (windowFilter === 'blocked' && r.status !== 'blocked') return false;
+
+    if (q) {
+      const hay = `${r.action} ${r.owner} ${r.status} ${r.meeting_id} ${r.meeting_title}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  }).sort((a, b) => {
+    const overdueCmp = Number(b.overdue) - Number(a.overdue);
+    if (overdueCmp) return overdueCmp;
+    const dueA = a.due || '9999-12-31';
+    const dueB = b.due || '9999-12-31';
+    const dueCmp = dueA.localeCompare(dueB);
+    if (dueCmp) return dueCmp;
+    const ownerCmp = String(a.owner || '~').localeCompare(String(b.owner || '~'));
+    if (ownerCmp) return ownerCmp;
+    return String(a.meeting_id || '').localeCompare(String(b.meeting_id || ''));
+  });
+
+  const openCount = allRows.filter((r) => ['open', 'in_progress'].includes(r.status)).length;
+  const blockedCount = allRows.filter((r) => r.status === 'blocked').length;
+  const doneCount = allRows.filter((r) => r.status === 'done').length;
+  const overdueCount = allRows.filter((r) => r.overdue).length;
+  const due7Count = allRows.filter((r) => r.dueSoon).length;
+  const missingCount = allRows.filter((r) => r.missingOwner || r.missingDue).length;
+
+  const statusBadge = (status) => {
+    const map = { open: 'secondary', in_progress: 'primary', blocked: 'danger', done: 'success' };
+    const cls = map[String(status || 'open')] || 'secondary';
+    return `<span class="badge text-bg-${cls}">${escapeHtml(String(status || 'open'))}</span>`;
+  };
+
+  const rowsHtml = filtered.map((r) => {
+    const flags = [
+      r.overdue ? '<span class="badge text-bg-danger me-1">Overdue</span>' : '',
+      r.dueSoon ? '<span class="badge text-bg-warning me-1">Due ≤7d</span>' : '',
+      r.missingOwner ? '<span class="badge text-bg-dark me-1">Missing owner</span>' : '',
+      r.missingDue ? '<span class="badge text-bg-dark me-1">Missing due</span>' : '',
+      Number.isFinite(r.ageDays) ? `<span class="badge text-bg-light border">Age ${escapeHtml(String(r.ageDays))}d</span>` : '',
+    ].filter(Boolean).join(' ');
+
+    return `<tr>
+      <td style="max-width:520px"><div>${escapeHtml(r.action)}</div><div class="small text-muted mono">${escapeHtml(r.action_id)}</div></td>
+      <td>${escapeHtml(r.owner || '—')}</td>
+      <td class="mono">${escapeHtml(r.due || '—')}</td>
+      <td>${statusBadge(r.status)}</td>
+      <td><a href="/dashboard/meeting/${encodeURIComponent(String(r.meeting_id || ''))}">${escapeHtml(r.meeting_title || r.meeting_id || 'Meeting')}</a><div class="small text-muted mono">${escapeHtml(r.meeting_id || '')}</div></td>
+      <td>${flags || '<span class="text-muted">—</span>'}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="6" class="text-muted">No actions match current filters.</td></tr>';
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Actions')}</head><body><div class="app-shell">
+    ${dashboardNav('actions')}
+    ${pageHeader('Action Register', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/actions/export.json">Get JSON</a>', 'Flattened next actions from meeting minutes')}
+
+    <div class="row g-2 mb-3">
+      <div class="col-6 col-md-2">${statCard('Open', String(openCount))}</div>
+      <div class="col-6 col-md-2">${statCard('Blocked', String(blockedCount))}</div>
+      <div class="col-6 col-md-2">${statCard('Done', String(doneCount))}</div>
+      <div class="col-6 col-md-2">${statCard('Overdue', String(overdueCount))}</div>
+      <div class="col-6 col-md-2">${statCard('Due ≤ 7d', String(due7Count))}</div>
+      <div class="col-6 col-md-2">${statCard('Missing fields', String(missingCount))}</div>
+    </div>
+
+    <form method="get" action="/dashboard/actions" class="row g-2 mb-3">
+      <div class="col-md-4"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q || ''))}" placeholder="Search action, owner, meeting" /></div>
+      <div class="col-md-3"><select class="form-select" name="owner"><option value="">Owner (All)</option>${owners.map((o)=>`<option value="${escapeHtml(o)}" ${ownerFilter===o?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select></div>
+      <div class="col-md-2"><select class="form-select" name="status">
+        <option value="all" ${statusFilter==='all'?'selected':''}>Status (All)</option>
+        <option value="open" ${statusFilter==='open'?'selected':''}>open</option>
+        <option value="in_progress" ${statusFilter==='in_progress'?'selected':''}>in_progress</option>
+        <option value="blocked" ${statusFilter==='blocked'?'selected':''}>blocked</option>
+        <option value="done" ${statusFilter==='done'?'selected':''}>done</option>
+      </select></div>
+      <div class="col-md-2"><select class="form-select" name="window">
+        <option value="all" ${windowFilter==='all'?'selected':''}>Window (All)</option>
+        <option value="overdue" ${windowFilter==='overdue'?'selected':''}>Overdue</option>
+        <option value="due7" ${windowFilter==='due7'?'selected':''}>Due in 7 days</option>
+        <option value="missing" ${windowFilter==='missing'?'selected':''}>Missing owner/due</option>
+        <option value="open" ${windowFilter==='open'?'selected':''}>Open only</option>
+        <option value="blocked" ${windowFilter==='blocked'?'selected':''}>Blocked only</option>
+      </select></div>
+      <div class="col-md-1 d-grid"><button class="btn btn-outline-primary">Apply</button></div>
+    </form>
+
+    <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Status</th><th>Meeting</th><th>Flags</th></tr></thead><tbody>${rowsHtml}</tbody></table></div></div>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/actions/export.json', async (_req, res) => {
+  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  const rows = flattenMeetingActions(meetings);
+  res.type('application/json').send(JSON.stringify(rows, null, 2));
 });
 
 app.get('/dashboard/meetings', async (req, res) => {
