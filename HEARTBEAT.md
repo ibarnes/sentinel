@@ -52,3 +52,27 @@ Alert format: **Signal Pressure Update**
 - Suggested next action
 
 If no qualifying delta, do not alert for this section.
+
+## Calendar Readiness Fallback (Tertiary)
+
+Use this only as a reliability backstop for cron-based daily readiness workflows.
+
+### Checks
+1. Run calendar refresh: `node mission-control/calendar/import-upcoming-from-ics.mjs`
+2. Verify state file exists: `memory/calendar-prep-state.json`
+3. Verify today's daily brief exists: `mission-control/briefs/YYYY-MM-DD-lock-load.md`
+4. Inspect `dashboard/data/calendar_events.json` for upcoming meetings within 24h.
+
+### Alert policy
+Send one concise **Calendar Readiness Alert** only when one of these is true:
+- Calendar import fails.
+- Daily lock-load brief is missing after 09:00 America/New_York.
+- There is a meeting in next 24h and no prep dispatch evidence in `memory/calendar-prep-state.json`.
+
+Alert format:
+- Issue
+- Meeting(s) impacted
+- Why it matters
+- Suggested next action
+
+If none of the above conditions are met, do not alert for this section.

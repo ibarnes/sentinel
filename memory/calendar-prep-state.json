@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "updatedAt": "2026-03-27T21:57:00Z",
+  "notes": "Tracks per-meeting prep notifications to avoid duplicate T-24h/T-60m sends.",
+  "sent": {}
+}
