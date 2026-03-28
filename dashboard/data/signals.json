@@ -8254,5 +8254,58 @@
       }
     ],
     "verification_note": "Provided by Isaac; treat as high-value directional posture signal pending source-level corroboration."
+  },
+  {
+    "signal_id": "SIG-2026-03-28-NIGCOMSAT-SPACE-ECONOMY-CONVENING-001",
+    "title": "NIGCOMSAT Satellite Week 2026 formalizes Nigeria space-economy investment and AI-satellite policy convening",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "observed_at": "2026-03-28T21:46:00Z",
+    "provenance": "user_submitted_document",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "evidence_type": "official_programme",
+    "evidence_strength": "high",
+    "signal_class": "Platform Pressure",
+    "summary": "NIGCOMSAT’s official 30–31 March 2026 programme in Abuja positions a government-private-investor convening around satellite infrastructure, AI-enabled use cases (including DTH/D2D), startup acceleration (Cohort 3.0), and explicit investment-readiness sessions. The agenda concentrates ministerial, regulator, and investor engagement in a near-term window, increasing policy-to-capital conversion pressure for Nigeria digital/space infrastructure execution.",
+    "flow": "Federal convening + regulator participation + investor-facing startup sessions -> stronger policy signaling and partner-matching environment -> higher probability of execution pathways for telecom/satellite and AI-adjacent infrastructure initiatives.",
+    "tags": [
+      "Nigeria",
+      "Satellite",
+      "NIGCOMSAT",
+      "AI",
+      "D2D",
+      "DTH",
+      "Space Economy",
+      "Investment Readiness",
+      "Digital Infrastructure"
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE"
+    ],
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "architecture"
+    ],
+    "sources": [
+      {
+        "label": "NIGCOMSAT Nigerian Satellite Week 2026 Official Programme (PDF)",
+        "url": "https://cdn.sanity.io/files/0euo9kc6/production/76301a0a0b750a0bbc8785a1d3693c54d64c2acb.pdf"
+      }
+    ],
+    "verification_note": "Primary-source programme document supplied directly by user; track for post-event conversion evidence (partnerships, financing commitments, pilot launches)."
   }
 ]

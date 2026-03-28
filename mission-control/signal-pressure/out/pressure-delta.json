@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-03-26T16:57:44.766Z",
-  "total_signals": 148,
+  "generated_at": "2026-03-28T21:51:29.302Z",
+  "total_signals": 149,
   "high_impact_count": 83,
-  "new_signal_count": 0,
+  "new_signal_count": 1,
   "new_high_impact_count": 0,
   "new_high_impact": [],
   "last_keys": [
@@ -153,6 +153,7 @@
     "sovereign capital tilt toward resilience infrastructure is accelerating|GIC,MUBADALA,PIF,QIA,TEMASEK|",
     "african finance architecture shifting toward domestic/institutional capital mobilization|AFC,AfDB,NSIA|",
     "blended finance moving beyond ppp bank debt toward capital-markets structures|AFC,AfDB,DFC|",
-    "geopolitical pressure may increase gulf swf domestic stabilization mandate|ADQ,MUBADALA,PIF,QIA|"
+    "geopolitical pressure may increase gulf swf domestic stabilization mandate|ADQ,MUBADALA,PIF,QIA|",
+    "nigcomsat satellite week 2026 formalizes nigeria space-economy investment and ai-satellite policy convening|FMF-NG,NSIA|INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE,INIT-NG-FIN-ENERGY-SPINE"
   ]
 }

@@ -1,12 +1,12 @@
 {
-  "last_run_at": "2026-03-27T00:27:00.422Z",
+  "last_run_at": "2026-03-28T21:50:00Z",
   "cadence": "0 */6 * * *",
   "notes": "Auto-refresh every 6 hours via cron; manual refresh available on /dashboard/signals-feed",
   "last_run_stats": {
     "total_sources": 15,
     "ok_sources": 10,
     "failed_sources": 5,
-    "items_added": 39,
+    "items_added": 37,
     "failures": [
       {
         "source": "Reuters World",
@@ -33,6 +33,7 @@
         "url": "https://nairametrics.com/",
         "status": 403
       }
-    ]
+    ],
+    "manual_ingest_count": 1
   }
 }
