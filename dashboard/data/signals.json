@@ -53,7 +53,7 @@
     "initiative_ids": [
       "USG"
     ],
-    "summary": "Nigeria’s infrastructure financing gap remains materially above available annual public allocation capacity. The widening gap increases pressure on sovereign capital allocation authorities to approve structured, governance-aligned platforms that compress risk before FID. This strengthens the probability of mandate-based pre-FID structuring engagements.",
+    "summary": "Nigeria\u2019s infrastructure financing gap remains materially above available annual public allocation capacity. The widening gap increases pressure on sovereign capital allocation authorities to approve structured, governance-aligned platforms that compress risk before FID. This strengthens the probability of mandate-based pre-FID structuring engagements.",
     "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
     "sources": [
       {
@@ -203,7 +203,7 @@
   },
   {
     "signal_id": "SIG-2026-02-27-USNG-001",
-    "title": "U.S.–Nigeria Strategic Infrastructure Alignment",
+    "title": "U.S.\u2013Nigeria Strategic Infrastructure Alignment",
     "status": "Monitor",
     "confidence": "Medium",
     "observed_at": "2026-02-27T00:00:00Z",
@@ -214,7 +214,7 @@
     "initiative_ids": [
       "USG"
     ],
-    "summary": "Ongoing U.S.–Nigeria cooperation in infrastructure and energy sectors improves perceived political risk alignment and strengthens downstream bankability pathways. While catalytic capital participates below governance, this alignment increases sovereign confidence in structured platforms.",
+    "summary": "Ongoing U.S.\u2013Nigeria cooperation in infrastructure and energy sectors improves perceived political risk alignment and strengthens downstream bankability pathways. While catalytic capital participates below governance, this alignment increases sovereign confidence in structured platforms.",
     "verification_note": "Monitor until first-party sources or Tier-1 corroboration meet verification threshold.",
     "sources": [
       {
@@ -831,7 +831,7 @@
   },
   {
     "signal_id": "SIG-2026-03-02-NG-LIVE-FINENERGY-001",
-    "title": "Live Regulated Financial-Energy Operating System — Nigeria",
+    "title": "Live Regulated Financial-Energy Operating System \u2014 Nigeria",
     "signal_class": "Capital Reality",
     "status": "Verified",
     "confidence": "High",
@@ -857,7 +857,7 @@
         "url": "internal://chat/2026-03-02-live-financial-energy-os"
       },
       {
-        "label": "Apple App Store listing — Quick Microfinance Bank",
+        "label": "Apple App Store listing \u2014 Quick Microfinance Bank",
         "url": "https://apps.apple.com/us/app/quick-microfinance-bank/id1614636080"
       }
     ],
@@ -1481,14 +1481,14 @@
     ],
     "summary": "Narrative indicates refinery scale as phase one, expansion toward steel/power/port infrastructure, major employment ramp, and potential domestic equity participation via NGX listing.",
     "flow": "Industrial stack integration + domestic market participation pathway -> stronger sovereign-scale manufacturing and logistics thesis -> rising urgency for infrastructure-linked capital sequencing",
-    "verification_note": "Verified via first-party Dangote statement (official site) confirming fuel supply capacity claims.",
+    "verification_note": "Verified via first-party Dangote statement (official site) confirming fuel supply capacity claims. Later first-party DPRP clarification (2026-03-30) warns IPO chatter is unauthorized/speculative pending formal disclosure.",
     "sources": [
       {
         "label": "User-provided summary of Dangote expansion narrative",
         "url": "internal://chat/2026-03-03-dangote-industrial-stack"
       },
       {
-        "label": "Argus market report excerpt (2026-03-04) — RFCC ~90% capacity",
+        "label": "Argus market report excerpt (2026-03-04) \u2014 RFCC ~90% capacity",
         "url": "internal://chat/2026-03-04-argus-dangote-rfcc-90"
       },
       {
@@ -1510,7 +1510,10 @@
     "geography": [
       "Global"
     ],
-    "country": "Global"
+    "country": "Global",
+    "child_signal_ids": [
+      "SIG-2026-03-30-DPRP-IPO-SPECULATION-CLARIFICATION-001"
+    ]
   },
   {
     "signal_id": "SIG-2026-03-05-MACRO-OIL85-001",
@@ -2274,7 +2277,7 @@
   },
   {
     "signal_id": "SIG-2026-03-10-CN-15FYP-INDUSTRIAL-SYSTEM-001",
-    "title": "China 15th Five-Year Plan signals integrated industrial-system strategy (2026–2030)",
+    "title": "China 15th Five-Year Plan signals integrated industrial-system strategy (2026\u20132030)",
     "signal_class": "Sponsor Altitude",
     "status": "Verified",
     "confidence": "High",
@@ -2292,7 +2295,7 @@
     ],
     "summary": "Official CPC 15th FYP recommendations emphasize advanced-manufacturing backbone, scientific/technological self-reliance, future-industry acceleration, and economy-wide AI integration. Core signal is national system-integration across energy, materials, manufacturing, robotics, and infrastructure under resilience/decoupling conditions.",
     "flow": "national integrated industrial strategy -> stronger strategic autonomy posture -> increased competitive pressure on AI infra, materials, and supply-chain platforms -> higher relevance of cross-border infrastructure/capital coordination initiatives",
-    "verification_note": "Derived from official CPC Central Committee recommendation document for 15th Five-Year Plan (2026–2030); social-post numeric penetration claims treated as unverified and excluded from core signal.",
+    "verification_note": "Derived from official CPC Central Committee recommendation document for 15th Five-Year Plan (2026\u20132030); social-post numeric penetration claims treated as unverified and excluded from core signal.",
     "sources": [
       {
         "label": "Official CPC 15th Five-Year Plan recommendation document (user-provided)",
@@ -2322,7 +2325,7 @@
   },
   {
     "signal_id": "SIG-2026-03-10-US-DRC-HEALTH-INFRA-BILATERAL-001",
-    "title": "US–DRC bilateral health infrastructure partnership (~$1.2B, 5-year) as gateway platform signal",
+    "title": "US\u2013DRC bilateral health infrastructure partnership (~$1.2B, 5-year) as gateway platform signal",
     "signal_class": "Platform Pressure",
     "status": "Verified",
     "confidence": "High",
@@ -2338,12 +2341,12 @@
       "INIT-653306",
       "INIT-2026-03-05-COMMODITY-CORRIDOR"
     ],
-    "summary": "Bilateral US–DRC health-system program indicates political-capital alignment with likely second-order effects in digital health infrastructure, logistics corridors, data systems, and supply-chain stabilization around strategic mineral regions.",
+    "summary": "Bilateral US\u2013DRC health-system program indicates political-capital alignment with likely second-order effects in digital health infrastructure, logistics corridors, data systems, and supply-chain stabilization around strategic mineral regions.",
     "flow": "bilateral health infra deployment -> governance + digital system expansion -> logistics and data infrastructure demand -> strategic influence and mineral-corridor resilience effects",
     "verification_note": "Treated as high-quality geopolitical-infrastructure signal; monitor follow-on events for EHR rollout, health logistics platforms, biotech manufacturing, and AI surveillance systems.",
     "sources": [
       {
-        "label": "Isaac analytical signal note (US–DRC health partnership)",
+        "label": "Isaac analytical signal note (US\u2013DRC health partnership)",
         "url": "internal://isaac/telegram/2026-03-10-us-drc-health-partnership"
       }
     ],
@@ -2570,15 +2573,15 @@
     "verification_note": "Treat as Monitor until first-party CBN/Finance publication is captured or two Tier-1 outlets provide attributed confirmation.",
     "sources": [
       {
-        "label": "CoinGeek — Nigeria forms task force to study stablecoin adoption",
+        "label": "CoinGeek \u2014 Nigeria forms task force to study stablecoin adoption",
         "url": "https://coingeek.com/nigeria-forms-task-force-to-study-stablecoin-adoption/"
       },
       {
-        "label": "Ledger Insights — Nigeria central bank stablecoin working group",
+        "label": "Ledger Insights \u2014 Nigeria central bank stablecoin working group",
         "url": "https://www.ledgerinsights.com/nigerias-central-bank-forms-stablecoin-working-group/"
       },
       {
-        "label": "CryptoRank — Nigeria to form stablecoin committee (CBN)",
+        "label": "CryptoRank \u2014 Nigeria to form stablecoin committee (CBN)",
         "url": "https://cryptorank.io/news/feed/af578-nigeria-to-form-stablecoin-committee-cbn"
       }
     ],
@@ -2622,23 +2625,23 @@
     "verification_note": "Keep Monitor until original underlying reports and methodology artifacts are archived in-source.",
     "sources": [
       {
-        "label": "Plasma — Nigeria Stablecoins",
+        "label": "Plasma \u2014 Nigeria Stablecoins",
         "url": "https://www.plasma.to/learn/nigeria-stablecoins"
       },
       {
-        "label": "BusinessDay — Stablecoins gain ground in Nigeria/South Africa",
+        "label": "BusinessDay \u2014 Stablecoins gain ground in Nigeria/South Africa",
         "url": "https://businessday.ng/technology/article/stablecoins-gain-ground-in-nigeria-south-africa-as-businesses-seek-fx-hedge/"
       },
       {
-        "label": "Reuters — Stablecoin demand survey in African economies",
+        "label": "Reuters \u2014 Stablecoin demand survey in African economies",
         "url": "https://www.reuters.com/world/africa/biggest-african-economies-lead-stablecoin-demand-growth-study-shows-2026-02-18/"
       },
       {
-        "label": "Forbes Africa — Nigeria/South Africa stablecoin adoption",
+        "label": "Forbes Africa \u2014 Nigeria/South Africa stablecoin adoption",
         "url": "https://www.forbesafrica.com/current-affairs/2025/08/21/nigeria-and-south-africa-lead-stablecoin-adoption-as-transactions-surge-across-africa/"
       },
       {
-        "label": "Mariblock — Nigeria $22B stablecoin transactions summary",
+        "label": "Mariblock \u2014 Nigeria $22B stablecoin transactions summary",
         "url": "https://www.mariblock.com/stories/nigeria-leads-stablecoin-adoption-with-22-billion-in-transactions"
       }
     ],
@@ -2682,15 +2685,15 @@
     "verification_note": "Treat as forming strategic pattern; validate with transaction data from regulated Nigerian institutions and trade-corridor counterparties.",
     "sources": [
       {
-        "label": "Plasma — emerging-market settlement rails context",
+        "label": "Plasma \u2014 emerging-market settlement rails context",
         "url": "https://www.plasma.to/learn/nigeria-stablecoins"
       },
       {
-        "label": "BusinessDay — corporate FX hedge and settlement usage context",
+        "label": "BusinessDay \u2014 corporate FX hedge and settlement usage context",
         "url": "https://businessday.ng/technology/article/stablecoins-gain-ground-in-nigeria-south-africa-as-businesses-seek-fx-hedge/"
       },
       {
-        "label": "Reuters — adoption pressure and usage growth context",
+        "label": "Reuters \u2014 adoption pressure and usage growth context",
         "url": "https://www.reuters.com/world/africa/biggest-african-economies-lead-stablecoin-demand-growth-study-shows-2026-02-18/"
       }
     ],
@@ -2738,7 +2741,7 @@
     "verification_note": "White House source confirms policy framing; project-level claims should remain under ongoing source-by-source validation before any hard posture upgrade.",
     "sources": [
       {
-        "label": "White House article — President Trump’s Economic Agenda Drives “Industrial Boom” in Louisiana",
+        "label": "White House article \u2014 President Trump\u2019s Economic Agenda Drives \u201cIndustrial Boom\u201d in Louisiana",
         "url": "https://www.whitehouse.gov/articles/2026/03/president-trumps-economic-agenda-drives-industrial-boom-in-louisiana/"
       }
     ],
@@ -2777,7 +2780,7 @@
     ],
     "sources": [
       {
-        "label": "Inc — These startups are in a $900 billion fight to be the future of energy",
+        "label": "Inc \u2014 These startups are in a $900 billion fight to be the future of energy",
         "url": "https://www.inc.com/chloe-aiello/these-startups-are-in-a-900-billion-fight-to-be-the-future-of-energy/91252410"
       }
     ],
@@ -2863,7 +2866,7 @@
         "url": "https://www.world-nuclear-news.org/articles/rwanda-making-significant-progress-on-nuclear-energy-programme"
       },
       {
-        "title": "Nuclear Energy Summit – Kagame remarks",
+        "title": "Nuclear Energy Summit \u2013 Kagame remarks",
         "label": "YouTube",
         "url": "https://www.youtube.com/watch?v=2lN9bmfzRwY"
       }
@@ -3051,7 +3054,7 @@
     "sources": [
       {
         "publisher": "Nairametrics",
-        "label": "China, US, Netherlands dominate Nigeria’s N17.25 trillion import market in Q4 2025",
+        "label": "China, US, Netherlands dominate Nigeria\u2019s N17.25 trillion import market in Q4 2025",
         "url": "https://nairametrics.com/2026/03/12/china-us-netherlands-dominate-nigerias-n17-25-trillion-import-market-in-q4-2025/",
         "underlying_data_source": "Nigeria National Bureau of Statistics (Foreign Trade Statistics Q4 2025)"
       }
@@ -3166,7 +3169,7 @@
   },
   {
     "signal_id": "SIG-2026-03-12-AFR-AI-STACK-COMPETITION-001",
-    "title": "US–China AI stack competition intensifies across Africa (talent + tools + infrastructure)",
+    "title": "US\u2013China AI stack competition intensifies across Africa (talent + tools + infrastructure)",
     "signal_class": "Platform Pressure",
     "status": "Verified",
     "confidence": "High",
@@ -3249,7 +3252,7 @@
     "sources": [
       {
         "publisher": "Business Insider Africa",
-        "title": "China’s DeepSeek gives US tech giants a run for their money as Microsoft and others expand AI push in Africa",
+        "title": "China\u2019s DeepSeek gives US tech giants a run for their money as Microsoft and others expand AI push in Africa",
         "url": "https://africa.businessinsider.com/local/markets/chinas-deepseek-gives-us-tech-giants-a-run-for-their-money-as-microsoft-and-others/3q9z03k"
       },
       {
@@ -3259,7 +3262,7 @@
       },
       {
         "publisher": "Microsoft News",
-        "title": "Microsoft–MTN strategic partnership for AI and cloud services",
+        "title": "Microsoft\u2013MTN strategic partnership for AI and cloud services",
         "url": "https://news.microsoft.com/2024/04/24/microsoft-mtn-partnership-ai-africa/"
       },
       {
@@ -3279,7 +3282,7 @@
       },
       {
         "publisher": "Brookings",
-        "title": "China’s Digital Silk Road and Africa context",
+        "title": "China\u2019s Digital Silk Road and Africa context",
         "url": "https://www.brookings.edu/articles/chinas-digital-silk-road-and-africa/"
       }
     ],
@@ -3568,7 +3571,7 @@
   },
   {
     "signal_id": "SIG-USVI-DISASTER-RECOVERY-2026-001",
-    "title": "US Virgin Islands $18B–$25B disaster recovery infrastructure program",
+    "title": "US Virgin Islands $18B\u2013$25B disaster recovery infrastructure program",
     "signal_class": "Platform Pressure",
     "status": "Early Deployment",
     "confidence": "High",
@@ -3700,7 +3703,7 @@
     "pattern_summary": "USVI recovery pace is structurally constrained by management, fiscal, workforce, and supply-chain capacity gaps; acceleration depends on policy flexibility and upfront capacity funding.",
     "model_update": {
       "pressure": "High infrastructure capital waiting for coordinated deployment",
-      "momentum": "Moderate — execution support improving, but RAND indicates systemic capacity bottlenecks still slow spend and delivery.",
+      "momentum": "Moderate \u2014 execution support improving, but RAND indicates systemic capacity bottlenecks still slow spend and delivery.",
       "constraints": [
         "Multi-agency coordination",
         "Project sequencing",
@@ -3965,13 +3968,13 @@
   },
   {
     "signal_id": "SIG-2026-03-16-DRC-GOLD-REFINERY-KALEMIE-001",
-    "title": "DRC inaugurates first gold refinery in Kalemie (reported 500–600kg monthly output)",
+    "title": "DRC inaugurates first gold refinery in Kalemie (reported 500\u2013600kg monthly output)",
     "signal_class": "Platform Pressure",
     "status": "Monitor",
     "confidence": "Medium",
     "verification_status": "social_post_summary_pending_primary_confirmation",
     "observed_at": "2026-03-16T04:26:00Z",
-    "summary": "Business Insider Africa social post claims DRC opened its first gold refinery in Kalemie with reported 500–600kg monthly processing capacity, aimed at local value addition, pricing transparency, and stronger sector oversight.",
+    "summary": "Business Insider Africa social post claims DRC opened its first gold refinery in Kalemie with reported 500\u2013600kg monthly processing capacity, aimed at local value addition, pricing transparency, and stronger sector oversight.",
     "flow": "domestic refining capacity launch -> in-country gold value capture + oversight narrative -> potential formalization of artisanal-to-bullion chain -> commodity platform leverage shift",
     "sources": [
       {
@@ -4217,7 +4220,7 @@
     "confidence": "Medium",
     "verification_status": "analyst_signal_pending_primary_market_filings",
     "observed_at": "2026-03-16T22:48:00Z",
-    "summary": "India’s largest lender reportedly preparing up to $1.1B infrastructure bond issuance, indicating renewed domestic institutional appetite for long-duration infrastructure debt.",
+    "summary": "India\u2019s largest lender reportedly preparing up to $1.1B infrastructure bond issuance, indicating renewed domestic institutional appetite for long-duration infrastructure debt.",
     "flow": "bank issuance restart -> institutional demand (insurers/pensions) -> stronger domestic long-tenor infrastructure debt capacity",
     "provenance": "provided_by_isaac",
     "model_step": "1_collect_signals",
@@ -4908,7 +4911,7 @@
   },
   {
     "signal_id": "SIG-2026-03-18-DANGOTE-CONTINENTAL-INDUSTRIAL-EXPANSION-001",
-    "title": "Africa’s richest man signals continent-scale industrial expansion plans",
+    "title": "Africa\u2019s richest man signals continent-scale industrial expansion plans",
     "signal_class": "Platform Pressure",
     "status": "Monitor",
     "confidence": "Medium",
@@ -5348,7 +5351,7 @@
     "confidence": "Medium",
     "verification_status": "reported",
     "observed_at": "2026-03-18T18:22:00Z",
-    "summary": "The Affordable Rapid Missile Demonstrator powered by Ursa Major’s Draper liquid engine reportedly achieved supersonic speed, supporting rapid missile industrialization narratives.",
+    "summary": "The Affordable Rapid Missile Demonstrator powered by Ursa Major\u2019s Draper liquid engine reportedly achieved supersonic speed, supporting rapid missile industrialization narratives.",
     "flow": "long-range strike demand -> throttleable/restartable propulsion maturation -> scalable missile production pathways",
     "verification_note": "Reported by Interesting Engineering citing AFRL/Ursa Major milestone claims.",
     "sources": [
@@ -6407,7 +6410,7 @@
   },
   {
     "signal_id": "SIG-2026-03-20-CAPITAL-SYSTEMS-INTELLIGENCE-24H-CLUSTER-001",
-    "title": "Capital Systems Intelligence Cluster — highest-impact infrastructure financing moves (24h)",
+    "title": "Capital Systems Intelligence Cluster \u2014 highest-impact infrastructure financing moves (24h)",
     "signal_class": "Platform Pressure",
     "status": "Verified",
     "confidence": "High",
@@ -6745,7 +6748,7 @@
     "observed_at": "2026-03-21T03:32:00Z",
     "summary": "Image-captured report indicates energy leaders from Nigeria and other African countries are engaging US stakeholders to mobilize funding and partnerships for generation, transmission, and distribution gaps.",
     "flow": "persistent power deficit + financing gaps -> external partnership diplomacy -> potential blended-capital and technical cooperation channels",
-    "verification_note": "Reported from social image context; treat as directional until primary delegation communiqués are attached.",
+    "verification_note": "Reported from social image context; treat as directional until primary delegation communiqu\u00e9s are attached.",
     "sources": [
       {
         "label": "User-provided image capture (Africa-US energy partnership push)",
@@ -7682,13 +7685,13 @@
   },
   {
     "signal_id": "SIG-2026-03-24-GHANA-EU-SECURITY-DEFENSE-PARTNERSHIP-001",
-    "title": "Ghana signs first EU–Africa security and defense partnership",
+    "title": "Ghana signs first EU\u2013Africa security and defense partnership",
     "signal_class": "Governance + Security Architecture",
     "status": "Monitor",
     "confidence": "Medium",
     "verification_status": "pending_threshold_validation",
     "observed_at": "2026-03-24T23:08:00Z",
-    "summary": "Reuters-referenced reporting indicates Ghana has signed the first EU–Africa security and defense partnership, signaling deeper Europe–West Africa security alignment.",
+    "summary": "Reuters-referenced reporting indicates Ghana has signed the first EU\u2013Africa security and defense partnership, signaling deeper Europe\u2013West Africa security alignment.",
     "flow": "security architecture alignment -> lower perceived sovereign/corridor risk -> stronger institutional confidence conditions for capital engagement",
     "verification_note": "Captured from user-provided Reuters/X screenshot context; keep monitor until direct Reuters URL and corroboration are logged.",
     "sources": [
@@ -7989,7 +7992,7 @@
     "provenance": "discovered_by_system",
     "sources": [
       {
-        "label": "TheCable — CBN IMTO Naira Settlement Directive",
+        "label": "TheCable \u2014 CBN IMTO Naira Settlement Directive",
         "url": "https://www.thecable.ng/no-more-dollar-payments-as-cbn-directs-imtos-to-open-naira-settlement-accounts/"
       }
     ],
@@ -8270,7 +8273,7 @@
     "evidence_type": "official_programme",
     "evidence_strength": "high",
     "signal_class": "Platform Pressure",
-    "summary": "NIGCOMSAT’s official 30–31 March 2026 programme in Abuja positions a government-private-investor convening around satellite infrastructure, AI-enabled use cases (including DTH/D2D), startup acceleration (Cohort 3.0), and explicit investment-readiness sessions. The agenda concentrates ministerial, regulator, and investor engagement in a near-term window, increasing policy-to-capital conversion pressure for Nigeria digital/space infrastructure execution.",
+    "summary": "NIGCOMSAT\u2019s official 30\u201331 March 2026 programme in Abuja positions a government-private-investor convening around satellite infrastructure, AI-enabled use cases (including DTH/D2D), startup acceleration (Cohort 3.0), and explicit investment-readiness sessions. The agenda concentrates ministerial, regulator, and investor engagement in a near-term window, increasing policy-to-capital conversion pressure for Nigeria digital/space infrastructure execution.",
     "flow": "Federal convening + regulator participation + investor-facing startup sessions -> stronger policy signaling and partner-matching environment -> higher probability of execution pathways for telecom/satellite and AI-adjacent infrastructure initiatives.",
     "tags": [
       "Nigeria",
@@ -8307,5 +8310,65 @@
       }
     ],
     "verification_note": "Primary-source programme document supplied directly by user; track for post-event conversion evidence (partnerships, financing commitments, pilot launches)."
+  },
+  {
+    "signal_id": "SIG-2026-03-30-DPRP-IPO-SPECULATION-CLARIFICATION-001",
+    "title": "DPRP issues first-party clarification rejecting unauthorized IPO speculation",
+    "signal_class": "Capital Reality",
+    "status": "Verified",
+    "confidence": "High",
+    "observed_at": "2026-03-30T22:25:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "USG"
+    ],
+    "summary": "Dangote Petroleum Refinery and Petrochemicals (DPRP) publicly stated that circulating IPO reports are unauthorized/unverified and instructed stakeholders to rely only on formal DPRP/adviser disclosures and regulatory filings.",
+    "flow": "First-party clarification suppresses speculative IPO timing narratives -> reset to official-disclosure-only posture -> maintain monitoring for formal filings or adviser-issued transaction announcements.",
+    "verification_status": "verified",
+    "verification_note": "Verified from user-provided first-party DPRP management statement (Dangote Group channel + corporate website reference) explicitly rejecting unauthorized IPO speculation.",
+    "provenance": "provided_by_isaac",
+    "sources": [
+      {
+        "label": "User-provided DPRP management statement text (Telegram)",
+        "url": "internal://isaac/telegram/message/3812"
+      },
+      {
+        "label": "Dangote Group official handle referenced in statement",
+        "url": "@DangoteGroup"
+      },
+      {
+        "label": "Dangote corporate site referenced in statement",
+        "url": "www.dangote.com"
+      }
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-NG-FIN-ENERGY-SPINE",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "market_access"
+    ],
+    "evidence_type": "first_party",
+    "evidence_strength": "high",
+    "advances_hypothesis": false,
+    "blocks_hypothesis": true,
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria",
+    "parent_signal_id": "SIG-2026-03-03-DANGOTE-INDUSTRIAL-STACK-001",
+    "tags": [
+      "dangote",
+      "dprp",
+      "ipo",
+      "clarification",
+      "nigeria"
+    ]
   }
 ]
