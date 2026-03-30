@@ -194,7 +194,7 @@
     "title": "Angola Cables meeting",
     "participants": [
       "Wade",
-      "Ângelo Gama",
+      "\u00c2ngelo Gama",
       "Leo LaBranche",
       "Richard Hoffman",
       "Jose Assis",
@@ -291,7 +291,7 @@
         "action": "Collect vendor list from Sico.",
         "owner": "Michael Sico",
         "due": "2026-03-31",
-        "status": "open"
+        "status": "done"
       },
       {
         "action": "Collect agreement package from Monica.",
@@ -311,7 +311,7 @@
       "notes": "User-provided meeting notes in Telegram"
     },
     "created_at": "2026-03-25T01:30:00Z",
-    "updated_at": "2026-03-25T01:30:00Z"
+    "updated_at": "2026-03-27T21:40:14.916Z"
   },
   {
     "meeting_id": "MM-2026-03-24-MARK-G-001",
@@ -367,7 +367,7 @@
       "Telly Renfroe",
       "Camille Moore"
     ],
-    "summary": "Network and pathway meeting highlighting Tanisha’s bipartisan government access, USVI familiarity, organizational-change experience, and advisory/connector network including Don Bacon, Steven Benjamin, Tonya Saunders, Hannibal Ware, and Mrs Kim (identity pending).",
+    "summary": "Network and pathway meeting highlighting Tanisha\u2019s bipartisan government access, USVI familiarity, organizational-change experience, and advisory/connector network including Don Bacon, Steven Benjamin, Tonya Saunders, Hannibal Ware, and Mrs Kim (identity pending).",
     "initiative_ids": [
       "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
@@ -629,5 +629,68 @@
     },
     "created_at": "2026-03-27T17:36:00Z",
     "updated_at": "2026-03-27T17:36:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-03-30-BESTAF-ALIGNMENT-001",
+    "date_time": "2026-03-30T13:00:00Z",
+    "title": "USG + Bestaf alignment meeting",
+    "participants": [
+      "Dare",
+      "Tyreek Moore",
+      "Isaac Barnes",
+      "Leo Lebranche",
+      "Safiya"
+    ],
+    "summary": "Bestaf paused active activity pending a reset on economics and transparency. Both sides reaffirmed partnership intent, but counterparties require auditable substantiation of USG's claimed value contribution and a shared valuation logic to map contribution against the contracted 15% ownership position. Core disagreement is not relationship intent; it is conversion logic (credits/partnership/development value vs cash-equivalent contribution) plus governance visibility.",
+    "initiative_ids": [],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Treat current blocker as an economic-structure and governance-transparency issue, not strategic-fit failure.",
+      "Provide a formal evidence package of investments, invoices, transfers, licenses/technology contribution, and partner-linked value claims.",
+      "Address valuation baseline explicitly before further equity-percentage discussions.",
+      "Proceed under existing signed contract framework while clarifying substitution/capital expectations."
+    ],
+    "risks": [
+      "Trust and credibility erosion if contribution evidence is not delivered quickly and clearly.",
+      "Governance risk from key stakeholder visibility gaps (Chairman/legal not fully aligned on prior decisions).",
+      "Economic-structure deadlock risk without agreed valuation baseline and value-to-equity conversion method.",
+      "Execution stall risk due to suspended activity while legal/leadership reassess."
+    ],
+    "next_actions": [
+      {
+        "action": "Deliver auditable value substantiation pack (invoices, transfers, software spend evidence, and partner credit documentation) to Bestaf leadership/legal.",
+        "owner": "Stephanie / USG",
+        "due": "2026-03-31",
+        "status": "open"
+      },
+      {
+        "action": "Request and document Bestaf valuation basis (current and/or 2024 baseline) to anchor 15% economics discussion.",
+        "owner": "Dare / Bestaf",
+        "due": "2026-04-02",
+        "status": "open"
+      },
+      {
+        "action": "Produce side-by-side framework: cash investment, credits, discounts, licenses, and development value with explicit equity-treatment assumptions.",
+        "owner": "Tyreek Moore",
+        "due": "2026-04-02",
+        "status": "open"
+      },
+      {
+        "action": "Run legal/commercial alignment session to reconcile contract substitution terms and capital-contribution expectations.",
+        "owner": "USG + Bestaf Legal",
+        "due": "2026-04-03",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct_pdf",
+      "notes": "User-provided meeting minutes PDF in Telegram",
+      "files": [
+        "Bestaf_Meeting_Mar_30th_2026---94e29dc0-82fc-4cfe-b9d4-8b69fe1c305b.pdf"
+      ]
+    },
+    "created_at": "2026-03-30T17:24:00Z",
+    "updated_at": "2026-03-30T17:24:00Z"
   }
 ]
