@@ -754,5 +754,74 @@
     },
     "created_at": "2026-03-30T19:42:00Z",
     "updated_at": "2026-03-30T19:42:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-03-30-BARCLAY-KNAPP-001",
+    "date_time": "2026-03-30T20:00:00Z",
+    "title": "Barclay Knapp meeting",
+    "participants": [
+      "Barclay Knapp",
+      "Isaac Barnes",
+      "Richard Hoffman"
+    ],
+    "summary": "Working session on telecom/satellite capital-markets strategy for Nigeria corridor execution, focused on reverse-takeover (RTO) pathways via London or Toronto as potentially faster listing routes than current U.S. market conditions. Discussion emphasized pairing a suitable operating mobile/infrastructure target with a credible shell sponsor, conservative regulator-first packaging, and early capitalization to clear listing and 18-month runway requirements.",
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "USG"
+    ],
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA"
+    ],
+    "signal_ids": [],
+    "decisions": [
+      "Prioritize LSE/TSE RTO track as primary listing strategy, with NYSE treated as lower-probability near term due to current political/regulatory friction.",
+      "Run parallel shell-screening process (London and Toronto) to avoid single-counterparty dependency.",
+      "Start target-company search for a qualified Nigerian mobile-adjacent operating nucleus with clean financials and revenue scale.",
+      "Structure pitch around commercial economics, payments architecture, and conservative regulator-first disclosures rather than subsidy framing."
+    ],
+    "risks": [
+      "Execution risk if acquisition target lacks clean audited IFRS financials or operational maturity.",
+      "Counterparty quality/politics risk in shell and sponsor selection.",
+      "Market-timing risk from macro/geopolitical shocks disrupting RTO window.",
+      "Free-float/control-group compliance risk if ownership structure is not engineered to exchange thresholds.",
+      "Funding risk if minimum working-capital demonstration and 18-month runway proof are not in place."
+    ],
+    "next_actions": [
+      {
+        "action": "Build shortlist of Nigerian mobile/mobile-adjacent acquisition targets ($10M-$20M revenue, clean 2+ year financials, scalable ops).",
+        "owner": "Isaac",
+        "due": "2026-04-06",
+        "status": "open"
+      },
+      {
+        "action": "Launch dual beauty-contest process for qualified LSE/TSE shell and sponsor candidates.",
+        "owner": "Barclay Knapp",
+        "due": "2026-04-08",
+        "status": "open"
+      },
+      {
+        "action": "Draft regulator-first transaction architecture (LOI/MOU format, trading-halt sequence, prospectus prep, working-capital proof).",
+        "owner": "Richard Hoffman",
+        "due": "2026-04-07",
+        "status": "open"
+      },
+      {
+        "action": "Validate Fieldbase fit as merge/acquisition candidate and map governance/ownership implications.",
+        "owner": "Sentinel",
+        "due": "2026-04-05",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting notes in Telegram",
+      "links": [
+        "https://en.wikipedia.org/wiki/Barclay_Knapp",
+        "https://fbase.co.uk"
+      ]
+    },
+    "created_at": "2026-03-30T22:45:00Z",
+    "updated_at": "2026-03-30T22:45:00Z"
   }
 ]
