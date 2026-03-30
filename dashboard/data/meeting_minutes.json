@@ -692,5 +692,67 @@
     },
     "created_at": "2026-03-30T17:24:00Z",
     "updated_at": "2026-03-30T17:24:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-03-25-ANGELLA-GOREN-001",
+    "date_time": "2026-03-25T00:00:00Z",
+    "title": "Meeting with Angella Goren",
+    "participants": [
+      "Angella Goren",
+      "Isaac Barnes"
+    ],
+    "summary": "Strategy meeting on positioning USG as a GDP-growth and community infrastructure enabler, with potential collaboration lanes across fintech, loyalty rails, government/trade access, and brand-backed local economic activation. Angella shared RNTR/TapNGo progress, target launch timing (Q3 with September rental-unit rollout), and expansion intent across Canada, MENA, Africa, and UK/US corridors.",
+    "initiative_ids": [],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Evaluate RNTR/TapNGo as a potential platform partnership lane for community credit-building and local commerce activation.",
+      "Review Angella's RNTR pitch deck upon receipt and assess fit with USG mandate architecture.",
+      "Open partner exploration around March Networks, Microsoft, and global brand channels for measurable community-impact deployment.",
+      "Treat government/trade-organization relationships (commissioners/ambassadors) as a parallel access lane for international rollout."
+    ],
+    "risks": [
+      "Operational scaling risk across cities/countries (team quality, consistency, and attrition control).",
+      "Regulatory and licensing timeline risk as expansion accelerates.",
+      "Execution risk if KPI measurement framework for brand/community outcomes is not standardized early.",
+      "Partnership-conversion risk if strategic intros are not translated into contracted deployment pathways."
+    ],
+    "next_actions": [
+      {
+        "action": "Send RNTR pitch deck and latest website package for diligence.",
+        "owner": "Angella Goren",
+        "due": "2026-04-02",
+        "status": "open"
+      },
+      {
+        "action": "Run fit review of RNTR/TapNGo against USG capital-deployment architecture and identify entry point.",
+        "owner": "Sentinel",
+        "due": "2026-04-04",
+        "status": "open"
+      },
+      {
+        "action": "Draft partnership outreach short-list (March Networks, Microsoft, selected global brands) with KPI-first framing.",
+        "owner": "Isaac",
+        "due": "2026-04-05",
+        "status": "open"
+      },
+      {
+        "action": "Define government/trade-relations engagement track for Africa and other target markets with named connectors.",
+        "owner": "Isaac",
+        "due": "2026-04-07",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting notes in Telegram",
+      "links": [
+        "https://www.marchnetworks.com",
+        "https://www.rntr.world",
+        "https://powerhour.world"
+      ]
+    },
+    "created_at": "2026-03-30T19:42:00Z",
+    "updated_at": "2026-03-30T19:42:00Z"
   }
 ]
