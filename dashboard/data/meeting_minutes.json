@@ -823,5 +823,73 @@
     },
     "created_at": "2026-03-30T22:45:00Z",
     "updated_at": "2026-03-30T22:45:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-03-31-TAUFIQ-RAHIM-001",
+    "date_time": "2026-03-31T16:30:00Z",
+    "title": "Taufiq Rahim strategic sequencing meeting",
+    "participants": [
+      "Taufiq Rahim",
+      "Richard Hoffman",
+      "Isaac Barnes"
+    ],
+    "summary": "Strategic session focused on capital-deployment sequencing across Gulf/Africa corridors. Core signal: capital availability is no longer the primary bottleneck; execution sequence, stakeholder ordering, and country-specific coordination logic are the true constraints. Taufiq's profile indicates high-value adjacency across sovereign strategy, policy, and capital networks, with practical pathways highlighted for Saudi market scaling, Abu Dhabi-to-Africa capital bridging (including MGX context), and Kenya as a pilot-friendly entry lane.",
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "buyer_ids": [
+      "PIF",
+      "MUBADALA",
+      "ADQ"
+    ],
+    "signal_ids": [],
+    "decisions": [
+      "Treat this relationship as a strategic sequence-design node, not a near-term transaction node.",
+      "Use sequence-first architecture in Africa/Gulf motions: map who moves first, second, and third before capital asks.",
+      "Prioritize country-lane strategy by execution characteristics (Saudi scale lane, Abu Dhabi allocator lane, Kenya pilot lane).",
+      "Frame USG as commitment architecture for stakeholder ordering and constraint compression, not only capital access."
+    ],
+    "risks": [
+      "Stakeholder-ordering risk: capital present but no synchronized first-mover sequence.",
+      "Country-complexity risk: applying one playbook across Saudi/UAE/Kenya will stall execution.",
+      "Narrative-to-transaction risk if strategic access is not converted into dated commitment pathways.",
+      "Geopolitical allocation-shift risk as Dubai/UAE priorities tilt toward critical infrastructure and defense tech post-conflict."
+    ],
+    "next_actions": [
+      {
+        "action": "Draft a sequence map (stakeholders + move order + conditions) for one priority Gulf-Africa corridor initiative.",
+        "owner": "Sentinel",
+        "due": "2026-04-02",
+        "status": "open"
+      },
+      {
+        "action": "Build sovereign-adjacency outreach tranche (Saudi families, Abu Dhabi allocators, Kenya execution lane) with explicit ask sequencing.",
+        "owner": "Isaac",
+        "due": "2026-04-03",
+        "status": "open"
+      },
+      {
+        "action": "Convert Taufiq relationship into one concrete co-design session around stakeholder-ordering for active initiative progression.",
+        "owner": "Richard Hoffman",
+        "due": "2026-04-04",
+        "status": "open"
+      },
+      {
+        "action": "Define sequence-gate criteria for Angola track: anchor tenant ordering, governance lead, and capital lead trigger points.",
+        "owner": "Sentinel",
+        "due": "2026-04-04",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct_pdf",
+      "notes": "User-provided meeting minutes PDF + transcript text in Telegram",
+      "files": [
+        "Tuafiq_Rahim_Meeting_Minutes_Mar_31_2026_at_12_30_1_30_PM_ED---2d4dce75-d2a5-44f5-b05c-82643367897e.pdf"
+      ]
+    },
+    "created_at": "2026-03-31T17:35:00Z",
+    "updated_at": "2026-03-31T17:35:00Z"
   }
 ]
