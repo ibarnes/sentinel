@@ -642,7 +642,9 @@
       "Safiya"
     ],
     "summary": "Bestaf paused active activity pending a reset on economics and transparency. Both sides reaffirmed partnership intent, but counterparties require auditable substantiation of USG's claimed value contribution and a shared valuation logic to map contribution against the contracted 15% ownership position. Core disagreement is not relationship intent; it is conversion logic (credits/partnership/development value vs cash-equivalent contribution) plus governance visibility.",
-    "initiative_ids": [],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
     "buyer_ids": [],
     "signal_ids": [],
     "decisions": [
@@ -691,7 +693,7 @@
       ]
     },
     "created_at": "2026-03-30T17:24:00Z",
-    "updated_at": "2026-03-30T17:24:00Z"
+    "updated_at": "2026-03-31T18:13:00Z"
   },
   {
     "meeting_id": "MM-2026-03-25-ANGELLA-GOREN-001",

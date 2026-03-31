@@ -842,5 +842,49 @@
       "capital_alignment": "low"
     },
     "evidence_strength": "medium"
+  },
+  {
+    "id": "st_2026_03_31_init_ng_fin_energy_spine_bestaf_001",
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "trigger_signal_ids": [],
+    "from_state": "execution_ready",
+    "to_state": "execution_ready",
+    "transition_type": "validation",
+    "summary": "Bestaf alignment meeting clarifies current blocker as evidence-backed value substantiation, valuation baseline, and governance transparency (not demand absence).",
+    "state_before": {
+      "constraint_frame": "generic scale execution monitoring"
+    },
+    "state_after": {
+      "constraint_frame": "bestaf economic-structure + transparency alignment"
+    },
+    "constraints_resolved": [
+      "Ambiguous blocker framing"
+    ],
+    "constraints_remaining": [
+      "Auditable value substantiation package delivery and acceptance",
+      "Agreed valuation baseline and value-to-equity conversion logic",
+      "Governance/legal transparency restoration"
+    ],
+    "evidence": [
+      {
+        "type": "meeting_minutes",
+        "ref": "MM-2026-03-30-BESTAF-ALIGNMENT-001"
+      }
+    ],
+    "confidence": 0.83,
+    "readiness_delta": 2,
+    "next_required_state": "execution_ready",
+    "depends_on_transition_ids": [],
+    "is_critical_path": true,
+    "timestamp": "2026-03-31T18:13:00Z",
+    "actor": "sentinel",
+    "provenance": "provided_by_isaac",
+    "state_snapshot": {
+      "current_state": "execution_ready",
+      "gate_stage": "Gate 5"
+    },
+    "evidence_strength": "strong"
   }
 ]
