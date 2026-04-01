@@ -17056,22 +17056,5 @@
       "https://www.ncforestry.org/images/2020_Jordan-Lumber.pdf"
     ],
     "created_at": "2026-04-01T21:58:00Z"
-  },
-  {
-    "actor_id": "actor-us-major-lab-family",
-    "name_display": "Unknown Family That Owns a Major Lab",
-    "first_name": "Unknown",
-    "last_name": "Family",
-    "organization_primary": "Charleston Laboratories, Inc.",
-    "designation": "Placeholder - exact family / owner needs confirmation",
-    "country_normalized": "United States",
-    "actor_type": "other",
-    "owner": "provided_by_isaac",
-    "relationship_source": "intro",
-    "relationship_strength": "low",
-    "source_links": [
-      "https://charlestonlabs.com/about-us/leadership-team/"
-    ],
-    "created_at": "2026-04-01T21:58:00Z"
   }
 ]
