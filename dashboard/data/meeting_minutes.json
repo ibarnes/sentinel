@@ -847,10 +847,10 @@
     ],
     "signal_ids": [],
     "decisions": [
-      "Use Taufiq as sequence-design and access-mapping node, not as commitment authority.",
-      "Prioritize country-specific playbooks rather than a single Gulf/Africa strategy template.",
-      "Anchor narrative around coordination architecture: capital is available, ordering is the constraint.",
-      "Route Taufiq contributions into stakeholder sequencing, geopolitical validation, and sovereign-readable framing."
+      "Classify Taufiq as a high-leverage signal amplifier + buyer-adjacency node (not capital authority).",
+      "Use sequence-first architecture for Gulf/Africa motions: define who moves first, second, third under what conditions.",
+      "Deploy country-specific execution lanes (Saudi scale lane, Abu Dhabi gateway-capital lane, Kenya pilot lane, Dubai resilience/security lane).",
+      "Frame USG as commitment architecture that makes capital safe to commit, not advisory narrative work."
     ],
     "risks": [
       "Proximity-to-power confusion risk: influence access may be mistaken for capital decision authority.",
@@ -886,9 +886,12 @@
     ],
     "source": {
       "type": "isaac_direct_pdf",
-      "notes": "User-provided meeting minutes PDF + transcript text in Telegram Updated with Isaac-provided country-level insights and execution translation (2026-04-01).",
+      "notes": "User-provided meeting minutes PDF + transcript text in Telegram Updated with Isaac-provided country-level insights and execution translation (2026-04-01). Incorporated expanded attendee/profile context and signal-classification notes from Isaac (2026-04-01).",
       "files": [
         "Tuafiq_Rahim_Meeting_Minutes_Mar_31_2026_at_12_30_1_30_PM_ED---2d4dce75-d2a5-44f5-b05c-82643367897e.pdf"
+      ],
+      "links": [
+        "https://www.newamerica.org/people/taufiq-rahim/"
       ]
     },
     "created_at": "2026-03-31T17:35:00Z",
