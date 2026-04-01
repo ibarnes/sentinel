@@ -16876,5 +16876,24 @@
       "https://www.newamerica.org/people/taufiq-rahim/"
     ],
     "created_at": "2026-04-01T12:06:00Z"
+  },
+  {
+    "actor_id": "actor-us-john-m-harrington-iii",
+    "name_display": "John M. Harrington III",
+    "first_name": "John",
+    "last_name": "Harrington",
+    "organization_primary": "Sheffield Corporation",
+    "designation": "Principal",
+    "country_normalized": "United States",
+    "actor_type": "strategic_connector",
+    "owner": "provided_by_isaac",
+    "relationship_source": "direct",
+    "relationship_strength": "high",
+    "usg_relationship": "advisor",
+    "source_links": [
+      "https://www.linkedin.com/in/john-m-harrington",
+      "https://www.linkedin.com/company/sheffield-corporation"
+    ],
+    "created_at": "2026-04-01T22:10:00Z"
   }
 ]
