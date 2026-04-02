@@ -376,5 +376,21 @@
       "INIT-NG-FIN-ENERGY-SPINE"
     ],
     "why_template": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution."
+  },
+  {
+    "source_id": "gmail-inbox-forwarded-signals",
+    "name": "Gmail Inbox Forwarded Signals",
+    "type": "gmail_atom",
+    "url": "https://mail.google.com/mail/feed/atom",
+    "enabled": true,
+    "default_tags": [
+      "email-forwarded",
+      "inbox-signal"
+    ],
+    "trust_tier": "tier2",
+    "initiative_ids": [
+      "USG"
+    ],
+    "why_template": "Forwarded email signal ingested from Sentinel mailbox; classify and map to buyers/actors/initiatives before promotion."
   }
 ]

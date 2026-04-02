@@ -31,6 +31,57 @@ async function readJson(file, fb) {
   try { return JSON.parse(await fs.readFile(file, 'utf8')); } catch { return fb; }
 }
 
+async function loadEnvFromFiles() {
+  const files = [path.join(ROOT, 'admin-server/.env'), path.join(ROOT, '.env')];
+  for (const file of files) {
+    try {
+      const raw = await fs.readFile(file, 'utf8');
+      for (const line of raw.split(/\r?\n/)) {
+        const t = line.trim();
+        if (!t || t.startsWith('#') || !t.includes('=')) continue;
+        const idx = t.indexOf('=');
+        const k = t.slice(0, idx).trim();
+        const v = t.slice(idx + 1).trim();
+        if (!(k in process.env)) process.env[k] = v;
+      }
+    } catch {
+      // ignore missing env files
+    }
+  }
+}
+
+function parseGmailAtomItems(xml = '') {
+  const entries = xml.match(/<entry[\s\S]*?<\/entry>/gi) || [];
+  const items = [];
+  for (const entry of entries) {
+    const raw = (tag) => {
+      const m = entry.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, 'i'));
+      return m ? (m[1] || '') : '';
+    };
+    const g = (tag) => strip(raw(tag));
+
+    const title = g('title');
+    const summary = g('summary');
+    const issued = g('issued') || g('modified');
+    const author_name = strip((entry.match(/<author>[\s\S]*?<name[^>]*>([\s\S]*?)<\/name>[\s\S]*?<\/author>/i) || [])[1] || '');
+    const author_email = strip((entry.match(/<author>[\s\S]*?<email[^>]*>([\s\S]*?)<\/email>[\s\S]*?<\/author>/i) || [])[1] || '');
+    const message_id = g('id') || `${author_email}:${issued}:${title}`;
+    if (!title && !summary) continue;
+
+    items.push({
+      title: title || '(No subject)',
+      summary,
+      url: `internal://gmail/${encodeURIComponent(message_id)}`,
+      published_at: issued ? new Date(issued).toISOString() : nowIso(),
+      image_url: '',
+      author_name,
+      author_email,
+      message_id,
+    });
+  }
+  return items;
+}
+
 async function resolveGoogleNewsUrl(url='') {
   try {
     if (!url.includes('news.google.com/')) return url;
@@ -136,23 +187,91 @@ function dedupeFeed(items = []) {
   return [...map.values()];
 }
 
+function normalizeEntityLabel(x = '') {
+  return String(x || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function makeMatchers(actors = [], buyers = [], initiatives = []) {
+  const actorMatchers = actors
+    .map((a) => {
+      const name = a?.name_display || [a?.first_name, a?.last_name].filter(Boolean).join(' ');
+      const norm = normalizeEntityLabel(name);
+      if (!norm || norm.length < 5 || norm.startsWith('unknown')) return null;
+      return { id: String(a.actor_id || '').trim(), label: norm };
+    })
+    .filter((x) => x && x.id && x.label);
+
+  const buyerMatchers = buyers.flatMap((b) => {
+    const out = [];
+    const idLabel = normalizeEntityLabel(b?.buyer_id || '');
+    const nameLabel = normalizeEntityLabel(b?.name || b?.buyer_name || '');
+    const id = String(b?.buyer_id || '').trim();
+    if (id && idLabel.length >= 3) out.push({ id, label: idLabel });
+    if (id && nameLabel.length >= 4) out.push({ id, label: nameLabel });
+    return out;
+  });
+
+  const initiativeMatchers = initiatives.flatMap((i) => {
+    const out = [];
+    const id = String(i?.initiative_id || '').trim();
+    const idLabel = normalizeEntityLabel(id);
+    const nameLabel = normalizeEntityLabel(i?.name || i?.title || '');
+    if (id && idLabel.length >= 5) out.push({ id, label: idLabel });
+    if (id && nameLabel.length >= 6) out.push({ id, label: nameLabel });
+    return out;
+  });
+
+  return { actorMatchers, buyerMatchers, initiativeMatchers };
+}
+
+function matchEntityIds(text = '', matchers = []) {
+  const norm = normalizeEntityLabel(text);
+  const ids = new Set();
+  for (const m of matchers) {
+    if (!m?.label || !m?.id) continue;
+    if (norm.includes(m.label)) ids.add(m.id);
+  }
+  return [...ids];
+}
+
 async function main() {
+  await loadEnvFromFiles();
+
   const sources = (await readJson(sourcesFile, [])).filter((s) => s.enabled);
   const existing = await readJson(outFile, []);
+  const actors = await readJson(path.join(ROOT, 'dashboard/data/actors.json'), []);
+  const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const { actorMatchers, buyerMatchers, initiativeMatchers } = makeMatchers(actors, buyers, initiatives);
+
   const seen = new Set(existing.map((x) => x.url));
   const out = [...existing];
   const stats = { total_sources: sources.length, ok_sources: 0, failed_sources: 0, items_added: 0, failures: [] };
 
   for (const src of sources) {
     try {
-      const r = await fetch(src.url, { headers: { 'user-agent': 'Mozilla/5.0' } });
+      const headers = { 'user-agent': 'Mozilla/5.0' };
+      if (src.type === 'gmail_atom') {
+        const user = process.env.IMAP_USER || process.env.SMTP_USER || '';
+        const pass = process.env.IMAP_PASS || process.env.SMTP_PASS || '';
+        if (!user || !pass) {
+          throw new Error('gmail_atom source requires IMAP_USER/IMAP_PASS or SMTP_USER/SMTP_PASS');
+        }
+        headers.authorization = `Basic ${Buffer.from(`${user}:${pass}`).toString('base64')}`;
+      }
+
+      const r = await fetch(src.url, { headers });
       if (!r.ok) {
         stats.failed_sources += 1;
         stats.failures.push({ source: src.name, url: src.url, status: r.status });
         continue;
       }
+
       const text = await r.text();
-      const items = src.type === 'rss' ? await parseRssItems(text) : parseWebPage(text, src.url);
+      let items = [];
+      if (src.type === 'rss') items = await parseRssItems(text);
+      else if (src.type === 'gmail_atom') items = parseGmailAtomItems(text);
+      else items = parseWebPage(text, src.url);
       let addedHere = 0;
       for (const item of items.slice(0, 40)) {
         if (!item.url || seen.has(item.url)) continue;
@@ -166,10 +285,21 @@ async function main() {
 
         seen.add(item.url);
         const rel = relevanceScore(`${item.title} ${cleanedSummary}`);
-        const buyerIds = Array.isArray(src.buyer_ids) ? src.buyer_ids : [];
-        const initiativeIds = Array.isArray(src.initiative_ids) && src.initiative_ids.length ? src.initiative_ids : ['USG'];
+        const textForMatching = `${item.title || ''} ${cleanedSummary}`;
+
+        const buyerIdsFromSource = Array.isArray(src.buyer_ids) ? src.buyer_ids : [];
+        const initiativeIdsFromSource = Array.isArray(src.initiative_ids) ? src.initiative_ids : [];
+        const actorIdsDetected = matchEntityIds(textForMatching, actorMatchers);
+        const buyerIdsDetected = matchEntityIds(textForMatching, buyerMatchers);
+        const initiativeIdsDetected = matchEntityIds(textForMatching, initiativeMatchers);
+
+        const buyerIds = [...new Set([...buyerIdsFromSource, ...buyerIdsDetected])];
+        const initiativeIds = [...new Set([...initiativeIdsFromSource, ...initiativeIdsDetected])];
+        const finalInitiativeIds = initiativeIds.length ? initiativeIds : ['USG'];
+
         const baseWhy = src.why_template ? String(src.why_template) : whyMatters(item);
         const buyerAnchor = buyerIds.length ? ` Buyer anchor: ${buyerIds.join(', ')}.` : '';
+        const actorAnchor = actorIdsDetected.length ? ` Actor matches: ${actorIdsDetected.join(', ')}.` : '';
 
         out.push({
           feed_id: hash(item.url),
@@ -185,9 +315,13 @@ async function main() {
           relevance_score: rel,
           confidence: rel >= 70 ? 'High' : (rel >= 55 ? 'Medium' : 'Low'),
           signal_class: rel >= 60 ? 'Capital Reality' : 'Context Signal',
-          why_it_matters: `${baseWhy}${buyerAnchor}`.trim(),
+          why_it_matters: `${baseWhy}${buyerAnchor}${actorAnchor}`.trim(),
           buyer_ids: buyerIds,
-          initiative_ids: initiativeIds
+          actor_ids: actorIdsDetected,
+          initiative_ids: finalInitiativeIds,
+          email_from: item.author_email || null,
+          email_author: item.author_name || null,
+          email_message_id: item.message_id || null
         });
         stats.items_added += 1;
         addedHere += 1;
