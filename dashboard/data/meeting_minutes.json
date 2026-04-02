@@ -958,5 +958,71 @@
     },
     "created_at": "2026-04-02T18:23:00Z",
     "updated_at": "2026-04-02T18:23:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-02-REFOCUS-AFRIKA-001",
+    "date_time": "2026-04-02T17:00:00Z",
+    "title": "reFocus Afrika coordination meeting",
+    "participants": [
+      "Isaac Barnes",
+      "Mabel Phifer",
+      "Leo LaBranche",
+      "Carnelious Jones",
+      "Dr. Lisa Sylvester ACOGNY",
+      "Dr. Sunshine Silas",
+      "Richard Hoffman",
+      "Telly Renfroe",
+      "Tyreek Moore"
+    ],
+    "summary": "Cross-stakeholder planning session focused on Tanzania-first digital infrastructure and smart-city execution with Amazon-adjacent pathway, government alignment signals, and project-finance structuring opportunities. Discussion highlighted need for Amazon engagement sequencing, PPP structure readiness, and initiative prioritization across EV, data-center, solar, and smart-city tracks with regional scaling potential.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Treat Amazon engagement as a sequence-sensitive path: readiness first, public announcement after internal completion milestones.",
+      "Prioritize Tanzania as an execution beachhead with replication potential into additional African countries.",
+      "Develop recurring working cadence to rank and advance highest-priority joint initiatives.",
+      "Open direct between-meeting execution channel with Dr. Sunshine (WhatsApp + email) for faster action closure."
+    ],
+    "risks": [
+      "Execution risk if Amazon-facing readiness package is not complete before high-level meetings (PM/President) are requested.",
+      "Coordination risk across many stakeholders without a single initiative-priority framework and owner map.",
+      "Capital-conversion risk if government alignment signals are not converted into document-backed PPP/project-finance structures.",
+      "Scope-sprawl risk across EV, smart city, data center, solar, and logistics lanes without stage-gated sequencing."
+    ],
+    "next_actions": [
+      {
+        "action": "Set recurring reFocus-Afrika working session focused on initiative prioritization and owner assignment.",
+        "owner": "Isaac",
+        "due": "2026-04-05",
+        "status": "open"
+      },
+      {
+        "action": "Prepare Amazon readiness brief and request scheduling pathway for Tanzania visit.",
+        "owner": "Mabel Phifer",
+        "due": "2026-04-08",
+        "status": "open"
+      },
+      {
+        "action": "Open direct coordination channel with Dr. Sunshine for between-meeting action execution.",
+        "owner": "Isaac",
+        "due": "2026-04-03",
+        "status": "open"
+      },
+      {
+        "action": "Convert Tanzania smart-city / digital infrastructure concept into PPP-ready one-pager with capital ask and government counterpart map.",
+        "owner": "Sentinel",
+        "due": "2026-04-06",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting minutes in Telegram"
+    },
+    "created_at": "2026-04-02T18:27:00Z",
+    "updated_at": "2026-04-02T18:27:00Z"
   }
 ]
