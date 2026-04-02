@@ -896,5 +896,67 @@
     },
     "created_at": "2026-03-31T17:35:00Z",
     "updated_at": "2026-04-01T12:05:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-01-JOHN-HARRINGTON-001",
+    "date_time": "2026-04-01T00:00:00Z",
+    "title": "Meeting with John M. Harrington III",
+    "participants": [
+      "Isaac Barnes",
+      "John M. Harrington III"
+    ],
+    "summary": "Strategic lunch in Midtown Atlanta assessing John Harrington as a USG advisor and connector. Conversation produced a contact set spanning political/institutional access, capital-adjacent leads, and workforce execution channels. Highest-priority capital follow-up identified was Paul Venter / 52Africa. A potentially important administration-level Africa strategy contact was referenced but not named.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Classify John Harrington as advisor + strategic connector in USG actor system.",
+      "Prioritize Paul Venter / 52Africa as top capital-oriented follow-up from this meeting.",
+      "Treat unnamed administration figure handling Africa strategy as an intelligence lead pending identity confirmation.",
+      "Segment named contacts into political/institutional, capital/capital-adjacent, and workforce/operator lanes before outreach."
+    ],
+    "risks": [
+      "Blending unlike contacts into one outreach queue may create activity without capital conversion.",
+      "Unverified entries (unnamed administration figure, major lab family, Jordan family details) can introduce false confidence if treated as confirmed.",
+      "Attribution risk around the '52Africa $300M' statement until independently corroborated."
+    ],
+    "next_actions": [
+      {
+        "action": "Send follow-up to John to identify the administration person handling Africa strategy (name, title, role, and relationship path).",
+        "owner": "Isaac",
+        "due": "2026-04-04",
+        "status": "open"
+      },
+      {
+        "action": "Run capital-lane outreach mapping for Paul Venter / 52Africa and define first ask.",
+        "owner": "Sentinel",
+        "due": "2026-04-04",
+        "status": "open"
+      },
+      {
+        "action": "Tag all John-sourced contacts by lane (capital / political / execution) and confidence level in actor system.",
+        "owner": "Sentinel",
+        "due": "2026-04-03",
+        "status": "open"
+      },
+      {
+        "action": "Keep ambiguous contacts marked unverified until exact identity and role are confirmed.",
+        "owner": "Sentinel",
+        "due": "2026-04-03",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting minutes in Telegram",
+      "links": [
+        "https://www.linkedin.com/in/john-m-harrington",
+        "https://www.linkedin.com/company/sheffield-corporation"
+      ]
+    },
+    "created_at": "2026-04-02T18:23:00Z",
+    "updated_at": "2026-04-02T18:23:00Z"
   }
 ]
