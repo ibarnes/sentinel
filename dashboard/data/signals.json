@@ -2470,7 +2470,7 @@
     "signal_class": "Platform Pressure",
     "status": "Monitor",
     "confidence": "Medium",
-    "verification_status": "unverified",
+    "verification_status": "reported_with_caveats",
     "observed_at": "2026-03-10T21:02:00Z",
     "buyer_ids": [
       "FMF-NG",
@@ -2482,7 +2482,7 @@
     ],
     "summary": "User-provided signal indicates CBN may have introduced AML automation requirements for banks/financial institutions, potentially accelerating compliance-tech and data-infrastructure demand in Nigeria's financial system.",
     "flow": "regulatory AML automation requirement -> bank compliance stack upgrades -> demand for regtech/data orchestration platforms -> expanded pre-FID advisory and implementation pathways",
-    "verification_note": "Monitor only until first-party CBN circular or two Tier-1 outlet confirmations are obtained. No posture change before threshold is met.",
+    "verification_note": "Initial signal was screenshot-derived and unverified. Update 2026-04-01: CBN supervision-pilot reporting materially validates trajectory from AML automation thesis to active supervisory implementation. Keep caveat that participant specifics are secondary-source confirmed until direct first-party PDF capture is available.",
     "sources": [
       {
         "label": "Isaac-provided screenshot signal note (Telegram, 2026-03-10)",
@@ -2506,7 +2506,10 @@
     "geography": [
       "Nigeria"
     ],
-    "country": "Nigeria"
+    "country": "Nigeria",
+    "child_signal_ids": [
+      "SIG-2026-04-01-NG-CBN-VASP-AML-SUPERVISION-PILOT-001"
+    ]
   },
   {
     "signal_id": "SIG-2026-03-10-ZM-COPPER-INVESTOR-COURTSHIP-001",
@@ -5238,7 +5241,7 @@
     "observed_at": "2026-03-18T18:21:00Z",
     "summary": "CNBC reports co-founder exits at xAI and Musk comments about rebuilding as SpaceX IPO expectations remain in focus, signaling execution-risk/valuation dynamics across linked AI-space capital narratives.",
     "flow": "AI org instability signals -> governance/execution risk repricing -> crossover effects on broader Musk-linked strategic capital cycle",
-    "verification_note": "Reported by CNBC with references to public posts and media documents; IPO timing still contingent.",
+    "verification_note": "Reported by CNBC with references to public posts and media documents; IPO timing still contingent. Update 2026-04-01: Reuters-reported confidential filing materially advances IPO pathway from expectation toward filing-stage reality.",
     "sources": [
       {
         "label": "CNBC",
@@ -5277,7 +5280,10 @@
     "evidence_type": "business_media",
     "evidence_strength": "medium",
     "advances_hypothesis": true,
-    "blocks_hypothesis": false
+    "blocks_hypothesis": false,
+    "child_signal_ids": [
+      "SIG-2026-04-01-SPACEX-CONFIDENTIAL-IPO-FILING-001"
+    ]
   },
   {
     "provenance": "provided_by_isaac",
@@ -8370,5 +8376,188 @@
       "clarification",
       "nigeria"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-04-01-HD-KSOE-SMR-CONTAINERSHIP-AIP-001",
+    "title": "DNV confirms HD KSOE AiP for 15,000 TEU SMR-powered containership concept",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "Medium",
+    "verification_status": "verified_with_caveats",
+    "observed_at": "2026-04-01T23:50:00Z",
+    "summary": "DNV published that HD KSOE received Approval in Principle (AiP) for a 15,000 TEU SMR-powered containership concept; this verifies concept-design progress, not commercial deployment or in-service operation.",
+    "flow": "class-approval and concept validation -> stronger credibility for nuclear-maritime decarbonization pathway -> monitor for construction orders, regulator acceptance, and commercialization milestones",
+    "verification_note": "Verified via DNV first-party publication and corroborating industry coverage. Caveat: verification applies to conceptual design/AiP milestone only (not vessel build, launch, or operational deployment).",
+    "sources": [
+      {
+        "label": "DNV official announcement",
+        "url": "https://www.dnv.com/news/2025/hd-ksoe-awarded-dnv-aip-for-smr-powered-container-vessel-design/"
+      },
+      {
+        "label": "World Nuclear News corroboration",
+        "url": "https://world-nuclear-news.org/articles/abs-hd-hyundai-team-up-for-nuclear-propelled-container-ships"
+      },
+      {
+        "label": "User-provided screenshot set (Telegram message 3864)",
+        "url": "internal://isaac/telegram/message/3864/image_1"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "hd-hyundai",
+      "hd-ksoe",
+      "dnv",
+      "smr",
+      "nuclear-shipping",
+      "containership"
+    ],
+    "geography": [
+      "South Korea",
+      "Global Maritime"
+    ],
+    "country": "South Korea",
+    "buyer_ids": [
+      "PIF",
+      "MUBADALA",
+      "QIA",
+      "ADQ"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "architecture",
+      "market_access"
+    ],
+    "evidence_type": "first_party_plus_industry_media",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-01-SPACEX-CONFIDENTIAL-IPO-FILING-001",
+    "title": "Reuters reports SpaceX confidential U.S. IPO filing (public S-1 not yet visible)",
+    "signal_class": "Capital Reality",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified_with_caveats",
+    "observed_at": "2026-04-01T22:40:00Z",
+    "summary": "Reuters reports SpaceX confidentially filed for a U.S. IPO, indicating real progression from IPO speculation toward filing-stage execution.",
+    "flow": "confidential SEC filing reported by tier-1 source -> IPO pathway transitions from rumor to filing-stage process -> monitor for public registration statement and roadshow timeline",
+    "verification_note": "Verified through Reuters sourced reporting. Caveat: confidential draft filing is not immediately visible in EDGAR; no public registration statement available yet for direct document inspection.",
+    "sources": [
+      {
+        "label": "Reuters",
+        "url": "https://www.reuters.com/business/aerospace-defense/spacex-registers-take-rocket-maker-public-blockbuster-ipo-bloomberg-news-reports-2026-04-01/"
+      },
+      {
+        "label": "User-provided screenshot set (Telegram message 3864)",
+        "url": "internal://isaac/telegram/message/3864/image_2"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "spacex",
+      "ipo",
+      "confidential-filing",
+      "sec",
+      "capital-markets"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "PIF",
+      "QIA",
+      "MUBADALA",
+      "ADQ",
+      "TEMASEK",
+      "GIC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "market_access"
+    ],
+    "evidence_type": "tier1_media_sourced",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "parent_signal_id": "SIG-2026-03-18-XAI-REBUILD-SPACEX-IPO-WINDOW-001"
+  },
+  {
+    "signal_id": "SIG-2026-04-01-NG-CBN-VASP-AML-SUPERVISION-PILOT-001",
+    "title": "CBN AML/CFT/CPF supervision pilot for select VASPs begins (participant list externally reported)",
+    "signal_class": "Capital Reality",
+    "status": "Verified",
+    "confidence": "Medium",
+    "verification_status": "verified_with_caveats",
+    "observed_at": "2026-04-01T16:19:00Z",
+    "summary": "CBN announced commencement of an AML/CFT/CPF supervision pilot for selected VASPs, materially validating prior Nigerian crypto-compliance tightening signals; media reports list firms such as Flutterwave and Paystack.",
+    "flow": "CBN pilot supervision launch -> stronger compliance perimeter for virtual-asset channels -> higher policy-driven demand for regulated payment/compliance infrastructure and reporting controls",
+    "verification_note": "CBN pilot commencement corroborated by first-party CBN press-release URL references plus multiple local media reports. Caveat: direct retrieval of CBN PDF was Cloudflare-blocked during this run; named participant list remains secondary-source confirmed.",
+    "sources": [
+      {
+        "label": "CBN press release URL (cloudflare-protected during retrieval)",
+        "url": "https://www.cbn.gov.ng/Out/2026/CCD/VASP%20Pilot%20Press%20Release.pdf"
+      },
+      {
+        "label": "TheCable",
+        "url": "https://www.thecable.ng/flutterwave-paystack-kucoin-cbn-selects-six-firms-for-pilot-crypto-supervisory-programme/"
+      },
+      {
+        "label": "TechCabal",
+        "url": "https://techcabal.com/2026/04/01/cbn-launches-crypto-aml-pilot-flutterwave-paystack/"
+      },
+      {
+        "label": "User-provided screenshot set (Telegram message 3864)",
+        "url": "internal://isaac/telegram/message/3864/image_3"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "cbn",
+      "vasp",
+      "aml",
+      "cft",
+      "paystack",
+      "flutterwave",
+      "crypto-compliance"
+    ],
+    "geography": [
+      "Nigeria"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "CBN",
+      "FMF-NG",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-NG-FIN-ENERGY-SPINE",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "market_access"
+    ],
+    "evidence_type": "first_party_reference_plus_multi_source_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "parent_signal_id": "SIG-2026-03-10-NG-CBN-AML-AUTOMATION-001"
   }
 ]
