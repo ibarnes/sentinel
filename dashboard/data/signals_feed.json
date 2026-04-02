@@ -1,5 +1,1584 @@
 [
   {
+    "feed_id": "n7afsp",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Tesla reports weaker than expected 6% rise in global deliveries",
+    "summary": "First-quarter increase comes as Chinese rival BYD’s electric vehicle sales fell 25% amid intensifying competition",
+    "url": "https://www.ft.com/content/c83d90a0-c8f6-43bd-8a8e-76951961d241",
+    "image_url": "",
+    "published_at": "2026-04-02T13:24:43.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "aj8drn",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "UK, Italy and Japan sign first contract with industry for fighter jet project",
+    "summary": "Funding limited to three months while Britain finalises delayed defence investment plan",
+    "url": "https://www.ft.com/content/c5b18380-b11d-4e90-af41-e07fa0908e1a",
+    "image_url": "",
+    "published_at": "2026-04-02T13:22:34.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "rxoq60",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Universal Display macro concerns are discounted, says Roth Capital",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/universal-display-macro-concerns-discounted-131757432.html",
+    "image_url": "https://media.zenfs.com/en/tipranks_452/30b1d840e249361a7df9dbeb9efcfd03",
+    "published_at": "2026-04-02T13:17:57.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ibds4r",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Full Truck Alliance upgraded to Neutral from Underweight at JPMorgan",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/full-truck-alliance-upgraded-neutral-131635436.html",
+    "image_url": "https://media.zenfs.com/en/tipranks_452/dae8b4ea7d79412adf83c325b7ddaaa9",
+    "published_at": "2026-04-02T13:16:35.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "e92f18",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Gold set for new highs as Middle East conflict reshapes precious metals outlook, leading bank says",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/gold-set-highs-middle-east-131504936.html",
+    "image_url": "https://media.zenfs.com/en/proactive_us_504/6efd6b6fa1c1ab47123432f86fbe563e",
+    "published_at": "2026-04-02T13:15:04.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "as2zwc",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "FactSet’s Q2 beat driven by competitive wins, higher pricing, says RBC Capital",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/factset-q2-beat-driven-competitive-131431075.html",
+    "image_url": "https://media.zenfs.com/en/tipranks_452/a0315e250f3db6d827e0d3d2869f9bd1",
+    "published_at": "2026-04-02T13:14:31.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ehhdwy",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "MPLX (MPLX) Initiated Buy on Strong Infrastructure Platform",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/mplx-mplx-initiated-buy-strong-131319580.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/9f1fddda1d0e8a952c2963a7b473642c",
+    "published_at": "2026-04-02T13:13:19.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "6ies3p",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Venture Global (VG) Upgraded on LNG Price Surge",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/venture-global-vg-upgraded-lng-131229728.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/24183207b6a68c3c752b718b297dce8f",
+    "published_at": "2026-04-02T13:12:29.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jyvfte",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "JFrog (FROG) Shares Surged 32% as Demand for Security Rises After NPM Supply Chain Attack",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/jfrog-frog-shares-surged-32-131203592.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/61a04bceb140f1a889f2c2d0581a0a1d",
+    "published_at": "2026-04-02T13:12:03.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "b4k7du",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Amer Sports (AS) Rated Buy on Strong Growth Outlook",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/amer-sports-rated-buy-strong-131137486.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/50c58359824d56aa5435cdba04128a5c",
+    "published_at": "2026-04-02T13:11:37.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "gcijg2",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Dell (DELL) Stock Price Target Raised on AI Server Demand",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/dell-dell-stock-price-target-131012359.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/88a81d875beabcd70f99c7f05106c03b",
+    "published_at": "2026-04-02T13:10:12.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "l57p3n",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "SPYT Promises 20% Income but IVV’s 71.32% Long-Run Return Tells a Different Story",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/options/articles/spyt-promises-20-income-ivv-131004356.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/8b87ce7d624cf8cd24c83eefc4478da1",
+    "published_at": "2026-04-02T13:10:04.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "48ua66",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Tesla Deliveries Rise. Why the Stock Is Falling.",
+    "summary": "",
+    "url": "https://www.barrons.com/articles/tesla-stock-ev-delivery-sales-a873519c?siteid=yhoof2&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/Barrons.com/b1d97c29522770771c29eabd8abc26b3",
+    "published_at": "2026-04-02T13:10:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "y3b1ej",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Alphabet (GOOGL) Rated Outperform on AI Growth Potential",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-googl-rated-outperform-ai-130914978.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/b37705cc559a18e5d7c905152c29378c",
+    "published_at": "2026-04-02T13:09:14.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "13r46f",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Bed Bath & Beyond to acquire The Container Store, Elfa, and Closet Works",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/bed-bath-beyond-acquire-container-130900544.html",
+    "image_url": "https://media.zenfs.com/en/proactive_us_504/d82852d7874a92b3769222c9dc42dc38",
+    "published_at": "2026-04-02T13:09:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "k5qujp",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Tesla's first-quarter deliveries miss estimates as tax credit expiry weighs",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/teslas-first-quarter-deliveries-miss-130544487.html",
+    "image_url": "https://media.zenfs.com/en/reuters.com/d060c89053ea8b9fcc8edd661988d736",
+    "published_at": "2026-04-02T13:05:44.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "t2dhek",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Tesla Deliveries Grow. Elon Musk's EV Giant Reclaims Sales Crown.",
+    "summary": "",
+    "url": "https://www.investors.com/news/tesla-deliveries-elon-musk-byd-tesla-stock/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/c3ed9664e420fe304235e06407484e00",
+    "published_at": "2026-04-02T13:05:39.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "d2zzxo",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "US will hit Iran ‘extremely hard’ in coming weeks, says Trump",
+    "summary": "Also in today’s newsletter, one year on from the US president’s ‘liberation day’, how has the global economy changed?",
+    "url": "https://www.ft.com/content/5a41892c-b907-4df6-9448-74c182a7154e",
+    "image_url": "",
+    "published_at": "2026-04-02T13:00:03.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "pmago7",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "3 predictions about silver prices in the next decade",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/investing/article/3-predictions-about-silver-prices-in-the-next-decade-130000313.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2021-04/bac0a1c0-9b44-11eb-b965-02078366a3fa",
+    "published_at": "2026-04-02T13:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ks54qy",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Do you really need long-term care insurance in America? Here’s what the data actually says",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/really-long-term-care-insurance-125900545.html",
+    "image_url": "https://media.zenfs.com/en/moneywise_ecomm_711/fb1391d49f6ba7adfbe4bf3d8a6273b3",
+    "published_at": "2026-04-02T12:59:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tukt6r",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Globalstar Stock Jumps After Report Amazon Is In Talks To Acquire Satellite Firm",
+    "summary": "",
+    "url": "https://www.investors.com/news/technology/amazon-stock-globalstar-stock-takeover-report/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/fac6ceda6bab7b7c151b1ddfb86be0f6",
+    "published_at": "2026-04-02T12:49:35.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "t8o2tm",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Analysis-US defense stocks see no Iran war lift after early surge",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/analysis-us-defense-stocks-see-124415617.html",
+    "image_url": "https://media.zenfs.com/en/reuters.com/8bb399a1ff327ce838a42701d5996657",
+    "published_at": "2026-04-02T12:44:15.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "597cqj",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Macron says taking Hormuz by force is ‘unrealistic’",
+    "summary": "French president’s remarks come after Trump pressures Europe to deal with Iran’s blockage",
+    "url": "https://www.ft.com/content/7181cef1-6d7c-45bd-85cd-5feafbbd0cfd",
+    "image_url": "",
+    "published_at": "2026-04-02T12:44:08.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "xvrk4c",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Walmart shoppers aren't breaking under the weight of $4 gas (yet)",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/walmart-shoppers-arent-breaking-under-the-weight-of-4-gas-yet-123138085.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2026-04/e3f2f420-2e8e-11f1-9fde-dd1eabd357b8",
+    "published_at": "2026-04-02T12:31:38.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "bffnhv",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Blue Owl struck by $5.4bn of redemption requests",
+    "summary": "Private credit firm caps withdrawals after investors attempted to pull more than 40% from one fund",
+    "url": "https://www.ft.com/content/f4320148-3d81-4bd0-9ab6-053a5bade188",
+    "image_url": "",
+    "published_at": "2026-04-02T12:27:41.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "dxzo36",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Nick Candy sells Chelsea mansion for more than £275mn",
+    "summary": "Deal for Providence House in central London marks capital’s most expensive house sale",
+    "url": "https://www.ft.com/content/8daf99ca-2e0c-4aae-b434-5c10cf89f1f3",
+    "image_url": "",
+    "published_at": "2026-04-02T12:25:05.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "r07k04",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Goldman and Citi tell Paris staff to work from home after thwarted BofA attack",
+    "summary": "US authorities warned the banks of potential security threats",
+    "url": "https://www.ft.com/content/eee3f933-36f1-48f4-ae09-98b50bfab386",
+    "image_url": "",
+    "published_at": "2026-04-02T12:18:34.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ggcdj4",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Farage sacks Reform UK housing spokesperson over ‘everyone dies’ Grenfell comments",
+    "summary": "Simon Dudley’s remarks provoke anger from bereaved families",
+    "url": "https://www.ft.com/content/48e51b80-9501-411d-8ed6-3392d9c93d84",
+    "image_url": "",
+    "published_at": "2026-04-02T12:18:07.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "va3rw",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Retirees Are Using This ETF to Collect Weekly Income From a Chipmaker Giant",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/options/articles/retirees-using-etf-collect-weekly-121556344.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/93edc2c460ffb689764bb2e486d77efe",
+    "published_at": "2026-04-02T12:15:56.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "rgnubk",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why Investors Own VOOG for Growth Not Its Tiny 0.46% Dividend",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/why-investors-own-voog-growth-121554617.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/bd8b3b8c2c3ddad288bb62950051255b",
+    "published_at": "2026-04-02T12:15:54.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ce14ze",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "GLP-1 wars: Lilly's FDA-approved oral weight-loss pill puts Novo Nordisk's Wegovy franchise under fresh pressure",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/glp-1-wars-lillys-fda-121505237.html",
+    "image_url": "https://media.zenfs.com/en/proactive_us_504/f4bd5e0d8dfcd452c6f05fa8acc21f8b",
+    "published_at": "2026-04-02T12:15:05.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tkxlnd",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Amazon Stock Climbs as It Bets a Jaw-Dropping $50 Billion on OpenAI’s Meteoric $852 Billion Rise",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/amazon-stock-climbs-bets-jaw-121244554.html",
+    "image_url": "https://media.zenfs.com/en/tipranks_452/26fe12d28643aeea206fb492173f3bca",
+    "published_at": "2026-04-02T12:12:44.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "xwbgya",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "The 5 Safest Dividend Aristocrats Are Perfect For Retirees Needing Growth & Income",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/5-safest-dividend-aristocrats-perfect-121004054.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/860866925dd84b3f06f420eda1703aa7",
+    "published_at": "2026-04-02T12:10:04.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "c6k1qs",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "‘Forget that’: Trump interrupts gas price talk as Venezuela oil climbs — how that could impact the market",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/forget-trump-interrupts-gas-price-121000564.html",
+    "image_url": "https://media.zenfs.com/en/moneywise_ecomm_711/0c53307de40bc77616e5b84bfc8f2e8b",
+    "published_at": "2026-04-02T12:10:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ufm845",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Dow Jones Futures Dive, Oil Prices Soar As Trump Vows To Hit Iran 'Hard'; Tesla Deliveries Due",
+    "summary": "",
+    "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-futures-trump-iran-war-tesla-deliveries/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/82b3f81c27f1c7a4099199dae86f4c38",
+    "published_at": "2026-04-02T12:08:22.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "wk3bb6",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Stock Market Today: Dow Sells Off On Trump Speech As Oil Surges; Tesla Delivery Data Next (Live Coverage)",
+    "summary": "",
+    "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-trump-speech-oil-prices-tesla-tsla-stock/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/47aaa52efcced0122c4ef8c46d77f0ab",
+    "published_at": "2026-04-02T12:07:50.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "37ddq",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Moniepoint buys Kenya’s Sumac Microfinance Bank",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/moniepoint-buys-kenya-sumac-microfinance-120343002.html",
+    "image_url": "https://media.zenfs.com/en/retail_banker_international_407/7e638f334daefeeca9041d85eca4cb8f",
+    "published_at": "2026-04-02T12:03:43.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ik7xag",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "U.S. Dollar Reclaims 'Safe Haven' Status",
+    "summary": "",
+    "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-04-02-2026/card/u-s-dollar-reclaims-save-haven-status-8gHa0FnxjTq7RnED9zSq?siteid=yhoof2&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/wsj.com/7b2c285183be07ca3c4e8242b25a59a8",
+    "published_at": "2026-04-02T12:03:12.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ddap35",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "NatWest and Sainsbury’s partner to launch new finance products",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/policy/articles/natwest-sainsbury-partner-launch-finance-120111285.html",
+    "image_url": "https://media.zenfs.com/en/retail_banker_international_407/07db5cd539a1ee8cb9b406ffe7eb13c4",
+    "published_at": "2026-04-02T12:01:11.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "u8apbq",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Transit Equipment Maker Wabtec Stock Makes Leap Toward Buy Point",
+    "summary": "",
+    "url": "https://www.investors.com/stock-lists/ibd-big-cap-20/transit-equipment-wabtec-wab-stock-buy-point-markets/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/db8490bc8927c2540a0bf15e08ca23a9",
+    "published_at": "2026-04-02T12:00:18.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2j8410",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "How to keep your crypto safe",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/investing/article/how-to-keep-your-crypto-safe-120000773.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2022-09/0ff94380-3d52-11ed-9bf7-8e4211b7f154",
+    "published_at": "2026-04-02T12:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "4fw8by",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Trump officials consider auto-enrolling seniors in Medicare Advantage — what it could mean for your health care costs",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/trump-officials-consider-auto-enrolling-120000187.html",
+    "image_url": "https://media.zenfs.com/en/moneywise_327/6321e57c5300854b999b19c836bfa497",
+    "published_at": "2026-04-02T12:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "u530s7",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Read Between The Lines To Understand This IBD 50 Stock — And What Might Come Next",
+    "summary": "",
+    "url": "https://www.investors.com/research/ibd-stock-analysis/ubiquiti-stock-enters-buy-range/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/1fc19ea96bd6fa2617420bec89f7615a",
+    "published_at": "2026-04-02T12:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "h21qjl",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "China expands digital yuan programme with 12 new bank operators",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/china-expands-digital-yuan-programme-114527858.html",
+    "image_url": "https://media.zenfs.com/en/reuters.com/3ff1936fd77b2eb4c2f3f1c70417a73c",
+    "published_at": "2026-04-02T11:50:26.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "k7bnne",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Oil prices have ripped higher, yet investors keep making this mistake with energy stocks",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/oil-prices-have-ripped-higher-yet-investors-keep-making-this-mistake-with-energy-stocks-115015019.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2026-04/c5346aa0-2e89-11f1-b7e7-1fc2f4f234ee",
+    "published_at": "2026-04-02T11:50:15.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "z4o2zt",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Daily Spotlight: Stocks, Bonds Near Value Equilibrium",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_46619_MarketOutlook_1775129588000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-04-02T11:33:08.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jwtzya",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Technical Assessment: Bullish in the Intermediate-Term",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_46618_TechnicalAnalysis_1775129566000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-04-02T11:32:46.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "4ja4ff",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Italy fines Revolut over misleading ‘0% commission’ trading adverts",
+    "summary": "Competition watchdog singles out advertisements suggesting customers could trade with no commission",
+    "url": "https://www.ft.com/content/0cb5fe60-434e-4790-9915-3d8b1968e4ec",
+    "image_url": "",
+    "published_at": "2026-04-02T11:25:49.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "a2kic2",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Daily – Vickers Top Insider Picks for 04/02/2026",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_46616_InsiderActivity_1775128192000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-04-02T11:09:52.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jnf0fx",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Daily – Vickers Top Buyers & Sellers for 04/02/2026",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_46617_TopBottomInsiderActivity_1775128192000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-04-02T11:09:52.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "6l98vs",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Can UK house prices survive another economic shock?",
+    "summary": "The housing market looks to have made it through the crises of the 2020s unscathed — but they have weakened it significantly",
+    "url": "https://www.ft.com/content/196697a9-f5d7-471d-8a95-415666be4929",
+    "image_url": "",
+    "published_at": "2026-04-02T11:09:49.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ux9bn1",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Analyst Report: Linde PLC",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_4859_AnalystReport_1775128153000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-04-02T11:09:13.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qzw7yz",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Analyst Report: McCormick & Co Inc/MD",
+    "summary": "",
+    "url": "https://finance.yahoo.com/research/reports/ARGUS_4136_AnalystReport_1775128153000?yptr=yahoo&ncid=yahooproperties_plusresear_nm5q6ze1cei",
+    "image_url": "https://s.yimg.com/uc/fin/img/non-sub-report-thumb.png",
+    "published_at": "2026-04-02T11:09:13.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "i5piur",
+    "source": "Retail Banker International",
+    "source_id": "retail-banker-international-rss",
+    "title": "Moniepoint buys Kenya’s Sumac Microfinance Bank",
+    "summary": "The deal marks the company’s first significant purchase in Africa and its formal entry into the East African region.",
+    "url": "https://www.retailbankerinternational.com/news/moniepoint-buys-sumac-microfinance-bank/",
+    "image_url": "",
+    "published_at": "2026-04-02T11:03:43.000Z",
+    "tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution. Buyer anchor: FMF-NG, NSIA, IFC, WORLDBANK.",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ]
+  },
+  {
+    "feed_id": "2i44ar",
+    "source": "Retail Banker International",
+    "source_id": "retail-banker-international-rss",
+    "title": "NatWest and Sainsbury’s partner to launch new finance products",
+    "summary": "The move comes after NatWest’s 2025 purchase of Sainsbury’s Bank’s personal loan, credit card and retail deposit books.",
+    "url": "https://www.retailbankerinternational.com/news/natwest-sainsburys-finance-products/",
+    "image_url": "",
+    "published_at": "2026-04-02T11:01:11.000Z",
+    "tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution. Buyer anchor: FMF-NG, NSIA, IFC, WORLDBANK.",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ]
+  },
+  {
+    "feed_id": "rxawsq",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "A $750mn solar fund provides lifeline for capital-starved US projects",
+    "summary": "LA investment firm Forest Road will focus on smaller projects struggling after Trump’s ‘Big Beautiful Bill’",
+    "url": "https://www.ft.com/content/893893eb-eaac-4011-8866-75e145d8b5ed",
+    "image_url": "",
+    "published_at": "2026-04-02T11:00:02.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "obuuw0",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Can Starmer steady the ship? Submit your questions",
+    "summary": "Take part in a live Ask an Expert Q&A with Stephen Bush, Miranda Green and Robert Shrimsley today at 3pm BST",
+    "url": "https://www.ft.com/content/fed23eb4-a4a3-41a1-8e4b-0d62d23e66e9",
+    "image_url": "",
+    "published_at": "2026-04-02T10:14:31.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "yldgv7",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "An all too special relationship",
+    "summary": "Maga leaders obsess over an imagined version of a long-lost Britain",
+    "url": "https://www.ft.com/content/9ce48fa0-cecf-4f80-a23d-671d561456d7",
+    "image_url": "",
+    "published_at": "2026-04-02T10:11:57.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ughbzz",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "FirstFT: Oil rises and stocks fall after Trump threatens to hit Iran ‘extremely hard’",
+    "summary": "Also in today’s newsletter: 100% tariffs on certain medicines to be unveiled and the Americas’ fastest growing companies",
+    "url": "https://www.ft.com/content/75ffaa22-cec0-4e45-a43e-26de5d50efd9",
+    "image_url": "",
+    "published_at": "2026-04-02T10:02:46.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "q420d0",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Much ado about marshmallows",
+    "summary": "Good news, it’s s’more VAT nonsense",
+    "url": "https://www.ft.com/content/eb37569d-0a2b-4df6-bd11-4d0c4e81cdc9",
+    "image_url": "",
+    "published_at": "2026-04-02T09:58:31.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tztvk1",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "‘End of an era’ as ECB’s emergency pandemic stimulus unwinds",
+    "summary": "Nearly €3tn of excess liquidity will have drained from financial system by 2027, according to ECB estimates",
+    "url": "https://www.ft.com/content/e9686934-6dcc-4db2-a17d-3476029e60f0",
+    "image_url": "",
+    "published_at": "2026-04-02T09:30:15.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "810er0",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "The UK’s unpleasant energy exposure",
+    "summary": "The vulnerability stems from history and geography rather than failed policies",
+    "url": "https://www.ft.com/content/c8bd9631-39e2-4fec-b6e7-0600eff869f7",
+    "image_url": "",
+    "published_at": "2026-04-02T08:49:43.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "pawej7",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Pakistan and Afghanistan hold peace talks in China",
+    "summary": "First face-to-face contact since December comes after tensions erupted into open conflict",
+    "url": "https://www.ft.com/content/52e806a4-63cb-42a6-a3e9-610534e903be",
+    "image_url": "",
+    "published_at": "2026-04-02T08:38:31.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "n10ou4",
+    "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "source_id": "google-news-afdb-ifc-dfc-security-infra",
+    "title": "How IFC infrastructure projects are strengthening global energy security - energyconnects.com",
+    "summary": "How IFC infrastructure projects are strengthening global energy security energyconnects.com",
+    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPTzhOTVo2WFEtV2g5bkdIcC1sNkJ4SE52VEgtTWtOZHoyNWM4NkFlWlZobjlvVDEyMlNUcHhZQzhmOTFHTDJEWjdpOWFJS0R3YzJRVFdXVFhOc2w1YkZVVEpPTWdHenJwM0Q1OEU4NTF4aEp3QzVuczZSUWNheTIzZ2tsN1AzSjB4aHdLSXdtTGxUaDFYeTVsYWg1UjNtRXpGNHB6U0Z6b1NwbWNJNDNXUmVJSjZTTFNEV081VVo4NXdEVTQzVDVlVWl6V09ITGloZHgteVJR?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-04-02T08:35:09.000Z",
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 32,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "z6npvg",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "India’s central bank makes it harder to short the rupee",
+    "summary": "Currency rises after RBI blocks non-deliverable derivatives in the onshore market",
+    "url": "https://www.ft.com/content/9fd5635f-26d4-488b-906e-5568338f512d",
+    "image_url": "",
+    "published_at": "2026-04-02T07:35:56.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "35kt87",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Buckling up for the stagflation trade",
+    "summary": "What can investors do?",
+    "url": "https://www.ft.com/content/86ae7261-bb21-4770-b1da-f42cacb20bba",
+    "image_url": "",
+    "published_at": "2026-04-02T05:30:03.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "bla4ub",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Trump’s threats to pull out of Nato leave alliance exposed",
+    "summary": "Also in this newsletter: Greek fraud investigation zeroes in on government members",
+    "url": "https://www.ft.com/content/3dbcdd36-f516-4393-b05f-5c53e9cccf07",
+    "image_url": "",
+    "published_at": "2026-04-02T05:00:11.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potential policy/authority shift affecting capital pathways.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "5kymfm",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "A peek into who owes what and to whom",
+    "summary": "Striking a chord",
+    "url": "https://www.ft.com/content/4021f7e2-91c2-4760-8789-3d2025b8f2b3",
+    "image_url": "",
+    "published_at": "2026-04-02T05:00:02.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "t5mqrg",
     "source": "KKR Insights — Data Center Infrastructure (Waldemar Szlezak)",
     "source_id": "kkr-insights-data-center-infrastructure",
@@ -27,6 +1606,75 @@
     ]
   },
   {
+    "feed_id": "xnl1yl",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Vulture funds circle private equity",
+    "summary": "Distressed-debt funds see a potential bonanza in the downturn in private credit",
+    "url": "https://www.ft.com/content/bfed8977-3064-49da-8242-f80778dbd7a8",
+    "image_url": "",
+    "published_at": "2026-04-02T04:00:22.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jfc34e",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "Italian leaders call for football chief’s head after World Cup humiliation",
+    "summary": "Azzurri fail to make third-straight men’s World Cup after humiliating loss to Bosnia and Herzegovina",
+    "url": "https://www.ft.com/content/f2efd280-a9c9-4720-80fe-ad3684565e3e",
+    "image_url": "",
+    "published_at": "2026-04-02T04:00:22.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "9ojwka",
+    "source": "Financial Times World",
+    "source_id": "ft-world-rss",
+    "title": "World’s top energy traders wrongfooted in early days of Iran war",
+    "summary": "Oil traders that normally thrive on volatility caught out by scale of crisis as energy shock unfurled",
+    "url": "https://www.ft.com/content/22e7678b-e7ec-4bf0-8258-906eaa2d7a42",
+    "image_url": "",
+    "published_at": "2026-04-02T04:00:22.000Z",
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "trust_tier": "tier1",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "xfg42z",
     "source": "WIRED Business",
     "source_id": "wired-business",
@@ -44,6 +1692,29 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "p606qb",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Stock market today: Dow S&P 500, Nasdaq futures stumble after Trump says war with Iran not yet over",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-stumble-after-trump-says-war-with-iran-not-yet-over-224909008.html",
+    "image_url": "https://s.yimg.com/uu/api/res/1.2/v8oXFVhKttAHFThAcLL6gw--~B/aD0zNTY4O3c9NTM1MTthcHBpZD15dGFjaHlvbg--/https://d29szjachogqwa.cloudfront.net/images/2026-04/af88a7c2-b018-4217-8db3-f230c4f0b83f",
+    "published_at": "2026-04-01T22:49:09.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
     "initiative_ids": [
       "USG"
     ]
@@ -112,6 +1783,36 @@
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
+    ]
+  },
+  {
+    "feed_id": "igdw90",
+    "source": "Retail Banker International",
+    "source_id": "retail-banker-international-rss",
+    "title": "A 7-step enterprise fraud framework to redefine scam prevention",
+    "summary": "Vineet Saxena of FICO sets out a practical framework for banks to strengthen their defences against scams",
+    "url": "https://www.retailbankerinternational.com/comment/7-step-enterprise-fraud-framework-redefine-scam-prevention/",
+    "image_url": "",
+    "published_at": "2026-04-01T16:16:43.000Z",
+    "tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution. Buyer anchor: FMF-NG, NSIA, IFC, WORLDBANK.",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
     ]
   },
   {
@@ -907,6 +2608,36 @@
     ]
   },
   {
+    "feed_id": "yv1sdw",
+    "source": "Retail Banker International",
+    "source_id": "retail-banker-international-rss",
+    "title": "Monzo pulls plug on US operations",
+    "summary": "The digital bank will cease accepting new American customers and cut approximately 50 roles.",
+    "url": "https://www.retailbankerinternational.com/news/monzo-pulls-plug-us-operations/",
+    "image_url": "",
+    "published_at": "2026-04-01T10:40:17.000Z",
+    "tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution. Buyer anchor: FMF-NG, NSIA, IFC, WORLDBANK.",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ]
+  },
+  {
     "feed_id": "pgljc2",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -973,6 +2704,312 @@
     ]
   },
   {
+    "feed_id": "b474dy",
+    "source": "Retail Banker International",
+    "source_id": "retail-banker-international-rss",
+    "title": "The UK has a fraud strategy. Now it needs to move faster than criminals",
+    "summary": "Jonathan Frost explains why the real test for the UK is whether there is the will, coordination and accountability to keep pace with the rapid evolution of fraud",
+    "url": "https://www.retailbankerinternational.com/comment/uk-fraud-strategy-need-move-faster-than-criminals/",
+    "image_url": "",
+    "published_at": "2026-04-01T08:30:32.000Z",
+    "tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution. Buyer anchor: FMF-NG, NSIA, IFC, WORLDBANK.",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ]
+  },
+  {
+    "feed_id": "gvovbt",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Equinor Starts Drilling at $9 Billion Raia Project Offshore Brazil",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/equinor-starts-drilling-9-billion-063031883.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/5d97a53f16f1aea0bd9ad2bfae35e924",
+    "published_at": "2026-04-01T06:30:31.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "tdyav",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Canadian Natural Resources (CNQ) Downgraded at Raymond James",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/canadian-natural-resources-cnq-downgraded-063012397.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/1ea3c5aefe4df3f34e5b2506810adc02",
+    "published_at": "2026-04-01T06:30:12.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "3shbma",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "TC Energy (TRP) Price Target Upped to C$78 at Raymond James",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/tc-energy-trp-price-target-063001702.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/de6167e1da37cd5a20e5fde60760f6d2",
+    "published_at": "2026-04-01T06:30:01.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "37fz7a",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Analyst Raises Eni (E) Price Target to $58.80",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/analyst-raises-eni-e-price-062950124.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/aa46c4b4a5c2dbd1d815183af8252893",
+    "published_at": "2026-04-01T06:29:50.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "sv62w1",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "TotalEnergies (TTE) – Among the Best High Yield Energy Stocks to Buy Now",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/totalenergies-tte-among-best-high-062857233.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/fe9fec52afee9abc2e73c2ab1cfe7a05",
+    "published_at": "2026-04-01T06:28:57.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qkp80w",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Viper Energy (VNOM) Price Target Raised by $5, ‘Overweight’ Rating Maintained",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/viper-energy-vnom-price-target-062845816.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/a738ed0125c98bfe4e33a8012a081f23",
+    "published_at": "2026-04-01T06:28:45.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "lv1un0",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Woodside Energy Group (WDS) Assumes Operational Control of Texas Ammonia Facility",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/woodside-energy-group-wds-assumes-062818553.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/09f8c2f2c4c176c5a178ca7680a19f08",
+    "published_at": "2026-04-01T06:28:18.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "iel035",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Enbridge (ENB) Price Target Increased to C$78 at Raymond James",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/enbridge-enb-price-target-increased-062805737.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/fed37ac43b2bd4540d67ec5b9cd8b55f",
+    "published_at": "2026-04-01T06:28:05.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2yks4v",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Petrobras (PBR) Discovers ‘High Quality’ Oil Offshore Brazil",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/petrobras-pbr-discovers-high-quality-062752806.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/6e8fc6ba2be22ce90f896795270ab88d",
+    "published_at": "2026-04-01T06:27:52.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "dwrbne",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Enterprise Products Partners (EPD) Price Target Bumped to $42 at RBC Capital",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/enterprise-products-partners-epd-price-062739775.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/832dcbf71489c1999587b44f83085969",
+    "published_at": "2026-04-01T06:27:39.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ko23x6",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Analyst Initiates Energy Transfer (ET) with ‘Buy’ Rating, $23 PT",
+    "summary": "",
+    "url": "https://finance.yahoo.com/news/analyst-initiates-energy-transfer-et-062728181.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/a97f111c62451e82df1b503f29d424ac",
+    "published_at": "2026-04-01T06:27:28.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "3snfkj",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Ecopetrol (EC) Price Target Bumped to $13, ‘Neutral’ Rating Maintained",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/ecopetrol-ec-price-target-bumped-062717163.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/69b5d82cf4c1760d04149e1cdc51dfda",
+    "published_at": "2026-04-01T06:27:17.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "qgf1wm",
     "source": "Google News — Alpha Wave Strategic Capital",
     "source_id": "google-news-alpha-wave-strategic-capital",
@@ -997,6 +3034,190 @@
     ],
     "initiative_ids": [
       "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "we868w",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Suncor Lifts 2026 Buybacks as New Plan Targets Lower Breakeven",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/suncor-lifts-2026-buybacks-plan-050000725.html",
+    "image_url": "https://media.zenfs.com/en/oilprice.com/63539cb96ec477dc2a1a0a3d69ac56e5",
+    "published_at": "2026-04-01T05:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "atgxnq",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Rosneft Profit Slides as Sanctions and Lower Oil Prices Bite",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/rosneft-profit-slides-sanctions-lower-044803968.html",
+    "image_url": "https://media.zenfs.com/en/oilprice.com/d3434fe7ebf4ee4f9b4653fefb405f74",
+    "published_at": "2026-04-01T04:48:03.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ult9ks",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Investors Shy Away from Sustainable ETFs. Energy Demands May Change That",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/investors-shy-away-sustainable-etfs-040300550.html",
+    "image_url": "https://media.zenfs.com/en/the_daily_upside_435/5c0e8d0b4caf8e05d273d8fab6bda2b9",
+    "published_at": "2026-04-01T04:03:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "5xy7wu",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "What’s Next in Bitcoin ETFs? Volatility Funds",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/next-bitcoin-etfs-volatility-funds-040200445.html",
+    "image_url": "https://media.zenfs.com/en/the_daily_upside_435/87f9d9199d78e840e400a1b154d9a2ae",
+    "published_at": "2026-04-01T04:02:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "m94a8t",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Cambria Cannabis ETF Closes Up Shop as Investor Interest Fades",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/cambria-cannabis-etf-closes-shop-040100058.html",
+    "image_url": "https://media.zenfs.com/en/the_daily_upside_435/63dadf4ddb8a79b081b7976baf35cc42",
+    "published_at": "2026-04-01T04:01:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qm1xm0",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Unilever’s Grocery Deal with McCormick Draws Sour Reaction from Investors",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/unilever-grocery-deal-mccormick-draws-040100442.html",
+    "image_url": "https://media.zenfs.com/en/the_daily_upside_435/184173d3b0395c5af7ea287714df6189",
+    "published_at": "2026-04-01T04:01:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qiutiy",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "10 Best Stocks with the Most Insider Ownership to Buy Now",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/10-best-stocks-most-insider-040008086.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/ab6f878f3081ddfbe3cd231ff6eb130e",
+    "published_at": "2026-04-01T04:00:08.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "wl07hx",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "10 Stocks That Could 10X Over the Next 5 Years",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/10-stocks-could-10x-over-035859042.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/b848de2d506126f7f41ff38e132e9622",
+    "published_at": "2026-04-01T03:58:59.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
     ]
   },
   {
@@ -1027,6 +3248,36 @@
     ]
   },
   {
+    "feed_id": "ppy1ai",
+    "source": "Retail Banker International",
+    "source_id": "retail-banker-international-rss",
+    "title": "Fidelity BancShares to acquire Affinity for $142.8m",
+    "summary": "This move will see Fidelity establish its presence in Georgia for the first time.",
+    "url": "https://www.retailbankerinternational.com/news/fidelity-bancshares-acquire-affinity/",
+    "image_url": "",
+    "published_at": "2026-04-01T01:42:00.000Z",
+    "tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution. Buyer anchor: FMF-NG, NSIA, IFC, WORLDBANK.",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ]
+  },
+  {
     "feed_id": "lbq0jj",
     "source": "WIRED Business",
     "source_id": "wired-business",
@@ -1046,6 +3297,105 @@
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
+    ]
+  },
+  {
+    "feed_id": "4s3ig7",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Stocks rally worldwide as oil prices ease on hopes for a possible end to the Iran war",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/world-indices/articles/asian-stocks-jump-wall-street-011611252.html",
+    "image_url": "https://media.zenfs.com/en/ap.org/42ce49fafd72e9787f9c924af23deffc",
+    "published_at": "2026-04-01T01:16:11.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "4jw2m8",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Pentagon Insider Joins REalloys as Rare Earth Deadline Approaches",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/pentagon-insider-joins-realloys-rare-010000142.html",
+    "image_url": "https://media.zenfs.com/en/oilprice.com/f9415d402396e26bb8e265735c9a7c8b",
+    "published_at": "2026-04-01T01:00:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "4l1tr2",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Apple's 50-year journey from garage to tech titan",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/technology/articles/apples-50-journey-garage-tech-003140629.html",
+    "image_url": "https://media.zenfs.com/en/reuters-finance.com/12053f4b58cbbfd5dafeb9006ffaf212",
+    "published_at": "2026-04-01T00:31:40.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ftfp8v",
+    "source": "Retail Banker International",
+    "source_id": "retail-banker-international-rss",
+    "title": "TikTok targets Brazilian market with dual fintech licence bid – report",
+    "summary": "The social media giant is seeking licences to operate as an electronic money issuer and as a direct lender.",
+    "url": "https://www.retailbankerinternational.com/news/tiktok-fintech-licence-brazilian-market/",
+    "image_url": "",
+    "published_at": "2026-04-01T00:26:00.000Z",
+    "tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution. Buyer anchor: FMF-NG, NSIA, IFC, WORLDBANK.",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
     ]
   },
   {
@@ -1110,6 +3460,903 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "wrbmqj",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "NexMetals Mining (NEXM) Extends Selebi Flexure Zone With New Massive Sulphide Intercept",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/nexmetals-mining-nexm-extends-selebi-191518706.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/fbf945eb0df321e7ece64a6ce3ec8684",
+    "published_at": "2026-03-31T19:15:18.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "at9r70",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why Contango Ore (CTGO) Is Expanding Beyond Alaska With Its Dolly Varden Deal",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/why-contango-ore-ctgo-expanding-191517704.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/d39b3f68ade92aa571552bf9cd439ce0",
+    "published_at": "2026-03-31T19:15:17.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "87ud4e",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Idaho Strategic Resources (IDR) Posts Record 2025 Results as Gold Output and Reserves Grow",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/idaho-strategic-resources-idr-posts-191515421.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/3544cba9941aaa70b28beb64ebadbe78",
+    "published_at": "2026-03-31T19:15:15.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ysw4jo",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why TMC the metals company (TMC) Is Tying Its Deep-Sea Minerals Push to a U.S. Processing Hub",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/why-tmc-metals-company-tmc-191514812.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/6b541d44abf4ce763efab292cef0cf2b",
+    "published_at": "2026-03-31T19:15:14.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "cb84h4",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why New Found Gold (NFGC) Still Has Bullish Backing Despite a Lower Roth MKM Target",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/why-found-gold-nfgc-still-191511258.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/6f206bd587d8e5fef5ec92ee2759dd39",
+    "published_at": "2026-03-31T19:15:11.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "w395j0",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Why Northern Dynasty Minerals (NAK) Is Still Fighting the EPA Over Pebble",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/why-northern-dynasty-minerals-nak-191509867.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/aed0370395682a923072a38b69708110",
+    "published_at": "2026-03-31T19:15:09.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2lmby3",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Is GameStop Buying Best Buy? And If So, Does That Make GME Stock a Buy?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/gamestop-buying-best-buy-does-190800634.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/afb30d08729487f50195a256a88c5de6",
+    "published_at": "2026-03-31T19:08:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "dwzo16",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Gold Finishes Quarter Positive Despite March Decline",
+    "summary": "",
+    "url": "https://www.barrons.com/livecoverage/stock-market-news-today-033126/card/gold-finishes-quarter-positive-despite-march-decline-6vs4egLXwYtdNdZyexUr?siteid=yhoof2&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/Barrons.com/12ea0f43d8f8307249a68d1cb2e0587e",
+    "published_at": "2026-03-31T19:01:37.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "kyb2po",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "XRP has a lot going for it. So why is it still trading 60% below its all-time high?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/xrp-lot-going-why-still-190010175.html",
+    "image_url": "https://media.zenfs.com/en/dlnews_702/962881cc28bd6cfe5ef691d6dbd9a8d4",
+    "published_at": "2026-03-31T19:00:10.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "mo7p3k",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Eastman Chemical Stock Scores Relative Strength Rating Upgrade",
+    "summary": "",
+    "url": "https://www.investors.com/news/eastman-chemical-stock-scores-relative-strength-rating-upgrade/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/c0cfcba9d362bfd8713ce3997b701f20",
+    "published_at": "2026-03-31T18:51:59.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "n1aely",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "DP World expands eastern Canada reach",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/articles/dp-world-expands-eastern-canada-185108633.html",
+    "image_url": "https://media.zenfs.com/en/freightwaves_373/ba663f319dfdf31a92531fad648b79c7",
+    "published_at": "2026-03-31T18:51:08.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "f38jtm",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "A ‘Golden’ Way to Trade the Volatility in Gold Prices for Low Risk, High Reward",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/golden-way-trade-volatility-gold-185011879.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/1f0f9b85e0b4f302a0b95940fd48125f",
+    "published_at": "2026-03-31T18:50:11.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "f1a3wn",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "ICL Group Ltd (ICL) Doubling Down on India’s Fertilizer Market",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/icl-group-ltd-icl-doubling-184934046.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/fb17a7f0f25a8e77a0ebc3d4b944221b",
+    "published_at": "2026-03-31T18:49:34.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "y3kfxw",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Intrepid Potash Inc (IPI) Benefits from Strong Fertilizer Demand and Good Prices",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/intrepid-potash-inc-ipi-benefits-184932583.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/0333802877cea8a948937f01e98bfc39",
+    "published_at": "2026-03-31T18:49:32.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "9ucp1g",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Sociedad Quimica y Minera (SQM) Seeks to Raise Dividend to 50% of Net Income from 30%",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/sociedad-quimica-y-minera-sqm-184931422.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/fdc8d42646b882a1b0f0fbf458cf42c5",
+    "published_at": "2026-03-31T18:49:31.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "qnyx2x",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "BHP Group Ltd (BHP) Developing Massive Potash Project Amid Supportive Environment",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/bhp-group-ltd-bhp-developing-184929188.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/489bcabc959238bf4d2ddb7f798da2c6",
+    "published_at": "2026-03-31T18:49:29.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "jev9g9",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Nutrien Ltd (NTR) Doubling Down on Share BuyBack Amid Improving Earnings Outlook",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/nutrien-ltd-ntr-doubling-down-184928812.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/4a8ed9a9a8556186c51a3b752464e5dc",
+    "published_at": "2026-03-31T18:49:28.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ib4jve",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Rio Tinto PLC ADR (RIO) Secures Land and Financing for Vital Projects",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/rio-tinto-plc-adr-rio-184926512.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/aed0370395682a923072a38b69708110",
+    "published_at": "2026-03-31T18:49:26.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "buhkkp",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Archer-Daniels-Midland Co (ADM) Strengthens Its Board As It Bolsters Its South American Operations",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/archer-daniels-midland-co-adm-184925013.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/ff5e5257cb8700b7b90913b57bcd2703",
+    "published_at": "2026-03-31T18:49:25.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2s5ydm",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Can Mosaic (MOS) Overcome Potash Oversupply Risks?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/mosaic-mos-overcome-potash-oversupply-184923319.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/4c21f37fc4965daa45953d5a370b243a",
+    "published_at": "2026-03-31T18:49:23.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "crxush",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Dow Jones Drug Giant Merck, Costco Approach New Buy Points",
+    "summary": "",
+    "url": "https://www.investors.com/stock-lists/stocks-near-a-buy-zone/dow-jones-merck-stock-mrk-costco-cost-stock/?src=A00220&yptr=yahoo",
+    "image_url": "https://media.zenfs.com/en/ibd.com/f65b6af95194f103ecd03391cd44e98a",
+    "published_at": "2026-03-31T18:42:59.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "uemuyg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Canada’s Bitfarms To Sell $123 Million Of Bitcoin Amid Crypto Exit",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/canada-bitfarms-sell-123-million-183300644.html",
+    "image_url": "https://media.zenfs.com/en/cryptoprowl_304/2e08bf240e7e507300ac58ba6c001920",
+    "published_at": "2026-03-31T18:33:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "lcn287",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Higher Sugar Production in Brazil Weighs on Sugar Prices",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/commodities/articles/higher-sugar-production-brazil-weighs-183259511.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/140fecc4996454294fb26238e779cbae",
+    "published_at": "2026-03-31T18:32:59.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "fogvku",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "At 61, I was counting on a $15,000 bonus that never came — should I stay and fight my review, or quit and retire?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/articles/61-counting-15-000-bonus-183000033.html",
+    "image_url": "https://media.zenfs.com/en/moneywise_327/8ecb1dfc9822e5d012ea806f7082f521",
+    "published_at": "2026-03-31T18:30:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "z7ep11",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Bank of America Is Betting That Billionaires Could Help Take TripAdvisor Stock 50% Higher",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/bank-america-betting-billionaires-could-182848044.html",
+    "image_url": "https://media.zenfs.com/en/barchart_com_477/64b4461bdc80795d2d99d82f5b2da99a",
+    "published_at": "2026-03-31T18:28:48.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "sp5kda",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "U.S. Energy Corp (USEG) Announces Final Investment Decision (FID) on Montana Facility",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/u-energy-corp-useg-announces-182729514.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/832dcbf71489c1999587b44f83085969",
+    "published_at": "2026-03-31T18:27:29.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "aqqu8t",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Empire Petroleum (EP) To Participate in Louisiana Oil and Gas Development Program",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/empire-petroleum-ep-participate-louisiana-182639304.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/1ea3c5aefe4df3f34e5b2506810adc02",
+    "published_at": "2026-03-31T18:26:39.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "3feekx",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Permianville Royalty Trust (PVL) Reports FY 2025 Results",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/permianville-royalty-trust-pvl-reports-182628044.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/e039683381557007aa0dc5559bcd9aac",
+    "published_at": "2026-03-31T18:26:28.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "kzgw3n",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Martin Midstream Partners (MMLP) Price Target Trimmed to $3",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/martin-midstream-partners-mmlp-price-182556821.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/266da5880c0e679d3611df6c50fcd082",
+    "published_at": "2026-03-31T18:25:56.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "goghbh",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "OMS Energy Technologies (OMSE) Receives $11 Million Call-off Order from Saudi Aramco",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/oms-energy-technologies-omse-receives-182544167.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/e377665eaec05997949e7b443ae06a8a",
+    "published_at": "2026-03-31T18:25:44.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "axvz3",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "KLX Energy Services Holdings (KLXE) Misses Earnings Estimates in Q4 202",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/klx-energy-services-holdings-klxe-182526611.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/311e7140e140ac450c57aadfd2eaaa58",
+    "published_at": "2026-03-31T18:25:26.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "kor8sc",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "GameStop Revenue Is Down. Should Investors Consider Buying the Famous Meme Stock on the Dip?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/gamestop-revenue-down-investors-consider-182500045.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/2432d05c3060a65c521d5beb5e17288a",
+    "published_at": "2026-03-31T18:25:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "ou60fe",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "W&T Offshore (WTI) Falls Behind Expectations in Q4 2025",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/w-t-offshore-wti-falls-182448923.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/5d97a53f16f1aea0bd9ad2bfae35e924",
+    "published_at": "2026-03-31T18:24:48.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "wyndxc",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Kosmos Energy (KOS) – Among the Best Oil and Gas Penny Stocks to Buy Now",
+    "summary": "",
+    "url": "https://finance.yahoo.com/sectors/energy/articles/kosmos-energy-kos-among-best-182437307.html",
+    "image_url": "https://media.zenfs.com/en/insidermonkey.com/311e7140e140ac450c57aadfd2eaaa58",
+    "published_at": "2026-03-31T18:24:37.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "2oxxdg",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "At the age of 50, I want to retire by 60 and want to start moving out of stocks. Is this a good idea?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/options/articles/age-50-want-retire-60-182430593.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/d6056a13862d2da4f2ef43ac9247a066",
+    "published_at": "2026-03-31T18:24:30.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "7qc1m3",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Hiring just hit a level not seen since the economy was ‘closed down literally’ during COVID, top economist says",
+    "summary": "",
+    "url": "https://finance.yahoo.com/economy/articles/hiring-just-hit-level-not-182243734.html",
+    "image_url": "https://media.zenfs.com/en/fortune_175/c711a3640c4eca1a9658c4b3a2add977",
+    "published_at": "2026-03-31T18:22:43.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "fw9ham",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Prediction: This Will Be Alphabet's Stock Price in 5 Years",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/prediction-alphabets-stock-price-5-182200764.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/904761dffb0b006ecce50209f7d4f456",
+    "published_at": "2026-03-31T18:22:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "k5qdis",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Up 17% in 1 Day, Is the Bittensor (TAO) Cryptocurrency a Buy Right Now?",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/crypto/articles/17-1-day-bittensor-tao-182000951.html",
+    "image_url": "https://media.zenfs.com/en/motleyfool.com/65f600d9ebf9bc011bc2012da7eb6502",
+    "published_at": "2026-03-31T18:20:00.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "bywh19",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Alphabet Climbs 5%: Google’s Nine-Minute Bitcoin Warning Is Turning Heads on Wall Street",
+    "summary": "",
+    "url": "https://finance.yahoo.com/markets/stocks/articles/alphabet-climbs-5-google-nine-181751077.html",
+    "image_url": "https://media.zenfs.com/en/24_7_wall_st__718/151846c410be11192db740f9c64f6679",
+    "published_at": "2026-03-31T18:17:51.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
     "initiative_ids": [
       "USG"
     ]
@@ -2838,6 +6085,36 @@
     ]
   },
   {
+    "feed_id": "nbit84",
+    "source": "Retail Banker International",
+    "source_id": "retail-banker-international-rss",
+    "title": "From volume to value: Rethinking complaint handling in UK banking",
+    "summary": "João Pedro Almeida explains why rising complaint volumes are only a symptom of deeper operational inefficiencies and how legacy complaint handling models are failing both customers and regulators",
+    "url": "https://www.retailbankerinternational.com/comment/rethinking-complaint-handling-uk-banking/",
+    "image_url": "",
+    "published_at": "2026-03-31T12:19:17.000Z",
+    "tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution. Buyer anchor: FMF-NG, NSIA, IFC, WORLDBANK.",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ]
+  },
+  {
     "feed_id": "jfvabt",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -3055,6 +6332,33 @@
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
+    ]
+  },
+  {
+    "feed_id": "dph1ni",
+    "source": "Google News — Alpha Wave Strategic Capital",
+    "source_id": "google-news-alpha-wave-strategic-capital",
+    "title": "Bharti Airtel Secures $1 Billion for AI Data Center Biz Amid Stock Losses - CryptoRank",
+    "summary": "Bharti Airtel Secures $1 Billion for AI Data Center Biz Amid Stock Losses CryptoRank",
+    "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPMnpMem5Zdm1OYkxFb2lvRC1sUU5QdWZuSHBmdG5PM3FEck9ibkhfMnBCNUotSnMtVG9zOG82MEdfQTFHWkFFRjNQSlM5VDNOLXhJS0NHQzlmeVNyM0ZTZ1djeENiSWRPMmZhWW5Ec2dQSUdIZWtXc3ZvekhCTU5ZeW9Cak9idFFKUmhJcktQZjhDWTVvbnFlZG90MEZveDBIVzJSNFY1c0VERUlueVpJ?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-03-31T12:06:48.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "alpha-wave",
+      "strategic-capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Alpha Wave leadership/capital posture signals mapped to initiative-level buyer conversion opportunities. Buyer anchor: ALPHA_WAVE.",
+    "buyer_ids": [
+      "ALPHA_WAVE"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
     ]
   },
   {
@@ -3679,6 +6983,36 @@
     ]
   },
   {
+    "feed_id": "jqv1wt",
+    "source": "Retail Banker International",
+    "source_id": "retail-banker-international-rss",
+    "title": "Industry’s spotlight on financial crime’s hidden networks",
+    "summary": "Michael Down sets out the benefits of graph data models and argues they have become imperative for banks that want to protect themselves against fraud",
+    "url": "https://www.retailbankerinternational.com/comment/industrys-spotlight-on-financial-crime-hidden-networks/",
+    "image_url": "",
+    "published_at": "2026-03-31T11:32:47.000Z",
+    "tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution. Buyer anchor: FMF-NG, NSIA, IFC, WORLDBANK.",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ]
+  },
+  {
     "feed_id": "fbo4sz",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -3769,6 +7103,36 @@
     ],
     "initiative_ids": [
       "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "3l0n7v",
+    "source": "Retail Banker International",
+    "source_id": "retail-banker-international-rss",
+    "title": "Ex-HDFC chair cites values and ethics concerns as drivers behind exit",
+    "summary": "In an interview with CNBC-TV18, Chakraborty singled out the AT-1 bond episode as a notable concern.",
+    "url": "https://www.retailbankerinternational.com/news/ex-hdfc-chair-cites-ethics-concerns-exit/",
+    "image_url": "",
+    "published_at": "2026-03-31T11:11:31.000Z",
+    "tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution. Buyer anchor: FMF-NG, NSIA, IFC, WORLDBANK.",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
     ]
   },
   {
@@ -3906,6 +7270,33 @@
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
+    ]
+  },
+  {
+    "feed_id": "ct7zap",
+    "source": "Google News — Alpha Wave Strategic Capital",
+    "source_id": "google-news-alpha-wave-strategic-capital",
+    "title": "Bharti Airtel Raises $1B for AI Data Centers Amid Stock Dip - Coinpaper",
+    "summary": "Bharti Airtel Raises $1B for AI Data Centers Amid Stock Dip Coinpaper",
+    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQWFdzYnlpVlc5Y0ZObk01NnNncmlyS2lGMXFhUW1Qb3I4RUI1MUo5TXREVnZTWG92c0lGNzU5QjVxMkFpbDQtMzREMXV0S1NSblZMYW5XOGxfVnFTQmtuRndDSE1xVjJISHczNUpzQ2FUb0puOVNEWWg2cHJYVmRuVDRseUFkQUZEbV9oYVdsaHd3SVdiMTFXZjc2REw4eVRlaEE?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-03-31T10:29:15.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "alpha-wave",
+      "strategic-capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Alpha Wave leadership/capital posture signals mapped to initiative-level buyer conversion opportunities. Buyer anchor: ALPHA_WAVE.",
+    "buyer_ids": [
+      "ALPHA_WAVE"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
     ]
   },
   {
@@ -5994,6 +9385,33 @@
     ]
   },
   {
+    "feed_id": "quqord",
+    "source": "Google News — Alpha Wave Strategic Capital",
+    "source_id": "google-news-alpha-wave-strategic-capital",
+    "title": "Nxtra Data Secures $1 Billion to Fuel AI Data Center Expansion - Devdiscourse",
+    "summary": "Nxtra Data Secures $1 Billion to Fuel AI Data Center Expansion Devdiscourse",
+    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQTUxKUzVLSTlfYU1GN2x4cjdodmtoMkZfYWFvRHMyaEZfWUpHRjR0dmVlOWxqb3pldllGX0U4SWZ2T0RSV2hEUEFsUklFVUN1ZzJXWXowN0p4Q0tpV2VDR2xJMl9FSXZJcHJwVjFJUlRaVklLdnJXLTdkanBsdXAyYTh5RG5lNzh2X1FXZFRLb1NEc2VVemdvWURqb0RYLVl3MmFSZUFkWDVpN3pERENtOTVDdjVYY2R10gG-AUFVX3lxTFBZSXVGb3hmTjNiQ2xlNDhiZzBsdGtIdGZNMF9naEMybmZ4cEFFSTZralZOVDc5OEQxd1RrVHdhZ3BhTzNmY1NLYU1BMU5PMHhHd3Z0a1UxZjEyYnZ6M21INzBHTUwxeFVqeDB4bzlMcTNvYTdZS2V6dEh6NUV5RHZ4TXVOekJqdWtKX1F0MG5fay1XcURWMllUbDBJaFNqbEUxMTc3d1VIQWVpbUZtUHlzQTZuWWVZRTZHdFFsNHc?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-03-30T17:04:33.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "alpha-wave",
+      "strategic-capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Alpha Wave leadership/capital posture signals mapped to initiative-level buyer conversion opportunities. Buyer anchor: ALPHA_WAVE.",
+    "buyer_ids": [
+      "ALPHA_WAVE"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
     "feed_id": "2v58lg",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -7176,6 +10594,29 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "r6svjj",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Bitcoin and ethereum price today, Thursday, April 2, 2026: Prices lose ground after Trump promises quick, fierce end to war",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-price-today-thursday-april-2-2026-prices-lose-ground-after-trump-promises-quick-fierce-end-to-war-120045450.html",
+    "image_url": "https://s.yimg.com/uu/api/res/1.2/R4fhNy.vnr_QIatr9RUOpQ--~B/aD00MDU7dz02MTI7YXBwaWQ9eXRhY2h5b24-/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/ethereum_%20_bitcoin_2_2928.jpg",
+    "published_at": "2026-03-30T12:00:45.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
     "initiative_ids": [
       "USG"
     ]
@@ -30184,12 +33625,62 @@
     ]
   },
   {
+    "feed_id": "8jbitl",
+    "source": "Yahoo Finance News",
+    "source_id": "yahoo-finance-rss",
+    "title": "Gas tops $4 and diesel is over $5. How an extended war with Iran could push prices higher.",
+    "summary": "",
+    "url": "https://finance.yahoo.com/personal-finance/banking/article/gas-tops-4-and-diesel-is-over-5-how-an-extended-war-with-iran-could-push-prices-higher-225053638.html",
+    "image_url": "https://s.yimg.com/os/creatr-uploaded-images/2025-12/22e11390-cf73-11f0-abbb-721de7d15ef6",
+    "published_at": "2026-03-02T22:50:53.000Z",
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "rls717",
     "source": "Google News — GIP Infrastructure Leadership",
     "source_id": "google-news-gip-infrastructure-leadership",
     "title": "Consortium Led by Global Infrastructure Partners and EQT Agrees to Acquire AES - Yahoo Finance",
     "summary": "Consortium Led by Global Infrastructure Partners and EQT Agrees to Acquire AES Yahoo Finance",
     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQOHhRdDMzUGltM296RHprOVdoZFJobU9QNkxYNkk4S1BwbDY4cTB4Mjk0WFZvRVprQ1NCU3FBanhJRWo1SlFtSTl3UGpvS0ZNTmJXVDhhYXVwWXk3d0k1b2ZYVmgzTF9GSVd6Ty1UUHByLXo2X19GOTJLRnN6aHc4QUV5SWdrdEd4a01jTzd6X0JyMXBfYlE?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-03-02T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "kb378q",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "Consortium Led by Global Infrastructure Partners and EQT Agrees to Acquire AES - PR Newswire",
+    "summary": "Consortium Led by Global Infrastructure Partners and EQT Agrees to Acquire AES PR Newswire",
+    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNcEJBYWNqS1lON3dtLThPOGkxbkxBcFpsU2ZZc1o0TjFVbm5ibWxvazFjeFBJVlJIaDBJWEEtMTVZRmFSTjQ4Y1J1N1lIbW5KWnV6Y1FzSkl3eXFRYXRZVF9Ea2h0U3NsRXVhUjRzUE9nbnhFUG5lUG1iX1JXcGk1Wk5jam9LVThtZXBwcVRvNWlxSmxCSXRRRTB5MTJCUlBpYXo4dWlvNkhkelRKdndZUVZpUWExbnllRkdmd0JkM0tsN0huQUFrSEFMeFJXS1k?oc=5&hl=en-US&gl=US&ceid=US:en",
     "image_url": "",
     "published_at": "2026-03-02T08:00:00.000Z",
     "tags": [
@@ -30812,6 +34303,30 @@
     ]
   },
   {
+    "feed_id": "irsw2c",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "CCTV Installation Will Reduce Crime, Boost Policing – I-G Egbetokun - The Whistler Newspaper",
+    "summary": "CCTV Installation Will Reduce Crime, Boost Policing – I-G Egbetokun The Whistler Newspaper",
+    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQNjR2OVQtNV9TNGJEcmtraC1RWTVMbjdYX3hwbXQ2OWNoVmpxdDlYTDVfN1h4VExCZnNtdzl2b2FvNmVnbEZLX2RNcGI4bVNuMGR0NWI1R3NEay1fS3hzdjlXdWxnc1dwNEMwQjdWNFFBS3BGcUJ0THJUbkpWRzIzN2FvSFlJVWFWWVgxSVVrM0J3Zw?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-02-02T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "5xu998",
     "source": "Google News — Nigeria Digital Policing",
     "source_id": "google-news-nigeria-policing-digital",
@@ -30904,6 +34419,33 @@
     ]
   },
   {
+    "feed_id": "9otbf9",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "Azerbaijan signs strategic investment agreements with Brookfield, BlackRock and GIP at Davos - Horizon Weekly",
+    "summary": "Azerbaijan signs strategic investment agreements with Brookfield, BlackRock and GIP at Davos Horizon Weekly",
+    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZ3cyMG0zWVR6ZDBjZFV0TGZZOFpSZm15RXlmcHlqdXFiMTVtbm15TjlhcHpad2lzN3VWa0NsMV9aT0Zjc012VXY0ZjNtTEM5Mld5YmlwaDJLODdkdXBRM1FfWGxTTnZrLW03X0ljQnVrTnJjWHM0YmgxYnd1N0ZaRVJTTUVoZmNVVXRYTlFWMWhCUE9NdjRJdFo2RjhJeVBiUDdIM0JIRjlmRnhHZ3dhT2V5OU5RZFNWNXBMaQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-01-23T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
     "feed_id": "17c8f4",
     "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
@@ -30922,6 +34464,30 @@
     "confidence": "Low",
     "signal_class": "Context Signal",
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
+    "feed_id": "mqo7ez",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "Ogun Police Command, Honours Ogunlowo with the Award for Innovation in Public Safety and Security Infrastructure - THISDAYLIVE",
+    "summary": "Ogun Police Command, Honours Ogunlowo with the Award for Innovation in Public Safety and Security Infrastructure THISDAYLIVE",
+    "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNVUtkOUxmclpSSHBUbGdVTVZCMnJOeWxueEI4bGdvTnRTUElSSGRrU0ZHblJOUDlkTzFJT3Q1a2pxSzNMd0FoY01lV2ozZ1R0anlHTk1xMU1aWklGaXNER3hwRV91RHhzYlJkZnFhMVVtXzlUZ3ppOWR1dVJQdzgwd1lKeXBNMDZxX2lILU5oeUVVXzA3ZE1KSEZzYzFhbDkyZjlpQU04UThMUVl2SmRrS2hwZEdOT3ZxWjY3SVhFQjBzdk5qcnNjX2tYUk90MnBRRmp5OVZzY2RqRzFQV3AyVUg2OFYzZw?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-01-22T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Directly relevant to USG initiative structuring and execution conditions.",
+    "buyer_ids": [],
     "initiative_ids": [
       "USG"
     ]
@@ -30947,6 +34513,33 @@
     "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
     "initiative_ids": [
       "USG"
+    ]
+  },
+  {
+    "feed_id": "ijmbtf",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "President Ilham Aliyev meets with CEO of BlackRock, and Founding Partner, Chairman and CEO of Global Infrastructure Partners in Davos (PHOTO/VIDEO) - Trend News Agency",
+    "summary": "President Ilham Aliyev meets with CEO of BlackRock, and Founding Partner, Chairman and CEO of Global Infrastructure Partners in Davos (PHOTO/VIDEO) Trend News Agency",
+    "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE14djRuR0R1dVFQanMySkVPdkQzUkZocWh2SXpCZVVicXNCOHFiU0VMNlh1UjJsVGpUQXlVQjl4bTFOODJVb3BRSURQNnVHZGo1dGhTejVhc1VQaU8yeWJjWkxKWQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2026-01-20T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
     ]
   },
   {
@@ -31330,6 +34923,33 @@
     ]
   },
   {
+    "feed_id": "mtre0f",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "Aboitiz and Blackrock-backed GIP formalize deal - Aboitiz Eyes",
+    "summary": "Aboitiz and Blackrock-backed GIP formalize deal Aboitiz Eyes",
+    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNTW1ZaGt2U1ZMQWJiTTNGQ0dRc0RiZDFweW5LNjRuMnE4b3JGTUNxWjE2bklwX2luYTlMS0lvOV9qVUNjTW11VzN0dzZxX1IyNWc1dkRORlpmSlR6ZWNfYXAxRVphZ1QtMjQ2NGxVeDlPWF9zQmczQ1YwQWprSmd5TUc5c0FvbXBjbmljczVMZmR5UnEzeHhRajd5d1RUWXk4NHZEM2xBZEZPdTVJS0ZPMHJB?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-12-26T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
     "feed_id": "g4ihx8",
     "source": "Google News — Nigeria Digital Policing",
     "source_id": "google-news-nigeria-policing-digital",
@@ -31388,6 +35008,33 @@
     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOZUhlMkNlTU8wNzBvX05sRW1WOVVvLVpFMzR6WloxY0dLQTZPc1p4RE1rd2pzNkRpZFdaVzZVb2tjNUxpa0FxRXpXT2VIdklwd3FNQ3JBRWVsVDNwTWFqMnVCU0puQjQ1b3BWZ1hSV0stakVOMWFIM2hIeVY1VFdXM3dLNXpxTnBkcFdvV1VFeXg2a0pNVXNEUFJFV29kQzlFNFZoWEhmMVl2RjJKSVc1X254Q3hlX054cWxFQ01aRngtdnVwRmJnRQ?oc=5&hl=en-US&gl=US&ceid=US:en",
     "image_url": "",
     "published_at": "2025-12-23T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "hxog6p",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "Eni and BlackRock's Global Infrastructure Partners Finalize CCS Deal - TradingView",
+    "summary": "Eni and BlackRock's Global Infrastructure Partners Finalize CCS Deal TradingView",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQNnNyRVhZelBNTEozWVBLYnNXZUNLbnVSLVQ5WWxrTnNvX0RBbFE2QmNlRlBGbFpDY2pvenhsdXBhaGNXYThQb1NIX0p2SEFjRWpnSFFVQUw3LVJRMUpsZXlSbVpvNi1VOE81TVlpeGhIR3V2MU1BanZwcElpUWFIb3RJbVlyY0w4SkplMVZzcndUdUlQSTRXQ3Q2LUJ2X0U0RDFoZnp2Q2VDTl80a081dndRcjdjbFhJUTJaM3JIVVprdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-12-22T08:00:00.000Z",
     "tags": [
       "google-news",
       "buyer-leadership",
@@ -31718,6 +35365,33 @@
     ]
   },
   {
+    "feed_id": "7m3rgs",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "ALLETE Announces Completion of Acquisition by CPP Investments and Global Infrastructure Partners - Yahoo Finance",
+    "summary": "ALLETE Announces Completion of Acquisition by CPP Investments and Global Infrastructure Partners Yahoo Finance",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQYW5DT20xN0FRQ0FlSEk2czJ1YTJXSkgyR3hOMXUtZHlHMF8tbmxaT3FkZ09YVzBTTjlIMHdQa2Naa2VlOEsxbmx5MTEwM3ZzbElYUW5Fc0NLVFZ5UGtDck5oZmd5ODM2YThkajY2aHBONU1vNFEtenJURm9JT0Z4VGRnQVo3OHhNTlZENG5NcEFCaUU?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-12-15T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
     "feed_id": "o8e8t7",
     "source": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
@@ -31812,6 +35486,33 @@
     "why_it_matters": "General Atlantic leadership and market view signals for growth-capital alignment to initiative operating layers. Buyer anchor: GENERAL_ATLANTIC.",
     "buyer_ids": [
       "GENERAL_ATLANTIC"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "c0hj42",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "BHP Infrastructure Deal with Global Partners - Discovery Alert",
+    "summary": "BHP Infrastructure Deal with Global Partners Discovery Alert",
+    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZ1RLb0FYZ3gzUEVRSHJWT0hLYVAxZUR2UUNSYXhSalJQQmxhNkZXMjVvQWZPeTVWY2NpaTVQTmJpZDZ0SHNYUUNWYUtzcXkta2ZHNTh6SUV0Mnl6dk50QTFrNUlScDBNdWhyVFdXWERTSWctYnpPeE1xWENDWm1YUzRjUUg1ZS1H?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-12-10T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
     ],
     "initiative_ids": [
       "INIT-2026-03-ANGOLA-AI-CORRIDOR"
@@ -31943,6 +35644,60 @@
     "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
     "buyer_ids": [
       "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "luc4p9",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "BHP BlackRock WAIO Partnership: $2B Infrastructure Deal - Discovery Alert",
+    "summary": "BHP BlackRock WAIO Partnership: $2B Infrastructure Deal Discovery Alert",
+    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9wM3ZKMFZYUldMVzFYVjNPSkl3ck1EcjV6SEdlQ2tPRk1yRnNaY0xKU2lPclJBNk1PdUJqa3IwaDc5TTFlVlE5amRCVXV5UWg3YnNRd3E5WXN3OFRmSFFtSnpNSU9KMFFFUFZnR2FKU3NLNjVJU3c3Skw1UGY?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-12-09T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "yucddm",
+    "source": "Google News — Stonepeak Infrastructure Leadership",
+    "source_id": "google-news-stonepeak-infrastructure-leadership",
+    "title": "Stonepeak’s Infrastructure Debt Note Begins Trading on the ASX - Business Wire",
+    "summary": "Stonepeak’s Infrastructure Debt Note Begins Trading on the ASX Business Wire",
+    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOMEphTkJETWY3RVFmdk1QUTFyanQ2czQ5TElWUTRVN3VBc1NVWllVTjBjYlVyRGJfMU9IYXZhMWZtOGhLNHp2WGFKRl9RclpnUDdXM0w1Sk1OejJ4MVFTLVkxS0k5aWU0dXpua2p6NzdMa2NIYTJiTDE1WVVSelROSDJBUG5JQTY3alBFWUNfUldPT0tOXy05S0VvWmhVMl9NU1lRbWNMTVBCNHhxbHRwdDFraEVVX3d6YkE?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-12-09T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "stonepeak",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Stonepeak leadership and strategy signals for infrastructure deployment appetite and structuring relevance. Buyer anchor: STONEPEAK.",
+    "buyer_ids": [
+      "STONEPEAK"
     ],
     "initiative_ids": [
       "INIT-2026-03-ANGOLA-AI-CORRIDOR"
@@ -32347,6 +36102,33 @@
     ]
   },
   {
+    "feed_id": "5vrwgj",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "Brookfield Launches $100B AI Infrastructure Strategy With Nvidia, KIA - Mingtiandi",
+    "summary": "Brookfield Launches $100B AI Infrastructure Strategy With Nvidia, KIA Mingtiandi",
+    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPRktBdzZWeXpkblRnd1h1S2ctTEhDWmdMUko2b2pWcnVoZ0hxdTAtVnVJMlNadjdGVlU4QTlZNS1yWXVsOG05TnVhR3c2UEJFLVFHOFVnT21acEJKejlIWHFqUm1QOFR3RXRwaVB6ZTBDRmxlODdNbVlXV3FWaEhZMHdPVy02Z196cVZQd3RrWDlEYlVYLVRwYWdxWmZLWjdjaUtYdVlsYW5sMnk3Ym5VOWdwMXBGNzhZVXllMg?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-11-20T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
     "feed_id": "s983ln",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -32618,6 +36400,60 @@
     ]
   },
   {
+    "feed_id": "wk89u0",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "Dukhan Bank signs 'exclusive agreement' with GIP to provide Shariah-compliant strategic products, solutions| Gulf Times - Gulf Times",
+    "summary": "Dukhan Bank signs 'exclusive agreement' with GIP to provide Shariah-compliant strategic products, solutions| Gulf Times Gulf Times",
+    "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPLU5STTJMWUN0UVJjTEpqMWxPT1hZTjZNRGZSSnlOQThWM3dCSWN5bnBXSVp3czRDeERtZ0xkd0lPTzZYakM1dGFoQlVrNjhrRkZ4TUJRdDFSRWZscTNiSVRVS05DZHd1c3ZuZUdmVkc0X25iUlJQbE9xWHlBQURNX3haa291cE1kOTlZWmdBVThWV00zREhDN1d3NFEwS050WHd6R1ZqWElHSmNScDFFcFpCd0JHaGt4cEU4Q251b3poVjk0V2xJaU5SY0hxRnpBU2gzcFE0X0NhUENMRDdkT2xNdGhhZHFWUTQ00gHwAUFVX3lxTE1zLWlEa0FicFg2RjlNN0pTVXpyZ0pXbEpkaktWaV9oa1V4NjNWVzVMUEc5LXNVS1FXQV9ZSzFHazRUMk5IaWlVSzdaRTg1NEhsZ1k4QTJLVHBRU2t3alVXTWw1RE92SnV3WGJuVTFtbXZJcFR6UWdVT1JlUVIxejQzc2dKRUtGaFd3bTZUYUFXZnFKQ2Jfalh5YTZtQXpBZWdrNkVsOHBsZTZkaHkxQXdEQmtvNGp4Sjk0Tm1QSzhQZTYyV1pCX1N6UTl6THE1ZzJSajdKVmVBYWxUMmlFeWFXbm1tVTVNblZGUWxUWWJybw?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-11-09T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "407aiu",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "Dukhan Bank signs an exclusive agreement with Global Infrastructure Partners, a part of BlackRock - zawya.com",
+    "summary": "Dukhan Bank signs an exclusive agreement with Global Infrastructure Partners, a part of BlackRock zawya.com",
+    "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQY0s2UXNYalJ5ajNZa05Nc01DQTV3QWNlejVCaWlTSFJKZHFHcTctaWRXN1pQSE80RUpDZjk0MkkzV0ZTX0ZySktVb1NSNW1mNGFzZGRKeTg2MGFEaVhaWHdCY243ZXZ0RVNrRFFycVoyWXZWVDkxdFkxekQtU1prbGh2bGRsQXc5eDFZbkxQTWZqZUwwWHN6Wi1Nb2Y5b0tKZFJmMWk0b0U4UzV4WVh6X3JudWdjZ1ktZGZmQnhwTFV0a2xIbG1SSGxsR3hGNVpfN1V5RFJYVmlwZUpTdHQ2TUpyS0R4VnlTSmpWWlJValM?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-11-09T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
     "feed_id": "mq1l7q",
     "source": "Google News — Nigeria Digital Policing",
     "source_id": "google-news-nigeria-policing-digital",
@@ -32764,6 +36600,30 @@
     ]
   },
   {
+    "feed_id": "dmv19x",
+    "source": "Google News — Nigeria Digital Policing",
+    "source_id": "google-news-nigeria-policing-digital",
+    "title": "A’Ibom: Police bust militant syndicate, gun factory - Vanguard News",
+    "summary": "A’Ibom: Police bust militant syndicate, gun factory Vanguard News",
+    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOOGN3V0FGOWJ2TzYwcFJMQlBPVUZ0R2lLblMzX1U4bUxqTWFnWW54dERwdTBnb1REMXlmV2c3TlJwUWxhcEJhc3d3aWZHMlpPano5MHVKUjVTY0xFRGpPMGluRm1TbzdvcC1FRjMzemVkMkJhT3B6WEJkcUpZdndvSmJDYU9OXzFOT19hOFlB0gGTAUFVX3lxTE8xanZYMFg3TnNycUlQNDJLYW5CcC0tdkpObWJ2WHdXZGZXdExUOEFwX1ZJaVY5LWdrX3Y0a21yRjE0eHlwWi1QNWVkaWdaWlZZS3R2YzFHRTNKMkNFaDEtVzZWaVUwY1lPR0FqUDlGZnhyN28tTzZEc1ppN2lMcUdmOHFiVTlVckMtbWptTVlkcnhMNA?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-11-04T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "nigeria",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "3yafda",
     "source": "Yahoo Finance News",
     "source_id": "yahoo-finance-rss",
@@ -32783,6 +36643,33 @@
     "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
     "initiative_ids": [
       "USG"
+    ]
+  },
+  {
+    "feed_id": "dztw0i",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "Apollo expands digital infrastructure portfolio with SDC majority stake - Alternatives Watch",
+    "summary": "Apollo expands digital infrastructure portfolio with SDC majority stake Alternatives Watch",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNX1F2d1JBZlAxcXJrc2FxZ2U2Y2lJWEVlSDdBRGxETkZIVEhpV1dEcXlHWUViUjN2amRtYVNteTdQMU0wTVU2ZU9nNGllR3ZPV0dNbWV6LUNDaHR5T2ZTaW1JU1NpaWxQTWFQX0xlNHZCT1FJcm85YUJmdzMxXzF0WXVQTGg4ekhxODhxQ2dXaG5MaFdkaDRTNlBRd0E3U1QtYjItUzR4QlQ1b2dWMHVMRXdsNnQ2aGJRY0pzRnprYzlXdw?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-11-03T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
     ]
   },
   {
@@ -32917,6 +36804,33 @@
     ]
   },
   {
+    "feed_id": "getydp",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "ALLETE, Inc. Awaits Written Order to Complete Sale to Partners Canada Pension Plan Investment Board and Global Infrastructure Partners; Reports Third Quarter 2025 Earnings - Yahoo Finance",
+    "summary": "ALLETE, Inc. Awaits Written Order to Complete Sale to Partners Canada Pension Plan Investment Board and Global Infrastructure Partners; Reports Third Quarter 2025 Earnings Yahoo Finance",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNT3RhRHl3NmYxNTNvMmVJWWFOak15aGhRMUUwMDlFcU85TFAwOHlrbE1LWGZxQ3ctQTdwSmZVRjcxM2NLOW9uaXk2c3hEd01UMDhrNWVaVndLS2RBcTZhdXl3YUk2MDRaQTZWbmtCc3cybEQyR29tTUNnV0lCbkNMV01hRQ?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-10-31T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
     "feed_id": "y3vnl4",
     "source": "Google News — General Atlantic Infra/Tech Leadership",
     "source_id": "google-news-general-atlantic-infra-tech",
@@ -32938,6 +36852,60 @@
     "why_it_matters": "General Atlantic leadership and market view signals for growth-capital alignment to initiative operating layers. Buyer anchor: GENERAL_ATLANTIC.",
     "buyer_ids": [
       "GENERAL_ATLANTIC"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "kcslr3",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "Aramco Finalizes $11 Billion Jafurah Midstream Deal with Global Investor Consortium Led by GIP - ChemAnalyst",
+    "summary": "Aramco Finalizes $11 Billion Jafurah Midstream Deal with Global Investor Consortium Led by GIP ChemAnalyst",
+    "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPSFhpTlZ0YUQxV3lPTEJCbEo1ZVczdnJZcjVJQlo5QkRHakJYckdGNm1wMlFVSjY4SDB6Q1VVWHU4aTVRZlY3OXR0RzRMd2MycWhGTE05eGNicWJmdE5RSC1WMTZ1QkZVdV9XYlc1MThCYnlGUkpfaTdPQkNzOVRYM19YZWpPdFJLUEx5ZEw2Rl9VNUQ1TzFsZDlrUjJrRXlsZUEyVjZ2WXZKTDRLQXF5WE1xc0psb3FnLXRkaGlJZjhWa0xNSTdhTjJkOU93ekdwVlFtQ0w2eGM?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-10-29T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "arzc86",
+    "source": "Google News — GIP Infrastructure Leadership",
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "title": "Aramco closes Jafurah midstream deal with international consortium led by Global Infrastructure Partners - maaal.com",
+    "summary": "Aramco closes Jafurah midstream deal with international consortium led by Global Infrastructure Partners maaal.com",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE0wOWdfa1JGaVFUc2stS05uTGMxZERjeW05QUtRNmptZExPcDFjVDFEQjJvRnh0RXgxWGM3N2dKRU4xZjFzRF9WMGZyWEZ3R0o3bzh2RzZKNEp6WlVYcm5URXRyQngwOWxBaVd4Zg?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-10-28T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 8,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives. Buyer anchor: GIP.",
+    "buyer_ids": [
+      "GIP"
     ],
     "initiative_ids": [
       "INIT-2026-03-ANGOLA-AI-CORRIDOR"
@@ -35598,6 +39566,30 @@
     ]
   },
   {
+    "feed_id": "xyf82d",
+    "source": "Google News — ECOWAS Public Safety",
+    "source_id": "google-news-ecowas-public-safety",
+    "title": "WiLDAF launches empowerment initiative for women agri-food traders along Ghana-Togo border - MyJoyOnline",
+    "summary": "WiLDAF launches empowerment initiative for women agri-food traders along Ghana-Togo border MyJoyOnline",
+    "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPSXY4NlJxTDlZaDlCOVpIc09FcUg5bnhDdWc1RXZPUlN0MG0weTY5cVp0ajExZ1Jvd3JLSFdFVk9kSHNlR3FkWmFGYkNGaUJWcWhEdHE1aVF4RXBnU2otQktKV0ZjQVFKQzU5RjZtdWJUSmNnZE5uSjhaVHBkWk5hWmlva3JSUHFDdHdpcWR1ZlBSOXJGLTRkYkxGTllYRW1aUklrVkh0UnJWZW5CUGwzXzNhbVhLS3IxMThj?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-06-19T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "ecowas",
+      "public-safety"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Potentially relevant macro/context signal; requires verification and classification.",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG"
+    ]
+  },
+  {
     "feed_id": "ucnyjg",
     "source": "Google News — ECOWAS Public Safety",
     "source_id": "google-news-ecowas-public-safety",
@@ -36472,6 +40464,33 @@
     "why_it_matters": "May alter cost-of-capital and allocator posture for pre-FID pathways.",
     "initiative_ids": [
       "USG"
+    ]
+  },
+  {
+    "feed_id": "8mf3ot",
+    "source": "Google News — Stonepeak Infrastructure Leadership",
+    "source_id": "google-news-stonepeak-infrastructure-leadership",
+    "title": "Infrastructure Fundraising Report 2024 - withintelligence.com",
+    "summary": "Infrastructure Fundraising Report 2024 withintelligence.com",
+    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQX3Jaa3VYaVFZQjRyUXo5NEFUZElIcjhETVNpazVzRXJpWnhXN1htbkdIYm85ZnE5MEdOeld5NmNCeG0tZVlDaWZBMWtaamhLa0ZYU0EzbjIwYkxUbU1vVEx0NGJFTDBIaGVCSEo5aDFoMDY0dGdnOTlqSjJNRjJtYWxVX2s0Y0sy?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2025-03-13T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "stonepeak",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 16,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "Stonepeak leadership and strategy signals for infrastructure deployment appetite and structuring relevance. Buyer anchor: STONEPEAK.",
+    "buyer_ids": [
+      "STONEPEAK"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
     ]
   },
   {
@@ -38350,6 +42369,33 @@
     ]
   },
   {
+    "feed_id": "l7wyl8",
+    "source": "Google News — General Atlantic Infra/Tech Leadership",
+    "source_id": "google-news-general-atlantic-infra-tech",
+    "title": "Actis Launches Epoch Digital Asia Data Centre Platform - Mingtiandi",
+    "summary": "Actis Launches Epoch Digital Asia Data Centre Platform Mingtiandi",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbS1lY0VocmJSaDQtZFFzd3llcVR6ZHFDbldGRzV6Mk1vRzRpQ0lGbWE2dTJ2MWJpTnNqUGZ0UGlDT21WQzlaODQwYzUzSXNiS2NOSGdRZkhCZjN4aWpJOFdzMW8tbmZtTER0T3NlbHdtRVJDY2djVWZVSktTOGxPVjljWGpxNWlrSkVKNjdUMlYybXc4Y0wxS2ExS0VZaVZ4eGZfaXc3VWtrS0k?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2024-06-21T07:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "general-atlantic",
+      "growth-capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "General Atlantic leadership and market view signals for growth-capital alignment to initiative operating layers. Buyer anchor: GENERAL_ATLANTIC.",
+    "buyer_ids": [
+      "GENERAL_ATLANTIC"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
     "feed_id": "sn3k60",
     "source": "Google News — ECOWAS Public Safety",
     "source_id": "google-news-ecowas-public-safety",
@@ -39054,6 +43100,33 @@
     "title": "Growth investor General Atlantic to acquire UK-based Actis - Indian Startup News",
     "summary": "Growth investor General Atlantic to acquire UK-based Actis Indian Startup News",
     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPVWNNY09WWTV3dkNReFltX3ZfZ2JzNlB6dllSVHAtUmI5TTdwNFh3YUZ5S2hPZGVGNWgwYmxmMC13TWIzdFJzZS1LdUJqdmpYWU9qdHppZXE2aGs1cmszV1kwaVpnTjNabnk0STdyYklvbUhBNjFTbnpNaklTRXNfa0hpOFh0X0J6OFVONU1R0gGOAUFVX3lxTE9VY01jT1ZZNXd2Q1F4WW1fdl9nYnM2UHp2WVJUcC1SYjlNN3A0WHdhRnlLaE9kZUY1aDBibGYwLXdNYjN0UnNlLUt1Qmp2alhZT2p0emllcTZoazVyazNXWTBpWmdOM1pueTRJN3JiSW9tSEE2MVNuek1qSVNFc19rSGk4WHRfQno4VU41TVE?oc=5&hl=en-US&gl=US&ceid=US:en",
+    "image_url": "",
+    "published_at": "2024-01-16T08:00:00.000Z",
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "general-atlantic",
+      "growth-capital"
+    ],
+    "trust_tier": "tier2",
+    "relevance_score": 0,
+    "confidence": "Low",
+    "signal_class": "Context Signal",
+    "why_it_matters": "General Atlantic leadership and market view signals for growth-capital alignment to initiative operating layers. Buyer anchor: GENERAL_ATLANTIC.",
+    "buyer_ids": [
+      "GENERAL_ATLANTIC"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ]
+  },
+  {
+    "feed_id": "12vv55",
+    "source": "Google News — General Atlantic Infra/Tech Leadership",
+    "source_id": "google-news-general-atlantic-infra-tech",
+    "title": "General Atlantic buys Actis to form $96bn global investment firm - Businessday NG",
+    "summary": "General Atlantic buys Actis to form $96bn global investment firm Businessday NG",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxONktXcXpvanpaSmt0RXo5N3h3Y0wtMksybncxMWNRQlk3ZGRYWWZCUXpWNFU0OGdRNVhQY1Mzbjg5TWZwVmxVMlVNUVgwZ2x4aGZmXzc3NTJxQ2psUnZMNlJmb0l6OUVEV05QRWJLMEtCRW1CRHVSaF9Ja0NnVW1qa0RUZ2haVzRhaGwtNnhRM2U4eDZrOEd5ZGhGaVdacHQ4aVhDbkM4T0k?oc=5&hl=en-US&gl=US&ceid=US:en",
     "image_url": "",
     "published_at": "2024-01-16T08:00:00.000Z",
     "tags": [

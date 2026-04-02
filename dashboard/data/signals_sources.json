@@ -352,5 +352,29 @@
       "digital"
     ],
     "why_template": "Alpha Wave leadership/capital posture signals mapped to initiative-level buyer conversion opportunities."
+  },
+  {
+    "source_id": "retail-banker-international-rss",
+    "name": "Retail Banker International",
+    "type": "rss",
+    "url": "https://www.retailbankerinternational.com/feed/",
+    "enabled": true,
+    "default_tags": [
+      "banking",
+      "fintech",
+      "payments",
+      "regulation"
+    ],
+    "trust_tier": "tier2",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "why_template": "Banking/fintech policy and infrastructure signal relevant to regulated financial rails and Nigeria spine execution."
   }
 ]

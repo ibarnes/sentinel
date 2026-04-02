@@ -1,12 +1,12 @@
 {
-  "last_run_at": "2026-04-02T04:25:27.295Z",
+  "last_run_at": "2026-04-02T13:35:42.453Z",
   "cadence": "0 */6 * * *",
   "notes": "Auto-refresh every 6 hours via cron; manual refresh available on /dashboard/signals-feed",
   "last_run_stats": {
-    "total_sources": 21,
-    "ok_sources": 16,
+    "total_sources": 22,
+    "ok_sources": 17,
     "failed_sources": 5,
-    "items_added": 210,
+    "items_added": 36,
     "failures": [
       {
         "source": "Reuters World",

@@ -21,7 +21,11 @@ const decodeHtml = (x='') => x
   .replace(/&#39;/g, "'")
   .replace(/&nbsp;/g, ' ');
 
-const strip = (x='') => decodeHtml(x).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+const strip = (x='') => decodeHtml(x)
+  .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+  .replace(/<[^>]*>/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
 
 async function readJson(file, fb) {
   try { return JSON.parse(await fs.readFile(file, 'utf8')); } catch { return fb; }
