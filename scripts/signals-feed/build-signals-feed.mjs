@@ -152,9 +152,21 @@ async function main() {
       let addedHere = 0;
       for (const item of items.slice(0, 40)) {
         if (!item.url || seen.has(item.url)) continue;
-        seen.add(item.url);
+
         const cleanedSummary = sanitizeSummary(item.summary || '');
+        const textBlob = `${item.title || ''} ${cleanedSummary}`.toLowerCase();
+        const matchKeywords = Array.isArray(src.match_keywords)
+          ? src.match_keywords.map((k) => String(k || '').toLowerCase().trim()).filter(Boolean)
+          : [];
+        if (matchKeywords.length && !matchKeywords.some((k) => textBlob.includes(k))) continue;
+
+        seen.add(item.url);
         const rel = relevanceScore(`${item.title} ${cleanedSummary}`);
+        const buyerIds = Array.isArray(src.buyer_ids) ? src.buyer_ids : [];
+        const initiativeIds = Array.isArray(src.initiative_ids) && src.initiative_ids.length ? src.initiative_ids : ['USG'];
+        const baseWhy = src.why_template ? String(src.why_template) : whyMatters(item);
+        const buyerAnchor = buyerIds.length ? ` Buyer anchor: ${buyerIds.join(', ')}.` : '';
+
         out.push({
           feed_id: hash(item.url),
           source: src.name,
@@ -167,10 +179,11 @@ async function main() {
           tags: src.default_tags || [],
           trust_tier: src.trust_tier || 'tier2',
           relevance_score: rel,
-          confidence: rel >= 60 ? 'Medium' : 'Low',
+          confidence: rel >= 70 ? 'High' : (rel >= 55 ? 'Medium' : 'Low'),
           signal_class: rel >= 60 ? 'Capital Reality' : 'Context Signal',
-          why_it_matters: whyMatters(item),
-          initiative_ids: ['USG']
+          why_it_matters: `${baseWhy}${buyerAnchor}`.trim(),
+          buyer_ids: buyerIds,
+          initiative_ids: initiativeIds
         });
         stats.items_added += 1;
         addedHere += 1;

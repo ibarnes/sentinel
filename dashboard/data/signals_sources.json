@@ -122,7 +122,7 @@
   },
   {
     "source_id": "google-news-ecowas-public-safety",
-    "name": "Google News — ECOWAS Public Safety",
+    "name": "Google News \u2014 ECOWAS Public Safety",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=ECOWAS+public+safety+OR+law+enforcement+OR+security+infrastructure&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -135,7 +135,7 @@
   },
   {
     "source_id": "google-news-nigeria-policing-digital",
-    "name": "Google News — Nigeria Digital Policing",
+    "name": "Google News \u2014 Nigeria Digital Policing",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=Nigeria+digital+policing+OR+police+modernization+OR+command+center&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -148,7 +148,7 @@
   },
   {
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
-    "name": "Google News — AfDB/IFC/DFC Security Infrastructure",
+    "name": "Google News \u2014 AfDB/IFC/DFC Security Infrastructure",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=AfDB+OR+IFC+OR+DFC+security+infrastructure+Africa&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -161,7 +161,7 @@
   },
   {
     "source_id": "thecable-cbn-imto-naira-settlement-2026-03-24",
-    "name": "TheCable — CBN IMTO Naira Settlement Directive",
+    "name": "TheCable \u2014 CBN IMTO Naira Settlement Directive",
     "type": "webpage",
     "url": "https://www.thecable.ng/no-more-dollar-payments-as-cbn-directs-imtos-to-open-naira-settlement-accounts/",
     "enabled": true,
@@ -186,5 +186,171 @@
       "capital"
     ],
     "trust_tier": "tier2"
+  },
+  {
+    "source_id": "kkr-insights-data-center-infrastructure",
+    "name": "KKR Insights \u2014 Data Center Infrastructure (Waldemar Szlezak)",
+    "type": "webpage",
+    "url": "https://www.kkr.com/insights/data-center-infrastructure",
+    "enabled": true,
+    "default_tags": [
+      "buyer-leadership",
+      "kkr",
+      "digital-infrastructure",
+      "data-centers"
+    ],
+    "trust_tier": "tier1",
+    "buyer_ids": [
+      "KKR"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "match_keywords": [
+      "data center",
+      "digital infrastructure",
+      "power",
+      "ai"
+    ],
+    "why_template": "Buyer leadership signal from KKR digital infrastructure team with direct relevance to compute/power platform sequencing."
+  },
+  {
+    "source_id": "google-news-kkr-digital-infrastructure-leadership",
+    "name": "Google News \u2014 KKR Digital Infrastructure Leadership",
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=KKR+digital+infrastructure+insights+OR+Waldemar+Szlezak&hl=en-US&gl=US&ceid=US:en",
+    "enabled": true,
+    "default_tags": [
+      "google-news",
+      "buyer-leadership",
+      "kkr",
+      "digital-infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "buyer_ids": [
+      "KKR"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "match_keywords": [
+      "kkr",
+      "data center",
+      "digital infrastructure",
+      "ai infrastructure",
+      "power"
+    ],
+    "why_template": "Leadership-adjacent KKR coverage relevant to infrastructure capital posture and initiative-level buyer mapping."
+  },
+  {
+    "source_id": "google-news-stonepeak-infrastructure-leadership",
+    "name": "Google News \u2014 Stonepeak Infrastructure Leadership",
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=Stonepeak+infrastructure+insights+OR+digital+infrastructure&hl=en-US&gl=US&ceid=US:en",
+    "enabled": true,
+    "default_tags": [
+      "google-news",
+      "buyer-leadership",
+      "stonepeak",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "buyer_ids": [
+      "STONEPEAK"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "match_keywords": [
+      "stonepeak",
+      "infrastructure",
+      "data center",
+      "energy"
+    ],
+    "why_template": "Stonepeak leadership and strategy signals for infrastructure deployment appetite and structuring relevance."
+  },
+  {
+    "source_id": "google-news-gip-infrastructure-leadership",
+    "name": "Google News \u2014 GIP Infrastructure Leadership",
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=%22Global+Infrastructure+Partners%22+insights+OR+infrastructure+strategy&hl=en-US&gl=US&ceid=US:en",
+    "enabled": true,
+    "default_tags": [
+      "google-news",
+      "buyer-leadership",
+      "gip",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "match_keywords": [
+      "global infrastructure partners",
+      "gip",
+      "infrastructure",
+      "energy",
+      "digital"
+    ],
+    "why_template": "GIP leadership signals mapped to buyer intent and capital deployment sequencing for active initiatives."
+  },
+  {
+    "source_id": "google-news-general-atlantic-infra-tech",
+    "name": "Google News \u2014 General Atlantic Infra/Tech Leadership",
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=%22General+Atlantic%22+infrastructure+OR+digital+infrastructure+OR+AI+platform&hl=en-US&gl=US&ceid=US:en",
+    "enabled": true,
+    "default_tags": [
+      "google-news",
+      "buyer-leadership",
+      "general-atlantic",
+      "growth-capital"
+    ],
+    "trust_tier": "tier2",
+    "buyer_ids": [
+      "GENERAL_ATLANTIC"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "match_keywords": [
+      "general atlantic",
+      "digital",
+      "ai",
+      "platform",
+      "infrastructure"
+    ],
+    "why_template": "General Atlantic leadership and market view signals for growth-capital alignment to initiative operating layers."
+  },
+  {
+    "source_id": "google-news-alpha-wave-strategic-capital",
+    "name": "Google News \u2014 Alpha Wave Strategic Capital",
+    "type": "rss",
+    "url": "https://news.google.com/rss/search?q=%22Alpha+Wave+Global%22+AI+infrastructure+OR+strategic+capital&hl=en-US&gl=US&ceid=US:en",
+    "enabled": true,
+    "default_tags": [
+      "google-news",
+      "buyer-leadership",
+      "alpha-wave",
+      "strategic-capital"
+    ],
+    "trust_tier": "tier2",
+    "buyer_ids": [
+      "ALPHA_WAVE"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "match_keywords": [
+      "alpha wave",
+      "ai",
+      "infrastructure",
+      "strategic capital",
+      "digital"
+    ],
+    "why_template": "Alpha Wave leadership/capital posture signals mapped to initiative-level buyer conversion opportunities."
   }
 ]
