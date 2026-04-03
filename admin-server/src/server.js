@@ -70,6 +70,9 @@ const DASHBOARD_CAPITAL_MAP_FILE = path.join(ROOT, 'dashboard', 'data', 'capital
 const DASHBOARD_PLATFORM_PRESSURE_FILE = path.join(ROOT, 'dashboard', 'data', 'platform_pressure.json');
 const DASHBOARD_SIGNALS_FEED_FILE = path.join(ROOT, 'dashboard', 'data', 'signals_feed.json');
 const DASHBOARD_SIGNALS_SOURCES_FILE = path.join(ROOT, 'dashboard', 'data', 'signals_sources.json');
+const DASHBOARD_ACTION_ITEMS_FILE = path.join(ROOT, 'dashboard', 'data', 'action_items.json');
+const DASHBOARD_ACTION_NOTIFICATIONS_FILE = path.join(ROOT, 'dashboard', 'data', 'action_notifications.json');
+const DASHBOARD_ACTION_EVENTS_FILE = path.join(ROOT, 'dashboard', 'data', 'action_events.jsonl');
 const DASHBOARD_TEMPLATE_LIBRARY_ROOT = path.join(ROOT, 'dashboard', 'templates', 'presentation-templates');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
@@ -752,6 +755,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('home')}" href="/dashboard/" title="Dashboard"><i data-lucide="home" class="nav-icon"></i><span class="nav-label">Dashboard</span></a>
       <a class="nav-link ${is('activity')}" href="/dashboard/activity" title="Activity"><i data-lucide="activity" class="nav-icon"></i><span class="nav-label">Activity</span></a>
       <a class="nav-link ${is('actions')}" href="/dashboard/actions" title="Actions"><i data-lucide="list-todo" class="nav-icon"></i><span class="nav-label">Actions</span></a>
+      <a class="nav-link ${is('actions-coordinator')}" href="/dashboard/actions/coordinator" title="Coordinator"><i data-lucide="workflow" class="nav-icon"></i><span class="nav-label">Coordinator</span></a>
       <a class="nav-link ${is('review')}" href="/dashboard/review" title="Review"><i data-lucide="file-text" class="nav-icon"></i><span class="nav-label">Review</span></a>
       <a class="nav-link ${is('board')}" href="/dashboard/board" title="Board"><i data-lucide="kanban-square" class="nav-icon"></i><span class="nav-label">Board</span></a>
 
@@ -2909,133 +2913,178 @@ app.get('/dashboard/state-transition/:id', async (req, res) => {
 });
 
 
-function flattenMeetingActions(meetings = []) {
-  const now = new Date();
-  const nowDate = now.toISOString().slice(0, 10);
-  const in7 = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  const dayMs = 24 * 60 * 60 * 1000;
+function normalizeActionType(v = '') {
+  const raw = String(v || '').trim().toLowerCase();
+  return ['decision', 'coordination', 'research', 'deliverable'].includes(raw) ? raw : 'coordination';
+}
 
-  const rows = [];
-  for (const m of (Array.isArray(meetings) ? meetings : [])) {
-    const meetingId = String(m?.meeting_id || '').trim();
-    const meetingTitle = String(m?.title || m?.meeting_id || 'Meeting').trim();
-    const meetingTs = String(m?.date_time || m?.created_at || '').trim();
-    const meetingDate = meetingTs ? String(meetingTs).slice(0, 10) : '';
-    const meetingDateObj = meetingTs ? new Date(meetingTs) : null;
-    const nextActions = Array.isArray(m?.next_actions) ? m.next_actions : [];
+function normalizeActionStatus(v = '') {
+  const raw = String(v || '').trim().toLowerCase();
+  return ['open', 'in_progress', 'blocked', 'done'].includes(raw) ? raw : 'open';
+}
 
-    for (let idx = 0; idx < nextActions.length; idx += 1) {
-      const a = nextActions[idx] || {};
-      const actionText = String(a.action || '').trim();
-      const owner = String(a.owner || '').trim();
-      const due = String(a.due || '').trim();
-      const statusRaw = String(a.status || 'open').trim().toLowerCase();
-      const status = ['open', 'in_progress', 'blocked', 'done'].includes(statusRaw) ? statusRaw : 'open';
-      const doneLike = status === 'done';
+function normalizeActionPriority(v = '') {
+  const raw = String(v || '').trim().toLowerCase();
+  return ['critical', 'high', 'normal', 'low'].includes(raw) ? raw : 'normal';
+}
 
-      const dueObj = due ? new Date(`${due}T00:00:00Z`) : null;
-      const ageRef = dueObj || meetingDateObj;
-      const ageDays = ageRef && Number.isFinite(ageRef.getTime())
-        ? Math.max(0, Math.floor((now.getTime() - ageRef.getTime()) / dayMs))
-        : null;
+function applyActionValidation(action = {}) {
+  const out = { ...defaultActionItemSkeleton(), ...action };
+  out.action_type = normalizeActionType(out.action_type);
+  out.status = normalizeActionStatus(out.status);
+  out.priority = normalizeActionPriority(out.priority);
+  out.effort_score = Number.isFinite(Number(out.effort_score)) ? Math.max(1, Math.min(5, Number(out.effort_score))) : 2;
+  out.coordinator_lead = String(out.coordinator_lead || 'Richelle').trim() || 'Richelle';
+  out.internal_coordinator = String(out.internal_coordinator || 'Monica').trim() || 'Monica';
+  out.owner = String(out.owner || '').trim();
+  out.decision_owner = out.decision_owner ? String(out.decision_owner).trim() : null;
+  out.support = Array.isArray(out.support) ? out.support.map((x) => String(x || '').trim()).filter(Boolean) : [];
+  out.waiting_on = Array.isArray(out.waiting_on) ? out.waiting_on.map((x) => String(x || '').trim()).filter(Boolean) : [];
+  out.initiative_ids = Array.isArray(out.initiative_ids) ? out.initiative_ids.map((x) => String(x || '').trim()).filter(Boolean) : [];
+  out.requires_isaac = Boolean(out.requires_isaac);
+  out.stage_critical = Boolean(out.stage_critical);
+  out.isaac_reason = String(out.isaac_reason || 'none').trim() || 'none';
 
-      const overdue = Boolean(due && due < nowDate && !doneLike);
-      const dueSoon = Boolean(due && due >= nowDate && due <= in7 && !doneLike);
-      const missingOwner = !owner;
-      const missingDue = !due && !doneLike;
+  if (out.requires_isaac && out.isaac_reason === 'none') out.isaac_reason = 'buyer_judgment';
+  if (!out.requires_isaac) out.isaac_reason = 'none';
 
-      rows.push({
-        action_id: `${meetingId || 'meeting'}::${idx + 1}`,
-        meeting_id: meetingId,
-        meeting_title: meetingTitle,
-        meeting_date: meetingDate,
-        action: actionText || '(missing action text)',
-        owner,
-        due,
-        status,
-        overdue,
-        dueSoon,
-        missingOwner,
-        missingDue,
-        ageDays,
-      });
-    }
+  if (!out.owner && out.status === 'in_progress') {
+    out.status = 'open';
   }
 
-  return rows;
+  if (out.action_type === 'decision' && !out.decision_owner && out.status !== 'done') {
+    out.status = 'blocked';
+    if (!String(out.blocker_reason || '').trim()) out.blocker_reason = 'missing decision owner';
+  }
+
+  if (out.status === 'done' && !out.closed_at) out.closed_at = nowIso();
+  if (out.status !== 'done') out.closed_at = null;
+
+  return out;
+}
+
+function enrichActionRows(items = []) {
+  const now = new Date();
+  const nowIsoDay = now.toISOString().slice(0, 10);
+  const in72 = new Date(now.getTime() + (72 * 60 * 60 * 1000));
+
+  return items.map((raw) => {
+    const item = applyActionValidation(raw);
+    const due = String(item.due || '').trim();
+    const dueDate = due ? new Date(`${due}T00:00:00Z`) : null;
+    const created = item.created_at ? new Date(item.created_at) : null;
+    const updated = item.updated_at ? new Date(item.updated_at) : null;
+
+    const overdue = Boolean(due && due < nowIsoDay && item.status !== 'done');
+    const due72 = Boolean(dueDate && dueDate.getTime() >= now.getTime() && dueDate.getTime() <= in72.getTime() && item.status !== 'done');
+
+    const missingOwner = !String(item.owner || '').trim();
+    const missingDecisionOwner = item.action_type === 'decision' && !String(item.decision_owner || '').trim();
+    const blocked = item.status === 'blocked';
+
+    const ageHours = updated && Number.isFinite(updated.getTime())
+      ? Math.max(0, Math.floor((now.getTime() - updated.getTime()) / (1000 * 60 * 60)))
+      : (created && Number.isFinite(created.getTime())
+        ? Math.max(0, Math.floor((now.getTime() - created.getTime()) / (1000 * 60 * 60)))
+        : null);
+
+    const escalationTriggers = [];
+    if (missingOwner && (ageHours ?? 0) >= 24) escalationTriggers.push('owner_24h');
+    if (missingDecisionOwner && (ageHours ?? 0) >= 24) escalationTriggers.push('decision_owner_24h');
+    if (item.stage_critical && overdue) escalationTriggers.push('stage_critical_overdue');
+    if (blocked && (ageHours ?? 0) > 48) escalationTriggers.push('blocked_48h');
+    if (item.requires_isaac && due && due < nowIsoDay && item.status !== 'done') escalationTriggers.push('isaac_due_breach');
+
+    return {
+      ...item,
+      due,
+      overdue,
+      due72,
+      missingOwner,
+      missingDecisionOwner,
+      blocked,
+      escalationTriggers,
+      escalationActive: escalationTriggers.length > 0 || Boolean(item.escalated_at),
+      ageHours,
+    };
+  });
 }
 
 app.get('/dashboard/actions', async (req, res) => {
-  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
-  const allRows = flattenMeetingActions(meetings);
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
+  const items = await readActionItems();
+  const rows = enrichActionRows(items);
 
   const q = String(req.query.q || '').trim().toLowerCase();
   const ownerFilter = String(req.query.owner || '').trim();
+  const decisionOwnerFilter = String(req.query.decision_owner || '').trim();
   const statusFilter = String(req.query.status || 'all').trim().toLowerCase();
-  const windowFilter = String(req.query.window || 'all').trim().toLowerCase();
-  const quickFilter = String(req.query.quick || '').trim().toLowerCase();
+  const initiativeFilter = String(req.query.initiative || '').trim();
+  const meetingFilter = String(req.query.meeting || '').trim();
+  const quick = String(req.query.quick || '').trim().toLowerCase();
 
-  const allowedQuickFilters = new Set(['open', 'blocked', 'done', 'overdue', 'due7', 'missing']);
-  const quick = allowedQuickFilters.has(quickFilter) ? quickFilter : '';
+  const owners = [...new Set(rows.map((r) => r.owner).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const decisionOwners = [...new Set(rows.map((r) => r.decision_owner).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const initiatives = [...new Set(rows.flatMap((r) => r.initiative_ids || []).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const meetings = [...new Set(rows.map((r)=>r.meeting_id).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
 
-  let effectiveStatusFilter = statusFilter;
-  let effectiveWindowFilter = windowFilter;
-  if (quick === 'open') {
-    effectiveStatusFilter = 'all';
-    effectiveWindowFilter = 'open';
-  } else if (quick === 'blocked') {
-    effectiveStatusFilter = 'blocked';
-    effectiveWindowFilter = 'all';
-  } else if (quick === 'done') {
-    effectiveStatusFilter = 'done';
-    effectiveWindowFilter = 'all';
-  } else if (quick === 'overdue') {
-    effectiveStatusFilter = 'all';
-    effectiveWindowFilter = 'overdue';
-  } else if (quick === 'due7') {
-    effectiveStatusFilter = 'all';
-    effectiveWindowFilter = 'due7';
-  } else if (quick === 'missing') {
-    effectiveStatusFilter = 'all';
-    effectiveWindowFilter = 'missing';
-  }
-
-  const owners = [...new Set(allRows.map((r) => r.owner).filter(Boolean))].sort((a, b) => a.localeCompare(b));
-
-  const filtered = allRows.filter((r) => {
+  const filtered = rows.filter((r) => {
     if (ownerFilter && r.owner !== ownerFilter) return false;
-    if (effectiveStatusFilter !== 'all' && r.status !== effectiveStatusFilter) return false;
+    if (decisionOwnerFilter && String(r.decision_owner || '') !== decisionOwnerFilter) return false;
+    if (statusFilter !== 'all' && r.status !== statusFilter) return false;
+    if (initiativeFilter && !(r.initiative_ids || []).includes(initiativeFilter)) return false;
+    if (meetingFilter && r.meeting_id !== meetingFilter) return false;
 
-    if (effectiveWindowFilter === 'overdue' && !r.overdue) return false;
-    if (effectiveWindowFilter === 'due7' && !r.dueSoon) return false;
-    if (effectiveWindowFilter === 'missing' && !(r.missingOwner || r.missingDue)) return false;
-    if (effectiveWindowFilter === 'open' && !['open', 'in_progress'].includes(r.status)) return false;
-    if (effectiveWindowFilter === 'blocked' && r.status !== 'blocked') return false;
+    if (quick === 'needs_assignment' && !r.missingOwner) return false;
+    if (quick === 'missing_decision_owner' && !r.missingDecisionOwner) return false;
+    if (quick === 'due72' && !r.due72) return false;
+    if (quick === 'blocked' && !r.blocked) return false;
+    if (quick === 'overdue' && !r.overdue) return false;
+    if (quick === 'escalation' && !r.escalationActive) return false;
+    if (quick === 'requires_isaac' && !r.requires_isaac) return false;
 
     if (q) {
-      const hay = `${r.action} ${r.owner} ${r.status} ${r.meeting_id} ${r.meeting_title}`.toLowerCase();
+      const hay = `${r.action_text} ${r.action_type} ${r.owner} ${r.decision_owner || ''} ${(r.support || []).join(' ')} ${r.meeting_id} ${(r.initiative_ids || []).join(' ')} ${(r.waiting_on || []).join(' ')} ${r.blocker_reason || ''}`.toLowerCase();
       if (!hay.includes(q)) return false;
     }
+
     return true;
-  }).sort((a, b) => {
+  }).sort((a,b) => {
+    const escCmp = Number(b.escalationActive) - Number(a.escalationActive);
+    if (escCmp) return escCmp;
     const overdueCmp = Number(b.overdue) - Number(a.overdue);
     if (overdueCmp) return overdueCmp;
     const dueA = a.due || '9999-12-31';
     const dueB = b.due || '9999-12-31';
     const dueCmp = dueA.localeCompare(dueB);
     if (dueCmp) return dueCmp;
-    const ownerCmp = String(a.owner || '~').localeCompare(String(b.owner || '~'));
-    if (ownerCmp) return ownerCmp;
-    return String(a.meeting_id || '').localeCompare(String(b.meeting_id || ''));
+    return String(a.action_id || '').localeCompare(String(b.action_id || ''));
   });
 
-  const openCount = allRows.filter((r) => ['open', 'in_progress'].includes(r.status)).length;
-  const blockedCount = allRows.filter((r) => r.status === 'blocked').length;
-  const doneCount = allRows.filter((r) => r.status === 'done').length;
-  const overdueCount = allRows.filter((r) => r.overdue).length;
-  const due7Count = allRows.filter((r) => r.dueSoon).length;
-  const missingCount = allRows.filter((r) => r.missingOwner || r.missingDue).length;
+  const metric = {
+    total: rows.length,
+    needsAssignment: rows.filter((r)=>r.missingOwner).length,
+    missingDecisionOwner: rows.filter((r)=>r.missingDecisionOwner).length,
+    due72: rows.filter((r)=>r.due72).length,
+    blocked: rows.filter((r)=>r.blocked).length,
+    overdue: rows.filter((r)=>r.overdue).length,
+    escalation: rows.filter((r)=>r.escalationActive).length,
+    requiresIsaac: rows.filter((r)=>r.requires_isaac).length,
+  };
+
+  const quickCard = (label, value, key) => {
+    const active = quick === key;
+    const params = new URLSearchParams();
+    if (q) params.set('q', q);
+    if (ownerFilter) params.set('owner', ownerFilter);
+    if (decisionOwnerFilter) params.set('decision_owner', decisionOwnerFilter);
+    if (statusFilter !== 'all') params.set('status', statusFilter);
+    if (initiativeFilter) params.set('initiative', initiativeFilter);
+    if (meetingFilter) params.set('meeting', meetingFilter);
+    if (!active) params.set('quick', key);
+    const href = params.toString() ? `/dashboard/actions?${params.toString()}` : '/dashboard/actions';
+    return `<a class="text-decoration-none" href="${href}"><div class="card h-100 ${active ? 'border-primary shadow-sm' : ''}"><div class="card-body py-2"><div class="small text-muted">${escapeHtml(label)}</div><div class="h5 mb-0" style="color:var(--text-primary)">${escapeHtml(String(value))}</div></div></div></a>`;
+  };
 
   const statusBadge = (status) => {
     const map = { open: 'secondary', in_progress: 'primary', blocked: 'danger', done: 'success' };
@@ -3043,138 +3092,134 @@ app.get('/dashboard/actions', async (req, res) => {
     return `<span class="badge text-bg-${cls}">${escapeHtml(String(status || 'open'))}</span>`;
   };
 
-  const preservedParams = new URLSearchParams();
-  if (String(req.query.q || '').trim()) preservedParams.set('q', String(req.query.q || '').trim());
-  if (ownerFilter) preservedParams.set('owner', ownerFilter);
-  if (statusFilter !== 'all') preservedParams.set('status', statusFilter);
-  if (windowFilter !== 'all') preservedParams.set('window', windowFilter);
-
-  const buildQuickHref = (quickKey) => {
-    const params = new URLSearchParams(preservedParams.toString());
-    if (quick && quick === quickKey) params.delete('quick');
-    else params.set('quick', quickKey);
-    const qs = params.toString();
-    return qs ? `/dashboard/actions?${qs}` : '/dashboard/actions';
+  const priorityBadge = (priority) => {
+    const p = String(priority || 'normal').toLowerCase();
+    const cls = ({ critical: 'danger', high: 'warning', normal: 'secondary', low: 'light' }[p]) || 'secondary';
+    return `<span class="badge text-bg-${cls}">${escapeHtml(p)}</span>`;
   };
-
-  const clearQuickUrl = (() => {
-    const qs = preservedParams.toString();
-    return qs ? `/dashboard/actions?${qs}` : '/dashboard/actions';
-  })();
-
-  const quickStatCard = (label, value, quickKey) => {
-    const active = quick === quickKey;
-    return `<a class="text-decoration-none quick-filter-card" href="${buildQuickHref(quickKey)}"><div class="card h-100 ${active ? 'border-primary shadow-sm' : ''}"><div class="card-body py-2"><div class="small text-muted">${escapeHtml(label)}</div><div class="h5 mb-0" style="color:var(--text-primary)">${escapeHtml(String(value))}</div></div></div></a>`;
-  };
-
-  const statsCardsHtml = `
-    <div class="col-6 col-md-2">${quickStatCard('Open', openCount, 'open')}</div>
-    <div class="col-6 col-md-2">${quickStatCard('Blocked', blockedCount, 'blocked')}</div>
-    <div class="col-6 col-md-2">${quickStatCard('Done', doneCount, 'done')}</div>
-    <div class="col-6 col-md-2">${quickStatCard('Overdue', overdueCount, 'overdue')}</div>
-    <div class="col-6 col-md-2">${quickStatCard('Due ≤ 7d', due7Count, 'due7')}</div>
-    <div class="col-6 col-md-2">${quickStatCard('Missing fields', missingCount, 'missing')}</div>
-  `;
-
-  const quickFilterNotice = quick
-    ? `<div class="alert alert-info py-2 mb-2 small">Quick filter active: <strong>${escapeHtml(quick)}</strong>. Tap/click empty space to clear, or tap the same metric again.</div>`
-    : '';
-
-  const quickFilterScript = quick
-    ? `<script>(function(){const clearUrl=${JSON.stringify(clearQuickUrl)};const ignore=(el)=>el&&el.closest&&el.closest('a,button,input,select,textarea,label,form,.table,.quick-filter-card,[data-no-quick-clear]');const handler=(e)=>{if(ignore(e.target)) return; window.location.href=clearUrl;};document.addEventListener('click', handler, { passive:true });document.addEventListener('touchend', handler, { passive:true });})();</script>`
-    : '';
 
   const currentUrl = String(req.originalUrl || '/dashboard/actions');
   const rowsHtml = filtered.map((r) => {
-    const flags = [
-      r.overdue ? '<span class="badge text-bg-danger me-1">Overdue</span>' : '',
-      r.dueSoon ? '<span class="badge text-bg-warning me-1">Due ≤7d</span>' : '',
-      r.missingOwner ? '<span class="badge text-bg-dark me-1">Missing owner</span>' : '',
-      r.missingDue ? '<span class="badge text-bg-dark me-1">Missing due</span>' : '',
-      Number.isFinite(r.ageDays) ? `<span class="badge text-bg-light border">Age ${escapeHtml(String(r.ageDays))}d</span>` : '',
-    ].filter(Boolean).join(' ');
+    const flags = [];
+    if (r.missingOwner) flags.push('<span class="badge text-bg-dark me-1">Needs owner</span>');
+    if (r.missingDecisionOwner) flags.push('<span class="badge text-bg-dark me-1">Needs decision owner</span>');
+    if (r.due72) flags.push('<span class="badge text-bg-warning me-1">Due ≤72h</span>');
+    if (r.overdue) flags.push('<span class="badge text-bg-danger me-1">Overdue</span>');
+    if (r.escalationActive) flags.push('<span class="badge text-bg-danger me-1">Escalation</span>');
+    if (r.requires_isaac) flags.push(`<span class="badge text-bg-info me-1">Isaac: ${escapeHtml(r.isaac_reason || 'required')}</span>`);
 
     const statusControl = canEdit
-      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><select class="form-select form-select-sm" name="status" style="min-width:128px" onchange="this.form.submit()"><option value="open" ${r.status==='open'?'selected':''}>open</option><option value="in_progress" ${r.status==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${r.status==='blocked'?'selected':''}>blocked</option><option value="done" ${r.status==='done'?'selected':''}>done</option></select></form>`
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><select class="form-select form-select-sm" name="status" style="min-width:132px" onchange="this.form.submit()"><option value="open" ${r.status==='open'?'selected':''}>open</option><option value="in_progress" ${r.status==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${r.status==='blocked'?'selected':''}>blocked</option><option value="done" ${r.status==='done'?'selected':''}>done</option></select></form>`
       : statusBadge(r.status);
 
     return `<tr>
-      <td style="max-width:520px"><div>${escapeHtml(r.action)}</div><div class="small text-muted mono">${escapeHtml(r.action_id)}</div></td>
-      <td>${escapeHtml(r.owner || '—')}</td>
+      <td style="max-width:460px"><div>${escapeHtml(r.action_text || '—')}</div><div class="small text-muted mono">${escapeHtml(String(r.action_id || ''))}</div><div class="small text-muted">${escapeHtml(String(r.action_type || 'coordination'))} · Effort ${escapeHtml(String(r.effort_score || 0))}</div></td>
+      <td>${escapeHtml(r.owner || '—')}<div class="small text-muted">${escapeHtml((r.support || []).join(', ') || '—')}</div></td>
+      <td>${escapeHtml(r.decision_owner || '—')}</td>
       <td class="mono">${escapeHtml(r.due || '—')}</td>
-      <td>${statusControl}</td>
-      <td><a href="/dashboard/meeting/${encodeURIComponent(String(r.meeting_id || ''))}">${escapeHtml(r.meeting_title || r.meeting_id || 'Meeting')}</a><div class="small text-muted mono">${escapeHtml(r.meeting_id || '')}</div></td>
-      <td>${flags || '<span class="text-muted">—</span>'}</td>
+      <td>${statusControl}<div class="mt-1">${priorityBadge(r.priority)}</div></td>
+      <td><a href="/dashboard/meeting/${encodeURIComponent(String(r.meeting_id || ''))}">${escapeHtml(r.meeting_id || '—')}</a><div class="small text-muted">${escapeHtml((r.initiative_ids || []).join(', ') || 'USG')}</div></td>
+      <td>${flags.join('') || '<span class="text-muted">—</span>'}<div class="small text-muted mt-1">${escapeHtml(r.evidence_ref || '')}</div></td>
     </tr>`;
-  }).join('') || '<tr><td colspan="6" class="text-muted">No actions match current filters.</td></tr>';
+  }).join('') || '<tr><td colspan="7" class="text-muted">No action items match current filters.</td></tr>';
 
-  res.type('html').send(`<!doctype html><html><head>${uiHead('Actions')}</head><body><div class="app-shell">
+  const metaText = `Canonical action layer with coordinator gearbox routing. Total: ${metric.total}`;
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Action Register')}</head><body><div class="app-shell">
     ${dashboardNav('actions')}
-    ${pageHeader('Action Register', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/actions/export.json">Get JSON</a>', 'Flattened next actions from meeting minutes')}
+    ${pageHeader('Action Register', `<div class="d-flex gap-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actions/export.json">Get JSON</a><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actions/coordinator">Coordinator View</a><form method="post" action="/api/actions/sync-from-meetings"><button class="btn btn-sm btn-primary" type="submit">Sync from meetings</button></form></div>`, metaText)}
 
-    ${quickFilterNotice}
-    <div class="row g-2 mb-3" data-no-quick-clear="1">
-      ${statsCardsHtml}
+    <div class="row g-2 mb-3">
+      <div class="col-6 col-md-3">${quickCard('Needs assignment', metric.needsAssignment, 'needs_assignment')}</div>
+      <div class="col-6 col-md-3">${quickCard('Missing decision owner', metric.missingDecisionOwner, 'missing_decision_owner')}</div>
+      <div class="col-6 col-md-2">${quickCard('Due ≤72h', metric.due72, 'due72')}</div>
+      <div class="col-6 col-md-2">${quickCard('Blocked', metric.blocked, 'blocked')}</div>
+      <div class="col-6 col-md-2">${quickCard('Escalations', metric.escalation, 'escalation')}</div>
+      <div class="col-6 col-md-2">${quickCard('Overdue', metric.overdue, 'overdue')}</div>
+      <div class="col-6 col-md-2">${quickCard('Requires Isaac', metric.requiresIsaac, 'requires_isaac')}</div>
     </div>
 
     <form method="get" action="/dashboard/actions" class="row g-2 mb-3">
-      <div class="col-md-4"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q || ''))}" placeholder="Search action, owner, meeting" /></div>
-      <div class="col-md-3"><select class="form-select" name="owner"><option value="">Owner (All)</option>${owners.map((o)=>`<option value="${escapeHtml(o)}" ${ownerFilter===o?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select></div>
-      <div class="col-md-2"><select class="form-select" name="status">
-        <option value="all" ${statusFilter==='all'?'selected':''}>Status (All)</option>
-        <option value="open" ${statusFilter==='open'?'selected':''}>open</option>
-        <option value="in_progress" ${statusFilter==='in_progress'?'selected':''}>in_progress</option>
-        <option value="blocked" ${statusFilter==='blocked'?'selected':''}>blocked</option>
-        <option value="done" ${statusFilter==='done'?'selected':''}>done</option>
-      </select></div>
-      <div class="col-md-2"><select class="form-select" name="window">
-        <option value="all" ${windowFilter==='all'?'selected':''}>Window (All)</option>
-        <option value="overdue" ${windowFilter==='overdue'?'selected':''}>Overdue</option>
-        <option value="due7" ${windowFilter==='due7'?'selected':''}>Due in 7 days</option>
-        <option value="missing" ${windowFilter==='missing'?'selected':''}>Missing owner/due</option>
-        <option value="open" ${windowFilter==='open'?'selected':''}>Open only</option>
-        <option value="blocked" ${windowFilter==='blocked'?'selected':''}>Blocked only</option>
-      </select></div>
-      <div class="col-md-1 d-grid"><button class="btn btn-outline-primary">Apply</button></div>
+      <div class="col-md-3"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q || ''))}" placeholder="Search action text / IDs"/></div>
+      <div class="col-md-2"><select class="form-select" name="owner"><option value="">Owner (All)</option>${owners.map((o)=>`<option value="${escapeHtml(o)}" ${ownerFilter===o?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select></div>
+      <div class="col-md-2"><select class="form-select" name="decision_owner"><option value="">Decision owner (All)</option>${decisionOwners.map((o)=>`<option value="${escapeHtml(o)}" ${decisionOwnerFilter===o?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select></div>
+      <div class="col-md-2"><select class="form-select" name="initiative"><option value="">Initiative (All)</option>${initiatives.map((i)=>`<option value="${escapeHtml(i)}" ${initiativeFilter===i?'selected':''}>${escapeHtml(i)}</option>`).join('')}</select></div>
+      <div class="col-md-2"><select class="form-select" name="meeting"><option value="">Meeting (All)</option>${meetings.map((m)=>`<option value="${escapeHtml(m)}" ${meetingFilter===m?'selected':''}>${escapeHtml(m)}</option>`).join('')}</select></div>
+      <div class="col-md-1"><select class="form-select" name="status"><option value="all" ${statusFilter==='all'?'selected':''}>All</option><option value="open" ${statusFilter==='open'?'selected':''}>open</option><option value="in_progress" ${statusFilter==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${statusFilter==='blocked'?'selected':''}>blocked</option><option value="done" ${statusFilter==='done'?'selected':''}>done</option></select></div>
+      <div class="col-md-12 d-flex gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="/dashboard/actions">Reset</a></div>
     </form>
 
-    <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Status</th><th>Meeting</th><th>Flags</th></tr></thead><tbody>${rowsHtml}</tbody></table></div></div>
-  </div>${quickFilterScript}</body></html>`);
+    <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner / Support</th><th>Decision Owner</th><th>Due</th><th>Status / Priority</th><th>Meeting / Initiative</th><th>Flags / Evidence</th></tr></thead><tbody>${rowsHtml}</tbody></table></div></div>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/actions/coordinator', async (_req, res) => {
+  const rows = enrichActionRows(await readActionItems());
+  const notifications = await readActionNotifications();
+
+  const needsAssignment = rows.filter((r) => r.missingOwner);
+  const missingDecisionOwner = rows.filter((r) => r.missingDecisionOwner);
+  const due72 = rows.filter((r) => r.due72);
+  const blocked = rows.filter((r) => r.blocked);
+  const overdue = rows.filter((r) => r.overdue);
+  const requiresIsaac = rows.filter((r) => r.requires_isaac);
+  const escalationQueue = rows.filter((r) => r.escalationActive);
+
+  const list = (items, render) => items.length ? items.map(render).join('') : '<li class="text-muted">None</li>';
+  const actionLine = (r) => `<li><a href="/dashboard/actions?q=${encodeURIComponent(String(r.action_id || ''))}">${escapeHtml(r.action_text || r.action_id)}</a><span class="small text-muted"> — ${escapeHtml(r.owner || 'owner?')} · due ${escapeHtml(r.due || '—')} · ${escapeHtml(r.status)}</span></li>`;
+
+  const recentPackets = (notifications.coordinator_packets || []).slice(-8).reverse();
+  const packetRows = recentPackets.map((p) => `<tr><td class="mono small">${escapeHtml(String(p.packet_id || ''))}</td><td>${escapeHtml(String(p.mode || 'draft'))}</td><td class="mono small">${escapeHtml(String(p.sent_at || ''))}</td><td>${escapeHtml(String(p.total_actions || 0))}</td><td>${escapeHtml(String(p.delivery || 'draft'))}</td></tr>`).join('') || '<tr><td colspan="5" class="text-muted">No packets sent yet.</td></tr>';
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Coordinator Action Queue')}</head><body><div class="app-shell">
+    ${dashboardNav('actions-coordinator')}
+    ${pageHeader('Coordinator Queue', `<div class="d-flex gap-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actions">Back to Actions</a><form method="post" action="/api/actions/sync-from-meetings"><button class="btn btn-sm btn-outline-primary" type="submit">Sync</button></form><form method="post" action="/api/actions/send-coordinator-packets"><input type="hidden" name="mode" value="draft"/><button class="btn btn-sm btn-primary" type="submit">Draft Packet</button></form></div>`, 'Operational queue for Richelle (coordination lead) and Monica (internal coordinator)')}
+
+    <div class="row g-2 mb-3">
+      <div class="col-6 col-md-2">${statCard('Needs assignment', String(needsAssignment.length))}</div>
+      <div class="col-6 col-md-2">${statCard('Missing decision owner', String(missingDecisionOwner.length))}</div>
+      <div class="col-6 col-md-2">${statCard('Due ≤72h', String(due72.length))}</div>
+      <div class="col-6 col-md-2">${statCard('Blocked', String(blocked.length))}</div>
+      <div class="col-6 col-md-2">${statCard('Overdue', String(overdue.length))}</div>
+      <div class="col-6 col-md-2">${statCard('Isaac exceptions', String(requiresIsaac.length))}</div>
+    </div>
+
+    <div class="card mb-3"><div class="card-body"><h6 class="mb-2">Assignment gaps</h6><ul class="mb-0">${list(needsAssignment.slice(0, 20), actionLine)}</ul></div></div>
+    <div class="card mb-3"><div class="card-body"><h6 class="mb-2">Escalation queue</h6><ul class="mb-0">${list(escalationQueue.slice(0, 20), actionLine)}</ul></div></div>
+    <div class="card mb-3"><div class="card-body"><h6 class="mb-2">Due in 72 hours</h6><ul class="mb-0">${list(due72.slice(0, 20), actionLine)}</ul></div></div>
+
+    <div class="card"><div class="card-body"><h6>Recent coordinator packets</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Packet ID</th><th>Mode</th><th>Sent at</th><th>Actions</th><th>Delivery</th></tr></thead><tbody>${packetRows}</tbody></table></div></div></div>
+  </div></body></html>`);
 });
 
 app.post('/api/actions/:actionId/status', requireRole('architect','editor'), async (req, res) => {
   const actionId = String(req.params.actionId || '').trim();
-  const statusRaw = String(req.body.status || '').trim().toLowerCase();
-  const allowed = new Set(['open', 'in_progress', 'blocked', 'done']);
-  if (!allowed.has(statusRaw)) return res.status(400).send('invalid status');
+  const statusRaw = normalizeActionStatus(String(req.body.status || '').trim().toLowerCase());
 
-  const parts = actionId.split('::');
-  if (parts.length !== 2) return res.status(400).send('invalid action id');
-  const meetingId = String(parts[0] || '').trim();
-  const actionOrdinal = Number(parts[1]);
-  const actionIndex = Number.isInteger(actionOrdinal) ? actionOrdinal - 1 : NaN;
-  if (!meetingId || !Number.isInteger(actionIndex) || actionIndex < 0) return res.status(400).send('invalid action id');
+  const items = await readActionItems();
+  const idx = items.findIndex((x) => String(x?.action_id || '').trim() === actionId);
+  if (idx < 0) return res.status(404).send('action not found');
 
-  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
-  const meeting = meetings.find((m) => String(m?.meeting_id || '') === meetingId);
-  if (!meeting) return res.status(404).send('meeting not found');
+  const before = applyActionValidation(items[idx]);
+  const next = applyActionValidation({ ...before, status: statusRaw, updated_at: nowIso() });
+  items[idx] = next;
+  await writeActionItems(items);
 
-  const actions = Array.isArray(meeting.next_actions) ? meeting.next_actions : [];
-  if (!actions[actionIndex]) return res.status(404).send('action not found');
-
-  actions[actionIndex] = { ...(actions[actionIndex] || {}), status: statusRaw };
-  meeting.next_actions = actions;
-  meeting.updated_at = nowIso();
-  await writeJson(DASHBOARD_MEETING_MINUTES_FILE, meetings);
+  const actor = getUserLabel(req);
+  await appendActionEvent({
+    event_type: before.status !== next.status ? 'action.updated' : 'action.updated',
+    action_id: actionId,
+    actor,
+    meta: { before_status: before.status, after_status: next.status }
+  }).catch(() => {});
 
   await appendAuditEvent({
     ts: nowIso(),
-    actor: getUserLabel(req),
+    actor,
     role: effectiveRole(req) || 'unknown',
-    event_type: 'meeting_action.status_update',
-    entity_type: 'meeting_action',
+    event_type: before.status !== next.status ? 'action.updated' : 'action.updated',
+    entity_type: 'action_item',
     entity_id: actionId,
-    meta: { meeting_id: meetingId, action_index: actionIndex + 1, status: statusRaw }
+    meta: { before_status: before.status, after_status: next.status }
   }).catch(() => {});
 
   const rawReturnTo = String(req.body.return_to || req.get('referer') || '/dashboard/actions');
@@ -3182,10 +3227,44 @@ app.post('/api/actions/:actionId/status', requireRole('architect','editor'), asy
   return res.redirect(returnTo);
 });
 
+app.post('/api/actions/sync-from-meetings', requireRole('architect','editor'), async (req, res) => {
+  try {
+    const { spawnSync } = await import('node:child_process');
+    const scriptPath = path.join(ROOT, 'scripts/actions/sync-actions-from-meetings.mjs');
+    const run = spawnSync('node', [scriptPath], { cwd: ROOT, encoding: 'utf8', timeout: 180000 });
+    if (run.error || run.status !== 0) {
+      return res.status(500).send(`sync failed: ${String(run.stderr || run.stdout || run.error?.message || 'unknown error')}`);
+    }
+  } catch (err) {
+    return res.status(500).send(`sync failed: ${String(err?.message || err)}`);
+  }
+
+  const rawRef = String(req.get('referer') || '/dashboard/actions');
+  const returnTo = rawRef.startsWith('/dashboard/actions') ? rawRef : '/dashboard/actions';
+  return res.redirect(returnTo || '/dashboard/actions');
+});
+
+app.post('/api/actions/send-coordinator-packets', requireRole('architect','editor'), async (req, res) => {
+  try {
+    const mode = String(req.body.mode || 'draft').toLowerCase() === 'send' ? 'send' : 'draft';
+    const { spawnSync } = await import('node:child_process');
+    const scriptPath = path.join(ROOT, 'scripts/actions/send-coordinator-packets.mjs');
+    const run = spawnSync('node', [scriptPath, `--mode=${mode}`], { cwd: ROOT, encoding: 'utf8', timeout: 180000 });
+    if (run.error || run.status !== 0) {
+      return res.status(500).send(`packet failed: ${String(run.stderr || run.stdout || run.error?.message || 'unknown error')}`);
+    }
+  } catch (err) {
+    return res.status(500).send(`packet failed: ${String(err?.message || err)}`);
+  }
+
+  const rawRef = String(req.get('referer') || '/dashboard/actions/coordinator');
+  const returnTo = rawRef.startsWith('/dashboard/actions') ? rawRef : '/dashboard/actions/coordinator';
+  return res.redirect(returnTo || '/dashboard/actions/coordinator');
+});
+
 app.get('/dashboard/actions/export.json', async (_req, res) => {
-  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
-  const rows = flattenMeetingActions(meetings);
-  res.type('application/json').send(JSON.stringify(rows, null, 2));
+  const items = await readActionItems();
+  res.type('application/json').send(JSON.stringify(items, null, 2));
 });
 
 app.get('/dashboard/meetings', async (req, res) => {
@@ -5054,6 +5133,15 @@ async function ensureTeamAndBoardFiles() {
   if (!fssync.existsSync(BEACON_QUEUE_FILE)) {
     await fs.writeFile(BEACON_QUEUE_FILE, JSON.stringify(defaultBeaconQueue(), null, 2));
   }
+  if (!fssync.existsSync(DASHBOARD_ACTION_ITEMS_FILE)) {
+    await fs.writeFile(DASHBOARD_ACTION_ITEMS_FILE, JSON.stringify([], null, 2));
+  }
+  if (!fssync.existsSync(DASHBOARD_ACTION_NOTIFICATIONS_FILE)) {
+    await fs.writeFile(DASHBOARD_ACTION_NOTIFICATIONS_FILE, JSON.stringify(defaultActionNotifications(), null, 2));
+  }
+  if (!fssync.existsSync(DASHBOARD_ACTION_EVENTS_FILE)) {
+    await fs.writeFile(DASHBOARD_ACTION_EVENTS_FILE, '', 'utf8');
+  }
   await loadBoardValidator();
 }
 
@@ -5260,6 +5348,84 @@ async function updatePipelineRunStage({ runId, stage, nextStatus, error = null }
 
 function defaultBeaconQueue() {
   return { version: 1, beacons: [] };
+}
+
+function defaultActionNotifications() {
+  return {
+    version: 1,
+    mode: 'draft',
+    coordinator_packets: [],
+    isaac_exception_packets: [],
+    escalation_state: [],
+    last_daily_isaac_sent_on: null,
+    updated_at: nowIso(),
+  };
+}
+
+function defaultActionItemSkeleton() {
+  return {
+    action_id: '',
+    meeting_id: '',
+    initiative_ids: [],
+    action_text: '',
+    action_type: 'coordination',
+    owner: '',
+    support: [],
+    decision_owner: null,
+    coordinator_lead: 'Richelle',
+    internal_coordinator: 'Monica',
+    due: '',
+    status: 'open',
+    priority: 'normal',
+    effort_score: 2,
+    stage_critical: false,
+    requires_isaac: false,
+    isaac_reason: 'none',
+    blocker_reason: '',
+    waiting_on: [],
+    evidence_ref: '',
+    created_at: nowIso(),
+    updated_at: nowIso(),
+    escalated_at: null,
+    closed_at: null,
+  };
+}
+
+async function appendActionEvent(event = {}) {
+  const payload = {
+    ts: nowIso(),
+    event_type: String(event.event_type || 'action.updated'),
+    action_id: event.action_id || null,
+    actor: String(event.actor || 'system'),
+    meta: event.meta || {},
+  };
+  await fs.mkdir(path.dirname(DASHBOARD_ACTION_EVENTS_FILE), { recursive: true });
+  await fs.appendFile(DASHBOARD_ACTION_EVENTS_FILE, `${JSON.stringify(payload)}\n`, 'utf8');
+}
+
+async function readActionItems() {
+  const items = await readJson(DASHBOARD_ACTION_ITEMS_FILE, []);
+  if (!Array.isArray(items)) return [];
+  return items;
+}
+
+async function writeActionItems(items = []) {
+  await writeJson(DASHBOARD_ACTION_ITEMS_FILE, Array.isArray(items) ? items : []);
+}
+
+async function readActionNotifications() {
+  const ledger = await readJson(DASHBOARD_ACTION_NOTIFICATIONS_FILE, defaultActionNotifications());
+  if (!ledger || typeof ledger !== 'object') return defaultActionNotifications();
+  if (!Array.isArray(ledger.coordinator_packets)) ledger.coordinator_packets = [];
+  if (!Array.isArray(ledger.isaac_exception_packets)) ledger.isaac_exception_packets = [];
+  if (!Array.isArray(ledger.escalation_state)) ledger.escalation_state = [];
+  if (!ledger.mode) ledger.mode = 'draft';
+  return ledger;
+}
+
+async function writeActionNotifications(ledger = {}) {
+  ledger.updated_at = nowIso();
+  await writeJson(DASHBOARD_ACTION_NOTIFICATIONS_FILE, ledger);
 }
 
 async function readBeaconQueue() {

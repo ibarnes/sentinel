@@ -1,0 +1,157 @@
+{"ts":"2026-04-03T02:46:25.930Z","event_type":"action.created","action_id":"ACT-701ec3f83f7b010e","actor":"system","meta":{"meeting_id":"MM-2026-03-13-USVI-MARK-MALCOLM-TELLY-001"}}
+{"ts":"2026-04-03T02:46:25.933Z","event_type":"action.assigned","action_id":"ACT-701ec3f83f7b010e","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.934Z","event_type":"action.created","action_id":"ACT-c9192e002e52e21e","actor":"system","meta":{"meeting_id":"MM-2026-03-13-USVI-MARK-MALCOLM-TELLY-001"}}
+{"ts":"2026-04-03T02:46:25.934Z","event_type":"action.assigned","action_id":"ACT-c9192e002e52e21e","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.934Z","event_type":"action.created","action_id":"ACT-fd7fd6dd1b4c7adb","actor":"system","meta":{"meeting_id":"MM-2026-03-13-USVI-MARK-MALCOLM-TELLY-001"}}
+{"ts":"2026-04-03T02:46:25.935Z","event_type":"action.assigned","action_id":"ACT-fd7fd6dd1b4c7adb","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.935Z","event_type":"action.created","action_id":"ACT-3b5b4073cb773fde","actor":"system","meta":{"meeting_id":"MM-2026-03-13-USVI-MARK-MALCOLM-TELLY-001"}}
+{"ts":"2026-04-03T02:46:25.935Z","event_type":"action.assigned","action_id":"ACT-3b5b4073cb773fde","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.936Z","event_type":"action.created","action_id":"ACT-1a6f4204ea81d5e5","actor":"system","meta":{"meeting_id":"MM-2026-03-14-REFOCUS-AFRIKA-001"}}
+{"ts":"2026-04-03T02:46:25.937Z","event_type":"action.assigned","action_id":"ACT-1a6f4204ea81d5e5","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.937Z","event_type":"action.created","action_id":"ACT-eba023e4e27f3b73","actor":"system","meta":{"meeting_id":"MM-2026-03-14-REFOCUS-AFRIKA-001"}}
+{"ts":"2026-04-03T02:46:25.938Z","event_type":"action.assigned","action_id":"ACT-eba023e4e27f3b73","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.938Z","event_type":"action.created","action_id":"ACT-d21e176f0ecceb22","actor":"system","meta":{"meeting_id":"MM-2026-03-14-REFOCUS-AFRIKA-001"}}
+{"ts":"2026-04-03T02:46:25.938Z","event_type":"action.assigned","action_id":"ACT-d21e176f0ecceb22","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.939Z","event_type":"action.blocked","action_id":"ACT-d21e176f0ecceb22","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.939Z","event_type":"action.created","action_id":"ACT-7b5d40d84e5ea9b5","actor":"system","meta":{"meeting_id":"MM-2026-03-14-REFOCUS-AFRIKA-001"}}
+{"ts":"2026-04-03T02:46:25.939Z","event_type":"action.assigned","action_id":"ACT-7b5d40d84e5ea9b5","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.939Z","event_type":"action.blocked","action_id":"ACT-7b5d40d84e5ea9b5","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.940Z","event_type":"action.created","action_id":"ACT-a16c67f95fb4b2d2","actor":"system","meta":{"meeting_id":"MM-2026-03-17-WADE-CHERWAYKO-001"}}
+{"ts":"2026-04-03T02:46:25.940Z","event_type":"action.assigned","action_id":"ACT-a16c67f95fb4b2d2","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.941Z","event_type":"action.created","action_id":"ACT-1a49ec467d57d0bc","actor":"system","meta":{"meeting_id":"MM-2026-03-17-WADE-CHERWAYKO-001"}}
+{"ts":"2026-04-03T02:46:25.943Z","event_type":"action.assigned","action_id":"ACT-1a49ec467d57d0bc","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.943Z","event_type":"action.blocked","action_id":"ACT-1a49ec467d57d0bc","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.943Z","event_type":"action.created","action_id":"ACT-2b5b5cecca5ad7f5","actor":"system","meta":{"meeting_id":"MM-2026-03-17-WADE-CHERWAYKO-001"}}
+{"ts":"2026-04-03T02:46:25.943Z","event_type":"action.assigned","action_id":"ACT-2b5b5cecca5ad7f5","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.944Z","event_type":"action.created","action_id":"ACT-a34eee005d4071f3","actor":"system","meta":{"meeting_id":"MM-2026-03-17-WADE-CHERWAYKO-001"}}
+{"ts":"2026-04-03T02:46:25.944Z","event_type":"action.assigned","action_id":"ACT-a34eee005d4071f3","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.944Z","event_type":"action.created","action_id":"ACT-64f08a979648c5ca","actor":"system","meta":{"meeting_id":"MM-2026-03-19-ANGOLA-CABLES-001"}}
+{"ts":"2026-04-03T02:46:25.945Z","event_type":"action.assigned","action_id":"ACT-64f08a979648c5ca","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.945Z","event_type":"action.created","action_id":"ACT-693991f03ea32f2b","actor":"system","meta":{"meeting_id":"MM-2026-03-19-ANGOLA-CABLES-001"}}
+{"ts":"2026-04-03T02:46:25.945Z","event_type":"action.assigned","action_id":"ACT-693991f03ea32f2b","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.945Z","event_type":"action.blocked","action_id":"ACT-693991f03ea32f2b","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.946Z","event_type":"action.created","action_id":"ACT-cbe18e112c0eeca0","actor":"system","meta":{"meeting_id":"MM-2026-03-19-ANGOLA-CABLES-001"}}
+{"ts":"2026-04-03T02:46:25.946Z","event_type":"action.assigned","action_id":"ACT-cbe18e112c0eeca0","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.946Z","event_type":"action.created","action_id":"ACT-32f2f64fc8371c7f","actor":"system","meta":{"meeting_id":"MM-2026-03-19-ANGOLA-CABLES-001"}}
+{"ts":"2026-04-03T02:46:25.946Z","event_type":"action.assigned","action_id":"ACT-32f2f64fc8371c7f","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.947Z","event_type":"action.created","action_id":"ACT-1d3b35f6c02b9b50","actor":"system","meta":{"meeting_id":"MM-2026-03-24-USG-FINANCE-001"}}
+{"ts":"2026-04-03T02:46:25.947Z","event_type":"action.assigned","action_id":"ACT-1d3b35f6c02b9b50","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.947Z","event_type":"action.created","action_id":"ACT-845f38bd7fee2bd7","actor":"system","meta":{"meeting_id":"MM-2026-03-24-USG-FINANCE-001"}}
+{"ts":"2026-04-03T02:46:25.948Z","event_type":"action.assigned","action_id":"ACT-845f38bd7fee2bd7","actor":"system","meta":{"owner":"Michael Sico"}}
+{"ts":"2026-04-03T02:46:25.948Z","event_type":"action.created","action_id":"ACT-2f3f7933fe0a92c9","actor":"system","meta":{"meeting_id":"MM-2026-03-24-USG-FINANCE-001"}}
+{"ts":"2026-04-03T02:46:25.948Z","event_type":"action.assigned","action_id":"ACT-2f3f7933fe0a92c9","actor":"system","meta":{"owner":"Monica Colon"}}
+{"ts":"2026-04-03T02:46:25.948Z","event_type":"action.created","action_id":"ACT-d63c0eace8631e86","actor":"system","meta":{"meeting_id":"MM-2026-03-24-USG-FINANCE-001"}}
+{"ts":"2026-04-03T02:46:25.949Z","event_type":"action.assigned","action_id":"ACT-d63c0eace8631e86","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.949Z","event_type":"action.created","action_id":"ACT-cb3cf03afe4370ae","actor":"system","meta":{"meeting_id":"MM-2026-03-24-MARK-G-001"}}
+{"ts":"2026-04-03T02:46:25.949Z","event_type":"action.assigned","action_id":"ACT-cb3cf03afe4370ae","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.949Z","event_type":"action.created","action_id":"ACT-527e957231496204","actor":"system","meta":{"meeting_id":"MM-2026-03-24-MARK-G-001"}}
+{"ts":"2026-04-03T02:46:25.950Z","event_type":"action.assigned","action_id":"ACT-527e957231496204","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.950Z","event_type":"action.created","action_id":"ACT-b2a10a5c47f323ec","actor":"system","meta":{"meeting_id":"MM-2026-03-24-TANISHA-LEWIS-001"}}
+{"ts":"2026-04-03T02:46:25.950Z","event_type":"action.assigned","action_id":"ACT-b2a10a5c47f323ec","actor":"system","meta":{"owner":"Tanisha Lewis"}}
+{"ts":"2026-04-03T02:46:25.950Z","event_type":"action.blocked","action_id":"ACT-b2a10a5c47f323ec","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.951Z","event_type":"action.created","action_id":"ACT-fde6cf955551b376","actor":"system","meta":{"meeting_id":"MM-2026-03-24-TANISHA-LEWIS-001"}}
+{"ts":"2026-04-03T02:46:25.951Z","event_type":"action.assigned","action_id":"ACT-fde6cf955551b376","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.951Z","event_type":"action.created","action_id":"ACT-050e8ef5b9a2aa97","actor":"system","meta":{"meeting_id":"MM-2026-03-24-TANISHA-LEWIS-001"}}
+{"ts":"2026-04-03T02:46:25.951Z","event_type":"action.assigned","action_id":"ACT-050e8ef5b9a2aa97","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.952Z","event_type":"action.created","action_id":"ACT-c0ecdb35460e103a","actor":"system","meta":{"meeting_id":"MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001"}}
+{"ts":"2026-04-03T02:46:25.952Z","event_type":"action.assigned","action_id":"ACT-c0ecdb35460e103a","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.952Z","event_type":"action.blocked","action_id":"ACT-c0ecdb35460e103a","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.952Z","event_type":"action.created","action_id":"ACT-3473d3cebeebfeb6","actor":"system","meta":{"meeting_id":"MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001"}}
+{"ts":"2026-04-03T02:46:25.953Z","event_type":"action.assigned","action_id":"ACT-3473d3cebeebfeb6","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.953Z","event_type":"action.created","action_id":"ACT-a7fbcd40d7186ffa","actor":"system","meta":{"meeting_id":"MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001"}}
+{"ts":"2026-04-03T02:46:25.953Z","event_type":"action.assigned","action_id":"ACT-a7fbcd40d7186ffa","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.954Z","event_type":"action.created","action_id":"ACT-fa4477059d5ad00a","actor":"system","meta":{"meeting_id":"MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001"}}
+{"ts":"2026-04-03T02:46:25.954Z","event_type":"action.assigned","action_id":"ACT-fa4477059d5ad00a","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.955Z","event_type":"action.created","action_id":"ACT-a47754ec662f22a8","actor":"system","meta":{"meeting_id":"MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001"}}
+{"ts":"2026-04-03T02:46:25.955Z","event_type":"action.assigned","action_id":"ACT-a47754ec662f22a8","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.955Z","event_type":"action.created","action_id":"ACT-255c17d4ff54d22c","actor":"system","meta":{"meeting_id":"MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001"}}
+{"ts":"2026-04-03T02:46:25.955Z","event_type":"action.assigned","action_id":"ACT-255c17d4ff54d22c","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.955Z","event_type":"action.blocked","action_id":"ACT-255c17d4ff54d22c","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.956Z","event_type":"action.created","action_id":"ACT-4be64582422f4c6e","actor":"system","meta":{"meeting_id":"MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001"}}
+{"ts":"2026-04-03T02:46:25.956Z","event_type":"action.assigned","action_id":"ACT-4be64582422f4c6e","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.956Z","event_type":"action.blocked","action_id":"ACT-4be64582422f4c6e","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.956Z","event_type":"action.created","action_id":"ACT-bce5d692432d23d3","actor":"system","meta":{"meeting_id":"MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001"}}
+{"ts":"2026-04-03T02:46:25.957Z","event_type":"action.assigned","action_id":"ACT-bce5d692432d23d3","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.957Z","event_type":"action.blocked","action_id":"ACT-bce5d692432d23d3","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.957Z","event_type":"action.created","action_id":"ACT-7c1c50804b2eea0b","actor":"system","meta":{"meeting_id":"MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001"}}
+{"ts":"2026-04-03T02:46:25.957Z","event_type":"action.assigned","action_id":"ACT-7c1c50804b2eea0b","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.958Z","event_type":"action.created","action_id":"ACT-40dbb2f96e7f35ca","actor":"system","meta":{"meeting_id":"MM-2026-03-26-ANGOLA-AI-CAMPUS-001"}}
+{"ts":"2026-04-03T02:46:25.958Z","event_type":"action.assigned","action_id":"ACT-40dbb2f96e7f35ca","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.958Z","event_type":"action.created","action_id":"ACT-f342f557723fd19d","actor":"system","meta":{"meeting_id":"MM-2026-03-26-ANGOLA-AI-CAMPUS-001"}}
+{"ts":"2026-04-03T02:46:25.959Z","event_type":"action.assigned","action_id":"ACT-f342f557723fd19d","actor":"system","meta":{"owner":"Wade"}}
+{"ts":"2026-04-03T02:46:25.959Z","event_type":"action.created","action_id":"ACT-64e452d1f54125f3","actor":"system","meta":{"meeting_id":"MM-2026-03-26-ANGOLA-AI-CAMPUS-001"}}
+{"ts":"2026-04-03T02:46:25.959Z","event_type":"action.assigned","action_id":"ACT-64e452d1f54125f3","actor":"system","meta":{"owner":"Richard"}}
+{"ts":"2026-04-03T02:46:25.960Z","event_type":"action.created","action_id":"ACT-3a9df7df64230a3e","actor":"system","meta":{"meeting_id":"MM-2026-03-26-ANGOLA-AI-CAMPUS-001"}}
+{"ts":"2026-04-03T02:46:25.960Z","event_type":"action.assigned","action_id":"ACT-3a9df7df64230a3e","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.960Z","event_type":"action.created","action_id":"ACT-2201b3aa5a0bc89e","actor":"system","meta":{"meeting_id":"MM-2026-03-27-EUGENE-YUN-KOREA-DANGOTE-001"}}
+{"ts":"2026-04-03T02:46:25.960Z","event_type":"action.assigned","action_id":"ACT-2201b3aa5a0bc89e","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.961Z","event_type":"action.created","action_id":"ACT-24fa5d04e2d3050f","actor":"system","meta":{"meeting_id":"MM-2026-03-27-EUGENE-YUN-KOREA-DANGOTE-001"}}
+{"ts":"2026-04-03T02:46:25.961Z","event_type":"action.assigned","action_id":"ACT-24fa5d04e2d3050f","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.961Z","event_type":"action.created","action_id":"ACT-36a4aef14a23a741","actor":"system","meta":{"meeting_id":"MM-2026-03-27-EUGENE-YUN-KOREA-DANGOTE-001"}}
+{"ts":"2026-04-03T02:46:25.961Z","event_type":"action.assigned","action_id":"ACT-36a4aef14a23a741","actor":"system","meta":{"owner":"Eugene Yun"}}
+{"ts":"2026-04-03T02:46:25.962Z","event_type":"action.created","action_id":"ACT-0606531839bb47cd","actor":"system","meta":{"meeting_id":"MM-2026-03-27-EUGENE-YUN-KOREA-DANGOTE-001"}}
+{"ts":"2026-04-03T02:46:25.962Z","event_type":"action.assigned","action_id":"ACT-0606531839bb47cd","actor":"system","meta":{"owner":"Richard Hoffman"}}
+{"ts":"2026-04-03T02:46:25.962Z","event_type":"action.created","action_id":"ACT-a539eccc7b9d1e65","actor":"system","meta":{"meeting_id":"MM-2026-03-27-EUGENE-YUN-KOREA-DANGOTE-001"}}
+{"ts":"2026-04-03T02:46:25.963Z","event_type":"action.assigned","action_id":"ACT-a539eccc7b9d1e65","actor":"system","meta":{"owner":"Eugene Yun"}}
+{"ts":"2026-04-03T02:46:25.964Z","event_type":"action.created","action_id":"ACT-ba85653a01f82622","actor":"system","meta":{"meeting_id":"MM-2026-03-30-BESTAF-ALIGNMENT-001"}}
+{"ts":"2026-04-03T02:46:25.964Z","event_type":"action.assigned","action_id":"ACT-ba85653a01f82622","actor":"system","meta":{"owner":"Stephanie / USG"}}
+{"ts":"2026-04-03T02:46:25.965Z","event_type":"action.created","action_id":"ACT-5490caecc5bc9f2d","actor":"system","meta":{"meeting_id":"MM-2026-03-30-BESTAF-ALIGNMENT-001"}}
+{"ts":"2026-04-03T02:46:25.965Z","event_type":"action.assigned","action_id":"ACT-5490caecc5bc9f2d","actor":"system","meta":{"owner":"Dare / Bestaf"}}
+{"ts":"2026-04-03T02:46:25.965Z","event_type":"action.created","action_id":"ACT-fa64c264b11615da","actor":"system","meta":{"meeting_id":"MM-2026-03-30-BESTAF-ALIGNMENT-001"}}
+{"ts":"2026-04-03T02:46:25.966Z","event_type":"action.assigned","action_id":"ACT-fa64c264b11615da","actor":"system","meta":{"owner":"Tyreek Moore"}}
+{"ts":"2026-04-03T02:46:25.966Z","event_type":"action.created","action_id":"ACT-36d0483420ab2834","actor":"system","meta":{"meeting_id":"MM-2026-03-30-BESTAF-ALIGNMENT-001"}}
+{"ts":"2026-04-03T02:46:25.966Z","event_type":"action.assigned","action_id":"ACT-36d0483420ab2834","actor":"system","meta":{"owner":"USG + Bestaf Legal"}}
+{"ts":"2026-04-03T02:46:25.967Z","event_type":"action.created","action_id":"ACT-be6fa7adffb83a77","actor":"system","meta":{"meeting_id":"MM-2026-03-25-ANGELLA-GOREN-001"}}
+{"ts":"2026-04-03T02:46:25.967Z","event_type":"action.assigned","action_id":"ACT-be6fa7adffb83a77","actor":"system","meta":{"owner":"Angella Goren"}}
+{"ts":"2026-04-03T02:46:25.967Z","event_type":"action.created","action_id":"ACT-aaf834c7b706197a","actor":"system","meta":{"meeting_id":"MM-2026-03-25-ANGELLA-GOREN-001"}}
+{"ts":"2026-04-03T02:46:25.968Z","event_type":"action.assigned","action_id":"ACT-aaf834c7b706197a","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.968Z","event_type":"action.blocked","action_id":"ACT-aaf834c7b706197a","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.968Z","event_type":"action.created","action_id":"ACT-6320872574139fa1","actor":"system","meta":{"meeting_id":"MM-2026-03-25-ANGELLA-GOREN-001"}}
+{"ts":"2026-04-03T02:46:25.968Z","event_type":"action.assigned","action_id":"ACT-6320872574139fa1","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.969Z","event_type":"action.created","action_id":"ACT-f4b532e14e66e915","actor":"system","meta":{"meeting_id":"MM-2026-03-25-ANGELLA-GOREN-001"}}
+{"ts":"2026-04-03T02:46:25.969Z","event_type":"action.assigned","action_id":"ACT-f4b532e14e66e915","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.969Z","event_type":"action.created","action_id":"ACT-77bff685f2e2db0a","actor":"system","meta":{"meeting_id":"MM-2026-03-30-BARCLAY-KNAPP-001"}}
+{"ts":"2026-04-03T02:46:25.969Z","event_type":"action.assigned","action_id":"ACT-77bff685f2e2db0a","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.970Z","event_type":"action.created","action_id":"ACT-63c0bc3434e9977d","actor":"system","meta":{"meeting_id":"MM-2026-03-30-BARCLAY-KNAPP-001"}}
+{"ts":"2026-04-03T02:46:25.971Z","event_type":"action.assigned","action_id":"ACT-63c0bc3434e9977d","actor":"system","meta":{"owner":"Barclay Knapp"}}
+{"ts":"2026-04-03T02:46:25.971Z","event_type":"action.created","action_id":"ACT-6b01f0868940aee5","actor":"system","meta":{"meeting_id":"MM-2026-03-30-BARCLAY-KNAPP-001"}}
+{"ts":"2026-04-03T02:46:25.971Z","event_type":"action.assigned","action_id":"ACT-6b01f0868940aee5","actor":"system","meta":{"owner":"Richard Hoffman"}}
+{"ts":"2026-04-03T02:46:25.971Z","event_type":"action.blocked","action_id":"ACT-6b01f0868940aee5","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.972Z","event_type":"action.created","action_id":"ACT-b49fefbe0e4c607c","actor":"system","meta":{"meeting_id":"MM-2026-03-30-BARCLAY-KNAPP-001"}}
+{"ts":"2026-04-03T02:46:25.972Z","event_type":"action.assigned","action_id":"ACT-b49fefbe0e4c607c","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.972Z","event_type":"action.created","action_id":"ACT-cfbc51ba4d515295","actor":"system","meta":{"meeting_id":"MM-2026-03-31-TAUFIQ-RAHIM-001"}}
+{"ts":"2026-04-03T02:46:25.972Z","event_type":"action.assigned","action_id":"ACT-cfbc51ba4d515295","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.973Z","event_type":"action.created","action_id":"ACT-d38264e4e9ea47fb","actor":"system","meta":{"meeting_id":"MM-2026-03-31-TAUFIQ-RAHIM-001"}}
+{"ts":"2026-04-03T02:46:25.973Z","event_type":"action.assigned","action_id":"ACT-d38264e4e9ea47fb","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.973Z","event_type":"action.created","action_id":"ACT-669e54b015b89407","actor":"system","meta":{"meeting_id":"MM-2026-03-31-TAUFIQ-RAHIM-001"}}
+{"ts":"2026-04-03T02:46:25.973Z","event_type":"action.assigned","action_id":"ACT-669e54b015b89407","actor":"system","meta":{"owner":"Richard Hoffman"}}
+{"ts":"2026-04-03T02:46:25.974Z","event_type":"action.created","action_id":"ACT-d577c5913103cc37","actor":"system","meta":{"meeting_id":"MM-2026-03-31-TAUFIQ-RAHIM-001"}}
+{"ts":"2026-04-03T02:46:25.974Z","event_type":"action.assigned","action_id":"ACT-d577c5913103cc37","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.974Z","event_type":"action.created","action_id":"ACT-bb349d391d393c12","actor":"system","meta":{"meeting_id":"MM-2026-04-01-JOHN-HARRINGTON-001"}}
+{"ts":"2026-04-03T02:46:25.974Z","event_type":"action.assigned","action_id":"ACT-bb349d391d393c12","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.975Z","event_type":"action.created","action_id":"ACT-4408b2fe18583882","actor":"system","meta":{"meeting_id":"MM-2026-04-01-JOHN-HARRINGTON-001"}}
+{"ts":"2026-04-03T02:46:25.975Z","event_type":"action.assigned","action_id":"ACT-4408b2fe18583882","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.975Z","event_type":"action.blocked","action_id":"ACT-4408b2fe18583882","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.975Z","event_type":"action.created","action_id":"ACT-f73b9c94058c3c03","actor":"system","meta":{"meeting_id":"MM-2026-04-01-JOHN-HARRINGTON-001"}}
+{"ts":"2026-04-03T02:46:25.976Z","event_type":"action.assigned","action_id":"ACT-f73b9c94058c3c03","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.976Z","event_type":"action.created","action_id":"ACT-f36be7e3b6f30145","actor":"system","meta":{"meeting_id":"MM-2026-04-01-JOHN-HARRINGTON-001"}}
+{"ts":"2026-04-03T02:46:25.976Z","event_type":"action.assigned","action_id":"ACT-f36be7e3b6f30145","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.976Z","event_type":"action.blocked","action_id":"ACT-f36be7e3b6f30145","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:46:25.977Z","event_type":"action.created","action_id":"ACT-c79340a1ae653242","actor":"system","meta":{"meeting_id":"MM-2026-04-02-REFOCUS-AFRIKA-001"}}
+{"ts":"2026-04-03T02:46:25.977Z","event_type":"action.assigned","action_id":"ACT-c79340a1ae653242","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.978Z","event_type":"action.created","action_id":"ACT-d1e5534050330a98","actor":"system","meta":{"meeting_id":"MM-2026-04-02-REFOCUS-AFRIKA-001"}}
+{"ts":"2026-04-03T02:46:25.978Z","event_type":"action.assigned","action_id":"ACT-d1e5534050330a98","actor":"system","meta":{"owner":"Mabel Phifer"}}
+{"ts":"2026-04-03T02:46:25.978Z","event_type":"action.created","action_id":"ACT-3840af839026e214","actor":"system","meta":{"meeting_id":"MM-2026-04-02-REFOCUS-AFRIKA-001"}}
+{"ts":"2026-04-03T02:46:25.978Z","event_type":"action.assigned","action_id":"ACT-3840af839026e214","actor":"system","meta":{"owner":"Isaac"}}
+{"ts":"2026-04-03T02:46:25.979Z","event_type":"action.created","action_id":"ACT-55cf270f1b36283c","actor":"system","meta":{"meeting_id":"MM-2026-04-02-REFOCUS-AFRIKA-001"}}
+{"ts":"2026-04-03T02:46:25.979Z","event_type":"action.assigned","action_id":"ACT-55cf270f1b36283c","actor":"system","meta":{"owner":"Sentinel"}}
+{"ts":"2026-04-03T02:46:25.979Z","event_type":"action.blocked","action_id":"ACT-55cf270f1b36283c","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
+{"ts":"2026-04-03T02:47:33.242Z","event_type":"coordinator.packet.sent","action_id":null,"actor":"system","meta":{"packet_id":"CP-20260403024733-f12189","mode":"draft","delivery":"draft"}}
+{"ts":"2026-04-03T02:47:33.242Z","event_type":"action.escalated","action_id":"ACT-eba023e4e27f3b73","actor":"system","meta":{"rule":"isaac_required_due_breach"}}
+{"ts":"2026-04-03T02:47:33.242Z","event_type":"action.escalated","action_id":"ACT-7b5d40d84e5ea9b5","actor":"system","meta":{"rule":"stage_critical_due_breach"}}
+{"ts":"2026-04-03T02:47:33.242Z","event_type":"action.escalated","action_id":"ACT-1a49ec467d57d0bc","actor":"system","meta":{"rule":"stage_critical_due_breach"}}
+{"ts":"2026-04-03T02:47:33.242Z","event_type":"action.escalated","action_id":"ACT-693991f03ea32f2b","actor":"system","meta":{"rule":"stage_critical_due_breach"}}
+{"ts":"2026-04-03T02:47:33.242Z","event_type":"action.escalated","action_id":"ACT-a7fbcd40d7186ffa","actor":"system","meta":{"rule":"isaac_required_due_breach"}}
+{"ts":"2026-04-03T02:47:33.242Z","event_type":"action.escalated","action_id":"ACT-fa4477059d5ad00a","actor":"system","meta":{"rule":"stage_critical_due_breach"}}
+{"ts":"2026-04-03T02:47:33.242Z","event_type":"action.escalated","action_id":"ACT-5490caecc5bc9f2d","actor":"system","meta":{"rule":"stage_critical_due_breach"}}
+{"ts":"2026-04-03T02:47:33.242Z","event_type":"isaac.exception.sent","action_id":null,"actor":"system","meta":{"packet_id":"IP-20260403024733-8de5b2","scope":"immediate","mode":"draft","delivery":"draft"}}

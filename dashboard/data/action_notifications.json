@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "mode": "draft",
+  "coordinator_packets": [
+    {
+      "packet_id": "CP-20260403024733-f12189",
+      "sent_at": "2026-04-03T02:47:33.242Z",
+      "mode": "draft",
+      "digest": "f12189acdee80f1f",
+      "action_refs": [
+        {
+          "action_id": "ACT-701ec3f83f7b010e",
+          "updated_at": "2026-04-03T02:46:25.929Z"
+        },
+        {
+          "action_id": "ACT-c9192e002e52e21e",
+          "updated_at": "2026-04-03T02:46:25.934Z"
+        },
+        {
+          "action_id": "ACT-fd7fd6dd1b4c7adb",
+          "updated_at": "2026-04-03T02:46:25.934Z"
+        },
+        {
+          "action_id": "ACT-3b5b4073cb773fde",
+          "updated_at": "2026-04-03T02:46:25.935Z"
+        },
+        {
+          "action_id": "ACT-1a6f4204ea81d5e5",
+          "updated_at": "2026-04-03T02:46:25.936Z"
+        },
+        {
+          "action_id": "ACT-eba023e4e27f3b73",
+          "updated_at": "2026-04-03T02:46:25.937Z"
+        },
+        {
+          "action_id": "ACT-d21e176f0ecceb22",
+          "updated_at": "2026-04-03T02:46:25.938Z"
+        },
+        {
+          "action_id": "ACT-7b5d40d84e5ea9b5",
+          "updated_at": "2026-04-03T02:46:25.939Z"
+        },
+        {
+          "action_id": "ACT-a16c67f95fb4b2d2",
+          "updated_at": "2026-04-03T02:46:25.940Z"
+        },
+        {
+          "action_id": "ACT-1a49ec467d57d0bc",
+          "updated_at": "2026-04-03T02:46:25.941Z"
+        },
+        {
+          "action_id": "ACT-2b5b5cecca5ad7f5",
+          "updated_at": "2026-04-03T02:46:25.943Z"
+        },
+        {
+          "action_id": "ACT-a34eee005d4071f3",
+          "updated_at": "2026-04-03T02:46:25.944Z"
+        },
+        {
+          "action_id": "ACT-64f08a979648c5ca",
+          "updated_at": "2026-04-03T02:46:25.944Z"
+        },
+        {
+          "action_id": "ACT-693991f03ea32f2b",
+          "updated_at": "2026-04-03T02:46:25.945Z"
+        },
+        {
+          "action_id": "ACT-cbe18e112c0eeca0",
+          "updated_at": "2026-04-03T02:46:25.946Z"
+        },
+        {
+          "action_id": "ACT-32f2f64fc8371c7f",
+          "updated_at": "2026-04-03T02:46:25.946Z"
+        },
+        {
+          "action_id": "ACT-1d3b35f6c02b9b50",
+          "updated_at": "2026-04-03T02:46:25.947Z"
+        },
+        {
+          "action_id": "ACT-845f38bd7fee2bd7",
+          "updated_at": "2026-04-03T02:46:25.947Z"
+        },
+        {
+          "action_id": "ACT-2f3f7933fe0a92c9",
+          "updated_at": "2026-04-03T02:46:25.948Z"
+        },
+        {
+          "action_id": "ACT-d63c0eace8631e86",
+          "updated_at": "2026-04-03T02:46:25.948Z"
+        },
+        {
+          "action_id": "ACT-cb3cf03afe4370ae",
+          "updated_at": "2026-04-03T02:46:25.949Z"
+        },
+        {
+          "action_id": "ACT-527e957231496204",
+          "updated_at": "2026-04-03T02:46:25.949Z"
+        },
+        {
+          "action_id": "ACT-b2a10a5c47f323ec",
+          "updated_at": "2026-04-03T02:46:25.950Z"
+        },
+        {
+          "action_id": "ACT-fde6cf955551b376",
+          "updated_at": "2026-04-03T02:46:25.951Z"
+        },
+        {
+          "action_id": "ACT-050e8ef5b9a2aa97",
+          "updated_at": "2026-04-03T02:46:25.951Z"
+        },
+        {
+          "action_id": "ACT-c0ecdb35460e103a",
+          "updated_at": "2026-04-03T02:46:25.952Z"
+        },
+        {
+          "action_id": "ACT-3473d3cebeebfeb6",
+          "updated_at": "2026-04-03T02:46:25.952Z"
+        },
+        {
+          "action_id": "ACT-a7fbcd40d7186ffa",
+          "updated_at": "2026-04-03T02:46:25.953Z"
+        },
+        {
+          "action_id": "ACT-fa4477059d5ad00a",
+          "updated_at": "2026-04-03T02:46:25.954Z"
+        },
+        {
+          "action_id": "ACT-a47754ec662f22a8",
+          "updated_at": "2026-04-03T02:46:25.954Z"
+        },
+        {
+          "action_id": "ACT-255c17d4ff54d22c",
+          "updated_at": "2026-04-03T02:46:25.955Z"
+        },
+        {
+          "action_id": "ACT-4be64582422f4c6e",
+          "updated_at": "2026-04-03T02:46:25.956Z"
+        },
+        {
+          "action_id": "ACT-bce5d692432d23d3",
+          "updated_at": "2026-04-03T02:46:25.956Z"
+        },
+        {
+          "action_id": "ACT-7c1c50804b2eea0b",
+          "updated_at": "2026-04-03T02:46:25.957Z"
+        },
+        {
+          "action_id": "ACT-40dbb2f96e7f35ca",
+          "updated_at": "2026-04-03T02:46:25.958Z"
+        },
+        {
+          "action_id": "ACT-f342f557723fd19d",
+          "updated_at": "2026-04-03T02:46:25.958Z"
+        },
+        {
+          "action_id": "ACT-64e452d1f54125f3",
+          "updated_at": "2026-04-03T02:46:25.959Z"
+        },
+        {
+          "action_id": "ACT-3a9df7df64230a3e",
+          "updated_at": "2026-04-03T02:46:25.960Z"
+        },
+        {
+          "action_id": "ACT-2201b3aa5a0bc89e",
+          "updated_at": "2026-04-03T02:46:25.960Z"
+        },
+        {
+          "action_id": "ACT-24fa5d04e2d3050f",
+          "updated_at": "2026-04-03T02:46:25.961Z"
+        },
+        {
+          "action_id": "ACT-36a4aef14a23a741",
+          "updated_at": "2026-04-03T02:46:25.961Z"
+        },
+        {
+          "action_id": "ACT-0606531839bb47cd",
+          "updated_at": "2026-04-03T02:46:25.962Z"
+        },
+        {
+          "action_id": "ACT-a539eccc7b9d1e65",
+          "updated_at": "2026-04-03T02:46:25.962Z"
+        },
+        {
+          "action_id": "ACT-ba85653a01f82622",
+          "updated_at": "2026-04-03T02:46:25.964Z"
+        },
+        {
+          "action_id": "ACT-5490caecc5bc9f2d",
+          "updated_at": "2026-04-03T02:46:25.965Z"
+        },
+        {
+          "action_id": "ACT-fa64c264b11615da",
+          "updated_at": "2026-04-03T02:46:25.965Z"
+        },
+        {
+          "action_id": "ACT-36d0483420ab2834",
+          "updated_at": "2026-04-03T02:46:25.966Z"
+        },
+        {
+          "action_id": "ACT-be6fa7adffb83a77",
+          "updated_at": "2026-04-03T02:46:25.967Z"
+        },
+        {
+          "action_id": "ACT-aaf834c7b706197a",
+          "updated_at": "2026-04-03T02:46:25.967Z"
+        },
+        {
+          "action_id": "ACT-6320872574139fa1",
+          "updated_at": "2026-04-03T02:46:25.968Z"
+        },
+        {
+          "action_id": "ACT-f4b532e14e66e915",
+          "updated_at": "2026-04-03T02:46:25.969Z"
+        },
+        {
+          "action_id": "ACT-77bff685f2e2db0a",
+          "updated_at": "2026-04-03T02:46:25.969Z"
+        },
+        {
+          "action_id": "ACT-63c0bc3434e9977d",
+          "updated_at": "2026-04-03T02:46:25.970Z"
+        },
+        {
+          "action_id": "ACT-6b01f0868940aee5",
+          "updated_at": "2026-04-03T02:46:25.971Z"
+        },
+        {
+          "action_id": "ACT-b49fefbe0e4c607c",
+          "updated_at": "2026-04-03T02:46:25.972Z"
+        },
+        {
+          "action_id": "ACT-cfbc51ba4d515295",
+          "updated_at": "2026-04-03T02:46:25.972Z"
+        },
+        {
+          "action_id": "ACT-d38264e4e9ea47fb",
+          "updated_at": "2026-04-03T02:46:25.973Z"
+        },
+        {
+          "action_id": "ACT-669e54b015b89407",
+          "updated_at": "2026-04-03T02:46:25.973Z"
+        },
+        {
+          "action_id": "ACT-d577c5913103cc37",
+          "updated_at": "2026-04-03T02:46:25.974Z"
+        },
+        {
+          "action_id": "ACT-bb349d391d393c12",
+          "updated_at": "2026-04-03T02:46:25.974Z"
+        },
+        {
+          "action_id": "ACT-4408b2fe18583882",
+          "updated_at": "2026-04-03T02:46:25.975Z"
+        },
+        {
+          "action_id": "ACT-f73b9c94058c3c03",
+          "updated_at": "2026-04-03T02:46:25.975Z"
+        },
+        {
+          "action_id": "ACT-f36be7e3b6f30145",
+          "updated_at": "2026-04-03T02:46:25.976Z"
+        },
+        {
+          "action_id": "ACT-c79340a1ae653242",
+          "updated_at": "2026-04-03T02:46:25.977Z"
+        },
+        {
+          "action_id": "ACT-d1e5534050330a98",
+          "updated_at": "2026-04-03T02:46:25.978Z"
+        },
+        {
+          "action_id": "ACT-3840af839026e214",
+          "updated_at": "2026-04-03T02:46:25.978Z"
+        },
+        {
+          "action_id": "ACT-55cf270f1b36283c",
+          "updated_at": "2026-04-03T02:46:25.979Z"
+        }
+      ],
+      "total_actions": 67,
+      "delivery": "draft",
+      "packet_path": "/home/ec2-user/.openclaw/workspace/mission-control/actions/packets/2026-04-03T02-47-33-266Z__-usg-coordinator-packet-2026-04-03-67-new-14-blocked.md",
+      "message_id": null
+    }
+  ],
+  "isaac_exception_packets": [
+    {
+      "packet_id": "IP-20260403024733-8de5b2",
+      "scope": "immediate",
+      "sent_at": "2026-04-03T02:47:33.242Z",
+      "mode": "draft",
+      "delivery": "draft",
+      "packet_path": "/home/ec2-user/.openclaw/workspace/mission-control/actions/packets/2026-04-03T02-47-33-463Z__-usg-isaac-exceptions-immediate-2026-04-03-new-8-active-8.md",
+      "message_id": null,
+      "new_escalation_keys": [
+        "isaac_required_due_breach::ACT-eba023e4e27f3b73",
+        "stage_critical_due_breach::ACT-7b5d40d84e5ea9b5",
+        "stage_critical_due_breach::ACT-1a49ec467d57d0bc",
+        "stage_critical_due_breach::ACT-693991f03ea32f2b",
+        "isaac_required_due_breach::ACT-a7fbcd40d7186ffa",
+        "stage_critical_due_breach::ACT-fa4477059d5ad00a",
+        "stage_critical_due_breach::ACT-5490caecc5bc9f2d",
+        "coordinator_overload"
+      ],
+      "active_escalation_keys": [
+        "coordinator_overload",
+        "isaac_required_due_breach::ACT-a7fbcd40d7186ffa",
+        "isaac_required_due_breach::ACT-eba023e4e27f3b73",
+        "stage_critical_due_breach::ACT-1a49ec467d57d0bc",
+        "stage_critical_due_breach::ACT-5490caecc5bc9f2d",
+        "stage_critical_due_breach::ACT-693991f03ea32f2b",
+        "stage_critical_due_breach::ACT-7b5d40d84e5ea9b5",
+        "stage_critical_due_breach::ACT-fa4477059d5ad00a"
+      ]
+    }
+  ],
+  "escalation_state": [
+    {
+      "key": "isaac_required_due_breach::ACT-eba023e4e27f3b73",
+      "rule": "isaac_required_due_breach",
+      "action_id": "ACT-eba023e4e27f3b73",
+      "summary": "Prepare onboarding brief and intro checklist for Refocus Afrika-led government/stakeholder meetings. | owner=Isaac | decision_owner=— | due=2026-03-25",
+      "active": true,
+      "first_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_notified_at": "2026-04-03T02:47:33.242Z",
+      "resolved_at": null
+    },
+    {
+      "key": "stage_critical_due_breach::ACT-7b5d40d84e5ea9b5",
+      "rule": "stage_critical_due_breach",
+      "action_id": "ACT-7b5d40d84e5ea9b5",
+      "summary": "Define evidence threshold for private/no-press counterparties before mandate advancement. | owner=Isaac | decision_owner=— | due=2026-03-21",
+      "active": true,
+      "first_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_notified_at": "2026-04-03T02:47:33.242Z",
+      "resolved_at": null
+    },
+    {
+      "key": "stage_critical_due_breach::ACT-1a49ec467d57d0bc",
+      "rule": "stage_critical_due_breach",
+      "action_id": "ACT-1a49ec467d57d0bc",
+      "summary": "Map capital stack options and funding sequence against stated prepayment requirements ($87M power, ~$18M fiber, land commitment). | owner=Isaac | decision_owner=— | due=2026-03-25",
+      "active": true,
+      "first_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_notified_at": "2026-04-03T02:47:33.242Z",
+      "resolved_at": null
+    },
+    {
+      "key": "stage_critical_due_breach::ACT-693991f03ea32f2b",
+      "rule": "stage_critical_due_breach",
+      "action_id": "ACT-693991f03ea32f2b",
+      "summary": "Prepare governance-access map for Angola telecom approval layer and decision rights for new entrants. | owner=Isaac | decision_owner=— | due=2026-03-26",
+      "active": true,
+      "first_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_notified_at": "2026-04-03T02:47:33.242Z",
+      "resolved_at": null
+    },
+    {
+      "key": "isaac_required_due_breach::ACT-a7fbcd40d7186ffa",
+      "rule": "isaac_required_due_breach",
+      "action_id": "ACT-a7fbcd40d7186ffa",
+      "summary": "Confirm whether USG can shape a segment around execution pathways rather than broad narratives. | owner=Isaac | decision_owner=Isaac Barnes | due=2026-03-28",
+      "active": true,
+      "first_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_notified_at": "2026-04-03T02:47:33.242Z",
+      "resolved_at": null
+    },
+    {
+      "key": "stage_critical_due_breach::ACT-fa4477059d5ad00a",
+      "rule": "stage_critical_due_breach",
+      "action_id": "ACT-fa4477059d5ad00a",
+      "summary": "Confirm support for a capital-to-execution working block with concrete outputs. | owner=Isaac | decision_owner=Tyreek Moore | due=2026-03-28",
+      "active": true,
+      "first_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_notified_at": "2026-04-03T02:47:33.242Z",
+      "resolved_at": null
+    },
+    {
+      "key": "stage_critical_due_breach::ACT-5490caecc5bc9f2d",
+      "rule": "stage_critical_due_breach",
+      "action_id": "ACT-5490caecc5bc9f2d",
+      "summary": "Request and document Bestaf valuation basis (current and/or 2024 baseline) to anchor 15% economics discussion. | owner=Dare / Bestaf | decision_owner=— | due=2026-04-02",
+      "active": true,
+      "first_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_notified_at": "2026-04-03T02:47:33.242Z",
+      "resolved_at": null
+    },
+    {
+      "key": "coordinator_overload",
+      "rule": "coordinator_overload",
+      "action_id": null,
+      "summary": "Open action queue is 66 (> 25)",
+      "active": true,
+      "first_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_seen_at": "2026-04-03T02:47:33.242Z",
+      "last_notified_at": "2026-04-03T02:47:33.242Z",
+      "resolved_at": null
+    }
+  ],
+  "last_daily_isaac_sent_on": "2026-04-03",
+  "updated_at": "2026-04-03T02:47:33.242Z"
+}
