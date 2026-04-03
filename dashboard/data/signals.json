@@ -8659,5 +8659,55 @@
       "intelligence-systems",
       "enterprise-transformation"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-04-03-US-AFRICA-POLICY-NOMINATION-001",
+    "title": "Trump administration moves to install top Africa affairs official at State Department",
+    "signal_class": "Capital Reality",
+    "status": "Reported",
+    "confidence": "Medium",
+    "observed_at": "2026-04-03T20:55:00Z",
+    "buyer_ids": [
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "summary": "Business Insider Africa reports the Trump administration is preparing a senior Africa-affairs nomination at the U.S. State Department, indicating potential near-term recalibration of U.S.\u2013Africa policy posture and engagement priorities.",
+    "flow": "Senior policy nomination signal -> potential shift in U.S.-Africa diplomatic/strategic engagement channels -> monitor for confirmation, portfolio priorities, and counterpart access implications.",
+    "verification_status": "reported_with_caveats",
+    "verification_note": "Single media-source report (Business Insider Africa) provided by Isaac. Treat as reported pending formal State Department announcement/nomination confirmation.",
+    "provenance": "provided_by_isaac",
+    "sources": [
+      {
+        "label": "Business Insider Africa",
+        "url": "https://africa.businessinsider.com/local/markets/trump-moves-to-reshape-usafrica-policy-with-top-nomination/8mrz2mz"
+      }
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "political",
+      "governance",
+      "market_access"
+    ],
+    "evidence_type": "media_report",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States",
+      "Africa"
+    ],
+    "country": "United States",
+    "tags": [
+      "us-africa-policy",
+      "state-department",
+      "nomination",
+      "trump-administration",
+      "diplomacy"
+    ]
   }
 ]
