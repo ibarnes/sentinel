@@ -3259,7 +3259,13 @@ app.get('/dashboard/actions/coordinator', async (_req, res) => {
   const actionLine = (r) => `<li><a href="/dashboard/actions?q=${encodeURIComponent(String(r.action_id || ''))}">${escapeHtml(r.action_text || r.action_id)}</a><span class="small text-muted"> — ${escapeHtml(r.owner || 'owner?')} · due ${escapeHtml(r.due || '—')} · ${escapeHtml(r.status)}</span></li>`;
 
   const recentPackets = (notifications.coordinator_packets || []).slice(-8).reverse();
-  const packetRows = recentPackets.map((p) => `<tr><td class="mono small">${escapeHtml(String(p.packet_id || ''))}</td><td>${escapeHtml(String(p.mode || 'draft'))}</td><td class="mono small">${escapeHtml(String(p.sent_at || ''))}</td><td>${escapeHtml(String(p.total_actions || 0))}</td><td>${escapeHtml(String(p.delivery || 'draft'))}</td></tr>`).join('') || '<tr><td colspan="5" class="text-muted">No packets sent yet.</td></tr>';
+  const packetRows = recentPackets.map((p) => {
+    const packetId = String(p.packet_id || '');
+    const idCell = packetId
+      ? `<a class="mono small" href="/dashboard/actions/packet/${encodeURIComponent(packetId)}">${escapeHtml(packetId)}</a>`
+      : '<span class="text-muted">—</span>';
+    return `<tr><td>${idCell}</td><td>${escapeHtml(String(p.mode || 'draft'))}</td><td class="mono small">${escapeHtml(String(p.sent_at || ''))}</td><td>${escapeHtml(String(p.total_actions || 0))}</td><td>${escapeHtml(String(p.delivery || 'draft'))}</td></tr>`;
+  }).join('') || '<tr><td colspan="5" class="text-muted">No packets sent yet.</td></tr>';
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Coordinator Action Queue')}</head><body><div class="app-shell">
     ${dashboardNav('actions-coordinator')}
@@ -3279,6 +3285,44 @@ app.get('/dashboard/actions/coordinator', async (_req, res) => {
     <div class="card mb-3"><div class="card-body"><h6 class="mb-2">Due in 72 hours</h6><ul class="mb-0">${list(due72.slice(0, 20), actionLine)}</ul></div></div>
 
     <div class="card"><div class="card-body"><h6>Recent coordinator packets</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Packet ID</th><th>Mode</th><th>Sent at</th><th>Actions</th><th>Delivery</th></tr></thead><tbody>${packetRows}</tbody></table></div></div></div>
+  </div></body></html>`);
+});
+
+app.get('/dashboard/actions/packet/:packetId', async (req, res) => {
+  const packetId = String(req.params.packetId || '').trim();
+  if (!packetId) return res.status(400).type('text/plain').send('missing packet id');
+
+  const notifications = await readActionNotifications();
+  const packets = [
+    ...(notifications.coordinator_packets || []),
+    ...(notifications.isaac_exception_packets || []),
+  ];
+  const packet = packets.find((p) => String(p?.packet_id || '') === packetId);
+  if (!packet) return res.status(404).type('text/plain').send('packet not found');
+
+  const baseDir = path.resolve(path.join(ROOT, 'mission-control/actions/packets'));
+  const candidate = String(packet.packet_path || '').trim();
+  if (!candidate) return res.status(404).type('text/plain').send('packet file missing');
+
+  const resolved = path.resolve(candidate);
+  if (!resolved.startsWith(baseDir)) {
+    return res.status(400).type('text/plain').send('invalid packet path');
+  }
+
+  let body = '';
+  try {
+    body = await fs.readFile(resolved, 'utf8');
+  } catch {
+    return res.status(404).type('text/plain').send('packet file not found');
+  }
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Coordinator Packet')}</head><body><div class="app-shell">
+    ${dashboardNav('actions-coordinator')}
+    <a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/actions/coordinator">← Coordinator</a>
+    <h3 class="mb-1">Coordinator Packet</h3>
+    <div class="small text-muted mono mb-2">${escapeHtml(packetId)}</div>
+    <div class="small text-muted mb-3">Mode: ${escapeHtml(String(packet.mode || 'draft'))} · Sent: <span class="mono">${escapeHtml(String(packet.sent_at || ''))}</span> · Delivery: ${escapeHtml(String(packet.delivery || 'draft'))}</div>
+    <div class="card"><div class="card-body"><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(body)}</pre></div></div>
   </div></body></html>`);
 });
 
