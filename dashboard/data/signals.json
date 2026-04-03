@@ -8559,5 +8559,105 @@
     "advances_hypothesis": true,
     "blocks_hypothesis": false,
     "parent_signal_id": "SIG-2026-03-10-NG-CBN-AML-AUTOMATION-001"
+  },
+  {
+    "signal_id": "SIG-2026-04-02-GOOGLE-NEWS-AFDB-IFC-DFC-SECURITY-INFRASTRUCTURE-N10OU4",
+    "title": "How IFC infrastructure projects are strengthening global energy security - energyconnects.com",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-04-02T08:35:09.000Z",
+    "summary": "How IFC infrastructure projects are strengthening global energy security energyconnects.com",
+    "provenance": "discovered_by_system",
+    "sources": [
+      {
+        "label": "Google News \u2014 AfDB/IFC/DFC Security Infrastructure",
+        "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPTzhOTVo2WFEtV2g5bkdIcC1sNkJ4SE52VEgtTWtOZHoyNWM4NkFlWlZobjlvVDEyMlNUcHhZQzhmOTFHTDJEWjdpOWFJS0R3YzJRVFdXVFhOc2w1YkZVVEpPTWdHenJwM0Q1OEU4NTF4aEp3QzVuczZSUWNheTIzZ2tsN1AzSjB4aHdLSXdtTGxUaDFYeTVsYWg1UjNtRXpGNHB6U0Z6b1NwbWNJNDNXUmVJSjZTTFNEV081VVo4NXdEVTQzVDVlVWl6V09ITGloZHgteVJR?oc=5&hl=en-US&gl=US&ceid=US:en"
+      }
+    ],
+    "tags": [
+      "google-news",
+      "capital",
+      "africa"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": []
+  },
+  {
+    "signal_id": "SIG-2026-04-03-GMAIL-INBOX-FORWARDED-SIGNALS-TXVPCL",
+    "title": "Fwd: FW: IMF-WB Spring Meetings- Join the Atlantic Council's Investing in Africa Forum with Aliko Dangote and Ben Black | April 16",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-04-02T22:49:06.000Z",
+    "summary": "Isaac Barnes Chief Executive Officer Unified State Group www.unifiedstategroup.com Forwarded message From: Vysotina, Victoria Date: Thu, Apr 2,",
+    "provenance": "discovered_by_system",
+    "sources": [
+      {
+        "label": "Gmail Inbox Forwarded Signals",
+        "url": "internal://gmail/tag%3Agmail.google.com%2C2004%3A1861400811754855913"
+      }
+    ],
+    "tags": [
+      "email-forwarded",
+      "inbox-signal"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": []
+  },
+  {
+    "signal_id": "SIG-2026-04-03-BLOCK-HIERARCHY-TO-INTELLIGENCE-001",
+    "title": "Block leadership outlines shift from hierarchy to intelligence in operating model",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "Medium",
+    "observed_at": "2026-04-03T12:32:00Z",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "summary": "Block published a first-party leadership writeup framing organizational transition from traditional hierarchy toward intelligence-centric systems, signaling acceleration in AI-native operating models relevant to enterprise transformation and labor architecture design.",
+    "flow": "First-party strategic narrative from major technology platform -> validates market movement toward intelligence-native operating design -> increases urgency for governance, workforce transition, and execution architecture in AI-enabled initiatives.",
+    "verification_status": "verified",
+    "verification_note": "Verified from first-party Block publication URL provided by Isaac.",
+    "provenance": "provided_by_isaac",
+    "sources": [
+      {
+        "label": "Block Inside (official publication)",
+        "url": "https://block.xyz/inside/from-hierarchy-to-intelligence"
+      }
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "governance",
+      "delivery",
+      "market_access"
+    ],
+    "evidence_type": "first_party",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States",
+      "Global"
+    ],
+    "country": "United States",
+    "tags": [
+      "block",
+      "ai-operating-model",
+      "org-design",
+      "intelligence-systems",
+      "enterprise-transformation"
+    ]
   }
 ]
