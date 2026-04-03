@@ -2963,6 +2963,80 @@ function applyActionValidation(action = {}) {
   return out;
 }
 
+function buildActionTeamHints(team = []) {
+  const active = (Array.isArray(team) ? team : []).filter((m) => String(m?.status || 'active').toLowerCase() === 'active');
+  const byName = new Map(active.map((m) => [String(m?.name || '').trim().toLowerCase(), String(m?.name || '').trim()]));
+
+  const pick = (...candidates) => {
+    for (const c of candidates) {
+      const key = String(c || '').trim().toLowerCase();
+      if (!key) continue;
+      if (byName.has(key)) return byName.get(key);
+    }
+    return String(candidates.find(Boolean) || '').trim();
+  };
+
+  const matchByRole = (patterns = []) => {
+    const list = active.find((m) => {
+      const hay = `${String(m?.name || '')} ${String(m?.title || '')} ${String(m?.role || '')} ${String(m?.organization || '')}`.toLowerCase();
+      return patterns.some((p) => hay.includes(String(p).toLowerCase()));
+    });
+    return list ? String(list.name || '').trim() : '';
+  };
+
+  return {
+    coordinatorLead: pick('Richelle Maylad') || matchByRole(['coordinator']),
+    internalCoordinator: pick('Monica Colon') || matchByRole(['operations', 'internal']),
+    founder: pick('Isaac Barnes') || matchByRole(['founder', 'ceo', 'principal']),
+    legal: pick('Stephanie Karp Loosvelt') || matchByRole(['legal', 'counsel', 'compliance']),
+    strategy: matchByRole(['strategy', 'research', 'analyst']) || pick('Maryan Ali'),
+    operations: matchByRole(['governor', 'operations', 'coo']) || pick('Tyreek Moore', 'Richard J. Hoffman'),
+    operatorDigital: matchByRole(['digital', 'platform', 'technical']) || pick('Leo LaBranche'),
+    activeNames: active.map((m) => String(m?.name || '').trim()).filter(Boolean),
+  };
+}
+
+function recommendActionAssignments(action = {}, hints = {}) {
+  const t = String(action?.action_text || '').toLowerCase();
+  const type = String(action?.action_type || '').toLowerCase();
+
+  let owner = '';
+  let decisionOwner = null;
+
+  if (type === 'coordination') {
+    owner = hints.coordinatorLead || '';
+    if (t.includes('internal') || t.includes('team') || t.includes('assign owner') || t.includes('track deadline')) {
+      owner = hints.internalCoordinator || owner;
+    }
+  } else if (type === 'research') {
+    owner = hints.strategy || hints.internalCoordinator || '';
+  } else if (type === 'deliverable') {
+    if (t.includes('legal') || t.includes('contract') || t.includes('compliance') || t.includes('terms')) owner = hints.legal || '';
+    else if (t.includes('digital') || t.includes('data center') || t.includes('platform') || t.includes('product')) owner = hints.operatorDigital || hints.operations || '';
+    else owner = hints.operations || '';
+  } else if (type === 'decision') {
+    if (t.includes('legal') || t.includes('contract') || t.includes('compliance') || t.includes('terms')) {
+      owner = hints.legal || '';
+      decisionOwner = hints.legal || null;
+    } else if (t.includes('capital') || t.includes('buyer') || t.includes('mandate') || t.includes('go/no-go') || t.includes('go no-go') || t.includes('signature') || t.includes('positioning') || t.includes('relationship')) {
+      owner = hints.operations || '';
+      decisionOwner = hints.founder || null;
+    } else {
+      owner = hints.operations || '';
+      decisionOwner = hints.operations || null;
+    }
+  }
+
+  if (String(action?.requires_isaac || '').toLowerCase() === 'true' || action?.requires_isaac === true) {
+    if (!decisionOwner) decisionOwner = hints.founder || null;
+  }
+
+  return {
+    recommended_owner: owner || '',
+    recommended_decision_owner: decisionOwner || null,
+  };
+}
+
 function enrichActionRows(items = []) {
   const now = new Date();
   const nowIsoDay = now.toISOString().slice(0, 10);
@@ -3013,7 +3087,9 @@ function enrichActionRows(items = []) {
 app.get('/dashboard/actions', async (req, res) => {
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const items = await readActionItems();
-  const rows = enrichActionRows(items);
+  const team = await readJson(DASHBOARD_TEAM_FILE, []);
+  const teamHints = buildActionTeamHints(team);
+  const rows = enrichActionRows(items).map((r) => ({ ...r, ...recommendActionAssignments(r, teamHints) }));
 
   const q = String(req.query.q || '').trim().toLowerCase();
   const ownerFilter = String(req.query.owner || '').trim();
@@ -3023,8 +3099,8 @@ app.get('/dashboard/actions', async (req, res) => {
   const meetingFilter = String(req.query.meeting || '').trim();
   const quick = String(req.query.quick || '').trim().toLowerCase();
 
-  const owners = [...new Set(rows.map((r) => r.owner).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
-  const decisionOwners = [...new Set(rows.map((r) => r.decision_owner).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const owners = [...new Set([...rows.map((r) => r.owner).filter(Boolean), ...(teamHints.activeNames || [])])].sort((a,b)=>a.localeCompare(b));
+  const decisionOwners = [...new Set([...rows.map((r) => r.decision_owner).filter(Boolean), ...(teamHints.activeNames || [])])].sort((a,b)=>a.localeCompare(b));
   const initiatives = [...new Set(rows.flatMap((r) => r.initiative_ids || []).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
   const meetings = [...new Set(rows.map((r)=>r.meeting_id).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
 
@@ -3099,6 +3175,9 @@ app.get('/dashboard/actions', async (req, res) => {
   };
 
   const currentUrl = String(req.originalUrl || '/dashboard/actions');
+  const ownerOptions = owners.map((o) => `<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join('');
+  const decisionOwnerOptions = decisionOwners.map((o) => `<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join('');
+
   const rowsHtml = filtered.map((r) => {
     const flags = [];
     if (r.missingOwner) flags.push('<span class="badge text-bg-dark me-1">Needs owner</span>');
@@ -3112,11 +3191,23 @@ app.get('/dashboard/actions', async (req, res) => {
       ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><select class="form-select form-select-sm" name="status" style="min-width:132px" onchange="this.form.submit()"><option value="open" ${r.status==='open'?'selected':''}>open</option><option value="in_progress" ${r.status==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${r.status==='blocked'?'selected':''}>blocked</option><option value="done" ${r.status==='done'?'selected':''}>done</option></select></form>`
       : statusBadge(r.status);
 
+    const ownerControl = canEdit
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/assign" class="d-flex flex-column gap-1"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><select class="form-select form-select-sm" name="owner"><option value="">— Unassigned —</option>${ownerOptions.replace(`<option value="${escapeHtml(r.owner || '')}">`, `<option value="${escapeHtml(r.owner || '')}" selected>`)}</select><input class="form-control form-control-sm" name="support_csv" value="${escapeHtml((r.support || []).join(', '))}" placeholder="Support (comma-separated)"/><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="submit">Save</button>${r.recommended_owner && r.recommended_owner !== r.owner ? `<button class="btn btn-sm btn-outline-secondary" name="owner" value="${escapeHtml(r.recommended_owner)}" type="submit">Use Rec</button>` : ''}</div></form><div class="small text-muted mt-1">Rec owner: ${escapeHtml(r.recommended_owner || '—')}</div>`
+      : `${escapeHtml(r.owner || '—')}<div class="small text-muted">${escapeHtml((r.support || []).join(', ') || '—')}</div>`;
+
+    const decisionControl = canEdit
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/assign" class="d-flex flex-column gap-1"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><select class="form-select form-select-sm" name="decision_owner"><option value="">— None —</option>${decisionOwnerOptions.replace(`<option value="${escapeHtml(String(r.decision_owner || ''))}">`, `<option value="${escapeHtml(String(r.decision_owner || ''))}" selected>`)}</select><div class="d-flex gap-1"><button class="btn btn-sm btn-outline-primary" type="submit">Save</button>${r.recommended_decision_owner && r.recommended_decision_owner !== r.decision_owner ? `<button class="btn btn-sm btn-outline-secondary" name="decision_owner" value="${escapeHtml(r.recommended_decision_owner)}" type="submit">Use Rec</button>` : ''}</div></form><div class="small text-muted mt-1">Rec decision: ${escapeHtml(String(r.recommended_decision_owner || '—'))}</div>`
+      : escapeHtml(r.decision_owner || '—');
+
+    const dueControl = canEdit
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/assign" class="d-flex gap-1"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input class="form-control form-control-sm mono" type="date" name="due" value="${escapeHtml(r.due || '')}"/><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form>`
+      : `<span class="mono">${escapeHtml(r.due || '—')}</span>`;
+
     return `<tr>
       <td style="max-width:460px"><div>${escapeHtml(r.action_text || '—')}</div><div class="small text-muted mono">${escapeHtml(String(r.action_id || ''))}</div><div class="small text-muted">${escapeHtml(String(r.action_type || 'coordination'))} · Effort ${escapeHtml(String(r.effort_score || 0))}</div></td>
-      <td>${escapeHtml(r.owner || '—')}<div class="small text-muted">${escapeHtml((r.support || []).join(', ') || '—')}</div></td>
-      <td>${escapeHtml(r.decision_owner || '—')}</td>
-      <td class="mono">${escapeHtml(r.due || '—')}</td>
+      <td>${ownerControl}</td>
+      <td>${decisionControl}</td>
+      <td>${dueControl}</td>
       <td>${statusControl}<div class="mt-1">${priorityBadge(r.priority)}</div></td>
       <td><a href="/dashboard/meeting/${encodeURIComponent(String(r.meeting_id || ''))}">${escapeHtml(r.meeting_id || '—')}</a><div class="small text-muted">${escapeHtml((r.initiative_ids || []).join(', ') || 'USG')}</div></td>
       <td>${flags.join('') || '<span class="text-muted">—</span>'}<div class="small text-muted mt-1">${escapeHtml(r.evidence_ref || '')}</div></td>
@@ -3220,6 +3311,68 @@ app.post('/api/actions/:actionId/status', requireRole('architect','editor'), asy
     entity_type: 'action_item',
     entity_id: actionId,
     meta: { before_status: before.status, after_status: next.status }
+  }).catch(() => {});
+
+  const rawReturnTo = String(req.body.return_to || req.get('referer') || '/dashboard/actions');
+  const returnTo = rawReturnTo.startsWith('/dashboard/actions') ? rawReturnTo : '/dashboard/actions';
+  return res.redirect(returnTo);
+});
+
+app.post('/api/actions/:actionId/assign', requireRole('architect','editor'), async (req, res) => {
+  const actionId = String(req.params.actionId || '').trim();
+  const items = await readActionItems();
+  const idx = items.findIndex((x) => String(x?.action_id || '').trim() === actionId);
+  if (idx < 0) return res.status(404).send('action not found');
+
+  const before = applyActionValidation(items[idx]);
+  const next = { ...before };
+
+  if (Object.prototype.hasOwnProperty.call(req.body || {}, 'owner')) {
+    next.owner = String(req.body.owner || '').trim();
+  }
+  if (Object.prototype.hasOwnProperty.call(req.body || {}, 'decision_owner')) {
+    const d = String(req.body.decision_owner || '').trim();
+    next.decision_owner = d || null;
+  }
+  if (Object.prototype.hasOwnProperty.call(req.body || {}, 'support_csv')) {
+    const csv = String(req.body.support_csv || '');
+    next.support = csv.split(',').map((x) => String(x || '').trim()).filter(Boolean);
+  }
+  if (Object.prototype.hasOwnProperty.call(req.body || {}, 'due')) {
+    const due = String(req.body.due || '').trim();
+    next.due = due;
+  }
+
+  next.updated_at = nowIso();
+  const validated = applyActionValidation(next);
+  items[idx] = validated;
+  await writeActionItems(items);
+
+  const actor = getUserLabel(req);
+  const meta = {
+    before_owner: before.owner || null,
+    after_owner: validated.owner || null,
+    before_decision_owner: before.decision_owner || null,
+    after_decision_owner: validated.decision_owner || null,
+    before_due: before.due || null,
+    after_due: validated.due || null,
+  };
+
+  await appendActionEvent({
+    event_type: 'action.assigned',
+    action_id: actionId,
+    actor,
+    meta,
+  }).catch(() => {});
+
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor,
+    role: effectiveRole(req) || 'unknown',
+    event_type: 'action.assigned',
+    entity_type: 'action_item',
+    entity_id: actionId,
+    meta,
   }).catch(() => {});
 
   const rawReturnTo = String(req.body.return_to || req.get('referer') || '/dashboard/actions');
