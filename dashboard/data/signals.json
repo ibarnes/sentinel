@@ -8709,5 +8709,60 @@
       "trump-administration",
       "diplomacy"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-04-04-US-DATACENTER-BUILD-DELAYS-001",
+    "title": "Report: nearly half of planned U.S. data-center builds delayed or canceled amid power/infrastructure constraints",
+    "signal_class": "Platform Pressure",
+    "status": "Reported",
+    "confidence": "Medium",
+    "observed_at": "2026-04-04T01:36:00Z",
+    "buyer_ids": [
+      "KKR",
+      "STONEPEAK",
+      "GIP",
+      "GENERAL_ATLANTIC",
+      "ALPHA_WAVE"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "summary": "Tom's Hardware reports that roughly half of planned U.S. data-center projects are delayed or canceled, with primary bottlenecks cited as power availability, infrastructure lead times, and component dependencies.",
+    "flow": "Data-center demand surge meets power/grid + component bottlenecks -> schedule slippage/cancellations in mature markets -> strengthens strategic case for pre-structured power+digital infrastructure corridors in growth markets.",
+    "verification_status": "reported_with_caveats",
+    "verification_note": "Single-source industry media report provided by Isaac. Treat as reported until corroborated by primary operator disclosures, utility interconnection data, or multi-source institutional coverage.",
+    "provenance": "provided_by_isaac",
+    "sources": [
+      {
+        "label": "Tom's Hardware",
+        "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/half-of-planned-us-data-center-builds-have-been-delayed-or-canceled-growth-limited-by-shortages-of-power-infrastructure-and-parts-from-china-the-ai-build-out-flips-the-breakers"
+      }
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery",
+      "market_access"
+    ],
+    "evidence_type": "industry_media_report",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "United States",
+      "Global"
+    ],
+    "country": "United States",
+    "tags": [
+      "data-centers",
+      "ai-infrastructure",
+      "power-constraints",
+      "capacity-delay",
+      "digital-infrastructure"
+    ]
   }
 ]
