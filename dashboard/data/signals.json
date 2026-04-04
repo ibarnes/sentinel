@@ -8764,5 +8764,88 @@
       "capacity-delay",
       "digital-infrastructure"
     ]
+  },
+  {
+    "signal_id": "SIG-2026-04-04-GOOGLE-NEWS-ALPHA-WAVE-STRATEGIC-CAPITAL-KHMKHM",
+    "title": "Nxtra Secures $1B as Airtel Extends Its Data Center Push Into Africa - TechTrendsKE",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-04-03T14:32:56.000Z",
+    "summary": "Nxtra Secures $1B as Airtel Extends Its Data Center Push Into Africa TechTrendsKE",
+    "provenance": "discovered_by_system",
+    "sources": [
+      {
+        "label": "Google News \u2014 Alpha Wave Strategic Capital",
+        "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQYkhvREtFQkVqY2Voako1VjV1QnlfZzA4dHlFUWcyZVRLcjVIcXpNVFROOUJjV21WLUE1OXRpUHZmeDdiejllM1Q4c1RrMVlDZ3V2Ulc2U2tLQVV5RTJvbjR3N3U0bWlMS1lrNl9mRjI1em5YYkxBY0ZXWkJlUlpGQW5BWQ?oc=5&hl=en-US&gl=US&ceid=US:en"
+      }
+    ],
+    "tags": [
+      "google-news",
+      "buyer-leadership",
+      "alpha-wave",
+      "strategic-capital"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "buyer_ids": [
+      "ALPHA_WAVE"
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-04-04-STABLECOIN-CROSSBORDER-2026-001",
+    "title": "Forbes analysis: stablecoin cross-border payments moving from theory to practice in 2026",
+    "signal_class": "Capital Reality",
+    "status": "Reported",
+    "confidence": "Medium",
+    "observed_at": "2026-04-04T13:09:00Z",
+    "buyer_ids": [
+      "FMF-NG",
+      "CBN",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "summary": "Forbes contributor analysis argues stablecoin-enabled cross-border payment rails are transitioning from conceptual use cases to practical deployment patterns in 2026, with implications for compliance design, settlement architecture, and emerging-market payment corridors.",
+    "flow": "Industry narrative shifts toward implementation-stage stablecoin rails -> increased urgency for compliance-ready payment architecture and policy alignment -> potential acceleration of regulated cross-border settlement pilots.",
+    "verification_status": "reported_with_caveats",
+    "verification_note": "Source is a single Forbes contributor analysis/opinion-style piece (not a regulator filing or official policy release). Treat as directional market signal pending corroborating primary institutional evidence.",
+    "provenance": "provided_by_isaac",
+    "sources": [
+      {
+        "label": "Forbes",
+        "url": "https://www.forbes.com/sites/danielwebber/2026/03/30/stablecoin-cross-border-payments-in-2026-from-theory-to-practice/"
+      }
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "INIT-NG-FIN-ENERGY-SPINE",
+    "actor_refs": [],
+    "actor_roles": [],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "market_access"
+    ],
+    "evidence_type": "industry_analysis",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "Global",
+      "United States",
+      "Africa"
+    ],
+    "country": "Global",
+    "tags": [
+      "stablecoin",
+      "cross-border-payments",
+      "settlement-rails",
+      "fintech",
+      "compliance"
+    ]
   }
 ]
