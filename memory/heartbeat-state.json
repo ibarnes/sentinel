@@ -1,20 +1,20 @@
 {
-  "buyerAccessGraphSignature": "8bc4042a8708394b7d8ff6ecda89ff60f326bf18d3f330b8c49a1145a967d5d9",
-  "updatedAtUtc": "2026-03-25T07:48:00Z",
+  "buyerAccessGraphSignature": "3e7006f09a928593b8a80d1736e064e1f1151a3f5579fac34edca66cd99f1b99",
+  "updatedAtUtc": "2026-04-04T15:41:14Z",
   "issues": [
     {
       "type": "top10",
       "buyers": [
-        "USVI-RECOVERY-AUTHORITY",
         "ALPHA_WAVE",
+        "USVI-RECOVERY-AUTHORITY",
         "GIP",
-        "STONEPEAK",
         "HAUN",
+        "STONEPEAK",
         "KKR",
-        "TAFF",
         "GENERAL_ATLANTIC",
-        "PIF",
-        "TEMASEK"
+        "TAFF",
+        "ADQ",
+        "PIF"
       ]
     },
     {
@@ -22,12 +22,12 @@
       "buyers": [
         "ALPHA_WAVE",
         "GIP",
-        "STONEPEAK",
         "HAUN",
+        "STONEPEAK",
         "KKR",
         "GENERAL_ATLANTIC",
-        "PIF",
-        "TEMASEK"
+        "ADQ",
+        "PIF"
       ]
     },
     {
@@ -44,6 +44,12 @@
           "path_id": "PATH-TAFF-FAISAL-NET-001",
           "status": "Warming",
           "date": "2026-03-05T20:48:00Z"
+        },
+        {
+          "buyer_id": "USVI-RECOVERY-AUTHORITY",
+          "path_id": "PATH-USVI-FED-001",
+          "status": "Warming",
+          "date": "2026-03-17T15:03:00Z"
         }
       ]
     },
@@ -51,12 +57,12 @@
       "type": "high_influence_no_path",
       "items": [
         {
-          "buyer_id": "USVI-RECOVERY-AUTHORITY",
-          "person": "Adrienne L. Williams-Octalien"
+          "buyer_id": "TAFF",
+          "person": "Tariq Al Futtaim"
         },
         {
           "buyer_id": "USVI-RECOVERY-AUTHORITY",
-          "person": "Eugene Jones Jr."
+          "person": "HUD / FEMA oversight bodies"
         }
       ]
     },
@@ -64,7 +70,7 @@
       "type": "metadata_drift",
       "items": [
         {
-          "buyer_id": "USVI-RECOVERY-AUTHORITY",
+          "buyer_id": "ALPHA_WAVE",
           "missing": [
             "hq",
             "region",
@@ -73,7 +79,7 @@
           ]
         },
         {
-          "buyer_id": "ALPHA_WAVE",
+          "buyer_id": "USVI-RECOVERY-AUTHORITY",
           "missing": [
             "hq",
             "region",
@@ -91,7 +97,7 @@
           ]
         },
         {
-          "buyer_id": "STONEPEAK",
+          "buyer_id": "HAUN",
           "missing": [
             "hq",
             "region",
@@ -100,7 +106,7 @@
           ]
         },
         {
-          "buyer_id": "HAUN",
+          "buyer_id": "STONEPEAK",
           "missing": [
             "hq",
             "region",
@@ -118,15 +124,6 @@
           ]
         },
         {
-          "buyer_id": "TAFF",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
           "buyer_id": "GENERAL_ATLANTIC",
           "missing": [
             "hq",
@@ -136,7 +133,7 @@
           ]
         },
         {
-          "buyer_id": "PIF",
+          "buyer_id": "TAFF",
           "missing": [
             "hq",
             "region",
@@ -145,7 +142,16 @@
           ]
         },
         {
-          "buyer_id": "TEMASEK",
+          "buyer_id": "ADQ",
+          "missing": [
+            "hq",
+            "region",
+            "buyer_role",
+            "buyer_class"
+          ]
+        },
+        {
+          "buyer_id": "PIF",
           "missing": [
             "hq",
             "region",
@@ -272,5 +278,5 @@
       }
     ]
   },
-  "buyer_access_last_checked_at": "2026-03-26T14:57:58.387059+00:00"
+  "buyer_access_last_checked_at": "2026-04-04T15:41:14Z"
 }
