@@ -392,5 +392,36 @@
       "USG"
     ],
     "why_template": "Forwarded email signal ingested from Sentinel mailbox; classify and map to buyers/actors/initiatives before promotion."
+  },
+  {
+    "source_id": "nsia-official-rss",
+    "name": "NSIA Official RSS",
+    "type": "rss",
+    "url": "https://nsia.com.ng/feed/",
+    "enabled": true,
+    "default_tags": [
+      "nsia",
+      "sovereign-wealth",
+      "infrastructure",
+      "nigeria"
+    ],
+    "trust_tier": "tier1",
+    "buyer_ids": [
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "match_keywords": [
+      "nigeria",
+      "infrastructure",
+      "fund",
+      "investment",
+      "energy",
+      "digital",
+      "finance",
+      "project"
+    ],
+    "why_template": "Official NSIA publication relevant to sovereign capital posture and Nigeria initiative execution context."
   }
 ]
