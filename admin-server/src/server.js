@@ -3085,7 +3085,10 @@ function enrichActionRows(items = []) {
 }
 
 app.get('/dashboard/actions', async (req, res) => {
+  const modeRaw = String(req.query.mode || '').trim().toLowerCase();
+  const isAdvanced = modeRaw === 'advanced';
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
+
   const items = await readActionItems();
   const team = await readJson(DASHBOARD_TEAM_FILE, []);
   const teamHints = buildActionTeamHints(team);
@@ -3148,17 +3151,26 @@ app.get('/dashboard/actions', async (req, res) => {
     requiresIsaac: rows.filter((r)=>r.requires_isaac).length,
   };
 
-  const quickCard = (label, value, key) => {
-    const active = quick === key;
+  const makeActionsUrl = ({ targetMode = isAdvanced ? 'advanced' : 'simple', quickOverride } = {}) => {
     const params = new URLSearchParams();
+    if (targetMode === 'advanced') params.set('mode', 'advanced');
     if (q) params.set('q', q);
     if (ownerFilter) params.set('owner', ownerFilter);
     if (decisionOwnerFilter) params.set('decision_owner', decisionOwnerFilter);
     if (statusFilter !== 'all') params.set('status', statusFilter);
     if (initiativeFilter) params.set('initiative', initiativeFilter);
     if (meetingFilter) params.set('meeting', meetingFilter);
-    if (!active) params.set('quick', key);
-    const href = params.toString() ? `/dashboard/actions?${params.toString()}` : '/dashboard/actions';
+
+    const effectiveQuick = quickOverride === undefined ? quick : quickOverride;
+    if (effectiveQuick) params.set('quick', effectiveQuick);
+
+    const qs = params.toString();
+    return qs ? `/dashboard/actions?${qs}` : '/dashboard/actions';
+  };
+
+  const quickCard = (label, value, key) => {
+    const active = quick === key;
+    const href = makeActionsUrl({ quickOverride: active ? '' : key });
     return `<a class="text-decoration-none" href="${href}"><div class="card h-100 ${active ? 'border-primary shadow-sm' : ''}"><div class="card-body py-2"><div class="small text-muted">${escapeHtml(label)}</div><div class="h5 mb-0" style="color:var(--text-primary)">${escapeHtml(String(value))}</div></div></div></a>`;
   };
 
@@ -3178,7 +3190,7 @@ app.get('/dashboard/actions', async (req, res) => {
   const ownerOptions = owners.map((o) => `<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join('');
   const decisionOwnerOptions = decisionOwners.map((o) => `<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join('');
 
-  const rowsHtml = filtered.map((r) => {
+  const advancedRowsHtml = filtered.map((r) => {
     const flags = [];
     if (r.missingOwner) flags.push('<span class="badge text-bg-dark me-1">Needs owner</span>');
     if (r.missingDecisionOwner) flags.push('<span class="badge text-bg-dark me-1">Needs decision owner</span>');
@@ -3214,11 +3226,65 @@ app.get('/dashboard/actions', async (req, res) => {
     </tr>`;
   }).join('') || '<tr><td colspan="7" class="text-muted">No action items match current filters.</td></tr>';
 
-  const metaText = `Canonical action layer with coordinator gearbox routing. Total: ${metric.total}`;
-  res.type('html').send(`<!doctype html><html><head>${uiHead('Action Register')}</head><body><div class="app-shell">
-    ${dashboardNav('actions')}
-    ${pageHeader('Action Register', `<div class="d-flex gap-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actions/export.json">Get JSON</a><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actions/coordinator">Coordinator View</a><form method="post" action="/api/actions/sync-from-meetings"><button class="btn btn-sm btn-primary" type="submit">Sync from meetings</button></form></div>`, metaText)}
+  const simpleRowsHtml = filtered.map((r) => {
+    const blockerText = r.blocked
+      ? (String(r.blocker_reason || '').trim() || (r.missingDecisionOwner ? 'missing decision owner' : 'blocked'))
+      : ((r.waiting_on || []).length ? `Waiting on ${(r.waiting_on || []).join(', ')}` : '—');
 
+    const blockerFlags = [];
+    if (r.overdue) blockerFlags.push('<span class="badge text-bg-danger">Overdue</span>');
+    else if (r.due72) blockerFlags.push('<span class="badge text-bg-warning">Due ≤72h</span>');
+    if (r.escalationActive) blockerFlags.push('<span class="badge text-bg-danger">Escalated</span>');
+
+    const assignRecommendedButton = canEdit && r.recommended_owner && r.recommended_owner !== r.owner
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/assign" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input type="hidden" name="owner" value="${escapeHtml(r.recommended_owner)}"/><button class="btn btn-outline-secondary" type="submit">Assign to recommended owner</button></form>`
+      : '';
+
+    const markInProgressButton = canEdit && r.status !== 'done' && r.status !== 'in_progress'
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input type="hidden" name="status" value="in_progress"/><button class="btn btn-outline-primary" type="submit">Mark in progress</button></form>`
+      : '';
+
+    const markDoneButton = canEdit && r.status !== 'done'
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input type="hidden" name="status" value="done"/><button class="btn btn-outline-success" type="submit">Mark done</button></form>`
+      : '';
+
+    const escalateButton = canEdit && r.status !== 'done'
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/escalate" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><button class="btn btn-outline-danger" type="submit">Escalate</button></form>`
+      : '';
+
+    const actionButtons = [assignRecommendedButton, markInProgressButton, markDoneButton, escalateButton].filter(Boolean).join('');
+
+    return `<tr>
+      <td style="min-width:340px;max-width:560px"><div>${escapeHtml(r.action_text || '—')}</div><div class="small text-muted mono">${escapeHtml(String(r.action_id || ''))}</div>${actionButtons ? `<div class="d-flex flex-wrap gap-2 mt-2">${actionButtons}</div>` : ''}</td>
+      <td>${escapeHtml(r.owner || '—')}${r.support?.length ? `<div class="small text-muted">${escapeHtml(r.support.join(', '))}</div>` : ''}</td>
+      <td>${escapeHtml(r.decision_owner || '—')}</td>
+      <td><span class="mono">${escapeHtml(r.due || '—')}</span></td>
+      <td>${statusBadge(r.status)}</td>
+      <td><div>${escapeHtml(blockerText)}</div>${blockerFlags.length ? `<div class="d-flex flex-wrap gap-1 mt-1">${blockerFlags.join('')}</div>` : ''}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="6" class="text-muted">No action items match current filters.</td></tr>';
+
+  const modeToggleHref = isAdvanced
+    ? makeActionsUrl({ targetMode: 'simple' })
+    : makeActionsUrl({ targetMode: 'advanced' });
+  const modeToggleLabel = isAdvanced ? 'Simple mode' : 'Advanced mode';
+
+  const resetHref = isAdvanced ? '/dashboard/actions?mode=advanced' : '/dashboard/actions';
+
+  const metaText = isAdvanced
+    ? `Advanced action register. Total: ${metric.total}`
+    : `Coordinator simple view. Total: ${metric.total}`;
+
+  const quickCardsSimple = `
+    <div class="row g-2 mb-3">
+      <div class="col-6 col-md-3">${quickCard('Needs assignment', metric.needsAssignment, 'needs_assignment')}</div>
+      <div class="col-6 col-md-3">${quickCard('Missing decision owner', metric.missingDecisionOwner, 'missing_decision_owner')}</div>
+      <div class="col-6 col-md-2">${quickCard('Due ≤72h', metric.due72, 'due72')}</div>
+      <div class="col-6 col-md-2">${quickCard('Blocked', metric.blocked, 'blocked')}</div>
+      <div class="col-6 col-md-2">${quickCard('Overdue', metric.overdue, 'overdue')}</div>
+    </div>`;
+
+  const quickCardsAdvanced = `
     <div class="row g-2 mb-3">
       <div class="col-6 col-md-3">${quickCard('Needs assignment', metric.needsAssignment, 'needs_assignment')}</div>
       <div class="col-6 col-md-3">${quickCard('Missing decision owner', metric.missingDecisionOwner, 'missing_decision_owner')}</div>
@@ -3227,19 +3293,40 @@ app.get('/dashboard/actions', async (req, res) => {
       <div class="col-6 col-md-2">${quickCard('Escalations', metric.escalation, 'escalation')}</div>
       <div class="col-6 col-md-2">${quickCard('Overdue', metric.overdue, 'overdue')}</div>
       <div class="col-6 col-md-2">${quickCard('Requires Isaac', metric.requiresIsaac, 'requires_isaac')}</div>
-    </div>
+    </div>`;
 
+  const simpleFilterForm = `
     <form method="get" action="/dashboard/actions" class="row g-2 mb-3">
+      <div class="col-12 col-md-6"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q || ''))}" placeholder="Search action text / IDs"/></div>
+      <div class="col-6 col-md-3"><select class="form-select" name="owner"><option value="">Owner (All)</option>${owners.map((o)=>`<option value="${escapeHtml(o)}" ${ownerFilter===o?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select></div>
+      <div class="col-6 col-md-3"><select class="form-select" name="status"><option value="all" ${statusFilter==='all'?'selected':''}>Status (All)</option><option value="open" ${statusFilter==='open'?'selected':''}>open</option><option value="in_progress" ${statusFilter==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${statusFilter==='blocked'?'selected':''}>blocked</option><option value="done" ${statusFilter==='done'?'selected':''}>done</option></select></div>
+      ${quick ? `<input type="hidden" name="quick" value="${escapeHtml(quick)}"/>` : ''}
+      <div class="col-12 d-flex gap-2"><button class="btn btn-primary">Apply</button><a class="btn btn-outline-secondary" href="${resetHref}">Reset</a></div>
+    </form>`;
+
+  const advancedFilterForm = `
+    <form method="get" action="/dashboard/actions" class="row g-2 mb-3">
+      <input type="hidden" name="mode" value="advanced"/>
       <div class="col-md-3"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q || ''))}" placeholder="Search action text / IDs"/></div>
       <div class="col-md-2"><select class="form-select" name="owner"><option value="">Owner (All)</option>${owners.map((o)=>`<option value="${escapeHtml(o)}" ${ownerFilter===o?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select></div>
       <div class="col-md-2"><select class="form-select" name="decision_owner"><option value="">Decision owner (All)</option>${decisionOwners.map((o)=>`<option value="${escapeHtml(o)}" ${decisionOwnerFilter===o?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select></div>
       <div class="col-md-2"><select class="form-select" name="initiative"><option value="">Initiative (All)</option>${initiatives.map((i)=>`<option value="${escapeHtml(i)}" ${initiativeFilter===i?'selected':''}>${escapeHtml(i)}</option>`).join('')}</select></div>
       <div class="col-md-2"><select class="form-select" name="meeting"><option value="">Meeting (All)</option>${meetings.map((m)=>`<option value="${escapeHtml(m)}" ${meetingFilter===m?'selected':''}>${escapeHtml(m)}</option>`).join('')}</select></div>
       <div class="col-md-1"><select class="form-select" name="status"><option value="all" ${statusFilter==='all'?'selected':''}>All</option><option value="open" ${statusFilter==='open'?'selected':''}>open</option><option value="in_progress" ${statusFilter==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${statusFilter==='blocked'?'selected':''}>blocked</option><option value="done" ${statusFilter==='done'?'selected':''}>done</option></select></div>
-      <div class="col-md-12 d-flex gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="/dashboard/actions">Reset</a></div>
-    </form>
+      ${quick ? `<input type="hidden" name="quick" value="${escapeHtml(quick)}"/>` : ''}
+      <div class="col-md-12 d-flex gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="${resetHref}">Reset</a></div>
+    </form>`;
 
-    <div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner / Support</th><th>Decision Owner</th><th>Due</th><th>Status / Priority</th><th>Meeting / Initiative</th><th>Flags / Evidence</th></tr></thead><tbody>${rowsHtml}</tbody></table></div></div>
+  const advancedTable = `<div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner / Support</th><th>Decision Owner</th><th>Due</th><th>Status / Priority</th><th>Meeting / Initiative</th><th>Flags / Evidence</th></tr></thead><tbody>${advancedRowsHtml}</tbody></table></div></div>`;
+  const simpleTable = `<div class="card"><div class="table-responsive"><table class="table align-middle"><thead><tr><th>Action</th><th>Owner</th><th>Decision Owner</th><th>Due</th><th>Status</th><th>Blocker</th></tr></thead><tbody>${simpleRowsHtml}</tbody></table></div></div>`;
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Action Register')}</head><body><div class="app-shell">
+    ${dashboardNav('actions')}
+    ${pageHeader('Action Register', `<div class="d-flex gap-2"><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actions/export.json">Get JSON</a><a class="btn btn-sm btn-outline-secondary" href="/dashboard/actions/coordinator">Coordinator Queue</a><a class="btn btn-sm btn-outline-secondary" href="${modeToggleHref}">${modeToggleLabel}</a><form method="post" action="/api/actions/sync-from-meetings"><button class="btn btn-sm btn-primary" type="submit">Sync from meetings</button></form></div>`, metaText)}
+
+    ${isAdvanced ? quickCardsAdvanced : quickCardsSimple}
+    ${isAdvanced ? advancedFilterForm : simpleFilterForm}
+    ${isAdvanced ? advancedTable : simpleTable}
   </div></body></html>`);
 });
 
@@ -3355,6 +3442,60 @@ app.post('/api/actions/:actionId/status', requireRole('architect','editor'), asy
     entity_type: 'action_item',
     entity_id: actionId,
     meta: { before_status: before.status, after_status: next.status }
+  }).catch(() => {});
+
+  const rawReturnTo = String(req.body.return_to || req.get('referer') || '/dashboard/actions');
+  const returnTo = rawReturnTo.startsWith('/dashboard/actions') ? rawReturnTo : '/dashboard/actions';
+  return res.redirect(returnTo);
+});
+
+
+app.post('/api/actions/:actionId/escalate', requireRole('architect','editor'), async (req, res) => {
+  const actionId = String(req.params.actionId || '').trim();
+
+  const items = await readActionItems();
+  const idx = items.findIndex((x) => String(x?.action_id || '').trim() === actionId);
+  if (idx < 0) return res.status(404).send('action not found');
+
+  const before = applyActionValidation(items[idx]);
+  const ts = nowIso();
+  const nextDraft = {
+    ...before,
+    status: before.status === 'done' ? 'done' : 'blocked',
+    escalated_at: ts,
+    updated_at: ts,
+  };
+  if (!String(nextDraft.blocker_reason || '').trim() && nextDraft.status === 'blocked') {
+    nextDraft.blocker_reason = 'manual escalation';
+  }
+
+  const next = applyActionValidation(nextDraft);
+  items[idx] = next;
+  await writeActionItems(items);
+
+  const actor = getUserLabel(req);
+  const meta = {
+    before_status: before.status,
+    after_status: next.status,
+    before_escalated_at: before.escalated_at || null,
+    after_escalated_at: next.escalated_at || null,
+  };
+
+  await appendActionEvent({
+    event_type: 'action.escalated',
+    action_id: actionId,
+    actor,
+    meta,
+  }).catch(() => {});
+
+  await appendAuditEvent({
+    ts,
+    actor,
+    role: effectiveRole(req) || 'unknown',
+    event_type: 'action.escalated',
+    entity_type: 'action_item',
+    entity_id: actionId,
+    meta,
   }).catch(() => {});
 
   const rawReturnTo = String(req.body.return_to || req.get('referer') || '/dashboard/actions');
