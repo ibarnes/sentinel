@@ -17057,4 +17057,24 @@
     ],
     "created_at": "2026-04-01T21:58:00Z"
   }
+,
+  {
+    "actor_id": "actor-us-leah-pedersen",
+    "name_display": "Leah Pedersen",
+    "first_name": "Leah",
+    "last_name": "Pedersen",
+    "organization_primary": "Convergence",
+    "designation": "Senior Director, Blended Finance Accelerator",
+    "country_normalized": "United States",
+    "actor_type": "operator",
+    "owner": "provided_by_isaac",
+    "relationship_source": "direct",
+    "relationship_strength": "medium",
+    "source_links": [
+      "https://www.convergence.finance/about/team/1kS1ajAc1LUMVV4hriluTk",
+      "https://images.ctfassets.net/4cgqlwde6qy0/A6g4UabFtvh2wMEYSlSaw/c1c4676975d91e558a9d4e45448475c9/Leah_hs_whitebg.png"
+    ],
+    "created_at": "2026-04-06T17:13:27Z",
+    "profile_image": "/public/actor-images/actor-us-leah-pedersen.png"
+  }
 ]
