@@ -17096,5 +17096,25 @@
     ],
     "created_at": "2026-04-06T18:07:16Z",
     "profile_image": "/public/actor-images/actor-us-raymond-j-mcguire.png"
+  },
+  {
+    "actor_id": "actor-tz-dr-sunshine-silas",
+    "name_display": "Dr. Sunshine Silas",
+    "first_name": "Sunshine",
+    "last_name": "Silas",
+    "organization_primary": "REFOCUS AFRIKA GROUP",
+    "designation": "Founder/C.E.O and Group Chairman",
+    "country_normalized": "Tanzania",
+    "actor_type": "operator",
+    "owner": "provided_by_isaac",
+    "contact_phone": "+243 705 907 7523",
+    "source_links": [
+      "https://www.linkedin.com/in/dr-sunshine-silas-33a58274",
+      "https://www.facebook.com/silas.sunshine",
+      "https://www.refocusafrika.com"
+    ],
+    "notes": "Added from Isaac-provided profile. No relationships mapped yet.",
+    "created_at": "2026-04-07T18:11:52Z",
+    "profile_image": "/public/actor-images/actor-tz-dr-sunshine-silas.jpg"
   }
 ]
