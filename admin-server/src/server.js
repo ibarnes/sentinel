@@ -3236,26 +3236,29 @@ app.get('/dashboard/actions', async (req, res) => {
     else if (r.due72) blockerFlags.push('<span class="badge text-bg-warning">Due ≤72h</span>');
     if (r.escalationActive) blockerFlags.push('<span class="badge text-bg-danger">Escalated</span>');
 
-    const assignRecommendedButton = canEdit && r.recommended_owner && r.recommended_owner !== r.owner
-      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/assign" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input type="hidden" name="owner" value="${escapeHtml(r.recommended_owner)}"/><button class="btn btn-outline-secondary" type="submit">Assign to recommended owner</button></form>`
+    const assignRecommendedAction = canEdit && r.recommended_owner && r.recommended_owner !== r.owner
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/assign"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input type="hidden" name="owner" value="${escapeHtml(r.recommended_owner)}"/><button class="dropdown-item" type="submit">Assign to recommended owner</button></form>`
       : '';
 
-    const markInProgressButton = canEdit && r.status !== 'done' && r.status !== 'in_progress'
-      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input type="hidden" name="status" value="in_progress"/><button class="btn btn-outline-primary" type="submit">Mark in progress</button></form>`
+    const markInProgressAction = canEdit && r.status !== 'done' && r.status !== 'in_progress'
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input type="hidden" name="status" value="in_progress"/><button class="dropdown-item" type="submit">Mark in progress</button></form>`
       : '';
 
-    const markDoneButton = canEdit && r.status !== 'done'
-      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input type="hidden" name="status" value="done"/><button class="btn btn-outline-success" type="submit">Mark done</button></form>`
+    const markDoneAction = canEdit && r.status !== 'done'
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/status"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input type="hidden" name="status" value="done"/><button class="dropdown-item" type="submit">Mark done</button></form>`
       : '';
 
-    const escalateButton = canEdit && r.status !== 'done'
-      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/escalate" class="d-inline"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><button class="btn btn-outline-danger" type="submit">Escalate</button></form>`
+    const escalateAction = canEdit && r.status !== 'done'
+      ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/escalate"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><button class="dropdown-item text-danger" type="submit">Escalate</button></form>`
       : '';
 
-    const actionButtons = [assignRecommendedButton, markInProgressButton, markDoneButton, escalateButton].filter(Boolean).join('');
+    const rowActionMenuItems = [assignRecommendedAction, markInProgressAction, markDoneAction, escalateAction].filter(Boolean).join('');
+    const rowActionMenu = rowActionMenuItems
+      ? `<div class="position-relative"><details class="initiative-actions-menu d-inline-block text-start"><summary class="btn btn-sm btn-outline-secondary" aria-label="More actions">⋯</summary><div class="card p-1 mt-1" style="position:absolute;right:0;z-index:20;min-width:220px;">${rowActionMenuItems}</div></details></div>`
+      : '';
 
     return `<tr>
-      <td style="min-width:340px;max-width:560px"><div>${escapeHtml(r.action_text || '—')}</div><div class="small text-muted mono">${escapeHtml(String(r.action_id || ''))}</div>${actionButtons ? `<div class="d-flex flex-wrap gap-2 mt-2">${actionButtons}</div>` : ''}</td>
+      <td style="min-width:340px;max-width:560px"><div class="d-flex justify-content-between align-items-start gap-2"><div><div>${escapeHtml(r.action_text || '—')}</div><div class="small text-muted mono">${escapeHtml(String(r.action_id || ''))}</div></div>${rowActionMenu}</div></td>
       <td>${escapeHtml(r.owner || '—')}${r.support?.length ? `<div class="small text-muted">${escapeHtml(r.support.join(', '))}</div>` : ''}</td>
       <td>${escapeHtml(r.decision_owner || '—')}</td>
       <td><span class="mono">${escapeHtml(r.due || '—')}</span></td>
