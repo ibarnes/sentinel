@@ -8987,5 +8987,71 @@
       "summit_date": "2026-03-11",
       "location": "Washington, D.C."
     }
+  },
+
+  {
+    "signal_id": "SIG-2026-04-07-AFC-AFRICA-WE-BUILD-SUMMIT-001",
+    "title": "AFC launches Africa We Build Summit 2026 to mobilise domestic capital for industrial transformation",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified",
+    "observed_at": "2026-04-07T13:19:00Z",
+    "summary": "AFC first-party announcement says AFC, in partnership with the Government of Kenya, will host the inaugural Africa We Build Summit in Nairobi (23–24 April 2026) to mobilise domestic capital toward bankable infrastructure and industrial projects.",
+    "flow": "institutional convening + government partnership + bankable pipeline framing -> increased domestic capital mobilisation toward infrastructure corridors, energy systems, and minerals value chains -> stronger execution pathways for industrial transformation",
+    "verification_note": "Verified from AFC first-party newsroom post; summit site link included for event context.",
+    "sources": [
+      {
+        "label": "AFC announcement",
+        "url": "https://www.africafc.org/news-and-insights/news/the-africa-we-build-summit-targets-mobilising-domestic-capital-for-industrial-transformation"
+      },
+      {
+        "label": "The Africa We Build Summit site",
+        "url": "https://tawbs2026.brandcomms.events"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "afc",
+      "kenya",
+      "nairobi",
+      "domestic-capital",
+      "industrial-transformation",
+      "infrastructure",
+      "regional-corridors"
+    ],
+    "geography": [
+      "Kenya",
+      "East Africa",
+      "Africa"
+    ],
+    "country": "Kenya",
+    "buyer_ids": [
+      "AFC",
+      "AfDB",
+      "NSIA",
+      "IFC",
+      "WORLDBANK"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "delivery"
+    ],
+    "evidence_type": "first_party",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "summit_start_date": "2026-04-23",
+      "summit_end_date": "2026-04-24",
+      "location": "Nairobi, Kenya"
+    }
   }
 ]
