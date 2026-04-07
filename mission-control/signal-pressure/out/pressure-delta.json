@@ -1,10 +1,18 @@
 {
-  "generated_at": "2026-04-07T11:56:23.523Z",
-  "total_signals": 161,
-  "high_impact_count": 88,
-  "new_signal_count": 2,
-  "new_high_impact_count": 0,
-  "new_high_impact": [],
+  "generated_at": "2026-04-07T12:35:22.808Z",
+  "total_signals": 162,
+  "high_impact_count": 89,
+  "new_signal_count": 1,
+  "new_high_impact_count": 1,
+  "new_high_impact": [
+    {
+      "id": "SIG-2026-04-07-BLACKROCK-GIP-INFRA-SUMMIT-001",
+      "headline": "BlackRock and GIP hosted 2026 Infrastructure Summit in Washington, D.C.",
+      "channel": "politics",
+      "verification_status": "verified",
+      "confidence_score": 0.85
+    }
+  ],
   "last_keys": [
     "afc project preparation capital path to usg|AFC|",
     "nigeria infrastructure financing gap escalation|AfDB,FMF-NG,NSIA|",
@@ -166,6 +174,7 @@
     "nxtra secures $1b as airtel extends its data center push into africa - techtrendske|ALPHA_WAVE|INIT-2026-03-ANGOLA-AI-CORRIDOR",
     "forbes analysis: stablecoin cross-border payments moving from theory to practice in 2026|FMF-NG,NSIA|INIT-NG-FIN-ENERGY-SPINE",
     "jamie dimon warns private credit losses will be larger than feared||",
-    "drc launches active phase of afdb-backed predire program in ubangi basin|AFC,AfDB,DFC,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR"
+    "drc launches active phase of afdb-backed predire program in ubangi basin|AFC,AfDB,DFC,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "blackrock and gip hosted 2026 infrastructure summit in washington, d.c.|GIP|INIT-2026-03-ANGOLA-AI-CORRIDOR"
   ]
 }

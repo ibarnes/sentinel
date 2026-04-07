@@ -8932,5 +8932,60 @@
     "reported_metrics": {
       "reported_program_value_usd": 46500000
     }
+  },
+
+  {
+    "signal_id": "SIG-2026-04-07-BLACKROCK-GIP-INFRA-SUMMIT-001",
+    "title": "BlackRock and GIP hosted 2026 Infrastructure Summit in Washington, D.C.",
+    "signal_class": "Platform Pressure",
+    "status": "Verified",
+    "confidence": "High",
+    "verification_status": "verified",
+    "observed_at": "2026-04-07T12:34:00Z",
+    "summary": "BlackRock first-party release states that on March 11, 2026, BlackRock and Global Infrastructure Partners (GIP), a part of BlackRock, hosted the 2026 Infrastructure Summit in Washington, D.C., with policymakers, corporate executives, and labor leaders focused on U.S. infrastructure modernization, investment needs, and workforce readiness.",
+    "flow": "institutional co-convening + policy/industry/labor alignment -> stronger public-private coordination signal on U.S. infrastructure buildout -> higher probability of accelerated capital formation and execution windows",
+    "verification_note": "Verified from BlackRock first-party newsroom release and page metadata.",
+    "sources": [
+      {
+        "label": "BlackRock newsroom release",
+        "url": "https://www.blackrock.com/corporate/newsroom/press-releases/announcement/2026-infrastructure-summit"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "blackrock",
+      "gip",
+      "infrastructure-summit",
+      "public-private-partnership",
+      "workforce-readiness",
+      "united-states"
+    ],
+    "geography": [
+      "United States",
+      "Washington, D.C."
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "GIP"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "delivery"
+    ],
+    "evidence_type": "first_party",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "reported_metrics": {
+      "summit_date": "2026-03-11",
+      "location": "Washington, D.C."
+    }
   }
 ]
