@@ -1025,4 +1025,81 @@
     "created_at": "2026-04-02T18:27:00Z",
     "updated_at": "2026-04-02T18:27:00Z"
   }
+
+,
+  {
+    "meeting_id": "MM-2026-04-07-USVI-TELLY-CONVO-001",
+    "date_time": "2026-04-07T18:34:00Z",
+    "title": "Telly conversation about USVI initiative",
+    "participants": [
+      "Telly Renfroe",
+      "Isaac Barnes"
+    ],
+    "summary": "Conversation indicates near-term bankable lanes in USVI include GovCon/PPP and residential loans. Counterparty expects bank opening within roughly 30–90 days, contingent on securing an additional $5M equity partner (quoted at 4.99% ownership). Team discussed potential funding introduction via Tanisha, pace risks on that capital source, and a 600-acre private land option for workforce housing with optional mixed-use/resort allocation. Additional advantages cited include governor access, potential in-territory building lease for nominal cost, and tax-positioning benefits from local operating presence.",
+    "initiative_ids": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "buyer_ids": [
+      "USVI-RECOVERY-AUTHORITY"
+    ],
+    "signal_ids": [],
+    "decisions": [
+      "Prioritize immediate structuring around bankable lanes: GovCon/PPP and residential lending pathways.",
+      "Advance diligence on $5M equity-in-bank opportunity tied to 30–90 day opening timeline.",
+      "Treat 600-acre site as a primary workforce-housing unlock with optional mixed-use flexibility.",
+      "Pursue local-presence pathway (building lease / residency) to optimize transaction tax posture.",
+      "Continue same-day follow-up sequence with John for deeper commercial alignment."
+    ],
+    "risks": [
+      "Timeline risk: bank opening depends on successful closure of new $5M equity partner.",
+      "Execution-speed risk: potential capital source introduced by Tanisha may move slower than required.",
+      "Structuring risk: equity terms and ownership rights require legal and regulatory validation.",
+      "Land/control risk: 600-acre opportunity requires title, zoning, and development-condition verification.",
+      "Policy-access risk: governor pathway appears relationship-driven and may not convert without formal sponsorship."
+    ],
+    "next_actions": [
+      {
+        "action": "Obtain and diligence bank equity packet: capitalization table, regulatory approvals, shareholder rights, and use-of-proceeds for the $5M / 4.99% offer.",
+        "owner": "Isaac",
+        "due": "2026-04-09",
+        "status": "open"
+      },
+      {
+        "action": "Coordinate financing-track call with Tanisha's capital contact and set a hard decision timeline aligned to bank opening window.",
+        "owner": "Isaac",
+        "due": "2026-04-10",
+        "status": "open"
+      },
+      {
+        "action": "Collect and verify 600-acre parcel details (ownership, zoning, encumbrances, pricing terms, and development constraints).",
+        "owner": "Sentinel",
+        "due": "2026-04-11",
+        "status": "open"
+      },
+      {
+        "action": "Draft workforce-housing plus mixed-use concept note with phasing and financing options for USVI execution partners.",
+        "owner": "Sentinel",
+        "due": "2026-04-12",
+        "status": "open"
+      },
+      {
+        "action": "Prepare legal/tax memo on local lease-presence structure and implications versus CONUS-only transaction routing.",
+        "owner": "Stephanie Karp Loosvelt",
+        "due": "2026-04-12",
+        "status": "open"
+      },
+      {
+        "action": "Capture outcomes from follow-up meeting with John and convert commitments into owner-assigned action items.",
+        "owner": "Isaac",
+        "due": "2026-04-08",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting minutes in Telegram"
+    },
+    "created_at": "2026-04-07T18:34:00Z",
+    "updated_at": "2026-04-07T18:34:00Z"
+  }
 ]
