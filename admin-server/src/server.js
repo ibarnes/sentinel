@@ -3091,6 +3091,13 @@ app.get('/dashboard/actions', async (req, res) => {
 
   const items = await readActionItems();
   const team = await readJson(DASHBOARD_TEAM_FILE, []);
+  const meetingMinutes = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  const meetingMetaById = new Map((Array.isArray(meetingMinutes) ? meetingMinutes : []).map((m) => {
+    const id = String(m?.meeting_id || '').trim();
+    const title = String(m?.title || m?.meeting_id || 'Untitled meeting');
+    const date = String(m?.date_time || m?.created_at || '').slice(0, 16).replace('T', ' ');
+    return [id, { title, date }];
+  }).filter(([id]) => Boolean(id)));
   const teamHints = buildActionTeamHints(team);
   const rows = enrichActionRows(items).map((r) => ({ ...r, ...recommendActionAssignments(r, teamHints) }));
 
@@ -3215,13 +3222,18 @@ app.get('/dashboard/actions', async (req, res) => {
       ? `<form method="post" action="/api/actions/${encodeURIComponent(String(r.action_id || ''))}/assign" class="d-flex gap-1"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input class="form-control form-control-sm mono" type="date" name="due" value="${escapeHtml(r.due || '')}"/><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form>`
       : `<span class="mono">${escapeHtml(r.due || '—')}</span>`;
 
+    const meetingMeta = meetingMetaById.get(String(r.meeting_id || '').trim()) || null;
+    const meetingTitle = String(meetingMeta?.title || r.meeting_id || '—');
+    const meetingDate = String(meetingMeta?.date || '');
+    const meetingHref = String(r.meeting_id || '').trim() ? `/dashboard/meeting/${encodeURIComponent(String(r.meeting_id || ''))}` : '';
+
     return `<tr>
       <td style="max-width:460px"><div>${escapeHtml(r.action_text || '—')}</div><div class="small text-muted mono">${escapeHtml(String(r.action_id || ''))}</div><div class="small text-muted">${escapeHtml(String(r.action_type || 'coordination'))} · Effort ${escapeHtml(String(r.effort_score || 0))}</div></td>
       <td>${ownerControl}</td>
       <td>${decisionControl}</td>
       <td>${dueControl}</td>
       <td>${statusControl}<div class="mt-1">${priorityBadge(r.priority)}</div></td>
-      <td><a href="/dashboard/meeting/${encodeURIComponent(String(r.meeting_id || ''))}">${escapeHtml(r.meeting_id || '—')}</a><div class="small text-muted">${escapeHtml((r.initiative_ids || []).join(', ') || 'USG')}</div></td>
+      <td>${meetingHref ? `<a href="${meetingHref}">${escapeHtml(meetingTitle)}</a>` : escapeHtml(meetingTitle)}${meetingDate ? `<div class="small text-muted mono">${escapeHtml(meetingDate)}</div>` : ''}<div class="small text-muted">${escapeHtml((r.initiative_ids || []).join(', ') || 'USG')}</div></td>
       <td>${flags.join('') || '<span class="text-muted">—</span>'}<div class="small text-muted mt-1">${escapeHtml(r.evidence_ref || '')}</div></td>
     </tr>`;
   }).join('') || '<tr><td colspan="7" class="text-muted">No action items match current filters.</td></tr>';
@@ -3257,8 +3269,13 @@ app.get('/dashboard/actions', async (req, res) => {
       ? `<div class="position-relative"><details class="initiative-actions-menu d-inline-block text-start"><summary class="btn btn-sm btn-outline-secondary" aria-label="More actions">⋯</summary><div class="card p-1 mt-1" style="position:absolute;right:0;z-index:20;min-width:220px;">${rowActionMenuItems}</div></details></div>`
       : '';
 
+    const meetingMeta = meetingMetaById.get(String(r.meeting_id || '').trim()) || null;
+    const meetingTitle = String(meetingMeta?.title || r.meeting_id || '—');
+    const meetingDate = String(meetingMeta?.date || '');
+    const meetingHref = String(r.meeting_id || '').trim() ? `/dashboard/meeting/${encodeURIComponent(String(r.meeting_id || ''))}` : '';
+
     return `<tr>
-      <td style="min-width:340px;max-width:560px"><div class="d-flex justify-content-between align-items-start gap-2"><div><div>${escapeHtml(r.action_text || '—')}</div><div class="small text-muted mono">${escapeHtml(String(r.action_id || ''))}</div></div>${rowActionMenu}</div></td>
+      <td style="min-width:340px;max-width:560px"><div class="d-flex justify-content-between align-items-start gap-2"><div><div>${escapeHtml(r.action_text || '—')}</div><div class="small text-muted">Meeting: ${meetingHref ? `<a href="${meetingHref}">${escapeHtml(meetingTitle)}</a>` : escapeHtml(meetingTitle)}${meetingDate ? ` · <span class="mono">${escapeHtml(meetingDate)}</span>` : ''}</div><div class="small text-muted mono">${escapeHtml(String(r.action_id || ''))}</div></div>${rowActionMenu}</div></td>
       <td>${escapeHtml(r.owner || '—')}${r.support?.length ? `<div class="small text-muted">${escapeHtml(r.support.join(', '))}</div>` : ''}</td>
       <td>${escapeHtml(r.decision_owner || '—')}</td>
       <td><span class="mono">${escapeHtml(r.due || '—')}</span></td>
