@@ -3108,13 +3108,18 @@ app.get('/dashboard/actions', async (req, res) => {
   const initiativeFilter = String(req.query.initiative || '').trim();
   const meetingFilter = String(req.query.meeting || '').trim();
   const quick = String(req.query.quick || '').trim().toLowerCase();
+  const sortByRaw = String(req.query.sort_by || '').trim().toLowerCase();
+  const sortDirRaw = String(req.query.sort_dir || 'asc').trim().toLowerCase();
+  const allowedSorts = new Set(['action', 'owner', 'decision_owner', 'due', 'status', 'blocker', 'meeting', 'priority']);
+  const sortBy = allowedSorts.has(sortByRaw) ? sortByRaw : '';
+  const sortDir = sortDirRaw === 'desc' ? 'desc' : 'asc';
 
   const owners = [...new Set([...rows.map((r) => r.owner).filter(Boolean), ...(teamHints.activeNames || [])])].sort((a,b)=>a.localeCompare(b));
   const decisionOwners = [...new Set([...rows.map((r) => r.decision_owner).filter(Boolean), ...(teamHints.activeNames || [])])].sort((a,b)=>a.localeCompare(b));
   const initiatives = [...new Set(rows.flatMap((r) => r.initiative_ids || []).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
   const meetings = [...new Set(rows.map((r)=>r.meeting_id).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
 
-  const filtered = rows.filter((r) => {
+  const filteredUnsorted = rows.filter((r) => {
     if (ownerFilter && r.owner !== ownerFilter) return false;
     if (decisionOwnerFilter && String(r.decision_owner || '') !== decisionOwnerFilter) return false;
     if (statusFilter !== 'all' && r.status !== statusFilter) return false;
@@ -3135,7 +3140,9 @@ app.get('/dashboard/actions', async (req, res) => {
     }
 
     return true;
-  }).sort((a,b) => {
+  });
+
+  const defaultSort = (a, b) => {
     const escCmp = Number(b.escalationActive) - Number(a.escalationActive);
     if (escCmp) return escCmp;
     const overdueCmp = Number(b.overdue) - Number(a.overdue);
@@ -3145,6 +3152,37 @@ app.get('/dashboard/actions', async (req, res) => {
     const dueCmp = dueA.localeCompare(dueB);
     if (dueCmp) return dueCmp;
     return String(a.action_id || '').localeCompare(String(b.action_id || ''));
+  };
+
+  const blockerRank = (r) => {
+    if (r.escalationActive) return 5;
+    if (r.overdue) return 4;
+    if (r.blocked) return 3;
+    if (r.due72) return 2;
+    if ((r.waiting_on || []).length || String(r.blocker_reason || '').trim()) return 1;
+    return 0;
+  };
+
+  const compareText = (a, b) => String(a || '').localeCompare(String(b || ''));
+
+  const filtered = [...filteredUnsorted].sort((a, b) => {
+    if (!sortBy) return defaultSort(a, b);
+
+    let cmp = 0;
+    if (sortBy === 'action') cmp = compareText(a.action_text, b.action_text);
+    else if (sortBy === 'owner') cmp = compareText(a.owner, b.owner);
+    else if (sortBy === 'decision_owner') cmp = compareText(a.decision_owner, b.decision_owner);
+    else if (sortBy === 'due') cmp = compareText(a.due || '9999-12-31', b.due || '9999-12-31');
+    else if (sortBy === 'status') cmp = compareText(a.status, b.status);
+    else if (sortBy === 'priority') cmp = compareText(a.priority, b.priority);
+    else if (sortBy === 'meeting') {
+      const aTitle = String(meetingMetaById.get(String(a.meeting_id || '').trim())?.title || a.meeting_id || '');
+      const bTitle = String(meetingMetaById.get(String(b.meeting_id || '').trim())?.title || b.meeting_id || '');
+      cmp = compareText(aTitle, bTitle);
+    } else if (sortBy === 'blocker') cmp = blockerRank(a) - blockerRank(b);
+
+    if (cmp === 0) cmp = compareText(a.action_id, b.action_id);
+    return sortDir === 'desc' ? -cmp : cmp;
   });
 
   const metric = {
@@ -3158,7 +3196,7 @@ app.get('/dashboard/actions', async (req, res) => {
     requiresIsaac: rows.filter((r)=>r.requires_isaac).length,
   };
 
-  const makeActionsUrl = ({ targetMode = isAdvanced ? 'advanced' : 'simple', quickOverride } = {}) => {
+  const makeActionsUrl = ({ targetMode = isAdvanced ? 'advanced' : 'simple', quickOverride, sortByOverride, sortDirOverride } = {}) => {
     const params = new URLSearchParams();
     if (targetMode === 'advanced') params.set('mode', 'advanced');
     if (q) params.set('q', q);
@@ -3171,6 +3209,13 @@ app.get('/dashboard/actions', async (req, res) => {
     const effectiveQuick = quickOverride === undefined ? quick : quickOverride;
     if (effectiveQuick) params.set('quick', effectiveQuick);
 
+    const effectiveSortBy = sortByOverride === undefined ? sortBy : sortByOverride;
+    const effectiveSortDir = sortDirOverride === undefined ? sortDir : sortDirOverride;
+    if (effectiveSortBy) {
+      params.set('sort_by', effectiveSortBy);
+      params.set('sort_dir', effectiveSortDir === 'desc' ? 'desc' : 'asc');
+    }
+
     const qs = params.toString();
     return qs ? `/dashboard/actions?${qs}` : '/dashboard/actions';
   };
@@ -3179,6 +3224,12 @@ app.get('/dashboard/actions', async (req, res) => {
     const active = quick === key;
     const href = makeActionsUrl({ quickOverride: active ? '' : key });
     return `<a class="text-decoration-none" href="${href}"><div class="card h-100 ${active ? 'border-primary shadow-sm' : ''}"><div class="card-body py-2"><div class="small text-muted">${escapeHtml(label)}</div><div class="h5 mb-0" style="color:var(--text-primary)">${escapeHtml(String(value))}</div></div></div></a>`;
+  };
+
+  const sortMark = (key) => sortBy === key ? (sortDir === 'desc' ? ' ↓' : ' ↑') : '';
+  const sortHref = (key, targetMode = isAdvanced ? 'advanced' : 'simple') => {
+    const nextDir = sortBy === key && sortDir === 'asc' ? 'desc' : 'asc';
+    return makeActionsUrl({ targetMode, sortByOverride: key, sortDirOverride: nextDir });
   };
 
   const statusBadge = (status) => {
@@ -3321,6 +3372,7 @@ app.get('/dashboard/actions', async (req, res) => {
       <div class="col-6 col-md-3"><select class="form-select" name="owner"><option value="">Owner (All)</option>${owners.map((o)=>`<option value="${escapeHtml(o)}" ${ownerFilter===o?'selected':''}>${escapeHtml(o)}</option>`).join('')}</select></div>
       <div class="col-6 col-md-3"><select class="form-select" name="status"><option value="all" ${statusFilter==='all'?'selected':''}>Status (All)</option><option value="open" ${statusFilter==='open'?'selected':''}>open</option><option value="in_progress" ${statusFilter==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${statusFilter==='blocked'?'selected':''}>blocked</option><option value="done" ${statusFilter==='done'?'selected':''}>done</option></select></div>
       ${quick ? `<input type="hidden" name="quick" value="${escapeHtml(quick)}"/>` : ''}
+      ${sortBy ? `<input type="hidden" name="sort_by" value="${escapeHtml(sortBy)}"/><input type="hidden" name="sort_dir" value="${escapeHtml(sortDir)}"/>` : ''}
       <div class="col-12 d-flex gap-2"><button class="btn btn-primary">Apply</button><a class="btn btn-outline-secondary" href="${resetHref}">Reset</a></div>
     </form>`;
 
@@ -3334,11 +3386,12 @@ app.get('/dashboard/actions', async (req, res) => {
       <div class="col-md-2"><select class="form-select" name="meeting"><option value="">Meeting (All)</option>${meetings.map((m)=>`<option value="${escapeHtml(m)}" ${meetingFilter===m?'selected':''}>${escapeHtml(m)}</option>`).join('')}</select></div>
       <div class="col-md-1"><select class="form-select" name="status"><option value="all" ${statusFilter==='all'?'selected':''}>All</option><option value="open" ${statusFilter==='open'?'selected':''}>open</option><option value="in_progress" ${statusFilter==='in_progress'?'selected':''}>in_progress</option><option value="blocked" ${statusFilter==='blocked'?'selected':''}>blocked</option><option value="done" ${statusFilter==='done'?'selected':''}>done</option></select></div>
       ${quick ? `<input type="hidden" name="quick" value="${escapeHtml(quick)}"/>` : ''}
+      ${sortBy ? `<input type="hidden" name="sort_by" value="${escapeHtml(sortBy)}"/><input type="hidden" name="sort_dir" value="${escapeHtml(sortDir)}"/>` : ''}
       <div class="col-md-12 d-flex gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="${resetHref}">Reset</a></div>
     </form>`;
 
-  const advancedTable = `<div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner / Support</th><th>Decision Owner</th><th>Due</th><th>Status / Priority</th><th>Meeting / Initiative</th><th>Flags / Evidence</th></tr></thead><tbody>${advancedRowsHtml}</tbody></table></div></div>`;
-  const simpleTable = `<div class="card"><div class="table-responsive"><table class="table align-middle"><thead><tr><th>Action</th><th>Owner</th><th>Decision Owner</th><th>Due</th><th>Status</th><th>Blocker</th></tr></thead><tbody>${simpleRowsHtml}</tbody></table></div></div>`;
+  const advancedTable = `<div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th><a class="text-decoration-none" href="${sortHref('action', 'advanced')}">Action${sortMark('action')}</a></th><th><a class="text-decoration-none" href="${sortHref('owner', 'advanced')}">Owner / Support${sortMark('owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('decision_owner', 'advanced')}">Decision Owner${sortMark('decision_owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('due', 'advanced')}">Due${sortMark('due')}</a></th><th><a class="text-decoration-none" href="${sortHref('status', 'advanced')}">Status / Priority${sortMark('status')}</a></th><th><a class="text-decoration-none" href="${sortHref('meeting', 'advanced')}">Meeting / Initiative${sortMark('meeting')}</a></th><th><a class="text-decoration-none" href="${sortHref('blocker', 'advanced')}">Flags / Evidence${sortMark('blocker')}</a></th></tr></thead><tbody>${advancedRowsHtml}</tbody></table></div></div>`;
+  const simpleTable = `<div class="card"><div class="table-responsive"><table class="table align-middle"><thead><tr><th><a class="text-decoration-none" href="${sortHref('action', 'simple')}">Action${sortMark('action')}</a></th><th><a class="text-decoration-none" href="${sortHref('owner', 'simple')}">Owner${sortMark('owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('decision_owner', 'simple')}">Decision Owner${sortMark('decision_owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('due', 'simple')}">Due${sortMark('due')}</a></th><th><a class="text-decoration-none" href="${sortHref('status', 'simple')}">Status${sortMark('status')}</a></th><th><a class="text-decoration-none" href="${sortHref('blocker', 'simple')}">Blocker${sortMark('blocker')}</a></th></tr></thead><tbody>${simpleRowsHtml}</tbody></table></div></div>`;
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Action Register')}</head><body><div class="app-shell">
     ${dashboardNav('actions')}
