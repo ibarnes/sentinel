@@ -1236,5 +1236,79 @@
     },
     "created_at": "2026-04-07T18:48:00Z",
     "updated_at": "2026-04-07T18:48:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-07-DARE-OWOLABI-ISAAC-001",
+    "date_time": "2026-04-07T20:30:00Z",
+    "title": "Dare Owolabi + Isaac Barnes strategic conversation",
+    "participants": [
+      "Oluwadare \"Dare\" Owolabi",
+      "Isaac Barnes"
+    ],
+    "summary": "Conversation mapped the Nigeria execution bottleneck as a power-structure problem rather than a project-design problem. Dare described Bosun Tijani as underfunded and politically constrained, with budget and presidential-access control concentrated in other actors and election-cycle drag slowing ministerial execution. He emphasized that durable progress requires access to real decision power, active lobbying, and politically resilient structures. Strategic opportunity discussed: a Nigeria+ECOWAS public-safety infrastructure platform (hub-and-spoke across army/navy/police) where USG can supply capital, technology, and operators, provided engagement is anchored to durable power centers and self-funding mechanics.",
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Do not anchor execution strategy to a single minister; design for political durability across turnover.",
+      "Prioritize access mapping to budget controllers and presidential-adjacent influence nodes before capital deployment.",
+      "Frame engagement around self-funding infrastructure mechanisms to reduce dependence on annual allocations.",
+      "Use election-cycle slowdown period for architecture design, relationship-building, and decision-lane positioning.",
+      "Advance Nigeria+ECOWAS public-safety platform as a core USG strategic lane, contingent on power-center alignment."
+    ],
+    "risks": [
+      "Continuity risk: Bosun may not remain in role post-election, disrupting single-thread engagement.",
+      "Political-blockade risk: budget gatekeepers may intentionally slow or block initiatives for power-balance reasons.",
+      "Execution-velocity risk: ministerial resignations and election-cycle uncertainty reduce near-term decision speed.",
+      "Bandwidth risk: Dare's Senate campaign may limit availability for sustained operating support.",
+      "Sponsorship fragility risk if USG enters through idea-holders without durable authorization power."
+    ],
+    "next_actions": [
+      {
+        "action": "Map Nigeria power architecture for the public-safety platform: budget controllers, presidential advisors, and durable decision nodes.",
+        "owner": "Sentinel",
+        "due": "2026-04-11",
+        "status": "open"
+      },
+      {
+        "action": "Develop engagement plan that de-risks single-minister dependency and survives election-cycle turnover.",
+        "owner": "Isaac",
+        "due": "2026-04-12",
+        "status": "open"
+      },
+      {
+        "action": "Draft self-funding model options for the Nigeria+ECOWAS public-safety platform (revenue-backed mechanisms).",
+        "owner": "Leo LaBranche",
+        "due": "2026-04-13",
+        "status": "open"
+      },
+      {
+        "action": "Prepare hub-and-spoke capability architecture for army, navy, and police integration with regional expansion path.",
+        "owner": "Sentinel",
+        "due": "2026-04-13",
+        "status": "open"
+      },
+      {
+        "action": "Capture intelligence from Dare on Idris Alubankudi Saliu and related presidency influence channels for pathway validation.",
+        "owner": "Isaac",
+        "due": "2026-04-10",
+        "status": "open"
+      },
+      {
+        "action": "Evaluate timing strategy around election-cycle drag and define when to shift from positioning to formal capital motion.",
+        "owner": "Sentinel",
+        "due": "2026-04-14",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting minutes in Telegram"
+    },
+    "created_at": "2026-04-08T21:08:00Z",
+    "updated_at": "2026-04-08T21:08:00Z"
   }
 ]
