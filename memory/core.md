@@ -20,6 +20,23 @@
 - Platform Pressure UX operating rules (2026-03-16): treat `/dashboard/platform-pressure` as a high-density operator control surface (mission-control style), with Platform Signal Map as dominant center, initiative cards as full diagnostic panels (lifecycle map + blockers + buyer alignment + recommended USG motion visible by default), and section-level graceful degradation only (never flatten to generic summary dashboard patterns).
 - Signal-pressure freshness rule (2026-03-09): before heartbeat signal-delta checks, run `node mission-control/signal-pressure/run-if-stale.mjs`; only evaluate alert criteria on fresh/refreshed `pressure-delta.json`.
 
+## USG value proposition (2026-04-08)
+- Canonical positioning: **Unified State Group makes deals investable.**
+- Six-phase commercialization ladder:
+  1) Project Validation
+  2) Deal Readiness
+  3) Deal Strengthening (Mandate)
+  4) Partner Alignment
+  5) Capital Commitment
+  6) Long-Term Participation
+- Working economics model (from Isaac-provided framework image):
+  - Validation: $25K–$100K
+  - Readiness: $100K–$300K
+  - Strengthening: $500K–$2M+
+  - Partner Alignment: $250K–$1M (retainer or milestone)
+  - Capital Commitment: 1%–5% of capital raised
+  - Long-Term Participation: equity / retained participation
+
 ## Structural Priorities
 - Optimize for strategic leverage, not activity
 - Prioritize structural pressure over noise
