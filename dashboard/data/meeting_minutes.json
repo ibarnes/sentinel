@@ -194,7 +194,7 @@
     "title": "Angola Cables meeting",
     "participants": [
       "Wade",
-      "\u00c2ngelo Gama",
+      "Ângelo Gama",
       "Leo LaBranche",
       "Richard Hoffman",
       "Jose Assis",
@@ -321,7 +321,7 @@
       "Isaac Barnes",
       "Mark Grobmyer"
     ],
-    "summary": "Relationship-intelligence meeting focused on USVI legal/governance and federal-adjacent connector pathways, including Joel H. Holt and additional network nodes pending verification.",
+    "summary": "Relationship-intelligence meeting focused on USVI legal/governance and federal-adjacent connector pathways, including Charles Jennings and additional network nodes pending verification.",
     "initiative_ids": [
       "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
@@ -354,7 +354,7 @@
       "notes": "User-provided meeting notes in Telegram"
     },
     "created_at": "2026-03-25T01:30:00Z",
-    "updated_at": "2026-03-25T01:30:00Z"
+    "updated_at": "2026-04-08T02:24:06Z"
   },
   {
     "meeting_id": "MM-2026-03-24-TANISHA-LEWIS-001",
@@ -367,7 +367,7 @@
       "Telly Renfroe",
       "Camille Moore"
     ],
-    "summary": "Network and pathway meeting highlighting Tanisha\u2019s bipartisan government access, USVI familiarity, organizational-change experience, and advisory/connector network including Don Bacon, Steven Benjamin, Tonya Saunders, Hannibal Ware, and Mrs Kim (identity pending).",
+    "summary": "Network and pathway meeting highlighting Tanisha’s bipartisan government access, USVI familiarity, organizational-change experience, and advisory/connector network including Don Bacon, Steven Benjamin, Tonya Saunders, Hannibal Ware, and Mrs Kim (identity pending).",
     "initiative_ids": [
       "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
@@ -1024,9 +1024,7 @@
     },
     "created_at": "2026-04-02T18:27:00Z",
     "updated_at": "2026-04-02T18:27:00Z"
-  }
-
-,
+  },
   {
     "meeting_id": "MM-2026-04-07-USVI-TELLY-CONVO-001",
     "date_time": "2026-04-07T18:34:00Z",
@@ -1101,9 +1099,7 @@
     },
     "created_at": "2026-04-07T18:34:00Z",
     "updated_at": "2026-04-07T18:34:00Z"
-  }
-
-,
+  },
   {
     "meeting_id": "MM-2026-04-07-DR-FULA-UDG-DIGITAL-BANKING-001",
     "date_time": "2026-04-07T18:39:00Z",
@@ -1172,9 +1168,7 @@
     },
     "created_at": "2026-04-07T18:39:00Z",
     "updated_at": "2026-04-07T18:39:00Z"
-  }
-
-,
+  },
   {
     "meeting_id": "MM-2026-04-07-DAVID-CROWN-JV-001",
     "date_time": "2026-04-07T15:00:00Z",
