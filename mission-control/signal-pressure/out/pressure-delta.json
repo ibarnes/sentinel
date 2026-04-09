@@ -1,18 +1,10 @@
 {
-  "generated_at": "2026-04-07T13:21:17.137Z",
-  "total_signals": 163,
+  "generated_at": "2026-04-09T20:13:50.499Z",
+  "total_signals": 164,
   "high_impact_count": 90,
   "new_signal_count": 1,
-  "new_high_impact_count": 1,
-  "new_high_impact": [
-    {
-      "id": "SIG-2026-04-07-AFC-AFRICA-WE-BUILD-SUMMIT-001",
-      "headline": "AFC launches Africa We Build Summit 2026 to mobilise domestic capital for industrial transformation",
-      "channel": "politics",
-      "verification_status": "verified",
-      "confidence_score": 0.85
-    }
-  ],
+  "new_high_impact_count": 0,
+  "new_high_impact": [],
   "last_keys": [
     "afc project preparation capital path to usg|AFC|",
     "nigeria infrastructure financing gap escalation|AfDB,FMF-NG,NSIA|",
@@ -176,6 +168,7 @@
     "jamie dimon warns private credit losses will be larger than feared||",
     "drc launches active phase of afdb-backed predire program in ubangi basin|AFC,AfDB,DFC,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR",
     "blackrock and gip hosted 2026 infrastructure summit in washington, d.c.|GIP|INIT-2026-03-ANGOLA-AI-CORRIDOR",
-    "afc launches africa we build summit 2026 to mobilise domestic capital for industrial transformation|AFC,AfDB,IFC,NSIA,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR"
+    "afc launches africa we build summit 2026 to mobilise domestic capital for industrial transformation|AFC,AfDB,IFC,NSIA,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "us warns citizens to reconsider travel to nigeria amid deteriorating security|AfDB,DFC,IFC,WORLDBANK|INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE,INIT-NG-FIN-ENERGY-SPINE"
   ]
 }

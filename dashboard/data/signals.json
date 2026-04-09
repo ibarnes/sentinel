@@ -8873,7 +8873,6 @@
     ],
     "buyer_ids": []
   },
-
   {
     "signal_id": "SIG-2026-04-07-DRC-PREDIRE-UBANGI-LAUNCH-001",
     "title": "DRC launches active phase of AfDB-backed PREDIRE program in Ubangi basin",
@@ -8933,7 +8932,6 @@
       "reported_program_value_usd": 46500000
     }
   },
-
   {
     "signal_id": "SIG-2026-04-07-BLACKROCK-GIP-INFRA-SUMMIT-001",
     "title": "BlackRock and GIP hosted 2026 Infrastructure Summit in Washington, D.C.",
@@ -8988,7 +8986,6 @@
       "location": "Washington, D.C."
     }
   },
-
   {
     "signal_id": "SIG-2026-04-07-AFC-AFRICA-WE-BUILD-SUMMIT-001",
     "title": "AFC launches Africa We Build Summit 2026 to mobilise domestic capital for industrial transformation",
@@ -9053,5 +9050,57 @@
       "summit_end_date": "2026-04-24",
       "location": "Nairobi, Kenya"
     }
+  },
+  {
+    "signal_id": "SIG-2026-04-09-NIGERIA-US-TRAVEL-ADVISORY-001",
+    "title": "US warns citizens to reconsider travel to Nigeria amid deteriorating security",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provisional",
+    "observed_at": "2026-04-09T20:12:00Z",
+    "summary": "BBC reports updated US travel guidance placing Nigeria at 'reconsider travel' with at least 23 states under 'do not travel', and authorizing departure of non-emergency embassy staff/families from Abuja over deteriorating security conditions.",
+    "flow": "elevated security incidents + upgraded external travel-risk posture -> higher perceived sovereign operating risk for expatriates/conferences/investor travel -> potential drag on near-term deal velocity and foreign-partner mobilization",
+    "verification_note": "Tier-1 media report citing U.S. State Department advisory language; treat as provisional until direct advisory bulletin is attached.",
+    "sources": [
+      {
+        "label": "BBC News",
+        "url": "https://www.bbc.com/news/articles/c5ylq03evjzo"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "security-risk",
+      "travel-advisory",
+      "foreign-investment-friction",
+      "operating-environment"
+    ],
+    "geography": [
+      "Nigeria",
+      "West Africa"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "AfDB",
+      "IFC",
+      "WORLDBANK",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "delivery"
+    ],
+    "evidence_type": "tier1_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": false,
+    "blocks_hypothesis": true
   }
 ]
