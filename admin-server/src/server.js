@@ -73,6 +73,7 @@ const DASHBOARD_SIGNALS_SOURCES_FILE = path.join(ROOT, 'dashboard', 'data', 'sig
 const DASHBOARD_ACTION_ITEMS_FILE = path.join(ROOT, 'dashboard', 'data', 'action_items.json');
 const DASHBOARD_ACTION_NOTIFICATIONS_FILE = path.join(ROOT, 'dashboard', 'data', 'action_notifications.json');
 const DASHBOARD_ACTION_EVENTS_FILE = path.join(ROOT, 'dashboard', 'data', 'action_events.jsonl');
+const DASHBOARD_INITIATIVE_AVATAR_SCORING_FILE = path.join(ROOT, 'dashboard', 'data', 'initiative_avatar_scoring.json');
 const DASHBOARD_TEMPLATE_LIBRARY_ROOT = path.join(ROOT, 'dashboard', 'templates', 'presentation-templates');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
@@ -3763,6 +3764,7 @@ app.get('/dashboard/team', async (_req, res) => {
 
 app.get('/dashboard/initiatives', async (req, res) => {
   const initiativesRaw = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const avatarScoring = await readJson(DASHBOARD_INITIATIVE_AVATAR_SCORING_FILE, []);
   const isTestInitiative = (i) => {
     const name = String(i?.name || '').toLowerCase();
     const status = String(i?.status || '').toLowerCase();
@@ -3778,10 +3780,14 @@ app.get('/dashboard/initiatives', async (req, res) => {
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const byId = Object.fromEntries(buyers.map(b => [b.buyer_id, b.name]));
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
+
   const category = String(req.query.category || 'All');
   const weakestLayerFilter = String(req.query.weakest_layer || 'All');
   const primaryConstraintFilter = String(req.query.primary_constraint || 'All');
+  const avatarBandFilter = String(req.query.avatar_band || 'All').toUpperCase();
+  const avatarEntryFilter = String(req.query.avatar_entry || 'All');
   const sortBy = String(req.query.sort_by || 'updated_desc');
+
   const categories = ['All', ...new Set(initiatives.map((i)=>String(i.infrastructure_category || '').trim()).filter((c)=>Boolean(c) && c !== 'All'))];
   const sorted = [...initiatives].sort((a, b) => {
     const at = Date.parse(String(a.gate_updated_at || '')) || 0;
@@ -3789,6 +3795,73 @@ app.get('/dashboard/initiatives', async (req, res) => {
     if (bt !== at) return bt - at;
     return String(a.initiative_id).localeCompare(String(b.initiative_id));
   });
+
+  const avatarById = new Map((Array.isArray(avatarScoring) ? avatarScoring : []).map((x) => [String(x?.initiative_id || ''), x]).filter(([id]) => Boolean(id)));
+  const toNum = (v) => {
+    const n = Number(v);
+    return Number.isFinite(n) ? n : null;
+  };
+  const calcWeighted = ({ usgCashDifficulty, painLevel, buyerClarity, budgetReadiness, expansionPotential, trustGap }) => {
+    const parts = [usgCashDifficulty, painLevel, buyerClarity, budgetReadiness, expansionPotential, trustGap];
+    if (parts.some((v) => v == null)) return null;
+    const score = 0.25 * (10 - usgCashDifficulty)
+      + 0.20 * painLevel
+      + 0.20 * buyerClarity
+      + 0.15 * budgetReadiness
+      + 0.10 * expansionPotential
+      + 0.10 * (10 - trustGap);
+    return Number(score.toFixed(2));
+  };
+  const bandFor = (score) => {
+    if (!Number.isFinite(Number(score))) return 'N/A';
+    const s = Number(score);
+    if (s >= 7) return 'A';
+    if (s >= 6) return 'B';
+    if (s >= 5) return 'C';
+    return 'D';
+  };
+  const inferPhase = (entry) => {
+    const t = String(entry || '').toLowerCase();
+    if (!t || t === 'unassigned') return 'Unassigned';
+    if (t.includes('validation')) return '1) Project Validation';
+    if (t.includes('readiness')) return '2) Deal Readiness';
+    if (t.includes('strengthening') || t.includes('mandate')) return '3) Deal Strengthening (Mandate)';
+    if (t.includes('alignment')) return '4) Partner Alignment';
+    if (t.includes('commitment') || t.includes('close') || t.includes('success fee')) return '5) Capital Commitment';
+    if (t.includes('long-term') || t.includes('long term') || t.includes('participation')) return '6) Long-Term Participation';
+    return 'Unassigned';
+  };
+  const avatarSummary = (initiative) => {
+    const raw = avatarById.get(String(initiative?.initiative_id || '')) || {};
+    const buyerClarity = toNum(raw.buyer_clarity);
+    const painLevel = toNum(raw.pain_level);
+    const budgetReadiness = toNum(raw.budget_readiness);
+    const trustGap = toNum(raw.trust_gap);
+    const usgCashDifficulty = toNum(raw.usg_cash_difficulty);
+    const expansionPotential = toNum(raw.expansion_potential);
+    const weightedScore = toNum(raw.weighted_score) ?? calcWeighted({ usgCashDifficulty, painLevel, buyerClarity, budgetReadiness, expansionPotential, trustGap });
+    const priorityBand = String(raw.priority_band || bandFor(weightedScore)).toUpperCase();
+    const bestEntryPoint = String(raw.best_entry_point || 'Unassigned');
+    const phaseLabel = String(raw.model_phase || inferPhase(bestEntryPoint));
+    const feeBandTarget = String(raw.fee_band_target || 'Unassigned');
+
+    return {
+      avatar: String(raw.primary_avatar || 'Unassigned'),
+      bestEntryPoint,
+      phaseLabel,
+      feeBandTarget,
+      buyerClarity,
+      painLevel,
+      budgetReadiness,
+      trustGap,
+      usgCashDifficulty,
+      expansionPotential,
+      weightedScore,
+      priorityBand,
+      rationale: String(raw.rationale || ''),
+    };
+  };
+
   const gateOptions = ['Gate 0','Gate 1','Gate 2','Gate 3','Gate 4','Gate 5','Gate 6','Gate 7'];
   const inferGate = (i) => i.gate_stage || (String(i.status || '').toLowerCase()==='pre-fid' ? 'Gate 1' : 'Gate 1');
   const LAYERS = ['political','asset','development','capital','delivery'];
@@ -3820,30 +3893,47 @@ app.get('/dashboard/initiatives', async (req, res) => {
     const primary = candidatesCritical[0] || candidatesAny[0] || null;
     return { layerScores, overall, missingRoles, weakestLayer, primaryConstraint: primary ? (primary.role_label || primary.role_id || 'Unspecified role') : 'None' };
   };
-  const enrichedAll = sorted.map((i) => ({ initiative: i, align: alignmentSummary(i) }));
+
+  const enrichedAll = sorted.map((i) => ({ initiative: i, align: alignmentSummary(i), avatar: avatarSummary(i) }));
   const weakestLayerOptions = ['All', ...LAYERS.map((x) => x)];
   const primaryConstraintOptions = ['All', ...new Set(enrichedAll.map((x) => x.align.primaryConstraint).filter((x) => x && x !== 'None'))];
-  let enriched = enrichedAll.filter(({ initiative:i, align:a }) => {
+  const avatarEntryOptions = ['All', ...new Set(enrichedAll.map((x) => String(x.avatar.bestEntryPoint || 'Unassigned')).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const avatarBandOptions = ['All', 'A', 'B', 'C', 'D', 'N/A'];
+
+  let enriched = enrichedAll.filter(({ initiative:i, align:a, avatar:v }) => {
     if (category !== 'All' && String(i.infrastructure_category || '') !== category) return false;
     if (weakestLayerFilter !== 'All' && String(a.weakestLayer || '') !== weakestLayerFilter) return false;
     if (primaryConstraintFilter !== 'All' && String(a.primaryConstraint || '') !== primaryConstraintFilter) return false;
+    if (avatarBandFilter !== 'ALL' && String(v.priorityBand || 'N/A').toUpperCase() !== avatarBandFilter) return false;
+    if (avatarEntryFilter !== 'All' && String(v.bestEntryPoint || 'Unassigned') !== avatarEntryFilter) return false;
     return true;
   });
+
   if (sortBy === 'alignment_asc') enriched.sort((x,y)=>x.align.overall - y.align.overall);
   else if (sortBy === 'alignment_desc') enriched.sort((x,y)=>y.align.overall - x.align.overall);
   else if (sortBy === 'actor_gaps_desc') enriched.sort((x,y)=>y.align.missingRoles - x.align.missingRoles);
   else if (sortBy === 'actor_gaps_asc') enriched.sort((x,y)=>x.align.missingRoles - y.align.missingRoles);
   else if (sortBy === 'weakest_layer') enriched.sort((x,y)=>String(x.align.weakestLayer).localeCompare(String(y.align.weakestLayer)));
   else if (sortBy === 'primary_constraint') enriched.sort((x,y)=>String(x.align.primaryConstraint).localeCompare(String(y.align.primaryConstraint)));
+  else if (sortBy === 'avatar_score_desc') enriched.sort((x,y)=>(Number(y.avatar.weightedScore ?? -1) - Number(x.avatar.weightedScore ?? -1)));
+  else if (sortBy === 'avatar_score_asc') enriched.sort((x,y)=>(Number(x.avatar.weightedScore ?? 99) - Number(y.avatar.weightedScore ?? 99)));
+
   const weakestCounts = Object.fromEntries(LAYERS.map((l) => [l, enrichedAll.filter((x) => x.align.weakestLayer === l).length]));
+  const avatarBandCounts = {
+    A: enrichedAll.filter((x) => x.avatar.priorityBand === 'A').length,
+    B: enrichedAll.filter((x) => x.avatar.priorityBand === 'B').length,
+    C: enrichedAll.filter((x) => x.avatar.priorityBand === 'C').length,
+    D: enrichedAll.filter((x) => x.avatar.priorityBand === 'D').length,
+    NA: enrichedAll.filter((x) => !['A','B','C','D'].includes(String(x.avatar.priorityBand || ''))).length,
+  };
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Initiatives')}</head><body><div class="app-shell">
     ${dashboardNav('initiatives')}
-    ${pageHeader('Initiatives', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiatives/export.json">Get JSON</a>', 'Gate 0–7 is the canonical initiative workflow')}
-    <form id="initiativesFilterForm" method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-2"><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div><div class="col-md-2"><select class="form-select" name="weakest_layer">${weakestLayerOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===weakestLayerFilter?'selected':''}>Weakest Layer: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-3"><select class="form-select" name="primary_constraint">${primaryConstraintOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===primaryConstraintFilter?'selected':''}>Primary Constraint: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-3"><select class="form-select" name="sort_by"><option value="updated_desc" ${sortBy==='updated_desc'?'selected':''}>Sort: Updated</option><option value="alignment_desc" ${sortBy==='alignment_desc'?'selected':''}>Sort: Alignment ↓</option><option value="alignment_asc" ${sortBy==='alignment_asc'?'selected':''}>Sort: Alignment ↑</option><option value="actor_gaps_desc" ${sortBy==='actor_gaps_desc'?'selected':''}>Sort: Actor Gaps ↓</option><option value="actor_gaps_asc" ${sortBy==='actor_gaps_asc'?'selected':''}>Sort: Actor Gaps ↑</option><option value="weakest_layer" ${sortBy==='weakest_layer'?'selected':''}>Sort: Weakest Layer</option><option value="primary_constraint" ${sortBy==='primary_constraint'?'selected':''}>Sort: Primary Constraint</option></select></div></form>
-    <div class="card mb-3"><div class="card-body py-2"><div class="small text-muted mb-1">Actor Gap Analytics (all initiatives)</div><div class="d-flex flex-wrap gap-2">${LAYERS.map((l)=>`<span class="badge text-bg-light border">${escapeHtml(l)}: ${weakestCounts[l]}</span>`).join('')}</div></div></div>
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Name</th><th>Infrastructure Type</th><th>Gate Stage</th><th>Actor Gaps</th><th>Alignment %</th><th>Weakest Layer</th><th>Primary Constraint</th><th>Linked Buyers</th><th>Updated</th><th class="text-end">Actions</th></tr></thead><tbody>
-      ${enriched.map(({initiative:i, align:a})=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.name || i.initiative_id || '')}</a><div class="small text-muted mono">${escapeHtml(i.initiative_id || '')}</div></td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="initiative-gate-form d-inline"><select name="gate_stage" class="form-select form-select-sm initiative-gate-select" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select></form>` : escapeHtml(inferGate(i))}</td><td>${a.missingRoles}</td><td><strong>${a.overall}%</strong></td><td class="text-capitalize">${escapeHtml(a.weakestLayer)}</td><td>${escapeHtml(a.primaryConstraint)}</td><td>${(i.linked_buyers || []).filter((id)=>Boolean(byId[id])).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id])}" data-fullname="${escapeHtml(byId[id])}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td><td class="text-end">${canEdit ? `<details class="initiative-actions-menu d-inline-block text-start"><summary class="btn btn-sm btn-outline-secondary" aria-label="More actions">⋯</summary><div class="card p-1 mt-1" style="position:absolute;right:0;z-index:20;min-width:180px;"><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">View Initiative</a><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/delete" onsubmit="return confirm('Delete initiative ${escapeHtml(i.initiative_id)}? This cannot be undone.');"><button class="dropdown-item text-danger" type="submit">Delete</button></form></div></details>` : '—'}</td></tr>`).join('') || '<tr><td colspan="10">No initiatives</td></tr>'}
+    ${pageHeader('Initiatives', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiatives/export.json">Get JSON</a><a class="btn btn-sm btn-outline-secondary" href="/dashboard/initiatives/avatar-scoring/export.json">Avatar Scoring JSON</a>', 'Gate 0–7 is canonical workflow; avatar scoring tracks fastest path-to-cash')}
+    <form id="initiativesFilterForm" method="get" action="/dashboard/initiatives" class="row g-2 mb-3"><div class="col-md-2"><select class="form-select" name="category">${categories.map((c)=>`<option value="${escapeHtml(c)}" ${c===category?'selected':''}>${escapeHtml(c||'Uncategorized')}</option>`).join('')}</select></div><div class="col-md-2"><select class="form-select" name="weakest_layer">${weakestLayerOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===weakestLayerFilter?'selected':''}>Weakest Layer: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-2"><select class="form-select" name="primary_constraint">${primaryConstraintOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===primaryConstraintFilter?'selected':''}>Constraint: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-2"><select class="form-select" name="avatar_band">${avatarBandOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c.toUpperCase()===avatarBandFilter?'selected':''}>Avatar Band: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-2"><select class="form-select" name="avatar_entry">${avatarEntryOptions.map((c)=>`<option value="${escapeHtml(c)}" ${c===avatarEntryFilter?'selected':''}>Entry: ${escapeHtml(c)}</option>`).join('')}</select></div><div class="col-md-2"><select class="form-select" name="sort_by"><option value="updated_desc" ${sortBy==='updated_desc'?'selected':''}>Sort: Updated</option><option value="alignment_desc" ${sortBy==='alignment_desc'?'selected':''}>Sort: Alignment ↓</option><option value="alignment_asc" ${sortBy==='alignment_asc'?'selected':''}>Sort: Alignment ↑</option><option value="actor_gaps_desc" ${sortBy==='actor_gaps_desc'?'selected':''}>Sort: Actor Gaps ↓</option><option value="actor_gaps_asc" ${sortBy==='actor_gaps_asc'?'selected':''}>Sort: Actor Gaps ↑</option><option value="weakest_layer" ${sortBy==='weakest_layer'?'selected':''}>Sort: Weakest Layer</option><option value="primary_constraint" ${sortBy==='primary_constraint'?'selected':''}>Sort: Primary Constraint</option><option value="avatar_score_desc" ${sortBy==='avatar_score_desc'?'selected':''}>Sort: Avatar Score ↓</option><option value="avatar_score_asc" ${sortBy==='avatar_score_asc'?'selected':''}>Sort: Avatar Score ↑</option></select></div></form>
+    <div class="card mb-3"><div class="card-body py-2"><div class="small text-muted mb-1">Actor Gap Analytics (all initiatives)</div><div class="d-flex flex-wrap gap-2">${LAYERS.map((l)=>`<span class="badge text-bg-light border">${escapeHtml(l)}: ${weakestCounts[l]}</span>`).join('')}</div><div class="small text-muted mt-2 mb-1">Avatar conversion bands (all initiatives)</div><div class="d-flex flex-wrap gap-2"><span class="badge text-bg-success">A: ${avatarBandCounts.A}</span><span class="badge text-bg-primary">B: ${avatarBandCounts.B}</span><span class="badge text-bg-warning">C: ${avatarBandCounts.C}</span><span class="badge text-bg-danger">D: ${avatarBandCounts.D}</span><span class="badge text-bg-secondary">N/A: ${avatarBandCounts.NA}</span></div></div></div>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Name</th><th>Infrastructure Type</th><th>Gate Stage</th><th>Avatar</th><th>Entry / Fee Target</th><th>Investability Score</th><th>Drivers (B/P/B/T)</th><th>Actor Gaps</th><th>Alignment %</th><th>Weakest Layer</th><th>Primary Constraint</th><th>Linked Buyers</th><th>Updated</th><th class="text-end">Actions</th></tr></thead><tbody>
+      ${enriched.map(({initiative:i, align:a, avatar:v})=>`<tr><td><a href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">${escapeHtml(i.name || i.initiative_id || '')}</a><div class="small text-muted mono">${escapeHtml(i.initiative_id || '')}</div></td><td>${escapeHtml(i.infrastructure_category || '—')}</td><td>${canEdit ? `<form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/gate" class="initiative-gate-form d-inline"><select name="gate_stage" class="form-select form-select-sm initiative-gate-select" style="min-width:110px">${gateOptions.map(g=>`<option value="${g}" ${inferGate(i)===g?'selected':''}>${g}</option>`).join('')}</select></form>` : escapeHtml(inferGate(i))}</td><td>${escapeHtml(v.avatar || 'Unassigned')}<div class="small text-muted">${escapeHtml(v.phaseLabel || '')}</div></td><td><div>${escapeHtml(v.bestEntryPoint || 'Unassigned')}</div><div class="small text-muted">${escapeHtml(v.feeBandTarget || 'Unassigned')}</div></td><td>${Number.isFinite(Number(v.weightedScore)) ? `<strong>${escapeHtml(Number(v.weightedScore).toFixed(2))}</strong>` : '<span class="text-muted">N/A</span>'}<div class="small mt-1"><span class="badge text-bg-${v.priorityBand==='A'?'success':v.priorityBand==='B'?'primary':v.priorityBand==='C'?'warning':v.priorityBand==='D'?'danger':'secondary'}">${escapeHtml(v.priorityBand || 'N/A')}</span></div></td><td class="small">B:${v.buyerClarity ?? '—'} · P:${v.painLevel ?? '—'} · B:${v.budgetReadiness ?? '—'} · T:${v.trustGap ?? '—'}</td><td>${a.missingRoles}</td><td><strong>${a.overall}%</strong></td><td class="text-capitalize">${escapeHtml(a.weakestLayer)}</td><td>${escapeHtml(a.primaryConstraint)}</td><td>${(i.linked_buyers || []).map((id) => `<span tabindex="0" class="badge text-bg-light border me-1 buyer-tip" title="${escapeHtml(byId[id] || id)}" data-fullname="${escapeHtml(byId[id] || id)}">${escapeHtml(id)}</span>`).join('') || '—'}</td><td class="small text-muted mono">${escapeHtml(String(i.gate_updated_at || '').slice(0,10) || '—')}</td><td class="text-end">${canEdit ? `<details class="initiative-actions-menu d-inline-block text-start"><summary class="btn btn-sm btn-outline-secondary" aria-label="More actions">⋯</summary><div class="card p-1 mt-1" style="position:absolute;right:0;z-index:20;min-width:180px;"><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}">View Initiative</a><a class="dropdown-item" href="/dashboard/initiative/${encodeURIComponent(i.initiative_id)}?edit=1">Edit</a><form method="post" action="/api/initiatives/${encodeURIComponent(i.initiative_id)}/delete" onsubmit="return confirm('Delete initiative ${escapeHtml(i.initiative_id)}? This cannot be undone.');"><button class="dropdown-item text-danger" type="submit">Delete</button></form></div></details>` : '—'}</td></tr>`).join('') || '<tr><td colspan="14">No initiatives</td></tr>'}
     </tbody></table></div>
   </div>
   <script>
@@ -3860,6 +3950,11 @@ app.get('/dashboard/initiatives', async (req, res) => {
     });
   </script>
 </body></html>`);
+});
+
+app.get('/dashboard/initiatives/avatar-scoring/export.json', async (_req, res) => {
+  const rows = await readJson(DASHBOARD_INITIATIVE_AVATAR_SCORING_FILE, []);
+  res.type('application/json').send(JSON.stringify(rows, null, 2));
 });
 
 app.get('/dashboard/initiatives/export.json', async (_req, res) => {
