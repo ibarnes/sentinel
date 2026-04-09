@@ -9102,5 +9102,57 @@
     "evidence_strength": "medium",
     "advances_hypothesis": false,
     "blocks_hypothesis": true
+  },
+  {
+    "signal_id": "SIG-2026-04-09-DRC-UAE-TOURISM-PIPELINE-001",
+    "title": "DRC reports potential $1.882B UAE-linked tourism investment pipeline after Dubai summit",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provisional",
+    "observed_at": "2026-04-09T23:27:00Z",
+    "summary": "Bankable Africa reports DRC officials said up to $1.882B of a $6B Africa tourism project portfolio could be directed to DRC following a UAE-Africa summit, with implementation details still pending and no firm funding closure yet.",
+    "flow": "summit-level investment interest + UAE-DRC economic alignment -> potential corridor, logistics, and destination-infrastructure buildout -> conditional upside pending conversion from soft interest to signed commitments",
+    "verification_note": "Single-source media report citing DRC minister statements; treat as provisional until primary government/UAE institutional confirmation is attached.",
+    "sources": [
+      {
+        "label": "Bankable Africa",
+        "url": "https://bankable.africa/en/news/0804-2711-drc-eyes-1-9-billion-in-emirati-tourism-investment-following-dubai-summit"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "drc",
+      "uae",
+      "tourism",
+      "investment-pipeline",
+      "dubai-summit",
+      "provisional"
+    ],
+    "geography": [
+      "Democratic Republic of the Congo",
+      "United Arab Emirates",
+      "Africa"
+    ],
+    "country": "Democratic Republic of the Congo",
+    "buyer_ids": [
+      "AFC",
+      "AfDB"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery",
+      "governance"
+    ],
+    "evidence_type": "tier2_media",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]

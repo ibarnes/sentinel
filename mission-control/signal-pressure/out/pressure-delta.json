@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-09T20:13:50.499Z",
-  "total_signals": 164,
+  "generated_at": "2026-04-09T23:29:26.557Z",
+  "total_signals": 165,
   "high_impact_count": 90,
   "new_signal_count": 1,
   "new_high_impact_count": 0,
@@ -169,6 +169,7 @@
     "drc launches active phase of afdb-backed predire program in ubangi basin|AFC,AfDB,DFC,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR",
     "blackrock and gip hosted 2026 infrastructure summit in washington, d.c.|GIP|INIT-2026-03-ANGOLA-AI-CORRIDOR",
     "afc launches africa we build summit 2026 to mobilise domestic capital for industrial transformation|AFC,AfDB,IFC,NSIA,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR",
-    "us warns citizens to reconsider travel to nigeria amid deteriorating security|AfDB,DFC,IFC,WORLDBANK|INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE,INIT-NG-FIN-ENERGY-SPINE"
+    "us warns citizens to reconsider travel to nigeria amid deteriorating security|AfDB,DFC,IFC,WORLDBANK|INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE,INIT-NG-FIN-ENERGY-SPINE",
+    "drc reports potential $1.882b uae-linked tourism investment pipeline after dubai summit|AFC,AfDB|INIT-2026-03-05-COMMODITY-CORRIDOR"
   ]
 }

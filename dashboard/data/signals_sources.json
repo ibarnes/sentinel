@@ -122,7 +122,7 @@
   },
   {
     "source_id": "google-news-ecowas-public-safety",
-    "name": "Google News \u2014 ECOWAS Public Safety",
+    "name": "Google News — ECOWAS Public Safety",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=ECOWAS+public+safety+OR+law+enforcement+OR+security+infrastructure&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -135,7 +135,7 @@
   },
   {
     "source_id": "google-news-nigeria-policing-digital",
-    "name": "Google News \u2014 Nigeria Digital Policing",
+    "name": "Google News — Nigeria Digital Policing",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=Nigeria+digital+policing+OR+police+modernization+OR+command+center&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -148,7 +148,7 @@
   },
   {
     "source_id": "google-news-afdb-ifc-dfc-security-infra",
-    "name": "Google News \u2014 AfDB/IFC/DFC Security Infrastructure",
+    "name": "Google News — AfDB/IFC/DFC Security Infrastructure",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=AfDB+OR+IFC+OR+DFC+security+infrastructure+Africa&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -161,7 +161,7 @@
   },
   {
     "source_id": "thecable-cbn-imto-naira-settlement-2026-03-24",
-    "name": "TheCable \u2014 CBN IMTO Naira Settlement Directive",
+    "name": "TheCable — CBN IMTO Naira Settlement Directive",
     "type": "webpage",
     "url": "https://www.thecable.ng/no-more-dollar-payments-as-cbn-directs-imtos-to-open-naira-settlement-accounts/",
     "enabled": true,
@@ -189,7 +189,7 @@
   },
   {
     "source_id": "kkr-insights-data-center-infrastructure",
-    "name": "KKR Insights \u2014 Data Center Infrastructure (Waldemar Szlezak)",
+    "name": "KKR Insights — Data Center Infrastructure (Waldemar Szlezak)",
     "type": "webpage",
     "url": "https://www.kkr.com/insights/data-center-infrastructure",
     "enabled": true,
@@ -216,7 +216,7 @@
   },
   {
     "source_id": "google-news-kkr-digital-infrastructure-leadership",
-    "name": "Google News \u2014 KKR Digital Infrastructure Leadership",
+    "name": "Google News — KKR Digital Infrastructure Leadership",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=KKR+digital+infrastructure+insights+OR+Waldemar+Szlezak&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -244,7 +244,7 @@
   },
   {
     "source_id": "google-news-stonepeak-infrastructure-leadership",
-    "name": "Google News \u2014 Stonepeak Infrastructure Leadership",
+    "name": "Google News — Stonepeak Infrastructure Leadership",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=Stonepeak+infrastructure+insights+OR+digital+infrastructure&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -271,7 +271,7 @@
   },
   {
     "source_id": "google-news-gip-infrastructure-leadership",
-    "name": "Google News \u2014 GIP Infrastructure Leadership",
+    "name": "Google News — GIP Infrastructure Leadership",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=%22Global+Infrastructure+Partners%22+insights+OR+infrastructure+strategy&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -299,7 +299,7 @@
   },
   {
     "source_id": "google-news-general-atlantic-infra-tech",
-    "name": "Google News \u2014 General Atlantic Infra/Tech Leadership",
+    "name": "Google News — General Atlantic Infra/Tech Leadership",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=%22General+Atlantic%22+infrastructure+OR+digital+infrastructure+OR+AI+platform&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -327,7 +327,7 @@
   },
   {
     "source_id": "google-news-alpha-wave-strategic-capital",
-    "name": "Google News \u2014 Alpha Wave Strategic Capital",
+    "name": "Google News — Alpha Wave Strategic Capital",
     "type": "rss",
     "url": "https://news.google.com/rss/search?q=%22Alpha+Wave+Global%22+AI+infrastructure+OR+strategic+capital&hl=en-US&gl=US&ceid=US:en",
     "enabled": true,
@@ -423,5 +423,33 @@
       "project"
     ],
     "why_template": "Official NSIA publication relevant to sovereign capital posture and Nigeria initiative execution context."
+  },
+  {
+    "source_id": "bankable-africa-drc-uae-tourism-2026-04-08",
+    "name": "Bankable Africa — DRC/UAE Tourism Investment Watch",
+    "type": "webpage",
+    "url": "https://bankable.africa/en/news/0804-2711-drc-eyes-1-9-billion-in-emirati-tourism-investment-following-dubai-summit",
+    "enabled": true,
+    "default_tags": [
+      "drc",
+      "uae",
+      "tourism",
+      "investment-watch"
+    ],
+    "trust_tier": "tier2",
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "match_keywords": [
+      "drc",
+      "congo",
+      "uae",
+      "emirati",
+      "tourism",
+      "investment",
+      "summit"
+    ],
+    "why_template": "Bankable Africa coverage used as an early-market signal for DRC-UAE investment pathways; requires follow-on verification before posture changes."
   }
 ]
