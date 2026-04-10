@@ -29,7 +29,15 @@
     "created_at": "2026-04-10T22:22:46Z",
     "updated_at": "2026-04-10T22:22:46Z",
     "path_to_cash_score": 7.16,
-    "priority_band": "A"
+    "priority_band": "A",
+    "commercial_layer": "core",
+    "usg_role_type": "partner",
+    "probable_payer_seat": "FMF-NG / NSIA capital authorization seat",
+    "constraint_to_remove": "Mandate-grade fundability and underwriting sequence not yet formally packaged",
+    "mandate_instrument": "Deal Strengthening Mandate",
+    "payment_architecture": "Deferred structuring fee convertible to additional equity at capital event",
+    "evidence_artifact_for_payment": "Fundability memo + capital-stack underwriting pack",
+    "core_eligibility_reason": "clear buyer seat; pain mapped to entry point; initiative pressure with fee path"
   },
   {
     "opportunity_id": "REV-INIT-AP-AI-FACTORY-001",
@@ -61,7 +69,15 @@
     "created_at": "2026-04-10T22:22:46Z",
     "updated_at": "2026-04-10T22:22:46Z",
     "path_to_cash_score": 6.16,
-    "priority_band": "B"
+    "priority_band": "B",
+    "commercial_layer": "core",
+    "usg_role_type": "strategic_partner",
+    "probable_payer_seat": "Project sponsor + capital allocator committee",
+    "constraint_to_remove": "NVIDIA/hyperscaler underwriting readiness is not yet formalized",
+    "mandate_instrument": "NVIDIA Readiness Package",
+    "payment_architecture": "Milestone-based readiness fee",
+    "evidence_artifact_for_payment": "Demand map + deployment roadmap + capital stack design",
+    "core_eligibility_reason": "pain mapped to entry point; proposal or mandate window defined"
   },
   {
     "opportunity_id": "REV-INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -80,7 +96,7 @@
     "next_action": "Package Deal Strengthening into buyer-ready scope and secure proposal window.",
     "owner": "Isaac",
     "last_movement_date": "2026-04-10",
-    "stage": "Identified",
+    "stage": "Qualified",
     "buyer_authority": 5,
     "felt_pain": 7,
     "entry_clarity": 4,
@@ -93,7 +109,15 @@
     "created_at": "2026-04-10T22:22:46Z",
     "updated_at": "2026-04-10T22:22:46Z",
     "path_to_cash_score": 5.06,
-    "priority_band": "C"
+    "priority_band": "C",
+    "commercial_layer": "watchlist",
+    "usg_role_type": "originator",
+    "probable_payer_seat": "TBD execution beneficiary (trader/logistics operator)",
+    "constraint_to_remove": "No single payer seat defined for execution mandate",
+    "mandate_instrument": "Execution beneficiary structuring mandate",
+    "payment_architecture": "Retainer from first economic beneficiary",
+    "evidence_artifact_for_payment": "Buyer-seat map + beneficiary economics",
+    "core_eligibility_reason": "initiative pressure with fee path"
   },
   {
     "opportunity_id": "REV-INIT-GRAVITY-001",
@@ -125,7 +149,15 @@
     "created_at": "2026-04-10T22:22:46Z",
     "updated_at": "2026-04-10T22:22:46Z",
     "path_to_cash_score": 4.06,
-    "priority_band": "D"
+    "priority_band": "D",
+    "commercial_layer": "watchlist",
+    "usg_role_type": "partner",
+    "probable_payer_seat": "JV steering committee (to be formalized)",
+    "constraint_to_remove": "JV governance and payer accountability are not formalized",
+    "mandate_instrument": "Structure & Capital Readiness Layer",
+    "payment_architecture": "JV retainer or per-initiative milestone fee",
+    "evidence_artifact_for_payment": "JV governance charter + mandate scope",
+    "core_eligibility_reason": "pain mapped to entry point"
   },
   {
     "opportunity_id": "REV-INIT-653306",
@@ -157,7 +189,15 @@
     "created_at": "2026-04-10T22:22:46Z",
     "updated_at": "2026-04-10T22:22:46Z",
     "path_to_cash_score": 5.06,
-    "priority_band": "C"
+    "priority_band": "C",
+    "commercial_layer": "watchlist",
+    "usg_role_type": "vision_owner",
+    "probable_payer_seat": "Anchor operator seat not yet identified",
+    "constraint_to_remove": "No anchor operator with purchasing authority",
+    "mandate_instrument": "Anchor Operator Readiness Mandate",
+    "payment_architecture": "Validation fee after anchor commitment",
+    "evidence_artifact_for_payment": "Anchor operator term sheet",
+    "core_eligibility_reason": "initiative pressure with fee path"
   },
   {
     "opportunity_id": "REV-INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
@@ -189,7 +229,15 @@
     "created_at": "2026-04-10T22:22:46Z",
     "updated_at": "2026-04-10T22:22:46Z",
     "path_to_cash_score": 4.14,
-    "priority_band": "D"
+    "priority_band": "D",
+    "commercial_layer": "watchlist",
+    "usg_role_type": "vision_owner",
+    "probable_payer_seat": "Sovereign allocator seat not yet converted",
+    "constraint_to_remove": "Payer authority and procurement lane undefined",
+    "mandate_instrument": "Project Validation Scope",
+    "payment_architecture": "Discovery/validation fee",
+    "evidence_artifact_for_payment": "Authority map + scoped validation SOW",
+    "core_eligibility_reason": "initiative pressure with fee path"
   },
   {
     "opportunity_id": "REV-INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT",
@@ -208,7 +256,7 @@
     "next_action": "Package Validation or Readiness into buyer-ready scope and secure proposal window.",
     "owner": "Isaac",
     "last_movement_date": "2026-04-10",
-    "stage": "Qualified",
+    "stage": "Buyer confirmed",
     "buyer_authority": 7,
     "felt_pain": 8,
     "entry_clarity": 5,
@@ -221,7 +269,15 @@
     "created_at": "2026-04-10T22:22:46Z",
     "updated_at": "2026-04-10T22:22:46Z",
     "path_to_cash_score": 6.13,
-    "priority_band": "B"
+    "priority_band": "B",
+    "commercial_layer": "core",
+    "usg_role_type": "owner",
+    "probable_payer_seat": "USVI Recovery Program Authority contracting seat",
+    "constraint_to_remove": "Capital deployment architecture not yet formalized as contract",
+    "mandate_instrument": "Capital Deployment Architecture Contract",
+    "payment_architecture": "Direct contract with milestone payments",
+    "evidence_artifact_for_payment": "Draft architecture contract + deployment blueprint",
+    "core_eligibility_reason": "clear buyer seat; pain mapped to entry point; proposal or mandate window defined"
   },
   {
     "opportunity_id": "REV-INIT-2026-03-ANGOLA-AI-CORRIDOR",
@@ -253,7 +309,15 @@
     "created_at": "2026-04-10T22:22:46Z",
     "updated_at": "2026-04-10T22:22:46Z",
     "path_to_cash_score": 4.82,
-    "priority_band": "D"
+    "priority_band": "D",
+    "commercial_layer": "watchlist",
+    "usg_role_type": "partner",
+    "probable_payer_seat": "Sponsor-side steering group (not yet bound)",
+    "constraint_to_remove": "Relationship access not yet translated into formal paid structuring scope",
+    "mandate_instrument": "Partner Alignment + Capital Structuring Phase",
+    "payment_architecture": "Milestone-based structuring fee",
+    "evidence_artifact_for_payment": "Signed phase scope + decision timetable",
+    "core_eligibility_reason": "pain mapped to entry point"
   },
   {
     "opportunity_id": "REV-INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE",
@@ -285,7 +349,15 @@
     "created_at": "2026-04-10T22:22:46Z",
     "updated_at": "2026-04-10T22:22:46Z",
     "path_to_cash_score": 4.99,
-    "priority_band": "D"
+    "priority_band": "D",
+    "commercial_layer": "watchlist",
+    "usg_role_type": "vision_owner",
+    "probable_payer_seat": "National program sponsor seat not yet secured",
+    "constraint_to_remove": "Thesis has no active buyer with executable budget authority",
+    "mandate_instrument": "Program Framing + Sponsor Conversion Scope",
+    "payment_architecture": "Deferred until sponsor conversion",
+    "evidence_artifact_for_payment": "Sponsor-backed program brief",
+    "core_eligibility_reason": "initiative pressure with fee path"
   },
   {
     "opportunity_id": "REV-STANDALONE-52AFRICA-PAYMENTS",
@@ -317,6 +389,14 @@
     "created_at": "2026-04-10T22:22:46Z",
     "updated_at": "2026-04-10T22:22:46Z",
     "path_to_cash_score": 7.0,
-    "priority_band": "A"
+    "priority_band": "A",
+    "commercial_layer": "core",
+    "usg_role_type": "strategic_partner",
+    "probable_payer_seat": "52Africa payments portfolio company decision owner",
+    "constraint_to_remove": "NDA and scoped integration pathway to customer base",
+    "mandate_instrument": "Deal Readiness + Integration Scope",
+    "payment_architecture": "Readiness fee + expansion retainer",
+    "evidence_artifact_for_payment": "Signed NDA + scoped customer-access integration plan",
+    "core_eligibility_reason": "clear buyer seat; pain mapped to entry point; proposal or mandate window defined"
   }
 ]

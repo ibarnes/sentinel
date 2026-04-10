@@ -846,6 +846,33 @@ function calcPathToCashScore(input = {}) {
   return Number(score.toFixed(2));
 }
 
+function inferRevenueCoreEligibility(row = {}) {
+  const reasons = [];
+  const buyerSeat = String(row.probable_payer_seat || row.primary_buyer || '').trim();
+  const clearBuyerSeat = Boolean(buyerSeat) && Number(row.buyer_authority || 0) >= 7;
+  if (clearBuyerSeat) reasons.push('clear buyer seat');
+
+  const painToEntry = Boolean(String(row.current_pain || '').trim()) && Boolean(String(row.entry_point || '').trim());
+  if (painToEntry) reasons.push('pain mapped to entry point');
+
+  const monetizablePressure = Boolean(String(row.linked_initiative_id || '').trim())
+    && Boolean(String(row.plausible_fee_range || '').trim());
+  if (monetizablePressure) reasons.push('initiative pressure with fee path');
+
+  const proposalWindow = ['Proposal ready','Proposal delivered','Verbal alignment','Mandate pending','Fee secured','Closed won'].includes(String(row.stage || ''))
+    || /(30|45|60|90|120)/.test(String(row.time_to_cash_estimate || ''));
+  if (proposalWindow) reasons.push('proposal or mandate window defined');
+
+  return {
+    eligible: clearBuyerSeat || painToEntry || monetizablePressure || proposalWindow,
+    reasons,
+    clearBuyerSeat,
+    painToEntry,
+    monetizablePressure,
+    proposalWindow,
+  };
+}
+
 function normalizeRevenueOpportunity(row = {}) {
   const opportunityId = String(row.opportunity_id || `REV-${crypto.randomBytes(4).toString('hex')}`).trim();
   const stage = REVENUE_STAGES.includes(String(row.stage || '').trim()) ? String(row.stage).trim() : 'Identified';
@@ -859,7 +886,13 @@ function normalizeRevenueOpportunity(row = {}) {
     opportunity_name: String(row.opportunity_name || '').trim(),
     linked_initiative_id: String(row.linked_initiative_id || '').trim(),
     primary_buyer: String(row.primary_buyer || '').trim(),
+    probable_payer_seat: String(row.probable_payer_seat || '').trim(),
     buyer_type: String(row.buyer_type || '').trim(),
+    usg_role_type: String(row.usg_role_type || '').trim(),
+    mandate_instrument: String(row.mandate_instrument || '').trim(),
+    payment_architecture: String(row.payment_architecture || '').trim(),
+    constraint_to_remove: String(row.constraint_to_remove || '').trim(),
+    evidence_artifact_for_payment: String(row.evidence_artifact_for_payment || '').trim(),
     entry_point: String(row.entry_point || '').trim(),
     current_pain: String(row.current_pain || '').trim(),
     trigger_event: String(row.trigger_event || '').trim(),
@@ -883,15 +916,28 @@ function normalizeRevenueOpportunity(row = {}) {
     budget_availability: asNum(row.budget_availability),
     path_to_cash_score: Number.isFinite(Number(row.path_to_cash_score)) ? Number(row.path_to_cash_score) : null,
     priority_band: String(row.priority_band || '').trim().toUpperCase(),
+    commercial_layer: String(row.commercial_layer || '').trim().toLowerCase(),
+    core_eligibility_reason: String(row.core_eligibility_reason || '').trim(),
     created_at: String(row.created_at || nowIso()),
     updated_at: String(row.updated_at || nowIso()),
   };
+
+  if (!normalized.probable_payer_seat && normalized.primary_buyer) {
+    normalized.probable_payer_seat = normalized.primary_buyer;
+  }
 
   if (!Number.isFinite(normalized.path_to_cash_score)) {
     normalized.path_to_cash_score = calcPathToCashScore(normalized);
   }
   if (!normalized.priority_band) {
     normalized.priority_band = revenueBandFor(normalized.path_to_cash_score);
+  }
+
+  const eligibility = inferRevenueCoreEligibility(normalized);
+  const explicitLayer = ['core','watchlist'].includes(normalized.commercial_layer) ? normalized.commercial_layer : '';
+  normalized.commercial_layer = explicitLayer || (eligibility.eligible ? 'core' : 'watchlist');
+  if (!normalized.core_eligibility_reason) {
+    normalized.core_eligibility_reason = eligibility.reasons.join('; ');
   }
 
   return normalized;
@@ -4076,6 +4122,7 @@ app.get('/dashboard/revenue', async (req, res) => {
   const rowsRaw = await readJson(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, []);
   const rows = (Array.isArray(rowsRaw) ? rowsRaw : []).map((r) => normalizeRevenueOpportunity(r));
 
+  const layerFilter = String(req.query.layer || 'core').toLowerCase();
   const stageFilter = String(req.query.stage || 'All');
   const ownerFilter = String(req.query.owner || 'All');
   const initiativeFilter = String(req.query.initiative || 'All');
@@ -4083,12 +4130,14 @@ app.get('/dashboard/revenue', async (req, res) => {
   const sortBy = String(req.query.sort_by || 'score_desc');
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
 
+  const layerOptions = ['all', 'core', 'watchlist'];
   const stageOptions = ['All', ...REVENUE_STAGES];
   const ownerOptions = ['All', ...new Set(rows.map((r) => String(r.owner || '').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
   const initiativeOptions = ['All', ...new Set(rows.map((r) => String(r.linked_initiative_id || '').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
   const bandOptions = ['All', 'A', 'B', 'C', 'D', 'N/A'];
 
   const filtered = rows.filter((r) => {
+    if (layerFilter !== 'all' && String(r.commercial_layer || '').toLowerCase() !== layerFilter) return false;
     if (stageFilter !== 'All' && String(r.stage || '') !== stageFilter) return false;
     if (ownerFilter !== 'All' && String(r.owner || '') !== ownerFilter) return false;
     if (initiativeFilter !== 'All' && String(r.linked_initiative_id || '') !== initiativeFilter) return false;
@@ -4100,17 +4149,15 @@ app.get('/dashboard/revenue', async (req, res) => {
   else if (sortBy === 'last_movement_desc') filtered.sort((a,b)=>String(b.last_movement_date || '').localeCompare(String(a.last_movement_date || '')));
   else if (sortBy === 'last_movement_asc') filtered.sort((a,b)=>String(a.last_movement_date || '').localeCompare(String(b.last_movement_date || '')));
   else if (sortBy === 'time_to_cash_asc') filtered.sort((a,b)=>String(a.time_to_cash_estimate || '').localeCompare(String(b.time_to_cash_estimate || '')));
+  else if (sortBy === 'core_first') filtered.sort((a,b)=>String(a.commercial_layer || '').localeCompare(String(b.commercial_layer || '')) || Number(b.path_to_cash_score ?? -1) - Number(a.path_to_cash_score ?? -1));
   else filtered.sort((a,b)=>Number(b.path_to_cash_score ?? -1) - Number(a.path_to_cash_score ?? -1));
 
   const isOpenStage = (s) => !['Closed won','Closed lost','Parked'].includes(String(s || ''));
-  const isCredible = (r) => Boolean(String(r.primary_buyer || '').trim())
-    && Boolean(String(r.entry_point || '').trim())
-    && (Boolean(String(r.current_pain || '').trim()) || Boolean(String(r.linked_initiative_id || '').trim()));
-
+  const coreRows = rows.filter((r) => String(r.commercial_layer || '') === 'core');
+  const watchRows = rows.filter((r) => String(r.commercial_layer || '') === 'watchlist');
   const total = rows.length;
   const open = rows.filter((r) => isOpenStage(r.stage)).length;
   const feeSecured = rows.filter((r) => String(r.stage || '') === 'Fee secured').length;
-  const credible = rows.filter((r) => isCredible(r)).length;
   const avgScore = rows.length
     ? (rows.reduce((sum, r) => sum + (Number(r.path_to_cash_score) || 0), 0) / rows.length)
     : 0;
@@ -4141,6 +4188,12 @@ app.get('/dashboard/revenue', async (req, res) => {
     return `<span class="badge text-bg-${cls}">${escapeHtml(b)}</span>`;
   };
 
+  const layerBadge = (layer) => {
+    const l = String(layer || 'watchlist').toLowerCase();
+    const cls = l === 'core' ? 'success' : 'secondary';
+    return `<span class="badge text-bg-${cls}">${escapeHtml(l)}</span>`;
+  };
+
   const currentUrl = String(req.originalUrl || '/dashboard/revenue');
 
   const rowHtml = filtered.map((r) => {
@@ -4153,46 +4206,52 @@ app.get('/dashboard/revenue', async (req, res) => {
       ? `<form method="post" action="/api/revenue/${encodeURIComponent(String(r.opportunity_id || ''))}/update" class="d-flex gap-1"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><select class="form-select form-select-sm" name="stage" onchange="this.form.submit()">${REVENUE_STAGES.map((s)=>`<option value="${escapeHtml(s)}" ${s===r.stage?'selected':''}>${escapeHtml(s)}</option>`).join('')}</select></form>`
       : stageBadge(r.stage);
 
-    const nextMove = `<div>${escapeHtml(String(r.next_action || '—'))}</div><div class="small text-muted">Owner: ${escapeHtml(String(r.owner || '—'))}</div><div class="small text-muted">Blocker: ${escapeHtml(String(r.main_blocker || '—'))}</div>${canEdit ? `<details class="mt-1"><summary class="small" style="cursor:pointer">Edit</summary><form method="post" action="/api/revenue/${encodeURIComponent(String(r.opportunity_id || ''))}/update" class="d-flex flex-column gap-1 mt-1"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input class="form-control form-control-sm" name="next_action" value="${escapeHtml(String(r.next_action || ''))}" placeholder="Next action"/><input class="form-control form-control-sm" name="owner" value="${escapeHtml(String(r.owner || ''))}" placeholder="Owner"/><input class="form-control form-control-sm" name="main_blocker" value="${escapeHtml(String(r.main_blocker || ''))}" placeholder="Main blocker"/><input class="form-control form-control-sm" name="time_to_cash_estimate" value="${escapeHtml(String(r.time_to_cash_estimate || ''))}" placeholder="Time-to-cash estimate"/><input class="form-control form-control-sm" type="date" name="last_movement_date" value="${escapeHtml(String(r.last_movement_date || ''))}"/><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form></details>` : ''}`;
+    const architecture = `<div><strong>USG role:</strong> ${escapeHtml(String(r.usg_role_type || '—'))}</div><div><strong>Constraint:</strong> ${escapeHtml(String(r.constraint_to_remove || '—'))}</div><div class="small text-muted"><strong>Instrument:</strong> ${escapeHtml(String(r.mandate_instrument || '—'))}</div><div class="small text-muted"><strong>Payment:</strong> ${escapeHtml(String(r.payment_architecture || '—'))}</div><div class="small text-muted"><strong>Proof artifact:</strong> ${escapeHtml(String(r.evidence_artifact_for_payment || '—'))}</div>`;
+
+    const nextMove = `<div>${escapeHtml(String(r.next_action || '—'))}</div><div class="small text-muted">Owner: ${escapeHtml(String(r.owner || '—'))}</div><div class="small text-muted">Blocker: ${escapeHtml(String(r.main_blocker || '—'))}</div>${canEdit ? `<details class="mt-1"><summary class="small" style="cursor:pointer">Edit</summary><form method="post" action="/api/revenue/${encodeURIComponent(String(r.opportunity_id || ''))}/update" class="d-flex flex-column gap-1 mt-1"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input class="form-control form-control-sm" name="next_action" value="${escapeHtml(String(r.next_action || ''))}" placeholder="Next action"/><input class="form-control form-control-sm" name="owner" value="${escapeHtml(String(r.owner || ''))}" placeholder="Owner"/><input class="form-control form-control-sm" name="main_blocker" value="${escapeHtml(String(r.main_blocker || ''))}" placeholder="Main blocker"/><select class="form-select form-select-sm" name="commercial_layer"><option value="core" ${String(r.commercial_layer||'')==='core'?'selected':''}>core</option><option value="watchlist" ${String(r.commercial_layer||'')==='watchlist'?'selected':''}>watchlist</option></select><input class="form-control form-control-sm" name="constraint_to_remove" value="${escapeHtml(String(r.constraint_to_remove || ''))}" placeholder="Constraint to remove"/><input class="form-control form-control-sm" name="mandate_instrument" value="${escapeHtml(String(r.mandate_instrument || ''))}" placeholder="Mandate instrument"/><input class="form-control form-control-sm" name="payment_architecture" value="${escapeHtml(String(r.payment_architecture || ''))}" placeholder="Payment architecture"/><input class="form-control form-control-sm" name="time_to_cash_estimate" value="${escapeHtml(String(r.time_to_cash_estimate || ''))}" placeholder="Time-to-cash estimate"/><input class="form-control form-control-sm" type="date" name="last_movement_date" value="${escapeHtml(String(r.last_movement_date || ''))}"/><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form></details>` : ''}`;
 
     return `<tr>
-      <td><strong>${escapeHtml(String(r.opportunity_name || r.opportunity_id || 'Untitled opportunity'))}</strong><div class="small text-muted mono">${escapeHtml(String(r.opportunity_id || ''))}</div></td>
+      <td><strong>${escapeHtml(String(r.opportunity_name || r.opportunity_id || 'Untitled opportunity'))}</strong><div class="small text-muted mono">${escapeHtml(String(r.opportunity_id || ''))}</div><div class="mt-1">${layerBadge(r.commercial_layer)} ${bandBadge(r.priority_band)}</div><div class="small text-muted">${escapeHtml(String(r.core_eligibility_reason || ''))}</div></td>
       <td>${initiativeCell}</td>
-      <td>${escapeHtml(String(r.primary_buyer || '—'))}<div class="small text-muted">${escapeHtml(String(r.buyer_type || '—'))}</div></td>
-      <td>${escapeHtml(String(r.entry_point || '—'))}<div class="small text-muted">${escapeHtml(String(r.plausible_fee_range || '—'))}</div></td>
+      <td>${escapeHtml(String(r.primary_buyer || '—'))}<div class="small text-muted">Payer seat: ${escapeHtml(String(r.probable_payer_seat || '—'))}</div><div class="small text-muted">${escapeHtml(String(r.buyer_type || '—'))}</div></td>
+      <td>${architecture}</td>
+      <td>${escapeHtml(String(r.entry_point || '—'))}<div class="small text-muted">${escapeHtml(String(r.plausible_fee_range || '—'))}</div><div class="small text-muted">Pain: ${escapeHtml(String(r.current_pain || '—'))}</div><div class="small text-muted">Trigger: ${escapeHtml(String(r.trigger_event || '—'))}</div></td>
       <td>${stageCell}</td>
-      <td>${Number.isFinite(Number(r.path_to_cash_score)) ? `<strong>${escapeHtml(Number(r.path_to_cash_score).toFixed(2))}</strong>` : '<span class="text-muted">N/A</span>'}<div class="mt-1">${bandBadge(r.priority_band)}</div><div class="small text-muted">Conf: ${escapeHtml(String(r.confidence_score ?? '—'))}</div></td>
-      <td class="small">Auth:${escapeHtml(String(r.buyer_authority ?? '—'))} · Pain:${escapeHtml(String(r.felt_pain ?? '—'))} · Entry:${escapeHtml(String(r.entry_clarity ?? '—'))}<br/>Urg:${escapeHtml(String(r.urgency ?? '—'))} · Proof:${escapeHtml(String(r.proof_strength ?? '—'))} · Trust:${escapeHtml(String(r.trust_present ?? '—'))}<br/>Complex:${escapeHtml(String(r.stakeholder_complexity ?? '—'))} · TTC:${escapeHtml(String(r.time_to_paid_work ?? '—'))} · Budget:${escapeHtml(String(r.budget_availability ?? '—'))}</td>
-      <td>${escapeHtml(String(r.current_pain || '—'))}<div class="small text-muted">Trigger: ${escapeHtml(String(r.trigger_event || '—'))}</div></td>
+      <td>${Number.isFinite(Number(r.path_to_cash_score)) ? `<strong>${escapeHtml(Number(r.path_to_cash_score).toFixed(2))}</strong>` : '<span class="text-muted">N/A</span>'}<div class="small text-muted">Auth:${escapeHtml(String(r.buyer_authority ?? '—'))} · Pain:${escapeHtml(String(r.felt_pain ?? '—'))} · Entry:${escapeHtml(String(r.entry_clarity ?? '—'))}</div><div class="small text-muted">Urg:${escapeHtml(String(r.urgency ?? '—'))} · Proof:${escapeHtml(String(r.proof_strength ?? '—'))} · Trust:${escapeHtml(String(r.trust_present ?? '—'))}</div><div class="small text-muted">Complex:${escapeHtml(String(r.stakeholder_complexity ?? '—'))} · TTC:${escapeHtml(String(r.time_to_paid_work ?? '—'))} · Budget:${escapeHtml(String(r.budget_availability ?? '—'))}</div></td>
       <td>${nextMove}</td>
       <td class="small mono">${escapeHtml(String(r.last_movement_date || '—'))}</td>
     </tr>`;
-  }).join('') || '<tr><td colspan="10" class="text-muted">No revenue opportunities match the current filters.</td></tr>';
+  }).join('') || '<tr><td colspan="9" class="text-muted">No revenue opportunities match the current filters.</td></tr>';
 
   const initiativesList = [...initiativeById.values()].sort((a,b)=>String(a.name || a.initiative_id || '').localeCompare(String(b.name || b.initiative_id || '')));
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Revenue Opportunities')}</head><body><div class="app-shell">
     ${dashboardNav('revenue')}
-    ${pageHeader('Revenue Opportunities', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/revenue/export.json">Get JSON</a>', 'Commercial opportunities only: fastest credible path to money hitting USG account')}
+    ${pageHeader('Revenue Opportunities', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/revenue/export.json">Get JSON</a>', 'Track commercial opportunities with a credible path to USG getting paid; keep non-convertible items in watchlist.')}
+
+    <div class="alert alert-secondary small">Rule: core opportunities require at least one of these — clear buyer seat, pain-to-entry mapping, monetizable initiative pressure, or proposal/mandate window.</div>
 
     <div class="row g-2 mb-3">
-      <div class="col-6 col-md-3">${statCard('Total Opportunities', String(total))}</div>
-      <div class="col-6 col-md-3">${statCard('Open Opportunities', String(open))}</div>
-      <div class="col-6 col-md-3">${statCard('Fee Secured', String(feeSecured))}</div>
-      <div class="col-6 col-md-3">${statCard('Credible Paths', String(credible), `Avg score ${avgScore.toFixed(2)}`)}</div>
+      <div class="col-6 col-md-2">${statCard('Total', String(total))}</div>
+      <div class="col-6 col-md-2">${statCard('Core', String(coreRows.length))}</div>
+      <div class="col-6 col-md-2">${statCard('Watchlist', String(watchRows.length))}</div>
+      <div class="col-6 col-md-2">${statCard('Open', String(open))}</div>
+      <div class="col-6 col-md-2">${statCard('Fee Secured', String(feeSecured))}</div>
+      <div class="col-6 col-md-2">${statCard('Avg Score', avgScore.toFixed(2))}</div>
     </div>
 
-    ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Revenue Opportunity</strong></summary><div class="card-body"><form method="post" action="/api/revenue" class="row g-2"><div class="col-md-4"><label class="form-label">Opportunity name *</label><input class="form-control" name="opportunity_name" required /></div><div class="col-md-3"><label class="form-label">Linked initiative</label><select class="form-select" name="linked_initiative_id"><option value="">Standalone</option>${initiativesList.map((i)=>`<option value="${escapeHtml(String(i.initiative_id || ''))}">${escapeHtml(String(i.name || i.initiative_id || ''))}</option>`).join('')}</select></div><div class="col-md-3"><label class="form-label">Primary buyer / payer *</label><input class="form-control" name="primary_buyer" required /></div><div class="col-md-2"><label class="form-label">Buyer type</label><input class="form-control" name="buyer_type" placeholder="sovereign/FO/etc" /></div><div class="col-md-3"><label class="form-label">Entry point</label><input class="form-control" name="entry_point" placeholder="Readiness/Mandate/etc" /></div><div class="col-md-3"><label class="form-label">Plausible fee range</label><input class="form-control" name="plausible_fee_range" placeholder="$100K-$300K" /></div><div class="col-md-2"><label class="form-label">Stage</label><select class="form-select" name="stage">${REVENUE_STAGES.map((s)=>`<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('')}</select></div><div class="col-md-2"><label class="form-label">Time-to-cash estimate</label><input class="form-control" name="time_to_cash_estimate" placeholder="30-60 days" /></div><div class="col-md-2"><label class="form-label">Owner</label><input class="form-control" name="owner" /></div><div class="col-md-6"><label class="form-label">Current pain</label><input class="form-control" name="current_pain" /></div><div class="col-md-6"><label class="form-label">Trigger event</label><input class="form-control" name="trigger_event" /></div><div class="col-md-3"><label class="form-label">Buyer authority (1-10)</label><input class="form-control" type="number" min="1" max="10" name="buyer_authority"/></div><div class="col-md-3"><label class="form-label">Felt pain (1-10)</label><input class="form-control" type="number" min="1" max="10" name="felt_pain"/></div><div class="col-md-3"><label class="form-label">Entry clarity (1-10)</label><input class="form-control" type="number" min="1" max="10" name="entry_clarity"/></div><div class="col-md-3"><label class="form-label">Urgency (1-10)</label><input class="form-control" type="number" min="1" max="10" name="urgency"/></div><div class="col-md-3"><label class="form-label">Proof strength (1-10)</label><input class="form-control" type="number" min="1" max="10" name="proof_strength"/></div><div class="col-md-3"><label class="form-label">Trust present (1-10)</label><input class="form-control" type="number" min="1" max="10" name="trust_present"/></div><div class="col-md-3"><label class="form-label">Stakeholder complexity (1-10)</label><input class="form-control" type="number" min="1" max="10" name="stakeholder_complexity"/></div><div class="col-md-3"><label class="form-label">Time to paid work (1-10)</label><input class="form-control" type="number" min="1" max="10" name="time_to_paid_work"/></div><div class="col-md-3"><label class="form-label">Budget availability (1-10)</label><input class="form-control" type="number" min="1" max="10" name="budget_availability"/></div><div class="col-md-3"><label class="form-label">Confidence score (0-100)</label><input class="form-control" type="number" min="0" max="100" name="confidence_score"/></div><div class="col-md-6"><label class="form-label">Main blocker</label><input class="form-control" name="main_blocker" /></div><div class="col-md-6"><label class="form-label">Next action</label><input class="form-control" name="next_action" /></div><div class="col-12"><button class="btn btn-sm btn-primary">Create opportunity</button></div></form></div></details>` : ''}
+    ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Commercial Opportunity</strong></summary><div class="card-body"><form method="post" action="/api/revenue" class="row g-2"><div class="col-md-4"><label class="form-label">Opportunity name *</label><input class="form-control" name="opportunity_name" required /></div><div class="col-md-2"><label class="form-label">Layer</label><select class="form-select" name="commercial_layer"><option value="core">core</option><option value="watchlist">watchlist</option></select></div><div class="col-md-3"><label class="form-label">Linked initiative</label><select class="form-select" name="linked_initiative_id"><option value="">Standalone</option>${initiativesList.map((i)=>`<option value="${escapeHtml(String(i.initiative_id || ''))}">${escapeHtml(String(i.name || i.initiative_id || ''))}</option>`).join('')}</select></div><div class="col-md-3"><label class="form-label">Primary buyer / payer</label><input class="form-control" name="primary_buyer" /></div><div class="col-md-3"><label class="form-label">Probable payer seat</label><input class="form-control" name="probable_payer_seat" placeholder="decision authority seat" /></div><div class="col-md-3"><label class="form-label">Buyer type</label><input class="form-control" name="buyer_type" placeholder="sovereign/FO/etc" /></div><div class="col-md-3"><label class="form-label">USG role type</label><select class="form-select" name="usg_role_type"><option value="">—</option><option>owner</option><option>partner</option><option>originator</option><option>strategic_partner</option><option>vision_owner</option></select></div><div class="col-md-3"><label class="form-label">Entry point</label><input class="form-control" name="entry_point" placeholder="Readiness/Mandate/etc" /></div><div class="col-md-4"><label class="form-label">Constraint to remove</label><input class="form-control" name="constraint_to_remove" placeholder="what blocks capital now" /></div><div class="col-md-4"><label class="form-label">Mandate instrument</label><input class="form-control" name="mandate_instrument" placeholder="readiness package / architecture contract" /></div><div class="col-md-4"><label class="form-label">Payment architecture</label><input class="form-control" name="payment_architecture" placeholder="retainer/milestone/deferred/convertible" /></div><div class="col-md-4"><label class="form-label">Evidence artifact for payment</label><input class="form-control" name="evidence_artifact_for_payment" placeholder="decision memo / model / packet" /></div><div class="col-md-2"><label class="form-label">Plausible fee range</label><input class="form-control" name="plausible_fee_range" placeholder="$100K-$300K" /></div><div class="col-md-2"><label class="form-label">Stage</label><select class="form-select" name="stage">${REVENUE_STAGES.map((s)=>`<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('')}</select></div><div class="col-md-2"><label class="form-label">Time-to-cash estimate</label><input class="form-control" name="time_to_cash_estimate" placeholder="30-60 days" /></div><div class="col-md-2"><label class="form-label">Owner</label><input class="form-control" name="owner" /></div><div class="col-md-6"><label class="form-label">Current pain</label><input class="form-control" name="current_pain" /></div><div class="col-md-6"><label class="form-label">Trigger event</label><input class="form-control" name="trigger_event" /></div><div class="col-md-3"><label class="form-label">Buyer authority (1-10)</label><input class="form-control" type="number" min="1" max="10" name="buyer_authority"/></div><div class="col-md-3"><label class="form-label">Felt pain (1-10)</label><input class="form-control" type="number" min="1" max="10" name="felt_pain"/></div><div class="col-md-3"><label class="form-label">Entry clarity (1-10)</label><input class="form-control" type="number" min="1" max="10" name="entry_clarity"/></div><div class="col-md-3"><label class="form-label">Urgency (1-10)</label><input class="form-control" type="number" min="1" max="10" name="urgency"/></div><div class="col-md-3"><label class="form-label">Proof strength (1-10)</label><input class="form-control" type="number" min="1" max="10" name="proof_strength"/></div><div class="col-md-3"><label class="form-label">Trust present (1-10)</label><input class="form-control" type="number" min="1" max="10" name="trust_present"/></div><div class="col-md-3"><label class="form-label">Stakeholder complexity (1-10)</label><input class="form-control" type="number" min="1" max="10" name="stakeholder_complexity"/></div><div class="col-md-3"><label class="form-label">Time to paid work (1-10)</label><input class="form-control" type="number" min="1" max="10" name="time_to_paid_work"/></div><div class="col-md-3"><label class="form-label">Budget availability (1-10)</label><input class="form-control" type="number" min="1" max="10" name="budget_availability"/></div><div class="col-md-3"><label class="form-label">Confidence score (0-100)</label><input class="form-control" type="number" min="0" max="100" name="confidence_score"/></div><div class="col-md-6"><label class="form-label">Main blocker</label><input class="form-control" name="main_blocker" /></div><div class="col-md-6"><label class="form-label">Next action</label><input class="form-control" name="next_action" /></div><div class="col-12"><button class="btn btn-sm btn-primary">Create opportunity</button></div></form></div></details>` : ''}
 
     <form id="revenueFilterForm" method="get" action="/dashboard/revenue" class="row g-2 mb-3">
+      <div class="col-md-2"><select class="form-select" name="layer">${layerOptions.map((s)=>`<option value="${escapeHtml(s)}" ${s===layerFilter?'selected':''}>Layer: ${escapeHtml(s)}</option>`).join('')}</select></div>
       <div class="col-md-2"><select class="form-select" name="stage">${stageOptions.map((s)=>`<option value="${escapeHtml(s)}" ${s===stageFilter?'selected':''}>Stage: ${escapeHtml(s)}</option>`).join('')}</select></div>
       <div class="col-md-2"><select class="form-select" name="owner">${ownerOptions.map((s)=>`<option value="${escapeHtml(s)}" ${s===ownerFilter?'selected':''}>Owner: ${escapeHtml(s)}</option>`).join('')}</select></div>
-      <div class="col-md-3"><select class="form-select" name="initiative">${initiativeOptions.map((s)=>`<option value="${escapeHtml(s)}" ${s===initiativeFilter?'selected':''}>Initiative: ${escapeHtml(s)}</option>`).join('')}</select></div>
+      <div class="col-md-2"><select class="form-select" name="initiative">${initiativeOptions.map((s)=>`<option value="${escapeHtml(s)}" ${s===initiativeFilter?'selected':''}>Initiative: ${escapeHtml(s)}</option>`).join('')}</select></div>
       <div class="col-md-2"><select class="form-select" name="band">${bandOptions.map((s)=>`<option value="${escapeHtml(s)}" ${s.toUpperCase()===bandFilter?'selected':''}>Band: ${escapeHtml(s)}</option>`).join('')}</select></div>
-      <div class="col-md-3"><select class="form-select" name="sort_by"><option value="score_desc" ${sortBy==='score_desc'?'selected':''}>Sort: Path-to-Cash ↓</option><option value="score_asc" ${sortBy==='score_asc'?'selected':''}>Sort: Path-to-Cash ↑</option><option value="last_movement_desc" ${sortBy==='last_movement_desc'?'selected':''}>Sort: Last Movement ↓</option><option value="last_movement_asc" ${sortBy==='last_movement_asc'?'selected':''}>Sort: Last Movement ↑</option><option value="time_to_cash_asc" ${sortBy==='time_to_cash_asc'?'selected':''}>Sort: Time-to-Cash</option></select></div>
+      <div class="col-md-2"><select class="form-select" name="sort_by"><option value="score_desc" ${sortBy==='score_desc'?'selected':''}>Sort: Path-to-Cash ↓</option><option value="score_asc" ${sortBy==='score_asc'?'selected':''}>Sort: Path-to-Cash ↑</option><option value="core_first" ${sortBy==='core_first'?'selected':''}>Sort: Core First</option><option value="last_movement_desc" ${sortBy==='last_movement_desc'?'selected':''}>Sort: Last Movement ↓</option><option value="last_movement_asc" ${sortBy==='last_movement_asc'?'selected':''}>Sort: Last Movement ↑</option><option value="time_to_cash_asc" ${sortBy==='time_to_cash_asc'?'selected':''}>Sort: Time-to-Cash</option></select></div>
     </form>
 
-    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Opportunity</th><th>Linked Initiative</th><th>Buyer / Payer</th><th>Entry / Fee</th><th>Stage</th><th>Path-to-Cash</th><th>Score Drivers</th><th>Pain / Trigger</th><th>Next Move</th><th>Last Move</th></tr></thead><tbody>${rowHtml}</tbody></table></div>
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Opportunity</th><th>Linked Initiative</th><th>Buyer / Payer</th><th>Commercial Architecture</th><th>Entry / Pain / Fee</th><th>Stage</th><th>Path-to-Cash</th><th>Next Move</th><th>Last Move</th></tr></thead><tbody>${rowHtml}</tbody></table></div>
   </div>
   <script>
     document.querySelectorAll('#revenueFilterForm select').forEach((el) => {
@@ -7387,8 +7446,9 @@ app.post('/api/revenue', requireRole('architect','editor'), async (req, res) => 
   const payload = req.body || {};
   const opportunityName = String(payload.opportunity_name || '').trim();
   const primaryBuyer = String(payload.primary_buyer || '').trim();
+  const layer = String(payload.commercial_layer || '').trim().toLowerCase();
   if (!opportunityName) return res.status(400).send('opportunity_name is required');
-  if (!primaryBuyer) return res.status(400).send('primary_buyer is required');
+  if (layer !== 'watchlist' && !primaryBuyer) return res.status(400).send('primary_buyer is required for core opportunities');
 
   const row = normalizeRevenueOpportunity({
     ...payload,
@@ -7397,6 +7457,9 @@ app.post('/api/revenue', requireRole('architect','editor'), async (req, res) => 
     updated_at: nowIso(),
     last_movement_date: String(payload.last_movement_date || dateOnly()),
   });
+  if (row.commercial_layer === 'core' && !String(row.primary_buyer || '').trim()) {
+    return res.status(400).send('primary_buyer is required for core opportunities');
+  }
 
   rows.push(row);
   await writeJson(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, rows);
@@ -7429,7 +7492,7 @@ app.post('/api/revenue/:id/update', requireRole('architect','editor'), async (re
   const before = normalizeRevenueOpportunity(rows[idx]);
   const payload = req.body || {};
   const allowed = [
-    'opportunity_name','linked_initiative_id','primary_buyer','buyer_type','entry_point','current_pain','trigger_event','urgency_level',
+    'opportunity_name','linked_initiative_id','primary_buyer','probable_payer_seat','buyer_type','usg_role_type','mandate_instrument','payment_architecture','constraint_to_remove','evidence_artifact_for_payment','commercial_layer','entry_point','current_pain','trigger_event','urgency_level',
     'plausible_fee_range','confidence_score','time_to_cash_estimate','main_blocker','next_action','owner','last_movement_date','stage',
     'buyer_authority','felt_pain','entry_clarity','urgency','proof_strength','trust_present','stakeholder_complexity','time_to_paid_work','budget_availability'
   ];
@@ -7450,6 +7513,9 @@ app.post('/api/revenue/:id/update', requireRole('architect','editor'), async (re
     created_at: before.created_at || nowIso(),
     updated_at: nowIso(),
   });
+  if (next.commercial_layer === 'core' && !String(next.primary_buyer || '').trim()) {
+    return res.status(400).send('primary_buyer is required for core opportunities');
+  }
 
   rows[idx] = next;
   await writeJson(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, rows);
