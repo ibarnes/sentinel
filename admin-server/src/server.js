@@ -74,6 +74,7 @@ const DASHBOARD_ACTION_ITEMS_FILE = path.join(ROOT, 'dashboard', 'data', 'action
 const DASHBOARD_ACTION_NOTIFICATIONS_FILE = path.join(ROOT, 'dashboard', 'data', 'action_notifications.json');
 const DASHBOARD_ACTION_EVENTS_FILE = path.join(ROOT, 'dashboard', 'data', 'action_events.jsonl');
 const DASHBOARD_INITIATIVE_AVATAR_SCORING_FILE = path.join(ROOT, 'dashboard', 'data', 'initiative_avatar_scoring.json');
+const DASHBOARD_REVENUE_OPPORTUNITIES_FILE = path.join(ROOT, 'dashboard', 'data', 'revenue_opportunities.json');
 const DASHBOARD_TEMPLATE_LIBRARY_ROOT = path.join(ROOT, 'dashboard', 'templates', 'presentation-templates');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
@@ -90,6 +91,7 @@ const UOS_PENDING_ROOT = path.join(UOS_ROOT, 'pending');
 
 const BOARD_COLUMNS = ['Backlog', 'Doing', 'Blocked', 'Ready for Review', 'Done'];
 const BOARD_PRIORITIES = ['P0', 'P1', 'P2', 'P3'];
+const REVENUE_STAGES = ['Identified','Qualified','Pain confirmed','Buyer confirmed','Entry point matched','Proposal ready','Proposal delivered','Verbal alignment','Mandate pending','Fee secured','Closed won','Closed lost','Parked'];
 const ARCHITECT_USERNAME = (process.env.ARCHITECT_USERNAME || 'isaac').toLowerCase();
 
 const REQUIRED_FIELDS = ['executionEngine', 'canon', 'revenueOS'];
@@ -718,6 +720,7 @@ function adminNav(active = '') {
       <a class="nav-link ${is('dashboard')}" href="/dashboard/" title="Dashboard"><i data-lucide="layout-dashboard" class="nav-icon"></i><span class="nav-label">Dashboard</span></a>
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
       <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
+      <a class="nav-link ${is('revenue')}" href="/dashboard/revenue" title="Revenue"><i data-lucide="hand-coins" class="nav-icon"></i><span class="nav-label">Revenue</span></a>
       <a class="nav-link ${is('activity')}" href="/dashboard/activity" title="Activity"><i data-lucide="activity" class="nav-icon"></i><span class="nav-label">Activity</span></a>
       <a class="nav-link ${is('actions')}" href="/dashboard/actions" title="Actions"><i data-lucide="list-todo" class="nav-icon"></i><span class="nav-label">Actions</span></a>
       <a class="nav-link ${is('review')}" href="/dashboard/review" title="Review"><i data-lucide="file-text" class="nav-icon"></i><span class="nav-label">Review</span></a>
@@ -749,6 +752,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
       <a class="nav-link ${is('actors')}" href="/dashboard/actors" title="Actors"><i data-lucide="contact-round" class="nav-icon"></i><span class="nav-label">Actors</span></a>
       <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
+      <a class="nav-link ${is('revenue')}" href="/dashboard/revenue" title="Revenue"><i data-lucide="hand-coins" class="nav-icon"></i><span class="nav-label">Revenue</span></a>
       <a class="nav-link ${is('constraints')}" href="/dashboard/constraints" title="Constraints"><i data-lucide="shield-alert" class="nav-icon"></i><span class="nav-label">Constraints</span></a>
       <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
 
@@ -804,6 +808,93 @@ function tableShell(headers, rows, emptyRow = '', colspan = headers.length) {
     <thead><tr>${headers.map((h) => `<th>${h}</th>`).join('')}</tr></thead>
     <tbody>${content}</tbody>
   </table></div></div>`;
+}
+
+function revenueBandFor(score) {
+  const n = Number(score);
+  if (!Number.isFinite(n)) return 'N/A';
+  if (n >= 7) return 'A';
+  if (n >= 6) return 'B';
+  if (n >= 5) return 'C';
+  return 'D';
+}
+
+function calcPathToCashScore(input = {}) {
+  const buyerAuthority = Number(input.buyer_authority);
+  const feltPain = Number(input.felt_pain);
+  const entryClarity = Number(input.entry_clarity);
+  const urgency = Number(input.urgency);
+  const proofStrength = Number(input.proof_strength);
+  const trustPresent = Number(input.trust_present);
+  const stakeholderComplexity = Number(input.stakeholder_complexity);
+  const timeToPaidWork = Number(input.time_to_paid_work);
+  const budgetAvailability = Number(input.budget_availability);
+
+  const parts = [buyerAuthority, feltPain, entryClarity, urgency, proofStrength, trustPresent, stakeholderComplexity, timeToPaidWork, budgetAvailability];
+  if (parts.some((v) => !Number.isFinite(v))) return null;
+
+  const score = 0.15 * buyerAuthority
+    + 0.15 * feltPain
+    + 0.12 * entryClarity
+    + 0.10 * urgency
+    + 0.10 * proofStrength
+    + 0.10 * trustPresent
+    + 0.10 * (11 - stakeholderComplexity)
+    + 0.10 * (11 - timeToPaidWork)
+    + 0.08 * budgetAvailability;
+
+  return Number(score.toFixed(2));
+}
+
+function normalizeRevenueOpportunity(row = {}) {
+  const opportunityId = String(row.opportunity_id || `REV-${crypto.randomBytes(4).toString('hex')}`).trim();
+  const stage = REVENUE_STAGES.includes(String(row.stage || '').trim()) ? String(row.stage).trim() : 'Identified';
+  const asNum = (v) => {
+    const n = Number(v);
+    return Number.isFinite(n) ? Math.max(1, Math.min(10, n)) : null;
+  };
+
+  const normalized = {
+    opportunity_id: opportunityId,
+    opportunity_name: String(row.opportunity_name || '').trim(),
+    linked_initiative_id: String(row.linked_initiative_id || '').trim(),
+    primary_buyer: String(row.primary_buyer || '').trim(),
+    buyer_type: String(row.buyer_type || '').trim(),
+    entry_point: String(row.entry_point || '').trim(),
+    current_pain: String(row.current_pain || '').trim(),
+    trigger_event: String(row.trigger_event || '').trim(),
+    urgency_level: String(row.urgency_level || '').trim(),
+    plausible_fee_range: String(row.plausible_fee_range || '').trim(),
+    confidence_score: Number.isFinite(Number(row.confidence_score)) ? Number(row.confidence_score) : null,
+    time_to_cash_estimate: String(row.time_to_cash_estimate || '').trim(),
+    main_blocker: String(row.main_blocker || '').trim(),
+    next_action: String(row.next_action || '').trim(),
+    owner: String(row.owner || '').trim(),
+    last_movement_date: String(row.last_movement_date || '').trim(),
+    stage,
+    buyer_authority: asNum(row.buyer_authority),
+    felt_pain: asNum(row.felt_pain),
+    entry_clarity: asNum(row.entry_clarity),
+    urgency: asNum(row.urgency),
+    proof_strength: asNum(row.proof_strength),
+    trust_present: asNum(row.trust_present),
+    stakeholder_complexity: asNum(row.stakeholder_complexity),
+    time_to_paid_work: asNum(row.time_to_paid_work),
+    budget_availability: asNum(row.budget_availability),
+    path_to_cash_score: Number.isFinite(Number(row.path_to_cash_score)) ? Number(row.path_to_cash_score) : null,
+    priority_band: String(row.priority_band || '').trim().toUpperCase(),
+    created_at: String(row.created_at || nowIso()),
+    updated_at: String(row.updated_at || nowIso()),
+  };
+
+  if (!Number.isFinite(normalized.path_to_cash_score)) {
+    normalized.path_to_cash_score = calcPathToCashScore(normalized);
+  }
+  if (!normalized.priority_band) {
+    normalized.priority_band = revenueBandFor(normalized.path_to_cash_score);
+  }
+
+  return normalized;
 }
 
 async function ensureDirs() {
@@ -3978,6 +4069,146 @@ app.get('/dashboard/constraints/export.json', async (_req, res) => {
   res.type('application/json').send(JSON.stringify(rows, null, 2));
 });
 
+app.get('/dashboard/revenue', async (req, res) => {
+  const initiativesRaw = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const initiativeById = new Map((Array.isArray(initiativesRaw) ? initiativesRaw : []).map((i) => [String(i?.initiative_id || ''), i]));
+
+  const rowsRaw = await readJson(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, []);
+  const rows = (Array.isArray(rowsRaw) ? rowsRaw : []).map((r) => normalizeRevenueOpportunity(r));
+
+  const stageFilter = String(req.query.stage || 'All');
+  const ownerFilter = String(req.query.owner || 'All');
+  const initiativeFilter = String(req.query.initiative || 'All');
+  const bandFilter = String(req.query.band || 'All').toUpperCase();
+  const sortBy = String(req.query.sort_by || 'score_desc');
+  const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
+
+  const stageOptions = ['All', ...REVENUE_STAGES];
+  const ownerOptions = ['All', ...new Set(rows.map((r) => String(r.owner || '').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const initiativeOptions = ['All', ...new Set(rows.map((r) => String(r.linked_initiative_id || '').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const bandOptions = ['All', 'A', 'B', 'C', 'D', 'N/A'];
+
+  const filtered = rows.filter((r) => {
+    if (stageFilter !== 'All' && String(r.stage || '') !== stageFilter) return false;
+    if (ownerFilter !== 'All' && String(r.owner || '') !== ownerFilter) return false;
+    if (initiativeFilter !== 'All' && String(r.linked_initiative_id || '') !== initiativeFilter) return false;
+    if (bandFilter !== 'ALL' && String(r.priority_band || 'N/A').toUpperCase() !== bandFilter) return false;
+    return true;
+  });
+
+  if (sortBy === 'score_asc') filtered.sort((a,b)=>Number(a.path_to_cash_score ?? 99) - Number(b.path_to_cash_score ?? 99));
+  else if (sortBy === 'last_movement_desc') filtered.sort((a,b)=>String(b.last_movement_date || '').localeCompare(String(a.last_movement_date || '')));
+  else if (sortBy === 'last_movement_asc') filtered.sort((a,b)=>String(a.last_movement_date || '').localeCompare(String(b.last_movement_date || '')));
+  else if (sortBy === 'time_to_cash_asc') filtered.sort((a,b)=>String(a.time_to_cash_estimate || '').localeCompare(String(b.time_to_cash_estimate || '')));
+  else filtered.sort((a,b)=>Number(b.path_to_cash_score ?? -1) - Number(a.path_to_cash_score ?? -1));
+
+  const isOpenStage = (s) => !['Closed won','Closed lost','Parked'].includes(String(s || ''));
+  const isCredible = (r) => Boolean(String(r.primary_buyer || '').trim())
+    && Boolean(String(r.entry_point || '').trim())
+    && (Boolean(String(r.current_pain || '').trim()) || Boolean(String(r.linked_initiative_id || '').trim()));
+
+  const total = rows.length;
+  const open = rows.filter((r) => isOpenStage(r.stage)).length;
+  const feeSecured = rows.filter((r) => String(r.stage || '') === 'Fee secured').length;
+  const credible = rows.filter((r) => isCredible(r)).length;
+  const avgScore = rows.length
+    ? (rows.reduce((sum, r) => sum + (Number(r.path_to_cash_score) || 0), 0) / rows.length)
+    : 0;
+
+  const stageBadge = (stage) => {
+    const map = {
+      'Identified': 'secondary',
+      'Qualified': 'secondary',
+      'Pain confirmed': 'warning',
+      'Buyer confirmed': 'warning',
+      'Entry point matched': 'info',
+      'Proposal ready': 'primary',
+      'Proposal delivered': 'primary',
+      'Verbal alignment': 'primary',
+      'Mandate pending': 'warning',
+      'Fee secured': 'success',
+      'Closed won': 'success',
+      'Closed lost': 'danger',
+      'Parked': 'dark',
+    };
+    const cls = map[String(stage || 'Identified')] || 'secondary';
+    return `<span class="badge text-bg-${cls}">${escapeHtml(String(stage || 'Identified'))}</span>`;
+  };
+
+  const bandBadge = (band) => {
+    const b = String(band || 'N/A').toUpperCase();
+    const cls = b === 'A' ? 'success' : b === 'B' ? 'primary' : b === 'C' ? 'warning' : b === 'D' ? 'danger' : 'secondary';
+    return `<span class="badge text-bg-${cls}">${escapeHtml(b)}</span>`;
+  };
+
+  const currentUrl = String(req.originalUrl || '/dashboard/revenue');
+
+  const rowHtml = filtered.map((r) => {
+    const ini = initiativeById.get(String(r.linked_initiative_id || ''));
+    const initiativeCell = r.linked_initiative_id
+      ? `<a href="/dashboard/initiative/${encodeURIComponent(String(r.linked_initiative_id))}">${escapeHtml(String(ini?.name || r.linked_initiative_id))}</a><div class="small text-muted mono">${escapeHtml(String(r.linked_initiative_id))}</div>`
+      : '<span class="text-muted">Standalone</span>';
+
+    const stageCell = canEdit
+      ? `<form method="post" action="/api/revenue/${encodeURIComponent(String(r.opportunity_id || ''))}/update" class="d-flex gap-1"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><select class="form-select form-select-sm" name="stage" onchange="this.form.submit()">${REVENUE_STAGES.map((s)=>`<option value="${escapeHtml(s)}" ${s===r.stage?'selected':''}>${escapeHtml(s)}</option>`).join('')}</select></form>`
+      : stageBadge(r.stage);
+
+    const nextMove = `<div>${escapeHtml(String(r.next_action || '—'))}</div><div class="small text-muted">Owner: ${escapeHtml(String(r.owner || '—'))}</div><div class="small text-muted">Blocker: ${escapeHtml(String(r.main_blocker || '—'))}</div>${canEdit ? `<details class="mt-1"><summary class="small" style="cursor:pointer">Edit</summary><form method="post" action="/api/revenue/${encodeURIComponent(String(r.opportunity_id || ''))}/update" class="d-flex flex-column gap-1 mt-1"><input type="hidden" name="return_to" value="${escapeHtml(currentUrl)}"/><input class="form-control form-control-sm" name="next_action" value="${escapeHtml(String(r.next_action || ''))}" placeholder="Next action"/><input class="form-control form-control-sm" name="owner" value="${escapeHtml(String(r.owner || ''))}" placeholder="Owner"/><input class="form-control form-control-sm" name="main_blocker" value="${escapeHtml(String(r.main_blocker || ''))}" placeholder="Main blocker"/><input class="form-control form-control-sm" name="time_to_cash_estimate" value="${escapeHtml(String(r.time_to_cash_estimate || ''))}" placeholder="Time-to-cash estimate"/><input class="form-control form-control-sm" type="date" name="last_movement_date" value="${escapeHtml(String(r.last_movement_date || ''))}"/><button class="btn btn-sm btn-outline-primary" type="submit">Save</button></form></details>` : ''}`;
+
+    return `<tr>
+      <td><strong>${escapeHtml(String(r.opportunity_name || r.opportunity_id || 'Untitled opportunity'))}</strong><div class="small text-muted mono">${escapeHtml(String(r.opportunity_id || ''))}</div></td>
+      <td>${initiativeCell}</td>
+      <td>${escapeHtml(String(r.primary_buyer || '—'))}<div class="small text-muted">${escapeHtml(String(r.buyer_type || '—'))}</div></td>
+      <td>${escapeHtml(String(r.entry_point || '—'))}<div class="small text-muted">${escapeHtml(String(r.plausible_fee_range || '—'))}</div></td>
+      <td>${stageCell}</td>
+      <td>${Number.isFinite(Number(r.path_to_cash_score)) ? `<strong>${escapeHtml(Number(r.path_to_cash_score).toFixed(2))}</strong>` : '<span class="text-muted">N/A</span>'}<div class="mt-1">${bandBadge(r.priority_band)}</div><div class="small text-muted">Conf: ${escapeHtml(String(r.confidence_score ?? '—'))}</div></td>
+      <td class="small">Auth:${escapeHtml(String(r.buyer_authority ?? '—'))} · Pain:${escapeHtml(String(r.felt_pain ?? '—'))} · Entry:${escapeHtml(String(r.entry_clarity ?? '—'))}<br/>Urg:${escapeHtml(String(r.urgency ?? '—'))} · Proof:${escapeHtml(String(r.proof_strength ?? '—'))} · Trust:${escapeHtml(String(r.trust_present ?? '—'))}<br/>Complex:${escapeHtml(String(r.stakeholder_complexity ?? '—'))} · TTC:${escapeHtml(String(r.time_to_paid_work ?? '—'))} · Budget:${escapeHtml(String(r.budget_availability ?? '—'))}</td>
+      <td>${escapeHtml(String(r.current_pain || '—'))}<div class="small text-muted">Trigger: ${escapeHtml(String(r.trigger_event || '—'))}</div></td>
+      <td>${nextMove}</td>
+      <td class="small mono">${escapeHtml(String(r.last_movement_date || '—'))}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="10" class="text-muted">No revenue opportunities match the current filters.</td></tr>';
+
+  const initiativesList = [...initiativeById.values()].sort((a,b)=>String(a.name || a.initiative_id || '').localeCompare(String(b.name || b.initiative_id || '')));
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Revenue Opportunities')}</head><body><div class="app-shell">
+    ${dashboardNav('revenue')}
+    ${pageHeader('Revenue Opportunities', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/revenue/export.json">Get JSON</a>', 'Commercial opportunities only: fastest credible path to money hitting USG account')}
+
+    <div class="row g-2 mb-3">
+      <div class="col-6 col-md-3">${statCard('Total Opportunities', String(total))}</div>
+      <div class="col-6 col-md-3">${statCard('Open Opportunities', String(open))}</div>
+      <div class="col-6 col-md-3">${statCard('Fee Secured', String(feeSecured))}</div>
+      <div class="col-6 col-md-3">${statCard('Credible Paths', String(credible), `Avg score ${avgScore.toFixed(2)}`)}</div>
+    </div>
+
+    ${canEdit ? `<details class="card mb-3"><summary class="card-header"><strong>Add Revenue Opportunity</strong></summary><div class="card-body"><form method="post" action="/api/revenue" class="row g-2"><div class="col-md-4"><label class="form-label">Opportunity name *</label><input class="form-control" name="opportunity_name" required /></div><div class="col-md-3"><label class="form-label">Linked initiative</label><select class="form-select" name="linked_initiative_id"><option value="">Standalone</option>${initiativesList.map((i)=>`<option value="${escapeHtml(String(i.initiative_id || ''))}">${escapeHtml(String(i.name || i.initiative_id || ''))}</option>`).join('')}</select></div><div class="col-md-3"><label class="form-label">Primary buyer / payer *</label><input class="form-control" name="primary_buyer" required /></div><div class="col-md-2"><label class="form-label">Buyer type</label><input class="form-control" name="buyer_type" placeholder="sovereign/FO/etc" /></div><div class="col-md-3"><label class="form-label">Entry point</label><input class="form-control" name="entry_point" placeholder="Readiness/Mandate/etc" /></div><div class="col-md-3"><label class="form-label">Plausible fee range</label><input class="form-control" name="plausible_fee_range" placeholder="$100K-$300K" /></div><div class="col-md-2"><label class="form-label">Stage</label><select class="form-select" name="stage">${REVENUE_STAGES.map((s)=>`<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('')}</select></div><div class="col-md-2"><label class="form-label">Time-to-cash estimate</label><input class="form-control" name="time_to_cash_estimate" placeholder="30-60 days" /></div><div class="col-md-2"><label class="form-label">Owner</label><input class="form-control" name="owner" /></div><div class="col-md-6"><label class="form-label">Current pain</label><input class="form-control" name="current_pain" /></div><div class="col-md-6"><label class="form-label">Trigger event</label><input class="form-control" name="trigger_event" /></div><div class="col-md-3"><label class="form-label">Buyer authority (1-10)</label><input class="form-control" type="number" min="1" max="10" name="buyer_authority"/></div><div class="col-md-3"><label class="form-label">Felt pain (1-10)</label><input class="form-control" type="number" min="1" max="10" name="felt_pain"/></div><div class="col-md-3"><label class="form-label">Entry clarity (1-10)</label><input class="form-control" type="number" min="1" max="10" name="entry_clarity"/></div><div class="col-md-3"><label class="form-label">Urgency (1-10)</label><input class="form-control" type="number" min="1" max="10" name="urgency"/></div><div class="col-md-3"><label class="form-label">Proof strength (1-10)</label><input class="form-control" type="number" min="1" max="10" name="proof_strength"/></div><div class="col-md-3"><label class="form-label">Trust present (1-10)</label><input class="form-control" type="number" min="1" max="10" name="trust_present"/></div><div class="col-md-3"><label class="form-label">Stakeholder complexity (1-10)</label><input class="form-control" type="number" min="1" max="10" name="stakeholder_complexity"/></div><div class="col-md-3"><label class="form-label">Time to paid work (1-10)</label><input class="form-control" type="number" min="1" max="10" name="time_to_paid_work"/></div><div class="col-md-3"><label class="form-label">Budget availability (1-10)</label><input class="form-control" type="number" min="1" max="10" name="budget_availability"/></div><div class="col-md-3"><label class="form-label">Confidence score (0-100)</label><input class="form-control" type="number" min="0" max="100" name="confidence_score"/></div><div class="col-md-6"><label class="form-label">Main blocker</label><input class="form-control" name="main_blocker" /></div><div class="col-md-6"><label class="form-label">Next action</label><input class="form-control" name="next_action" /></div><div class="col-12"><button class="btn btn-sm btn-primary">Create opportunity</button></div></form></div></details>` : ''}
+
+    <form id="revenueFilterForm" method="get" action="/dashboard/revenue" class="row g-2 mb-3">
+      <div class="col-md-2"><select class="form-select" name="stage">${stageOptions.map((s)=>`<option value="${escapeHtml(s)}" ${s===stageFilter?'selected':''}>Stage: ${escapeHtml(s)}</option>`).join('')}</select></div>
+      <div class="col-md-2"><select class="form-select" name="owner">${ownerOptions.map((s)=>`<option value="${escapeHtml(s)}" ${s===ownerFilter?'selected':''}>Owner: ${escapeHtml(s)}</option>`).join('')}</select></div>
+      <div class="col-md-3"><select class="form-select" name="initiative">${initiativeOptions.map((s)=>`<option value="${escapeHtml(s)}" ${s===initiativeFilter?'selected':''}>Initiative: ${escapeHtml(s)}</option>`).join('')}</select></div>
+      <div class="col-md-2"><select class="form-select" name="band">${bandOptions.map((s)=>`<option value="${escapeHtml(s)}" ${s.toUpperCase()===bandFilter?'selected':''}>Band: ${escapeHtml(s)}</option>`).join('')}</select></div>
+      <div class="col-md-3"><select class="form-select" name="sort_by"><option value="score_desc" ${sortBy==='score_desc'?'selected':''}>Sort: Path-to-Cash ↓</option><option value="score_asc" ${sortBy==='score_asc'?'selected':''}>Sort: Path-to-Cash ↑</option><option value="last_movement_desc" ${sortBy==='last_movement_desc'?'selected':''}>Sort: Last Movement ↓</option><option value="last_movement_asc" ${sortBy==='last_movement_asc'?'selected':''}>Sort: Last Movement ↑</option><option value="time_to_cash_asc" ${sortBy==='time_to_cash_asc'?'selected':''}>Sort: Time-to-Cash</option></select></div>
+    </form>
+
+    <div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Opportunity</th><th>Linked Initiative</th><th>Buyer / Payer</th><th>Entry / Fee</th><th>Stage</th><th>Path-to-Cash</th><th>Score Drivers</th><th>Pain / Trigger</th><th>Next Move</th><th>Last Move</th></tr></thead><tbody>${rowHtml}</tbody></table></div>
+  </div>
+  <script>
+    document.querySelectorAll('#revenueFilterForm select').forEach((el) => {
+      el.addEventListener('change', () => {
+        document.getElementById('revenueFilterForm')?.submit();
+      });
+    });
+  </script>
+</body></html>`);
+});
+
+app.get('/dashboard/revenue/export.json', async (_req, res) => {
+  const rows = await readJson(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, []);
+  res.type('application/json').send(JSON.stringify(rows, null, 2));
+});
+
 app.get('/dashboard/contracts/export.json', requireAnyAuth, async (_req, res) => {
   const p = path.join(ROOT, 'contracts.json');
   return res.sendFile(p);
@@ -5639,6 +5870,9 @@ async function ensureTeamAndBoardFiles() {
   if (!fssync.existsSync(BEACON_QUEUE_FILE)) {
     await fs.writeFile(BEACON_QUEUE_FILE, JSON.stringify(defaultBeaconQueue(), null, 2));
   }
+  if (!fssync.existsSync(DASHBOARD_REVENUE_OPPORTUNITIES_FILE)) {
+    await fs.writeFile(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, JSON.stringify([], null, 2));
+  }
   if (!fssync.existsSync(DASHBOARD_ACTION_ITEMS_FILE)) {
     await fs.writeFile(DASHBOARD_ACTION_ITEMS_FILE, JSON.stringify([], null, 2));
   }
@@ -7147,6 +7381,97 @@ async function isKnownEntityRef(value) {
   const opts = await loadActorEntityOptions();
   return opts.some((o) => o.ref === v || o.label === v);
 }
+
+app.post('/api/revenue', requireRole('architect','editor'), async (req, res) => {
+  const rows = await readJson(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, []);
+  const payload = req.body || {};
+  const opportunityName = String(payload.opportunity_name || '').trim();
+  const primaryBuyer = String(payload.primary_buyer || '').trim();
+  if (!opportunityName) return res.status(400).send('opportunity_name is required');
+  if (!primaryBuyer) return res.status(400).send('primary_buyer is required');
+
+  const row = normalizeRevenueOpportunity({
+    ...payload,
+    opportunity_id: String(payload.opportunity_id || `REV-${Date.now()}-${crypto.randomBytes(2).toString('hex')}`),
+    created_at: nowIso(),
+    updated_at: nowIso(),
+    last_movement_date: String(payload.last_movement_date || dateOnly()),
+  });
+
+  rows.push(row);
+  await writeJson(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, rows);
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'revenue.create',
+    entity_type: 'revenue_opportunity',
+    entity_id: row.opportunity_id,
+    meta: {
+      stage: row.stage,
+      linked_initiative_id: row.linked_initiative_id || null,
+      path_to_cash_score: row.path_to_cash_score,
+    }
+  }).catch(() => {});
+
+  const returnTo = '/dashboard/revenue';
+  return res.redirect(returnTo);
+});
+
+app.post('/api/revenue/:id/update', requireRole('architect','editor'), async (req, res) => {
+  const id = String(req.params.id || '').trim();
+  if (!id) return res.status(400).send('opportunity id required');
+
+  const rows = await readJson(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, []);
+  const idx = rows.findIndex((x) => String(x?.opportunity_id || '').trim() === id);
+  if (idx < 0) return res.status(404).send('opportunity not found');
+
+  const before = normalizeRevenueOpportunity(rows[idx]);
+  const payload = req.body || {};
+  const allowed = [
+    'opportunity_name','linked_initiative_id','primary_buyer','buyer_type','entry_point','current_pain','trigger_event','urgency_level',
+    'plausible_fee_range','confidence_score','time_to_cash_estimate','main_blocker','next_action','owner','last_movement_date','stage',
+    'buyer_authority','felt_pain','entry_clarity','urgency','proof_strength','trust_present','stakeholder_complexity','time_to_paid_work','budget_availability'
+  ];
+  const patch = {};
+  for (const key of allowed) {
+    if (Object.prototype.hasOwnProperty.call(payload, key)) patch[key] = payload[key];
+  }
+
+  const changedBusinessField = Object.keys(patch).some((k) => !['last_movement_date'].includes(k));
+  if (!Object.prototype.hasOwnProperty.call(patch, 'last_movement_date') && changedBusinessField) {
+    patch.last_movement_date = dateOnly();
+  }
+
+  const next = normalizeRevenueOpportunity({
+    ...before,
+    ...patch,
+    opportunity_id: before.opportunity_id,
+    created_at: before.created_at || nowIso(),
+    updated_at: nowIso(),
+  });
+
+  rows[idx] = next;
+  await writeJson(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, rows);
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'revenue.update',
+    entity_type: 'revenue_opportunity',
+    entity_id: next.opportunity_id,
+    meta: {
+      before_stage: before.stage,
+      after_stage: next.stage,
+      before_score: before.path_to_cash_score,
+      after_score: next.path_to_cash_score,
+    }
+  }).catch(() => {});
+
+  const rawReturnTo = String(payload.return_to || req.get('referer') || '/dashboard/revenue');
+  const returnTo = rawReturnTo.startsWith('/dashboard/revenue') ? rawReturnTo : '/dashboard/revenue';
+  return res.redirect(returnTo);
+});
 
 app.post('/api/initiatives', requireRole('architect','editor'), async (req, res) => {
   const initiativesPath = path.join(ROOT, 'dashboard/data/initiatives.json');
