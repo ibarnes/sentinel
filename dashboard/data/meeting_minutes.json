@@ -56,10 +56,17 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting notes in Telegram"
+      "notes": "User-provided meeting notes in Telegram",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-19T12:21:00Z",
-    "updated_at": "2026-03-19T23:03:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-14-REFOCUS-AFRIKA-001",
@@ -121,10 +128,17 @@
       "notes": "User-provided meeting minutes + leadership page link",
       "links": [
         "https://refocusafrika.com/leadership-team/"
-      ]
+      ],
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-19T17:02:00Z",
-    "updated_at": "2026-03-19T17:02:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-17-WADE-CHERWAYKO-001",
@@ -183,10 +197,17 @@
       "notes": "User-provided PDF meeting minutes",
       "files": [
         "Wade_Meeting---3b62e407-5057-478c-b503-8ac36bbd7f4e.pdf"
-      ]
+      ],
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-19T22:45:00Z",
-    "updated_at": "2026-03-19T22:45:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-19-ANGOLA-CABLES-001",
@@ -249,10 +270,17 @@
       "notes": "User-provided PDF meeting minutes",
       "files": [
         "Angola_Cables_Meeting_Minutes_03-19---9abc02ea-9c07-4c70-85fa-24040b8e09f9.pdf"
-      ]
+      ],
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-19T22:45:00Z",
-    "updated_at": "2026-03-19T22:45:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-24-USG-FINANCE-001",
@@ -308,10 +336,17 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting notes in Telegram"
+      "notes": "User-provided meeting notes in Telegram",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-25T01:30:00Z",
-    "updated_at": "2026-03-27T21:40:14.916Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-24-MARK-G-001",
@@ -351,10 +386,17 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting notes in Telegram"
+      "notes": "User-provided meeting notes in Telegram",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-25T01:30:00Z",
-    "updated_at": "2026-04-08T02:24:06Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-24-TANISHA-LEWIS-001",
@@ -408,10 +450,17 @@
         "https://www.nicheconsultingfirm.com",
         "https://bacon.house.gov",
         "https://en.wikipedia.org/wiki/Hannibal_Ware"
-      ]
+      ],
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-25T01:30:00Z",
-    "updated_at": "2026-03-25T01:30:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001",
@@ -498,10 +547,17 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting minutes in Telegram; answered items retained as notes/decisions and unanswered items mapped to next actions."
+      "notes": "User-provided meeting minutes in Telegram; answered items retained as notes/decisions and unanswered items mapped to next actions.",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-27T13:34:00Z",
-    "updated_at": "2026-03-27T13:34:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-26-ANGOLA-AI-CAMPUS-001",
@@ -560,10 +616,14 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting minutes in Telegram"
+      "notes": "User-provided meeting minutes in Telegram",
+      "confidence": "medium",
+      "link": ""
     },
     "created_at": "2026-03-27T17:35:00Z",
-    "updated_at": "2026-03-27T17:35:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-27-EUGENE-YUN-KOREA-DANGOTE-001",
@@ -625,10 +685,17 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting minutes in Telegram"
+      "notes": "User-provided meeting minutes in Telegram",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-27T17:36:00Z",
-    "updated_at": "2026-03-27T17:36:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-30-BESTAF-ALIGNMENT-001",
@@ -690,10 +757,17 @@
       "notes": "User-provided meeting minutes PDF in Telegram",
       "files": [
         "Bestaf_Meeting_Mar_30th_2026---94e29dc0-82fc-4cfe-b9d4-8b69fe1c305b.pdf"
-      ]
+      ],
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-30T17:24:00Z",
-    "updated_at": "2026-03-31T18:13:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-25-ANGELLA-GOREN-001",
@@ -752,10 +826,17 @@
         "https://www.marchnetworks.com",
         "https://www.rntr.world",
         "https://powerhour.world"
-      ]
+      ],
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-30T19:42:00Z",
-    "updated_at": "2026-03-30T19:42:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-30-BARCLAY-KNAPP-001",
@@ -821,10 +902,17 @@
       "links": [
         "https://en.wikipedia.org/wiki/Barclay_Knapp",
         "https://fbase.co.uk"
-      ]
+      ],
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-30T22:45:00Z",
-    "updated_at": "2026-03-30T22:45:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-03-31-TAUFIQ-RAHIM-001",
@@ -892,10 +980,17 @@
       ],
       "links": [
         "https://www.newamerica.org/people/taufiq-rahim/"
-      ]
+      ],
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-03-31T17:35:00Z",
-    "updated_at": "2026-04-01T12:05:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-04-01-JOHN-HARRINGTON-001",
@@ -954,10 +1049,17 @@
       "links": [
         "https://www.linkedin.com/in/john-m-harrington",
         "https://www.linkedin.com/company/sheffield-corporation"
-      ]
+      ],
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-04-02T18:23:00Z",
-    "updated_at": "2026-04-02T18:23:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-04-02-REFOCUS-AFRIKA-001",
@@ -1020,10 +1122,17 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting minutes in Telegram"
+      "notes": "User-provided meeting minutes in Telegram",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-04-02T18:27:00Z",
-    "updated_at": "2026-04-02T18:27:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-04-07-USVI-TELLY-CONVO-001",
@@ -1095,10 +1204,17 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting minutes in Telegram"
+      "notes": "User-provided meeting minutes in Telegram",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-04-07T18:34:00Z",
-    "updated_at": "2026-04-07T18:34:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-04-07-DR-FULA-UDG-DIGITAL-BANKING-001",
@@ -1164,10 +1280,17 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting minutes in Telegram"
+      "notes": "User-provided meeting minutes in Telegram",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-04-07T18:39:00Z",
-    "updated_at": "2026-04-07T18:39:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-04-07-DAVID-CROWN-JV-001",
@@ -1232,10 +1355,17 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting minutes in Telegram"
+      "notes": "User-provided meeting minutes in Telegram",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-04-07T18:48:00Z",
-    "updated_at": "2026-04-07T18:48:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-04-07-DARE-OWOLABI-ISAAC-001",
@@ -1306,10 +1436,17 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting minutes in Telegram"
+      "notes": "User-provided meeting minutes in Telegram",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-04-08T21:08:00Z",
-    "updated_at": "2026-04-08T21:08:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   },
   {
     "meeting_id": "MM-2026-04-09-PAUL-VENTER-001",
@@ -1377,9 +1514,16 @@
     ],
     "source": {
       "type": "isaac_direct",
-      "notes": "User-provided meeting minutes in Telegram"
+      "notes": "User-provided meeting minutes in Telegram",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
     },
     "created_at": "2026-04-09T22:03:00Z",
-    "updated_at": "2026-04-09T22:03:00Z"
+    "updated_at": "2026-04-12T12:36:08Z",
+    "visibility": "internal",
+    "tags": []
   }
 ]
