@@ -1666,5 +1666,43 @@
     ],
     "created_at": "2026-04-12T12:55:33Z",
     "updated_at": "2026-04-12T12:55:33Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-11-RICHARD-ISAAC-INTERNAL-001",
+    "date_time": "2026-04-11T00:00:00Z",
+    "title": "04-08 Strategic Meeting: Tiered Service Model &amp; Go-to-Market Strategy",
+    "participants": [
+      "Richard Hoffman",
+      "Isaac Barnes"
+    ],
+    "summary": "Recorded as an internal Richard + Isaac discussion from PLAUD shared link. Full transcript extraction is pending.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [],
+    "risks": [
+      "Detailed decisions and commitments are not yet extracted from transcript.",
+      "Follow-up structuring/action items should be validated once full parse is completed."
+    ],
+    "next_actions": [],
+    "source": {
+      "type": "plaud_transcript_shared",
+      "link": "https://web.plaud.ai/s/pub_37b51605-1d87-4dfb-ad91-8699ec51b4dc::4bQoYGuxXd36ZTgLkbzgR0tjZitYRtKBbxrvAX48hpfik4cPmL0CanVavLkCunR4WGRQErrY-Vmt7m8C",
+      "recorded_by": "Richard Hoffman",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Richard Hoffman",
+      "confidence": "low",
+      "notes": "Auto-captured from shared PLAUD title metadata; full transcript parse pending."
+    },
+    "visibility": "internal",
+    "tags": [
+      "internal-sync",
+      "plaud",
+      "needs-transcript-parse"
+    ],
+    "created_at": "2026-04-12T12:59:38Z",
+    "updated_at": "2026-04-12T12:59:38Z"
   }
 ]
