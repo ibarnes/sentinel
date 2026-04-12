@@ -1525,5 +1525,70 @@
     "updated_at": "2026-04-12T12:36:08Z",
     "visibility": "internal",
     "tags": []
+  },
+  {
+    "meeting_id": "MM-2026-04-09-RICHARD-ISAAC-ORIGINATION-001",
+    "date_time": "2026-04-09T17:08:18Z",
+    "title": "USG pivots from deal flow to direct investment ask (Richard + Isaac)",
+    "participants": [
+      "Richard Hoffman",
+      "Isaac Barnes"
+    ],
+    "summary": "PLAUD-captured meeting indicates a strategic pivot from generic collaboration/deal-flow positioning toward a direct capital partnership ask. Discussion emphasized USG's Africa access and infrastructure pipeline (including Angola data center and Nigeria digital banking lane), then shifted to immediate fundraising intent (~$2.5M-$3M) tied to selling a portion of USG's bank-related stake. A critical internal issue surfaced: uncertainty about transferability/consent rights around the referenced 15% bank-position economics, creating legal-structuring risk before any formal external offer.",
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Reframe outreach from broad deal-flow narrative to a structured capital partnership conversation with clear terms.",
+      "Pause any external equity-sale framing until rights and transferability of the 15% stake are confirmed.",
+      "Treat legal/ownership clarity as a prerequisite gate before presenting investment terms to counterparties."
+    ],
+    "risks": [
+      "Ownership-rights ambiguity risk: inability to unilaterally transfer or sell bank-linked equity position.",
+      "Credibility risk if investment terms are discussed externally before internal legal alignment.",
+      "Execution risk from mixing strategic partnership conversation with urgent cash ask absent finalized structure."
+    ],
+    "next_actions": [
+      {
+        "action": "Internally verify exact rights, restrictions, and consent requirements on the 15% bank-linked position before any formal offer.",
+        "owner": "Richard Hoffman",
+        "due": "2026-04-14",
+        "status": "open"
+      },
+      {
+        "action": "Prepare a compliant capital-raise term narrative that separates strategic partnership from immediate financing ask.",
+        "owner": "Isaac",
+        "due": "2026-04-14",
+        "status": "open"
+      },
+      {
+        "action": "Schedule follow-up meeting with counterpart group only after legal/structural clarifications are documented.",
+        "owner": "Richard Hoffman",
+        "due": "2026-04-15",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "plaud_transcript_shared",
+      "link": "https://web.plaud.ai/s/pub_765086bf-b575-494e-b05a-aff5fff6d843::c7JBUaa7qo9D-GNBk7jDtjG2wnMS1sh9uWVfWv1IOlwjO8G28yAOHSFsOxeAXKjGmJnDaz9YP2AdtEoC",
+      "recorded_by": "Richard Hoffman",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Richard Hoffman",
+      "confidence": "medium",
+      "notes": "Derived from PLAUD transcript summary and key sections (Core Synopsis, Strategic Pivot, Internal Misalignment, Next Move)."
+    },
+    "visibility": "internal",
+    "tags": [
+      "origination",
+      "capital-partnering",
+      "ownership-rights",
+      "plaud"
+    ],
+    "created_at": "2026-04-12T12:27:00Z",
+    "updated_at": "2026-04-12T12:27:00Z"
   }
 ]
