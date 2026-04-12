@@ -1,10 +1,18 @@
 {
-  "generated_at": "2026-04-09T23:29:26.557Z",
-  "total_signals": 165,
-  "high_impact_count": 90,
+  "generated_at": "2026-04-12T00:31:38.803Z",
+  "total_signals": 166,
+  "high_impact_count": 91,
   "new_signal_count": 1,
-  "new_high_impact_count": 0,
-  "new_high_impact": [],
+  "new_high_impact_count": 1,
+  "new_high_impact": [
+    {
+      "id": "SIG-2026-04-12-MULTILATERAL-PRE-FID-WINDOW-001",
+      "headline": "Multilateral capital and policy signals indicate expanded pre-FID structuring window across MENA/Africa",
+      "channel": "politics",
+      "verification_status": "verified",
+      "confidence_score": 0.62
+    }
+  ],
   "last_keys": [
     "afc project preparation capital path to usg|AFC|",
     "nigeria infrastructure financing gap escalation|AfDB,FMF-NG,NSIA|",
@@ -170,6 +178,7 @@
     "blackrock and gip hosted 2026 infrastructure summit in washington, d.c.|GIP|INIT-2026-03-ANGOLA-AI-CORRIDOR",
     "afc launches africa we build summit 2026 to mobilise domestic capital for industrial transformation|AFC,AfDB,IFC,NSIA,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR",
     "us warns citizens to reconsider travel to nigeria amid deteriorating security|AfDB,DFC,IFC,WORLDBANK|INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE,INIT-NG-FIN-ENERGY-SPINE",
-    "drc reports potential $1.882b uae-linked tourism investment pipeline after dubai summit|AFC,AfDB|INIT-2026-03-05-COMMODITY-CORRIDOR"
+    "drc reports potential $1.882b uae-linked tourism investment pipeline after dubai summit|AFC,AfDB|INIT-2026-03-05-COMMODITY-CORRIDOR",
+    "multilateral capital and policy signals indicate expanded pre-fid structuring window across mena/africa|AFC,AfDB,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-2026-03-ANGOLA-AI-CORRIDOR,INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
   ]
 }

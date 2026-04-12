@@ -9154,5 +9154,65 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-12-MULTILATERAL-PRE-FID-WINDOW-001",
+    "title": "Multilateral capital and policy signals indicate expanded pre-FID structuring window across MENA/Africa",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provisional",
+    "observed_at": "2026-04-12T00:30:00Z",
+    "summary": "Isaac-provided signal brief indicates simultaneous multilateral movement: (1) World Bank policy finance momentum in Morocco (jobs/green growth), (2) confirmation Abu Dhabi will host 2029 World Bank/IMF Annual Meetings, (3) AfDB/SEFA green hydrogen pre-investment call up to ~$20M, and (4) AfDB consultative momentum on financial architecture/de-risking tools. Combined, this points to a tactical pre-FID window for advisory, pipeline packaging, and blended-finance structuring before formal investment decisions.",
+    "flow": "multilateral policy finance + convening power + pre-investment funding calls -> earlier risk reduction and coordination capacity -> faster conversion opportunities for mandate-ready advisory and blended-finance structuring",
+    "verification_note": "Composite strategic signal from user-provided synthesis; primary institutional press releases should be attached before promoting to verified status.",
+    "sources": [
+      {
+        "label": "Isaac strategic brief (multilateral shift synthesis)",
+        "url": "internal://isaac/telegram/brief/2026-04-12-multilateral-prefid-window"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "multilateral",
+      "prefid",
+      "world-bank",
+      "imf",
+      "afdb",
+      "sefa",
+      "green-hydrogen",
+      "policy-finance",
+      "blended-finance"
+    ],
+    "geography": [
+      "Morocco",
+      "United Arab Emirates",
+      "Africa",
+      "MENA"
+    ],
+    "country": "Morocco",
+    "buyer_ids": [
+      "WORLDBANK",
+      "AfDB",
+      "IFC",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "delivery"
+    ],
+    "evidence_type": "composite_brief",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
