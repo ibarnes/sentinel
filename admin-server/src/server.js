@@ -50,6 +50,7 @@ const DASHBOARD_CHANGELOG = path.join(ROOT, 'dashboard', 'state', 'changelog.md'
 const DASHBOARD_SNAPSHOTS = path.join(ROOT, 'dashboard', 'snapshots');
 const DASHBOARD_SIGNALS_FILE = path.join(ROOT, 'dashboard', 'data', 'signals.json');
 const DASHBOARD_MEETING_MINUTES_FILE = path.join(ROOT, 'dashboard', 'data', 'meeting_minutes.json');
+const DASHBOARD_MEETING_MINUTES_SCHEMA_FILE = path.join(ROOT, 'dashboard', 'meeting-minutes.schema.v1.json');
 const DASHBOARD_STATE_TRANSITIONS_FILE = path.join(ROOT, 'dashboard', 'data', 'state_transitions.json');
 const DASHBOARD_STATE_DEFINITIONS_FILE = path.join(ROOT, 'dashboard', 'data', 'state_definitions.json');
 const DASHBOARD_STATE_CONSTRAINTS_FILE = path.join(ROOT, 'dashboard', 'data', 'state_constraints.json');
@@ -941,6 +942,59 @@ function normalizeRevenueOpportunity(row = {}) {
   }
 
   return normalized;
+}
+
+function normalizeMeetingMinutesRecord(row = {}) {
+  const toList = (v) => Array.isArray(v)
+    ? v.map((x) => String(x || '').trim()).filter(Boolean)
+    : [];
+
+  const nextActions = Array.isArray(row.next_actions)
+    ? row.next_actions.map((a) => ({
+        action: String(a?.action || '').trim(),
+        owner: String(a?.owner || '').trim(),
+        due: String(a?.due || '').trim(),
+        status: String(a?.status || 'open').trim() || 'open',
+      })).filter((a) => Boolean(a.action || a.owner || a.due))
+    : [];
+
+  const sourceObj = row.source && typeof row.source === 'object' && !Array.isArray(row.source)
+    ? row.source
+    : {};
+
+  const normalized = {
+    meeting_id: String(row.meeting_id || '').trim(),
+    title: String(row.title || '').trim(),
+    date_time: String(row.date_time || '').trim(),
+    participants: toList(row.participants),
+    summary: String(row.summary || '').trim(),
+    initiative_ids: toList(row.initiative_ids),
+    buyer_ids: toList(row.buyer_ids),
+    signal_ids: toList(row.signal_ids),
+    decisions: toList(row.decisions),
+    risks: toList(row.risks),
+    next_actions: nextActions,
+    source: {
+      type: String(sourceObj.type || '').trim(),
+      link: String(sourceObj.link || sourceObj.url || '').trim(),
+      recorded_by: String(sourceObj.recorded_by || '').trim(),
+      submitted_by: String(sourceObj.submitted_by || '').trim(),
+      team_member: String(sourceObj.team_member || '').trim(),
+      confidence: String(sourceObj.confidence || '').trim(),
+      notes: String(sourceObj.notes || '').trim(),
+    },
+    visibility: String(row.visibility || 'internal').trim() || 'internal',
+    tags: toList(row.tags),
+    created_at: String(row.created_at || nowIso()),
+    updated_at: String(row.updated_at || nowIso()),
+  };
+
+  return normalized;
+}
+
+async function readMeetingMinutes() {
+  const rows = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  return (Array.isArray(rows) ? rows : []).map((r) => normalizeMeetingMinutesRecord(r));
 }
 
 async function ensureDirs() {
@@ -3229,7 +3283,7 @@ app.get('/dashboard/actions', async (req, res) => {
 
   const items = await readActionItems();
   const team = await readJson(DASHBOARD_TEAM_FILE, []);
-  const meetingMinutes = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  const meetingMinutes = await readMeetingMinutes();
   const meetingMetaById = new Map((Array.isArray(meetingMinutes) ? meetingMinutes : []).map((m) => {
     const id = String(m?.meeting_id || '').trim();
     const title = String(m?.title || m?.meeting_id || 'Untitled meeting');
@@ -3817,7 +3871,7 @@ app.get('/dashboard/actions/export.json', async (_req, res) => {
 });
 
 app.get('/dashboard/meetings', async (req, res) => {
-  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  const meetings = await readMeetingMinutes();
   const sorted = [...meetings].sort((a, b) => String(b.date_time || b.created_at || '').localeCompare(String(a.date_time || a.created_at || '')));
   const cards = sorted.map((m) => {
     const dt = String(m.date_time || m.created_at || '').slice(0, 19).replace('T', ' ');
@@ -3825,24 +3879,31 @@ app.get('/dashboard/meetings', async (req, res) => {
     const buyers = Array.isArray(m.buyer_ids) && m.buyer_ids.length ? m.buyer_ids.join(', ') : '—';
     const signals = Array.isArray(m.signal_ids) && m.signal_ids.length ? m.signal_ids.join(', ') : '—';
     const actions = Array.isArray(m.next_actions) ? m.next_actions.length : 0;
-    return `<a class="card mb-3 text-decoration-none" style="color:inherit" href="/dashboard/meeting/${encodeURIComponent(String(m.meeting_id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="color:var(--text-primary);font-size:1.2rem">${escapeHtml(m.title || m.meeting_id || 'Untitled meeting')}</h6><div class="small text-muted mono">${escapeHtml(String(m.meeting_id || ''))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(dt || '—')}</div></div><div class="small mt-2" style="color:var(--text-primary)">${escapeHtml(m.summary || '—')}</div><div class="small mt-2" style="color:var(--text-primary)"><strong>Initiatives:</strong> ${escapeHtml(initiatives)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Buyers:</strong> ${escapeHtml(buyers)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Signals:</strong> ${escapeHtml(signals)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Action items:</strong> ${escapeHtml(String(actions))}</div></div></a>`;
+    const recordedBy = String(m?.source?.recorded_by || m?.source?.team_member || '').trim();
+    const submittedBy = String(m?.source?.submitted_by || '').trim();
+    return `<a class="card mb-3 text-decoration-none" style="color:inherit" href="/dashboard/meeting/${encodeURIComponent(String(m.meeting_id || ''))}"><div class="card-body"><div class="d-flex justify-content-between align-items-start gap-2"><div><h6 class="mb-1" style="color:var(--text-primary);font-size:1.2rem">${escapeHtml(m.title || m.meeting_id || 'Untitled meeting')}</h6><div class="small text-muted mono">${escapeHtml(String(m.meeting_id || ''))}</div></div><div class="small mono" style="color:var(--text-muted)">${escapeHtml(dt || '—')}</div></div><div class="small mt-2" style="color:var(--text-primary)">${escapeHtml(m.summary || '—')}</div><div class="small mt-2" style="color:var(--text-primary)"><strong>Initiatives:</strong> ${escapeHtml(initiatives)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Buyers:</strong> ${escapeHtml(buyers)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Signals:</strong> ${escapeHtml(signals)}</div><div class="small mt-1" style="color:var(--text-primary)"><strong>Action items:</strong> ${escapeHtml(String(actions))}</div>${recordedBy ? `<div class="small mt-1 text-muted"><strong>Recorded by:</strong> ${escapeHtml(recordedBy)}</div>` : ''}${submittedBy ? `<div class="small mt-1 text-muted"><strong>Submitted by:</strong> ${escapeHtml(submittedBy)}</div>` : ''}</div></a>`;
   }).join('');
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Meeting Minutes')}</head><body><div class="app-shell">
     ${dashboardNav('meetings')}
-    ${pageHeader('Meeting Minutes', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/meetings/export.json">Get JSON</a>', 'Meeting records linked to initiatives, buyers, and signals')}
+    ${pageHeader('Meeting Minutes', '<a class="btn btn-sm btn-outline-secondary" href="/dashboard/meetings/export.json">Get JSON</a><a class="btn btn-sm btn-outline-secondary" href="/dashboard/meetings/schema.json">Schema</a>', 'Meeting records linked to initiatives, buyers, signals, and team source metadata')}
     ${cards || '<div class="alert alert-secondary">No meeting minutes yet.</div>'}
   </div></body></html>`);
 });
 
 app.get('/dashboard/meetings/export.json', async (_req, res) => {
-  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  const meetings = await readMeetingMinutes();
   res.type('application/json').send(JSON.stringify(meetings, null, 2));
+});
+
+app.get('/dashboard/meetings/schema.json', async (_req, res) => {
+  const schema = await readJson(DASHBOARD_MEETING_MINUTES_SCHEMA_FILE, meetingMinutesSchemaV1());
+  res.type('application/json').send(JSON.stringify(schema, null, 2));
 });
 
 app.get('/dashboard/meeting/:id', async (req, res) => {
   const id = String(req.params.id || '');
-  const meetings = await readJson(DASHBOARD_MEETING_MINUTES_FILE, []);
+  const meetings = await readMeetingMinutes();
   const m = meetings.find((x) => String(x.meeting_id || '') === id);
   if (!m) {
     return res.status(404).type('html').send(`<!doctype html><html><head>${uiHead('Meeting Not Found')}</head><body><div class="app-shell">${dashboardNav('meetings')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/meetings">← Meetings</a><div class="alert alert-warning">Meeting minutes not found.</div></div></body></html>`);
@@ -3857,7 +3918,7 @@ app.get('/dashboard/meeting/:id', async (req, res) => {
     ? m.next_actions.map((a) => `<tr><td>${escapeHtml(String(a.action || '—'))}</td><td>${escapeHtml(String(a.owner || '—'))}</td><td>${escapeHtml(String(a.due || '—'))}</td><td>${escapeHtml(String(a.status || 'open'))}</td></tr>`).join('')
     : '<tr><td colspan="4" class="text-muted">No action items</td></tr>';
 
-  return res.type('html').send(`<!doctype html><html><head>${uiHead('Meeting Detail')}</head><body><div class="app-shell">${dashboardNav('meetings')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/meetings">← Meetings</a><h3 class="mb-1">${escapeHtml(m.title || m.meeting_id || 'Meeting')}</h3><div class="small text-muted mono mb-2">${escapeHtml(String(m.meeting_id || ''))}</div><div class="small text-muted mb-3">Date: ${escapeHtml(dt || '—')}</div><div class="card mb-3"><div class="card-body"><h6>Participants</h6><ul class="mb-0">${li(m.participants)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Summary</h6><div>${escapeHtml(m.summary || '—')}</div></div></div><div class="card mb-3"><div class="card-body"><h6>Decisions</h6><ul class="mb-0">${li(m.decisions)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Risks</h6><ul class="mb-0">${li(m.risks)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Next Actions</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead><tbody>${actions}</tbody></table></div></div></div><div class="card mb-3"><div class="card-body"><h6>Linked Objects</h6><div><strong>Initiatives:</strong> ${escapeHtml((m.initiative_ids || []).join(', ') || '—')}</div><div><strong>Buyers:</strong> ${escapeHtml((m.buyer_ids || []).join(', ') || '—')}</div><div><strong>Signals:</strong> ${escapeHtml((m.signal_ids || []).join(', ') || '—')}</div></div></div><div class="card"><div class="card-body"><h6>Raw JSON</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(JSON.stringify(m, null, 2))}</pre></div></div></div></body></html>`);
+  return res.type('html').send(`<!doctype html><html><head>${uiHead('Meeting Detail')}</head><body><div class="app-shell">${dashboardNav('meetings')}<a class="btn btn-sm btn-outline-secondary mb-2" href="/dashboard/meetings">← Meetings</a><h3 class="mb-1">${escapeHtml(m.title || m.meeting_id || 'Meeting')}</h3><div class="small text-muted mono mb-2">${escapeHtml(String(m.meeting_id || ''))}</div><div class="small text-muted mb-3">Date: ${escapeHtml(dt || '—')}</div><div class="card mb-3"><div class="card-body"><h6>Participants</h6><ul class="mb-0">${li(m.participants)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Summary</h6><div>${escapeHtml(m.summary || '—')}</div></div></div><div class="card mb-3"><div class="card-body"><h6>Decisions</h6><ul class="mb-0">${li(m.decisions)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Risks</h6><ul class="mb-0">${li(m.risks)}</ul></div></div><div class="card mb-3"><div class="card-body"><h6>Next Actions</h6><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th>Action</th><th>Owner</th><th>Due</th><th>Status</th></tr></thead><tbody>${actions}</tbody></table></div></div></div><div class="card mb-3"><div class="card-body"><h6>Linked Objects</h6><div><strong>Initiatives:</strong> ${escapeHtml((m.initiative_ids || []).join(', ') || '—')}</div><div><strong>Buyers:</strong> ${escapeHtml((m.buyer_ids || []).join(', ') || '—')}</div><div><strong>Signals:</strong> ${escapeHtml((m.signal_ids || []).join(', ') || '—')}</div></div></div><div class="card mb-3"><div class="card-body"><h6>Source Metadata</h6><div><strong>Type:</strong> ${escapeHtml(String(m?.source?.type || '—'))}</div><div><strong>Link:</strong> ${m?.source?.link ? `<a href="${escapeHtml(String(m.source.link))}" target="_blank" rel="noreferrer">${escapeHtml(String(m.source.link))}</a>` : '—'}</div><div><strong>Recorded by:</strong> ${escapeHtml(String(m?.source?.recorded_by || m?.source?.team_member || '—'))}</div><div><strong>Submitted by:</strong> ${escapeHtml(String(m?.source?.submitted_by || '—'))}</div><div><strong>Confidence:</strong> ${escapeHtml(String(m?.source?.confidence || '—'))}</div><div><strong>Visibility:</strong> ${escapeHtml(String(m?.visibility || 'internal'))}</div></div></div><div class="card"><div class="card-body"><h6>Raw JSON</h6><pre class="small mb-0" style="white-space:pre-wrap">${escapeHtml(JSON.stringify(m, null, 2))}</pre></div></div></div></body></html>`);
 });
 
 app.get('/dashboard/beacons', requireAnyAuth, async (req, res) => {
@@ -5723,6 +5784,61 @@ function defaultBoardSchema() {
   };
 }
 
+function meetingMinutesSchemaV1() {
+  return {
+    $schema: 'http://json-schema.org/draft-07/schema#',
+    title: 'USG Meeting Minutes Schema v1',
+    type: 'array',
+    items: {
+      type: 'object',
+      required: ['meeting_id', 'title', 'participants', 'summary'],
+      properties: {
+        meeting_id: { type: 'string', minLength: 1 },
+        title: { type: 'string', minLength: 1 },
+        date_time: { type: 'string' },
+        participants: { type: 'array', items: { type: 'string' } },
+        summary: { type: 'string' },
+        initiative_ids: { type: 'array', items: { type: 'string' } },
+        buyer_ids: { type: 'array', items: { type: 'string' } },
+        signal_ids: { type: 'array', items: { type: 'string' } },
+        decisions: { type: 'array', items: { type: 'string' } },
+        risks: { type: 'array', items: { type: 'string' } },
+        next_actions: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+              action: { type: 'string' },
+              owner: { type: 'string' },
+              due: { type: 'string' },
+              status: { type: 'string' }
+            },
+            additionalProperties: true
+          }
+        },
+        source: {
+          type: 'object',
+          properties: {
+            type: { type: 'string' },
+            link: { type: 'string' },
+            recorded_by: { type: 'string' },
+            submitted_by: { type: 'string' },
+            team_member: { type: 'string' },
+            confidence: { type: 'string' },
+            notes: { type: 'string' }
+          },
+          additionalProperties: true
+        },
+        visibility: { type: 'string' },
+        tags: { type: 'array', items: { type: 'string' } },
+        created_at: { type: 'string' },
+        updated_at: { type: 'string' }
+      },
+      additionalProperties: true
+    }
+  };
+}
+
 function defaultBoard() {
   return { version: 1, tasks: [] };
 }
@@ -5908,6 +6024,9 @@ async function ensureTeamAndBoardFiles() {
   }
   if (!fssync.existsSync(DASHBOARD_DECKSPEC_SCHEMA_FILE)) {
     await fs.writeFile(DASHBOARD_DECKSPEC_SCHEMA_FILE, JSON.stringify(deckSpecSchemaV2(), null, 2));
+  }
+  if (!fssync.existsSync(DASHBOARD_MEETING_MINUTES_SCHEMA_FILE)) {
+    await fs.writeFile(DASHBOARD_MEETING_MINUTES_SCHEMA_FILE, JSON.stringify(meetingMinutesSchemaV1(), null, 2));
   }
   if (!fssync.existsSync(DASHBOARD_DECKSPECS_FILE)) {
     await fs.writeFile(DASHBOARD_DECKSPECS_FILE, JSON.stringify(defaultDeckSpecStore(), null, 2));
