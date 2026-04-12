@@ -1628,5 +1628,43 @@
     ],
     "created_at": "2026-04-12T12:53:10Z",
     "updated_at": "2026-04-12T12:53:10Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-11-RICHARD-ORIGINATION-003",
+    "date_time": "2026-04-11T00:00:00Z",
+    "title": "04-09 Bank-Integrated Continental Insurance Distribution: Agent Certification, Lead Generation, and Vietnam Corridor Deal Structuring (2026–2027)",
+    "participants": [
+      "Richard Hoffman",
+      "Counterparty (name pending)"
+    ],
+    "summary": "Recorded as a Richard origination meeting from PLAUD shared link. Full transcript extraction and counterparty identification are pending.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [],
+    "risks": [
+      "Counterparty identity and detailed commitments are not yet captured in structured form.",
+      "Transcript-level details should be validated before using this record for decision-critical actions."
+    ],
+    "next_actions": [],
+    "source": {
+      "type": "plaud_transcript_shared",
+      "link": "https://web.plaud.ai/s/pub_9d737933-4ff4-4958-8388-27092bbf7452::2wDzGoGNHffD8Tapn-FLAu9LnI9rYd_JJuP_2JbBIGjL-v8p1kg7SV_tgpnirrCz3hQwv9vTDK0rp9cC",
+      "recorded_by": "Richard Hoffman",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Richard Hoffman",
+      "confidence": "low",
+      "notes": "Auto-captured from shared PLAUD title metadata; full transcript parse pending."
+    },
+    "visibility": "internal",
+    "tags": [
+      "origination",
+      "plaud",
+      "needs-transcript-parse"
+    ],
+    "created_at": "2026-04-12T12:55:33Z",
+    "updated_at": "2026-04-12T12:55:33Z"
   }
 ]
