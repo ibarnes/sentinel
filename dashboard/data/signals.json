@@ -9214,5 +9214,62 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-13-DMCC-UPTOWN-CAPITAL-GRAVITY-001",
+    "title": "DMCC Uptown Dubai expansion and Wealth Hub signal rising institutional capital-gravity in UAE",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provisional",
+    "observed_at": "2026-04-13T11:51:00Z",
+    "summary": "Isaac-provided strategic brief indicates DMCC is scaling Uptown Dubai through profit-reinvestment from a 26,000+ company ecosystem while adding a Wealth Hub layer for family offices/private capital services. The pattern points to intentional ecosystem engineering (infrastructure + trust + capital coordination) that can open partnership and structuring windows for cross-border dealflow.",
+    "flow": "self-funded district buildout + institutional wealth-platform services -> stronger trust and capital-convening gravity in Dubai -> improved probability of partnership, advisory mandates, and cross-border platform transactions",
+    "verification_note": "Strategic brief provided by Isaac; attach DMCC primary releases/fact sheets before upgrading to verified.",
+    "sources": [
+      {
+        "label": "Isaac strategic brief (DMCC/Uptown Dubai capital-gravity read)",
+        "url": "internal://isaac/telegram/brief/2026-04-13-dmcc-uptown-dubai"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "dmcc",
+      "uptown-dubai",
+      "wealth-hub",
+      "family-office",
+      "institutional-capital",
+      "uae",
+      "platform-gravity"
+    ],
+    "geography": [
+      "United Arab Emirates",
+      "Dubai",
+      "GCC"
+    ],
+    "country": "United Arab Emirates",
+    "buyer_ids": [
+      "ADQ",
+      "MUBADALA",
+      "ADFD",
+      "TAFF"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "delivery"
+    ],
+    "evidence_type": "strategic_brief",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
