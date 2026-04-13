@@ -1704,5 +1704,86 @@
     ],
     "created_at": "2026-04-12T12:59:38Z",
     "updated_at": "2026-04-12T12:59:38Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-13-PAUL-VENTER-002",
+    "date_time": "2026-04-13T20:25:00Z",
+    "title": "Paul Venter alignment on channel partnership and portfolio support",
+    "participants": [
+      "Paul Venter",
+      "Isaac Barnes"
+    ],
+    "summary": "Follow-up conversation confirmed strategic resonance around USG's core positioning: making deals investable. Paul showed interest in an ongoing channel/ecosystem partnership where opportunities from his network and selected portfolio companies can be routed to USG for deal strengthening. Discussion emphasized practical enablement needs (how to explain USG clearly across email, in-person, and online contexts), internal team alignment before sending a short deal list, and values/national-interest framing as relational reinforcement. Current posture: qualified partnership intent with near-term conversion contingent on receiving specific opportunities from Paul’s side.",
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "buyer_ids": [
+      "TAFF"
+    ],
+    "signal_ids": [],
+    "decisions": [
+      "Keep USG positioning anchored to 'making deals investable' and avoid generic connector framing.",
+      "Classify Paul relationship as channel/ecosystem partner with portfolio-support expansion potential.",
+      "Prioritize lightweight partner enablement assets before building a large partnership package.",
+      "Use next conversation to convert intent into a concrete short-list intake and problem-specific entry points."
+    ],
+    "risks": [
+      "Partnership remains interest-stage until Paul sends concrete deal examples/short list.",
+      "Messaging drift risk if USG is described as broad advisory rather than constraint-removal/investability engine.",
+      "Overbuilding collateral risk before validated intake volume and use-cases are confirmed.",
+      "Geopolitical framing could distract from core commercial value if not kept grounded."
+    ],
+    "next_actions": [
+      {
+        "action": "Produce Paul/52Africa partner kit: one-paragraph USG description, good-fit criteria, what deals to send, and 3 intro scripts.",
+        "owner": "Sentinel",
+        "due": "2026-04-15",
+        "status": "open"
+      },
+      {
+        "action": "Draft email, in-person, and online intro language Paul can reuse with internal team and network.",
+        "owner": "Sentinel",
+        "due": "2026-04-15",
+        "status": "open"
+      },
+      {
+        "action": "Follow up with Paul for internally-vetted short list and classify each deal by entry path (screening, strengthening, portfolio support).",
+        "owner": "Isaac",
+        "due": "2026-04-17",
+        "status": "open"
+      },
+      {
+        "action": "Prepare next-call agenda using seven qualification questions focused on stuck points, payer seat, and 60-90 day utility outcomes.",
+        "owner": "Isaac",
+        "due": "2026-04-16",
+        "status": "open"
+      },
+      {
+        "action": "Define first-90-day success metrics for channel partnership (deal volume, quality threshold, conversion to paid entry work).",
+        "owner": "Sentinel",
+        "due": "2026-04-18",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct_manual",
+      "link": "",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "notes": "User-provided structured meeting minutes in Telegram"
+    },
+    "visibility": "internal",
+    "tags": [
+      "channel-partnership",
+      "portfolio-support",
+      "dealflow",
+      "making-deals-investable"
+    ],
+    "created_at": "2026-04-13T20:25:00Z",
+    "updated_at": "2026-04-13T20:25:00Z"
   }
 ]
