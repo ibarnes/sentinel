@@ -3302,7 +3302,7 @@ app.get('/dashboard/actions', async (req, res) => {
   const quick = String(req.query.quick || '').trim().toLowerCase();
   const sortByRaw = String(req.query.sort_by || '').trim().toLowerCase();
   const sortDirRaw = String(req.query.sort_dir || 'asc').trim().toLowerCase();
-  const allowedSorts = new Set(['action', 'owner', 'decision_owner', 'due', 'status', 'blocker', 'meeting', 'priority']);
+  const allowedSorts = new Set(['action', 'owner', 'decision_owner', 'due', 'status', 'blocker', 'meeting', 'meeting_date', 'priority']);
   const sortBy = allowedSorts.has(sortByRaw) ? sortByRaw : '';
   const sortDir = sortDirRaw === 'desc' ? 'desc' : 'asc';
 
@@ -3371,6 +3371,10 @@ app.get('/dashboard/actions', async (req, res) => {
       const aTitle = String(meetingMetaById.get(String(a.meeting_id || '').trim())?.title || a.meeting_id || '');
       const bTitle = String(meetingMetaById.get(String(b.meeting_id || '').trim())?.title || b.meeting_id || '');
       cmp = compareText(aTitle, bTitle);
+    } else if (sortBy === 'meeting_date') {
+      const aDate = String(meetingMetaById.get(String(a.meeting_id || '').trim())?.date || '');
+      const bDate = String(meetingMetaById.get(String(b.meeting_id || '').trim())?.date || '');
+      cmp = compareText(aDate, bDate);
     } else if (sortBy === 'blocker') cmp = blockerRank(a) - blockerRank(b);
 
     if (cmp === 0) cmp = compareText(a.action_id, b.action_id);
@@ -3476,10 +3480,11 @@ app.get('/dashboard/actions', async (req, res) => {
       <td>${decisionControl}</td>
       <td>${dueControl}</td>
       <td>${statusControl}<div class="mt-1">${priorityBadge(r.priority)}</div></td>
-      <td>${meetingHref ? `<a href="${meetingHref}">${escapeHtml(meetingTitle)}</a>` : escapeHtml(meetingTitle)}${meetingDate ? `<div class="small text-muted mono">${escapeHtml(meetingDate)}</div>` : ''}<div class="small text-muted">${escapeHtml((r.initiative_ids || []).join(', ') || 'USG')}</div></td>
+      <td>${meetingHref ? `<a href="${meetingHref}">${escapeHtml(meetingTitle)}</a>` : escapeHtml(meetingTitle)}<div class="small text-muted">${escapeHtml((r.initiative_ids || []).join(', ') || 'USG')}</div></td>
+      <td><span class="mono">${escapeHtml(meetingDate || '—')}</span></td>
       <td>${flags.join('') || '<span class="text-muted">—</span>'}<div class="small text-muted mt-1">${escapeHtml(r.evidence_ref || '')}</div></td>
     </tr>`;
-  }).join('') || '<tr><td colspan="7" class="text-muted">No action items match current filters.</td></tr>';
+  }).join('') || '<tr><td colspan="8" class="text-muted">No action items match current filters.</td></tr>';
 
   const simpleRowsHtml = filtered.map((r) => {
     const blockerText = r.blocked
@@ -3518,14 +3523,16 @@ app.get('/dashboard/actions', async (req, res) => {
     const meetingHref = String(r.meeting_id || '').trim() ? `/dashboard/meeting/${encodeURIComponent(String(r.meeting_id || ''))}` : '';
 
     return `<tr>
-      <td style="min-width:340px;max-width:560px"><div class="d-flex justify-content-between align-items-start gap-2"><div><div>${escapeHtml(r.action_text || '—')}</div><div class="small text-muted">Meeting: ${meetingHref ? `<a href="${meetingHref}">${escapeHtml(meetingTitle)}</a>` : escapeHtml(meetingTitle)}${meetingDate ? ` · <span class="mono">${escapeHtml(meetingDate)}</span>` : ''}</div><div class="small text-muted mono">${escapeHtml(String(r.action_id || ''))}</div></div>${rowActionMenu}</div></td>
+      <td style="min-width:340px;max-width:560px"><div><div>${escapeHtml(r.action_text || '—')}</div><div class="small text-muted">Meeting: ${meetingHref ? `<a href="${meetingHref}">${escapeHtml(meetingTitle)}</a>` : escapeHtml(meetingTitle)}</div><div class="small text-muted mono">${escapeHtml(String(r.action_id || ''))}</div></div></td>
       <td>${escapeHtml(r.owner || '—')}${r.support?.length ? `<div class="small text-muted">${escapeHtml(r.support.join(', '))}</div>` : ''}</td>
       <td>${escapeHtml(r.decision_owner || '—')}</td>
       <td><span class="mono">${escapeHtml(r.due || '—')}</span></td>
+      <td><span class="mono">${escapeHtml(meetingDate || '—')}</span></td>
       <td>${statusBadge(r.status)}</td>
       <td><div>${escapeHtml(blockerText)}</div>${blockerFlags.length ? `<div class="d-flex flex-wrap gap-1 mt-1">${blockerFlags.join('')}</div>` : ''}</td>
+      <td class="text-end">${rowActionMenu || '<span class="text-muted">—</span>'}</td>
     </tr>`;
-  }).join('') || '<tr><td colspan="6" class="text-muted">No action items match current filters.</td></tr>';
+  }).join('') || '<tr><td colspan="8" class="text-muted">No action items match current filters.</td></tr>';
 
   const modeToggleHref = isAdvanced
     ? makeActionsUrl({ targetMode: 'simple' })
@@ -3582,8 +3589,8 @@ app.get('/dashboard/actions', async (req, res) => {
       <div class="col-md-12 d-flex gap-2"><button class="btn btn-outline-primary">Apply</button><a class="btn btn-outline-secondary" href="${resetHref}">Reset</a></div>
     </form>`;
 
-  const advancedTable = `<div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th><a class="text-decoration-none" href="${sortHref('action', 'advanced')}">Action${sortMark('action')}</a></th><th><a class="text-decoration-none" href="${sortHref('owner', 'advanced')}">Owner / Support${sortMark('owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('decision_owner', 'advanced')}">Decision Owner${sortMark('decision_owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('due', 'advanced')}">Due${sortMark('due')}</a></th><th><a class="text-decoration-none" href="${sortHref('status', 'advanced')}">Status / Priority${sortMark('status')}</a></th><th><a class="text-decoration-none" href="${sortHref('meeting', 'advanced')}">Meeting / Initiative${sortMark('meeting')}</a></th><th><a class="text-decoration-none" href="${sortHref('blocker', 'advanced')}">Flags / Evidence${sortMark('blocker')}</a></th></tr></thead><tbody>${advancedRowsHtml}</tbody></table></div></div>`;
-  const simpleTable = `<div class="card"><div class="table-responsive"><table class="table align-middle"><thead><tr><th><a class="text-decoration-none" href="${sortHref('action', 'simple')}">Action${sortMark('action')}</a></th><th><a class="text-decoration-none" href="${sortHref('owner', 'simple')}">Owner${sortMark('owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('decision_owner', 'simple')}">Decision Owner${sortMark('decision_owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('due', 'simple')}">Due${sortMark('due')}</a></th><th><a class="text-decoration-none" href="${sortHref('status', 'simple')}">Status${sortMark('status')}</a></th><th><a class="text-decoration-none" href="${sortHref('blocker', 'simple')}">Blocker${sortMark('blocker')}</a></th></tr></thead><tbody>${simpleRowsHtml}</tbody></table></div></div>`;
+  const advancedTable = `<div class="card"><div class="table-responsive"><table class="table table-sm align-middle"><thead><tr><th><a class="text-decoration-none" href="${sortHref('action', 'advanced')}">Action${sortMark('action')}</a></th><th><a class="text-decoration-none" href="${sortHref('owner', 'advanced')}">Owner / Support${sortMark('owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('decision_owner', 'advanced')}">Decision Owner${sortMark('decision_owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('due', 'advanced')}">Due${sortMark('due')}</a></th><th><a class="text-decoration-none" href="${sortHref('status', 'advanced')}">Status / Priority${sortMark('status')}</a></th><th><a class="text-decoration-none" href="${sortHref('meeting', 'advanced')}">Meeting / Initiative${sortMark('meeting')}</a></th><th><a class="text-decoration-none" href="${sortHref('meeting_date', 'advanced')}">Meeting Date${sortMark('meeting_date')}</a></th><th><a class="text-decoration-none" href="${sortHref('blocker', 'advanced')}">Flags / Evidence${sortMark('blocker')}</a></th></tr></thead><tbody>${advancedRowsHtml}</tbody></table></div></div>`;
+  const simpleTable = `<div class="card"><div class="table-responsive"><table class="table align-middle"><thead><tr><th><a class="text-decoration-none" href="${sortHref('action', 'simple')}">Action${sortMark('action')}</a></th><th><a class="text-decoration-none" href="${sortHref('owner', 'simple')}">Owner${sortMark('owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('decision_owner', 'simple')}">Decision Owner${sortMark('decision_owner')}</a></th><th><a class="text-decoration-none" href="${sortHref('due', 'simple')}">Due${sortMark('due')}</a></th><th><a class="text-decoration-none" href="${sortHref('meeting_date', 'simple')}">Meeting Date${sortMark('meeting_date')}</a></th><th><a class="text-decoration-none" href="${sortHref('status', 'simple')}">Status${sortMark('status')}</a></th><th><a class="text-decoration-none" href="${sortHref('blocker', 'simple')}">Blocker${sortMark('blocker')}</a></th><th>Actions</th></tr></thead><tbody>${simpleRowsHtml}</tbody></table></div></div>`;
 
   res.type('html').send(`<!doctype html><html><head>${uiHead('Action Register')}</head><body><div class="app-shell">
     ${dashboardNav('actions')}
