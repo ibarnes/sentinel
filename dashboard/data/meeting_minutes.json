@@ -1822,5 +1822,43 @@
     ],
     "created_at": "2026-04-16T00:01:44Z",
     "updated_at": "2026-04-16T00:02:53Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-16-RICHARD-ORIGINATION-001",
+    "date_time": "2026-04-16T02:38:00Z",
+    "title": "04-15 Strategic Review of Global Investment Opportunities",
+    "participants": [
+      "Richard Hoffman",
+      "Counterparty (name pending)"
+    ],
+    "summary": "Richard-originated PLAUD share logged. Full transcript extraction and counterparty identification pending parse.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [],
+    "risks": [
+      "Detailed decisions and commitments are not yet extracted from transcript.",
+      "Action items may be missing until transcript parse is completed."
+    ],
+    "next_actions": [],
+    "source": {
+      "type": "plaud_transcript_shared",
+      "link": "https://web.plaud.ai/s/pub_523dbfd9-9e6a-49cd-929f-c0c64458bfd4::Ji2r9PvC6YhqKWtaFp2oIqblv-zJWzXSaCsd7azzasAEec4qvz4CL9j2Osq9YLclSwxSSad7pFPxiIsC",
+      "recorded_by": "Richard Hoffman",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Richard Hoffman",
+      "confidence": "low",
+      "notes": "Auto-captured from PLAUD shared link metadata; full transcript parse pending."
+    },
+    "visibility": "internal",
+    "tags": [
+      "origination",
+      "plaud",
+      "needs-transcript-parse"
+    ],
+    "created_at": "2026-04-16T02:38:57Z",
+    "updated_at": "2026-04-16T02:38:57Z"
   }
 ]
