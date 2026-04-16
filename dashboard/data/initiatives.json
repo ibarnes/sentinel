@@ -6596,6 +6596,14 @@
               "critical": true,
               "notes": "Provides demand certainty and utilization baseline needed to de-risk capex and accelerate financing closure.",
               "role_definition": "Provides demand certainty and utilization baseline needed to de-risk capex and accelerate financing closure."
+            },
+            {
+              "role": "Capital Connector",
+              "status": "identified",
+              "mapped_entity": "Shiv Khemka",
+              "critical": false,
+              "notes": "Interest confirmed as capital connector for sponsor/equity pathway development.",
+              "role_definition": "Introduces and aligns qualified equity/strategic capital counterparties into the capital stack with sponsor-side trust transfer."
             }
           ]
         },
@@ -6693,6 +6701,16 @@
         "critical": false,
         "notes": "Maintains blueprint integrity and ensures staged build decisions remain consistent with target corridor outcomes.",
         "role_definition": "Maintains blueprint integrity and ensures staged build decisions remain consistent with target corridor outcomes."
+      },
+      {
+        "priority": "P1",
+        "layer": "capital",
+        "role": "Capital Connector",
+        "status": "identified",
+        "mapped_entity": "Shiv Khemka",
+        "critical": false,
+        "notes": "Interest confirmed as capital connector for sponsor/equity pathway development.",
+        "role_definition": "Introduces and aligns qualified equity/strategic capital counterparties into the capital stack with sponsor-side trust transfer."
       }
     ],
     "state_bootstrap": {
@@ -6857,7 +6875,7 @@
       "anchor-demand-gating",
       "simultaneous-demand-capital-alignment"
     ],
-    "updated_at": "2026-03-26T03:50:22.459Z",
+    "updated_at": "2026-04-16T00:12:17Z",
     "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
     "path_redundancy_rule": "minimum_3_independent_lanes",
     "access_lanes": [

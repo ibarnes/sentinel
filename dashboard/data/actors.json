@@ -17155,5 +17155,25 @@
     "profile_image": "/public/actor-images/actor-ky-charles-jennings.jpg",
     "updated_at": "2026-04-08T02:24:06Z",
     "created_at": "2026-04-08T02:24:06Z"
+  },
+  {
+    "actor_id": "shiv-khemka-sun-group",
+    "name_display": "Shiv Khemka",
+    "first_name": "Shiv",
+    "last_name": "Khemka",
+    "organization_primary": "Sun Group",
+    "designation": "Capital Connector",
+    "country_normalized": "United Arab Emirates",
+    "actor_type": "corporate",
+    "relationship_source": "isaac_direct_update",
+    "relationship_strength": "first_degree",
+    "owner": "Isaac Barnes",
+    "linked_initiatives": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "notes": "Expressed interest in serving as capital connector for Angola AI initiative.",
+    "needs_review": false,
+    "created_at": "2026-04-16T00:12:17Z",
+    "updated_at": "2026-04-16T00:12:17Z"
   }
 ]
