@@ -1785,5 +1785,42 @@
     ],
     "created_at": "2026-04-13T20:25:00Z",
     "updated_at": "2026-04-13T20:25:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-15-PLAUD-SHARE-001",
+    "date_time": "2026-04-16T00:01:00Z",
+    "title": "04-15 Project Meeting: Angola Hyperscale Data Center—Power MOU, Fiber Line, Land, and Master Plan Timeline",
+    "participants": [
+      "Isaac Barnes",
+      "Counterparty (name pending)"
+    ],
+    "summary": "PLAUD share link received and logged. Full transcript extraction and counterparty identification pending parse.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [],
+    "risks": [
+      "Meeting details not yet parsed into decision-grade summary.",
+      "Action items may be missing until transcript parse is completed."
+    ],
+    "next_actions": [],
+    "source": {
+      "type": "plaud_transcript_shared",
+      "link": "https://web.plaud.ai/s/pub_9aa7ebc2-70f5-4abe-b4a7-466711c000ea::muuqTpYs-Qg59quOmOjIiD-lk2O8BO75VNOWKdt8iCn-0FAVgNKdMPdCUh69j5867Gcgv-0eoudx3_4C",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "low",
+      "notes": "Auto-captured from PLAUD shared link; transcript parse pending."
+    },
+    "visibility": "internal",
+    "tags": [
+      "plaud",
+      "needs-transcript-parse"
+    ],
+    "created_at": "2026-04-16T00:01:44Z",
+    "updated_at": "2026-04-16T00:01:44Z"
   }
 ]
