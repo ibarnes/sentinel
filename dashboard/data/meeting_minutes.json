@@ -1791,10 +1791,10 @@
     "date_time": "2026-04-16T00:01:00Z",
     "title": "04-15 Project Meeting: Angola Hyperscale Data Center—Power MOU, Fiber Line, Land, and Master Plan Timeline",
     "participants": [
-      "Isaac Barnes",
+      "Richard Hoffman",
       "Counterparty (name pending)"
     ],
-    "summary": "PLAUD share link received and logged. Full transcript extraction and counterparty identification pending parse.",
+    "summary": "Richard-originated PLAUD share logged; full transcript extraction and counterparty identification pending parse.",
     "initiative_ids": [
       "USG"
     ],
@@ -1809,9 +1809,9 @@
     "source": {
       "type": "plaud_transcript_shared",
       "link": "https://web.plaud.ai/s/pub_9aa7ebc2-70f5-4abe-b4a7-466711c000ea::muuqTpYs-Qg59quOmOjIiD-lk2O8BO75VNOWKdt8iCn-0FAVgNKdMPdCUh69j5867Gcgv-0eoudx3_4C",
-      "recorded_by": "Isaac Barnes",
+      "recorded_by": "Richard Hoffman",
       "submitted_by": "Isaac Barnes",
-      "team_member": "Isaac Barnes",
+      "team_member": "Richard Hoffman",
       "confidence": "low",
       "notes": "Auto-captured from PLAUD shared link; transcript parse pending."
     },
@@ -1821,6 +1821,6 @@
       "needs-transcript-parse"
     ],
     "created_at": "2026-04-16T00:01:44Z",
-    "updated_at": "2026-04-16T00:01:44Z"
+    "updated_at": "2026-04-16T00:02:53Z"
   }
 ]
