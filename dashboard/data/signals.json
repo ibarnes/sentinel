@@ -9271,5 +9271,86 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-13-SEMAFOR-JO2ZDY",
+    "title": "US shifts ties with DRC, Rwanda",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-04-13T16:23:58.327Z",
+    "summary": "Washington recently sanctioned elements of Rwanda’s military and reopened limited security cooperation with Kinshasa.",
+    "provenance": "discovered_by_system",
+    "sources": [
+      {
+        "label": "Semafor",
+        "url": "https://www.semafor.com/article/03/23/2026/us-deepens-ties-with-dr-congo-sanctions-rwanda"
+      }
+    ],
+    "tags": [
+      "geopolitics",
+      "africa"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": []
+  },
+  {
+    "signal_id": "SIG-2026-04-16-NVIDIA-EMEA-PARTNER-ECOSYSTEM-001",
+    "title": "NVIDIA EMEA partner awards highlight scaling AI deployment ecosystem across enterprise and smart infrastructure",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "verified",
+    "observed_at": "2026-04-16T21:45:00Z",
+    "summary": "NVIDIA first-party announcement recognized EMEA partners accelerating AI from pilot-to-production across manufacturing, telecom, healthcare, smart cities, and digital-twin use cases. The partner mix (consulting, distribution, proving-ground environments, robotics/smart spaces) signals maturing channel capacity that can shorten commercialization cycles for AI infrastructure programs.",
+    "flow": "broader production-grade AI partner ecosystem + validated GTM channels -> lower deployment friction and faster enterprise AI adoption -> stronger readiness window for sovereign/enterprise AI infrastructure programs and aligned capital pathways",
+    "verification_note": "Verified via NVIDIA official blog post (first-party source).",
+    "sources": [
+      {
+        "label": "NVIDIA Blog",
+        "url": "https://blogs.nvidia.com/blog/nvidia-partner-network-awards-emea-2026/?ncid=so-nvsh-168898&es_id=d8fcf7c509"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nvidia",
+      "ai-ecosystem",
+      "emea",
+      "partner-network",
+      "enterprise-ai",
+      "smart-infrastructure",
+      "digital-twins"
+    ],
+    "geography": [
+      "Europe",
+      "Middle East",
+      "Africa"
+    ],
+    "country": "United Arab Emirates",
+    "buyer_ids": [
+      "KKR",
+      "STONEPEAK",
+      "GIP",
+      "GENERAL_ATLANTIC",
+      "ALPHA_WAVE"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery"
+    ],
+    "evidence_type": "first_party",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
