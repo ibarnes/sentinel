@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-04-16T15:19:48.738Z",
-  "total_signals": 168,
-  "high_impact_count": 93,
-  "new_signal_count": 1,
+  "generated_at": "2026-04-17T20:40:21.805Z",
+  "total_signals": 173,
+  "high_impact_count": 94,
+  "new_signal_count": 5,
   "new_high_impact_count": 1,
   "new_high_impact": [
     {
-      "id": "SIG-2026-04-16-NVIDIA-EMEA-PARTNER-ECOSYSTEM-001",
-      "headline": "NVIDIA EMEA partner awards highlight scaling AI deployment ecosystem across enterprise and smart infrastructure",
+      "id": "SIG-2026-04-17-DFC-BEN-BLACK-AFRICA-ATLANTIC-001",
+      "headline": "DFC CEO frames Africa as central to future global growth and supply-chain strategy at Atlantic Council forum",
       "channel": "technology",
       "verification_status": "verified",
       "confidence_score": 0.62
@@ -181,6 +181,11 @@
     "drc reports potential $1.882b uae-linked tourism investment pipeline after dubai summit|AFC,AfDB|INIT-2026-03-05-COMMODITY-CORRIDOR",
     "multilateral capital and policy signals indicate expanded pre-fid structuring window across mena/africa|AFC,AfDB,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-2026-03-ANGOLA-AI-CORRIDOR,INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
     "dmcc uptown dubai expansion and wealth hub signal rising institutional capital-gravity in uae|ADFD,ADQ,MUBADALA,TAFF|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-2026-03-ANGOLA-AI-CORRIDOR,INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
-    "nvidia emea partner awards highlight scaling ai deployment ecosystem across enterprise and smart infrastructure|ALPHA_WAVE,GENERAL_ATLANTIC,GIP,KKR,STONEPEAK|INIT-2026-03-ANGOLA-AI-CORRIDOR,INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    "nvidia emea partner awards highlight scaling ai deployment ecosystem across enterprise and smart infrastructure|ALPHA_WAVE,GENERAL_ATLANTIC,GIP,KKR,STONEPEAK|INIT-2026-03-ANGOLA-AI-CORRIDOR,INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
+    "anthropic plots major london expansion||",
+    "gulf states turn to private deals in $10bn wartime borrowing spree||",
+    "saudi wealth fund resets priorities after decade of heavy spending|PIF|",
+    "tsmc shows where ai demand is headed||",
+    "dfc ceo frames africa as central to future global growth and supply-chain strategy at atlantic council forum|DFC|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-653306,INIT-NG-FIN-ENERGY-SPINE"
   ]
 }

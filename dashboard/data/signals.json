@@ -9352,5 +9352,160 @@
     "evidence_strength": "high",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-16-WIRED-BUSINESS-UP5R08",
+    "title": "Anthropic Plots Major London Expansion",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-04-16T13:49:35.000Z",
+    "summary": "As tensions with the US government mount, Anthropic has leased a new office with enough space to quadruple its 200-person head count in London.",
+    "provenance": "discovered_by_system",
+    "sources": [
+      {
+        "label": "WIRED Business",
+        "url": "https://www.wired.com/story/anthropic-plots-major-london-expansion/"
+      }
+    ],
+    "tags": [
+      "technology",
+      "operations"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": []
+  },
+  {
+    "signal_id": "SIG-2026-04-16-FINANCIAL-TIMES-WORLD-EUSBBC",
+    "title": "Gulf states turn to private deals in $10bn wartime borrowing spree",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-04-16T04:00:22.000Z",
+    "summary": "Abu Dhabi, Qatar and Kuwait avoid public markets for fundraising as Iran conflict delivers economic hit",
+    "provenance": "discovered_by_system",
+    "sources": [
+      {
+        "label": "Financial Times World",
+        "url": "https://www.ft.com/content/3b927d8b-4c6b-414a-bb85-3d6070495df7"
+      }
+    ],
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": []
+  },
+  {
+    "signal_id": "SIG-2026-04-16-FINANCIAL-TIMES-WORLD-71KOT0",
+    "title": "Saudi wealth fund resets priorities after decade of heavy spending",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-04-15T19:02:17.000Z",
+    "summary": "Governor says near-$1tn PIF will focus on efficiency without retreating from global deals",
+    "provenance": "discovered_by_system",
+    "sources": [
+      {
+        "label": "Financial Times World",
+        "url": "https://www.ft.com/content/9fea256f-a60b-4d37-9ff0-c7c094cdda79"
+      }
+    ],
+    "tags": [
+      "macro",
+      "policy"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [
+      "PIF"
+    ]
+  },
+  {
+    "signal_id": "SIG-2026-04-16-YAHOO-FINANCE-NEWS-K00A7R",
+    "title": "TSMC Shows Where AI Demand is Headed",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "pending_threshold_validation",
+    "observed_at": "2026-04-14T16:22:00.000Z",
+    "summary": "",
+    "provenance": "discovered_by_system",
+    "sources": [
+      {
+        "label": "Yahoo Finance News",
+        "url": "https://www.wsj.com/tech/ai/tsmc-shows-where-ai-demand-is-headed-a3a3c246?siteid=yhoof2&yptr=yahoo"
+      }
+    ],
+    "tags": [
+      "markets",
+      "capital"
+    ],
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": []
+  },
+  {
+    "signal_id": "SIG-2026-04-17-DFC-BEN-BLACK-AFRICA-ATLANTIC-001",
+    "title": "DFC CEO frames Africa as central to future global growth and supply-chain strategy at Atlantic Council forum",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "verified",
+    "observed_at": "2026-04-17T20:38:00Z",
+    "summary": "In a first-party DFC release, CEO Ben Black stated that Africa is central to future global growth and supply-chain architecture, highlighting opportunities across energy, technology, infrastructure/logistics, critical minerals, healthcare, and financial services. The remarks reinforce DFC strategic intent to structure transformational investments aligned with U.S. economic statecraft.",
+    "flow": "public strategic signaling by DFC leadership + sector-specific priority articulation -> stronger expectation of pipeline formation in infrastructure, minerals, health, and financial systems -> expanded pre-mandate window for deal structuring aligned to U.S.-Africa priorities",
+    "verification_note": "Verified from official DFC press release (first-party source).",
+    "sources": [
+      {
+        "label": "U.S. International Development Finance Corporation",
+        "url": "https://www.dfc.gov/media/press-releases/dfc-ceo-ben-black-highlights-africas-strategic-economic-promise-atlantic"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "dfc",
+      "u.s.-africa",
+      "infrastructure",
+      "critical-minerals",
+      "healthcare",
+      "economic-statecraft",
+      "atlantic-council"
+    ],
+    "geography": [
+      "United States",
+      "Africa"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-653306",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "delivery"
+    ],
+    "evidence_type": "first_party",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
