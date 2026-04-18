@@ -9564,5 +9564,57 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-18-US-EO-MENTAL-HEALTH-001",
+    "title": "White House executive order directs accelerated pathways for psychedelic-based serious mental illness treatments",
+    "signal_class": "Policy Signal",
+    "status": "Monitor",
+    "confidence": "High",
+    "verification_status": "verified",
+    "observed_at": "2026-04-18T21:35:00Z",
+    "summary": "A White House executive order directs federal agencies to prioritize review pathways for Breakthrough-designated psychedelic therapies, establish Right-to-Try access pathways, allocate at least $50M through ARPA-H for federal-state collaboration, expand VA/HHS/FDA data-sharing, and accelerate rescheduling review for eligible products after Phase 3 completion.",
+    "flow": "top-level U.S. policy directive + accelerated regulatory and funding pathways -> faster clinical/approval motion for selected mental-health therapies -> near-term shifts in healthcare innovation, trial infrastructure, and cross-border health-capital narratives",
+    "verification_note": "Verified from official White House presidential action page.",
+    "sources": [
+      {
+        "label": "The White House",
+        "url": "https://www.whitehouse.gov/presidential-actions/2026/04/accelerating-medical-treatments-for-serious-mental-illness/"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "white-house",
+      "executive-order",
+      "mental-health",
+      "psychedelic-therapies",
+      "regulatory-acceleration",
+      "arpa-h",
+      "right-to-try"
+    ],
+    "geography": [
+      "United States"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "WORLDBANK",
+      "IFC",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-653306"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "delivery",
+      "capital"
+    ],
+    "evidence_type": "first_party_policy",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
