@@ -9507,5 +9507,62 @@
     "evidence_strength": "high",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-18-UGANDA-SGR-FINANCING-PIVOT-001",
+    "title": "Uganda rail financing pivots toward U.S./Western arrangers after China-backed pathway stalls",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-04-18T00:16:00Z",
+    "summary": "Business Insider Africa reports Uganda is repositioning financing for its $3.19B standard gauge rail project toward U.S./Western channels (including Citi as lead arranger) following cancellation of the earlier China-linked financing route. The project is framed as a regional connectivity and trade-cost reduction corridor with potential expansion into East/Central Africa.",
+    "flow": "collapse of prior China-backed financing path + shift to Western arrangers and multilateral engagement -> reconfigured capital architecture for strategic transport corridor -> pre-mandate structuring window for cross-border infrastructure and trade integration programs",
+    "verification_note": "Reported via Business Insider Africa with Reuters-attributed details; treat as reported pending direct Ugandan ministry/Citi/World Bank primary releases for financing terms.",
+    "sources": [
+      {
+        "label": "Business Insider Africa",
+        "url": "https://africa.businessinsider.com/local/markets/after-china-exit-us-emerges-as-preferred-financing-partner-in-ugandas-dollar319bn/4zhp2pb"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "uganda",
+      "rail",
+      "sgr",
+      "us-financing",
+      "world-bank",
+      "citi",
+      "corridor-infrastructure",
+      "trade-integration"
+    ],
+    "geography": [
+      "Uganda",
+      "Kenya",
+      "Rwanda",
+      "East Africa"
+    ],
+    "country": "Uganda",
+    "buyer_ids": [
+      "DFC",
+      "WORLDBANK",
+      "AfDB",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery",
+      "market_access"
+    ],
+    "evidence_type": "tier1_media_with_wire_reference",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
