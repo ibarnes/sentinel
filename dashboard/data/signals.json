@@ -9725,5 +9725,58 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-19-GENIUS-ACT-COMPLIANCE-001",
+    "title": "Forbes analysis flags compliance friction risks in GENIUS Act rollout despite market optimism",
+    "signal_class": "Policy Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provisional",
+    "observed_at": "2026-04-19T18:12:00Z",
+    "summary": "Forbes contributor analysis argues market narrative around the GENIUS Act has underweighted implementation and compliance requirements. The piece implies potential near-term friction for stablecoin and cross-border settlement participants as regulatory interpretation and enforcement detail hardens.",
+    "flow": "headline optimism around new policy framework + underappreciated compliance burden -> short-term execution friction for stablecoin rails -> advantage shifts to compliance-ready operators and structured governance stacks",
+    "verification_note": "Opinion/analysis source from Forbes; treat as directional policy-risk signal pending direct regulator implementation guidance.",
+    "sources": [
+      {
+        "label": "Forbes",
+        "url": "https://www.forbes.com/sites/digital-assets/2026/04/18/everyone-celebrated-the-genius-act-nobody-read-the-compliance-section/"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "genius-act",
+      "stablecoin",
+      "compliance",
+      "policy-risk",
+      "cross-border-payments",
+      "fintech-regulation"
+    ],
+    "geography": [
+      "United States",
+      "Africa"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA",
+      "DFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "market_access",
+      "capital"
+    ],
+    "evidence_type": "tier1_media_analysis",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
