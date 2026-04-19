@@ -9671,5 +9671,59 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-19-AFDB-ILX-EGYPT-RENEWABLE-001",
+    "title": "AfDB and ILX complete first joint renewable-energy transaction in Egypt",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-04-19T16:02:00Z",
+    "summary": "User-submitted AfDB press link indicates AfDB and ILX completed a first joint renewable-energy transaction in Egypt, signaling maturing co-financing patterns between DFIs and institutional capital for energy-transition assets.",
+    "flow": "first joint AfDB-ILX renewables transaction in Egypt -> stronger proof of blended/partnered capital execution in energy transition -> potential replication path for bankable infrastructure financing structures",
+    "verification_note": "AfDB page could not be fetched directly from current runtime due anti-bot challenge; classified as reported_with_caveats until primary text is ingested from an accessible mirror/copy.",
+    "sources": [
+      {
+        "label": "African Development Bank press release",
+        "url": "https://www.afdb.org/en/news-and-events/press-releases/african-development-bank-and-ilx-complete-first-joint-renewable-energy-transaction-egypt-92553"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "afdb",
+      "ilx",
+      "egypt",
+      "renewable-energy",
+      "co-financing",
+      "institutional-capital",
+      "energy-transition"
+    ],
+    "geography": [
+      "Egypt",
+      "Africa"
+    ],
+    "country": "Egypt",
+    "buyer_ids": [
+      "AfDB",
+      "IFC",
+      "WORLDBANK",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "delivery",
+      "governance"
+    ],
+    "evidence_type": "first_party_link_unfetched",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]

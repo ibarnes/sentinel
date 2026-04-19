@@ -1,18 +1,10 @@
 {
-  "generated_at": "2026-04-19T02:11:04.888Z",
-  "total_signals": 176,
+  "generated_at": "2026-04-19T16:06:39.461Z",
+  "total_signals": 177,
   "high_impact_count": 96,
   "new_signal_count": 1,
-  "new_high_impact_count": 1,
-  "new_high_impact": [
-    {
-      "id": "SIG-2026-04-19-DANGOTE-IFC-WASHINGTON-001",
-      "headline": "Dangote CEO meets IFC Managing Director in Washington, signaling active World Bank-aligned engagement",
-      "channel": "technology",
-      "verification_status": "verified",
-      "confidence_score": 0.62
-    }
-  ],
+  "new_high_impact_count": 0,
+  "new_high_impact": [],
   "last_keys": [
     "afc project preparation capital path to usg|AFC|",
     "nigeria infrastructure financing gap escalation|AfDB,FMF-NG,NSIA|",
@@ -189,6 +181,7 @@
     "dfc ceo frames africa as central to future global growth and supply-chain strategy at atlantic council forum|DFC|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-653306,INIT-NG-FIN-ENERGY-SPINE",
     "uganda rail financing pivots toward u.s./western arrangers after china-backed pathway stalls|AFC,AfDB,DFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR",
     "white house executive order directs accelerated pathways for psychedelic-based serious mental illness treatments|DFC,IFC,WORLDBANK|INIT-653306",
-    "dangote ceo meets ifc managing director in washington, signaling active world bank-aligned engagement|AFC,AfDB,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-NG-FIN-ENERGY-SPINE"
+    "dangote ceo meets ifc managing director in washington, signaling active world bank-aligned engagement|AFC,AfDB,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-NG-FIN-ENERGY-SPINE",
+    "afdb and ilx complete first joint renewable-energy transaction in egypt|AFC,AfDB,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR"
   ]
 }
