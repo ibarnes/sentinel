@@ -17175,5 +17175,25 @@
     "needs_review": false,
     "created_at": "2026-04-16T00:12:17Z",
     "updated_at": "2026-04-16T00:12:17Z"
+  },
+  {
+    "actor_id": "atomic-supply-future-deals-partner",
+    "name_display": "Atomic Supply",
+    "organization_primary": "Atomic Supply",
+    "designation": "Supply Chain Planning Platform (recommended future deal partner)",
+    "country_normalized": "United States",
+    "actor_type": "corporate",
+    "relationship_source": "isaac_direct_update",
+    "relationship_strength": "watchlist",
+    "owner": "Isaac Barnes",
+    "source_links": [
+      "https://www.atomic.supply"
+    ],
+    "notes": "Recommended actor for future USG deals that need deterministic supply-chain planning, inventory optimization, and planning-system modernization.",
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "needs_review": false,
+    "created_at": "2026-04-19T00:45:15Z",
+    "updated_at": "2026-04-19T00:45:15Z"
   }
 ]
