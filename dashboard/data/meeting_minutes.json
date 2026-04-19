@@ -1860,5 +1860,84 @@
     ],
     "created_at": "2026-04-16T02:38:57Z",
     "updated_at": "2026-04-16T02:38:57Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-19-RICHARD-GDH-ANGOLA-THREAD-001",
+    "date_time": "2026-04-19T02:33:00Z",
+    "title": "Richard / GDH / Angola thread synthesis",
+    "participants": [
+      "Isaac Barnes",
+      "Richard Hoffman",
+      "Tarek Al Ashram",
+      "Mohammad Al Ashram"
+    ],
+    "summary": "Thread moved from prestige-heavy contact signal to actionable seat-definition work. Tarek reopening dialogue provided principal-level credibility; Mohammad provided additional access context with higher noise. GDH interest in Angola is now the live lane, with likely role as data center builder/operator/delivery partner. Strategic caution reinforced: sequence must remain strict — define Angola seat, scope, path, and decision criteria first; only then expand to broader USG-GDH Africa platform thesis. Separate Botswana path remains pre-deal and permission-gated, potentially fast if political access unlocks.",
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Treat GDH as credible strategic actor, but enforce seat/scope/path discipline before macro partnership framing.",
+      "Prioritize Angola as first executable lane; defer broader USG-GDH Africa relationship architecture until Angola role is explicit.",
+      "Classify Botswana thread as permission-gated pre-deal with binary access trigger."
+    ],
+    "risks": [
+      "Prestige/logos and scale claims may obscure unresolved deal mechanics if not actively filtered.",
+      "Macro relationship excitement can outrun executable seat definition and create sequencing drift.",
+      "Messaging noise from broad claims can dilute investor-grade clarity if converted into external narrative too early."
+    ],
+    "next_actions": [
+      {
+        "action": "Define GDH seat on Angola precisely (builder/operator/EPC/JV) with one-page role statement and accountability boundary.",
+        "owner": "Richard Hoffman",
+        "due": "2026-04-22",
+        "status": "open"
+      },
+      {
+        "action": "Define scope GDH would own (design, build, operations, uptime SLAs, expansion rights) and map dependencies to Wade and state actors.",
+        "owner": "Isaac",
+        "due": "2026-04-23",
+        "status": "open"
+      },
+      {
+        "action": "Run fit-confirmation with Wade and capture go/no-go criteria for GDH integration into live Angola path.",
+        "owner": "Isaac",
+        "due": "2026-04-24",
+        "status": "open"
+      },
+      {
+        "action": "Draft decision criteria and path sequencing memo (seat -> scope -> path -> offer) for internal use before any macro partnership pitch.",
+        "owner": "Sentinel",
+        "due": "2026-04-22",
+        "status": "open"
+      },
+      {
+        "action": "Track Botswana as separate permission-gated pre-deal lane with explicit trigger condition (presidential access granted).",
+        "owner": "Richard Hoffman",
+        "due": "2026-04-25",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct_manual",
+      "link": "internal://isaac/telegram/2026-04-19-richard-gdh-thread",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "notes": "User-provided structured conversation synthesis in Telegram."
+    },
+    "visibility": "internal",
+    "tags": [
+      "angola",
+      "gdh",
+      "data-center",
+      "seat-definition",
+      "sequence-discipline"
+    ],
+    "created_at": "2026-04-19T02:37:07Z",
+    "updated_at": "2026-04-19T02:37:07Z"
   }
 ]

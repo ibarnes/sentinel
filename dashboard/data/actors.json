@@ -17195,5 +17195,55 @@
     "needs_review": false,
     "created_at": "2026-04-19T00:45:15Z",
     "updated_at": "2026-04-19T00:45:15Z"
+  },
+  {
+    "actor_id": "tarek-al-ashram-gdh",
+    "name_display": "Tarek Al Ashram",
+    "first_name": "Tarek",
+    "last_name": "Al Ashram",
+    "organization_primary": "Gulf Data Hub",
+    "designation": "Principal / Senior Leadership",
+    "country_normalized": "United Arab Emirates",
+    "actor_type": "corporate",
+    "relationship_source": "isaac_direct_update",
+    "relationship_strength": "warm",
+    "owner": "Isaac Barnes",
+    "linked_initiatives": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "source_links": [
+      "internal://isaac/telegram/2026-04-19-richard-gdh-thread"
+    ],
+    "notes": "Principal-level signal source reopening GDH conversation with interest in Angola lane; macro relationship discussions to be sequenced after live seat definition.",
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "needs_review": false,
+    "created_at": "2026-04-19T02:37:07Z",
+    "updated_at": "2026-04-19T02:37:07Z"
+  },
+  {
+    "actor_id": "mohammad-al-ashram-gdh",
+    "name_display": "Mohammad Al Ashram",
+    "first_name": "Mohammad",
+    "last_name": "Al Ashram",
+    "organization_primary": "Gulf Data Hub",
+    "designation": "Ecosystem / Origination Counterpart",
+    "country_normalized": "United Arab Emirates",
+    "actor_type": "corporate",
+    "relationship_source": "isaac_direct_update",
+    "relationship_strength": "warm",
+    "owner": "Isaac Barnes",
+    "linked_initiatives": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "source_links": [
+      "internal://isaac/telegram/2026-04-19-richard-gdh-thread"
+    ],
+    "notes": "Adds access and activity context; high-energy communication stream requires disciplined filtering into seat/scope/path clarity.",
+    "signal_status": "monitoring",
+    "resolution_status": "identified",
+    "needs_review": false,
+    "created_at": "2026-04-19T02:37:07Z",
+    "updated_at": "2026-04-19T02:37:07Z"
   }
 ]

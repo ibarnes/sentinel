@@ -6546,6 +6546,14 @@
               "critical": true,
               "notes": "Grants site access and land-use rights needed to secure physical footprint and development sequencing.",
               "role_definition": "Grants site access and land-use rights needed to secure physical footprint and development sequencing."
+            },
+            {
+              "role": "Data Center Builder / Operator Candidate",
+              "status": "identified",
+              "mapped_entity": "Gulf Data Hub (Tarek Al Ashram / Mohammad Al Ashram)",
+              "critical": true,
+              "notes": "Interest in Angola confirmed; first priority is precise seat/scope/path definition before expanding to macro USG-GDH Africa partnership.",
+              "role_definition": "Potential builder/operator seat for data center delivery; defines execution capability, uptime accountability, and expansion path."
             }
           ]
         },
@@ -6711,6 +6719,16 @@
         "critical": false,
         "notes": "Interest confirmed as capital connector for sponsor/equity pathway development.",
         "role_definition": "Introduces and aligns qualified equity/strategic capital counterparties into the capital stack with sponsor-side trust transfer."
+      },
+      {
+        "priority": "P1",
+        "layer": "asset",
+        "role": "Data Center Builder / Operator Candidate",
+        "status": "identified",
+        "mapped_entity": "Gulf Data Hub (Tarek Al Ashram / Mohammad Al Ashram)",
+        "critical": true,
+        "notes": "Interest in Angola confirmed; first priority is precise seat/scope/path definition before expanding to macro USG-GDH Africa partnership.",
+        "role_definition": "Potential builder/operator seat for data center delivery; defines execution capability, uptime accountability, and expansion path."
       }
     ],
     "state_bootstrap": {
@@ -6875,7 +6893,7 @@
       "anchor-demand-gating",
       "simultaneous-demand-capital-alignment"
     ],
-    "updated_at": "2026-04-16T00:12:17Z",
+    "updated_at": "2026-04-19T02:37:07Z",
     "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
     "path_redundancy_rule": "minimum_3_independent_lanes",
     "access_lanes": [
