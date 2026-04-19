@@ -9616,5 +9616,60 @@
     "evidence_strength": "high",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-19-DANGOTE-IFC-WASHINGTON-001",
+    "title": "Dangote CEO meets IFC Managing Director in Washington, signaling active World Bank-aligned engagement",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-04-19T02:09:00Z",
+    "summary": "A user-provided image of a Dangote Group social post shows Aliko Dangote with IFC Managing Director Makhtar Diop in Washington, D.C., framed as a World Bank partnership touchpoint. The signal indicates active high-level dialogue potentially relevant to industrial capital formation and infrastructure-aligned financing pathways.",
+    "flow": "high-level sponsor-engagement signal (Dangote + IFC leadership) -> increased probability of structured dialogue on financing and partnership channels -> potential acceleration of bankability pathways for large-scale industrial/infrastructure programs",
+    "verification_note": "Derived from image-captured social post text from Dangote Group account; treat as reported until corroborated by first-party IFC/World Bank or Dangote formal release.",
+    "sources": [
+      {
+        "label": "User-provided image of Dangote Group social post",
+        "url": "internal://isaac/telegram/media/2026-04-19-dangote-ifc-washington"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "dangote",
+      "ifc",
+      "world-bank",
+      "washington-dc",
+      "industrial-finance",
+      "sponsor-engagement"
+    ],
+    "geography": [
+      "United States",
+      "Nigeria",
+      "Africa"
+    ],
+    "country": "United States",
+    "buyer_ids": [
+      "IFC",
+      "WORLDBANK",
+      "AfDB",
+      "AFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "delivery"
+    ],
+    "evidence_type": "social_post_image_capture",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
