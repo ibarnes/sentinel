@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-20T00:08:55.036Z",
-  "total_signals": 179,
+  "generated_at": "2026-04-20T00:11:32.317Z",
+  "total_signals": 180,
   "high_impact_count": 96,
   "new_signal_count": 1,
   "new_high_impact_count": 0,
@@ -184,6 +184,7 @@
     "dangote ceo meets ifc managing director in washington, signaling active world bank-aligned engagement|AFC,AfDB,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-NG-FIN-ENERGY-SPINE",
     "afdb and ilx complete first joint renewable-energy transaction in egypt|AFC,AfDB,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR",
     "forbes analysis flags compliance friction risks in genius act rollout despite market optimism|DFC,FMF-NG,NSIA|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-NG-FIN-ENERGY-SPINE",
-    "travel media reports rising u.s. visa approval momentum across multiple african countries||INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    "travel media reports rising u.s. visa approval momentum across multiple african countries||INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
+    "msn sports post cites liquidity pressure narrative around saudi sovereign fund despite large aum|PIF|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-2026-03-ANGOLA-AI-CORRIDOR"
   ]
 }

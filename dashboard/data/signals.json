@@ -9834,5 +9834,59 @@
     "evidence_strength": "low",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-19-PIF-LIQUIDITY-PRESSURE-001",
+    "title": "MSN Sports post cites liquidity pressure narrative around Saudi sovereign fund despite large AUM",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-04-19T22:48:00Z",
+    "summary": "An MSN Sports X post links to an MSN article claiming the Saudi fund behind LIV Golf has large asset scale (~$900B) but remains cash-constrained. If accurate, this suggests possible near-term liquidity discipline affecting deployment pace and partner expectations.",
+    "flow": "headline narrative of sovereign-allocator liquidity pressure -> potential tighter short-term deployment behavior and selectivity -> heightened need for stronger de-risked structures when engaging Gulf capital counterparties",
+    "verification_note": "Source chain is social post -> MSN article headline; full article text could not be reliably parsed in current runtime. Treat as low-confidence context signal pending primary/financial corroboration.",
+    "sources": [
+      {
+        "label": "X post (MSN Sports)",
+        "url": "https://x.com/msnsports/status/2045468019904623049"
+      },
+      {
+        "label": "MSN article link from post",
+        "url": "https://www.msn.com/en-us/money/other/saudi-fund-behind-liv-golf-has-900-billion-but-is-still-strapped-for-cash/ar-AA21b10V?ocid=spr_sports&businessvertical=Sports"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "pif",
+      "saudi",
+      "liquidity",
+      "capital-deployment",
+      "sovereign-allocator",
+      "reported"
+    ],
+    "geography": [
+      "Saudi Arabia",
+      "GCC"
+    ],
+    "country": "Saudi Arabia",
+    "buyer_ids": [
+      "PIF"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "social_plus_media_headline",
+    "evidence_strength": "low",
+    "advances_hypothesis": false,
+    "blocks_hypothesis": true
   }
 ]
