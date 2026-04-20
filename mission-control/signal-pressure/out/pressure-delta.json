@@ -1,10 +1,18 @@
 {
-  "generated_at": "2026-04-20T19:12:33.126Z",
-  "total_signals": 182,
-  "high_impact_count": 96,
+  "generated_at": "2026-04-20T20:28:47.518Z",
+  "total_signals": 183,
+  "high_impact_count": 97,
   "new_signal_count": 1,
-  "new_high_impact_count": 0,
-  "new_high_impact": [],
+  "new_high_impact_count": 1,
+  "new_high_impact": [
+    {
+      "id": "SIG-2026-04-20-UAE-SOVEREIGN-KENYA-DEPLOYMENT-001",
+      "headline": "UAE sovereign/development institutions shift from strategy to execution in Kenya-linked capital frameworks",
+      "channel": "technology",
+      "verification_status": "verified",
+      "confidence_score": 0.62
+    }
+  ],
   "last_keys": [
     "afc project preparation capital path to usg|AFC|",
     "nigeria infrastructure financing gap escalation|AfDB,FMF-NG,NSIA|",
@@ -187,6 +195,7 @@
     "travel media reports rising u.s. visa approval momentum across multiple african countries||INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
     "msn sports post cites liquidity pressure narrative around saudi sovereign fund despite large aum|PIF|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-2026-03-ANGOLA-AI-CORRIDOR",
     "ncc-linked ranking highlights top nigerian isps and leadership concentration in fixed-broadband layer|FMF-NG,NSIA|INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE,INIT-NG-FIN-ENERGY-SPINE",
-    "african business post cites imf scenario modeling on middle east conflict impacts (growth/inflation shock paths)|AfDB,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    "african business post cites imf scenario modeling on middle east conflict impacts (growth/inflation shock paths)|AfDB,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
+    "uae sovereign/development institutions shift from strategy to execution in kenya-linked capital frameworks|ADFD,ADQ,AFC,AfDB,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-2026-03-ANGOLA-AI-CORRIDOR,INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
   ]
 }

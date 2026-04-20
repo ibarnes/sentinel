@@ -9998,5 +9998,67 @@
     "evidence_strength": "low",
     "advances_hypothesis": true,
     "blocks_hypothesis": true
+  },
+  {
+    "signal_id": "SIG-2026-04-20-UAE-SOVEREIGN-KENYA-DEPLOYMENT-001",
+    "title": "UAE sovereign/development institutions shift from strategy to execution in Kenya-linked capital frameworks",
+    "signal_class": "Platform Pressure",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provisional",
+    "observed_at": "2026-04-20T20:12:00Z",
+    "summary": "Isaac-provided strategic brief indicates ADQ formalized a framework with Kenya contemplating up to $500M across priority sectors, with execution narrative tied to UAE-Kenya CEPA and broader UAE institutional stack participation. The brief also points to active Emirates Development Bank financing posture and wider reported UAE commitments across Africa, signaling coordinated sovereign-capital deployment momentum.",
+    "flow": "formal sovereign investment frameworks + development-finance deployment signals -> stronger probability of near-term execution windows in logistics/technology/infrastructure -> increased demand for pre-FID governance packages, bankability structuring, and blended-finance transaction design",
+    "verification_note": "Composite strategic signal provided by Isaac; primary releases/articles for ADQ-Kenya framework and EDB deployment should be attached before verified classification.",
+    "sources": [
+      {
+        "label": "Isaac strategic brief (UAE sovereign deployment in Kenya/Africa)",
+        "url": "internal://isaac/telegram/brief/2026-04-20-uae-kenya-sovereign-deployment"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "uae",
+      "adq",
+      "edb",
+      "kenya",
+      "sovereign-capital",
+      "development-finance",
+      "cepa",
+      "prefid",
+      "blended-finance"
+    ],
+    "geography": [
+      "Kenya",
+      "United Arab Emirates",
+      "Africa",
+      "Sub-Saharan Africa"
+    ],
+    "country": "Kenya",
+    "buyer_ids": [
+      "ADQ",
+      "ADFD",
+      "AFC",
+      "AfDB",
+      "WORLDBANK",
+      "IFC"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance",
+      "delivery"
+    ],
+    "evidence_type": "composite_brief",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
