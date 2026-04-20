@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-20T00:15:44.787Z",
-  "total_signals": 181,
+  "generated_at": "2026-04-20T19:12:33.126Z",
+  "total_signals": 182,
   "high_impact_count": 96,
   "new_signal_count": 1,
   "new_high_impact_count": 0,
@@ -186,6 +186,7 @@
     "forbes analysis flags compliance friction risks in genius act rollout despite market optimism|DFC,FMF-NG,NSIA|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-NG-FIN-ENERGY-SPINE",
     "travel media reports rising u.s. visa approval momentum across multiple african countries||INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
     "msn sports post cites liquidity pressure narrative around saudi sovereign fund despite large aum|PIF|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-2026-03-ANGOLA-AI-CORRIDOR",
-    "ncc-linked ranking highlights top nigerian isps and leadership concentration in fixed-broadband layer|FMF-NG,NSIA|INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE,INIT-NG-FIN-ENERGY-SPINE"
+    "ncc-linked ranking highlights top nigerian isps and leadership concentration in fixed-broadband layer|FMF-NG,NSIA|INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE,INIT-NG-FIN-ENERGY-SPINE",
+    "african business post cites imf scenario modeling on middle east conflict impacts (growth/inflation shock paths)|AfDB,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
   ]
 }

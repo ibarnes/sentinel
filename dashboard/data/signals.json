@@ -9940,5 +9940,63 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-20-IMF-ME-CONFLICT-SCENARIOS-001",
+    "title": "African Business post cites IMF scenario modeling on Middle East conflict impacts (growth/inflation shock paths)",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-04-20T19:10:00Z",
+    "summary": "User-provided image from African Business Magazine references IMF scenario ranges tied to Middle East conflict severity (global growth and inflation outcomes), framing likely aftershocks for African economies. Scenario framing suggests downside pathways for import-dependent and financing-sensitive markets if disruption deepens.",
+    "flow": "heightened geopolitical conflict risk + inflation/growth stress scenarios -> tighter macro conditions and cost pressures across African markets -> increased need for resilience-oriented structuring, pricing discipline, and phased capital deployment",
+    "verification_note": "Derived from social image post; linked source (lnkd.in -> external page) was not fetchable in runtime due bot/challenge controls. Treat as directional context until IMF primary publication is attached.",
+    "sources": [
+      {
+        "label": "African Business Magazine social post (image)",
+        "url": "internal://isaac/telegram/media/2026-04-20-imf-middle-east-scenarios"
+      },
+      {
+        "label": "Linked post redirect",
+        "url": "https://lnkd.in/dSDkSchE"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "imf",
+      "middle-east",
+      "geopolitics",
+      "global-growth",
+      "inflation",
+      "africa-macro",
+      "scenario-analysis"
+    ],
+    "geography": [
+      "Africa",
+      "Middle East",
+      "Global"
+    ],
+    "country": "Global",
+    "buyer_ids": [
+      "WORLDBANK",
+      "AfDB"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "governance",
+      "capital",
+      "market_access"
+    ],
+    "evidence_type": "social_image_with_unverified_redirect",
+    "evidence_strength": "low",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": true
   }
 ]
