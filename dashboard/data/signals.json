@@ -9888,5 +9888,57 @@
     "evidence_strength": "low",
     "advances_hypothesis": false,
     "blocks_hypothesis": true
+  },
+  {
+    "signal_id": "SIG-2026-04-19-NIGERIA-ISP-LEADERSHIP-001",
+    "title": "NCC-linked ranking highlights top Nigerian ISPs and leadership concentration in fixed-broadband layer",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-04-19T22:59:00Z",
+    "summary": "Nairametrics profiling of top ISPs in Nigeria (citing NCC data) highlights active-subscriber concentration, operator leadership, and fixed-broadband infrastructure spread across providers such as Spectranet, Starlink, FiberOne, ipNX, and Tizeti. The piece reinforces that broadband capacity and last-mile execution are key operating levers in Nigeria's digital economy.",
+    "flow": "visibility into ISP leadership + subscriber concentration and network footprint -> clearer map of practical broadband execution actors -> better targeting for partnerships in digital infrastructure and connectivity-linked programs",
+    "verification_note": "Secondary media profile citing NCC figures; treat as reported context until direct NCC dataset snapshot is attached.",
+    "sources": [
+      {
+        "label": "Nairametrics",
+        "url": "https://nairametrics.com/2026/04/16/meet-the-people-driving-top-10-largest-isps-in-nigeria/"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "nigeria",
+      "isp",
+      "broadband",
+      "digital-infrastructure",
+      "last-mile",
+      "telecom"
+    ],
+    "geography": [
+      "Nigeria",
+      "West Africa"
+    ],
+    "country": "Nigeria",
+    "buyer_ids": [
+      "FMF-NG",
+      "NSIA"
+    ],
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "delivery",
+      "market_access",
+      "capital"
+    ],
+    "evidence_type": "secondary_media_profile",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]
