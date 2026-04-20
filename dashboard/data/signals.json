@@ -9778,5 +9778,61 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-19-US-VISA-APPROVAL-SHIFT-001",
+    "title": "Travel media reports rising U.S. visa approval momentum across multiple African countries",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Low",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-04-19T22:46:00Z",
+    "summary": "Travel and Tour World reports a broad rise in U.S. visa-approval outcomes across Nigeria, Egypt, Kenya, South Africa, Ghana, Ethiopia, Zimbabwe and others, framing it as a potential structural shift in mobility patterns linked to the latest lottery cycle.",
+    "flow": "higher visa-approval rates + mobility pathway optimism -> increased diaspora/talent movement expectations and travel demand narratives -> potential second-order effects on labor mobility, remittance behavior, and cross-border commercial connectivity",
+    "verification_note": "Source page could not be fetched directly in runtime due anti-bot challenge and is a secondary travel-media source; treat as directional until corroborated by U.S. State Department or official visa-statistics releases.",
+    "sources": [
+      {
+        "label": "Travel and Tour World",
+        "url": "https://www.travelandtourworld.com/news/article/nigeria-joins-egypt-kenya-south-africa-ghana-ethiopia-zimbabwe-and-other-countries-in-witnessing-skyrocketing-visa-approval-growth-in-the-us-as-the-latest-lottery-cycle-signals-a-structural-shift"
+      }
+    ],
+    "provenance": "provided_by_isaac",
+    "tags": [
+      "u.s.-visa",
+      "africa",
+      "mobility",
+      "diaspora",
+      "talent-flows",
+      "travel-demand",
+      "reported"
+    ],
+    "geography": [
+      "Nigeria",
+      "Egypt",
+      "Kenya",
+      "South Africa",
+      "Ghana",
+      "Ethiopia",
+      "Zimbabwe",
+      "United States",
+      "Africa"
+    ],
+    "country": "United States",
+    "buyer_ids": [],
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "lifecycle_stage_refs": [
+      "market_access",
+      "demand",
+      "governance"
+    ],
+    "evidence_type": "secondary_media_unfetched",
+    "evidence_strength": "low",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false
   }
 ]

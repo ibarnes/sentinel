@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-19T18:14:30.250Z",
-  "total_signals": 178,
+  "generated_at": "2026-04-20T00:08:55.036Z",
+  "total_signals": 179,
   "high_impact_count": 96,
   "new_signal_count": 1,
   "new_high_impact_count": 0,
@@ -183,6 +183,7 @@
     "white house executive order directs accelerated pathways for psychedelic-based serious mental illness treatments|DFC,IFC,WORLDBANK|INIT-653306",
     "dangote ceo meets ifc managing director in washington, signaling active world bank-aligned engagement|AFC,AfDB,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-NG-FIN-ENERGY-SPINE",
     "afdb and ilx complete first joint renewable-energy transaction in egypt|AFC,AfDB,IFC,WORLDBANK|INIT-2026-03-05-COMMODITY-CORRIDOR",
-    "forbes analysis flags compliance friction risks in genius act rollout despite market optimism|DFC,FMF-NG,NSIA|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-NG-FIN-ENERGY-SPINE"
+    "forbes analysis flags compliance friction risks in genius act rollout despite market optimism|DFC,FMF-NG,NSIA|INIT-2026-03-05-COMMODITY-CORRIDOR,INIT-NG-FIN-ENERGY-SPINE",
+    "travel media reports rising u.s. visa approval momentum across multiple african countries||INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
   ]
 }
