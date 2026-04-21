@@ -87,6 +87,14 @@
       "company": "United Nations Secretariat",
       "country": "USA",
       "resolution_status": "identified"
+    },
+    {
+      "first_name": "Dale",
+      "last_name": "Burnett",
+      "designation": "USG Advisor; Co-Founder & Head of Investments",
+      "company": "BIG Equity Investors LLC",
+      "country": "USA",
+      "resolution_status": "confirmed"
     }
   ]
 }

@@ -17271,5 +17271,31 @@
     "created_at": "2026-04-21T21:20:06Z",
     "updated_at": "2026-04-21T21:58:09Z",
     "profile_image": "/public/actor-images/actor-us-carlos-perrone.jpg"
+  },
+  {
+    "actor_id": "actor-us-dale-burnett",
+    "name_display": "Dale Burnett",
+    "first_name": "Dale",
+    "last_name": "Burnett",
+    "organization_primary": "BIG Equity Investors LLC",
+    "designation": "Co-Founder & Head of Investments; USG Advisor",
+    "country_normalized": "United States",
+    "actor_type": "advisor",
+    "owner": "Isaac Barnes",
+    "relationship_source": "isaac_direct_update",
+    "relationship_strength": "first_degree",
+    "usg_relationship": "USG Advisor",
+    "company_linkage": "BIG Equity / institutional real estate and capital markets",
+    "source_links": [
+      "https://www.bigeqt.com",
+      "https://americanbuildersquarterly.com/2016/assurant/",
+      "https://www.linkedin.com/in/dale-burnett-789468/",
+      "https://cdn.prod.website-files.com/64231f2554e6a07d4ae8f15f/6751f22ed3785212b4ed5fb2_DB%201.avif"
+    ],
+    "profile_image": "/public/actor-images/actor-us-dale-burnett.avif",
+    "notes": "USG Advisor. Co-Founder & Head of Investments at BIG Equity (institutional real estate investment platform). BIG profile cites over $14B equity deployed globally across acquisitions, restructuring, and asset management. Previously led real estate equity investment business at Assurant and served as senior investment principal at AIG Global Real Estate. American Builders Quarterly profile (2016) notes prior role as head of real estate acquisitions/development at Assurant with broad transaction experience.",
+    "needs_review": false,
+    "created_at": "2026-04-21T22:01:52Z",
+    "updated_at": "2026-04-21T22:01:52Z"
   }
 ]
