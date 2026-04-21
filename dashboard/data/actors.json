@@ -11251,7 +11251,7 @@
     "owner": "Mark Grobmyer",
     "email": "mwgrobmyer@deployglobaltech.com",
     "website": "https://www.globalsinstitute.org/",
-    "notes": "Chairman of Global Solutions Institute (GSI), focused on deployment of problem-solving technologies. Connected to Carlos Perrone (UN Secretariat Treasurer & Chief, Financial Risk Management Service).",
+    "notes": "Chairman of Global Solutions Institute (GSI), focused on deployment of problem-solving technologies. Connected to Carlos Perrone (UN Secretariat Treasurer & Chief, Financial Risk Management Service). Connected to Kimberly Smith (Founder + CEO, Silo Compliance).",
     "sources": [
       {
         "label": "Provided by Isaac (Mark Grobmyer details, 2026-03-24)",
@@ -11260,7 +11260,7 @@
     ],
     "confidence": "medium",
     "verification_status": "pending_independent_verification",
-    "updated_at": "2026-04-21T21:20:06Z",
+    "updated_at": "2026-04-21T22:19:01Z",
     "profile_image": "/public/actor-images/mark-grobmyer.jpg"
   },
   {
@@ -17297,5 +17297,31 @@
     "needs_review": false,
     "created_at": "2026-04-21T22:01:52Z",
     "updated_at": "2026-04-21T22:01:52Z"
+  },
+  {
+    "actor_id": "actor-us-kimberly-smith-silo",
+    "name_display": "Kimberly Smith",
+    "first_name": "Kimberly",
+    "last_name": "Smith",
+    "organization_primary": "Silo Compliance",
+    "designation": "Founder + CEO; USG Advisor Network Connection",
+    "country_normalized": "USA",
+    "actor_type": "advisor",
+    "owner": "Mark Grobmyer",
+    "relationship_source": "mark_grobmyer_connection",
+    "relationship_strength": "first_degree",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "notes": "Connection of Mark Grobmyer. Founder and CEO of Silo Compliance.",
+    "source_links": [
+      "https://www.silocompliance.com",
+      "https://www.silocompliance.com/mission",
+      "https://www.silocompliance.com/kim.png",
+      "internal://isaac/telegram/2026-04-21-kimberly-smith-connection-note"
+    ],
+    "profile_image": "/public/actor-images/actor-us-kimberly-smith.png",
+    "created_at": "2026-04-21T22:19:01Z",
+    "updated_at": "2026-04-21T22:19:17Z"
   }
 ]

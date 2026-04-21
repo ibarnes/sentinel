@@ -95,6 +95,14 @@
       "company": "BIG Equity Investors LLC",
       "country": "USA",
       "resolution_status": "confirmed"
+    },
+    {
+      "first_name": "Kimberly",
+      "last_name": "Smith",
+      "designation": "Founder + CEO",
+      "company": "Silo Compliance",
+      "country": "USA",
+      "resolution_status": "identified"
     }
   ]
 }
