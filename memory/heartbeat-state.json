@@ -1,6 +1,6 @@
 {
-  "buyerAccessGraphSignature": "348ae864779418ccb713859a8a42f48f2e4a05cb928cd001bb1ceb5f14ddb7e9",
-  "updatedAtUtc": "2026-04-16T18:28:05Z",
+  "buyerAccessGraphSignature": "0c3493404b82c3823300a429ff765a79b240fcd9cb65fb153b50c3d2b231a0a2",
+  "updatedAtUtc": "2026-04-21T22:21:24Z",
   "issues": [
     {
       "type": "top10",
@@ -19,32 +19,7 @@
     },
     {
       "type": "new_decision_people",
-      "items": [
-        {
-          "buyer_id": "TAFF",
-          "person": "Abdelraouf Taher"
-        },
-        {
-          "buyer_id": "TAFF",
-          "person": "Family investment advisors and DIFC counsel"
-        },
-        {
-          "buyer_id": "TAFF",
-          "person": "Tariq Al Futtaim"
-        },
-        {
-          "buyer_id": "USVI-RECOVERY-AUTHORITY",
-          "person": "Adrienne L. Williams-Octalien"
-        },
-        {
-          "buyer_id": "USVI-RECOVERY-AUTHORITY",
-          "person": "Eugene Jones Jr."
-        },
-        {
-          "buyer_id": "USVI-RECOVERY-AUTHORITY",
-          "person": "HUD / FEMA oversight bodies"
-        }
-      ]
+      "items": []
     },
     {
       "type": "missing_decision_arch",
@@ -307,7 +282,7 @@
       }
     ]
   },
-  "buyer_access_last_checked_at": "2026-04-16T18:28:05Z",
+  "buyer_access_last_checked_at": "2026-04-21T22:21:24Z",
   "buyer_access_decision_people": [
     {
       "buyer_id": "TAFF",
