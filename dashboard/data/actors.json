@@ -11251,7 +11251,7 @@
     "owner": "Mark Grobmyer",
     "email": "mwgrobmyer@deployglobaltech.com",
     "website": "https://www.globalsinstitute.org/",
-    "notes": "Chairman of Global Solutions Institute (GSI), focused on deployment of problem-solving technologies.",
+    "notes": "Chairman of Global Solutions Institute (GSI), focused on deployment of problem-solving technologies. Connected to Carlos Perrone (UN Secretariat Treasurer & Chief, Financial Risk Management Service).",
     "sources": [
       {
         "label": "Provided by Isaac (Mark Grobmyer details, 2026-03-24)",
@@ -11260,7 +11260,7 @@
     ],
     "confidence": "medium",
     "verification_status": "pending_independent_verification",
-    "updated_at": "2026-03-24T23:45:00Z",
+    "updated_at": "2026-04-21T21:20:06Z",
     "profile_image": "/public/actor-images/mark-grobmyer.jpg"
   },
   {
@@ -17245,5 +17245,27 @@
     "needs_review": false,
     "created_at": "2026-04-19T02:37:07Z",
     "updated_at": "2026-04-19T02:37:07Z"
+  },
+  {
+    "actor_id": "actor-us-carlos-perrone",
+    "name_display": "Carlos Perrone",
+    "first_name": "Carlos",
+    "last_name": "Perrone",
+    "organization_primary": "United Nations Secretariat",
+    "designation": "Treasurer and Chief, Financial Risk Management Service",
+    "country_normalized": "USA",
+    "actor_type": "advisor",
+    "owner": "Mark Grobmyer",
+    "relationship_source": "mark_grobmyer_connection",
+    "relationship_strength": "first_degree",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "notes": "Connection of Mark Grobmyer. Since Jan 2009, serves as UN Secretariat Treasurer and Chief of Financial Risk Management Service (New York), overseeing UN investments, cash management, currency hedging, and treasury risk management.",
+    "source_links": [
+      "internal://isaac/telegram/2026-04-21-carlos-perrone-connection-note"
+    ],
+    "created_at": "2026-04-21T21:20:06Z",
+    "updated_at": "2026-04-21T21:20:06Z"
   }
 ]

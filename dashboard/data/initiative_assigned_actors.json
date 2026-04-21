@@ -79,6 +79,14 @@
       "company": "Sun Group",
       "country": "UAE",
       "resolution_status": "confirmed"
+    },
+    {
+      "first_name": "Carlos",
+      "last_name": "Perrone",
+      "designation": "UN Secretariat Treasurer & Chief, Financial Risk Management Service",
+      "company": "United Nations Secretariat",
+      "country": "USA",
+      "resolution_status": "identified"
     }
   ]
 }
