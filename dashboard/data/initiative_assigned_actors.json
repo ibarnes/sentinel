@@ -103,6 +103,14 @@
       "company": "Silo Compliance",
       "country": "USA",
       "resolution_status": "identified"
+    },
+    {
+      "first_name": "Winrock",
+      "last_name": "International",
+      "designation": "Development implementation organization",
+      "company": "Winrock International",
+      "country": "USA",
+      "resolution_status": "identified"
     }
   ]
 }

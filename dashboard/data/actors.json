@@ -11251,7 +11251,7 @@
     "owner": "Mark Grobmyer",
     "email": "mwgrobmyer@deployglobaltech.com",
     "website": "https://www.globalsinstitute.org/",
-    "notes": "Chairman of Global Solutions Institute (GSI), focused on deployment of problem-solving technologies. Connected to Carlos Perrone (UN Secretariat Treasurer & Chief, Financial Risk Management Service). Connected to Kimberly Smith (Founder + CEO, Silo Compliance).",
+    "notes": "Chairman of Global Solutions Institute (GSI), focused on deployment of problem-solving technologies. Connected to Carlos Perrone (UN Secretariat Treasurer & Chief, Financial Risk Management Service). Connected to Kimberly Smith (Founder + CEO, Silo Compliance). Connected to Winrock International (https://winrock.org).",
     "sources": [
       {
         "label": "Provided by Isaac (Mark Grobmyer details, 2026-03-24)",
@@ -11260,7 +11260,7 @@
     ],
     "confidence": "medium",
     "verification_status": "pending_independent_verification",
-    "updated_at": "2026-04-21T22:19:01Z",
+    "updated_at": "2026-04-22T16:06:28Z",
     "profile_image": "/public/actor-images/mark-grobmyer.jpg"
   },
   {
@@ -17323,5 +17323,26 @@
     "profile_image": "/public/actor-images/actor-us-kimberly-smith.png",
     "created_at": "2026-04-21T22:19:01Z",
     "updated_at": "2026-04-21T22:19:17Z"
+  },
+  {
+    "actor_id": "actor-us-winrock-international",
+    "name_display": "Winrock International",
+    "organization_primary": "Winrock International",
+    "designation": "Development implementation and technical assistance organization",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Mark Grobmyer",
+    "relationship_source": "mark_grobmyer_connection",
+    "relationship_strength": "first_degree",
+    "linked_initiatives": [
+      "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+    ],
+    "source_links": [
+      "https://winrock.org",
+      "internal://isaac/telegram/2026-04-22-mark-connection-winrock"
+    ],
+    "notes": "Connected through Mark Grobmyer network; potential institutional partner node for development-program execution and technical implementation pathways.",
+    "created_at": "2026-04-22T16:06:28Z",
+    "updated_at": "2026-04-22T16:06:28Z"
   }
 ]
