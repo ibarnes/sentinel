@@ -1,0 +1,976 @@
+original_name,original_company,original_title,verified_name,verified_company,verified_title,source_used,confidence_level,contact_bucket,business_relevance,keep_or_archive,short_reason
+Orkin,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Alex Kuan,Atl Dba X209,,Alex Kuan,Atl Dba X209,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Valerie Bush,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chris Owens,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tim Coburn Photography,,,,,,Corporate email domain,Low,Low relevance / noise,Low,Archive,Likely personal or non-strategic contact with limited business-development value.
+Eric Wechselblatt,Holland & Knight,Partner,Eric Wechselblatt,Holland & Knight,Partner,LinkedIn URL in vCard; Org field in vCard; Title field in vCard,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Rick Tillotson,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Roger A. Flores,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Jose Risi,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Brady Balliff,Ibt,,Brady Balliff,Ibt,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Tanisha Barnes,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Darren Holland,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tyreek Moore,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Bill Barnes,Uncle,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dennis Cheung,AT&L 239,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nick Brown,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ahmad Mahr,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+"Angela ""Jello Jella Gelatinous Prime"" Goymerac",,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Roland Guevara,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Christie Risi,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Quincy Ledbetter,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tom Seeber,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+;;;;,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Wendi Dorfeld,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ethel Smith,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Chalesha Monai,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Steven Jones,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Edward Kelly,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chuck Moore,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Josh King,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+David Griffin,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Ken James,My Cousinf,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Michael,Geek Squad,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Pete I. A.,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tim Keough,Kinsail Corporation,Founder & CEO,Tim Keough,Kinsail Corporation,Founder & CEO,LinkedIn URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Ed Harrel,,Managing Partner,Ed Harrel,,Managing Partner,LinkedIn URL in vCard; Title field in vCard; Personal email domain only,Medium,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Victor Akinnagbe,Microsoft,,Victor Akinnagbe,Microsoft,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Sam Britten,Yourweddingvows.com,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+David Benowitz,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Calvin Tyson,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cynthia Traeger,Pacific Siren International,CEO,Cynthia Traeger,Pacific Siren International,CEO,LinkedIn URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Christian Beshara,Qsmi,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Aaron,Johns Step Dad,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cj Moore,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Azar Bruner,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Michael Sharpe,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lynn Seeber,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+;;;;,Apple Inc.,,;;;;,Apple Inc.,,Website URL in vCard; Org field in vCard,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Donnie Banks,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mogana Richards,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jill Stelfox,Binary Group,Executive Vice President,Jill Stelfox,Binary Group,Executive Vice President,LinkedIn URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Erykah Mcelwee,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Damien Allen,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Markeyse Vance,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Eastern Foundry,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joe Hanbury,AIS Ext101,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Justin Gates,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Randy Curly,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tim Shelby,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Lisa Newell,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Jeruther,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shane Rollins,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Christie Sadler,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Alston McGann,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Keen,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+George Kirby,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Carla Halmon,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Michael Murphy,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Enricka McElwee,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+;;;;,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jerry Behnke,NMETC Transcripts,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sadarius Head,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Evan Matos,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jacob Serra,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shanora Moore,Shanora's Boutique,Master Stylist,Shanora Moore,Shanora's Boutique,Master Stylist,Org field in vCard; Title field in vCard; Personal email domain only,Medium,Low relevance / noise,Low,Archive,Likely personal or non-strategic contact with limited business-development value.
+Ethan,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+LeAnn Dishart,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Angela Harpalani,Dimensional Concepts,,Angela Harpalani,Dimensional Concepts,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Joe Roberson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Wayne Gatewood,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brown CIV Robert L,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Derrick Gaskin,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jamie Pryor,Navy,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Richard Young,USDA,,Richard Young,USDA,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Nate Rollins,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dameion Harris,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nd Egwuatu,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Jerry Maroney,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Carrington Thomson,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Linda Hopp,Sba,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jesse Carpenter,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Percy Smith,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Corrine Combeau,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Christian,Afro Intern,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Will Barnes,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+"""Dougherty, Lee""",,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Steve Jones,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Stephanie Cornish,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Trina,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Paul Bennett,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jake Oliver,Afro American Newspapers,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tadena Simpson,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+David Bain,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dan Bowens,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Adam Coonin,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Tao Zhang,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Jake Assistant,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Christine Harris,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Eric Olson,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Andrew Everett,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Concierge,,,,,,Corporate email domain,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jacqueline Jimenez,Eminent IT,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Anthony Kelly,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nesha Moore,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Suzie Grieco,SG2 Recruiting,,Suzie Grieco,SG2 Recruiting,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Janice Withrow,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sanjeet Harpalani,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+James Hanson,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Matt Sawh,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Grant Thomas,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Christian Ruth,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Yuhannes Watts,Learn2Link,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kevin Brown,DH Technologies,Vice President,Kevin Brown,DH Technologies,Vice President,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Lisa James,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Malik Basketball,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ali Shueyb,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Thomas Ellis,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Neal Andrew,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mark Morris,Marine At Systems Command,,Mark Morris,Marine At Systems Command,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Ana Bossert,ADP,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kelvin Dominick,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chuck,Cousin,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ahmed Mohsin,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Barbara Bridges,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+;;;;,Kabob Palace,,;;;;,Kabob Palace,,Website URL in vCard; Org field in vCard,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Glenn Smith,NMPDC Academic Programs,,Glenn Smith,NMPDC Academic Programs,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Jason,Bball La Fitness,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jim Dillon,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+T,Basketball,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Monica Jacquet,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+geoff orazem,Eastern Foundry,,geoff orazem,Eastern Foundry,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Michelle Rollins,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kirk patterson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Larry Knosp,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Larry Ann,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Obi,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Vernon Green,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+KB,Basketball,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mikael,Basketball,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Efia Milton,NMPDC,,Efia Milton,NMPDC,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Nate & Rohnda Thomas,Just Power,,Nate & Rohnda Thomas,Just Power,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Nathan Rollins,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Andrew Butler,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Suzzane Dougherty,Snowcreek Consulting,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+John Kelly,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mick Perry,Inforeliance,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+William Manel,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Daryl Towe,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jason Rovey,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Michael Perry,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Darren Skinner,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Solomon Mohseni,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Matt Smith,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Priyanka Burujwale,Eminent,,,,,Org field in vCard; Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mohammad Amir,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Shawn Norton,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lauren Reynolds,Amerihealth Caritas DC,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Steven Herz,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Wesley Veitch,,,Wesley Veitch,,,Website URL in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+"Perry, Orlando L PO1 USN NAVMEDPRODEVCTR MD",,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+James Hawkins,Basketball,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Marshall Thames,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Brittany Gable,SBA,,Brittany Gable,SBA,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Ana Moreno-Pabon,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Kathleen Farah,Eastern Foundry,,Kathleen Farah,Eastern Foundry,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+"Smith, Edna E CIV USN NAVMEDPRODEVCTR MD",,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Jon Skerrett,EOP,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Amir Milbes,EOP,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joint operations center,Secret service,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mike Terry,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Seth Rollins,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Noor Islam,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+William Willis,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tasneem Akhtar,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tonya Beardsley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Roopa,EOP,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jennifer,Mondo,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+"Kendrick, Paul E CIV USN NAVMED ED TRN Cmd",,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Front Door,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kimberly Blackburn,Eastern Foundry,,Kimberly Blackburn,Eastern Foundry,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Saron Goshu,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brandi Spring,Eminent IT,,Brandi Spring,Eminent IT,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Matthew Reed,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Trevor Mondo,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Meridith Ndwagato,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Steve Johnson,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Eully Giambroni,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Battle Staff,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Georgia Beglin,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Dawall Dalaa,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Massage Envy,Glebe Road,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Allison Heine,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Parnell Kelley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Richard Simon,InfoReliance,,Richard Simon,InfoReliance,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Anusha N,Eminent IT,,,,,Org field in vCard; Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Samantha Sloan,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+WHCA Shuttle,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Keith Willis,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dan Pogue,Global Knowledge,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kevin Harris,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Terry Oxendine,Eminent IT,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+J C,EOP,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+John Cha,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kevin Wilson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tracey Haneman,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chuck Davis,Team,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+avinash kondagunta,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Mustafa Dijanj,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Clayton Civ Harris,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Terrel,Sports Therapist,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Starre Williams,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tri Nguyen,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+John Gilroy,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tammy,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Amina Elgouacem,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Jim Joint,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Corey Parks,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nan Lu,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Stephanie Arnold Rollins,Lularoe Stephanie Rollins Atlanta Ga,Fashion Consultant,Stephanie Arnold Rollins,Lularoe Stephanie Rollins Atlanta Ga,Fashion Consultant,Website URL in vCard; Org field in vCard; Title field in vCard,High,Connector,Medium,Keep,Network-oriented role indicates potential for strategic introductions.
+Michael Miller,Northrop Grumman Corporation,Java Developer 3,Michael Miller,Northrop Grumman Corporation,Java Developer 3,Website URL in vCard; Org field in vCard; Title field in vCard,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Heather Coleman,Booz Allen Hamilton,Lead Associate,Heather Coleman,Booz Allen Hamilton,Lead Associate,LinkedIn URL in vCard; Org field in vCard; Title field in vCard,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Keen Newsome,AME Zion Church,Minister,Keen Newsome,AME Zion Church,Minister,Org field in vCard; Title field in vCard; Personal email domain only,Medium,Low relevance / noise,Low,Archive,Likely personal or non-strategic contact with limited business-development value.
+Pedro Alcocer,USAA,Sr. Software Developer,Pedro Alcocer,USAA,Sr. Software Developer,Org field in vCard; Title field in vCard,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Chris Worthey,"SunTrust Mortgage, Inc.",Underwriting,Chris Worthey,"SunTrust Mortgage, Inc.",Underwriting,Org field in vCard; Title field in vCard; Corporate email domain,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Anthony Ackers,Priority United Couriers LLC,Co-Owner,Anthony Ackers,Priority United Couriers LLC,Co-Owner,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Anderson Edwin,,,,,,Website URL in vCard,Low,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Latisha Mayweather-Starling,The Product...Under One Roof,Co-Owner and Co-Founder,Latisha Mayweather-Starling,The Product...Under One Roof,Co-Owner and Co-Founder,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Nunus Shoe,NuNu's,Owner,Nunus Shoe,NuNu's,Owner,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Kipp Burgoyne,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Nikki Dean,Mercy Health,Clinic Biller,Nikki Dean,Mercy Health,Clinic Biller,Org field in vCard; Title field in vCard,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Christy Bell,West Michigan Environmental Action Council,Ideal Scholar,Christy Bell,West Michigan Environmental Action Council,Ideal Scholar,Org field in vCard; Title field in vCard; Personal email domain only,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Victor L. Lee,U.S. Securities and Exchange Commission Careers,Test Manager - Software Testing,Victor L. Lee,U.S. Securities and Exchange Commission Careers,Test Manager - Software Testing,Website URL in vCard; Org field in vCard; Title field in vCard,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+John Yang,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Yony Kifle,Your DMV Team of KW Realty,CEO,Yony Kifle,Your DMV Team of KW Realty,CEO,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Kelly Hart,MDI Group,Client Manager,Kelly Hart,MDI Group,Client Manager,Org field in vCard; Title field in vCard; Personal email domain only,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Sara O'Connor,SolarCity,Project Manager,Sara O'Connor,SolarCity,Project Manager,Org field in vCard; Title field in vCard; Corporate email domain,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+John Lamarr,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jennifer Magerer,Luke's Wings,Executive Director of Family Communications and Logistics,Jennifer Magerer,Luke's Wings,Executive Director of Family Communications and Logistics,Website URL in vCard; Org field in vCard; Title field in vCard,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Lauren Powell,David's Bridal,Junior Stylist,Lauren Powell,David's Bridal,Junior Stylist,Org field in vCard; Title field in vCard; Personal email domain only,Medium,Low relevance / noise,Low,Archive,Likely personal or non-strategic contact with limited business-development value.
+Marzena Kmiecik,www.Pixelfanatix.com,,Marzena Kmiecik,www.Pixelfanatix.com,,Website URL in vCard; Org field in vCard; Corporate email domain,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Vince Jones,Team T1TAN,Owner,Vince Jones,Team T1TAN,Owner,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Clinton Garrett Sr.,Navy Medicine Professional Development Center (NMPDC),Education Specialist,Clinton Garrett Sr.,Navy Medicine Professional Development Center (NMPDC),Education Specialist,Org field in vCard; Title field in vCard; Personal email domain only,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Kimberly Ford,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Matthew Brown,CTC Events,Managing Partner and Vice President of Operations,Matthew Brown,CTC Events,Managing Partner and Vice President of Operations,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Julian Harmon,Ventra,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sha Dow Mcelwain,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chris Sain Jr.,Grand Rapids Community College,Education and Training Specialist / Career Coach,Chris Sain Jr.,Grand Rapids Community College,Education and Training Specialist / Career Coach,Website URL in vCard; Org field in vCard; Title field in vCard,High,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Fred MacLarge Chandler,NACC,Builder,Fred MacLarge Chandler,NACC,Builder,Website URL in vCard; Org field in vCard; Title field in vCard,High,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+LaTarro Traylor,,,,,,Website URL in vCard,Low,Low relevance / noise,Low,Archive,Likely personal or non-strategic contact with limited business-development value.
+Ann Knabe,College of International Security Affairs,Dean of Students,Ann Knabe,College of International Security Affairs,Dean of Students,Website URL in vCard; Org field in vCard; Title field in vCard,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Melissa Folk-Jednoroz,Center For Therapeutic Service,Licensed Clinical Psychologist,Melissa Folk-Jednoroz,Center For Therapeutic Service,Licensed Clinical Psychologist,Org field in vCard; Title field in vCard,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Mai' Yulah Partee,Grand Rapids Public Schools,Teacher,Mai' Yulah Partee,Grand Rapids Public Schools,Teacher,Org field in vCard; Title field in vCard; Personal email domain only,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+James Davis,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+John Hopkins,Imagine Realty Services,Broker/Owner,John Hopkins,Imagine Realty Services,Broker/Owner,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Ryan Sherwood,CYCLED,Lead Instructor,Ryan Sherwood,CYCLED,Lead Instructor,Org field in vCard; Title field in vCard; Personal email domain only,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Marrio Means,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Monica Mcbride-Collier,Zumba Fitness,Licensed Zumba Fitness Instructor,Monica Mcbride-Collier,Zumba Fitness,Licensed Zumba Fitness Instructor,Website URL in vCard; Org field in vCard; Title field in vCard,High,Low relevance / noise,Low,Archive,Likely personal or non-strategic contact with limited business-development value.
+Ryan Rauner,"Ryan Rauner, Real Estate Professional, RealtyMarkets a C21NM Team",Real Estate Broker,Ryan Rauner,"Ryan Rauner, Real Estate Professional, RealtyMarkets a C21NM Team",Real Estate Broker,Org field in vCard; Title field in vCard; Corporate email domain,High,Deal-adjacent,High,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Matt Martz,"Martz & Associates, LLC.",Business Consultant,Matt Martz,"Martz & Associates, LLC.",Business Consultant,Website URL in vCard; Org field in vCard; Title field in vCard,High,Connector,Medium,Keep,Network-oriented role indicates potential for strategic introductions.
+Clay Goldsborough,"First Financial Group - Bethesda, MD",Vice President,Clay Goldsborough,"First Financial Group - Bethesda, MD",Vice President,Org field in vCard; Title field in vCard; Personal email domain only,Medium,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Shavar,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jeff Smith,InfoReliance,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Total Cleaners,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jim,Georgetown,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Angel T,EOP,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Richard Watson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jeffrey Sarmiento,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+George Jackson,GovMatters,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Whitney Harris,IR,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bob Jonker,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Spaz Lil Cuz,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Eminent Conference line,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Anitha,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kenan Aden,MVLE,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Michael Botts,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bryan Lanza,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Monica,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nicky Walker,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jun,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Denny Henderson,Faircode,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Biju,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Biju,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tam Harbert,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Melissa Colon,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jenna Adolph,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Serena,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Danae Miedema,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jessica Lacy Driscoll,Love Your Whole Body,,Jessica Lacy Driscoll,Love Your Whole Body,,Website URL in vCard; Org field in vCard; Personal email domain only,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Chinmay,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Roxanne Rodriguez,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kare Conner,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lisa Rosier,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tryphena,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shawn Jackson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Earl,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tarelle Mabry,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tavia Ricks,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bartlett Concierge,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+;;;;,Sichuan Pavilion,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kaci Baggott,"B3 Group, INC",,Kaci Baggott,"B3 Group, INC",,Website URL in vCard; Org field in vCard; Corporate email domain,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Kim Bitto,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dobromir Vassilev,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nicole Donald,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Landon Vandyke,Bartlett,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jennifer Garry,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tracy Gabiel,Crystal City,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tom,Convene,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jamie Marcus,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Irene,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Esosa E,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Raquel Risi,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joanna,Apt 617,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bonnie Ghofrani,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chauncey Page,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+jasmine,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sayvon Williams,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jamie Bean,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dorenus Johnikin,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Naomi,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ivory Banks,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Adam Rosevelt,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Wendy Hernedez,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Isaac Stevens,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Young Yoo,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Larry Barnes JR,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Stephanie Yankson,Fellowship,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sasha Kelly,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+John,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Arif,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jill Smith,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tanay Moore,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Morgan,Washington Wizards,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jamal,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shantelle Mcelwee,tashi,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nino,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jerrel,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Carmen Robirds,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Hope Wiseman,Mary and Main,,Hope Wiseman,Mary and Main,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Harry (Nitro) Johnson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Adam Horvath,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jason Meka-Ze,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Hewan,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Timothy Patterson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Debra,Aveshka,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Miatrai Brown,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Anika,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Maju Mattamal,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Betel Serra,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Avery Brite,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rohan Prebhu,Aveshka,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Matt Penner,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Natasha Iqbal,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sierra Bedregal,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Danielle,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ma’Yulah Purti,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Becky Martin,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Paul Chevalier,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Pierre Murphy,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chris Lewis,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chris Bruce,Excel Church,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Andre Barnes,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sharon Chang,Tesla Owner In My Building,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Steve Cooper,Excella,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Saudiee Brown,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Melisa Dent,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+roger,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jonathan Morua,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Anjan Patel,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Reza Pooladi,Energy-cultivation.com,,,,,Org field in vCard; Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Anita McElwee,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+;;;;,Apple,,;;;;,Apple,,Website URL in vCard; Org field in vCard,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Jay Wise,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Edgar,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Greg Skloot,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cindy Marcus,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Elyse Cosgrove,Photographer,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tanisha Gibson,Urban Solutions (Minnesota),,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Perry Smith,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tina Gantz,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Angela Fox,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Denavvia Mojet,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bre Arnett,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dodlie,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Whitney White,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Maureen Ndoto,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Diana,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Uber,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kate,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Farah Adloo,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Arbri Melendez,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Eyaluta Seifu,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Vince Smith,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cedric Hill,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Jonathan Parra,Eminent IT,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Aunt Elix,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shera Khan,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nancy Konjo,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Monique,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kristin Zuller,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bobby,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tara,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tangiere,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+D’Angela,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ida,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Danny Godaddy,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dionna,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Passionate Gerad,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+LaToya,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sasha 🎉👭 Shaheen,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joe Cindy,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Daannia Shirley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sharon Laryea,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lala,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brittaney,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kiana,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nathan Pearcy,NathanPearcy.Com,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kobe Conley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+B Ant Anthony,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ebonie Moore,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Anton Bizzell,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chelsie Davis,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nicklous Combs,Work,,Nicklous Combs,Work,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Nicholas Perkins,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Amanda,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joe Zimmerman,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Carmelle Levia,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joane Browne,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Heather,AverieSun Photography,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Raven,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tom Weston,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Eric,Car Detail,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nick Miller,US Chamber,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tiffany,The Bartlett,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Car Detailer,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cassie Hurley,Crystal City Bid,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jay Kennedy,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Alli Johnson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Freddi,Eglobaltech,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+gabrielle williams,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Angel Livas,Women In business,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joy Jones,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Garren Parkins,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Saleem,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Astara,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rick Wade,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cindy Cruz,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ben Pauwells,EOP,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tanisha Watson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rachaunn Ruffin,"Eminent IT, LLC",,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cedric Pickett,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brian Sheridan,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+HEATHER RUSCH,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rachel Lady,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Henry W. Smith IV,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Becky John,ECS Federal,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Delano Thompson,Eminent IT,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+George Portillo,"Eminent IT, LLC",,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Constance,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Gustavo,Aveshka,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tassea,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jarrel (Boo),,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mike G Mgp,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dale Tamminga,Healthy For Life (naturopath),,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shayna Hill,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+My Eminent Line,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Yuelin Wang,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jennifer Conley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Alex Zillow,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ariana Waller,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brian Harris,Green Collar Farms LLC,,Brian Harris,Green Collar Farms LLC,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Jonathan Jelks,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Janiene Joseph,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Robert Ransom,FBI Special investigator,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Alvin Hills,City of Grand Rapids,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Erica,Compass Real Estate,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Katie Mooney,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Janice Blemur,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Leslie,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Will Buckley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Adam Bearup,Hybrid Homes,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Marleni Saldana,Matts Maid,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+ATT,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dominique Lalu,"Eminent IT, LLC",,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sonya,Cousin,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mijarelle Isaac,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Walna Calixte,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Allen Graham,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brian Whittaker,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+David Press,1635,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mesha Johnson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tedra Hayden,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Liz LeGrande,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Vet Pen,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Drew “Chiller” Gavin,Somgwriter/Artist,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Drew,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Raman Sekhon,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sandeep,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Naz Gharai,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+jesh de Rox,,,,,,Website URL in vCard; Personal email domain only,Low,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Tiara Gaskin,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Pradeep Jain,Ictect,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Charles Ball,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Marice Musgrove,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shane,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Foster,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sholomi Farrell,Gemini,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Hany,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+John Evans,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jody Schawrtz,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Michaell Zamora,LEVEL,,Michaell Zamora,LEVEL,,Website URL in vCard; Org field in vCard,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Dave Holland,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Laura Harrison,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mulique Evans,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jesica,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sheps,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dylan Hawkins,Swell Interactive,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rich Garner,Eminent IT,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Izzy Sia,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Amex Concierge,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jaclyn Neuman,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Marnie,CACI,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nick Summa,Steve Harrison Communications,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sheela Barot,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lori Lynn,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Realtor,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Misty Thomas,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ron,Google Fiber,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mten,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Moe,USMC Cyber Lm,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Deja,GDG,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+The Huntley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Christion Banks,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Gilmer,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Maestro,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Maestro,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Raleigh Taylor,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Maestro Riko,,,,,,Website URL in vCard; Personal email domain only,Low,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Jeff Curtis,Simba,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Microsoft login,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Uber eats,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kelley Maid Pro,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kadir,Mushrooms,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rob,Tesla dealer,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+TapeACall (Don't forget to Merge!),,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lisa,Visionary Healing Center,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lamonte,Driver,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kelly Williams,DCPAS,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+David Jones,Visionary healing,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Matthew Breuer,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+George Tamayo,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Charel Minton,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Vic Riden,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Julia LeGrande,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sean,Project hosts,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Niles,Chow now,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Adam Dials,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Veylon,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lease dealer Heath,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Will,Cryptogod,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Derek Sivers,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Stefanny,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Pet Smart,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tesla Billy,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+David Cancel,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tressa,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Diamond Kelly,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Markeisha,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Amir Green,Pet concierge ,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jimmie Johnson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Marnika,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lindsey,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Crystal Andrews,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rin,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shellyann,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Anahay Fuchu,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Santia Barnes,My Wife,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+TJ Espey,Navy,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Matti,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Harry Toll,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+"Richard McCormick, MD, MBA","Commander, Retired",,"Richard McCormick, MD, MBA","Commander, Retired",,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Dexter,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cassandra,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Matt Moore,GDIT,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Denise,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Byron,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Javon Parkes,LA Fitness,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Melvin Everson,Gwinnett County,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tim Mercer,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dr jeff,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dave,Cloudkitchens,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Fortest Sigler,Black Renaissance Clothing ,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Normin Stormin,Delaware State,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Faruq Hunter,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Hana Majid,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bailee Dover,leadership Connect,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Perelli Mack - Gary,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Piper Dellums,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Panther Alphonse,,Wods production,Panther Alphonse,,Wods production,Website URL in vCard; Title field in vCard; Personal email domain only,Medium,Low relevance / noise,Low,Archive,No clear business-development relevance found from available fields.
+Belinda,Lisa lopez,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cynthia Cureton-Robles,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+geogeo Davis,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+KT,Katalog,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mike Brown,House Cleaner,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dr. Christina Swilling,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bridget Thorne,Fulton County Commissioner Candidate,,,,,Org field in vCard; Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Marcus Barney,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Marvin Smith,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Michael Beasley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ricky Anderson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Abbie Reid,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Morris,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Khalil Williams,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Wallace Nozile,dermatology,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Monica Bey,Energy Healer &  Spiritual teacher,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Darr Smith,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lewis Parks,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cheril Clarke,Phenomenal Writing,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joshua Stewart,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Louis Gossett Jr,Actor,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Caleb Dykema,http://vaultsportshq.com,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ariel Robles,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Laura Watkins,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lori Davis,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Simeon,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shaheed Rucker,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+B Amechi 19 Keys Media Producer @b_amechi,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chef Rashid,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+King Toliver,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Terrance,Truist & Grady Baby,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+19Keys,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ericka McElwee,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sharod Simpson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Stefan Youngblood,BlackMetaverse,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Glen,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Reneise Ross,Caterer,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+PC Da Check,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brandt Martin,Crypto,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sophia Powe,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Charles Stephenson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Fred Mitchell,Luxury Limo Service,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sydney Ross,Pipers Daughter,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Pierre Sackey,ApolloMCE,,Pierre Sackey,ApolloMCE,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Willy Vio Host,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Felix Amstar,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+;;;;,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Satis,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+DiSean,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Francesca,Event Planner,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+James Clark,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Akan,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ramona Tascoa,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Andrew Wllins,Hollywood Unlocked,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brother Pat,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Inga Willis,Mogul group | propel Center,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Blannon Campbell,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Milan Jones,BougieBuddies,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ramses J,Black Information Network ,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lily,Costa Rica,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ken Taylor,Creative Vienz,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Khalil Osiris,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Kwanza Hall,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Christine van Greuning,TRC,,Christine van Greuning,TRC,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Alicia,Tronus PR,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tasha Bleu®,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jacqueline Krain,AWS,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dr Sister Jenna,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brian Garcia,Amazon,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jay Rosenzweig,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Steph,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Hadji Sall Saleskings CEO,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Camila,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jessica Williams,Southpromo,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mohammad Bilal,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Barbara Perpignan,Barbwire VIP Inc.,President,Barbara Perpignan,Barbwire VIP Inc.,President,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Tal Navarro,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tosan Arueyingho,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tosen Arueyingho,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tony,Amir pet Company ,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+John Byrnes,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ricardo Herandez,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Des Seifert,DCPAS,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Allison Falcone,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bruce Bixby,DCPAS ,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jacqueline Jones,D&I linkedin,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tonya Hill,Washington Commanders,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Arielle Johnson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nick Post,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kenny Lumpkin,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Michael Sico,Financial Guy,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Aniesia,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Zabina Bhasin,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+William,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Steph Alexis Smellie,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Christal Jackson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jaun De Jesus,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cali,Event Planner,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Khala,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jacques-Phillipe Piverger,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ira Permarlter,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Alex Wadskier,AyChihuahua Technology,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kimberly Moore,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chad Shockley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Syrita Steib,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Prince,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Cylton Collymore,Zimbali networks,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Monica Temoney,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Terri Batch,Trade.gov Diversity Export Initiative,,,,,Org field in vCard; Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tyler (la Fitness),,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Julie Olson,Cherokee Federal,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kyle Kimble,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+James Cato,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Duke Ihenacho,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bank,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tonia,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Leo,AWS,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Alexa Anderson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Santee Deck,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ollie,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Greg Zinone,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Clair Koroma,Federal CIO,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nicholas DeMuria,BGOV,,Nicholas DeMuria,BGOV,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Jesse Diaz,DCPAS,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Carlyto Kinshasa,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+;;;;,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Karen Burruss,DOC,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Broderick Humphrey II,Coastal football Alliance/Ape’X Gorillas ,,Broderick Humphrey II,Coastal football Alliance/Ape’X Gorillas ,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Gary Sutton,Deloitte ,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+George O.,Retired Air Force,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Papa Joseph,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kibavuidi Nsiangani,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+David Yurik,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Michael Lawson,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Daouda G. Leonard,"CreateSafe, Inc.","Founder, CEO",Daouda G. Leonard,"CreateSafe, Inc.","Founder, CEO",Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Laterras Whitfield,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Aidah Fontenot,BET,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Reggie Raymond,"A&R Property Development, Inc",Real Estate Developer,Reggie Raymond,"A&R Property Development, Inc",Real Estate Developer,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Micco Brisker,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Phoenix,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brooke,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Fred Jordan,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Andrea,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jamien Sills,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Riece Bentley,Foot Locker,,Riece Bentley,Foot Locker,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Bonnie Banks,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jay Bailey,Russell Center,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Monica Colon,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nicole Maurice Gbadamosi,Privi Stonecreast,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Claudine,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Everett,Vet,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Thabo,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bernard Pepukayi,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Osborn Murray III,The Calalus Group,Political Strategist,Osborn Murray III,The Calalus Group,Political Strategist,Website URL in vCard; Org field in vCard; Title field in vCard,High,Connector,Medium,Keep,Network-oriented role indicates potential for strategic introductions.
+Theo,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dr Banister,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chris,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Matthew Hampton,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jordan,SparkCharge,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Travis Movella,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bryan,Military Consulting Solutions,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Al Harrington,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Gary Forbes,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kunal Sood,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dan Puder,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+LaVonne Idlette,1st Class Group,,LaVonne Idlette,1st Class Group,,Website URL in vCard; Org field in vCard; Corporate email domain,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Pa José Nzekani,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bernard,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Danny Hughes,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ademola Oduwole,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rosa Honarpisheh,Google,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Richard Hoffman,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Seth Hummel,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Josh Mitchell,Madecraft,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Julian Bolster,myLAB Box,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sheryl Grant,Sheryl Grant International ,,Sheryl Grant,Sheryl Grant International ,,Website URL in vCard; Org field in vCard; Corporate email domain,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Angella Goran,TAPanGO Technologies inc,CEO / Team Captain,Angella Goran,TAPanGO Technologies inc,CEO / Team Captain,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Nicole Flowers,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Larry Yon,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Taiwo,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jaye,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Gerald Washington,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Devean George,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Noah,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+JFPI Corporation,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+DeMarcus Love,LoveDWon Entertainment,CEO/ Owner,DeMarcus Love,LoveDWon Entertainment,CEO/ Owner,LinkedIn URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Thuy Ly,IRS,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Travis Malloy,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lamar Tyler,Tyler New Media / Traffic Sales & Profit,,Lamar Tyler,Tyler New Media / Traffic Sales & Profit,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Ryan Wilson,Gathering spot,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Alfred Edmond,Black Enterprise,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Alex,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Maryan Ali,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Julia,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Alex Linguado,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Julia,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Victoria,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brinkley Skye,"Executive Director Asset Development Corp & Partner, Rishon Capital Partners Llc",,,,,Org field in vCard; Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+JaNay Queen Nazaire,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Brian Payne,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Austin Evans,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Papa Dady,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+John Steindberg,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Richelle Maylad,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Jodi Weiss,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kerry,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Will Thomas III,AllianceBernstein,VP Wealth Advisor,Will Thomas III,AllianceBernstein,VP Wealth Advisor,LinkedIn URL in vCard; Org field in vCard; Title field in vCard,High,Connector,Medium,Keep,Network-oriented role indicates potential for strategic introductions.
+Miguel Willson,Miguel Willson Collection,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mark Grobmyer,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+James,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Johnny Ford,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ravi J. Mallik,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Janet,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Valerie Mosley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dale Burnett,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Danielle,Photographer ,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Michael MacDonald,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ab Sow,EYL,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+John Harrington,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Arjun Prasad,,,Arjun Prasad,,,Website URL in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Keenan,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+PHILIP WABULYA,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dhruv,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+"Jeffery L. McLain, MMC, CAP",Texas A&M University-Kingsville,"Senior Director, Gift Planning","Jeffery L. McLain, MMC, CAP",Texas A&M University-Kingsville,"Senior Director, Gift Planning",Org field in vCard; Title field in vCard; Corporate email domain,High,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Dr Wanjala,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kath Bernal,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rich Tabor,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nick,Dealmaker,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bishop Silves Beaman,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Destiny Bethune,Destined to Swim/The Prophetic Nixie;Herbalist • Swim Instructor • Author/Poet • Artist,Owner,Destiny Bethune,Destined to Swim/The Prophetic Nixie;Herbalist • Swim Instructor • Author/Poet • Artist,Owner,Website URL in vCard; Org field in vCard; Title field in vCard,High,Low relevance / noise,Low,Archive,Likely personal or non-strategic contact with limited business-development value.
+Joshua Legier,Aurelian Management LLC,Founder,Joshua Legier,Aurelian Management LLC,Founder,LinkedIn URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Bryan Klint,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chester,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dezzmon Johnson,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Richelle,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dez,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ryan Breuner,FanCompass,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dana,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dave Alleyne,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Michael Jordan,Power Africa,Senior Advisor,Michael Jordan,Power Africa,Senior Advisor,Website URL in vCard; Org field in vCard; Title field in vCard,High,Connector,Medium,Keep,Network-oriented role indicates potential for strategic introductions.
+Leah Pedersen,CONVERGENCE,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Vanessa Williams,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+W.E. Da'Cruz,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Daniel Blackman,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Guetty,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bruno Wu,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Clark Sydell,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Stephanie Loosevelt,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Steve Hightower,Hightower energy,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ian Gaffney,Sports leadership institute ,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chris Thorne,Powermers,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Craig Herskowitz,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shalalah,Department Of ENERGY. ,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Anthony Rose,WE ARE ENT,,Anthony Rose,WE ARE ENT,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Eric Reid,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joanne Pasternack,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Michael Slaton,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dr Damon Alexander,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Water Guy,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Richard Gardner,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Gracie Martinez,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Christine Gulbranson,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Eugene Yun,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Britt Harris,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Car Wash Neighbor,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Pia,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sayyu Dantata,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+💕💕GraceChild💕💕,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ahmed nigeria huntley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ken Harris,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Shannon,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+David Shands,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+William Deck,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Obiageli “Oby” Ezekwesili,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kenza Kettani,Africa Investment Forum,Data Analyst Consultant,Kenza Kettani,Africa Investment Forum,Data Analyst Consultant,Website URL in vCard; Org field in vCard; Title field in vCard,High,Connector,Medium,Keep,Network-oriented role indicates potential for strategic introductions.
+Stephanie Mbombo,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Maya Horgan Famodu,Ingressive Capital,Founder,Maya Horgan Famodu,Ingressive Capital,Founder,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Michelle Park,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Boris Kodjoe,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Raymond J. McGuire,Lazard Frères & Co. LLC,PRESIDENT,Raymond J. McGuire,Lazard Frères & Co. LLC,PRESIDENT,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Brandon Dawson,Cardone Ventures,Founder & CEO,Brandon Dawson,Cardone Ventures,Founder & CEO,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Imari Pérez,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Niddy,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Gate BMP,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Front GATE BELLMORE,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jason Maxwell,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jean,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Berthina DCPAS,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mandy Levine,Cardone Ventures,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Grady Dental,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Pat Mitchell,TED Women,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jared Green,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jared Gurfein,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Dr. MZEE Fula,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Fula,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jacob Hicks,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Stephan,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Charlot,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jercori Freeman,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+William WD Land,Slalom,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tmobile,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Immigration,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Hopper,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Hashim Alzaabi,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sameh,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Hussien,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lia Lungu,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Izhad,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Chris Heracleous,Press X,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tim Meyer,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rebecca Smith,Nvidia,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sani,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Friday,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Lookman,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Drivet,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sunny nigeira,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+;;;;,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bellmore Concierge,Our Home In Duluth ,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Salman Amiri DMCC,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Abdalla Ali DMCC,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Matthew Taxi,Driver dubai,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mohammad,Reem financial,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Linus Idahosa,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Tariq Al Futtaim,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Mohammad AL Ashram,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Madja Achchag,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Madja,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Traci T,AWS,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Yace Dubai Blockchain,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Rouf Rafiq,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Pilar Stella,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Sandy and Scraper Vacation Homes,Sandy and Scraper Vacation Homes,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Abdelraouf Taher,Tariq al futtaim,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Faisal Altaher,TAF,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Hannah,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+PetSmart Johns creek,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Nifemi,Dares Son,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+David Crown,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joanne Agnes Lee,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Kurt Tesh,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Malcolm,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jerron Love,Magnetic,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Paul Venter,52Africa,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Isaac Barnes,,,,,,Corporate email domain,Low,Could not verify,Low,Review manually,Could not confidently verify identity.
+Ben Phillips,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Stacy Brown,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Deron E Bennett,JANUS et Cie,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Pramod Raheja,Entrepreneurs' Organization,Chairperson,Pramod Raheja,Entrepreneurs' Organization,Chairperson,Website URL in vCard; Org field in vCard; Title field in vCard,High,Buyer candidate,High,Keep,Founder/executive ownership signal suggests potential buying authority.
+Chris Davis,ECS Federal,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Abby Jebaraj,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jennifer Lane,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Jackie Fendrock,ECS,,Jackie Fendrock,ECS,,Org field in vCard; Corporate email domain,Medium,Deal-adjacent,Medium,Keep,"Professional role appears close to deals, approvals, capital, or operations."
+Rob Richards,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Pinky Christian,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Adam Burstein,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Alex Vega,Ronan,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Angela White,CACI,,,,,Org field in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Joi Coleman,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Bill Meredith,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Ashley,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Paul Carney,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Katherine Morua,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Andrew Chang,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+TELLY RENFROE,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Josh Rollins,,,,,,Personal email domain only,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Vince,,,,,,Name/phone only in vCard,Low,Could not verify,Low,Archive,Could not confidently verify identity.
+Head Debiase,DJ head,,Head Debiase,DJ head,,Website URL in vCard; Org field in vCard; Personal email domain only,Medium,Low relevance / noise,Low,Archive,Likely personal or non-strategic contact with limited business-development value.
