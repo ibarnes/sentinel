@@ -119,6 +119,14 @@
       "company": "Independent (MerlineSaintil.com)",
       "country": "USA",
       "resolution_status": "identified"
+    },
+    {
+      "first_name": "Bill",
+      "last_name": "Unknown",
+      "designation": "Direct connection via Richard Hoffman (details pending)",
+      "company": "Pending confirmation",
+      "country": "USA",
+      "resolution_status": "identified"
     }
   ]
 }

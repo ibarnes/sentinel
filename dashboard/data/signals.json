@@ -10110,5 +10110,50 @@
       "USA"
     ],
     "country": "USA"
+  },
+  {
+    "signal_id": "SIG-2026-04-23-BILL-RICHARD-DIRECT-CONNECTION-001",
+    "title": "Bill identified as a direct Richard Hoffman connection",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "observed_at": "2026-04-23T16:18:00Z",
+    "summary": "Isaac requested tracking of Bill as a direct Richard Hoffman connection.",
+    "flow": "relationship mapping update -> Richard direct lane expansion -> potential future deal/channel access",
+    "verification_note": "User-provided update; confirm full identity (last name), company, and relevance lane.",
+    "sources": [
+      {
+        "label": "Isaac direct update (Telegram)",
+        "url": "internal://chat/2026-04-23"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Connection Mapping",
+      "Richard Hoffman Network"
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-us-bill-unknown-richard-connection",
+      "actor-us-richard-j-hoffman"
+    ],
+    "actor_roles": [
+      "network_connection",
+      "originator_path"
+    ],
+    "lifecycle_stage_refs": [
+      "governance"
+    ],
+    "evidence_type": "user_provided_update",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "USA"
+    ],
+    "country": "USA"
   }
 ]
