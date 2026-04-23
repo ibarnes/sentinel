@@ -10164,5 +10164,52 @@
     ],
     "country": "USA",
     "updated_at": "2026-04-23T16:19:00Z"
+  },
+  {
+    "signal_id": "SIG-2026-04-23-FARZAD-NAIMI-FIRST-DEGREE-001",
+    "title": "Farzad Naimi added as first-degree connection (RONA Holdings)",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "observed_at": "2026-04-23T16:21:00Z",
+    "summary": "Isaac requested tracking Farzad Naimi (Co-Founder & Managing Partner, RONA Holdings) as a first-degree connection.",
+    "flow": "relationship mapping update -> first-degree capital/partner lane expansion",
+    "verification_note": "User-provided connection update with source URL; confirm active mandate fit and engagement objective.",
+    "sources": [
+      {
+        "label": "Isaac direct update (Telegram)",
+        "url": "internal://chat/2026-04-23"
+      },
+      {
+        "label": "RONA Holdings team page",
+        "url": "https://www.ronaholdings.com/team-1"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Connection Mapping",
+      "First-Degree Network"
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-us-farzad-naimi"
+    ],
+    "actor_roles": [
+      "network_connection"
+    ],
+    "lifecycle_stage_refs": [
+      "governance"
+    ],
+    "evidence_type": "user_provided_update",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "USA"
+    ],
+    "country": "USA"
   }
 ]
