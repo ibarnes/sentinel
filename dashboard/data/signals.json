@@ -10069,7 +10069,7 @@
     "confidence": "Medium",
     "verification_status": "provided",
     "observed_at": "2026-04-23T15:43:00Z",
-    "summary": "Isaac reports two meetings this week with Merline Saintil and states she is interested in investment participation in Unified Digital and Unified State Group, plus future capital-partner alignment on deals.",
+    "summary": "Isaac reports two meetings this week with Merline Saintil and states she is interested in investment participation in Unified Digital and Unified State Group, plus future capital-partner alignment on deals (relationship owner: Isaac Barnes).",
     "flow": "relationship engagement -> stated investment interest -> potential capital-partner lane for future mandate/deal execution",
     "verification_note": "User-provided direct meeting update; validate with written follow-up (ticket size, structure, timeline, and participation conditions).",
     "sources": [
@@ -10109,17 +10109,18 @@
     "geography": [
       "USA"
     ],
-    "country": "USA"
+    "country": "USA",
+    "updated_at": "2026-04-23T16:25:00Z"
   },
   {
     "signal_id": "SIG-2026-04-23-BILL-RICHARD-DIRECT-CONNECTION-001",
-    "title": "Bill Coughran identified as a direct Richard Hoffman connection",
+    "title": "Bill Coughran identified as a direct Richard J. Hoffman connection",
     "signal_class": "Context Signal",
     "status": "Monitor",
     "confidence": "Medium",
     "verification_status": "provided",
     "observed_at": "2026-04-23T16:18:00Z",
-    "summary": "Isaac requested tracking of Bill Coughran (Sequoia profile provided) as a direct Richard Hoffman connection.",
+    "summary": "Isaac requested tracking of Bill Coughran (Sequoia profile provided) as a direct Richard J. Hoffman connection.",
     "flow": "relationship mapping update -> Richard direct lane expansion -> potential future deal/channel access",
     "verification_note": "User-provided update + profile link; confirm relationship context, current mandate fit, and engagement lane.",
     "sources": [
@@ -10163,19 +10164,19 @@
       "USA"
     ],
     "country": "USA",
-    "updated_at": "2026-04-23T16:19:00Z"
+    "updated_at": "2026-04-23T16:25:00Z"
   },
   {
     "signal_id": "SIG-2026-04-23-FARZAD-NAIMI-FIRST-DEGREE-001",
-    "title": "Farzad Naimi added as first-degree connection (RONA Holdings)",
+    "title": "Farzad Naimi added as first-degree Maryan Ali connection (RONA Holdings)",
     "signal_class": "Context Signal",
     "status": "Monitor",
     "confidence": "Medium",
     "verification_status": "provided",
     "observed_at": "2026-04-23T16:21:00Z",
-    "summary": "Isaac requested tracking Farzad Naimi (Co-Founder & Managing Partner, RONA Holdings) as a first-degree connection.",
-    "flow": "relationship mapping update -> first-degree capital/partner lane expansion",
-    "verification_note": "User-provided connection update with source URL; confirm active mandate fit and engagement objective.",
+    "summary": "Isaac requested tracking Farzad Naimi (Co-Founder & Managing Partner, RONA Holdings) as a first-degree connection via Maryan Ali.",
+    "flow": "relationship mapping update -> Maryan direct lane expansion -> potential capital/partner path",
+    "verification_note": "User-provided connection update with source URL; confirm active mandate fit and engagement objective with Maryan as relationship owner.",
     "sources": [
       {
         "label": "Isaac direct update (Telegram)",
@@ -10187,9 +10188,10 @@
       }
     ],
     "tags": [
-      "USG Context",
       "Connection Mapping",
-      "First-Degree Network"
+      "First-Degree Network",
+      "Maryan Ali Network",
+      "USG Context"
     ],
     "provenance": "provided_by_isaac",
     "model_step": "1_collect_signals",
@@ -10198,6 +10200,7 @@
       "actor-us-farzad-naimi"
     ],
     "actor_roles": [
+      "maryan_path",
       "network_connection"
     ],
     "lifecycle_stage_refs": [
@@ -10210,6 +10213,7 @@
     "geography": [
       "USA"
     ],
-    "country": "USA"
+    "country": "USA",
+    "updated_at": "2026-04-23T16:25:00Z"
   }
 ]

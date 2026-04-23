@@ -17355,9 +17355,9 @@
     "country_normalized": "USA",
     "actor_type": "connector",
     "owner": "Isaac Barnes",
-    "relationship_source": "isaac_direct_update",
+    "relationship_source": "isaac_barnes_connection",
     "relationship_strength": "first_degree",
-    "usg_relationship": "Met twice during week of 2026-04-23; expressed interest in investing in Unified Digital and Unified State Group and acting as a capital partner on future deals.",
+    "usg_relationship": "First-degree connection via Isaac Barnes (met twice during week of 2026-04-23; user-provided investment/capital-partner interest).",
     "source_links": [
       "https://www.merlinesaintil.com/sample-topics",
       "internal://isaac/telegram/2026-04-23-merline-saintil-investment-interest"
@@ -17367,7 +17367,7 @@
     "verification_status": "provided",
     "needs_review": false,
     "created_at": "2026-04-23T15:43:00Z",
-    "updated_at": "2026-04-23T15:43:00Z"
+    "updated_at": "2026-04-23T16:25:00Z"
   },
   {
     "actor_id": "actor-us-bill-coughran",
@@ -17378,10 +17378,10 @@
     "designation": "Partner (seed/early focus); direct connection via Richard Hoffman",
     "country_normalized": "USA",
     "actor_type": "connector",
-    "owner": "Richard Hoffman",
-    "relationship_source": "richard_hoffman_connection",
+    "owner": "Richard J. Hoffman",
+    "relationship_source": "richard_j_hoffman_connection",
     "relationship_strength": "first_degree",
-    "usg_relationship": "Richard Hoffman direct connection (user-provided) with potential capital-partner relevance for future deals.",
+    "usg_relationship": "First-degree connection via Richard J. Hoffman (user-provided), potential capital-partner relevance.",
     "source_links": [
       "https://sequoiacap.com/people/bill-coughran/",
       "internal://isaac/telegram/2026-04-23-track-bill-richard-connection",
@@ -17392,7 +17392,7 @@
     "verification_status": "provided",
     "needs_review": false,
     "created_at": "2026-04-23T16:18:00Z",
-    "updated_at": "2026-04-23T16:19:00Z"
+    "updated_at": "2026-04-23T16:25:00Z"
   },
   {
     "actor_id": "actor-us-farzad-naimi",
@@ -17403,10 +17403,10 @@
     "designation": "Co-Founder & Managing Partner",
     "country_normalized": "USA",
     "actor_type": "connector",
-    "owner": "Isaac Barnes",
-    "relationship_source": "isaac_direct_update",
+    "owner": "Maryan Ali",
+    "relationship_source": "maryan_ali_connection",
     "relationship_strength": "first_degree",
-    "usg_relationship": "First-degree connection (user-provided).",
+    "usg_relationship": "First-degree connection via Maryan Ali (user-provided).",
     "source_links": [
       "https://www.ronaholdings.com/team-1",
       "internal://isaac/telegram/2026-04-23-farzad-naimi-first-degree"
@@ -17416,6 +17416,6 @@
     "verification_status": "provided",
     "needs_review": false,
     "created_at": "2026-04-23T16:21:00Z",
-    "updated_at": "2026-04-23T16:21:00Z"
+    "updated_at": "2026-04-23T16:25:00Z"
   }
 ]
