@@ -17344,5 +17344,29 @@
     "notes": "Connected through Mark Grobmyer network; potential institutional partner node for development-program execution and technical implementation pathways.",
     "created_at": "2026-04-22T16:06:28Z",
     "updated_at": "2026-04-22T16:06:28Z"
+  },
+  {
+    "actor_id": "actor-us-merline-saintil",
+    "name_display": "Merline Saintil",
+    "first_name": "Merline",
+    "last_name": "Saintil",
+    "organization_primary": "Independent / Board & advisory platform",
+    "designation": "Board Director and technology executive; potential strategic capital partner",
+    "country_normalized": "USA",
+    "actor_type": "connector",
+    "owner": "Isaac Barnes",
+    "relationship_source": "isaac_direct_update",
+    "relationship_strength": "first_degree",
+    "usg_relationship": "Met twice during week of 2026-04-23; expressed interest in investing in Unified Digital and Unified State Group and acting as a capital partner on future deals.",
+    "source_links": [
+      "https://www.merlinesaintil.com/sample-topics",
+      "internal://isaac/telegram/2026-04-23-merline-saintil-investment-interest"
+    ],
+    "notes": "Tracking created from Isaac direct update. Treat investment/co-invest interest as user-provided until confirmed in writing (terms, check size, and timing).",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "needs_review": false,
+    "created_at": "2026-04-23T15:43:00Z",
+    "updated_at": "2026-04-23T15:43:00Z"
   }
 ]

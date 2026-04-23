@@ -10060,5 +10060,55 @@
     "evidence_strength": "medium",
     "advances_hypothesis": true,
     "blocks_hypothesis": false
+  },
+  {
+    "signal_id": "SIG-2026-04-23-MERLINE-SAINTIL-INVESTMENT-INTEREST-001",
+    "title": "Merline Saintil expressed interest in investing in Unified Digital and Unified State Group; potential capital partner path for future deals",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "observed_at": "2026-04-23T15:43:00Z",
+    "summary": "Isaac reports two meetings this week with Merline Saintil and states she is interested in investment participation in Unified Digital and Unified State Group, plus future capital-partner alignment on deals.",
+    "flow": "relationship engagement -> stated investment interest -> potential capital-partner lane for future mandate/deal execution",
+    "verification_note": "User-provided direct meeting update; validate with written follow-up (ticket size, structure, timeline, and participation conditions).",
+    "sources": [
+      {
+        "label": "Isaac direct meeting update (Telegram)",
+        "url": "internal://chat/2026-04-23"
+      },
+      {
+        "label": "Merline Saintil topics page",
+        "url": "https://www.merlinesaintil.com/sample-topics"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Capital Partner",
+      "Investor Interest",
+      "Relationship Signal"
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-us-merline-saintil"
+    ],
+    "actor_roles": [
+      "potential_investor",
+      "potential_capital_partner"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "user_provided_meeting_note",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "USA"
+    ],
+    "country": "USA"
   }
 ]
