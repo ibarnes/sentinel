@@ -17970,5 +17970,47 @@
     "needs_review": false,
     "created_at": "2026-04-24T19:22:00Z",
     "updated_at": "2026-04-24T19:22:00Z"
+  },
+  {
+    "actor_id": "actor-org-government-of-angola",
+    "name_display": "Government of Angola",
+    "organization_primary": "Republic of Angola",
+    "designation": "National government counterparty driving diversification and tourism-linked infrastructure policy",
+    "country_normalized": "Angola",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "policy_signal_tracking",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Macro policy and permitting environment setter for Angola-linked infrastructure and investment pipelines.",
+    "source_links": [
+      "https://africa.businessinsider.com/local/lifestyle/angola-positions-itself-as-africas-next-tourism-investment-frontier/rft7qwk"
+    ],
+    "notes": "Added from media signal around tourism diversification and infrastructure commitments linked to June 2026 summit in Luanda.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T22:22:00Z",
+    "updated_at": "2026-04-24T22:22:00Z"
+  },
+  {
+    "actor_id": "actor-org-world-tourism-forum-institute",
+    "name_display": "World Tourism Forum Institute (WTFI)",
+    "organization_primary": "World Tourism Forum Institute",
+    "designation": "Organizer/platform lead for Global Tourism Forum investment events",
+    "country_normalized": "UK",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "event_signal_tracking",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Event and capital-convening platform with potential access to investors, developers, and policy stakeholders in Angola.",
+    "source_links": [
+      "https://africa.businessinsider.com/local/lifestyle/angola-positions-itself-as-africas-next-tourism-investment-frontier/rft7qwk"
+    ],
+    "notes": "Referenced as organizer context for Global Tourism Forum Investment Summit Angola (June 17–19, 2026).",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T22:22:00Z",
+    "updated_at": "2026-04-24T22:22:00Z"
   }
 ]

@@ -10726,5 +10726,60 @@
       "Africa"
     ],
     "country": "Multi-country"
+  },
+  {
+    "signal_id": "SIG-2026-04-24-ANGOLA-TOURISM-INVESTMENT-SUMMIT-001",
+    "title": "Angola positions tourism as diversification pillar ahead of Global Tourism Forum Investment Summit in Luanda (June 17–19, 2026)",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-04-24T22:22:00Z",
+    "summary": "Business Insider Africa reports Angola is framing tourism as a strategic diversification engine and hosting the Global Tourism Forum Investment Summit in Luanda (June 17–19, 2026), with references to ~€500M approved for roads, energy, and sanitation in priority tourism zones.",
+    "flow": "state diversification push -> tourism-linked infrastructure acceleration -> increased investor/developer convening and project origination surface in Angola",
+    "verification_note": "Media source + screenshot captured; summit date appears consistent across multiple outlets, but specific budget allocation claims should be cross-checked against official Angola government publications.",
+    "sources": [
+      {
+        "label": "Business Insider Africa article",
+        "url": "https://africa.businessinsider.com/local/lifestyle/angola-positions-itself-as-africas-next-tourism-investment-frontier/rft7qwk"
+      },
+      {
+        "label": "Isaac-provided screenshot",
+        "url": "internal://isaac/telegram/media/file_160-f396c2a4-0613-4d65-9d1d-34d586f96943.jpg"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Angola",
+      "Tourism Investment",
+      "Infrastructure",
+      "Diversification"
+    ],
+    "provenance": "provided_by_isaac_plus_media_source",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-org-government-of-angola",
+      "actor-org-world-tourism-forum-institute"
+    ],
+    "actor_roles": [
+      "host_government",
+      "event_platform"
+    ],
+    "initiative_ids": [
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "media_report_plus_user_screenshot",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "Angola"
+    ],
+    "country": "Angola"
   }
 ]
