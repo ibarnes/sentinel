@@ -10536,5 +10536,77 @@
       "Nigeria"
     ],
     "country": "Nigeria"
+  },
+  {
+    "signal_id": "SIG-2026-04-24-META-POWER-RIGHTS-ACCELERATION-001",
+    "title": "Meta capex + power-rights acceleration pattern signals hyperscaler shift toward utility-linked co-investment and long-horizon capacity locking",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-04-24T18:36:00Z",
+    "summary": "User signal indicates Meta announced Tulsa as global data center #32 ($1B+) alongside reported 1GW/100GWh reservation with Noon Energy, following recent El Paso/Beaver Dam/Lebanon announcements and Hyperion-associated generation expansion. Narrative suggests strategic shift from pure utility customer posture toward direct infrastructure co-investment and power-rights preemption.",
+    "flow": "model-competition pressure + accelerated data-center capex -> front-loaded power/interconnect rights control -> utility-linked generation and LDES structuring becomes strategic moat",
+    "verification_note": "Portions corroborated via public reporting (Meta Tulsa announcement; Noon reservation reports). Several quantitative and strategic interpretation claims remain analyst/user narrative and should be treated as directional until utility filings/official disclosures are reconciled.",
+    "sources": [
+      {
+        "label": "Isaac signal narrative",
+        "url": "internal://chat/2026-04-24"
+      },
+      {
+        "label": "Meta Tulsa announcement",
+        "url": "https://about.fb.com/news/2026/04/breaking-ground-new-ai-optimized-data-center-tulsa-oklahoma/"
+      },
+      {
+        "label": "Noon reservation report (trade media)",
+        "url": "https://www.datacenterdynamics.com/en/news/meta-signs-up-to-1gw-supply-deal-with-long-duration-energy-storage-firm-noon-energy/"
+      },
+      {
+        "label": "Hyperion/Entergy reporting",
+        "url": "https://fortune.com/2026/03/27/meta-hyperion-10-gas-power-plants-louisiana-entergy/"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Hyperscaler Infra",
+      "Power Rights",
+      "SPP Utilities",
+      "LDES",
+      "Meta"
+    ],
+    "provenance": "provided_by_isaac_plus_public_reports",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-org-meta-platforms",
+      "actor-org-noon-energy",
+      "actor-org-entergy-louisiana",
+      "actor-org-american-electric-power",
+      "actor-org-oge-energy",
+      "actor-org-evergy"
+    ],
+    "actor_roles": [
+      "demand_anchor",
+      "technology_partner",
+      "utility_counterparty",
+      "watchlist_utility"
+    ],
+    "initiative_ids": [
+      "INIT-AP-AI-FACTORY-001",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "user_market_note_plus_public_reports",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "USA"
+    ],
+    "country": "USA"
   }
 ]

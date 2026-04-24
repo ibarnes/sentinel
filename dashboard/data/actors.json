@@ -17661,5 +17661,131 @@
     "needs_review": false,
     "created_at": "2026-04-24T18:30:00Z",
     "updated_at": "2026-04-24T18:30:00Z"
+  },
+  {
+    "actor_id": "actor-org-meta-platforms",
+    "name_display": "Meta Platforms",
+    "organization_primary": "Meta Platforms, Inc.",
+    "designation": "Hyperscaler / AI infrastructure operator",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Macro demand and power-rights benchmark setter for AI infrastructure build cycles.",
+    "source_links": [
+      "https://about.fb.com/news/2026/04/breaking-ground-new-ai-optimized-data-center-tulsa-oklahoma/"
+    ],
+    "notes": "Tracked for rapid capex and power-rights strategy patterns across U.S. utility territories.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T18:36:00Z",
+    "updated_at": "2026-04-24T18:36:00Z"
+  },
+  {
+    "actor_id": "actor-org-noon-energy",
+    "name_display": "Noon Energy",
+    "organization_primary": "Noon Energy",
+    "designation": "Long-duration energy storage technology provider",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Potential LDES technology benchmark for firm-power AI infrastructure architectures.",
+    "source_links": [
+      "https://www.datacenterdynamics.com/en/news/meta-signs-up-to-1gw-supply-deal-with-long-duration-energy-storage-firm-noon-energy/"
+    ],
+    "notes": "Appears in reported Meta reservation agreement for up to 1GW/100GWh LDES capacity.",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "needs_review": false,
+    "created_at": "2026-04-24T18:36:00Z",
+    "updated_at": "2026-04-24T18:36:00Z"
+  },
+  {
+    "actor_id": "actor-org-entergy-louisiana",
+    "name_display": "Entergy Louisiana",
+    "organization_primary": "Entergy",
+    "designation": "Regulated utility and generation/transmission counterparty",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Reference utility structure for hyperscaler-funded generation and interconnect strategy.",
+    "source_links": [
+      "https://fortune.com/2026/03/27/meta-hyperion-10-gas-power-plants-louisiana-entergy/"
+    ],
+    "notes": "Included as utility counterparty in Hyperion-related reported generation expansion pattern.",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "needs_review": false,
+    "created_at": "2026-04-24T18:36:00Z",
+    "updated_at": "2026-04-24T18:36:00Z"
+  },
+  {
+    "actor_id": "actor-org-american-electric-power",
+    "name_display": "American Electric Power (AEP)",
+    "organization_primary": "American Electric Power",
+    "designation": "Public utility with potential data-center load exposure in SPP footprint",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Watchlist utility exposure for SPP-based AI infrastructure and power-rights capacity dynamics.",
+    "source_links": [
+      "internal://chat/2026-04-24-meta-capex-pattern-note"
+    ],
+    "notes": "Added as watchlist utility from user signal narrative; requires independent utility-filings level validation for specific exposure assumptions.",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "needs_review": false,
+    "created_at": "2026-04-24T18:36:00Z",
+    "updated_at": "2026-04-24T18:36:00Z"
+  },
+  {
+    "actor_id": "actor-org-oge-energy",
+    "name_display": "OGE Energy",
+    "organization_primary": "OGE Energy Corp.",
+    "designation": "Public utility with potential data-center load exposure in SPP footprint",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Watchlist utility exposure for SPP-based AI infrastructure and power-rights capacity dynamics.",
+    "source_links": [
+      "internal://chat/2026-04-24-meta-capex-pattern-note"
+    ],
+    "notes": "Added as watchlist utility from user signal narrative; requires independent utility-filings level validation for specific exposure assumptions.",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "needs_review": false,
+    "created_at": "2026-04-24T18:36:00Z",
+    "updated_at": "2026-04-24T18:36:00Z"
+  },
+  {
+    "actor_id": "actor-org-evergy",
+    "name_display": "Evergy",
+    "organization_primary": "Evergy, Inc.",
+    "designation": "Public utility with potential data-center load exposure in SPP footprint",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Watchlist utility exposure for SPP-based AI infrastructure and power-rights capacity dynamics.",
+    "source_links": [
+      "internal://chat/2026-04-24-meta-capex-pattern-note"
+    ],
+    "notes": "Added as watchlist utility from user signal narrative; requires independent utility-filings level validation for specific exposure assumptions.",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "needs_review": false,
+    "created_at": "2026-04-24T18:36:00Z",
+    "updated_at": "2026-04-24T18:36:00Z"
   }
 ]
