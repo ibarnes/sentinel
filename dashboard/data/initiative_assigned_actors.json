@@ -191,6 +191,14 @@
       "company": "Avanz Capital Egypt",
       "country": "Egypt",
       "resolution_status": "identified"
+    },
+    {
+      "first_name": "Demola",
+      "last_name": "Adesina",
+      "designation": "Country Manager, Nigeria (Swoop)",
+      "company": "Swoop",
+      "country": "Nigeria",
+      "resolution_status": "identified"
     }
   ]
 }

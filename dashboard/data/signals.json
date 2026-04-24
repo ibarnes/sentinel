@@ -10611,14 +10611,14 @@
   },
   {
     "signal_id": "SIG-2026-04-24-SWOOP-AFRICA-SUPERAPP-SEED-001",
-    "title": "Fortune reports Swoop raises $7.3M seed as Thiel-fellow founder pushes Africa super-app strategy from Lagos",
+    "title": "Swoop raises $7.3M seed and enters Nigeria with Lagos expansion, local operating lead, and transparent delivery-fee model",
     "signal_class": "Context Signal",
     "status": "Monitor",
     "confidence": "Medium",
     "verification_status": "reported",
     "observed_at": "2026-04-24T19:07:00Z",
-    "summary": "Fortune reports that 19-year-old founder Aubrey Niederhoffer raised $7.3M for Swoop, moved operations to Lagos, and plans to expand from food delivery into payments and broader super-app services in African markets.",
-    "flow": "seed financing + Lagos operating shift -> faster product expansion into payments/marketplace stack -> increased competition and optional partnership surface in Africa digital-consumer rails",
+    "summary": "Fortune plus user-provided screenshot indicate Swoop raised $7.3M, formally entered Nigeria via Lagos, and is scaling an Africa super-app strategy from food delivery into payments. Screenshot adds operator detail (Demola Adesina as Nigeria country manager) and economics: flat 7% handling fee, distance-based delivery pricing, and delivery fees routed to riders.",
+    "flow": "seed financing + Nigeria market entry + local operating buildout -> faster delivery-to-payments expansion -> stronger signal on African consumer-rails competition and monetization model design",
     "verification_note": "Source is a Fortune article; company-level metrics and partnership depth should be validated through primary disclosures before any strategic action.",
     "sources": [
       {
@@ -10628,6 +10628,10 @@
       {
         "label": "Isaac-provided link",
         "url": "internal://chat/2026-04-24"
+      },
+      {
+        "label": "Isaac-provided screenshot with Nigeria operating details",
+        "url": "internal://isaac/telegram/media/file_161-d1edf16a-f873-4222-bbb7-fe95e89fe637.jpg"
       }
     ],
     "tags": [
@@ -10642,11 +10646,13 @@
     "system_guess": "USG",
     "actor_refs": [
       "actor-us-aubrey-niederhoffer",
-      "actor-org-swoop-africa"
+      "actor-org-swoop-africa",
+      "actor-ng-demola-adesina"
     ],
     "actor_roles": [
       "founder_operator",
-      "startup_platform"
+      "startup_platform",
+      "local_operator"
     ],
     "initiative_ids": [
       "INIT-NG-FIN-ENERGY-SPINE",
@@ -10664,7 +10670,8 @@
       "Nigeria",
       "Eswatini"
     ],
-    "country": "Nigeria"
+    "country": "Nigeria",
+    "updated_at": "2026-04-24T23:33:00Z"
   },
   {
     "signal_id": "SIG-2026-04-24-VCPE-CONTINUUM-PANEL-ACTOR-TARGETS-001",
