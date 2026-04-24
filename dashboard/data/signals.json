@@ -10781,5 +10781,61 @@
       "Angola"
     ],
     "country": "Angola"
+  },
+  {
+    "signal_id": "SIG-2026-04-24-GHANA-NATIONAL-AI-STRATEGY-270M-001",
+    "title": "Ghana launches National AI Strategy with reported $270M commitment including $250M AI compute center investment",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-04-24T23:00:00Z",
+    "summary": "Xinhua reports Ghana launched a National AI Strategy, with President Mahama citing $250M for a national AI computing center, $20M for implementation, and 300,000 trainees in 2026 via One Million Coders.",
+    "flow": "national AI strategy launch -> sovereign compute and skills investment -> stronger regional competition and partnership surface for AI infrastructure and talent ecosystems",
+    "verification_note": "Source is Xinhua; core figures should be validated against Ghana government publication and implementing-agency documents for execution tracking.",
+    "sources": [
+      {
+        "label": "Xinhua report",
+        "url": "https://english.news.cn/africa/20260425/adb1842c0ec9418db30d854e655e2380/c.html?utm_source=chatgpt.com"
+      },
+      {
+        "label": "Isaac-provided link",
+        "url": "internal://chat/2026-04-24"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Ghana",
+      "National AI Strategy",
+      "Sovereign Compute",
+      "Digital Skills"
+    ],
+    "provenance": "provided_by_isaac_link",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-org-government-of-ghana",
+      "actor-gh-john-dramani-mahama"
+    ],
+    "actor_roles": [
+      "policy_authority",
+      "executive_sponsor"
+    ],
+    "initiative_ids": [
+      "INIT-AP-AI-FACTORY-001",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "major_media_report",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "Ghana"
+    ],
+    "country": "Ghana"
   }
 ]

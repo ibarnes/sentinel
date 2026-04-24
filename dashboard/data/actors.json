@@ -18012,5 +18012,49 @@
     "needs_review": false,
     "created_at": "2026-04-24T22:22:00Z",
     "updated_at": "2026-04-24T22:22:00Z"
+  },
+  {
+    "actor_id": "actor-org-government-of-ghana",
+    "name_display": "Government of Ghana",
+    "organization_primary": "Republic of Ghana",
+    "designation": "National policy authority launching AI strategy and compute infrastructure commitments",
+    "country_normalized": "Ghana",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "policy_signal_tracking",
+    "relationship_strength": "indirect",
+    "usg_relationship": "African policy and digital-infrastructure signal relevant to sovereign AI readiness and talent pipeline dynamics.",
+    "source_links": [
+      "https://english.news.cn/africa/20260425/adb1842c0ec9418db30d854e655e2380/c.html?utm_source=chatgpt.com"
+    ],
+    "notes": "Added from Xinhua report on Ghana National AI Strategy launch, compute center investment, and One Million Coders implementation.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T23:00:00Z",
+    "updated_at": "2026-04-24T23:00:00Z"
+  },
+  {
+    "actor_id": "actor-gh-john-dramani-mahama",
+    "name_display": "John Dramani Mahama",
+    "first_name": "John",
+    "last_name": "Dramani Mahama",
+    "organization_primary": "Government of Ghana",
+    "designation": "President of Ghana",
+    "country_normalized": "Ghana",
+    "actor_type": "government",
+    "owner": "Isaac Barnes",
+    "relationship_source": "policy_signal_tracking",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Executive sponsor of Ghana AI strategy and compute infrastructure commitment cited in signal.",
+    "source_links": [
+      "https://english.news.cn/africa/20260425/adb1842c0ec9418db30d854e655e2380/c.html?utm_source=chatgpt.com"
+    ],
+    "notes": "Reported announcing $270M package: $250M for AI compute center + $20M for national strategy implementation.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T23:00:00Z",
+    "updated_at": "2026-04-24T23:00:00Z"
   }
 ]
