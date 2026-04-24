@@ -17493,5 +17493,68 @@
     "needs_review": false,
     "created_at": "2026-04-24T02:38:00Z",
     "updated_at": "2026-04-24T02:38:00Z"
+  },
+  {
+    "actor_id": "actor-org-l-catterton",
+    "name_display": "L Catterton",
+    "organization_primary": "L Catterton",
+    "designation": "Global consumer-focused private equity platform",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "unmapped",
+    "usg_relationship": "Potential strategic capital/consumer-platform adjacency (signal-derived).",
+    "source_links": [
+      "internal://isaac/telegram/media/2026-04-24-champ-screenshots"
+    ],
+    "notes": "Added from user-provided social screenshot about CHAMP formation with Patricof Co; requires primary source confirmation.",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "needs_review": false,
+    "created_at": "2026-04-24T12:43:00Z",
+    "updated_at": "2026-04-24T12:43:00Z"
+  },
+  {
+    "actor_id": "actor-org-patricof-co",
+    "name_display": "Patricof Co",
+    "organization_primary": "Patricof Co",
+    "designation": "Athlete-investment and brand partnership platform",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "unmapped",
+    "usg_relationship": "Potential athlete-network/capital channel adjacency (signal-derived).",
+    "source_links": [
+      "internal://isaac/telegram/media/2026-04-24-champ-screenshots"
+    ],
+    "notes": "Added from user-provided social screenshot about CHAMP formation with L Catterton; requires primary source confirmation.",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "needs_review": false,
+    "created_at": "2026-04-24T12:43:00Z",
+    "updated_at": "2026-04-24T12:43:00Z"
+  },
+  {
+    "actor_id": "actor-platform-champ-athlete-managing-partner",
+    "name_display": "CHAMP (CChampion Athlete Managing Partner)",
+    "organization_primary": "CHAMP",
+    "designation": "Consumer investment platform with athlete co-ownership model",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "unmapped",
+    "usg_relationship": "Potential model reference for athlete-led equity and consumer growth partnerships.",
+    "source_links": [
+      "internal://isaac/telegram/media/2026-04-24-champ-screenshots"
+    ],
+    "notes": "Named in screenshot as joint formation by L Catterton and Patricof Co; details pending confirmation from primary release.",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "needs_review": false,
+    "created_at": "2026-04-24T12:43:00Z",
+    "updated_at": "2026-04-24T12:43:00Z"
   }
 ]

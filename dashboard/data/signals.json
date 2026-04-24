@@ -10317,5 +10317,61 @@
       "USA"
     ],
     "country": "Brazil"
+  },
+  {
+    "signal_id": "SIG-2026-04-24-CHAMP-LCATTERTON-PATRICOF-001",
+    "title": "Social-posted release claims L Catterton and Patricof Co formed CHAMP athlete co-ownership consumer investment platform",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-04-24T12:43:00Z",
+    "summary": "User-provided screenshots (TradedVC Instagram) state L Catterton and Patricof Co launched CHAMP, a consumer investment strategy centered on athlete equity/co-ownership with 250+ athlete partners and Connecticut/New York footprint.",
+    "flow": "consumer-investing platform formation -> athlete equity model at scale -> potential new channel for brand-growth and capital partnership pathways",
+    "verification_note": "Source is screenshot of social post; capture-first accepted but requires primary confirmation (official press release/company channels) before high-confidence actioning.",
+    "sources": [
+      {
+        "label": "Isaac-provided screenshot 1",
+        "url": "internal://isaac/telegram/media/file_153-ba471884-6798-472a-82e4-6a742148ca21.jpg"
+      },
+      {
+        "label": "Isaac-provided screenshot 2",
+        "url": "internal://isaac/telegram/media/file_154-6dd7ec8b-06dc-412b-99a5-9b0fe6cdb24d.jpg"
+      },
+      {
+        "label": "Isaac-provided screenshot 3",
+        "url": "internal://isaac/telegram/media/file_155-ae6e51f9-3334-46fc-93b3-0b704b3b2d06.jpg"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Consumer Investing",
+      "Athlete Equity Model",
+      "Platform Formation"
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-org-l-catterton",
+      "actor-org-patricof-co",
+      "actor-platform-champ-athlete-managing-partner"
+    ],
+    "actor_roles": [
+      "platform_sponsor",
+      "platform_partner",
+      "new_platform"
+    ],
+    "lifecycle_stage_refs": [
+      "capital"
+    ],
+    "evidence_type": "user_provided_social_screenshot",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "USA"
+    ],
+    "country": "USA"
   }
 ]
