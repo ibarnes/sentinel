@@ -143,6 +143,54 @@
       "company": "Citizens Companies",
       "country": "Mexico",
       "resolution_status": "identified"
+    },
+    {
+      "first_name": "Fope",
+      "last_name": "Adelowo",
+      "designation": "Future target from VC-PE Africa growth-capital panel",
+      "company": "Helios Investment Partners",
+      "country": "Unknown",
+      "resolution_status": "identified"
+    },
+    {
+      "first_name": "Khaled",
+      "last_name": "Ben Jilani",
+      "designation": "Future target from VC-PE Africa growth-capital panel",
+      "company": "Africinvest",
+      "country": "Unknown",
+      "resolution_status": "identified"
+    },
+    {
+      "first_name": "Maurizio",
+      "last_name": "Caio",
+      "designation": "Future target from VC-PE Africa growth-capital panel",
+      "company": "TLcom Capital",
+      "country": "Unknown",
+      "resolution_status": "identified"
+    },
+    {
+      "first_name": "Adefolarin",
+      "last_name": "Ogunsanya",
+      "designation": "Future target from VC-PE Africa growth-capital panel",
+      "company": "Development Partners International",
+      "country": "Unknown",
+      "resolution_status": "identified"
+    },
+    {
+      "first_name": "Ibrahim",
+      "last_name": "Sagna",
+      "designation": "Known relationship; panel context added",
+      "company": "Silverbacks Holdings",
+      "country": "Unknown",
+      "resolution_status": "identified"
+    },
+    {
+      "first_name": "Hany",
+      "last_name": "Assaad",
+      "designation": "Future target from VC-PE Africa growth-capital panel",
+      "company": "Avanz Capital Egypt",
+      "country": "Egypt",
+      "resolution_status": "identified"
     }
   ]
 }
