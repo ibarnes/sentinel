@@ -17464,5 +17464,34 @@
     "needs_review": false,
     "created_at": "2026-04-24T02:00:00Z",
     "updated_at": "2026-04-24T02:00:00Z"
+  },
+  {
+    "actor_id": "actor-mx-sergio-de-la-vega",
+    "name_display": "Sergio De la Vega",
+    "first_name": "Sergio",
+    "last_name": "De la Vega",
+    "organization_primary": "Citizens Companies",
+    "designation": "Senior executive focused on energy trading, structuring, and industrial project development",
+    "country_normalized": "Mexico",
+    "actor_type": "connector",
+    "owner": "Richard J. Hoffman",
+    "relationship_source": "richard_j_hoffman_connection",
+    "relationship_strength": "first_degree",
+    "usg_relationship": "Richard-connected operator profile with potential commodity corridor and energy-finance relevance.",
+    "linked_initiatives": [
+      "INIT-2026-03-05-COMMODITY-CORRIDOR",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "source_links": [
+      "internal://isaac/telegram/media/2026-04-24-sergio-profile-pdf",
+      "internal://isaac/telegram/media/2026-04-24-citizens-company-profile-pdf",
+      "internal://chat/2026-04-24"
+    ],
+    "notes": "Profile indicates 30+ years across commodity trading, financial structuring, and industrial energy projects. Richard-sourced claim: access to two major Brazilian families (names pending). Treat access claim as unverified until specific family identities and path proof are captured.",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "needs_review": false,
+    "created_at": "2026-04-24T02:38:00Z",
+    "updated_at": "2026-04-24T02:38:00Z"
   }
 ]
