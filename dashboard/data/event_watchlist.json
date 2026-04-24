@@ -1,0 +1,51 @@
+[
+  {
+    "event_id": "EVT-2026-04-JETS-AND-CAPITAL-WATCH-001",
+    "event_name": "Jets & Capital (multi-city private investor event series)",
+    "organization": "Jets & Capital",
+    "source_urls": [
+      "https://www.jetsandcapital.com/sponsor",
+      "https://www.jetsandcapital.com/about",
+      "https://www.jetsandcapital.com/attend"
+    ],
+    "tracking_status": "Monitor",
+    "tier": "watchlist",
+    "qualification_framework": {
+      "capital_density": "High (claimed allocator/family-office skew)",
+      "deal_adjacency": "Medium-High (fundraising + sponsor pathways)",
+      "path_relevance_to_usg": "Medium (potential entry channel for capital partner mapping)",
+      "passes_2_of_3_rule": true
+    },
+    "likely_sector": "Private capital / investor networking",
+    "likely_region": "USA (multi-city)",
+    "relationship_owners": {
+      "primary": "Isaac Barnes",
+      "supporting": [
+        "Maryan Ali",
+        "Richard J. Hoffman"
+      ]
+    },
+    "linked_actor_ids": [
+      "actor-org-jets-and-capital",
+      "actor-us-jordan-hutchinson"
+    ],
+    "linked_initiative_ids": [
+      "INIT-AP-AI-FACTORY-001",
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "next_actions": [
+      "Identify whether there is a direct warm path from any existing first-degree USG team connection to Jordan Hutchinson or sponsor committee.",
+      "Capture upcoming event dates and attendee/sponsor list quality threshold before committing spend or attendance.",
+      "Prioritize one city event with highest allocator density for pilot outreach test."
+    ],
+    "risk_notes": [
+      "Public page claims (e.g., attendee composition percentages) are marketing statements and remain unverified.",
+      "Without a warm path, sponsor spend risk may exceed immediate conversion probability."
+    ],
+    "verification_status": "provided",
+    "confidence_level": "Medium",
+    "created_at": "2026-04-24T02:00:00Z",
+    "updated_at": "2026-04-24T02:00:00Z"
+  }
+]

@@ -10215,5 +10215,59 @@
     ],
     "country": "USA",
     "updated_at": "2026-04-23T16:25:00Z"
+  },
+  {
+    "signal_id": "SIG-2026-04-24-JETS-CAPITAL-EVENT-WATCH-001",
+    "title": "Jets & Capital added to event watchlist as potential allocator-density channel",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "observed_at": "2026-04-24T02:00:00Z",
+    "summary": "Following Isaac request, Jets & Capital was added to event watchlist for possible investor/family-office channel access and sponsor-path testing.",
+    "flow": "event discovery -> watchlist qualification -> relationship-owner assignment -> pilot event selection",
+    "verification_note": "Website assertions about attendee composition require independent verification before budgeted participation.",
+    "sources": [
+      {
+        "label": "Isaac direct prompt",
+        "url": "internal://chat/2026-04-24"
+      },
+      {
+        "label": "Jets & Capital sponsor page",
+        "url": "https://www.jetsandcapital.com/sponsor"
+      },
+      {
+        "label": "Jets & Capital about page",
+        "url": "https://www.jetsandcapital.com/about"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Event Watchlist",
+      "Capital Partner Channel"
+    ],
+    "provenance": "provided_by_isaac",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-org-jets-and-capital",
+      "actor-us-jordan-hutchinson"
+    ],
+    "actor_roles": [
+      "event_platform",
+      "potential_intro_node"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "public_web_plus_user_prompt",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "USA"
+    ],
+    "country": "USA"
   }
 ]

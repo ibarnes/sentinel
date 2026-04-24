@@ -17417,5 +17417,52 @@
     "needs_review": false,
     "created_at": "2026-04-23T16:21:00Z",
     "updated_at": "2026-04-23T16:25:00Z"
+  },
+  {
+    "actor_id": "actor-org-jets-and-capital",
+    "name_display": "Jets & Capital",
+    "organization_primary": "Jets & Capital",
+    "designation": "Private investor event series (family offices, allocators, UHNW)",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "event_watchlist_inbound",
+    "relationship_strength": "prospect",
+    "usg_relationship": "Event platform under watchlist review for allocator-dense sponsor/attendee channel access.",
+    "source_links": [
+      "https://www.jetsandcapital.com/about",
+      "https://www.jetsandcapital.com/sponsor",
+      "https://www.jetsandcapital.com/attend"
+    ],
+    "notes": "Added to event watchlist following Isaac review request. Site copy claims allocator-heavy attendance and strict vetting; treat as marketing claim until independently verified.",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "needs_review": false,
+    "created_at": "2026-04-24T02:00:00Z",
+    "updated_at": "2026-04-24T02:00:00Z"
+  },
+  {
+    "actor_id": "actor-us-jordan-hutchinson",
+    "name_display": "Jordan Hutchinson",
+    "first_name": "Jordan",
+    "last_name": "Hutchinson",
+    "organization_primary": "Jets & Capital",
+    "designation": "Host / organizer",
+    "country_normalized": "USA",
+    "actor_type": "connector",
+    "owner": "Isaac Barnes",
+    "relationship_source": "event_watchlist_inbound",
+    "relationship_strength": "prospect",
+    "usg_relationship": "Potential event-entry contact for allocator and sponsor channel mapping.",
+    "source_links": [
+      "https://www.jetsandcapital.com/attend",
+      "https://www.jetsandcapital.com/about"
+    ],
+    "notes": "Name appears on event-site copy as host. Relationship not yet confirmed as direct.",
+    "confidence": "Medium",
+    "verification_status": "provided",
+    "needs_review": false,
+    "created_at": "2026-04-24T02:00:00Z",
+    "updated_at": "2026-04-24T02:00:00Z"
   }
 ]
