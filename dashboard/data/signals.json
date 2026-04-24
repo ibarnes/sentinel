@@ -10424,5 +10424,61 @@
       "UAE"
     ],
     "country": "UAE"
+  },
+  {
+    "signal_id": "SIG-2026-04-24-AFC-NAIROBI-OFFICE-EA-DEPLOYMENT-001",
+    "title": "AFC and Government of Kenya sign Host Country Agreement for AFC’s first regional office in Nairobi with >US$2B East Africa deployment target",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-04-24T18:29:00Z",
+    "summary": "Official AFC release states AFC established its first regional office in Nairobi and plans to deploy/mobilize over US$2 billion in East Africa over 3–5 years, focused on logistics corridors, power/transmission, SEZs, digital infrastructure, and local-currency structuring.",
+    "flow": "regional office establishment -> closer origination and structuring capacity -> higher probability of bankable infrastructure conversion and syndication in East Africa",
+    "verification_note": "Source is AFC official release; practical project-level access still depends on specific counterparties, mandates, and transaction readiness.",
+    "sources": [
+      {
+        "label": "AFC official news release",
+        "url": "https://www.africafc.org/news-and-insights/news/afc-establishes-nairobi-office-targeting-additional-us-2-billion-in-regional-investments-and-financial-services-solutions"
+      },
+      {
+        "label": "User-provided narrative signal",
+        "url": "internal://chat/2026-04-24"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "East Africa",
+      "AFC",
+      "Infrastructure Finance",
+      "Regional Office Expansion"
+    ],
+    "provenance": "provided_by_isaac_plus_official_source",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-org-africa-finance-corporation",
+      "actor-org-government-of-kenya"
+    ],
+    "actor_roles": [
+      "capital_provider",
+      "host_counterparty"
+    ],
+    "buyer_ids": [
+      "AFC"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "official_public_release",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "Kenya",
+      "East Africa"
+    ],
+    "country": "Kenya"
   }
 ]

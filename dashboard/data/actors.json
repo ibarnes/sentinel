@@ -17577,5 +17577,47 @@
     "needs_review": false,
     "created_at": "2026-04-24T17:57:00Z",
     "updated_at": "2026-04-24T17:57:00Z"
+  },
+  {
+    "actor_id": "actor-org-africa-finance-corporation",
+    "name_display": "Africa Finance Corporation (AFC)",
+    "organization_primary": "Africa Finance Corporation",
+    "designation": "Pan-African development finance institution",
+    "country_normalized": "Nigeria",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "policy_signal_tracking",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Strategic DFI capital node relevant to infrastructure bankability and regional syndication pathways.",
+    "source_links": [
+      "https://www.africafc.org/news-and-insights/news/afc-establishes-nairobi-office-targeting-additional-us-2-billion-in-regional-investments-and-financial-services-solutions"
+    ],
+    "notes": "Tracked from AFC official release on Nairobi regional office and East Africa deployment plans.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T18:29:00Z",
+    "updated_at": "2026-04-24T18:29:00Z"
+  },
+  {
+    "actor_id": "actor-org-government-of-kenya",
+    "name_display": "Government of Kenya",
+    "organization_primary": "Government of Kenya",
+    "designation": "National government counterparty and host authority for AFC Nairobi regional office",
+    "country_normalized": "Kenya",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "policy_signal_tracking",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Host-country and policy counterpart in East Africa infrastructure finance context.",
+    "source_links": [
+      "https://www.africafc.org/news-and-insights/news/afc-establishes-nairobi-office-targeting-additional-us-2-billion-in-regional-investments-and-financial-services-solutions"
+    ],
+    "notes": "Added from official AFC release citing signed Host Country Agreement for Nairobi regional office.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T18:29:00Z",
+    "updated_at": "2026-04-24T18:29:00Z"
   }
 ]
