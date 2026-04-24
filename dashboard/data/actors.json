@@ -17556,5 +17556,26 @@
     "needs_review": false,
     "created_at": "2026-04-24T12:43:00Z",
     "updated_at": "2026-04-24T12:43:00Z"
+  },
+  {
+    "actor_id": "actor-org-uae-federal-cabinet",
+    "name_display": "UAE Federal Cabinet",
+    "organization_primary": "Government of the United Arab Emirates",
+    "designation": "Federal executive body setting AI governance, service standards, and strategic economic directives",
+    "country_normalized": "UAE",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "policy_signal_tracking",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Macro-policy and execution context setter for UAE AI adoption, digital government standards, and trade/finance governance relevant to USG regional pathways.",
+    "source_links": [
+      "https://mediaoffice.ae/en/news/2026/april/23-04/mohammed-bin-rashid-chairs-uae-cabinet-meeting"
+    ],
+    "notes": "Tracked from official UAE media office release covering agentic AI deployment target, taskforce oversight, and cabinet-level governance updates.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T17:57:00Z",
+    "updated_at": "2026-04-24T17:57:00Z"
   }
 ]

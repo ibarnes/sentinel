@@ -10373,5 +10373,56 @@
       "USA"
     ],
     "country": "USA"
+  },
+  {
+    "signal_id": "SIG-2026-04-24-UAE-CABINET-AGENTIC-AI-EXECUTION-001",
+    "title": "UAE Cabinet announces 2-year target to deploy agentic AI across 50% of government sectors",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-04-24T17:57:00Z",
+    "summary": "Official UAE media office release states cabinet-led framework to transform 50% of UAE government sectors/services to agentic AI within two years, with execution oversight assigned to Sheikh Mansour and taskforce chaired by Mohammad Al Gergawi.",
+    "flow": "federal AI mandate -> accelerated autonomous service/governance deployment -> stronger policy and execution pull for AI infrastructure, digital services, and strategic partnerships",
+    "verification_note": "Source is an official UAE government media release; operational implications for specific projects/counterparties still require deal-level validation.",
+    "sources": [
+      {
+        "label": "UAE Media Office release",
+        "url": "https://mediaoffice.ae/en/news/2026/april/23-04/mohammed-bin-rashid-chairs-uae-cabinet-meeting"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "UAE Policy Signal",
+      "Agentic AI",
+      "Digital Government",
+      "Execution Governance"
+    ],
+    "provenance": "provided_by_isaac_link",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-org-uae-federal-cabinet"
+    ],
+    "actor_roles": [
+      "policy_authority"
+    ],
+    "initiative_ids": [
+      "INIT-AP-AI-FACTORY-001",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "official_public_release",
+    "evidence_strength": "high",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "UAE"
+    ],
+    "country": "UAE"
   }
 ]
