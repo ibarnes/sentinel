@@ -17787,5 +17787,49 @@
     "needs_review": false,
     "created_at": "2026-04-24T18:36:00Z",
     "updated_at": "2026-04-24T18:36:00Z"
+  },
+  {
+    "actor_id": "actor-us-aubrey-niederhoffer",
+    "name_display": "Aubrey Niederhoffer",
+    "first_name": "Aubrey",
+    "last_name": "Niederhoffer",
+    "organization_primary": "Swoop",
+    "designation": "Founder and CEO; Thiel Fellow; building Africa-focused super app starting with food delivery and payments",
+    "country_normalized": "USA",
+    "actor_type": "connector",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Emerging operator signal in Africa consumer/payments platform layer with potential relevance to digital market-access thesis.",
+    "source_links": [
+      "https://fortune.com/2026/04/23/19-year-old-thiel-fellow-7-3-million-african-super-app-swoop/"
+    ],
+    "notes": "Fortune profile reports $7.3M seed raise and Lagos expansion with super-app ambition across delivery and payments.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T19:07:00Z",
+    "updated_at": "2026-04-24T19:07:00Z"
+  },
+  {
+    "actor_id": "actor-org-swoop-africa",
+    "name_display": "Swoop",
+    "organization_primary": "Swoop",
+    "designation": "Africa-oriented food-delivery and payments startup with super-app ambition",
+    "country_normalized": "Nigeria",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Early-stage digital platform signal relevant to consumer payments and service aggregation trends in African markets.",
+    "source_links": [
+      "https://fortune.com/2026/04/23/19-year-old-thiel-fellow-7-3-million-african-super-app-swoop/"
+    ],
+    "notes": "Reported operations in Eswatini and Lagos; stated intention to expand into payments and broader super-app services.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T19:07:00Z",
+    "updated_at": "2026-04-24T19:07:00Z"
   }
 ]

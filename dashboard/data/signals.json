@@ -10608,5 +10608,62 @@
       "USA"
     ],
     "country": "USA"
+  },
+  {
+    "signal_id": "SIG-2026-04-24-SWOOP-AFRICA-SUPERAPP-SEED-001",
+    "title": "Fortune reports Swoop raises $7.3M seed as Thiel-fellow founder pushes Africa super-app strategy from Lagos",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "observed_at": "2026-04-24T19:07:00Z",
+    "summary": "Fortune reports that 19-year-old founder Aubrey Niederhoffer raised $7.3M for Swoop, moved operations to Lagos, and plans to expand from food delivery into payments and broader super-app services in African markets.",
+    "flow": "seed financing + Lagos operating shift -> faster product expansion into payments/marketplace stack -> increased competition and optional partnership surface in Africa digital-consumer rails",
+    "verification_note": "Source is a Fortune article; company-level metrics and partnership depth should be validated through primary disclosures before any strategic action.",
+    "sources": [
+      {
+        "label": "Fortune article",
+        "url": "https://fortune.com/2026/04/23/19-year-old-thiel-fellow-7-3-million-african-super-app-swoop/"
+      },
+      {
+        "label": "Isaac-provided link",
+        "url": "internal://chat/2026-04-24"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Africa Digital Platforms",
+      "Super App",
+      "Payments",
+      "Early-Stage Capital"
+    ],
+    "provenance": "provided_by_isaac_link",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-us-aubrey-niederhoffer",
+      "actor-org-swoop-africa"
+    ],
+    "actor_roles": [
+      "founder_operator",
+      "startup_platform"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-GLOBAL-AUTOMATED-LABOR-INFRASTRUCTURE"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "major_media_report",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "Nigeria",
+      "Eswatini"
+    ],
+    "country": "Nigeria"
   }
 ]
