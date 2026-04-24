@@ -17619,5 +17619,47 @@
     "needs_review": false,
     "created_at": "2026-04-24T18:29:00Z",
     "updated_at": "2026-04-24T18:29:00Z"
+  },
+  {
+    "actor_id": "actor-org-usda-gsm102-program",
+    "name_display": "USDA GSM-102 Export Credit Guarantee Program",
+    "organization_primary": "U.S. Department of Agriculture (USDA) / Foreign Agricultural Service",
+    "designation": "U.S. government-backed export credit guarantee mechanism for agricultural trade finance",
+    "country_normalized": "USA",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Trade-finance policy channel relevant to Nigeria-linked agri-input flows and broader commercial financing momentum.",
+    "source_links": [
+      "https://africa.businessinsider.com/local/markets/us-reopens-dollar15bn-nigeria-trade-channel-with-revived-farm-credit-scheme/l7x9bbk"
+    ],
+    "notes": "Signal references restoration/expansion of GSM-102 access for Nigerian banks and importers after late-2025 eligibility changes.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T18:30:00Z",
+    "updated_at": "2026-04-24T18:30:00Z"
+  },
+  {
+    "actor_id": "actor-org-government-of-nigeria",
+    "name_display": "Government of Nigeria",
+    "organization_primary": "Federal Republic of Nigeria",
+    "designation": "National trade and agricultural policy counterparty",
+    "country_normalized": "Nigeria",
+    "actor_type": "organization",
+    "owner": "Isaac Barnes",
+    "relationship_source": "signal_capture",
+    "relationship_strength": "indirect",
+    "usg_relationship": "Counterparty jurisdiction benefiting from restored U.S.-backed agri trade credit channels.",
+    "source_links": [
+      "https://africa.businessinsider.com/local/markets/us-reopens-dollar15bn-nigeria-trade-channel-with-revived-farm-credit-scheme/l7x9bbk"
+    ],
+    "notes": "Included for signal mapping around bilateral trade and agricultural financing channels.",
+    "confidence": "Medium",
+    "verification_status": "reported",
+    "needs_review": false,
+    "created_at": "2026-04-24T18:30:00Z",
+    "updated_at": "2026-04-24T18:30:00Z"
   }
 ]

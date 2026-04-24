@@ -10480,5 +10480,61 @@
       "East Africa"
     ],
     "country": "Kenya"
+  },
+  {
+    "signal_id": "SIG-2026-04-24-US-NG-GSM102-TRADE-CREDIT-001",
+    "title": "U.S. reopens/expands GSM-102-backed agricultural trade financing channel with Nigeria as bilateral trade reaches ~$15B",
+    "signal_class": "Context Signal",
+    "status": "Monitor",
+    "confidence": "Medium",
+    "verification_status": "reported_with_caveats",
+    "observed_at": "2026-04-24T18:30:00Z",
+    "summary": "Business Insider Africa reports restoration/expansion of USDA GSM-102 credit guarantees supporting Nigerian bank/importer access to U.S.-backed agri financing, with cited growth in U.S.-Nigeria bilateral trade and agricultural flows.",
+    "flow": "trade-credit channel reactivation -> lower financing friction for cross-border agri inputs -> broader aid-to-trade commercial signaling in U.S.-Nigeria corridor",
+    "verification_note": "Primary confirmation should include official U.S. government source publication (e.g., Embassy/USDA/FAS) and bank-level credit-limit details; media source captured now for speed.",
+    "sources": [
+      {
+        "label": "Business Insider Africa article",
+        "url": "https://africa.businessinsider.com/local/markets/us-reopens-dollar15bn-nigeria-trade-channel-with-revived-farm-credit-scheme/l7x9bbk"
+      },
+      {
+        "label": "Isaac-provided screenshot",
+        "url": "internal://isaac/telegram/media/file_158-69ea4890-2450-4e58-9ac3-3bf18fae21c7.jpg"
+      }
+    ],
+    "tags": [
+      "USG Context",
+      "Nigeria Trade Finance",
+      "USDA GSM-102",
+      "Aid-to-Trade Shift",
+      "Agricultural Inputs"
+    ],
+    "provenance": "provided_by_isaac_plus_media_source",
+    "model_step": "1_collect_signals",
+    "system_guess": "USG",
+    "actor_refs": [
+      "actor-org-usda-gsm102-program",
+      "actor-org-government-of-nigeria"
+    ],
+    "actor_roles": [
+      "credit_framework",
+      "trade_counterparty"
+    ],
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "lifecycle_stage_refs": [
+      "capital",
+      "governance"
+    ],
+    "evidence_type": "media_report_plus_user_screenshot",
+    "evidence_strength": "medium",
+    "advances_hypothesis": true,
+    "blocks_hypothesis": false,
+    "geography": [
+      "USA",
+      "Nigeria"
+    ],
+    "country": "Nigeria"
   }
 ]
