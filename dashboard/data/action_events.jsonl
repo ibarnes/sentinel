@@ -924,3 +924,5 @@
 {"ts":"2026-04-19T02:37:28.336Z","event_type":"action.blocked","action_id":"ACT-5462bee2e34d3b5e","actor":"system","meta":{"blocker_reason":"missing decision owner"}}
 {"ts":"2026-04-19T02:37:28.337Z","event_type":"action.created","action_id":"ACT-71c851b36842dc7b","actor":"system","meta":{"meeting_id":"MM-2026-04-19-RICHARD-GDH-ANGOLA-THREAD-001"}}
 {"ts":"2026-04-19T02:37:28.337Z","event_type":"action.assigned","action_id":"ACT-71c851b36842dc7b","actor":"system","meta":{"owner":"Richard Hoffman"}}
+{"ts": "2026-04-25T00:15:55.372Z", "event_type": "action.created", "action_id": "ACT-e2b9764b3a6d5ab0", "actor": "system", "meta": {"meeting_id": "MM-2026-04-24-DAVID-CROWN-001"}}
+{"ts": "2026-04-25T00:15:55.372Z", "event_type": "action.assigned", "action_id": "ACT-e2b9764b3a6d5ab0", "actor": "system", "meta": {"owner": "Isaac"}}
