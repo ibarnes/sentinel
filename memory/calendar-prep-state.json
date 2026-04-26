@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-26T18:05:00Z",
-  "lastSweepAt": "2026-04-26T18:05:00Z",
+  "updatedAt": "2026-04-26T18:35:00Z",
+  "lastSweepAt": "2026-04-26T18:35:00Z",
   "notes": "Tracks per-meeting prep notifications to avoid duplicate T-24h/T-60m sends.",
   "sent": {
     "F7227425-81EB-4A08-83E5-C624CE44A645": {
@@ -115,6 +115,16 @@
           "status": "sent"
         }
       }
+    },
+    "2vh7lpfji87duoei0pdemuvqkr@google.com": {
+      "meetingSummary": "Internal Bestaf Cadence",
+      "start": "2026-04-30T11:00:00.000Z",
+      "horizons": {}
+    },
+    "3seskn4tohr10tl16v6h4ced10_R20251001T160000@google.com": {
+      "meetingSummary": "Operational Briefings",
+      "start": "2026-05-06T12:00:00.000Z",
+      "horizons": {}
     }
   }
 }
