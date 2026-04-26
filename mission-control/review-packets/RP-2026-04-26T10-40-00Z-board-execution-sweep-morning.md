@@ -38,4 +38,4 @@
 - Without credentials, live smoke acceptance criteria (201/400 real responses) cannot be completed.
 
 ## Commit Hash
-- Pending (to be filled post-commit)
+- `755f442`
