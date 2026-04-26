@@ -2854,6 +2854,9 @@ app.get('/dashboard/live-deals', async (req, res) => {
   const qualifiedLiveDeals = selectedPipeline.filter((row) => normalizeLiveDealScore(pickField(row, 'live_deal_score', 'Live Deal Score')) >= 4);
   const handoffRows = selectedPipeline.filter((row) => yes(pickField(row, 'handoff_ready', 'Handoff Ready')));
   const paidRows = selectedPipeline.filter((row) => yes(pickField(row, 'converted_to_paid_review', 'Converted to Paid Review')) || String(pickField(row, 'status', 'Status') || '') === 'Paid Deal Review');
+  const actionQueueRows = selectedPipeline.filter((row) => ['New Target', 'Researched', 'Message Sent', 'Follow-Up Needed'].includes(String(pickField(row, 'status', 'Status') || '')));
+  const qualifyQueueRows = selectedPipeline.filter((row) => ['Replied', 'Deal Mentioned', 'Qualifying'].includes(String(pickField(row, 'status', 'Status') || '')) || normalizeLiveDealScore(pickField(row, 'live_deal_score', 'Live Deal Score')) === 3);
+  const handoffQueueRows = selectedPipeline.filter((row) => yes(pickField(row, 'handoff_ready', 'Handoff Ready')) || ['Deal Review Handoff', 'Paid Deal Review'].includes(String(pickField(row, 'status', 'Status') || '')));
 
   const sourcePerf = new Map();
   for (const row of selectedPipeline) {
@@ -2936,6 +2939,15 @@ app.get('/dashboard/live-deals', async (req, res) => {
     </div>
   </form>`;
 
+  const workflowPanel = `<div class="card mb-3"><div class="card-body">
+    <div class="d-flex justify-content-between align-items-center mb-2"><h6 class="mb-0">Workflow Focus</h6><span class="small text-muted">Do this in order</span></div>
+    <div class="row g-2">
+      <div class="col-12 col-md-4"><div class="border rounded p-2 h-100"><div class="small text-muted">1) Action Queue</div><div class="fw-semibold">${actionQueueRows.length}</div><div class="small text-muted">Research, send, follow-up</div></div></div>
+      <div class="col-12 col-md-4"><div class="border rounded p-2 h-100"><div class="small text-muted">2) Qualification Queue</div><div class="fw-semibold">${qualifyQueueRows.length}</div><div class="small text-muted">Pressure + blocker + buyer path</div></div></div>
+      <div class="col-12 col-md-4"><div class="border rounded p-2 h-100"><div class="small text-muted">3) Handoff Queue</div><div class="fw-semibold">${handoffQueueRows.length}</div><div class="small text-muted">Deal review ready now</div></div></div>
+    </div>
+  </div></div>`;
+
   const quickCapturePanel = canEdit ? `<div class="card mb-3"><div class="card-body">
     <h6 class="mb-2">Quick Capture</h6>
     <div class="row g-2 mb-2">
@@ -3015,6 +3027,7 @@ app.get('/dashboard/live-deals', async (req, res) => {
     ${dashboardNav('live-deals')}
     ${pageHeader('Live Deal Detection Sprint Board', '', 'SWAT-mode: reward qualified live deals, not vanity activity.')}
     ${sprintFilter}
+    ${workflowPanel}
     ${quickCapturePanel}
 
     <div class="row g-3 mb-3">
@@ -3025,6 +3038,14 @@ app.get('/dashboard/live-deals', async (req, res) => {
     </div>
 
     <div class="card mb-3"><div class="table-responsive"><table class="table table-sm align-middle mb-0"><thead><tr><th>KPI</th><th>Today</th><th>Current Sprint Total</th><th>Current Sprint Target</th><th>Six-Sprint Total</th><th>Conversion/Target</th></tr></thead><tbody>${kpiRows || '<tr><td colspan="6" class="text-muted">No KPI data yet.</td></tr>'}</tbody></table></div></div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-xl-4">${tableShell(['Action Queue', 'Company', 'Status'], actionQueueRows.slice(0, 20).map((r) => `<tr><td>${escapeHtml(String(pickField(r, 'contact_name', 'Contact Name') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'company', 'Company') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'status', 'Status') || '—'))}</td></tr>`), 'No action queue items', 3)}</div>
+      <div class="col-12 col-xl-4">${tableShell(['Qualification Queue', 'Company', 'Score'], qualifyQueueRows.slice(0, 20).map((r) => `<tr><td>${escapeHtml(String(pickField(r, 'contact_name', 'Contact Name') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'company', 'Company') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'live_deal_score', 'Live Deal Score') || '—'))}</td></tr>`), 'No qualification queue items', 3)}</div>
+      <div class="col-12 col-xl-4">${tableShell(['Handoff Queue', 'Company', 'Urgency'], handoffQueueRows.slice(0, 20).map((r) => `<tr><td>${escapeHtml(String(pickField(r, 'contact_name', 'Contact Name') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'company', 'Company') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'urgency', 'Urgency') || '—'))}</td></tr>`), 'No handoff queue items', 3)}</div>
+    </div>
+
+    <details class="card mb-3"><summary class="card-body" style="cursor:pointer"><strong>Analytics & Scoreboards</strong> <span class="small text-muted">(expand when needed)</span></summary><div class="card-body pt-0">
 
     <div class="row g-3 mb-3">
       <div class="col-12 col-lg-6">${tableShell(['Conversion Rate', 'Current Sprint'], conversionRows ? conversionRows.split('</tr>').filter(Boolean).map((r)=>r + '</tr>') : [], 'No conversion data yet', 2)}</div>
@@ -3053,6 +3074,7 @@ app.get('/dashboard/live-deals', async (req, res) => {
       'No sprint scoreboard data yet',
       8,
     )}
+    </div></details>
     ${quickCaptureScript}
   </div></body></html>`);
 });
