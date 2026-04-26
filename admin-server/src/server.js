@@ -1321,6 +1321,130 @@ function conversionStack(metrics = {}) {
   ];
 }
 
+function normalizeLiveDealYesNo(value, fallback = 'No') {
+  const v = String(value || '').trim().toLowerCase();
+  if (v === 'yes') return 'Yes';
+  if (v === 'no') return 'No';
+  return fallback;
+}
+
+function normalizeLiveDealPipelineRecord(input = {}, prior = null) {
+  const prev = prior && typeof prior === 'object' ? prior : {};
+  const now = nowIso();
+  const recordId = String(input.record_id || prev.record_id || `LD-${crypto.randomUUID().slice(0, 8)}`).trim();
+  const sprintId = String(input.sprint_id || prev.sprint_id || '').trim();
+  if (!sprintId) return { error: 'sprint_id_required', status: 400 };
+
+  let status = String(input.status || prev.status || 'New Target').trim();
+  if (!LIVE_DEAL_STAGE_ORDER.includes(status)) status = 'New Target';
+
+  const liveDealScoreRaw = String(input.live_deal_score ?? prev.live_deal_score ?? '1 Noise').trim();
+  const liveDealScoreNum = normalizeLiveDealScore(liveDealScoreRaw);
+
+  const blockerCategory = String(input.blocker_category || prev.blocker_category || '').trim();
+  const urgency = String(input.urgency || prev.urgency || '').trim();
+  const dealMentioned = normalizeLiveDealYesNo(input.deal_mentioned ?? prev.deal_mentioned, 'No');
+  const decisionMakerKnown = normalizeLiveDealYesNo(input.decision_maker_known ?? prev.decision_maker_known, 'No');
+  const budgetPath = String(input.budget_path || prev.budget_path || '').trim();
+  const convertedToPaid = normalizeLiveDealYesNo(input.converted_to_paid_review ?? prev.converted_to_paid_review, 'No');
+
+  const autoHandoffReady = dealMentioned === 'Yes'
+    && liveDealScoreNum >= 4
+    && ['Medium', 'High'].includes(urgency)
+    && Boolean(blockerCategory)
+    && (decisionMakerKnown === 'Yes' || ['Clear', 'Possible'].includes(budgetPath));
+
+  const handoffReadyInput = input.handoff_ready ?? prev.handoff_ready;
+  const handoffReady = autoHandoffReady
+    ? 'Yes'
+    : normalizeLiveDealYesNo(handoffReadyInput, 'No');
+
+  if (convertedToPaid === 'Yes') status = 'Paid Deal Review';
+
+  const followUpDate = toDateOnly(input.follow_up_date || prev.follow_up_date || '');
+  const followUpQueueFlag = followUpDate && followUpDate <= toDateOnly(new Date()) && status !== 'Dead / Not Now' ? 'Yes' : 'No';
+
+  const record = {
+    ...prev,
+    ...input,
+    record_id: recordId,
+    sprint_id: sprintId,
+    sprint_start_date: toDateOnly(input.sprint_start_date || prev.sprint_start_date || ''),
+    sprint_end_date: toDateOnly(input.sprint_end_date || prev.sprint_end_date || ''),
+    sprint_theme: String(input.sprint_theme || prev.sprint_theme || '').trim(),
+    sprint_hypothesis: String(input.sprint_hypothesis || prev.sprint_hypothesis || '').trim(),
+    sprint_outcome: String(input.sprint_outcome || prev.sprint_outcome || '').trim(),
+    source_cohort: String(input.source_cohort || prev.source_cohort || '').trim(),
+    converted_to_paid_review: convertedToPaid,
+    contact_name: String(input.contact_name || prev.contact_name || '').trim(),
+    company: String(input.company || prev.company || '').trim(),
+    contact_type: String(input.contact_type || prev.contact_type || '').trim(),
+    source: String(input.source || prev.source || '').trim(),
+    relationship_strength: String(input.relationship_strength || prev.relationship_strength || '').trim(),
+    team_owner: String(input.team_owner || prev.team_owner || '').trim(),
+    message_sent_date: toDateOnly(input.message_sent_date || prev.message_sent_date || ''),
+    follow_up_date: followUpDate,
+    reply_status: String(input.reply_status || prev.reply_status || '').trim(),
+    status,
+    next_step: String(input.next_step || prev.next_step || '').trim(),
+    notes: String(input.notes || prev.notes || '').trim(),
+    deal_mentioned: dealMentioned,
+    deal_type: String(input.deal_type || prev.deal_type || '').trim(),
+    deal_size: String(input.deal_size || prev.deal_size || '').trim(),
+    sector: String(input.sector || prev.sector || '').trim(),
+    geography: String(input.geography || prev.geography || '').trim(),
+    live_deal_evidence: String(input.live_deal_evidence || prev.live_deal_evidence || '').trim(),
+    blocker_category: blockerCategory,
+    blocker_notes: String(input.blocker_notes || prev.blocker_notes || '').trim(),
+    urgency,
+    decision_maker_known: decisionMakerKnown,
+    budget_path: budgetPath,
+    live_deal_score: liveDealScoreRaw || '1 Noise',
+    handoff_ready: handoffReady,
+    handoff_notes: String(input.handoff_notes || prev.handoff_notes || '').trim(),
+    paid_review_amount: toNumber(input.paid_review_amount ?? prev.paid_review_amount, 0),
+    paid_review_date: toDateOnly(input.paid_review_date || prev.paid_review_date || ''),
+    deal_review_handoff_date: toDateOnly(input.deal_review_handoff_date || prev.deal_review_handoff_date || ''),
+    follow_up_queue_flag: followUpQueueFlag,
+    created_date: toDateOnly(input.created_date || prev.created_date || now),
+    last_activity_date: toDateOnly(input.last_activity_date || now),
+    updated_at: now,
+    created_at: String(prev.created_at || now),
+  };
+
+  return { record };
+}
+
+function normalizeLiveDealActivityRecord(input = {}) {
+  const now = nowIso();
+  const activityId = String(input.activity_id || `LDA-${crypto.randomUUID().slice(0, 8)}`).trim();
+  const sprintId = String(input.sprint_id || '').trim();
+  const teamOwner = String(input.team_owner || '').trim();
+  const activityType = String(input.activity_type || '').trim();
+  const count = toNumber(input.count, 1);
+  if (!sprintId) return { error: 'sprint_id_required', status: 400 };
+  if (!teamOwner) return { error: 'team_owner_required', status: 400 };
+  if (!activityType) return { error: 'activity_type_required', status: 400 };
+  if (count <= 0) return { error: 'count_must_be_positive', status: 400 };
+  return {
+    record: {
+      ...input,
+      activity_id: activityId,
+      date: toDateOnly(input.date || now),
+      team_owner: teamOwner,
+      sprint_id: sprintId,
+      contact_name: String(input.contact_name || '').trim(),
+      company: String(input.company || '').trim(),
+      activity_type: activityType,
+      count,
+      paid_review_amount: toNumber(input.paid_review_amount, 0),
+      notes: String(input.notes || '').trim(),
+      created_at: now,
+      updated_at: now,
+    },
+  };
+}
+
 app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
   const state = await readJson(DASHBOARD_STATE_FILE, {});
   const liveBoard = await readJson(BOARD_FILE, defaultBoard());
@@ -2530,6 +2654,135 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   </body></html>`);
 });
 
+app.get('/api/live-deals', requireRole('architect','editor','observer'), async (_req, res) => {
+  const sprints = await readJson(DASHBOARD_LIVE_DEAL_SPRINTS_FILE, []);
+  const pipeline = await readJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, []);
+  const activity = await readJson(DASHBOARD_LIVE_DEAL_ACTIVITY_FILE, []);
+  return res.json({ sprints, pipeline, activity, generated_at: nowIso() });
+});
+
+app.post('/api/live-deals/pipeline', requireRole('architect','editor'), async (req, res) => {
+  const pipelineRaw = await readJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, []);
+  const pipeline = Array.isArray(pipelineRaw) ? pipelineRaw : [];
+  const normalized = normalizeLiveDealPipelineRecord(req.body || {}, null);
+  if (normalized.error) return res.status(normalized.status || 400).json({ error: normalized.error });
+  pipeline.push(normalized.record);
+  await writeJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, pipeline);
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'live_deals.pipeline.create',
+    entity_type: 'live_deal_pipeline',
+    entity_id: normalized.record.record_id,
+    meta: { sprint_id: normalized.record.sprint_id, status: normalized.record.status },
+  });
+  return res.status(201).json({ ok: true, record: normalized.record });
+});
+
+app.post('/api/live-deals/pipeline/:recordId/update', requireRole('architect','editor'), async (req, res) => {
+  const recordId = String(req.params.recordId || '').trim();
+  if (!recordId) return res.status(400).json({ error: 'record_id_required' });
+  const pipelineRaw = await readJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, []);
+  const pipeline = Array.isArray(pipelineRaw) ? pipelineRaw : [];
+  const idx = pipeline.findIndex((row) => String(row.record_id || '').trim() === recordId);
+  if (idx < 0) return res.status(404).json({ error: 'not_found' });
+  const normalized = normalizeLiveDealPipelineRecord(req.body || {}, pipeline[idx]);
+  if (normalized.error) return res.status(normalized.status || 400).json({ error: normalized.error });
+  pipeline[idx] = normalized.record;
+  await writeJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, pipeline);
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'live_deals.pipeline.update',
+    entity_type: 'live_deal_pipeline',
+    entity_id: normalized.record.record_id,
+    meta: { sprint_id: normalized.record.sprint_id, status: normalized.record.status },
+  });
+  return res.json({ ok: true, record: normalized.record });
+});
+
+app.post('/api/live-deals/pipeline/:recordId/delete', requireRole('architect','editor'), async (req, res) => {
+  const recordId = String(req.params.recordId || '').trim();
+  if (!recordId) return res.status(400).json({ error: 'record_id_required' });
+  const pipelineRaw = await readJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, []);
+  const pipeline = Array.isArray(pipelineRaw) ? pipelineRaw : [];
+  const idx = pipeline.findIndex((row) => String(row.record_id || '').trim() === recordId);
+  if (idx < 0) return res.status(404).json({ error: 'not_found' });
+  const [deleted] = pipeline.splice(idx, 1);
+  await writeJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, pipeline);
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'live_deals.pipeline.delete',
+    entity_type: 'live_deal_pipeline',
+    entity_id: String(deleted?.record_id || recordId),
+    meta: { sprint_id: String(deleted?.sprint_id || '') },
+  });
+  return res.json({ ok: true, deleted_record_id: String(deleted?.record_id || recordId) });
+});
+
+app.post('/api/live-deals/activity', requireRole('architect','editor'), async (req, res) => {
+  const activityRaw = await readJson(DASHBOARD_LIVE_DEAL_ACTIVITY_FILE, []);
+  const activity = Array.isArray(activityRaw) ? activityRaw : [];
+  const normalized = normalizeLiveDealActivityRecord(req.body || {});
+  if (normalized.error) return res.status(normalized.status || 400).json({ error: normalized.error });
+  activity.push(normalized.record);
+  await writeJson(DASHBOARD_LIVE_DEAL_ACTIVITY_FILE, activity);
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'live_deals.activity.create',
+    entity_type: 'live_deal_activity',
+    entity_id: normalized.record.activity_id,
+    meta: { sprint_id: normalized.record.sprint_id, activity_type: normalized.record.activity_type, count: normalized.record.count },
+  });
+  return res.status(201).json({ ok: true, record: normalized.record });
+});
+
+app.post('/api/live-deals/sprints/:sprintId/update', requireRole('architect','editor'), async (req, res) => {
+  const sprintId = String(req.params.sprintId || '').trim();
+  if (!sprintId) return res.status(400).json({ error: 'sprint_id_required' });
+  const sprintsRaw = await readJson(DASHBOARD_LIVE_DEAL_SPRINTS_FILE, []);
+  const sprints = Array.isArray(sprintsRaw) ? sprintsRaw : [];
+  const idx = sprints.findIndex((row) => String(row.sprint_id || '').trim() === sprintId);
+  if (idx < 0) return res.status(404).json({ error: 'not_found' });
+  const prior = sprints[idx] || {};
+  const next = {
+    ...prior,
+    ...req.body,
+    sprint_id: sprintId,
+    start_date: toDateOnly(req.body?.start_date || prior.start_date || ''),
+    end_date: toDateOnly(req.body?.end_date || prior.end_date || ''),
+    theme: String(req.body?.theme || prior.theme || '').trim(),
+    hypothesis: String(req.body?.hypothesis || prior.hypothesis || '').trim(),
+    outcome: String(req.body?.outcome || prior.outcome || '').trim(),
+    source_cohort: String(req.body?.source_cohort || prior.source_cohort || '').trim(),
+    converted_to_paid_review: normalizeLiveDealYesNo(req.body?.converted_to_paid_review ?? prior.converted_to_paid_review, 'No'),
+    paid_review_amount: toNumber(req.body?.paid_review_amount ?? prior.paid_review_amount, 0),
+    targets: {
+      ...LIVE_DEAL_TARGET_DEFAULTS,
+      ...(prior.targets && typeof prior.targets === 'object' ? prior.targets : {}),
+      ...(req.body?.targets && typeof req.body.targets === 'object' ? req.body.targets : {}),
+    },
+  };
+  sprints[idx] = next;
+  await writeJson(DASHBOARD_LIVE_DEAL_SPRINTS_FILE, sprints);
+  await appendAuditEvent({
+    ts: nowIso(),
+    actor: getUserLabel(req),
+    role: effectiveRole(req) || 'editor',
+    event_type: 'live_deals.sprint.update',
+    entity_type: 'live_deal_sprint',
+    entity_id: sprintId,
+    meta: { outcome: next.outcome, converted_to_paid_review: next.converted_to_paid_review },
+  });
+  return res.json({ ok: true, sprint: next });
+});
+
 app.get('/dashboard/live-deals/export.json', async (_req, res) => {
   const sprints = await readJson(DASHBOARD_LIVE_DEAL_SPRINTS_FILE, []);
   const pipeline = await readJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, []);
@@ -2549,6 +2802,7 @@ app.get('/dashboard/live-deals', async (req, res) => {
   const currentSprint = resolveCurrentSprint(sprints, today);
   const selectedSprintId = String(req.query.sprint_id || currentSprint?.sprint_id || '').trim();
   const selectedSprint = sprintById[selectedSprintId] || currentSprint || null;
+  const canEdit = ['architect', 'editor'].includes(effectiveRole(req) || '');
 
   const pipelineWithSprintMeta = pipeline.map((row) => {
     const sprintId = String(pickField(row, 'sprint_id', 'Sprint ID')).trim();
@@ -2682,10 +2936,86 @@ app.get('/dashboard/live-deals', async (req, res) => {
     </div>
   </form>`;
 
+  const quickCapturePanel = canEdit ? `<div class="card mb-3"><div class="card-body">
+    <h6 class="mb-2">Quick Capture</h6>
+    <div class="row g-2 mb-2">
+      <div class="col-12 col-md-3"><input id="ld_contact_name" class="form-control" placeholder="Contact Name"></div>
+      <div class="col-12 col-md-3"><input id="ld_company" class="form-control" placeholder="Company"></div>
+      <div class="col-12 col-md-2"><input id="ld_team_owner" class="form-control" placeholder="Team Owner"></div>
+      <div class="col-12 col-md-2"><select id="ld_sprint_id" class="form-select">${sprints.map((s) => `<option value="${escapeHtml(String(s.sprint_id || ''))}" ${String(s.sprint_id || '') === selectedSprintId ? 'selected' : ''}>${escapeHtml(String(s.sprint_id || ''))}</option>`).join('')}</select></div>
+      <div class="col-12 col-md-2"><button id="ld_add_target" class="btn btn-primary w-100" type="button">Add Target</button></div>
+    </div>
+    <div class="row g-2">
+      <div class="col-12 col-md-2"><input id="lda_date" type="date" class="form-control" value="${escapeHtml(today)}"></div>
+      <div class="col-12 col-md-3"><input id="lda_team_owner" class="form-control" placeholder="Team Owner"></div>
+      <div class="col-12 col-md-3"><select id="lda_activity_type" class="form-select"><option>New Target Added</option><option>Message Sent</option><option>Follow-Up Sent</option><option>Reply Received</option><option>Deal Mentioned</option><option>Possible Live Deal</option><option>Qualified Live Deal</option><option>Deal Review Handoff</option><option>Paid Deal Review</option></select></div>
+      <div class="col-12 col-md-2"><input id="lda_count" type="number" min="1" class="form-control" value="1"></div>
+      <div class="col-12 col-md-2"><button id="ld_add_activity" class="btn btn-outline-secondary w-100" type="button">Log Activity</button></div>
+    </div>
+    <div class="row g-2 mt-1">
+      <div class="col-12 col-md-10"><input id="lds_outcome" class="form-control" placeholder="Sprint Outcome update (optional)"></div>
+      <div class="col-12 col-md-2"><button id="ld_update_sprint" class="btn btn-outline-secondary w-100" type="button">Update Outcome</button></div>
+    </div>
+  </div></div>` : '';
+
+  const quickCaptureScript = canEdit ? `<script>
+  async function ldPost(url, payload){
+    const res = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload || {}) });
+    if(!res.ok){
+      let msg = 'Request failed';
+      try { const j = await res.json(); msg = j.error || msg; } catch { msg = await res.text(); }
+      throw new Error(msg || 'Request failed');
+    }
+    return res.json();
+  }
+
+  document.getElementById('ld_add_target')?.addEventListener('click', async () => {
+    try {
+      const payload = {
+        sprint_id: document.getElementById('ld_sprint_id')?.value || '',
+        contact_name: document.getElementById('ld_contact_name')?.value || '',
+        company: document.getElementById('ld_company')?.value || '',
+        team_owner: document.getElementById('ld_team_owner')?.value || '',
+        status: 'New Target',
+        reply_status: 'No Reply',
+        deal_mentioned: 'No',
+        live_deal_score: '1 Noise'
+      };
+      await ldPost('/api/live-deals/pipeline', payload);
+      window.location.reload();
+    } catch (err) { alert('Add target failed: ' + (err?.message || err)); }
+  });
+
+  document.getElementById('ld_add_activity')?.addEventListener('click', async () => {
+    try {
+      const payload = {
+        sprint_id: document.getElementById('ld_sprint_id')?.value || '',
+        date: document.getElementById('lda_date')?.value || '',
+        team_owner: document.getElementById('lda_team_owner')?.value || '',
+        activity_type: document.getElementById('lda_activity_type')?.value || '',
+        count: Number(document.getElementById('lda_count')?.value || 1)
+      };
+      await ldPost('/api/live-deals/activity', payload);
+      window.location.reload();
+    } catch (err) { alert('Log activity failed: ' + (err?.message || err)); }
+  });
+
+  document.getElementById('ld_update_sprint')?.addEventListener('click', async () => {
+    try {
+      const sprintId = document.getElementById('ld_sprint_id')?.value || '';
+      const outcome = document.getElementById('lds_outcome')?.value || '';
+      if(!sprintId) throw new Error('Select sprint first');
+      await ldPost('/api/live-deals/sprints/' + encodeURIComponent(sprintId) + '/update', { outcome });
+      window.location.reload();
+    } catch (err) { alert('Update sprint failed: ' + (err?.message || err)); }
+  });
+  </script>` : '';
+
   res.type('html').send(`<!doctype html><html><head>${uiHead('Live Deal Sprint Board')}</head><body><div class="app-shell">
     ${dashboardNav('live-deals')}
     ${pageHeader('Live Deal Detection Sprint Board', '', 'SWAT-mode: reward qualified live deals, not vanity activity.')}
     ${sprintFilter}
+    ${quickCapturePanel}
 
     <div class="row g-3 mb-3">
       <div class="col-12 col-md-6 col-xl-3">${statCard('Sprint', escapeHtml(String(selectedSprint?.sprint_id || 'All')))}</div>
@@ -2723,6 +3053,7 @@ app.get('/dashboard/live-deals', async (req, res) => {
       'No sprint scoreboard data yet',
       8,
     )}
+    ${quickCaptureScript}
   </div></body></html>`);
 });
 
@@ -6422,6 +6753,15 @@ async function ensureTeamAndBoardFiles() {
   }
   if (!fssync.existsSync(DASHBOARD_REVENUE_OPPORTUNITIES_FILE)) {
     await fs.writeFile(DASHBOARD_REVENUE_OPPORTUNITIES_FILE, JSON.stringify([], null, 2));
+  }
+  if (!fssync.existsSync(DASHBOARD_LIVE_DEAL_SPRINTS_FILE)) {
+    await fs.writeFile(DASHBOARD_LIVE_DEAL_SPRINTS_FILE, JSON.stringify([], null, 2));
+  }
+  if (!fssync.existsSync(DASHBOARD_LIVE_DEAL_PIPELINE_FILE)) {
+    await fs.writeFile(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, JSON.stringify([], null, 2));
+  }
+  if (!fssync.existsSync(DASHBOARD_LIVE_DEAL_ACTIVITY_FILE)) {
+    await fs.writeFile(DASHBOARD_LIVE_DEAL_ACTIVITY_FILE, JSON.stringify([], null, 2));
   }
   if (!fssync.existsSync(DASHBOARD_ACTION_ITEMS_FILE)) {
     await fs.writeFile(DASHBOARD_ACTION_ITEMS_FILE, JSON.stringify([], null, 2));
