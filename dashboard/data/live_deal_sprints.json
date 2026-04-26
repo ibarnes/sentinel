@@ -1,8 +1,31 @@
 [
   {
+    "sprint_id": "USG-S00",
+    "start_date": "2026-04-06",
+    "end_date": "2026-04-19",
+    "theme": "Sprint 0 setup + launch readiness",
+    "hypothesis": "A setup sprint improves execution quality and reduces qualification friction in Sprint 1",
+    "outcome": "",
+    "source_cohort": "Foundational setup cohort",
+    "converted_to_paid_review": "No",
+    "paid_review_amount": 0,
+    "targets": {
+      "new_targets_added": 500,
+      "messages_sent": 300,
+      "follow_ups_sent": 150,
+      "replies_received": 100,
+      "deal_mentions": 50,
+      "possible_live_deals": 30,
+      "qualified_live_deals": 10,
+      "deal_review_handoffs": 5,
+      "paid_deal_reviews_min": 1,
+      "paid_deal_reviews_max": 3
+    }
+  },
+  {
     "sprint_id": "USG-S01",
-    "start_date": "2026-04-27",
-    "end_date": "2026-05-10",
+    "start_date": "2026-04-20",
+    "end_date": "2026-05-03",
     "theme": "Capital raisers + operators in energy & infrastructure",
     "hypothesis": "Warm intros in this cohort will outperform cold LinkedIn in reply-to-deal-mention conversion",
     "outcome": "",
@@ -24,8 +47,8 @@
   },
   {
     "sprint_id": "USG-S02",
-    "start_date": "2026-05-11",
-    "end_date": "2026-05-24",
+    "start_date": "2026-05-04",
+    "end_date": "2026-05-17",
     "theme": "Attorneys + accountants in lower middle market",
     "hypothesis": "Trusted advisors will surface blocker-rich deals faster than direct founder outreach",
     "outcome": "",
@@ -47,8 +70,8 @@
   },
   {
     "sprint_id": "USG-S03",
-    "start_date": "2026-05-25",
-    "end_date": "2026-06-07",
+    "start_date": "2026-05-18",
+    "end_date": "2026-05-31",
     "theme": "M&A advisors + family office connectors",
     "hypothesis": "Connector nodes should raise qualified live deal count with fewer total contacts",
     "outcome": "",
@@ -70,8 +93,8 @@
   },
   {
     "sprint_id": "USG-S04",
-    "start_date": "2026-06-08",
-    "end_date": "2026-06-21",
+    "start_date": "2026-06-01",
+    "end_date": "2026-06-14",
     "theme": "Capital path stress-test cohort",
     "hypothesis": "Deals with explicit capital path friction should convert to paid reviews at higher rate",
     "outcome": "",
@@ -93,8 +116,8 @@
   },
   {
     "sprint_id": "USG-S05",
-    "start_date": "2026-06-22",
-    "end_date": "2026-07-05",
+    "start_date": "2026-06-15",
+    "end_date": "2026-06-28",
     "theme": "Decision-path bottleneck cohort",
     "hypothesis": "Mapping hidden decision-makers early should improve handoff speed",
     "outcome": "",
@@ -116,8 +139,8 @@
   },
   {
     "sprint_id": "USG-S06",
-    "start_date": "2026-07-06",
-    "end_date": "2026-07-19",
+    "start_date": "2026-06-29",
+    "end_date": "2026-07-12",
     "theme": "Best-performing source cohort scale-up",
     "hypothesis": "Doubling down on top source cohort should improve qualified-to-paid conversion",
     "outcome": "",
