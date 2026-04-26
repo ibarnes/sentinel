@@ -1,6 +1,6 @@
 {
-  "buyerAccessGraphSignature": "0c3493404b82c3823300a429ff765a79b240fcd9cb65fb153b50c3d2b231a0a2",
-  "updatedAtUtc": "2026-04-24T22:01:00Z",
+  "buyerAccessGraphSignature": "eed23095a884e66118b283e48048f822f4ed281d8ed01c45aa53e146c8f1d2a3",
+  "updatedAtUtc": "2026-04-26T07:44:21Z",
   "issues": [
     {
       "type": "top10",
@@ -168,141 +168,128 @@
   ],
   "buyer_access_last": {
     "top10": [
-      "Public Investment Fund",
-      "Gulf Investment Corporation",
-      "Africa Finance Corporation",
-      "Nigeria Sovereign Investment Authority",
-      "Federal Ministry of Finance (Nigeria)",
-      "Abu Dhabi Fund for Development",
-      "Saudi Fund for Development",
-      "African Development Bank",
-      "International Finance Corporation",
-      "Mubadala Investment Company"
+      "Alpha Wave Global",
+      "USVI Recovery Program Authority (ODR + VIHFA)",
+      "Global Infrastructure Partners",
+      "Haun Ventures",
+      "Stonepeak",
+      "KKR & Co. Inc.",
+      "General Atlantic",
+      "Tariq Al Futtaim Family Foundation (TAFF)",
+      "ADQ",
+      "Public Investment Fund"
     ],
     "missing_decision_coverage": [
-      "Public Investment Fund",
-      "Gulf Investment Corporation",
-      "Africa Finance Corporation",
-      "Nigeria Sovereign Investment Authority",
-      "Federal Ministry of Finance (Nigeria)",
-      "Abu Dhabi Fund for Development",
-      "Saudi Fund for Development",
-      "African Development Bank",
-      "International Finance Corporation",
-      "Mubadala Investment Company"
+      "Alpha Wave Global",
+      "Global Infrastructure Partners",
+      "Haun Ventures",
+      "Stonepeak",
+      "KKR & Co. Inc.",
+      "General Atlantic",
+      "ADQ",
+      "Public Investment Fund"
     ],
     "stale_contact_paths": [
       {
         "buyer": "Tariq Al Futtaim Family Foundation (TAFF)",
         "status": "Warming",
-        "age_days": 50,
+        "age_days": 51.5,
         "path_id": "PATH-TAFF-FAISAL-NET-001"
       },
       {
         "buyer": "USVI Recovery Program Authority (ODR + VIHFA)",
         "status": "Warming",
-        "age_days": 38,
+        "age_days": 30.0,
         "path_id": "PATH-USVI-FED-001"
       }
     ],
-    "high_influence_no_path": [],
     "metadata_drift": [
+      {
+        "buyer": "Alpha Wave Global",
+        "missing": [
+          "region",
+          "buyer_role",
+          "buyer_class"
+        ]
+      },
+      {
+        "buyer": "USVI Recovery Program Authority (ODR + VIHFA)",
+        "missing": [
+          "region",
+          "buyer_role",
+          "buyer_class"
+        ]
+      },
+      {
+        "buyer": "Global Infrastructure Partners",
+        "missing": [
+          "region",
+          "buyer_role",
+          "buyer_class"
+        ]
+      },
+      {
+        "buyer": "Haun Ventures",
+        "missing": [
+          "region",
+          "buyer_role",
+          "buyer_class"
+        ]
+      },
+      {
+        "buyer": "Stonepeak",
+        "missing": [
+          "region",
+          "buyer_role",
+          "buyer_class"
+        ]
+      },
+      {
+        "buyer": "KKR & Co. Inc.",
+        "missing": [
+          "region",
+          "buyer_role",
+          "buyer_class"
+        ]
+      },
+      {
+        "buyer": "General Atlantic",
+        "missing": [
+          "region",
+          "buyer_role",
+          "buyer_class"
+        ]
+      },
+      {
+        "buyer": "Tariq Al Futtaim Family Foundation (TAFF)",
+        "missing": [
+          "region",
+          "buyer_role",
+          "buyer_class"
+        ]
+      },
+      {
+        "buyer": "ADQ",
+        "missing": [
+          "hq_country",
+          "region",
+          "buyer_role",
+          "buyer_class"
+        ]
+      },
       {
         "buyer": "Public Investment Fund",
         "missing": [
-          "hq_city",
           "hq_country",
-          "region"
-        ]
-      },
-      {
-        "buyer": "Gulf Investment Corporation",
-        "missing": [
-          "hq_city",
-          "hq_country",
-          "region"
-        ]
-      },
-      {
-        "buyer": "Africa Finance Corporation",
-        "missing": [
-          "hq_city",
-          "hq_country",
-          "region"
-        ]
-      },
-      {
-        "buyer": "Nigeria Sovereign Investment Authority",
-        "missing": [
-          "hq_city",
-          "hq_country",
-          "region"
-        ]
-      },
-      {
-        "buyer": "Federal Ministry of Finance (Nigeria)",
-        "missing": [
-          "hq_city",
-          "hq_country",
-          "region"
-        ]
-      },
-      {
-        "buyer": "Abu Dhabi Fund for Development",
-        "missing": [
-          "hq_city",
-          "hq_country",
-          "region"
-        ]
-      },
-      {
-        "buyer": "Saudi Fund for Development",
-        "missing": [
-          "hq_city",
-          "hq_country",
-          "region"
-        ]
-      },
-      {
-        "buyer": "African Development Bank",
-        "missing": [
-          "hq_city",
-          "hq_country",
-          "region"
-        ]
-      },
-      {
-        "buyer": "International Finance Corporation",
-        "missing": [
-          "hq_city",
-          "hq_country",
-          "region"
-        ]
-      },
-      {
-        "buyer": "Mubadala Investment Company",
-        "missing": [
-          "hq_city",
-          "hq_country",
-          "region"
+          "region",
+          "buyer_role",
+          "buyer_class"
         ]
       }
     ]
   },
-  "buyer_access_last_checked_at": "2026-04-24T22:01:00Z",
+  "buyer_access_last_checked_at": "2026-04-26T07:44:21Z",
   "buyer_access_decision_people": [
-    {
-      "buyer_id": "TAFF",
-      "person": "Abdelraouf Taher"
-    },
-    {
-      "buyer_id": "TAFF",
-      "person": "Family investment advisors and DIFC counsel"
-    },
-    {
-      "buyer_id": "TAFF",
-      "person": "Tariq Al Futtaim"
-    },
     {
       "buyer_id": "USVI-RECOVERY-AUTHORITY",
       "person": "Adrienne L. Williams-Octalien"
@@ -318,17 +305,17 @@
   ],
   "buyerAccess": {
     "last_signatures": {
-      "buyers_sig": "5e9a914d4a71029c6a92d7aa499e69d3837e48304ea4c1c3e0ec6d6cd1ddfb68",
-      "decision_sig": "45c511a20dd3d8b1a62efd8f2f02f088a166809bea1423cc6aba6606ca622686",
-      "paths_sig": "23587b1328cbab5144f3ea078220a4a09145454b698b00f06ae694184100bea3",
-      "signals_sig": "7e63cb692914050b5f50d025409f0939ed8115c76f8bbf959df47cf44b471bee"
+      "buyers_sig": "cc99834de8566452c4b48d70732561331de4ec746457685885b7b614d62b5caa",
+      "decision_sig": "d53959d9ac242a910a577f7282957469648b3c5aa2bfdb91a6f3c5a349cd7469",
+      "paths_sig": "8810be5b649d819c0f19395ddf160d5321b92de7b8d149081f9b8c715a4b878e",
+      "signals_sig": "f4915015bf9552ad5f1d23a0aad0b8d3a9e26d3509dac5fa0b337c907a499b28"
     },
-    "last_checked_at": "2026-04-24T22:01:00Z",
-    "last_alert_key": "missing_dec:PIF"
+    "last_checked_at": "2026-04-26T07:44:21Z",
+    "last_alert_key": "missing_dec:ALPHA_WAVE"
   },
   "lastChecks": {
-    "buyer_access": 1777068233,
-    "signal_pressure": 1777068233,
-    "calendar": 1777068233
+    "buyer_access": 1777189461,
+    "signal_pressure": 1777189461,
+    "calendar": 1777189461
   }
 }
