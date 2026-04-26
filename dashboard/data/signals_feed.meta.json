@@ -1,12 +1,12 @@
 {
-  "last_run_at": "2026-04-04T13:38:27.663Z",
+  "last_run_at": "2026-04-26T09:22:57.610Z",
   "cadence": "0 */6 * * *",
   "notes": "Auto-refresh every 6 hours via cron; manual refresh available on /dashboard/signals-feed",
   "last_run_stats": {
-    "total_sources": 24,
-    "ok_sources": 18,
-    "failed_sources": 6,
-    "items_added": 62,
+    "total_sources": 25,
+    "ok_sources": 20,
+    "failed_sources": 5,
+    "items_added": 332,
     "failures": [
       {
         "source": "Reuters World",
@@ -21,7 +21,7 @@
       {
         "source": "Yahoo Finance Video (Ares/Apollo)",
         "url": "https://finance.yahoo.com/video/ares-apollo-cap-private-credit-163531864.html",
-        "error": "fetch failed"
+        "status": 404
       },
       {
         "source": "Financial Times (Cargill AI yield)",
@@ -32,11 +32,6 @@
         "source": "Nairametrics",
         "url": "https://nairametrics.com/",
         "status": 403
-      },
-      {
-        "source": "Google News — KKR Digital Infrastructure Leadership",
-        "url": "https://news.google.com/rss/search?q=KKR+digital+infrastructure+insights+OR+Waldemar+Szlezak&hl=en-US&gl=US&ceid=US:en",
-        "error": "fetch failed"
       }
     ]
   }
