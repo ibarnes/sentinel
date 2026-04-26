@@ -14,7 +14,9 @@ _Learn about the person you're helping. Update this as you go._
 
 ## Context
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+- Building USG mission-control workflows for buyer access, signal pressure, and deal qualification.
+- Wants operational systems that emphasize qualified outcomes over vanity activity.
+- Prefers structured execution with explicit criteria, scoring, and handoff gates.
 
 ---
 
