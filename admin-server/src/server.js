@@ -76,6 +76,9 @@ const DASHBOARD_ACTION_NOTIFICATIONS_FILE = path.join(ROOT, 'dashboard', 'data',
 const DASHBOARD_ACTION_EVENTS_FILE = path.join(ROOT, 'dashboard', 'data', 'action_events.jsonl');
 const DASHBOARD_INITIATIVE_AVATAR_SCORING_FILE = path.join(ROOT, 'dashboard', 'data', 'initiative_avatar_scoring.json');
 const DASHBOARD_REVENUE_OPPORTUNITIES_FILE = path.join(ROOT, 'dashboard', 'data', 'revenue_opportunities.json');
+const DASHBOARD_LIVE_DEAL_SPRINTS_FILE = path.join(ROOT, 'dashboard', 'data', 'live_deal_sprints.json');
+const DASHBOARD_LIVE_DEAL_PIPELINE_FILE = path.join(ROOT, 'dashboard', 'data', 'live_deal_pipeline.json');
+const DASHBOARD_LIVE_DEAL_ACTIVITY_FILE = path.join(ROOT, 'dashboard', 'data', 'live_deal_activity.json');
 const DASHBOARD_TEMPLATE_LIBRARY_ROOT = path.join(ROOT, 'dashboard', 'templates', 'presentation-templates');
 
 const ADMIN_LOG_ROOT = path.join(ROOT, 'mission-control', 'logs', 'admin-actions');
@@ -721,6 +724,7 @@ function adminNav(active = '') {
       <a class="nav-link ${is('dashboard')}" href="/dashboard/" title="Dashboard"><i data-lucide="layout-dashboard" class="nav-icon"></i><span class="nav-label">Dashboard</span></a>
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
       <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
+      <a class="nav-link ${is('live-deals')}" href="/dashboard/live-deals" title="Live Deals"><i data-lucide="target" class="nav-icon"></i><span class="nav-label">Live Deals</span></a>
       <a class="nav-link ${is('revenue')}" href="/dashboard/revenue" title="Revenue"><i data-lucide="hand-coins" class="nav-icon"></i><span class="nav-label">Revenue</span></a>
       <a class="nav-link ${is('activity')}" href="/dashboard/activity" title="Activity"><i data-lucide="activity" class="nav-icon"></i><span class="nav-label">Activity</span></a>
       <a class="nav-link ${is('actions')}" href="/dashboard/actions" title="Actions"><i data-lucide="list-todo" class="nav-icon"></i><span class="nav-label">Actions</span></a>
@@ -753,6 +757,7 @@ function dashboardNav(active = '') {
       <a class="nav-link ${is('buyers')}" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
       <a class="nav-link ${is('actors')}" href="/dashboard/actors" title="Actors"><i data-lucide="contact-round" class="nav-icon"></i><span class="nav-label">Actors</span></a>
       <a class="nav-link ${is('initiatives')}" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
+      <a class="nav-link ${is('live-deals')}" href="/dashboard/live-deals" title="Live Deals"><i data-lucide="target" class="nav-icon"></i><span class="nav-label">Live Deals</span></a>
       <a class="nav-link ${is('revenue')}" href="/dashboard/revenue" title="Revenue"><i data-lucide="hand-coins" class="nav-icon"></i><span class="nav-label">Revenue</span></a>
       <a class="nav-link ${is('constraints')}" href="/dashboard/constraints" title="Constraints"><i data-lucide="shield-alert" class="nav-icon"></i><span class="nav-label">Constraints</span></a>
       <a class="nav-link ${is('capital-map')}" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
@@ -1165,12 +1170,166 @@ app.use('/dashboard', (req, res, next) => {
   return next();
 });
 
+const LIVE_DEAL_STAGE_ORDER = [
+  'New Target',
+  'Researched',
+  'Message Sent',
+  'Follow-Up Needed',
+  'Replied',
+  'Deal Mentioned',
+  'Qualifying',
+  'Qualified Live Deal',
+  'Deal Review Handoff',
+  'Paid Deal Review',
+  'Dead / Not Now',
+];
+
+const LIVE_DEAL_TARGET_DEFAULTS = {
+  new_targets_added: 500,
+  messages_sent: 300,
+  follow_ups_sent: 150,
+  replies_received: 100,
+  deal_mentions: 50,
+  possible_live_deals: 30,
+  qualified_live_deals: 10,
+  deal_review_handoffs: 5,
+  paid_deal_reviews_min: 1,
+  paid_deal_reviews_max: 3,
+};
+
+const LIVE_DEAL_ACTIVITY_MAP = {
+  'New Target Added': 'new_targets_added',
+  'Message Sent': 'messages_sent',
+  'Follow-Up Sent': 'follow_ups_sent',
+  'Reply Received': 'replies_received',
+  'Deal Mentioned': 'deal_mentions',
+  'Possible Live Deal': 'possible_live_deals',
+  'Qualified Live Deal': 'qualified_live_deals',
+  'Deal Review Handoff': 'deal_review_handoffs',
+  'Paid Deal Review': 'paid_deal_reviews',
+};
+
+function toDateOnly(value) {
+  if (!value) return '';
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return '';
+  return d.toISOString().slice(0, 10);
+}
+
+function toNumber(value, fallback = 0) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallback;
+}
+
+function safePct(numerator, denominator) {
+  const n = toNumber(numerator, 0);
+  const d = toNumber(denominator, 0);
+  if (d <= 0) return 0;
+  return (n / d) * 100;
+}
+
+function fmtPct(value) {
+  const n = toNumber(value, 0);
+  return `${n.toFixed(1)}%`;
+}
+
+function fmtMoney(value) {
+  const n = toNumber(value, 0);
+  return n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+}
+
+function yes(value) {
+  return String(value || '').trim().toLowerCase() === 'yes';
+}
+
+function pickField(row = {}, ...keys) {
+  for (const key of keys) {
+    if (row && Object.prototype.hasOwnProperty.call(row, key) && row[key] !== undefined && row[key] !== null && row[key] !== '') {
+      return row[key];
+    }
+  }
+  return '';
+}
+
+function normalizeLiveDealScore(value) {
+  const str = String(value || '').trim();
+  if (!str) return 0;
+  const m = str.match(/^([1-5])/);
+  if (m) return Number(m[1]);
+  const n = Number(str);
+  return Number.isFinite(n) ? Math.max(0, Math.min(5, Math.round(n))) : 0;
+}
+
+function resolveCurrentSprint(sprints = [], todayDate = toDateOnly(new Date())) {
+  const sorted = [...sprints].sort((a, b) => String(a.start_date || '').localeCompare(String(b.start_date || '')));
+  const active = sorted.find((s) => {
+    const start = String(s.start_date || '');
+    const end = String(s.end_date || '');
+    return start && end && start <= todayDate && todayDate <= end;
+  });
+  return active || sorted[0] || null;
+}
+
+function deriveLiveDealFallbackMetrics(rows = []) {
+  const acc = {
+    new_targets_added: rows.length,
+    messages_sent: rows.filter((r) => String(r.message_sent_date || '').trim()).length,
+    follow_ups_sent: rows.filter((r) => String(r.follow_up_date || '').trim()).length,
+    replies_received: rows.filter((r) => {
+      const status = String(r.reply_status || '').toLowerCase();
+      return ['replied', 'deal mentioned', 'referred someone'].includes(status);
+    }).length,
+    deal_mentions: rows.filter((r) => yes(r.deal_mentioned) || String(r.reply_status || '').toLowerCase() === 'deal mentioned').length,
+    possible_live_deals: rows.filter((r) => normalizeLiveDealScore(r.live_deal_score) >= 3).length,
+    qualified_live_deals: rows.filter((r) => normalizeLiveDealScore(r.live_deal_score) >= 4).length,
+    deal_review_handoffs: rows.filter((r) => yes(r.handoff_ready) || ['Deal Review Handoff', 'Paid Deal Review'].includes(String(r.status || ''))).length,
+    paid_deal_reviews: rows.filter((r) => yes(r.converted_to_paid_review) || String(r.status || '') === 'Paid Deal Review').length,
+    paid_review_revenue: rows.reduce((sum, r) => sum + toNumber(r.paid_review_amount || 0, 0), 0),
+  };
+  return acc;
+}
+
+function deriveLiveDealActivityMetrics(rows = []) {
+  const acc = {
+    new_targets_added: 0,
+    messages_sent: 0,
+    follow_ups_sent: 0,
+    replies_received: 0,
+    deal_mentions: 0,
+    possible_live_deals: 0,
+    qualified_live_deals: 0,
+    deal_review_handoffs: 0,
+    paid_deal_reviews: 0,
+    paid_review_revenue: 0,
+  };
+  for (const row of rows) {
+    const key = LIVE_DEAL_ACTIVITY_MAP[String(row.activity_type || '').trim()];
+    if (key) acc[key] += toNumber(row.count, 1);
+    acc.paid_review_revenue += toNumber(row.paid_review_amount, 0);
+  }
+  return acc;
+}
+
+function conversionStack(metrics = {}) {
+  return [
+    { label: 'Contacted → Reply', value: safePct(metrics.replies_received, metrics.messages_sent) },
+    { label: 'Reply → Deal Mention', value: safePct(metrics.deal_mentions, metrics.replies_received) },
+    { label: 'Deal Mention → Possible Live Deal', value: safePct(metrics.possible_live_deals, metrics.deal_mentions) },
+    { label: 'Possible → Qualified Live Deal', value: safePct(metrics.qualified_live_deals, metrics.possible_live_deals) },
+    { label: 'Qualified → Handoff', value: safePct(metrics.deal_review_handoffs, metrics.qualified_live_deals) },
+    { label: 'Handoff → Paid Deal Review', value: safePct(metrics.paid_deal_reviews, metrics.deal_review_handoffs) },
+  ];
+}
+
 app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
   const state = await readJson(DASHBOARD_STATE_FILE, {});
   const liveBoard = await readJson(BOARD_FILE, defaultBoard());
+  const liveDeals = await readJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, []);
   const boardCounts = Object.fromEntries(BOARD_COLUMNS.map((c) => [c, (liveBoard.tasks || []).filter((t) => t.status === c).length]));
   const totalTaskCount = (liveBoard.tasks || []).length;
   const activeTaskCount = (liveBoard.tasks || []).filter((t) => String(t.status || '').trim() !== 'Done').length;
+  const qualifiedLiveDeals = (liveDeals || []).filter((row) => normalizeLiveDealScore(row.live_deal_score) >= 4).length;
+  const paidReviews = (liveDeals || []).filter((row) => yes(row.converted_to_paid_review) || String(row.status || '') === 'Paid Deal Review').length;
   const packets = await listReviewPackets(300);
   const pendingRps = packets.filter((rp) => String(rp.status || '').toLowerCase() === 'ready for review').length;
   const recent = await readActivityEvents({ limit: 200 });
@@ -1188,7 +1347,17 @@ app.get(['/dashboard', '/dashboard/'], async (_req, res) => {
       <div class="col-12 col-md-6 col-xl-3">${statCard('Pending Review Packets', pendingRps)}</div>
       <div class="col-12 col-md-6 col-xl-3">${statCard('Latest UOS Publish', '-', escapeHtml(latestUosPublish))}</div>
       <div class="col-12 col-md-6 col-xl-3">${statCard('Last Updated', '-', escapeHtml(lastUpdatedLive))}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Qualified Live Deals', qualifiedLiveDeals)}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Paid Deal Reviews', paidReviews)}</div>
     </div>
+
+    <div class="card mb-3"><div class="card-body d-flex justify-content-between align-items-center flex-wrap gap-2">
+      <div>
+        <div class="metric-label">Live Deal Detection Sprint Board</div>
+        <div class="small text-muted">Track qualified live deals, handoffs, and paid review conversion across six two-week sprints.</div>
+      </div>
+      <a class="btn btn-primary btn-sm" href="/dashboard/live-deals">Open Live Deal Board</a>
+    </div></div>
 
     ${tableShell(
       ['Time', 'Actor', 'Event', 'Entity'],
@@ -2359,6 +2528,202 @@ app.get('/dashboard/platform-pressure', requireAnyAuth, async (_req, res) => {
   <script id="pp-data" type="application/json">${payload}</script>
   <script defer src="/public/js/platform-pressure-v1-hardened.js?v=8"></script>
   </body></html>`);
+});
+
+app.get('/dashboard/live-deals/export.json', async (_req, res) => {
+  const sprints = await readJson(DASHBOARD_LIVE_DEAL_SPRINTS_FILE, []);
+  const pipeline = await readJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, []);
+  const activity = await readJson(DASHBOARD_LIVE_DEAL_ACTIVITY_FILE, []);
+  res.type('application/json').send(JSON.stringify({ sprints, pipeline, activity, exported_at: nowIso() }, null, 2));
+});
+
+app.get('/dashboard/live-deals', async (req, res) => {
+  const sprintsRaw = await readJson(DASHBOARD_LIVE_DEAL_SPRINTS_FILE, []);
+  const pipelineRaw = await readJson(DASHBOARD_LIVE_DEAL_PIPELINE_FILE, []);
+  const activityRaw = await readJson(DASHBOARD_LIVE_DEAL_ACTIVITY_FILE, []);
+  const sprints = Array.isArray(sprintsRaw) ? sprintsRaw : [];
+  const pipeline = Array.isArray(pipelineRaw) ? pipelineRaw : [];
+  const activity = Array.isArray(activityRaw) ? activityRaw : [];
+  const today = toDateOnly(new Date());
+  const sprintById = Object.fromEntries(sprints.map((s) => [String(s.sprint_id || '').trim(), s]));
+  const currentSprint = resolveCurrentSprint(sprints, today);
+  const selectedSprintId = String(req.query.sprint_id || currentSprint?.sprint_id || '').trim();
+  const selectedSprint = sprintById[selectedSprintId] || currentSprint || null;
+
+  const pipelineWithSprintMeta = pipeline.map((row) => {
+    const sprintId = String(pickField(row, 'sprint_id', 'Sprint ID')).trim();
+    const sprint = sprintById[sprintId] || {};
+    return {
+      ...row,
+      sprint_id: sprintId,
+      source_cohort_resolved: String(pickField(row, 'source_cohort', 'Source Cohort') || sprint.source_cohort || '').trim(),
+    };
+  });
+
+  const selectedPipeline = selectedSprintId
+    ? pipelineWithSprintMeta.filter((row) => String(row.sprint_id || '') === selectedSprintId)
+    : pipelineWithSprintMeta;
+
+  const activityByDate = activity.filter((row) => toDateOnly(pickField(row, 'date', 'Date')) === today);
+  const activityBySprint = selectedSprintId
+    ? activity.filter((row) => String(pickField(row, 'sprint_id', 'Sprint ID') || '').trim() === selectedSprintId)
+    : activity;
+
+  const todayMetrics = activityByDate.length
+    ? deriveLiveDealActivityMetrics(activityByDate)
+    : deriveLiveDealFallbackMetrics(selectedPipeline.filter((row) => toDateOnly(pickField(row, 'last_activity_date', 'Last Activity Date', 'created_date', 'Created Date')) === today));
+  const sprintMetrics = activityBySprint.length ? deriveLiveDealActivityMetrics(activityBySprint) : deriveLiveDealFallbackMetrics(selectedPipeline);
+  const sixSprintMetrics = activity.length ? deriveLiveDealActivityMetrics(activity) : deriveLiveDealFallbackMetrics(pipelineWithSprintMeta);
+
+  const targets = { ...LIVE_DEAL_TARGET_DEFAULTS, ...(selectedSprint?.targets || {}) };
+  const kpis = [
+    ['New Targets Added', 'new_targets_added', 'new_targets_added'],
+    ['Messages Sent', 'messages_sent', 'messages_sent'],
+    ['Follow-Ups Sent', 'follow_ups_sent', 'follow_ups_sent'],
+    ['Replies Received', 'replies_received', 'replies_received'],
+    ['Deal Mentions', 'deal_mentions', 'deal_mentions'],
+    ['Possible Live Deals', 'possible_live_deals', 'possible_live_deals'],
+    ['Qualified Live Deals', 'qualified_live_deals', 'qualified_live_deals'],
+    ['Deal Review Handoffs', 'deal_review_handoffs', 'deal_review_handoffs'],
+    ['Paid Deal Reviews', 'paid_deal_reviews', 'paid_deal_reviews_min'],
+    ['Paid Review Revenue', 'paid_review_revenue', null],
+  ];
+
+  const stageCounts = Object.fromEntries(LIVE_DEAL_STAGE_ORDER.map((stage) => [stage, selectedPipeline.filter((row) => String(pickField(row, 'status', 'Status') || '') === stage).length]));
+
+  const followUpQueue = selectedPipeline.filter((row) => {
+    const status = String(pickField(row, 'status', 'Status') || '').trim();
+    const date = toDateOnly(pickField(row, 'follow_up_date', 'Follow-Up Date'));
+    return date && date <= today && status !== 'Dead / Not Now';
+  });
+
+  const qualifiedLiveDeals = selectedPipeline.filter((row) => normalizeLiveDealScore(pickField(row, 'live_deal_score', 'Live Deal Score')) >= 4);
+  const handoffRows = selectedPipeline.filter((row) => yes(pickField(row, 'handoff_ready', 'Handoff Ready')));
+  const paidRows = selectedPipeline.filter((row) => yes(pickField(row, 'converted_to_paid_review', 'Converted to Paid Review')) || String(pickField(row, 'status', 'Status') || '') === 'Paid Deal Review');
+
+  const sourcePerf = new Map();
+  for (const row of selectedPipeline) {
+    const key = [
+      String(pickField(row, 'source', 'Source') || 'Unknown'),
+      String(pickField(row, 'contact_type', 'Contact Type') || 'Unknown'),
+      String(row.source_cohort_resolved || 'Unknown'),
+    ].join('||');
+    const hit = sourcePerf.get(key) || { source: 'Unknown', contact_type: 'Unknown', source_cohort: 'Unknown', qualified: 0, paid: 0, total: 0 };
+    hit.source = String(pickField(row, 'source', 'Source') || 'Unknown');
+    hit.contact_type = String(pickField(row, 'contact_type', 'Contact Type') || 'Unknown');
+    hit.source_cohort = String(row.source_cohort_resolved || 'Unknown');
+    hit.total += 1;
+    if (normalizeLiveDealScore(pickField(row, 'live_deal_score', 'Live Deal Score')) >= 4) hit.qualified += 1;
+    if (yes(pickField(row, 'converted_to_paid_review', 'Converted to Paid Review')) || String(pickField(row, 'status', 'Status') || '') === 'Paid Deal Review') hit.paid += 1;
+    sourcePerf.set(key, hit);
+  }
+  const sourceRows = [...sourcePerf.values()].sort((a, b) => (b.qualified - a.qualified) || (b.paid - a.paid) || (b.total - a.total));
+
+  const teamBoard = new Map();
+  for (const row of selectedPipeline) {
+    const owner = String(pickField(row, 'team_owner', 'Team Owner') || 'Unassigned');
+    const hit = teamBoard.get(owner) || { owner, total: 0, replied: 0, deal_mentions: 0, qualified: 0, handoffs: 0, paid: 0, revenue: 0 };
+    hit.total += 1;
+    const replyStatus = String(pickField(row, 'reply_status', 'Reply Status') || '').toLowerCase();
+    if (['replied', 'deal mentioned', 'referred someone'].includes(replyStatus)) hit.replied += 1;
+    if (yes(pickField(row, 'deal_mentioned', 'Deal Mentioned')) || replyStatus === 'deal mentioned') hit.deal_mentions += 1;
+    if (normalizeLiveDealScore(pickField(row, 'live_deal_score', 'Live Deal Score')) >= 4) hit.qualified += 1;
+    if (yes(pickField(row, 'handoff_ready', 'Handoff Ready'))) hit.handoffs += 1;
+    if (yes(pickField(row, 'converted_to_paid_review', 'Converted to Paid Review')) || String(pickField(row, 'status', 'Status') || '') === 'Paid Deal Review') hit.paid += 1;
+    hit.revenue += toNumber(pickField(row, 'paid_review_amount', 'Paid Review Amount'), 0);
+    teamBoard.set(owner, hit);
+  }
+  const teamRows = [...teamBoard.values()].sort((a, b) => (b.qualified - a.qualified) || (b.paid - a.paid) || (b.total - a.total));
+
+  const sprintScoreRows = sprints.map((sprint) => {
+    const sprintRows = pipelineWithSprintMeta.filter((row) => String(row.sprint_id || '') === String(sprint.sprint_id || ''));
+    const m = deriveLiveDealFallbackMetrics(sprintRows);
+    return {
+      sprint_id: sprint.sprint_id,
+      theme: sprint.theme,
+      source_cohort: sprint.source_cohort,
+      qualified: m.qualified_live_deals,
+      handoffs: m.deal_review_handoffs,
+      paid: m.paid_deal_reviews,
+      revenue: m.paid_review_revenue,
+      conversions: conversionStack(m),
+    };
+  });
+
+  const activityDailyByOwner = new Map();
+  for (const row of activityByDate) {
+    const owner = String(pickField(row, 'team_owner', 'Team Owner') || 'Unassigned');
+    const hit = activityDailyByOwner.get(owner) || { owner, actions: 0 };
+    hit.actions += toNumber(pickField(row, 'count', 'Count'), 1);
+    activityDailyByOwner.set(owner, hit);
+  }
+  const dailyActivityRows = [...activityDailyByOwner.values()].sort((a, b) => b.actions - a.actions);
+
+  const kpiRows = kpis.map(([label, key, targetKey]) => `<tr>
+      <td>${escapeHtml(label)}</td>
+      <td class="mono">${escapeHtml(String(todayMetrics[key] || 0))}</td>
+      <td class="mono">${escapeHtml(String(sprintMetrics[key] || 0))}</td>
+      <td class="mono">${targetKey ? escapeHtml(String(targets[targetKey] || 0)) : '—'}</td>
+      <td class="mono">${escapeHtml(String(sixSprintMetrics[key] || 0))}</td>
+      <td class="mono">${targetKey && toNumber(targets[targetKey], 0) > 0 ? fmtPct(safePct(sprintMetrics[key], targets[targetKey])) : '—'}</td>
+    </tr>`).join('');
+
+  const conversionRows = conversionStack(sprintMetrics).map((item) => `<tr><td>${escapeHtml(item.label)}</td><td class="mono">${fmtPct(item.value)}</td></tr>`).join('');
+
+  const sprintFilter = `<form class="row g-2 mb-3" method="get" action="/dashboard/live-deals">
+    <div class="col-12 col-md-6 col-xl-4">
+      <select class="form-select" name="sprint_id" onchange="this.form.submit()">
+        <option value="">All sprints</option>
+        ${sprints.map((s) => `<option value="${escapeHtml(String(s.sprint_id || ''))}" ${String(s.sprint_id || '') === selectedSprintId ? 'selected' : ''}>${escapeHtml(String(s.sprint_id || ''))} · ${escapeHtml(String(s.start_date || ''))} → ${escapeHtml(String(s.end_date || ''))}</option>`).join('')}
+      </select>
+    </div>
+    <div class="col-12 col-md-6 col-xl-8 d-flex justify-content-md-end">
+      <a class="btn btn-outline-secondary" href="/dashboard/live-deals/export.json">Export JSON</a>
+    </div>
+  </form>`;
+
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Live Deal Sprint Board')}</head><body><div class="app-shell">
+    ${dashboardNav('live-deals')}
+    ${pageHeader('Live Deal Detection Sprint Board', '', 'SWAT-mode: reward qualified live deals, not vanity activity.')}
+    ${sprintFilter}
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Sprint', escapeHtml(String(selectedSprint?.sprint_id || 'All')))}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Qualified Live Deals', sprintMetrics.qualified_live_deals || 0)}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Handoffs', sprintMetrics.deal_review_handoffs || 0)}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Paid Review Revenue', fmtMoney(sprintMetrics.paid_review_revenue || 0))}</div>
+    </div>
+
+    <div class="card mb-3"><div class="table-responsive"><table class="table table-sm align-middle mb-0"><thead><tr><th>KPI</th><th>Today</th><th>Current Sprint Total</th><th>Current Sprint Target</th><th>Six-Sprint Total</th><th>Conversion/Target</th></tr></thead><tbody>${kpiRows || '<tr><td colspan="6" class="text-muted">No KPI data yet.</td></tr>'}</tbody></table></div></div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-lg-6">${tableShell(['Conversion Rate', 'Current Sprint'], conversionRows ? conversionRows.split('</tr>').filter(Boolean).map((r)=>r + '</tr>') : [], 'No conversion data yet', 2)}</div>
+      <div class="col-12 col-lg-6"><div class="card"><div class="card-body"><h6 class="mb-2">Contact Pipeline (Kanban counts)</h6><div class="row g-2">${LIVE_DEAL_STAGE_ORDER.map((stage) => `<div class="col-6 col-md-4"><div class="border rounded p-2 h-100"><div class="small text-muted">${escapeHtml(stage)}</div><div class="fw-semibold">${stageCounts[stage] || 0}</div></div></div>`).join('')}</div></div></div></div>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-xl-6">${tableShell(['Team Owner', 'Actions Today'], dailyActivityRows.map((r) => `<tr><td>${escapeHtml(r.owner)}</td><td class="mono">${r.actions}</td></tr>`), 'No activity logged for today', 2)}</div>
+      <div class="col-12 col-xl-6">${tableShell(['Follow-Up Queue', 'Company', 'Follow-Up Date', 'Status'], followUpQueue.slice(0, 25).map((r) => `<tr><td>${escapeHtml(String(pickField(r, 'contact_name', 'Contact Name') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'company', 'Company') || '—'))}</td><td class="mono">${escapeHtml(String(toDateOnly(pickField(r, 'follow_up_date', 'Follow-Up Date')) || '—'))}</td><td>${escapeHtml(String(pickField(r, 'status', 'Status') || '—'))}</td></tr>`), 'Follow-up queue is clear', 4)}</div>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-xl-4">${tableShell(['Qualified Live Deals', 'Company', 'Score'], qualifiedLiveDeals.slice(0, 20).map((r) => `<tr><td>${escapeHtml(String(pickField(r, 'contact_name', 'Contact Name') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'company', 'Company') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'live_deal_score', 'Live Deal Score') || '—'))}</td></tr>`), 'No qualified live deals yet', 3)}</div>
+      <div class="col-12 col-xl-4">${tableShell(['Deal Review Handoffs', 'Company', 'Urgency'], handoffRows.slice(0, 20).map((r) => `<tr><td>${escapeHtml(String(pickField(r, 'contact_name', 'Contact Name') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'company', 'Company') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'urgency', 'Urgency') || '—'))}</td></tr>`), 'No handoffs ready yet', 3)}</div>
+      <div class="col-12 col-xl-4">${tableShell(['Paid Deal Reviews', 'Company', 'Amount'], paidRows.slice(0, 20).map((r) => `<tr><td>${escapeHtml(String(pickField(r, 'contact_name', 'Contact Name') || '—'))}</td><td>${escapeHtml(String(pickField(r, 'company', 'Company') || '—'))}</td><td>${fmtMoney(toNumber(pickField(r, 'paid_review_amount', 'Paid Review Amount'), 0))}</td></tr>`), 'No paid deal reviews yet', 3)}</div>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-xl-6">${tableShell(['Source', 'Contact Type', 'Source Cohort', 'Qualified', 'Paid', 'Total'], sourceRows.slice(0, 40).map((r) => `<tr><td>${escapeHtml(r.source)}</td><td>${escapeHtml(r.contact_type)}</td><td>${escapeHtml(r.source_cohort)}</td><td class="mono">${r.qualified}</td><td class="mono">${r.paid}</td><td class="mono">${r.total}</td></tr>`), 'No source performance data yet', 6)}</div>
+      <div class="col-12 col-xl-6">${tableShell(['Team', 'Total', 'Replies', 'Deal Mentions', 'Qualified', 'Handoffs', 'Paid', 'Revenue'], teamRows.map((r) => `<tr><td>${escapeHtml(r.owner)}</td><td class="mono">${r.total}</td><td class="mono">${r.replied}</td><td class="mono">${r.deal_mentions}</td><td class="mono">${r.qualified}</td><td class="mono">${r.handoffs}</td><td class="mono">${r.paid}</td><td class="mono">${fmtMoney(r.revenue)}</td></tr>`), 'No team scoreboard data yet', 8)}</div>
+    </div>
+
+    ${tableShell(
+      ['Sprint ID', 'Theme', 'Source Cohort', 'Qualified', 'Handoffs', 'Paid', 'Revenue', 'Handoff→Paid'],
+      sprintScoreRows.map((r) => `<tr><td class="mono">${escapeHtml(String(r.sprint_id || ''))}</td><td>${escapeHtml(String(r.theme || '—'))}</td><td>${escapeHtml(String(r.source_cohort || '—'))}</td><td class="mono">${r.qualified}</td><td class="mono">${r.handoffs}</td><td class="mono">${r.paid}</td><td class="mono">${fmtMoney(r.revenue)}</td><td class="mono">${fmtPct(r.conversions[5]?.value || 0)}</td></tr>`),
+      'No sprint scoreboard data yet',
+      8,
+    )}
+  </div></body></html>`);
 });
 
 app.get('/dashboard/activity', async (req, res) => {
@@ -6919,6 +7284,7 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
         <a class="nav-link" href="/dashboard/buyers" title="Buyers"><i data-lucide="building-2" class="nav-icon"></i><span class="nav-label">Buyers</span></a>
         <a class="nav-link" href="/dashboard/actors" title="Actors"><i data-lucide="contact-round" class="nav-icon"></i><span class="nav-label">Actors</span></a>
         <a class="nav-link" href="/dashboard/initiatives" title="Initiatives"><i data-lucide="puzzle" class="nav-icon"></i><span class="nav-label">Initiatives</span></a>
+        <a class="nav-link" href="/dashboard/live-deals" title="Live Deals"><i data-lucide="target" class="nav-icon"></i><span class="nav-label">Live Deals</span></a>
         <a class="nav-link" href="/dashboard/capital-map" title="Capital Map"><i data-lucide="network" class="nav-icon"></i><span class="nav-label">Capital Map</span></a>
 
         <div class="oc-nav-group-label">Control</div>
