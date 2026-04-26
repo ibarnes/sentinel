@@ -26,4 +26,4 @@
 - New atomic tasks moved to RFR: `TASK-0248`, `TASK-0249`
 
 ## Commit hash
-- Pending (fill after commit)
+- `dfbf6b9`
