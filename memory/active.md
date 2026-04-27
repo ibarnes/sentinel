@@ -73,3 +73,46 @@
 - Durable changes captured: Signals Feed reliability/UX hardening, ECOWAS initiative creation + framing decision, CBN IMTO signal registration, and continued decomposition-gated board artifact progression (`RP-0104/0105/0107/0108`).
 - No new operating-rule changes.
 - No scoring-policy changes.
+
+## Project Status Snapshot (2026-04-25)
+- Daily operating cadence executed cleanly around meeting-prep and daily-brief workflows:
+  - Lock & Load brief generated and saved at `mission-control/briefs/2026-04-24-lock-load.md`.
+  - Meeting prep packs were sent for upcoming `Internal Bestaf Cadence` and `Discuss Uganda Data Centers and other projects` meetings, with duplicate-safe horizon tracking in `memory/calendar-prep-state.json`.
+  - End-of-day closeout saved at `mission-control/briefs/2026-04-25-eod-closeout.md`.
+- Durable project signal from the day: Bestaf remains the main active blocker lane; Uganda data centers advanced into meeting-qualified pipeline but not yet into a defined executable initiative.
+- Night build window followed decomposition-gate governance and produced artifact-first groundwork for board task `TASK-0012 — EP-G Signal Register v1 for pressure tracking`:
+  - Decomposition artifact: `mission-control/artifacts/2026-04-25-board-build-signal-register-decomposition.md`
+  - Seed artifact: `mission-control/artifacts/signal-register-v1-seed.json`
+  - Review packet: `mission-control/artifacts/2026-04-25-signal-register-v1-review-packet.md`
+- Governance unchanged: no Done transitions without approved review packets / Isaac approval.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+## Nightly Memory Maintenance (2026-04-25)
+- Daily log reviewed at `memory/2026-04-25.md` and distilled into durable snapshot above.
+- Durable changes captured: workflow-C queue deferral behavior, calendar-prep operating continuity, Bestaf/Uganda prep sequencing, and Signal Register v1 seed artifact creation under decomposition-gated board governance.
+- No new operating-rule changes.
+- No scoring-policy changes.
+
+## Project Status Snapshot (2026-04-27)
+- Overnight operations remained stable and policy-compliant:
+  - Meeting Prep Sweep cadence sustained with state-first dedupe tracking in `memory/calendar-prep-state.json`.
+  - HEARTBEAT checks stayed low-noise (`HEARTBEAT_OK` when no qualifying deltas).
+  - Signal-pressure freshness refreshes ran as needed; no qualifying high-impact delta alerts emerged.
+- Workflow C queue behavior executed as designed:
+  - New queued-only file created for run window (no immediate execution): `mission-control/workflow-c/queue/2026-04-26.json`.
+- Board deep-work advanced under decomposition gate during night build window:
+  - `TASK-0250` and `TASK-0251` moved to Ready for Review.
+  - Artifacts published:
+    - `mission-control/board/approval-queue/2026-04-27T03-10-00Z-tranche-ac-approval-card.md`
+    - `mission-control/board/sweeps/2026-04-27T03-10-00Z-night-build-tranche-ac-decision-digest.md`
+    - `mission-control/review-packets/RP-2026-04-27T03-10-00Z-board-build-window-night.md`
+- Credentialed blocker chain unchanged:
+  - `TASK-0097`/`TASK-0103` still blocked by missing `BASE_URL` + `TEAM_SESSION_COOKIE`.
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+## Nightly Memory Maintenance (2026-04-27)
+- Created daily log `memory/2026-04-27.md` and distilled durable updates into this active snapshot.
+- Durable changes captured: queue-only Workflow C execution control, tranche-AC recovery artifacts, and ongoing blocker-chain status.
+- No new operating-rule changes.
+- No scoring-policy changes.
