@@ -1143,7 +1143,9 @@
         "TASK-0093",
         "TASK-0094",
         "TASK-0095",
-        "TASK-0184"
+        "TASK-0184",
+        "TASK-0254",
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Create atomic first slice: validate input + create persisted run record with started status.",
       "comments": [
@@ -1164,11 +1166,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0184 to publish credential-window trigger packet and tighten immediate next action for blocker-chain closure.",
           "created_at": "2026-03-18T06:30:00Z"
+        },
+        {
+          "id": "comment-task-0043-20260427-0630",
+          "author": "sentinel",
+          "text": "Decomposed stalled oversized scope into 30\u201360m child TASK-0254 for validation decision-table unblock.",
+          "created_at": "2026-04-27T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-27T23:24:00Z",
-      "updated_at": "2026-03-18T06:30:00Z",
+      "updated_at": "2026-04-27T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2638,7 +2646,9 @@
         "TASK-0043",
         "TASK-0096",
         "TASK-0097",
-        "TASK-0184"
+        "TASK-0184",
+        "TASK-0255",
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Implement endpoint using validation + persistence helper and verify with smoke calls.\nAcceptance Criteria:\n- Valid request returns 201 with runId and started status.\n- Invalid request returns 400 with actionable error payload.\n- Audit event emitted for pipeline.run.created with runId/deckId metadata.",
       "comments": [
@@ -2670,11 +2680,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0184 to publish credential-window trigger packet and tighten immediate next action for blocker-chain closure.",
           "created_at": "2026-03-18T06:30:00Z"
+        },
+        {
+          "id": "comment-task-0095-20260427-0630",
+          "author": "sentinel",
+          "text": "Decomposed stalled oversized scope into 45\u201390m child TASK-0255 for smoke-harness/evidence checklist unblock.",
+          "created_at": "2026-04-27T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-03-18T06:30:00Z",
+      "updated_at": "2026-04-27T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3622,7 +3638,10 @@
         "TASK-0251",
         "mission-control/board/approval-queue/2026-04-27T03-10-00Z-tranche-ac-approval-card.md",
         "mission-control/board/sweeps/2026-04-27T03-10-00Z-night-build-tranche-ac-decision-digest.md",
-        "mission-control/review-packets/RP-2026-04-27T03-10-00Z-board-build-window-night.md"
+        "mission-control/review-packets/RP-2026-04-27T03-10-00Z-board-build-window-night.md",
+        "TASK-0252",
+        "TASK-0253",
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30\u201390 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3805,11 +3824,17 @@
           "author": "sentinel",
           "text": "Night build window executed decomposition-gated subtasks TASK-0250 and TASK-0251. Published tranche-AC approval card + oldest-stale decision digest. Governance preserved; no Done transitions.",
           "created_at": "2026-04-27T03:10:00Z"
+        },
+        {
+          "id": "comment-task-0107-20260427-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep decomposition added: TASK-0252 (executed digest) and TASK-0253 (queued routing card). Artifacts: mission-control/board/sweeps/2026-04-27T06-30-00Z-night-build-tranche-ad-decision-digest.md, mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md.",
+          "created_at": "2026-04-27T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-04-27T03:10:00Z",
+      "updated_at": "2026-04-27T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -9497,6 +9522,168 @@
       },
       "created_at": "2026-04-27T03:10:00Z",
       "updated_at": "2026-04-27T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0252",
+      "title": "BRS-2026-04-27a Build tranche-AD decision digest for next stale RFR cohort",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-hygiene",
+        "late-night-recovery",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/sweeps/2026-04-27T06-30-00Z-night-build-tranche-ad-decision-digest.md",
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "Build tranche-AD digest for next oldest stale Ready-for-Review cohort with explicit approve/hold guidance and queue-compression rationale.\nAcceptance Criteria:\n- Digest lists concrete tranche-AD task IDs with recommendation per item.\n- Includes why-this-tranche rationale and Isaac decision prompt.\n- Governance guardrail explicitly stated (no Done without approved RP).",
+      "comments": [
+        {
+          "id": "done-task-0252-20260427-0630",
+          "author": "sentinel",
+          "text": "Published artifact: mission-control/board/sweeps/2026-04-27T06-30-00Z-night-build-tranche-ad-decision-digest.md",
+          "created_at": "2026-04-27T06:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-04-27T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-04-27T06:30:00Z",
+      "updated_at": "2026-04-27T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0253",
+      "title": "BRS-2026-04-27b Publish tranche-AD approval routing card from decision digest",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-hygiene",
+        "late-night-recovery",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0252",
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "Convert tranche-AD digest into approval routing card with transition-safe templates for approve/defer/hold outcomes.\nAcceptance Criteria:\n- Approval card exists under mission-control/board/approval-queue/.\n- Includes tranche-AD task IDs and deterministic post-decision template.\n- Linked to parent recovery stream and RP for auditability.",
+      "comments": [
+        {
+          "id": "queued-task-0253-20260427-0630",
+          "author": "sentinel",
+          "text": "Queued after TASK-0252 digest publication; execute once Isaac confirms tranche-AD scope.",
+          "created_at": "2026-04-27T06:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-04-27T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-04-27T06:30:00Z",
+      "updated_at": "2026-04-27T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0254",
+      "title": "TS-H1.1a.1 Decompose TASK-0043 into validation decision table + edge-case checklist",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "pipeline-run",
+        "decomposition",
+        "recovery",
+        "30-90m"
+      ],
+      "linked_refs": [
+        "TASK-0043",
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30\u201360 minute unblock slice for TASK-0043: produce endpoint validation decision table and edge-case checklist to reduce implementation ambiguity before coding resume.\nAcceptance Criteria:\n- Decision table covers required/optional fields and invalid-input branches.\n- Edge-case checklist includes at least 8 negative test vectors.\n- Artifact linked in parent TASK-0043 comments for direct implementation use.",
+      "comments": [
+        {
+          "id": "queued-task-0254-20260427-0630",
+          "author": "sentinel",
+          "text": "Decomposition-gate child created for stalled parent TASK-0043 (>48h In Progress).",
+          "created_at": "2026-04-27T06:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-04-27T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-04-27T06:30:00Z",
+      "updated_at": "2026-04-27T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0255",
+      "title": "TS-H1.1c.1 Decompose TASK-0095 into smoke harness matrix + evidence checklist",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "pipeline-run",
+        "decomposition",
+        "recovery",
+        "30-90m"
+      ],
+      "linked_refs": [
+        "TASK-0095",
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "45\u201390 minute unblock slice for TASK-0095: define smoke harness command matrix and evidence capture checklist for credentialed + fail-fast paths.\nAcceptance Criteria:\n- Matrix includes success path, 400-validation path, and credential-missing fail-fast path.\n- Evidence checklist maps required artifacts to each path.\n- Parent TASK-0095 updated with child linkage and execution order.",
+      "comments": [
+        {
+          "id": "queued-task-0255-20260427-0630",
+          "author": "sentinel",
+          "text": "Decomposition-gate child created for stalled parent TASK-0095 (>48h In Progress).",
+          "created_at": "2026-04-27T06:30:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-04-27T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-04-27T06:30:00Z",
+      "updated_at": "2026-04-27T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
