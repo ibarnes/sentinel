@@ -1180,11 +1180,17 @@
           "author": "sentinel",
           "text": "Unblock artifact delivered via TASK-0254: mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-validation-decision-table.md. Implementation-ready validation rules now explicit for coding resume.",
           "created_at": "2026-04-27T10:40:00Z"
+        },
+        {
+          "id": "comment-task-0043-20260427-1630",
+          "author": "sentinel",
+          "text": "Credential-chain unblock advanced via TASK-0256/TASK-0257 (fresh preflight snapshot + run card) to support next live execution window on TASK-0103/TASK-0097.",
+          "created_at": "2026-04-27T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-27T23:24:00Z",
-      "updated_at": "2026-04-27T10:40:00Z",
+      "updated_at": "2026-04-27T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2702,11 +2708,17 @@
           "author": "sentinel",
           "text": "Unblock artifact delivered via TASK-0255: mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-smoke-harness-matrix.md. Smoke execution order + evidence requirements now deterministic.",
           "created_at": "2026-04-27T10:40:00Z"
+        },
+        {
+          "id": "progress-task-0095-20260427-1630",
+          "author": "sentinel",
+          "text": "Midday sweep linked new unblock children TASK-0256/TASK-0257 under credential chain to reduce execution ambiguity and tighten one-pass run readiness.",
+          "created_at": "2026-04-27T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-04-27T10:40:00Z",
+      "updated_at": "2026-04-27T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2948,11 +2960,17 @@
           "author": "sentinel",
           "text": "Midday sweep evidence refresh completed via TASK-0248/TASK-0249 (blocked preflight + fail-fast wrapper). Live 201/400 smoke remains blocked pending credentials.",
           "created_at": "2026-04-26T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0097-20260427-1630",
+          "author": "sentinel",
+          "text": "Midday sweep 2026-04-27T16:30Z: added TASK-0256/TASK-0257 (fresh preflight blocker evidence + credential-window run card). Live 201/400 smoke remains pending credential inputs.",
+          "created_at": "2026-04-27T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-04-26T16:30:00Z",
+      "updated_at": "2026-04-27T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3253,7 +3271,12 @@
         "TASK-0249",
         "mission-control/review-packets/RP-2026-04-26T16-30-00Z-board-progress-sweep-midday.md",
         "mission-control/evidence/pipeline-run/preflight-2026-04-26T16-30-00Z.md",
-        "mission-control/evidence/pipeline-run/2026-04-26T16-30-00Z-credentialed-wrapper-dryrun.md"
+        "mission-control/evidence/pipeline-run/2026-04-26T16-30-00Z-credentialed-wrapper-dryrun.md",
+        "TASK-0256",
+        "TASK-0257",
+        "mission-control/evidence/pipeline-run/preflight-2026-04-27T16-30-43Z.md",
+        "mission-control/board/approval-queue/2026-04-27T16-30-00Z-credential-window-run-card.md",
+        "mission-control/review-packets/RP-2026-04-27T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3490,11 +3513,17 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-04-26T16:30Z: executed TASK-0248/TASK-0249. Preflight BLOCKED (missing BASE_URL + TEAM_SESSION_COOKIE). Wrapper fail-fast exit_code=2 captured. Awaiting credential window for TASK-0159 live run.",
           "created_at": "2026-04-26T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0103-20260427-1630",
+          "author": "sentinel",
+          "text": "Midday sweep 2026-04-27T16:30Z: executed TASK-0256/TASK-0257. Fresh preflight snapshot captured (BLOCKED: missing BASE_URL + TEAM_SESSION_COOKIE) and credential-window run card published for one-pass live execution.",
+          "created_at": "2026-04-27T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-04-26T16:30:00Z",
+      "updated_at": "2026-04-27T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -9716,6 +9745,76 @@
       },
       "created_at": "2026-04-27T06:30:00Z",
       "updated_at": "2026-04-27T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0256",
+      "title": "TS-H1.1c.2c Refresh credential preflight evidence snapshot",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "mission-control/evidence/pipeline-run/preflight-2026-04-27T16-30-43Z.md",
+        "mission-control/review-packets/RP-2026-04-27T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30\u201360 minute unblock slice for TASK-0103: rerun credential preflight and capture a fresh blocker snapshot for the current sweep.\nAcceptance Criteria:\n- Preflight artifact generated with current timestamp.\n- Artifact explicitly records missing/present credential vars.\n- Parent task comment and linkage updated with artifact path.",
+      "comments": [
+        {
+          "id": "done-task-0256-20260427-1630",
+          "author": "sentinel",
+          "text": "Executed preflight refresh; captured blocker evidence at mission-control/evidence/pipeline-run/preflight-2026-04-27T16-30-43Z.md.",
+          "created_at": "2026-04-27T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-27T16:30:00Z",
+      "updated_at": "2026-04-27T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0257",
+      "title": "TS-H1.1c.2d Publish credential-window run card with exact command sequence",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0255",
+        "mission-control/board/approval-queue/2026-04-27T16-30-00Z-credential-window-run-card.md",
+        "mission-control/review-packets/RP-2026-04-27T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30\u201390 minute unblock slice for TASK-0103: publish operator-ready credential window card with exact commands, expected evidence, and one-line decision format.\nAcceptance Criteria:\n- Run card includes required inputs (`BASE_URL`, `TEAM_SESSION_COOKIE`).\n- Run card includes exact command sequence and expected evidence bundle.\n- Parent task links updated to include the run card artifact.",
+      "comments": [
+        {
+          "id": "done-task-0257-20260427-1630",
+          "author": "sentinel",
+          "text": "Published credential-window run card at mission-control/board/approval-queue/2026-04-27T16-30-00Z-credential-window-run-card.md.",
+          "created_at": "2026-04-27T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-27T16:30:00Z",
+      "updated_at": "2026-04-27T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
