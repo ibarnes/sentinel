@@ -1145,7 +1145,9 @@
         "TASK-0095",
         "TASK-0184",
         "TASK-0254",
-        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-validation-decision-table.md",
+        "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "Create atomic first slice: validate input + create persisted run record with started status.",
       "comments": [
@@ -1172,11 +1174,17 @@
           "author": "sentinel",
           "text": "Decomposed stalled oversized scope into 30\u201360m child TASK-0254 for validation decision-table unblock.",
           "created_at": "2026-04-27T06:30:00Z"
+        },
+        {
+          "id": "comment-task-0043-20260427-1040",
+          "author": "sentinel",
+          "text": "Unblock artifact delivered via TASK-0254: mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-validation-decision-table.md. Implementation-ready validation rules now explicit for coding resume.",
+          "created_at": "2026-04-27T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-27T23:24:00Z",
-      "updated_at": "2026-04-27T06:30:00Z",
+      "updated_at": "2026-04-27T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2648,7 +2656,9 @@
         "TASK-0097",
         "TASK-0184",
         "TASK-0255",
-        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-smoke-harness-matrix.md",
+        "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "Implement endpoint using validation + persistence helper and verify with smoke calls.\nAcceptance Criteria:\n- Valid request returns 201 with runId and started status.\n- Invalid request returns 400 with actionable error payload.\n- Audit event emitted for pipeline.run.created with runId/deckId metadata.",
       "comments": [
@@ -2686,11 +2696,17 @@
           "author": "sentinel",
           "text": "Decomposed stalled oversized scope into 45\u201390m child TASK-0255 for smoke-harness/evidence checklist unblock.",
           "created_at": "2026-04-27T06:30:00Z"
+        },
+        {
+          "id": "comment-task-0095-20260427-1040",
+          "author": "sentinel",
+          "text": "Unblock artifact delivered via TASK-0255: mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-smoke-harness-matrix.md. Smoke execution order + evidence requirements now deterministic.",
+          "created_at": "2026-04-27T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-04-27T06:30:00Z",
+      "updated_at": "2026-04-27T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -9610,7 +9626,7 @@
     {
       "id": "TASK-0254",
       "title": "TS-H1.1a.1 Decompose TASK-0043 into validation decision table + edge-case checklist",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -9623,7 +9639,9 @@
       ],
       "linked_refs": [
         "TASK-0043",
-        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-validation-decision-table.md",
+        "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "30\u201360 minute unblock slice for TASK-0043: produce endpoint validation decision table and edge-case checklist to reduce implementation ambiguity before coding resume.\nAcceptance Criteria:\n- Decision table covers required/optional fields and invalid-input branches.\n- Edge-case checklist includes at least 8 negative test vectors.\n- Artifact linked in parent TASK-0043 comments for direct implementation use.",
       "comments": [
@@ -9632,25 +9650,31 @@
           "author": "sentinel",
           "text": "Decomposition-gate child created for stalled parent TASK-0043 (>48h In Progress).",
           "created_at": "2026-04-27T06:30:00Z"
+        },
+        {
+          "id": "done-task-0254-20260427-1040",
+          "author": "sentinel",
+          "text": "Executed: published validation decision table + edge-case checklist at mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-validation-decision-table.md.",
+          "created_at": "2026-04-27T10:40:00Z"
         }
       ],
       "request_approval": {
-        "requested_at": "2026-04-27T06:30:00Z",
+        "requested_at": "2026-04-27T10:40:00Z",
         "requested_by": "sentinel",
-        "review_packet_stub": "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md",
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
       "created_at": "2026-04-27T06:30:00Z",
-      "updated_at": "2026-04-27T06:30:00Z",
+      "updated_at": "2026-04-27T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0255",
       "title": "TS-H1.1c.1 Decompose TASK-0095 into smoke harness matrix + evidence checklist",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -9663,7 +9687,9 @@
       ],
       "linked_refs": [
         "TASK-0095",
-        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-smoke-harness-matrix.md",
+        "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "45\u201390 minute unblock slice for TASK-0095: define smoke harness command matrix and evidence capture checklist for credentialed + fail-fast paths.\nAcceptance Criteria:\n- Matrix includes success path, 400-validation path, and credential-missing fail-fast path.\n- Evidence checklist maps required artifacts to each path.\n- Parent TASK-0095 updated with child linkage and execution order.",
       "comments": [
@@ -9672,18 +9698,24 @@
           "author": "sentinel",
           "text": "Decomposition-gate child created for stalled parent TASK-0095 (>48h In Progress).",
           "created_at": "2026-04-27T06:30:00Z"
+        },
+        {
+          "id": "done-task-0255-20260427-1040",
+          "author": "sentinel",
+          "text": "Executed: published smoke harness matrix + evidence checklist at mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-smoke-harness-matrix.md.",
+          "created_at": "2026-04-27T10:40:00Z"
         }
       ],
       "request_approval": {
-        "requested_at": "2026-04-27T06:30:00Z",
+        "requested_at": "2026-04-27T10:40:00Z",
         "requested_by": "sentinel",
-        "review_packet_stub": "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md",
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
       "created_at": "2026-04-27T06:30:00Z",
-      "updated_at": "2026-04-27T06:30:00Z",
+      "updated_at": "2026-04-27T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
