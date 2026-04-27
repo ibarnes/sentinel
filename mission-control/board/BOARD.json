@@ -3617,7 +3617,12 @@
         "TASK-0240",
         "TASK-0241",
         "mission-control/review-packets/RP-0109-board-recovery-sweep-2026-03-26-0630.md",
-        "mission-control/board/approval-queue/2026-03-26T06-30-00Z-tranche-ab-approval-card.md"
+        "mission-control/board/approval-queue/2026-03-26T06-30-00Z-tranche-ab-approval-card.md",
+        "TASK-0250",
+        "TASK-0251",
+        "mission-control/board/approval-queue/2026-04-27T03-10-00Z-tranche-ac-approval-card.md",
+        "mission-control/board/sweeps/2026-04-27T03-10-00Z-night-build-tranche-ac-decision-digest.md",
+        "mission-control/review-packets/RP-2026-04-27T03-10-00Z-board-build-window-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30\u201390 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3794,11 +3799,17 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-03-26T16:30Z: continued P0 blocker-chain stream and advanced TASK-0244/TASK-0245 to Ready for Review (RP-0111); approval queue age pressure unchanged pending Isaac decisions.",
           "created_at": "2026-03-26T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0107-20260427-0310",
+          "author": "sentinel",
+          "text": "Night build window executed decomposition-gated subtasks TASK-0250 and TASK-0251. Published tranche-AC approval card + oldest-stale decision digest. Governance preserved; no Done transitions.",
+          "created_at": "2026-04-27T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-04-26T16:30:00Z",
+      "updated_at": "2026-04-27T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -9404,6 +9415,88 @@
       },
       "created_at": "2026-04-26T16:30:00Z",
       "updated_at": "2026-04-26T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0250",
+      "title": "BRS-2026-04-27a Publish tranche-AC approval routing card for oldest stale RFR cohort",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-hygiene",
+        "night-build-window",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/approval-queue/2026-04-27T03-10-00Z-tranche-ac-approval-card.md",
+        "mission-control/review-packets/RP-2026-04-27T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "Create tranche-AC approval routing card for oldest stale Ready-for-Review tasks with explicit approve/defer/hold guidance and transition-safe template.\nAcceptance Criteria:\n- Card names concrete task IDs in tranche.\n- Includes deterministic post-decision transition template.\n- Artifact linked from parent recovery task.",
+      "comments": [
+        {
+          "id": "done-task-0250-20260427-0310",
+          "author": "sentinel",
+          "text": "Published artifact: mission-control/board/approval-queue/2026-04-27T03-10-00Z-tranche-ac-approval-card.md",
+          "created_at": "2026-04-27T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-04-27T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-27T03-10-00Z-board-build-window-night.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-04-27T03:10:00Z",
+      "updated_at": "2026-04-27T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0251",
+      "title": "BRS-2026-04-27b Build tranche-AC oldest-stale decision digest with governance-safe recommendations",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-hygiene",
+        "night-build-window",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/sweeps/2026-04-27T03-10-00Z-night-build-tranche-ac-decision-digest.md",
+        "mission-control/review-packets/RP-2026-04-27T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "Build digest for oldest stale Ready-for-Review cohort (tranche-AC) including explicit candidate set, rationale, and Isaac decision prompt.\nAcceptance Criteria:\n- Digest lists oldest stale cohort IDs and recommendation per task.\n- Includes governance guardrail statement.\n- Artifact linked from parent recovery task.",
+      "comments": [
+        {
+          "id": "done-task-0251-20260427-0310",
+          "author": "sentinel",
+          "text": "Published artifact: mission-control/board/sweeps/2026-04-27T03-10-00Z-night-build-tranche-ac-decision-digest.md",
+          "created_at": "2026-04-27T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-04-27T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-27T03-10-00Z-board-build-window-night.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-04-27T03:10:00Z",
+      "updated_at": "2026-04-27T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
