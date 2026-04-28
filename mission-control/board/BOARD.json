@@ -1147,7 +1147,11 @@
         "TASK-0254",
         "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
         "mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-validation-decision-table.md",
-        "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md"
+        "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md",
+        "mission-control/review-packets/RP-2026-04-28T16-30-00Z-board-progress-sweep-midday.md",
+        "mission-control/board/sweeps/2026-04-28T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0264",
+        "TASK-0265"
       ],
       "description": "Create atomic first slice: validate input + create persisted run record with started status.",
       "comments": [
@@ -1190,7 +1194,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-02-27T23:24:00Z",
-      "updated_at": "2026-04-27T16:30:00Z",
+      "updated_at": "2026-04-28T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2664,7 +2668,11 @@
         "TASK-0255",
         "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
         "mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-smoke-harness-matrix.md",
-        "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md"
+        "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md",
+        "mission-control/review-packets/RP-2026-04-28T16-30-00Z-board-progress-sweep-midday.md",
+        "mission-control/board/sweeps/2026-04-28T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0264",
+        "TASK-0265"
       ],
       "description": "Implement endpoint using validation + persistence helper and verify with smoke calls.\nAcceptance Criteria:\n- Valid request returns 201 with runId and started status.\n- Invalid request returns 400 with actionable error payload.\n- Audit event emitted for pipeline.run.created with runId/deckId metadata.",
       "comments": [
@@ -2718,7 +2726,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-04-27T16:30:00Z",
+      "updated_at": "2026-04-28T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2797,7 +2805,11 @@
         "mission-control/review-packets/RP-0099-board-progress-sweep-midday-2026-03-23.md",
         "TASK-0229",
         "TASK-0230",
-        "mission-control/review-packets/RP-0102-board-progress-sweep-midday-2026-03-24.md"
+        "mission-control/review-packets/RP-0102-board-progress-sweep-midday-2026-03-24.md",
+        "mission-control/review-packets/RP-2026-04-28T16-30-00Z-board-progress-sweep-midday.md",
+        "mission-control/board/sweeps/2026-04-28T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0264",
+        "TASK-0265"
       ],
       "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
       "comments": [
@@ -2970,7 +2982,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-04-27T16:30:00Z",
+      "updated_at": "2026-04-28T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3276,7 +3288,12 @@
         "TASK-0257",
         "mission-control/evidence/pipeline-run/preflight-2026-04-27T16-30-43Z.md",
         "mission-control/board/approval-queue/2026-04-27T16-30-00Z-credential-window-run-card.md",
-        "mission-control/review-packets/RP-2026-04-27T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/review-packets/RP-2026-04-27T16-30-00Z-board-progress-sweep-midday.md",
+        "mission-control/evidence/pipeline-run/preflight-2026-04-28T16-30-00Z.md",
+        "mission-control/board/approval-queue/2026-04-28T16-30-00Z-credential-window-run-card.md",
+        "mission-control/review-packets/RP-2026-04-28T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0264",
+        "TASK-0265"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3519,11 +3536,17 @@
           "author": "sentinel",
           "text": "Midday sweep 2026-04-27T16:30Z: executed TASK-0256/TASK-0257. Fresh preflight snapshot captured (BLOCKED: missing BASE_URL + TEAM_SESSION_COOKIE) and credential-window run card published for one-pass live execution.",
           "created_at": "2026-04-27T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0103-20260428-1630",
+          "author": "sentinel",
+          "text": "Midday sweep advanced TASK-0264/TASK-0265 to Ready for Review (fresh preflight snapshot + exact credential-window run card). Live authenticated smoke remains blocked pending credentials.",
+          "created_at": "2026-04-28T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-04-27T16:30:00Z",
+      "updated_at": "2026-04-28T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10090,6 +10113,76 @@
       "request_approval": null,
       "created_at": "2026-04-28T10:40:00Z",
       "updated_at": "2026-04-28T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0264",
+      "title": "TS-H1.1c.2e Refresh credential preflight evidence snapshot",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "mission-control/evidence/pipeline-run/preflight-2026-04-28T16-30-00Z.md",
+        "mission-control/review-packets/RP-2026-04-28T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "Run credential preflight and publish current blocker/pass state artifact for live-smoke chain.\nAcceptance Criteria:\n- Preflight artifact generated with timestamp and explicit status.\n- Missing credential vars (if any) are explicit.\n- Artifact linked back to TASK-0103 chain.",
+      "comments": [
+        {
+          "id": "done-task-0264-20260428-1630",
+          "author": "sentinel",
+          "text": "Generated preflight snapshot with status BLOCKED: mission-control/evidence/pipeline-run/preflight-2026-04-28T16-30-00Z.md",
+          "created_at": "2026-04-28T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-28T16:30:00Z",
+      "updated_at": "2026-04-28T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0265",
+      "title": "TS-H1.1c.2f Publish credential-window run card with exact command sequence",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "recovery-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0264",
+        "mission-control/board/approval-queue/2026-04-28T16-30-00Z-credential-window-run-card.md",
+        "mission-control/review-packets/RP-2026-04-28T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "Publish operator-ready command sequence and evidence targets to execute authenticated live smoke in one window.\nAcceptance Criteria:\n- Run card includes required env vars and exact commands.\n- Evidence output paths are explicit.\n- Decision gate for promote/hold is explicit.",
+      "comments": [
+        {
+          "id": "done-task-0265-20260428-1630",
+          "author": "sentinel",
+          "text": "Published credential-window run card: mission-control/board/approval-queue/2026-04-28T16-30-00Z-credential-window-run-card.md",
+          "created_at": "2026-04-28T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-28T16:30:00Z",
+      "updated_at": "2026-04-28T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
