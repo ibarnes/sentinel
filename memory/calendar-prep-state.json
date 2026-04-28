@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-28T10:35:00Z",
-  "lastSweepAt": "2026-04-28T10:35:00Z",
+  "updatedAt": "2026-04-28T11:05:00Z",
+  "lastSweepAt": "2026-04-28T11:05:00Z",
   "notes": "Tracks per-meeting prep notifications to avoid duplicate T-24h/T-60m sends.",
   "sent": {
     "F7227425-81EB-4A08-83E5-C624CE44A645": {
@@ -41,8 +41,8 @@
           "status": "sent"
         },
         "T-60m": {
-          "sentAt": "2026-04-25T10:35:00Z",
-          "status": "sent"
+          "sentAt": "2026-04-28T11:05:00Z",
+          "status": "sent_repair"
         }
       }
     },
