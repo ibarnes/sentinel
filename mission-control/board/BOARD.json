@@ -3686,7 +3686,14 @@
         "mission-control/review-packets/RP-2026-04-27T03-10-00Z-board-build-window-night.md",
         "TASK-0252",
         "TASK-0253",
-        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0258",
+        "TASK-0259",
+        "TASK-0260",
+        "mission-control/board/approval-queue/2026-04-28T03-10-00Z-tranche-ad-approval-card.md",
+        "mission-control/board/sweeps/2026-04-28T03-10-00Z-night-build-tranche-ae-decision-digest.md",
+        "mission-control/board/sweeps/2026-04-28T03-10-00Z-board-build-window-night.md",
+        "mission-control/review-packets/RP-2026-04-28T03-10-00Z-board-build-window-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30\u201390 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3875,11 +3882,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep decomposition added: TASK-0252 (executed digest) and TASK-0253 (queued routing card). Artifacts: mission-control/board/sweeps/2026-04-27T06-30-00Z-night-build-tranche-ad-decision-digest.md, mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md.",
           "created_at": "2026-04-27T06:30:00Z"
+        },
+        {
+          "id": "comment-task-0107-20260428-0310",
+          "author": "sentinel",
+          "text": "Night build window execution: completed TASK-0253 (tranche-AD approval card) and TASK-0258 (tranche-AE decision digest); queued TASK-0259/TASK-0260 for next compression cycle. Artifacts linked in RP-2026-04-28T03-10-00Z.",
+          "created_at": "2026-04-28T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-04-27T06:30:00Z",
+      "updated_at": "2026-04-28T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -9614,7 +9627,7 @@
     {
       "id": "TASK-0253",
       "title": "BRS-2026-04-27b Publish tranche-AD approval routing card from decision digest",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -9628,7 +9641,10 @@
       "linked_refs": [
         "TASK-0107",
         "TASK-0252",
-        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/review-packets/RP-2026-04-27T06-30-00Z-board-recovery-sweep-late-night.md",
+        "mission-control/board/approval-queue/2026-04-28T03-10-00Z-tranche-ad-approval-card.md",
+        "mission-control/board/sweeps/2026-04-28T03-10-00Z-board-build-window-night.md",
+        "mission-control/review-packets/RP-2026-04-28T03-10-00Z-board-build-window-night.md"
       ],
       "description": "Convert tranche-AD digest into approval routing card with transition-safe templates for approve/defer/hold outcomes.\nAcceptance Criteria:\n- Approval card exists under mission-control/board/approval-queue/.\n- Includes tranche-AD task IDs and deterministic post-decision template.\n- Linked to parent recovery stream and RP for auditability.",
       "comments": [
@@ -9637,6 +9653,12 @@
           "author": "sentinel",
           "text": "Queued after TASK-0252 digest publication; execute once Isaac confirms tranche-AD scope.",
           "created_at": "2026-04-27T06:30:00Z"
+        },
+        {
+          "id": "done-task-0253-20260428-0310",
+          "author": "sentinel",
+          "text": "Published artifact: mission-control/board/approval-queue/2026-04-28T03-10-00Z-tranche-ad-approval-card.md",
+          "created_at": "2026-04-28T03:10:00Z"
         }
       ],
       "request_approval": {
@@ -9648,7 +9670,7 @@
         "approved_at": null
       },
       "created_at": "2026-04-27T06:30:00Z",
-      "updated_at": "2026-04-27T06:30:00Z",
+      "updated_at": "2026-04-28T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -9815,6 +9837,108 @@
       "request_approval": null,
       "created_at": "2026-04-27T16:30:00Z",
       "updated_at": "2026-04-27T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0258",
+      "title": "BRS-2026-04-28a Build tranche-AE decision digest for next stale RFR cohort",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-hygiene",
+        "night-build-window",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/sweeps/2026-04-28T03-10-00Z-night-build-tranche-ae-decision-digest.md",
+        "mission-control/review-packets/RP-2026-04-28T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "Build tranche-AE digest for next oldest stale Ready-for-Review cohort with explicit approve/hold guidance and queue-compression rationale.\nAcceptance Criteria:\n- Digest lists concrete tranche-AE task IDs with recommendation per item.\n- Includes why-this-tranche rationale and Isaac decision prompt.\n- Governance guardrail explicitly stated (no Done without approved RP).",
+      "comments": [
+        {
+          "id": "done-task-0258-20260428-0310",
+          "author": "sentinel",
+          "text": "Published artifact: mission-control/board/sweeps/2026-04-28T03-10-00Z-night-build-tranche-ae-decision-digest.md",
+          "created_at": "2026-04-28T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-28T03:10:00Z",
+      "updated_at": "2026-04-28T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0259",
+      "title": "BRS-2026-04-28b Publish tranche-AE approval routing card from decision digest",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-hygiene",
+        "night-build-window",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0258",
+        "mission-control/review-packets/RP-2026-04-28T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "Convert tranche-AE digest into approval routing card with transition-safe templates for approve/defer/hold outcomes.\nAcceptance Criteria:\n- Approval card exists under mission-control/board/approval-queue/.\n- Includes tranche-AE task IDs and deterministic post-decision template.\n- Linked to parent recovery stream and RP for auditability.",
+      "comments": [
+        {
+          "id": "queued-task-0259-20260428-0310",
+          "author": "sentinel",
+          "text": "Queued after TASK-0258 digest publication; execute in next board build window.",
+          "created_at": "2026-04-28T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-28T03:10:00Z",
+      "updated_at": "2026-04-28T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0260",
+      "title": "BRS-2026-04-28c Build tranche-AF decision digest for subsequent stale RFR cohort",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-hygiene",
+        "night-build-window",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0259",
+        "mission-control/review-packets/RP-2026-04-28T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "Build tranche-AF digest for the cohort immediately after tranche-AE so approval routing can continue without re-triage delay.\nAcceptance Criteria:\n- Digest lists concrete tranche-AF task IDs with recommendation per item.\n- Includes rationale and Isaac decision prompt.\n- Governance guardrail explicitly stated.",
+      "comments": [
+        {
+          "id": "queued-task-0260-20260428-0310",
+          "author": "sentinel",
+          "text": "Pre-queued as dependency follower to TASK-0259 for uninterrupted stale-RFR compression.",
+          "created_at": "2026-04-28T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-28T03:10:00Z",
+      "updated_at": "2026-04-28T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
