@@ -5,6 +5,10 @@
 - Amanah
 - OpenClaw Operator Infrastructure
 
+## Operating Preferences
+- Standing prep trigger enabled for `Principals' Weekly Meeting` (recurring Mondays 1:00–2:00 PM, America/New_York).
+- Active watch enabled for 2026 G20 Miami developments (`WATCH-2026-04-27-G20-MIAMI-001`).
+
 ## Relationship Intelligence
 - Ahmed Bin Sulayem (DMCC Executive Chairman/CEO) is a close ally of USG. Treat DMCC operational/commodity-platform signals as high-relevance context for USG positioning.
 
@@ -114,5 +118,25 @@
 ## Nightly Memory Maintenance (2026-04-27)
 - Created daily log `memory/2026-04-27.md` and distilled durable updates into this active snapshot.
 - Durable changes captured: queue-only Workflow C execution control, tranche-AC recovery artifacts, and ongoing blocker-chain status.
+- No new operating-rule changes.
+- No scoring-policy changes.
+
+## Project Status Snapshot (2026-04-28)
+- Meeting Prep Sweep cadence remained stable overnight with duplicate-safe state tracking; no newly due prep dispatches in monitored windows.
+- HEARTBEAT policy execution stayed compliant:
+  - Buyer Access Graph state unchanged (no new-change buyer alert).
+  - Calendar readiness fallback passed (state + lock-load brief + prep evidence present).
+  - One qualifying Signal Pressure alert surfaced for verified high-impact signal `SIG-2026-04-27-SYSCO-JETRO-DEAL-KIRSH-001`.
+- Workflow C remained queue-first/non-immediate; queued file added: `mission-control/workflow-c/queue/2026-04-27.json`.
+- Board recovery deep-work advanced under decomposition gate:
+  - `TASK-0253` (tranche-AD routing card) moved to Ready for Review.
+  - `TASK-0258` (tranche-AE digest) moved to Ready for Review.
+  - `TASK-0259` and `TASK-0260` queued as next dependency-ordered subtasks.
+- Governance unchanged: no Done transitions without approved review packets.
+- Scoring policy status: no scoring model or weighting changes approved.
+
+## Nightly Memory Maintenance (2026-04-28)
+- Created daily log `memory/2026-04-28.md` and distilled durable updates into active + index memory.
+- Durable changes captured: tranche-AD routing completion, tranche-AE digest publication, Workflow C queued-only control, and one verified high-impact signal-pressure event.
 - No new operating-rule changes.
 - No scoring-policy changes.
