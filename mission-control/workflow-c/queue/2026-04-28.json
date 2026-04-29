@@ -1,0 +1,14 @@
+{
+  "date": "2026-04-28",
+  "queued_at": "2026-04-29T03:00:00Z",
+  "workflow": "Workflow C",
+  "execute_immediately": false,
+  "scheduled_execution_window": "23:00 America/New_York",
+  "status": "queued",
+  "tasks": [],
+  "notes": [
+    "Queued by scheduled reminder.",
+    "Do not execute immediately.",
+    "Await explicit queued tasks/intake before execution window."
+  ]
+}
