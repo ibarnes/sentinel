@@ -3728,7 +3728,11 @@
         "TASK-0266",
         "mission-control/review-packets/RP-2026-04-29T03-10-00Z-board-build-window-night.md",
         "mission-control/board/sweeps/2026-04-29T03-10-00Z-board-build-window-night.md",
-        "mission-control/board/sweeps/2026-04-29T03-10-00Z-night-build-tranche-ag-decision-digest.md"
+        "mission-control/board/sweeps/2026-04-29T03-10-00Z-night-build-tranche-ag-decision-digest.md",
+        "TASK-0267",
+        "mission-control/board/approval-queue/2026-04-29T06-30-00Z-tranche-ag-approval-card.md",
+        "mission-control/board/sweeps/2026-04-29T06-30-00Z-late-night-recovery-sweep.md",
+        "mission-control/review-packets/RP-2026-04-29T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3941,11 +3945,17 @@
           "author": "sentinel",
           "text": "Night build window executed TASK-0263 (tranche-AG digest) and queued TASK-0266 routing card as dependency follower.",
           "created_at": "2026-04-29T03:10:00Z"
+        },
+        {
+          "id": "comment-task-0107-20260429-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep executed TASK-0266 routing card and queued TASK-0267 next tranche digest.",
+          "created_at": "2026-04-29T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-04-29T03:10:00Z",
+      "updated_at": "2026-04-29T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10208,7 +10218,7 @@
     {
       "id": "TASK-0266",
       "title": "BRS-2026-04-29a Publish tranche-AG approval routing card from digest",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -10222,7 +10232,10 @@
       "linked_refs": [
         "TASK-0107",
         "TASK-0263",
-        "mission-control/review-packets/RP-2026-04-29T03-10-00Z-board-build-window-night.md"
+        "mission-control/review-packets/RP-2026-04-29T03-10-00Z-board-build-window-night.md",
+        "mission-control/board/approval-queue/2026-04-29T06-30-00Z-tranche-ag-approval-card.md",
+        "mission-control/board/sweeps/2026-04-29T06-30-00Z-late-night-recovery-sweep.md",
+        "mission-control/review-packets/RP-2026-04-29T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Convert tranche-AG digest into approval routing card with deterministic APPROVE_TRANSITION vs HOLD_SUPERSEDED transitions.\nAcceptance Criteria:\n- Approval card saved under mission-control/board/approval-queue/.\n- Includes all tranche-AG task IDs with transition-safe template.\n- Linked to parent recovery stream and RP for auditability.",
       "comments": [
@@ -10231,11 +10244,51 @@
           "author": "sentinel",
           "text": "Queued as dependency follower after TASK-0263 digest publication.",
           "created_at": "2026-04-29T03:10:00Z"
+        },
+        {
+          "id": "done-task-0266-20260429-0630",
+          "author": "sentinel",
+          "text": "Executed late-night recovery sweep; tranche-AG approval routing card published.",
+          "created_at": "2026-04-29T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T03:10:00Z",
-      "updated_at": "2026-04-29T03:10:00Z",
+      "updated_at": "2026-04-29T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0267",
+      "title": "BRS-2026-04-29b Build tranche-AH decision digest for next stale RFR cohort",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-hygiene",
+        "late-night-recovery",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0266",
+        "mission-control/review-packets/RP-2026-04-29T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "Build next stale Ready-for-Review tranche-AH decision digest with explicit APPROVE_TRANSITION vs HOLD_SUPERSEDED recommendations.\nAcceptance Criteria:\n- Includes 6 concrete oldest remaining RFR task IDs after tranche-AG.\n- Includes rationale + Isaac decision prompt + governance guardrail.\n- Artifact saved under mission-control/board/sweeps/.",
+      "comments": [
+        {
+          "id": "queued-task-0267-20260429-0630",
+          "author": "sentinel",
+          "text": "Queued as dependency follower after TASK-0266 routing card publication.",
+          "created_at": "2026-04-29T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-29T06:30:00Z",
+      "updated_at": "2026-04-29T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
