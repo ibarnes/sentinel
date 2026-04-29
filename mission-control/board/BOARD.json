@@ -3736,7 +3736,11 @@
         "TASK-0268",
         "mission-control/board/sweeps/2026-04-29T10-40-00Z-morning-build-tranche-ah-decision-digest.md",
         "mission-control/board/sweeps/2026-04-29T10-40-00Z-board-execution-sweep-morning.md",
-        "mission-control/review-packets/RP-2026-04-29T10-40-00Z-board-execution-sweep-morning.md"
+        "mission-control/review-packets/RP-2026-04-29T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0269",
+        "mission-control/board/approval-queue/2026-04-29T16-30-00Z-tranche-ah-approval-routing-card.md",
+        "mission-control/board/sweeps/2026-04-29T16-30-00Z-board-progress-sweep-midday.md",
+        "mission-control/review-packets/RP-2026-04-29T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -3961,11 +3965,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep executed TASK-0267 and queued TASK-0268 routing follower.",
           "created_at": "2026-04-29T10:40:00Z"
+        },
+        {
+          "id": "comment-task-0107-20260429-1630",
+          "author": "sentinel",
+          "text": "Midday sweep executed TASK-0268; queued TASK-0269 transition-application follower.",
+          "created_at": "2026-04-29T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-04-29T10:40:00Z",
+      "updated_at": "2026-04-29T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10314,7 +10324,7 @@
     {
       "id": "TASK-0268",
       "title": "BRS-2026-04-29c Publish tranche-AH approval routing card from digest",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -10328,7 +10338,10 @@
       "linked_refs": [
         "TASK-0107",
         "TASK-0267",
-        "mission-control/review-packets/RP-2026-04-29T10-40-00Z-board-execution-sweep-morning.md"
+        "mission-control/review-packets/RP-2026-04-29T10-40-00Z-board-execution-sweep-morning.md",
+        "mission-control/board/approval-queue/2026-04-29T16-30-00Z-tranche-ah-approval-routing-card.md",
+        "mission-control/board/sweeps/2026-04-29T16-30-00Z-board-progress-sweep-midday.md",
+        "mission-control/review-packets/RP-2026-04-29T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Convert tranche-AH digest into approval routing card with deterministic APPROVE_TRANSITION vs HOLD_SUPERSEDED transitions.\nAcceptance Criteria:\n- Approval card saved under mission-control/board/approval-queue/.\n- Includes all tranche-AH task IDs and transition-safe template.\n- Linked to RP and parent stream for auditability.",
       "comments": [
@@ -10337,11 +10350,52 @@
           "author": "sentinel",
           "text": "Queued as dependency follower after TASK-0267 digest publication.",
           "created_at": "2026-04-29T10:40:00Z"
+        },
+        {
+          "id": "done-task-0268-20260429-1630",
+          "author": "sentinel",
+          "text": "Midday sweep executed: tranche-AH approval routing card published.",
+          "created_at": "2026-04-29T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T10:40:00Z",
-      "updated_at": "2026-04-29T10:40:00Z",
+      "updated_at": "2026-04-29T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0269",
+      "title": "BRS-2026-04-29d Apply approved tranche-AH transitions and publish delta log",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-hygiene",
+        "midday-progress",
+        "decomposed"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0268",
+        "mission-control/board/approval-queue/2026-04-29T16-30-00Z-tranche-ah-approval-routing-card.md",
+        "mission-control/review-packets/RP-2026-04-29T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
+      "comments": [
+        {
+          "id": "queued-task-0269-20260429-1630",
+          "author": "sentinel",
+          "text": "Queued after TASK-0268 routing card publication; awaiting Isaac decisions.",
+          "created_at": "2026-04-29T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-29T16:30:00Z",
+      "updated_at": "2026-04-29T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
