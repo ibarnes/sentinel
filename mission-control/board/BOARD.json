@@ -10367,7 +10367,7 @@
     {
       "id": "TASK-0269",
       "title": "BRS-2026-04-29d Apply approved tranche-AH transitions and publish delta log",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -10382,7 +10382,10 @@
         "TASK-0107",
         "TASK-0268",
         "mission-control/board/approval-queue/2026-04-29T16-30-00Z-tranche-ah-approval-routing-card.md",
-        "mission-control/review-packets/RP-2026-04-29T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/review-packets/RP-2026-04-29T16-30-00Z-board-progress-sweep-midday.md",
+        "mission-control/board/sweeps/2026-04-30T03-10-00Z-board-build-window-night.md",
+        "mission-control/board/approval-queue/2026-04-30T03-10-00Z-tranche-ah-transition-execution-ready-patch.md",
+        "TASK-0270"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
       "comments": [
@@ -10391,11 +10394,93 @@
           "author": "sentinel",
           "text": "Queued after TASK-0268 routing card publication; awaiting Isaac decisions.",
           "created_at": "2026-04-29T16:30:00Z"
+        },
+        {
+          "id": "comment-task-0269-20260430-0310",
+          "author": "sentinel",
+          "created_at": "2026-04-30T03:10:00Z",
+          "text": "Decomposition gate applied: split into TASK-0270 (execution-ready transition patch artifact) and TASK-0271 (apply transitions after Isaac decision). Executed TASK-0270 this sweep; TASK-0271 remains queued pending Isaac APPROVE_TRANSITION vs HOLD_SUPERSEDED decisions."
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-04-29T16:30:00Z",
+      "updated_at": "2026-04-30T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0270",
+      "title": "BRS-2026-04-30a Build execution-ready tranche-AH transition patch artifact",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "artifact-first",
+        "story:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0269",
+        "mission-control/board/approval-queue/2026-04-29T16-30-00Z-tranche-ah-approval-routing-card.md",
+        "mission-control/board/approval-queue/2026-04-30T03-10-00Z-tranche-ah-transition-execution-ready-patch.md",
+        "mission-control/review-packets/RP-2026-04-30T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "Produce execution-ready patch instructions and per-task transition payloads for tranche-AH so final apply step is a deterministic single pass after Isaac decision.",
+      "comments": [
+        {
+          "id": "done-task-0270-20260430-0310",
+          "author": "sentinel",
+          "created_at": "2026-04-30T03:10:00Z",
+          "text": "Artifact published with deterministic apply matrix and decision placeholders for six tranche-AH IDs."
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-04-30T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-30T03-10-00Z-board-build-window-night.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-04-30T03:10:00Z",
+      "updated_at": "2026-04-30T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0271",
+      "title": "BRS-2026-04-30b Apply tranche-AH decisions to BOARD.json + publish delta note",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "decision-gated",
+        "story:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0269",
+        "TASK-0270",
+        "mission-control/board/approval-queue/2026-04-30T03-10-00Z-tranche-ah-transition-execution-ready-patch.md"
+      ],
+      "description": "Execute final status transitions for TASK-0187/0188/0192/0193/0194/0195 once Isaac provides APPROVE_TRANSITION or HOLD_SUPERSEDED decisions.",
+      "comments": [
+        {
+          "id": "blocked-task-0271-20260430-0310",
+          "author": "sentinel",
+          "created_at": "2026-04-30T03:10:00Z",
+          "text": "Blocked on Isaac decision input per tranche-AH routing card."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-30T03:10:00Z",
+      "updated_at": "2026-04-30T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
