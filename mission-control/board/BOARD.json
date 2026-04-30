@@ -2809,7 +2809,10 @@
         "mission-control/review-packets/RP-2026-04-28T16-30-00Z-board-progress-sweep-midday.md",
         "mission-control/board/sweeps/2026-04-28T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0264",
-        "TASK-0265"
+        "TASK-0265",
+        "TASK-0272",
+        "TASK-0273",
+        "mission-control/board/sweeps/2026-04-30T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
       "comments": [
@@ -2978,11 +2981,17 @@
           "author": "sentinel",
           "text": "Midday sweep 2026-04-27T16:30Z: added TASK-0256/TASK-0257 (fresh preflight blocker evidence + credential-window run card). Live 201/400 smoke remains pending credential inputs.",
           "created_at": "2026-04-27T16:30:00Z"
+        },
+        {
+          "id": "recovery-task-0097-20260430-0630",
+          "author": "sentinel",
+          "created_at": "2026-04-30T06:30:00Z",
+          "text": "Late-night recovery decomposition: split oversized stalled credential-gated stream into TASK-0272 (stale RFR tranche compaction plan artifact) and TASK-0273 (credential-window execution handoff card refresh). Executed TASK-0272 this sweep."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-04-28T16:30:00Z",
+      "updated_at": "2026-04-30T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10481,6 +10490,82 @@
       "request_approval": null,
       "created_at": "2026-04-30T03:10:00Z",
       "updated_at": "2026-04-30T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0272",
+      "title": "BRS-2026-04-30c Publish stale-RFR tranche compaction plan (credential-gated stream)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposition-child",
+        "artifact-first",
+        "parent:TASK-0097"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "mission-control/board/sweeps/2026-04-30T06-30-00Z-board-recovery-sweep-late-night.md",
+        "mission-control/board/approval-queue/2026-04-30T06-30-00Z-stale-rfr-tranche-ai-compaction-card.md",
+        "mission-control/review-packets/RP-2026-04-30T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "Create deterministic tranche plan to collapse stale Ready-for-Review credential-gated microtasks into operator batches while preserving governance and evidence lineage.",
+      "comments": [
+        {
+          "id": "done-task-0272-20260430-0630",
+          "author": "sentinel",
+          "created_at": "2026-04-30T06:30:00Z",
+          "text": "Compaction card published with tranche grouping, hold/default policy, and apply guardrails."
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-04-30T06:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-30T06-30-00Z-board-recovery-sweep-late-night.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-04-30T06:30:00Z",
+      "updated_at": "2026-04-30T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0273",
+      "title": "BRS-2026-04-30d Refresh credential-window execution handoff for TASK-0097/TASK-0103",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposition-child",
+        "decision-gated",
+        "parent:TASK-0097"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "TASK-0159"
+      ],
+      "description": "Prepare single operator handoff card with current env requirements, exact command chain, and evidence destinations for next credentialed window.",
+      "comments": [
+        {
+          "id": "queued-task-0273-20260430-0630",
+          "author": "sentinel",
+          "created_at": "2026-04-30T06:30:00Z",
+          "text": "Queued after compaction artifact; execution waits on credential availability / Isaac-provided auth inputs."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-04-30T06:30:00Z",
+      "updated_at": "2026-04-30T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
