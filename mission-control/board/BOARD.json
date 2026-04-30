@@ -2987,11 +2987,17 @@
           "author": "sentinel",
           "created_at": "2026-04-30T06:30:00Z",
           "text": "Late-night recovery decomposition: split oversized stalled credential-gated stream into TASK-0272 (stale RFR tranche compaction plan artifact) and TASK-0273 (credential-window execution handoff card refresh). Executed TASK-0272 this sweep."
+        },
+        {
+          "id": "progress-task-0097-20260430-1630",
+          "author": "sentinel",
+          "created_at": "2026-04-30T16:30:00Z",
+          "text": "Advanced decomposition-child TASK-0275 (Ready for Review): execution macro pack prepared for credential-window instant run."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-04-30T06:30:00Z",
+      "updated_at": "2026-04-30T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10417,11 +10423,17 @@
           "author": "sentinel",
           "created_at": "2026-04-30T10:40:00Z",
           "text": "Morning sweep produced decision-ping packet to accelerate Isaac tranche-AH selection; apply step remains blocked on decision input."
+        },
+        {
+          "id": "progress-task-0269-20260430-1630",
+          "author": "sentinel",
+          "created_at": "2026-04-30T16:30:00Z",
+          "text": "Advanced decomposition-child TASK-0276 (Ready for Review): tranche-AH apply-ready decision template prepared for TASK-0271 fast apply."
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-04-30T10:40:00Z",
+      "updated_at": "2026-04-30T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10624,6 +10636,78 @@
       },
       "created_at": "2026-04-30T10:40:00Z",
       "updated_at": "2026-04-30T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0275",
+      "title": "BRS-2026-04-30f Publish credential-window execution macro pack for immediate run handoff",
+      "status": "Ready for Review",
+      "owner": "Sentinel",
+      "due_date": "2026-04-30",
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposition-child",
+        "artifact-first",
+        "parent:TASK-0097"
+      ],
+      "linked_refs": [
+        "mission-control/board/approval-queue/2026-04-30T16-30-00Z-credential-window-exec-macro-pack.md"
+      ],
+      "description": "Prepared single-pass command macro + acceptance checklist to reduce delay after credential handoff.",
+      "comments": [
+        {
+          "id": "done-task-0275-20260430-1630",
+          "author": "sentinel",
+          "created_at": "2026-04-30T16:30:00Z",
+          "text": "Credential-window execution macro pack published for immediate operator handoff once env inputs arrive."
+        }
+      ],
+      "request_approval": {
+        "required": true,
+        "status": "pending",
+        "note": "Review macro pack before live execution handoff."
+      },
+      "created_at": "2026-04-30T16:30:00Z",
+      "updated_at": "2026-04-30T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0276",
+      "title": "BRS-2026-04-30g Publish tranche-AH apply-ready delta template for zero-latency decision apply",
+      "status": "Ready for Review",
+      "owner": "Sentinel",
+      "due_date": "2026-04-30",
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposition-child",
+        "artifact-first",
+        "parent:TASK-0269"
+      ],
+      "linked_refs": [
+        "mission-control/board/approval-queue/2026-04-30T16-30-00Z-tranche-ah-apply-ready-delta-template.md"
+      ],
+      "description": "Prepared apply-ready table and delta-note skeleton to execute TASK-0271 immediately after Isaac decision.",
+      "comments": [
+        {
+          "id": "done-task-0276-20260430-1630",
+          "author": "sentinel",
+          "created_at": "2026-04-30T16:30:00Z",
+          "text": "Tranche-AH apply-ready template published with target IDs and post-apply delta skeleton."
+        }
+      ],
+      "request_approval": {
+        "required": true,
+        "status": "pending",
+        "note": "Decision table requires Isaac selections per ID."
+      },
+      "created_at": "2026-04-30T16:30:00Z",
+      "updated_at": "2026-04-30T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
