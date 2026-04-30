@@ -10394,7 +10394,9 @@
         "mission-control/review-packets/RP-2026-04-29T16-30-00Z-board-progress-sweep-midday.md",
         "mission-control/board/sweeps/2026-04-30T03-10-00Z-board-build-window-night.md",
         "mission-control/board/approval-queue/2026-04-30T03-10-00Z-tranche-ah-transition-execution-ready-patch.md",
-        "TASK-0270"
+        "TASK-0270",
+        "TASK-0274",
+        "mission-control/board/approval-queue/2026-04-30T10-40-00Z-tranche-ah-decision-ping.md"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
       "comments": [
@@ -10409,11 +10411,17 @@
           "author": "sentinel",
           "created_at": "2026-04-30T03:10:00Z",
           "text": "Decomposition gate applied: split into TASK-0270 (execution-ready transition patch artifact) and TASK-0271 (apply transitions after Isaac decision). Executed TASK-0270 this sweep; TASK-0271 remains queued pending Isaac APPROVE_TRANSITION vs HOLD_SUPERSEDED decisions."
+        },
+        {
+          "id": "progress-task-0269-20260430-1040",
+          "author": "sentinel",
+          "created_at": "2026-04-30T10:40:00Z",
+          "text": "Morning sweep produced decision-ping packet to accelerate Isaac tranche-AH selection; apply step remains blocked on decision input."
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-04-30T03:10:00Z",
+      "updated_at": "2026-04-30T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10538,7 +10546,7 @@
     {
       "id": "TASK-0273",
       "title": "BRS-2026-04-30d Refresh credential-window execution handoff for TASK-0097/TASK-0103",
-      "status": "Backlog",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -10552,7 +10560,9 @@
       "linked_refs": [
         "TASK-0097",
         "TASK-0103",
-        "TASK-0159"
+        "TASK-0159",
+        "mission-control/board/approval-queue/2026-04-30T10-40-00Z-credential-window-handoff-refresh.md",
+        "mission-control/review-packets/RP-2026-04-30T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "Prepare single operator handoff card with current env requirements, exact command chain, and evidence destinations for next credentialed window.",
       "comments": [
@@ -10561,11 +10571,59 @@
           "author": "sentinel",
           "created_at": "2026-04-30T06:30:00Z",
           "text": "Queued after compaction artifact; execution waits on credential availability / Isaac-provided auth inputs."
+        },
+        {
+          "id": "done-task-0273-20260430-1040",
+          "author": "sentinel",
+          "created_at": "2026-04-30T10:40:00Z",
+          "text": "Executed: refreshed credential-window handoff card with exact env checklist, command chain, and evidence destinations."
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-30T06:30:00Z",
-      "updated_at": "2026-04-30T06:30:00Z",
+      "updated_at": "2026-04-30T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0274",
+      "title": "BRS-2026-04-30e Publish tranche-AH decision ping packet for immediate apply unblock",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposition-child",
+        "artifact-first",
+        "parent:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0269",
+        "TASK-0271",
+        "mission-control/board/approval-queue/2026-04-30T10-40-00Z-tranche-ah-decision-ping.md",
+        "mission-control/review-packets/RP-2026-04-30T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "Produce concise decision-ready ping with exact six IDs and one-click choice template so Isaac can unblock transition apply step immediately.",
+      "comments": [
+        {
+          "id": "done-task-0274-20260430-1040",
+          "author": "sentinel",
+          "created_at": "2026-04-30T10:40:00Z",
+          "text": "Decision ping artifact published with explicit per-ID choice table and default recommendations."
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-04-30T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-04-30T10-40-00Z-board-execution-sweep-morning.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-04-30T10:40:00Z",
+      "updated_at": "2026-04-30T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
