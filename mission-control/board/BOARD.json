@@ -3005,11 +3005,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep 2026-05-01T10:40Z: TASK-0281 published refreshed credential smoke evidence run-card; live execution still blocked pending BASE_URL + TEAM_SESSION_COOKIE.",
           "created_at": "2026-05-01T10:40:00Z"
+        },
+        {
+          "id": "progress-task-0097-20260501-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-05-01T16:30Z: decomposed in-progress stream and advanced TASK-0282 (evidence index skeleton) + TASK-0283 (decision/credential handoff checklist) to Ready for Review.",
+          "created_at": "2026-05-01T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-05-01T10:40:00Z",
+      "updated_at": "2026-05-01T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3581,11 +3587,17 @@
           "author": "sentinel",
           "text": "Midday sweep advanced TASK-0264/TASK-0265 to Ready for Review (fresh preflight snapshot + exact credential-window run card). Live authenticated smoke remains blocked pending credentials.",
           "created_at": "2026-04-28T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0103-20260501-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep: live execution still blocked pending BASE_URL + TEAM_SESSION_COOKIE; pre-exec artifacts refreshed via TASK-0282/TASK-0283 for fast trigger-once execution.",
+          "created_at": "2026-05-01T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-04-28T16:30:00Z",
+      "updated_at": "2026-05-01T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10872,6 +10884,58 @@
       "request_approval": null,
       "created_at": "2026-05-01T10:40:00Z",
       "updated_at": "2026-05-01T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0282",
+      "title": "TS-H1.1c.2ca Build midday credential evidence index skeleton",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-progress",
+        "decomposition-child",
+        "credential-chain"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/2026-05-01T16-30-00Z-evidence-index-skeleton.md"
+      ],
+      "description": "Create deterministic evidence index template for authenticated smoke run (201/400 sections, artifact pointers, approval linkage).",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-05-01T16:30:00Z",
+      "updated_at": "2026-05-01T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0283",
+      "title": "TS-H1.1c.2cb Publish Isaac decision/credential handoff checklist",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-progress",
+        "decomposition-child",
+        "credential-chain"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/board/approval-queue/2026-05-01T16-30-00Z-isaac-decision-credential-handoff-checklist.md"
+      ],
+      "description": "Publish short checklist for Isaac decision table + credential handoff so live run can execute in one pass when gate opens.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-05-01T16:30:00Z",
+      "updated_at": "2026-05-01T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
