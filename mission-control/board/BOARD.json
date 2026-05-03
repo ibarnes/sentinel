@@ -1158,7 +1158,7 @@
         {
           "id": "decomp-20260305-0730",
           "author": "sentinel",
-          "text": "Recovery sweep decomposition: split stalled TASK-0043 into TASK-0093, TASK-0094, TASK-0095 (30\u201390 min slices with acceptance criteria).",
+          "text": "Recovery sweep decomposition: split stalled TASK-0043 into TASK-0093, TASK-0094, TASK-0095 (30–90 min slices with acceptance criteria).",
           "created_at": "2026-03-05T07:30:00Z"
         },
         {
@@ -1176,7 +1176,7 @@
         {
           "id": "comment-task-0043-20260427-0630",
           "author": "sentinel",
-          "text": "Decomposed stalled oversized scope into 30\u201360m child TASK-0254 for validation decision-table unblock.",
+          "text": "Decomposed stalled oversized scope into 30–60m child TASK-0254 for validation decision-table unblock.",
           "created_at": "2026-04-27T06:30:00Z"
         },
         {
@@ -1501,7 +1501,7 @@
     },
     {
       "id": "TASK-0053",
-      "title": "INIT-AI-OPT-A \u2014 Scope memo",
+      "title": "INIT-AI-OPT-A — Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1525,7 +1525,7 @@
     },
     {
       "id": "TASK-0054",
-      "title": "INIT-AI-OPT-A \u2014 Buyer mapping",
+      "title": "INIT-AI-OPT-A — Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1549,7 +1549,7 @@
     },
     {
       "id": "TASK-0055",
-      "title": "INIT-AI-OPT-A \u2014 Mandate pathway draft",
+      "title": "INIT-AI-OPT-A — Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1573,7 +1573,7 @@
     },
     {
       "id": "TASK-0056",
-      "title": "INIT-AI-OPT-B \u2014 Scope memo",
+      "title": "INIT-AI-OPT-B — Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1597,7 +1597,7 @@
     },
     {
       "id": "TASK-0057",
-      "title": "INIT-AI-OPT-B \u2014 Buyer mapping",
+      "title": "INIT-AI-OPT-B — Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1621,7 +1621,7 @@
     },
     {
       "id": "TASK-0058",
-      "title": "INIT-AI-OPT-B \u2014 Mandate pathway draft",
+      "title": "INIT-AI-OPT-B — Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1645,7 +1645,7 @@
     },
     {
       "id": "TASK-0059",
-      "title": "INIT-AI-OPT-C \u2014 Scope memo",
+      "title": "INIT-AI-OPT-C — Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1669,7 +1669,7 @@
     },
     {
       "id": "TASK-0060",
-      "title": "INIT-AI-OPT-C \u2014 Buyer mapping",
+      "title": "INIT-AI-OPT-C — Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1693,7 +1693,7 @@
     },
     {
       "id": "TASK-0061",
-      "title": "INIT-AI-OPT-C \u2014 Mandate pathway draft",
+      "title": "INIT-AI-OPT-C — Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1717,7 +1717,7 @@
     },
     {
       "id": "TASK-0062",
-      "title": "INIT-AI-OPT-D \u2014 Scope memo",
+      "title": "INIT-AI-OPT-D — Scope memo",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1741,7 +1741,7 @@
     },
     {
       "id": "TASK-0063",
-      "title": "INIT-AI-OPT-D \u2014 Buyer mapping",
+      "title": "INIT-AI-OPT-D — Buyer mapping",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1765,7 +1765,7 @@
     },
     {
       "id": "TASK-0064",
-      "title": "INIT-AI-OPT-D \u2014 Mandate pathway draft",
+      "title": "INIT-AI-OPT-D — Mandate pathway draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -1789,7 +1789,7 @@
     },
     {
       "id": "TASK-0065",
-      "title": "EP-SBP Sponsor-Level Presence (Beacon \u2014 passive gravity)",
+      "title": "EP-SBP Sponsor-Level Presence (Beacon — passive gravity)",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2466,7 +2466,7 @@
     },
     {
       "id": "TASK-0088",
-      "title": "Beacon Weekly \u2014 Monday signal selection",
+      "title": "Beacon Weekly — Monday signal selection",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2488,7 +2488,7 @@
     },
     {
       "id": "TASK-0089",
-      "title": "Beacon Weekly \u2014 Tuesday draft",
+      "title": "Beacon Weekly — Tuesday draft",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2510,7 +2510,7 @@
     },
     {
       "id": "TASK-0090",
-      "title": "Beacon Weekly \u2014 Wednesday hardening",
+      "title": "Beacon Weekly — Wednesday hardening",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2532,7 +2532,7 @@
     },
     {
       "id": "TASK-0091",
-      "title": "Beacon Weekly \u2014 Thursday approval",
+      "title": "Beacon Weekly — Thursday approval",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2554,7 +2554,7 @@
     },
     {
       "id": "TASK-0092",
-      "title": "Beacon Weekly \u2014 Friday publish/hold",
+      "title": "Beacon Weekly — Friday publish/hold",
       "status": "Backlog",
       "owner": "sentinel",
       "due_date": null,
@@ -2708,7 +2708,7 @@
         {
           "id": "comment-task-0095-20260427-0630",
           "author": "sentinel",
-          "text": "Decomposed stalled oversized scope into 45\u201390m child TASK-0255 for smoke-harness/evidence checklist unblock.",
+          "text": "Decomposed stalled oversized scope into 45–90m child TASK-0255 for smoke-harness/evidence checklist unblock.",
           "created_at": "2026-04-27T06:30:00Z"
         },
         {
@@ -2812,7 +2812,9 @@
         "TASK-0265",
         "TASK-0272",
         "TASK-0273",
-        "mission-control/board/sweeps/2026-04-30T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-04-30T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0295",
+        "TASK-0296"
       ],
       "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
       "comments": [
@@ -3011,11 +3013,35 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-05-01T16:30Z: decomposed in-progress stream and advanced TASK-0282 (evidence index skeleton) + TASK-0283 (decision/credential handoff checklist) to Ready for Review.",
           "created_at": "2026-05-01T16:30:00Z"
+        },
+        {
+          "id": "unblock-0097-20260502",
+          "author": "sentinel",
+          "text": "Execution sweep added credential smoke handoff artifact to reduce time-to-run once BASE_URL and TEAM_SESSION_COOKIE are supplied.",
+          "created_at": "2026-05-02T10:40:00Z"
+        },
+        {
+          "id": "midday-20260502-1630",
+          "author": "sentinel",
+          "text": "Added fresh readiness snapshot artifacts (preflight + env check). Live smoke remains blocked only on BASE_URL and TEAM_SESSION_COOKIE.",
+          "created_at": "2026-05-02T16:30:00Z"
+        },
+        {
+          "id": "decomp-TASK-0097-20260503-1040",
+          "author": "sentinel",
+          "text": "Decomposition gate applied in morning sweep: executed TASK-0293 and TASK-0294 as atomic unblock subtasks; parent remains blocked pending credentials.",
+          "created_at": "2026-05-03T10:40:00Z"
+        },
+        {
+          "id": "progress-task-0097-20260503-1630",
+          "author": "sentinel",
+          "created_at": "2026-05-03T16:30:00Z",
+          "text": "Midday sweep advanced decomposition children TASK-0295/TASK-0296 to Ready for Review with fresh blocker evidence + operator handoff refresh; live credentialed execution remains blocked pending BASE_URL and TEAM_SESSION_COOKIE."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-05-01T16:30:00Z",
+      "updated_at": "2026-05-03T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3038,7 +3064,7 @@
         "TASK-0101",
         "mission-control/review-packets/RP-0031-board-recovery-sweep-2026-03-06.md"
       ],
-      "description": "Oversized stalled-work recovery item: Ready for Review queue aged >24h has accumulated and requires decomposition into approval-ready bundles.\nAcceptance Criteria:\n- Decomposed into 30\u201390 minute child tasks with explicit acceptance criteria.\n- At least one unblock child executed in this sweep.\n- Recovery plan recorded with stalled list and Isaac decision gate.",
+      "description": "Oversized stalled-work recovery item: Ready for Review queue aged >24h has accumulated and requires decomposition into approval-ready bundles.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with explicit acceptance criteria.\n- At least one unblock child executed in this sweep.\n- Recovery plan recorded with stalled list and Isaac decision gate.",
       "comments": [
         {
           "at": "2026-03-06T07:30:00Z",
@@ -3131,7 +3157,7 @@
       "linked_refs": [
         "TASK-0098"
       ],
-      "description": "Create an approval bundle for the oldest Ready for Review tasks (target 8\u201312 items) with one-line approve/defer rationale per item.\nAcceptance Criteria:\n- Bundle groups items by theme.\n- Each item has approve/defer recommendation with risk note.\n- Output packaged as review packet.",
+      "description": "Create an approval bundle for the oldest Ready for Review tasks (target 8–12 items) with one-line approve/defer rationale per item.\nAcceptance Criteria:\n- Bundle groups items by theme.\n- Each item has approve/defer recommendation with risk note.\n- Output packaged as review packet.",
       "comments": [
         {
           "id": "done-task-0100-20260306-1140",
@@ -3338,7 +3364,9 @@
         "mission-control/board/approval-queue/2026-04-28T16-30-00Z-credential-window-run-card.md",
         "mission-control/review-packets/RP-2026-04-28T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0264",
-        "TASK-0265"
+        "TASK-0265",
+        "TASK-0295",
+        "TASK-0296"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3593,11 +3621,35 @@
           "author": "sentinel",
           "text": "Midday progress sweep: live execution still blocked pending BASE_URL + TEAM_SESSION_COOKIE; pre-exec artifacts refreshed via TASK-0282/TASK-0283 for fast trigger-once execution.",
           "created_at": "2026-05-01T16:30:00Z"
+        },
+        {
+          "id": "unblock-0103-20260502",
+          "author": "sentinel",
+          "text": "Execution sweep added one-pass preflight+run+report command card for immediate credentialed evidence capture.",
+          "created_at": "2026-05-02T10:40:00Z"
+        },
+        {
+          "id": "midday-20260502-1630",
+          "author": "sentinel",
+          "text": "Credentialed execution handoff tightened with timestamped blocker evidence and next-command chain in approval queue.",
+          "created_at": "2026-05-02T16:30:00Z"
+        },
+        {
+          "id": "decomp-TASK-0103-20260503-1040",
+          "author": "sentinel",
+          "text": "Decomposition gate applied in morning sweep: executed TASK-0293 and TASK-0294 as atomic unblock subtasks; parent remains blocked pending credentials.",
+          "created_at": "2026-05-03T10:40:00Z"
+        },
+        {
+          "id": "progress-task-0103-20260503-1630",
+          "author": "sentinel",
+          "created_at": "2026-05-03T16:30:00Z",
+          "text": "Midday sweep advanced decomposition children TASK-0295/TASK-0296 to Ready for Review with fresh blocker evidence + operator handoff refresh; live credentialed execution remains blocked pending BASE_URL and TEAM_SESSION_COOKIE."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-05-01T16:30:00Z",
+      "updated_at": "2026-05-03T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3793,7 +3845,7 @@
         "mission-control/board/sweeps/2026-04-29T16-30-00Z-board-progress-sweep-midday.md",
         "mission-control/review-packets/RP-2026-04-29T16-30-00Z-board-progress-sweep-midday.md"
       ],
-      "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30\u201390 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
+      "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
         {
           "id": "decomp-0107-20260307-0730",
@@ -4022,11 +4074,23 @@
           "author": "sentinel",
           "text": "Midday sweep executed TASK-0268; queued TASK-0269 transition-application follower.",
           "created_at": "2026-04-29T16:30:00Z"
+        },
+        {
+          "id": "decomp-0107-20260502-0630",
+          "author": "sentinel",
+          "text": "Decomposed stalled recovery work into TASK-0286 (candidate matrix) and TASK-0287 (transition microbatch template) to restore deterministic compaction flow.",
+          "created_at": "2026-05-02T06:30:00Z"
+        },
+        {
+          "id": "recovery-20260503-1025",
+          "author": "sentinel",
+          "text": "Recovery sweep decomposition gate: added TASK-0291 (executed) and TASK-0292 (queued) to tranche stale-RFR compaction flow.",
+          "created_at": "2026-05-03T10:25:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-04-29T16:30:00Z",
+      "updated_at": "2026-05-03T10:25:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4047,7 +4111,7 @@
         "TASK-0107",
         "mission-control/review-packets/RP-0038-board-recovery-sweep-2026-03-07.md"
       ],
-      "description": "Create tranche-C approval packet for remaining high-age Ready for Review items with approve/defer recommendation and unblock leverage ordering.\nAcceptance Criteria:\n- Packet lists current stalled counts by rule.\n- Includes 8\u201312 RFR items not yet bundled in A/B with one-line recommendation and risk note.\n- Includes Isaac decision needed next.",
+      "description": "Create tranche-C approval packet for remaining high-age Ready for Review items with approve/defer recommendation and unblock leverage ordering.\nAcceptance Criteria:\n- Packet lists current stalled counts by rule.\n- Includes 8–12 RFR items not yet bundled in A/B with one-line recommendation and risk note.\n- Includes Isaac decision needed next.",
       "comments": [
         {
           "id": "done-0108-20260307-0730",
@@ -4377,7 +4441,7 @@
         "TASK-0109",
         "mission-control/board/tranche-c-microbatch-2026-03-08.md"
       ],
-      "description": "Create a 30\u201360 minute microbatch decision slate with 5 highest-leverage Ready for Review approvals to accelerate tranche-C closure.\nAcceptance Criteria:\n- Contains exactly 5 items with approve/defer rationale framing.\n- Maps each item to expected unblock effect.\n- Includes explicit decision prompt for Isaac.",
+      "description": "Create a 30–60 minute microbatch decision slate with 5 highest-leverage Ready for Review approvals to accelerate tranche-C closure.\nAcceptance Criteria:\n- Contains exactly 5 items with approve/defer rationale framing.\n- Maps each item to expected unblock effect.\n- Includes explicit decision prompt for Isaac.",
       "comments": [
         {
           "id": "done-0118-20260308-0730",
@@ -4767,7 +4831,7 @@
         "TASK-0103",
         "mission-control/board/sweeps/2026-03-10T03-10-00Z-night-unblock-matrix.md"
       ],
-      "description": "Produce a night unblock artifact with decomposition, decision microbatch, and explicit next-slot sequence for highest leverage blocked chain.\nAcceptance Criteria:\n- Artifact includes blocker chain and ordered decision asks.\n- Includes governance constraints (no Done without approved RP).\n- Identifies next queued 30\u201390 minute subtasks.",
+      "description": "Produce a night unblock artifact with decomposition, decision microbatch, and explicit next-slot sequence for highest leverage blocked chain.\nAcceptance Criteria:\n- Artifact includes blocker chain and ordered decision asks.\n- Includes governance constraints (no Done without approved RP).\n- Identifies next queued 30–90 minute subtasks.",
       "comments": [
         {
           "id": "done-0129-20260310-0310",
@@ -5149,7 +5213,7 @@
         "mission-control/review-packets/RP-0051-board-recovery-sweep-2026-03-11-0630.md",
         "mission-control/board/sweeps/2026-03-11T06-30-00Z-late-night-recovery-sweep.md"
       ],
-      "description": "Create a 30\u201390 min decision packet for the 12 oldest Ready-for-Review tasks with approve/defer recommendation and unblock leverage note.\nAcceptance Criteria:\n- Exactly 12 oldest RFR items included.\n- Each item includes recommendation + rationale.\n- Packet path attached for immediate Isaac decision.",
+      "description": "Create a 30–90 min decision packet for the 12 oldest Ready-for-Review tasks with approve/defer recommendation and unblock leverage note.\nAcceptance Criteria:\n- Exactly 12 oldest RFR items included.\n- Each item includes recommendation + rationale.\n- Packet path attached for immediate Isaac decision.",
       "comments": [
         {
           "id": "done-0138-20260311-0630",
@@ -6661,7 +6725,7 @@
         "mission-control/runbooks/2026-03-17-credentialed-live-smoke-handoff.md",
         "mission-control/review-packets/RP-0072-board-recovery-sweep-2026-03-17-0630.md"
       ],
-      "description": "30\u201390 min unblock subtask. Acceptance: (1) deterministic one-pass command sequence for credentialed operator, (2) PASS/BLOCKED evidence checklist, (3) explicit post-PASS board transition gate for TASK-0097.",
+      "description": "30–90 min unblock subtask. Acceptance: (1) deterministic one-pass command sequence for credentialed operator, (2) PASS/BLOCKED evidence checklist, (3) explicit post-PASS board transition gate for TASK-0097.",
       "comments": [
         {
           "author": "sentinel",
@@ -7486,7 +7550,7 @@
       "linked_refs": [
         "RP-0083"
       ],
-      "description": "Create a 30\u201390 minute stale-RFR approval microbatch for items older than 24h and publish routing card for Isaac.\nAcceptance Criteria:\n- Includes all Ready for Review items older than 24h at sweep time.\n- Uses explicit Approve/Hold command format.\n- Records governance guardrail and next decision ask.",
+      "description": "Create a 30–90 minute stale-RFR approval microbatch for items older than 24h and publish routing card for Isaac.\nAcceptance Criteria:\n- Includes all Ready for Review items older than 24h at sweep time.\n- Uses explicit Approve/Hold command format.\n- Records governance guardrail and next decision ask.",
       "comments": [
         {
           "id": "done-0198-20260320-0630",
@@ -8410,7 +8474,7 @@
         "mission-control/review-packets/RP-0098-board-recovery-sweep-2026-03-23-0630.md"
       ],
       "parent_id": "TASK-0107",
-      "description": "Create a 30\u201390 minute decision packet for oldest stale Ready-for-Review items with approve/hold recommendation, age snapshot, and leverage ordering.\nAcceptance Criteria:\n- Includes stalled snapshot counts for In Progress >48h, Ready for Review >24h, and Blocked.\n- Lists current oldest stale RFR tranche with recommendation per item.\n- Contains explicit Isaac decision prompts and next unblock sequence.",
+      "description": "Create a 30–90 minute decision packet for oldest stale Ready-for-Review items with approve/hold recommendation, age snapshot, and leverage ordering.\nAcceptance Criteria:\n- Includes stalled snapshot counts for In Progress >48h, Ready for Review >24h, and Blocked.\n- Lists current oldest stale RFR tranche with recommendation per item.\n- Contains explicit Isaac decision prompts and next unblock sequence.",
       "comments": [
         {
           "id": "done-0221-20260323-0630",
@@ -9232,7 +9296,7 @@
         "mission-control/review-packets/RP-0109-board-recovery-sweep-2026-03-26-0630.md"
       ],
       "parent_id": "TASK-0107",
-      "description": "Create a 30\u201390 minute decision digest for newly stale Ready-for-Review cohort (>24h) with approve/defer recommendation and unblock leverage sequencing.\nAcceptance Criteria:\n- Includes current oldest newly stale RFR items with age.\n- Each item has approve/defer recommendation and risk note.\n- Decision digest is attached to RP-0109.",
+      "description": "Create a 30–90 minute decision digest for newly stale Ready-for-Review cohort (>24h) with approve/defer recommendation and unblock leverage sequencing.\nAcceptance Criteria:\n- Includes current oldest newly stale RFR items with age.\n- Each item has approve/defer recommendation and risk note.\n- Decision digest is attached to RP-0109.",
       "comments": [
         {
           "id": "done-0240-20260326-0630",
@@ -9828,7 +9892,7 @@
         "mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-validation-decision-table.md",
         "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md"
       ],
-      "description": "30\u201360 minute unblock slice for TASK-0043: produce endpoint validation decision table and edge-case checklist to reduce implementation ambiguity before coding resume.\nAcceptance Criteria:\n- Decision table covers required/optional fields and invalid-input branches.\n- Edge-case checklist includes at least 8 negative test vectors.\n- Artifact linked in parent TASK-0043 comments for direct implementation use.",
+      "description": "30–60 minute unblock slice for TASK-0043: produce endpoint validation decision table and edge-case checklist to reduce implementation ambiguity before coding resume.\nAcceptance Criteria:\n- Decision table covers required/optional fields and invalid-input branches.\n- Edge-case checklist includes at least 8 negative test vectors.\n- Artifact linked in parent TASK-0043 comments for direct implementation use.",
       "comments": [
         {
           "id": "queued-task-0254-20260427-0630",
@@ -9876,7 +9940,7 @@
         "mission-control/evidence/pipeline-run/2026-04-27T10-40-00Z-smoke-harness-matrix.md",
         "mission-control/review-packets/RP-2026-04-27T10-40-00Z-board-execution-sweep-morning.md"
       ],
-      "description": "45\u201390 minute unblock slice for TASK-0095: define smoke harness command matrix and evidence capture checklist for credentialed + fail-fast paths.\nAcceptance Criteria:\n- Matrix includes success path, 400-validation path, and credential-missing fail-fast path.\n- Evidence checklist maps required artifacts to each path.\n- Parent TASK-0095 updated with child linkage and execution order.",
+      "description": "45–90 minute unblock slice for TASK-0095: define smoke harness command matrix and evidence capture checklist for credentialed + fail-fast paths.\nAcceptance Criteria:\n- Matrix includes success path, 400-validation path, and credential-missing fail-fast path.\n- Evidence checklist maps required artifacts to each path.\n- Parent TASK-0095 updated with child linkage and execution order.",
       "comments": [
         {
           "id": "queued-task-0255-20260427-0630",
@@ -9924,7 +9988,7 @@
         "mission-control/evidence/pipeline-run/preflight-2026-04-27T16-30-43Z.md",
         "mission-control/review-packets/RP-2026-04-27T16-30-00Z-board-progress-sweep-midday.md"
       ],
-      "description": "30\u201360 minute unblock slice for TASK-0103: rerun credential preflight and capture a fresh blocker snapshot for the current sweep.\nAcceptance Criteria:\n- Preflight artifact generated with current timestamp.\n- Artifact explicitly records missing/present credential vars.\n- Parent task comment and linkage updated with artifact path.",
+      "description": "30–60 minute unblock slice for TASK-0103: rerun credential preflight and capture a fresh blocker snapshot for the current sweep.\nAcceptance Criteria:\n- Preflight artifact generated with current timestamp.\n- Artifact explicitly records missing/present credential vars.\n- Parent task comment and linkage updated with artifact path.",
       "comments": [
         {
           "id": "done-task-0256-20260427-1630",
@@ -9959,7 +10023,7 @@
         "mission-control/board/approval-queue/2026-04-27T16-30-00Z-credential-window-run-card.md",
         "mission-control/review-packets/RP-2026-04-27T16-30-00Z-board-progress-sweep-midday.md"
       ],
-      "description": "30\u201390 minute unblock slice for TASK-0103: publish operator-ready credential window card with exact commands, expected evidence, and one-line decision format.\nAcceptance Criteria:\n- Run card includes required inputs (`BASE_URL`, `TEAM_SESSION_COOKIE`).\n- Run card includes exact command sequence and expected evidence bundle.\n- Parent task links updated to include the run card artifact.",
+      "description": "30–90 minute unblock slice for TASK-0103: publish operator-ready credential window card with exact commands, expected evidence, and one-line decision format.\nAcceptance Criteria:\n- Run card includes required inputs (`BASE_URL`, `TEAM_SESSION_COOKIE`).\n- Run card includes exact command sequence and expected evidence bundle.\n- Parent task links updated to include the run card artifact.",
       "comments": [
         {
           "id": "done-task-0257-20260427-1630",
@@ -10477,11 +10541,23 @@
           "author": "sentinel",
           "text": "Morning execution sweep: TASK-0280 moved to Ready for Review with deterministic post-approval apply sequence for tranche-AA IDs.",
           "created_at": "2026-05-01T10:40:00Z"
+        },
+        {
+          "id": "progress-0269-20260502",
+          "author": "sentinel",
+          "text": "Night build advanced dependency chain with deterministic input contract and dry-run preview artifacts for tranche-AH decision apply.",
+          "created_at": "2026-05-02T03:10:00Z"
+        },
+        {
+          "id": "midday-20260502-1630",
+          "author": "sentinel",
+          "text": "Published midday decision ping card to consolidate pending Isaac decisions for tranche-AH apply gate.",
+          "created_at": "2026-05-02T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-05-01T10:40:00Z",
+      "updated_at": "2026-05-02T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10553,11 +10629,23 @@
           "author": "sentinel",
           "created_at": "2026-04-30T03:10:00Z",
           "text": "Blocked on Isaac decision input per tranche-AH routing card."
+        },
+        {
+          "id": "decomp-0271-20260502",
+          "author": "sentinel",
+          "text": "Decomposed blocker into TASK-0284 (decision contract validator/template) and TASK-0285 (dry-run preview + guardrails) to reduce apply latency once Isaac decisions arrive.",
+          "created_at": "2026-05-02T03:10:00Z"
+        },
+        {
+          "id": "dependency-0271-20260502-0630",
+          "author": "sentinel",
+          "text": "Recovery sweep linked stale-RFR compaction stream to tranche-AH decision gate; apply step remains pending Isaac per-ID decision table.",
+          "created_at": "2026-05-02T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-30T03:10:00Z",
-      "updated_at": "2026-04-30T03:10:00Z",
+      "updated_at": "2026-05-02T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10936,6 +11024,444 @@
       "request_approval": null,
       "created_at": "2026-05-01T16:30:00Z",
       "updated_at": "2026-05-01T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0284",
+      "title": "BRS-2026-05-02a Build tranche-AH decision input validator + template",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "story:TASK-0271"
+      ],
+      "linked_refs": [
+        "TASK-0271",
+        "tranche-ah",
+        "governance"
+      ],
+      "description": "Create deterministic decision-input contract for TASK-0187/0188/0192/0193/0194/0195 with strict value validation (APPROVE_TRANSITION|HOLD_SUPERSEDED).",
+      "comments": [
+        {
+          "id": "done-0284-1",
+          "author": "sentinel",
+          "text": "Implemented validator script and published canonical decision template artifact for tranche-AH.",
+          "created_at": "2026-05-02T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-02T03:10:00Z",
+      "updated_at": "2026-05-02T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0285",
+      "title": "BRS-2026-05-02b Publish tranche-AH dry-run transition preview + apply guardrails",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "story:TASK-0271"
+      ],
+      "linked_refs": [
+        "TASK-0271",
+        "TASK-0284",
+        "tranche-ah"
+      ],
+      "description": "Publish preview transition matrix, validation command, and governance guardrails so apply can run in one deterministic pass once Isaac confirms decisions.",
+      "comments": [
+        {
+          "id": "done-0285-1",
+          "author": "sentinel",
+          "text": "Published dry-run preview artifact with per-ID transition plan and no-Done-without-approved-RP gates.",
+          "created_at": "2026-05-02T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-02T03:10:00Z",
+      "updated_at": "2026-05-02T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0286",
+      "title": "BRS-2026-05-02c Build stale-RFR compaction candidate matrix",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "parent:TASK-0107"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0271"
+      ],
+      "description": "Create deterministic stale-RFR candidate matrix for credential-chain duplicates and decision-gated tranche items, including compaction recommendation classes.",
+      "comments": [
+        {
+          "id": "done-0286-1",
+          "author": "sentinel",
+          "text": "Published stale-RFR compaction matrix artifact with grouped candidates and acceptance criteria.",
+          "created_at": "2026-05-02T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-02T06:30:00Z",
+      "updated_at": "2026-05-02T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0287",
+      "title": "BRS-2026-05-02d Publish stale-RFR transition microbatch template",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "parent:TASK-0107"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0286"
+      ],
+      "description": "Translate compaction matrix into executable microbatch transition template with per-ID reason codes and Isaac-gated branches.",
+      "comments": [
+        {
+          "id": "done-0287-1",
+          "author": "sentinel",
+          "text": "Published stale-RFR transition microbatch template artifact with reason-code policy and Isaac-gated branches.",
+          "created_at": "2026-05-02T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-02T06:30:00Z",
+      "updated_at": "2026-05-02T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0288",
+      "title": "BRS-2026-05-02e Publish credential smoke evidence handoff card",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-execution",
+        "parent:TASK-0097"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "description": "Create one-pass credential handoff card with exact command chain and expected evidence artifacts for immediate execution when credentials are available.",
+      "comments": [
+        {
+          "id": "done-0288-1",
+          "author": "sentinel",
+          "text": "Published credential smoke evidence handoff card with one-pass command sequence and governance guardrails.",
+          "created_at": "2026-05-02T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-02T10:40:00Z",
+      "updated_at": "2026-05-02T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0289",
+      "title": "TS-H1.1c.2c Capture credential-window readiness snapshot + blocker evidence",
+      "status": "Ready for Review",
+      "priority": "P0",
+      "owner": "sentinel",
+      "tags": [
+        "task",
+        "board-execution",
+        "parent:TASK-0097",
+        "decomposed",
+        "atomic"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/preflight-2026-05-02T16-30-39Z.md",
+        "mission-control/evidence/pipeline-run/2026-05-02T16-30-00Z-credential-env-check.md",
+        "mission-control/board/approval-queue/2026-05-02T16-30-00Z-credential-window-readiness-snapshot.md"
+      ],
+      "description": "Execute credential preflight/env checks and publish deterministic blocker evidence packet so live smoke can run immediately once credentials are provided.",
+      "acceptance_criteria": [
+        "Preflight artifact written with timestamp and status.",
+        "Env check artifact records missing/present required vars.",
+        "Snapshot card links both artifacts and exact next command chain."
+      ],
+      "comments": [
+        {
+          "id": "done-0289-1",
+          "author": "sentinel",
+          "text": "Published readiness snapshot with fresh preflight/env-check evidence and explicit blocker list (BASE_URL, TEAM_SESSION_COOKIE).",
+          "created_at": "2026-05-02T16:30:00Z"
+        }
+      ],
+      "created_at": "2026-05-02T16:30:00Z",
+      "updated_at": "2026-05-02T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "request_approval": null,
+      "due_date": null
+    },
+    {
+      "id": "TASK-0290",
+      "title": "BRS-2026-05-02f Publish midday decision ping for credential + tranche-AH gates",
+      "status": "Ready for Review",
+      "priority": "P1",
+      "owner": "sentinel",
+      "tags": [
+        "task",
+        "board-recovery",
+        "parent:TASK-0269",
+        "atomic"
+      ],
+      "linked_refs": [
+        "TASK-0269",
+        "TASK-0271",
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/board/approval-queue/2026-05-02T16-30-00Z-midday-decision-ping.md"
+      ],
+      "description": "Publish concise decision ping summarizing exact inputs needed from Isaac to unblock credentialed smoke and tranche-AH apply.",
+      "acceptance_criteria": [
+        "Decision ping file created under approval-queue.",
+        "Ping names decision gates and immediate follow-on actions.",
+        "Parent tasks receive blocker/progress comments."
+      ],
+      "comments": [
+        {
+          "id": "done-0290-1",
+          "author": "sentinel",
+          "text": "Published midday decision ping covering credential and tranche-AH decision gates.",
+          "created_at": "2026-05-02T16:30:00Z"
+        }
+      ],
+      "created_at": "2026-05-02T16:30:00Z",
+      "updated_at": "2026-05-02T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "request_approval": null,
+      "due_date": null
+    },
+    {
+      "id": "TASK-0291",
+      "title": "BRS-2026-05-03a Publish stale-RFR tranche-AI compaction plan + decision template",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "stale-rfr",
+        "tranche-ai"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "/home/ec2-user/.openclaw/workspace/mission-control/board/approval-queue/2026-05-03T10-25-00Z-stale-rfr-tranche-ai-compaction-plan.md",
+        "/home/ec2-user/.openclaw/workspace/mission-control/board/approval-queue/2026-05-03T10-25-00Z-stale-rfr-tranche-ai-decision-template.md"
+      ],
+      "description": "30-60m unblock subtask: compress stale Ready-for-Review queue into an approval-ready tranche with explicit HOLD/APPROVE transitions and owner routing.",
+      "comments": [
+        {
+          "id": "done-TASK-0291-20260503",
+          "author": "sentinel",
+          "text": "Executed during late-night recovery sweep; artifacts published for Isaac decision routing.",
+          "created_at": "2026-05-03T10:25:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-03T10:25:00Z",
+      "updated_at": "2026-05-03T10:25:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0292",
+      "title": "BRS-2026-05-03b Apply tranche-AI approved transitions and emit transition receipt",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "stale-rfr",
+        "tranche-ai"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0291"
+      ],
+      "description": "30-90m follow-on subtask (dependency-gated): apply only Isaac-approved transition set from tranche-AI template and publish immutable receipt.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-05-03T10:25:00Z",
+      "updated_at": "2026-05-03T10:25:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0293",
+      "title": "TS-H1.1c.2bg Refresh credential blocker evidence snapshot (morning execution window)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "board-execution-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/2026-05-03T10-40-00Z-credential-env-check.md",
+        "mission-control/evidence/pipeline-run/preflight-2026-05-03T10-40-27Z.md",
+        "mission-control/board/approval-queue/2026-05-03T10-40-00Z-credential-blocker-evidence-refresh.md"
+      ],
+      "description": "30-60m atomic subtask: run credential env-check + preflight and publish fresh blocker snapshot for immediate decision routing.",
+      "comments": [
+        {
+          "id": "done-TASK-0293-20260503",
+          "author": "sentinel",
+          "text": "Completed in morning sweep; captured BLOCKED evidence with missing BASE_URL and TEAM_SESSION_COOKIE.",
+          "created_at": "2026-05-03T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-03T10:40:00Z",
+      "updated_at": "2026-05-03T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0294",
+      "title": "TS-H1.1c.2bh Publish credentialed smoke operator handoff refresh (single-run command chain)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "board-execution-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/board/approval-queue/2026-05-03T10-40-00Z-credential-smoke-operator-handoff-refresh.md"
+      ],
+      "description": "30-60m atomic subtask: publish exact once-run command chain and acceptance gates for immediate execution when credentials arrive.",
+      "comments": [
+        {
+          "id": "done-TASK-0294-20260503",
+          "author": "sentinel",
+          "text": "Completed in morning sweep; refreshed command chain with explicit PASS/BLOCKED gates.",
+          "created_at": "2026-05-03T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-03T10:40:00Z",
+      "updated_at": "2026-05-03T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0295",
+      "title": "TS-H1.1c.2bi Refresh credential blocker evidence snapshot (midday execution window)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "board-progress-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/2026-05-03T16-30-00Z-credential-env-check.md",
+        "mission-control/evidence/pipeline-run/preflight-2026-05-03T16-30-44Z.md",
+        "mission-control/board/approval-queue/2026-05-03T16-30-00Z-credential-blocker-evidence-refresh.md"
+      ],
+      "description": "30-60m atomic subtask: run credential env-check + preflight and publish fresh blocker snapshot for immediate decision routing.",
+      "comments": [
+        {
+          "id": "done-task-0295-20260503-1630",
+          "author": "sentinel",
+          "text": "Midday sweep execution complete; artifact published and acceptance criteria met for Ready for Review handoff.",
+          "created_at": "2026-05-03T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-03T16:30:00Z",
+      "updated_at": "2026-05-03T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0296",
+      "title": "TS-H1.1c.2bj Publish credentialed smoke operator handoff refresh (single-run command chain)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "board-progress-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "mission-control/board/approval-queue/2026-05-03T16-30-00Z-credential-smoke-operator-handoff-refresh.md"
+      ],
+      "description": "30-60m atomic subtask: publish exact once-run command chain and acceptance gates for immediate execution when credentials arrive.",
+      "comments": [
+        {
+          "id": "done-task-0296-20260503-1630",
+          "author": "sentinel",
+          "text": "Midday sweep execution complete; artifact published and acceptance criteria met for Ready for Review handoff.",
+          "created_at": "2026-05-03T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-03T16:30:00Z",
+      "updated_at": "2026-05-03T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
