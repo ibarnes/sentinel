@@ -3563,7 +3563,12 @@
         "mission-control/board/approval-queue/2026-05-29T10-40-00Z-credential-blocker-evidence-refresh.md",
         "mission-control/board/approval-queue/2026-05-29T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
         "TASK-0348",
-        "TASK-0349"
+        "TASK-0349",
+        "TASK-0350",
+        "TASK-0351",
+        "mission-control/board/sweeps/2026-05-29T16-30-00Z-board-progress-sweep-midday.md",
+        "mission-control/board/approval-queue/2026-05-29T16-30-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-05-29T16-30-00Z-credentialed-smoke-operator-handoff-refresh.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3943,11 +3948,17 @@
           "author": "sentinel",
           "text": "Morning decomposition gate: added/executed TASK-0348 and TASK-0349 for blocker evidence + operator handoff refresh; credentialed live smoke remains dependency-gated on BASE_URL/TEAM_SESSION_COOKIE.",
           "created_at": "2026-05-29T10:40:00Z"
+        },
+        {
+          "id": "decomp-0103-20260529-1630",
+          "author": "sentinel",
+          "text": "Midday decomposition gate: added/executed TASK-0350 and TASK-0351 for blocker evidence + operator handoff refresh; credentialed live smoke remains dependency-gated on BASE_URL/TEAM_SESSION_COOKIE.",
+          "created_at": "2026-05-29T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-05-29T10:40:00Z",
+      "updated_at": "2026-05-29T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -13701,6 +13712,77 @@
       "updated_at": "2026-05-29T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0350",
+      "title": "BRS-2026-05-29c Refresh credential blocker evidence snapshot (midday)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "midday-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "mission-control/evidence/pipeline-run/2026-05-29T16-30-00Z-preflight.md",
+        "mission-control/evidence/pipeline-run/2026-05-29T16-30-00Z-env-check.txt",
+        "mission-control/board/approval-queue/2026-05-29T16-30-00Z-credential-blocker-evidence-refresh.md"
+      ],
+      "description": "Create a fresh credential blocker evidence snapshot for TASK-0103 prior to next authenticated window.\nAcceptance Criteria:\n- Preflight artifact generated at mission-control/evidence/pipeline-run/2026-05-29T16-30-00Z-preflight.md.\n- Env-check artifact generated at mission-control/evidence/pipeline-run/2026-05-29T16-30-00Z-env-check.txt.\n- Approval-queue summary captures blocker status and next operator action.",
+      "comments": [
+        {
+          "id": "done-0350-20260529-1630",
+          "author": "sentinel",
+          "text": "Executed midday sweep blocker evidence refresh; preflight and env-check artifacts confirm BASE_URL/TEAM_SESSION_COOKIE remain missing.",
+          "created_at": "2026-05-29T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-29T16:30:00Z",
+      "updated_at": "2026-05-29T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
+    },
+    {
+      "id": "TASK-0351",
+      "title": "BRS-2026-05-29d Refresh credentialed smoke operator handoff packet (midday)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "midday-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "mission-control/board/approval-queue/2026-05-29T16-30-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "scripts/pipeline-run-credential-env-check.sh",
+        "scripts/pipeline-run-credentialed-once.sh"
+      ],
+      "description": "Publish refreshed one-pass credentialed smoke handoff packet for immediate execution when credential window opens.\nAcceptance Criteria:\n- Handoff packet includes preconditions and exact command sequence.\n- Packet references fresh midday evidence artifact paths.\n- Failure gate explicitly prevents unsafe live smoke when preflight is BLOCKED.",
+      "comments": [
+        {
+          "id": "done-0351-20260529-1630",
+          "author": "sentinel",
+          "text": "Executed midday sweep handoff refresh; one-pass command chain and failure gate updated for immediate credential-window use.",
+          "created_at": "2026-05-29T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-05-29T16:30:00Z",
+      "updated_at": "2026-05-29T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     }
   ]
 }
