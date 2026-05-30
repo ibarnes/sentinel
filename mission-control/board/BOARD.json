@@ -3577,7 +3577,12 @@
         "mission-control/board/approval-queue/2026-05-30T03-10-00Z-credential-blocker-evidence-refresh.md",
         "mission-control/board/approval-queue/2026-05-30T03-10-00Z-credentialed-smoke-operator-handoff-refresh.md",
         "TASK-0356",
-        "TASK-0357"
+        "TASK-0357",
+        "TASK-0358",
+        "TASK-0359",
+        "mission-control/board/sweeps/2026-05-30T16-30-00Z-board-progress-sweep-midday.md",
+        "mission-control/board/approval-queue/2026-05-30T16-30-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-05-30T16-30-00Z-credentialed-smoke-operator-handoff-refresh.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -3969,11 +3974,17 @@
           "author": "sentinel",
           "text": "Night build window decomposition gate: executed TASK-0352/TASK-0353 (fresh blocker evidence + operator handoff refresh). Live credentialed execution remains queued in TASK-0331 pending BASE_URL and TEAM_SESSION_COOKIE.",
           "created_at": "2026-05-30T03:10:00Z"
+        },
+        {
+          "id": "decomp-0103-20260530-1630",
+          "author": "sentinel",
+          "text": "Midday decomposition gate: added/executed TASK-0358 and TASK-0359 for blocker evidence + operator handoff refresh; credentialed live smoke remains dependency-gated on BASE_URL/TEAM_SESSION_COOKIE.",
+          "created_at": "2026-05-30T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-05-30T10:40:00Z",
+      "updated_at": "2026-05-30T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -13995,6 +14006,58 @@
       "request_approval": null,
       "created_at": "2026-05-30T10:40:00Z",
       "updated_at": "2026-05-30T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0358",
+      "title": "TS-H1.1c.2cu Refresh credential blocker evidence snapshot (midday progress sweep)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "story",
+        "epic:TS-H1.1c.2",
+        "credentialed-smoke",
+        "sweep",
+        "atomic"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097"
+      ],
+      "description": "30-45m atomic subtask. Produce fresh preflight + env-check evidence for TASK-0103 at 2026-05-30T16:30:00Z. Acceptance: artifacts created and blocker state explicitly recorded.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-05-30T16:30:00Z",
+      "updated_at": "2026-05-30T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0359",
+      "title": "TS-H1.1c.2cv Refresh credentialed smoke operator handoff packet (midday progress sweep)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "story",
+        "epic:TS-H1.1c.2",
+        "credentialed-smoke",
+        "sweep",
+        "atomic"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097"
+      ],
+      "description": "30-45m atomic subtask. Publish refreshed operator handoff and approval packet referencing latest blocker evidence. Acceptance: execution sequence, preconditions, and fail gates documented.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-05-30T16:30:00Z",
+      "updated_at": "2026-05-30T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
