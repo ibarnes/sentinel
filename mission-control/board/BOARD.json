@@ -2915,7 +2915,12 @@
         "TASK-0368",
         "mission-control/board/approval-queue/2026-05-31T16-30-00Z-credential-blocker-evidence-refresh.md",
         "mission-control/board/approval-queue/2026-05-31T16-30-00Z-credentialed-smoke-operator-handoff-refresh.md",
-        "mission-control/board/sweeps/2026-05-31T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-05-31T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0369",
+        "TASK-0370",
+        "mission-control/board/approval-queue/2026-06-01T03-10-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-01T03-10-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-01T03-10-00Z-board-build-window-night.md"
       ],
       "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
       "comments": [
@@ -3221,11 +3226,22 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep decomposition gate: added TASK-0364 credential-window execution checklist to compress live authenticated smoke activation once credentials are provided.",
           "created_at": "2026-05-31T06:30:00Z"
+        },
+        {
+          "id": "decomp-0097-20260601-0310",
+          "author": "sentinel",
+          "created_at": "2026-06-01T03:10:00Z",
+          "text": "Night decomposition gate: added/executed TASK-0369 and TASK-0370 for blocker evidence + operator handoff refresh; credentialed live smoke remains dependency-gated on BASE_URL/TEAM_SESSION_COOKIE."
+        },
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-01T16:30:00Z",
+          "text": "Midday sweep decomposition executed: TASK-0372/TASK-0373 moved to Ready for Review; parent remains blocked pending BASE_URL and TEAM_SESSION_COOKIE."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-05-31T16:30:00Z",
+      "updated_at": "2026-06-01T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3617,7 +3633,12 @@
         "TASK-0368",
         "mission-control/board/approval-queue/2026-05-31T16-30-00Z-credential-blocker-evidence-refresh.md",
         "mission-control/board/approval-queue/2026-05-31T16-30-00Z-credentialed-smoke-operator-handoff-refresh.md",
-        "mission-control/board/sweeps/2026-05-31T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-05-31T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0369",
+        "TASK-0370",
+        "mission-control/board/approval-queue/2026-06-01T03-10-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-01T03-10-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-01T03-10-00Z-board-build-window-night.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -4021,11 +4042,22 @@
           "author": "sentinel",
           "created_at": "2026-05-31T16:30:00Z",
           "text": "Midday decomposition gate: added/executed TASK-0367 and TASK-0368 for blocker evidence + operator handoff refresh; credentialed live smoke remains dependency-gated on BASE_URL/TEAM_SESSION_COOKIE."
+        },
+        {
+          "id": "decomp-0103-20260601-0310",
+          "author": "sentinel",
+          "created_at": "2026-06-01T03:10:00Z",
+          "text": "Night decomposition gate: added/executed TASK-0369 and TASK-0370 for blocker evidence + operator handoff refresh; credentialed live smoke remains dependency-gated on BASE_URL/TEAM_SESSION_COOKIE."
+        },
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-01T16:30:00Z",
+          "text": "Midday sweep decomposition executed: TASK-0372/TASK-0373 moved to Ready for Review; parent remains blocked pending BASE_URL and TEAM_SESSION_COOKIE."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-05-31T16:30:00Z",
+      "updated_at": "2026-06-01T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4230,7 +4262,8 @@
         "mission-control/board/sweeps/2026-05-28T03-10-00Z-board-build-window-night.md",
         "TASK-0362",
         "mission-control/board/approval-queue/2026-05-31T06-30-00Z-tranche-am-decision-input-refresh.md",
-        "mission-control/board/sweeps/2026-05-31T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-05-31T06-30-00Z-board-recovery-sweep-late-night.md",
+        "mission-control/board/sweeps/2026-06-01T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -4515,11 +4548,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0362 and published tranche-AM decision input refresh packet to unblock Isaac decision flow.",
           "created_at": "2026-05-31T06:30:00Z"
+        },
+        {
+          "id": "recovery-0107-20260601-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep: stale-lane inventory refreshed; executed unblock child TASK-0371 under TASK-0269 to tighten decision-to-apply handoff.",
+          "created_at": "2026-06-01T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-05-31T06:30:00Z",
+      "updated_at": "2026-06-01T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10937,7 +10976,10 @@
         "TASK-0335",
         "mission-control/board/approval-queue/2026-05-27T06-30-00Z-tranche-ah-decision-input-sheet.md",
         "TASK-0363",
-        "mission-control/board/sweeps/2026-05-31T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-05-31T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0371",
+        "mission-control/board/approval-queue/2026-06-01T06-30-00Z-tranche-ah-decision-input-refresh.md",
+        "mission-control/board/sweeps/2026-06-01T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
       "comments": [
@@ -11018,11 +11060,18 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep decomposition gate: added TASK-0363 (apply-ready transition delta template) as next atomic step after decision inputs arrive.",
           "created_at": "2026-05-31T06:30:00Z"
-        }
+        },
+        {
+          "id": "recovery-0269-20260601-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0371 to refresh normalized tranche-AH decision inputs for immediate apply readiness once Isaac selections are provided.",
+          "created_at": "2026-06-01T06:30:00Z"
+        },
+        "[2026-06-01T10:40:00Z] Linked apply-ready template: mission-control/board/sweeps/2026-06-01T10-40-00Z-tranche-transition-delta-template.md (from TASK-0363)."
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-05-31T06:30:00Z",
+      "updated_at": "2026-06-01T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -14208,7 +14257,7 @@
     {
       "id": "TASK-0363",
       "title": "BRS-2026-05-31b Draft tranche transition delta template for immediate apply",
-      "status": "Todo",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -14222,20 +14271,23 @@
       "linked_refs": [
         "TASK-0269",
         "TASK-0335",
-        "mission-control/board/sweeps/2026-05-31T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-05-31T06-30-00Z-board-recovery-sweep-late-night.md",
+        "mission-control/board/sweeps/2026-06-01T10-40-00Z-tranche-transition-delta-template.md"
       ],
       "description": "30-60m slice. Prepare apply-ready transition template so approved tranche decisions can be replayed into BOARD.json in one pass.\nAcceptance Criteria:\n- Template has ID, current status, target status, decision note.\n- Includes replay checklist and rollback note.\n- Parent TASK-0269 linked to artifact path.",
-      "comments": [],
+      "comments": [
+        "[2026-06-01T10:40:00Z] Apply-ready tranche transition delta template published with replay checklist and rollback procedure."
+      ],
       "request_approval": null,
       "created_at": "2026-05-31T06:30:00Z",
-      "updated_at": "2026-05-31T06:30:00Z",
+      "updated_at": "2026-06-01T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0364",
       "title": "TS-H1.1c.2cy Build credential-window execution checklist with evidence map",
-      "status": "Todo",
+      "status": "Ready for Review",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
@@ -14250,13 +14302,18 @@
       "linked_refs": [
         "TASK-0097",
         "TASK-0103",
-        "mission-control/board/sweeps/2026-05-31T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-05-31T06-30-00Z-board-recovery-sweep-late-night.md",
+        "mission-control/evidence/pipeline-run/2026-06-01T10-40-00Z-preflight.md",
+        "mission-control/evidence/pipeline-run/2026-06-01T10-40-00Z-env-check.txt",
+        "mission-control/board/approval-queue/2026-06-01T10-40-00Z-credential-window-execution-checklist-evidence-map.md"
       ],
       "description": "45-90m slice. Create a single-pass credential-window execution checklist to reduce live-run friction when BASE_URL and TEAM_SESSION_COOKIE arrive.\nAcceptance Criteria:\n- Required env vars and secure handoff steps documented.\n- Exact run command and expected 201/400 outcomes listed.\n- Evidence artifact paths predeclared for immediate attachment.",
-      "comments": [],
+      "comments": [
+        "[2026-06-01T10:40:00Z] Morning sweep execution complete; checklist + evidence map published, gate remains blocked pending BASE_URL and TEAM_SESSION_COOKIE."
+      ],
       "request_approval": null,
       "created_at": "2026-05-31T06:30:00Z",
-      "updated_at": "2026-05-31T06:30:00Z",
+      "updated_at": "2026-06-01T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -14383,6 +14440,177 @@
       "request_approval": null,
       "created_at": "2026-05-31T16:30:00Z",
       "updated_at": "2026-05-31T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0369",
+      "title": "TS-H1.1c.2h Refresh credential blocker evidence snapshot (night)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "credential-gate",
+        "board-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "mission-control/evidence/pipeline-run/2026-06-01T03-10-00Z-preflight.md",
+        "mission-control/evidence/pipeline-run/2026-06-01T03-10-00Z-env-check.txt",
+        "mission-control/board/sweeps/2026-06-01T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "Generate fresh preflight and env-check artifacts to keep credential blocker state current for operator execution window. Acceptance: both artifacts exist with UTC timestamp and blocker reason is explicit.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-01T03:10:00Z",
+          "text": "Executed in night build window. Preflight/env-check artifacts generated; blocker remains missing BASE_URL and TEAM_SESSION_COOKIE."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-01T03:10:00Z",
+      "updated_at": "2026-06-01T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0370",
+      "title": "TS-H1.1c.2i Refresh credentialed smoke operator handoff packet (night)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "credential-gate",
+        "board-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "mission-control/board/approval-queue/2026-06-01T03-10-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-01T03-10-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-01T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "Publish execution-ready handoff packet with one-pass command checklist for next authenticated window. Acceptance: blocker and exact command chain documented in approval-queue artifacts.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-01T03:10:00Z",
+          "text": "Executed in night build window. Handoff packet refreshed with one-pass checklist and blocker context."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-01T03:10:00Z",
+      "updated_at": "2026-06-01T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0371",
+      "title": "BRS-2026-06-01a Normalize tranche-AH decision input refresh for pending apply gate",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery",
+        "child-of:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0269",
+        "mission-control/board/approval-queue/2026-06-01T06-30-00Z-tranche-ah-decision-input-refresh.md",
+        "mission-control/board/sweeps/2026-06-01T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Refresh unresolved tranche-AH IDs into a normalized decision table (Approve/Hold/Needs Changes + transition target + note) to unblock apply execution path.\nAcceptance Criteria:\n- Decision table lists unresolved tranche-AH IDs with priority and age.\n- Each row has explicit decision field + target transition + note placeholder.\n- Governance note confirms no transitions applied without Isaac input.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-06-01T06:30:00Z",
+      "updated_at": "2026-06-01T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0372",
+      "title": "TS-H1.1c.2j Refresh credential blocker evidence snapshot (midday)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "credential-gate",
+        "board-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "mission-control/evidence/pipeline-run/2026-06-01T16-30-00Z-preflight.md",
+        "mission-control/evidence/pipeline-run/2026-06-01T16-30-00Z-env-check.txt",
+        "mission-control/board/sweeps/2026-06-01T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m atomic subtask. Generate fresh preflight and env-check artifacts for the credentialed smoke stream. Acceptance: both artifacts exist with UTC timestamp and blocker reason is explicit.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-01T16:30:00Z",
+          "text": "Executed in midday sweep. Preflight/env-check artifacts generated; blocker remains missing BASE_URL and TEAM_SESSION_COOKIE."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-01T16:30:00Z",
+      "updated_at": "2026-06-01T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0373",
+      "title": "TS-H1.1c.2k Refresh credentialed smoke operator handoff packet (midday)",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "credential-gate",
+        "board-sweep"
+      ],
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "mission-control/board/approval-queue/2026-06-01T16-30-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-01T16-30-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-01T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m atomic subtask. Publish execution-ready operator handoff packet with exact command chain and governance gates. Acceptance: blocker + run sequence + artifact locations explicitly documented.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-01T16:30:00Z",
+          "text": "Executed in midday sweep. Handoff packet refreshed with one-pass checklist and blocker context."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-01T16:30:00Z",
+      "updated_at": "2026-06-01T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
