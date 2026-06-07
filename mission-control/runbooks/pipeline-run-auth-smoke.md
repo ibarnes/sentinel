@@ -55,6 +55,7 @@ node scripts/pipeline-run-evidence-report.mjs "mission-control/evidence/pipeline
 - [ ] Raw terminal output stored in `mission-control/evidence/pipeline-run/<timestamp>-auth-smoke.log`
 - [ ] 201 response block includes `runId`, `deckId`, and `status`.
 - [ ] 400 response block includes validation error fields.
+- [ ] Audit artifact includes `pipeline.run.created` with matching `entity_id=runId`, `meta.deckId`, and `meta.status=started`.
 - [ ] Task comments updated on `TASK-0097` and `TASK-0103` with exact artifact path.
 
 ## Pass/Fail Rule

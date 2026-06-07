@@ -2714,7 +2714,9 @@
         "TASK-0368",
         "mission-control/board/approval-queue/2026-05-31T16-30-00Z-credential-blocker-evidence-refresh.md",
         "mission-control/board/approval-queue/2026-05-31T16-30-00Z-credentialed-smoke-operator-handoff-refresh.md",
-        "mission-control/board/sweeps/2026-05-31T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-05-31T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0390",
+        "mission-control/board/sweeps/2026-06-07T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Implement endpoint using validation + persistence helper and verify with smoke calls.\nAcceptance Criteria:\n- Valid request returns 201 with runId and started status.\n- Invalid request returns 400 with actionable error payload.\n- Audit event emitted for pipeline.run.created with runId/deckId metadata.",
       "comments": [
@@ -2794,11 +2796,17 @@
           "author": "sentinel",
           "text": "Midday sweep carry-forward: endpoint wiring remains complete; closure still blocked on credentialed smoke evidence chain (TASK-0097/TASK-0103).",
           "created_at": "2026-05-27T16:30:00Z"
+        },
+        {
+          "id": "progress-task-0095-20260607-1630",
+          "author": "sentinel",
+          "created_at": "2026-06-07T16:30:00Z",
+          "text": "Midday progress sweep: executed TASK-0390 so report/doc acceptance now matches the live nested run payload and requires audit-proof capture; endpoint implementation remains complete, live credentialed evidence remains the final gate."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-05-31T16:30:00Z",
+      "updated_at": "2026-06-07T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3643,7 +3651,9 @@
         "TASK-0370",
         "mission-control/board/approval-queue/2026-06-01T03-10-00Z-credential-blocker-evidence-refresh.md",
         "mission-control/board/approval-queue/2026-06-01T03-10-00Z-credentialed-smoke-operator-handoff-refresh.md",
-        "mission-control/board/sweeps/2026-06-01T03-10-00Z-board-build-window-night.md"
+        "mission-control/board/sweeps/2026-06-01T03-10-00Z-board-build-window-night.md",
+        "TASK-0389",
+        "mission-control/board/sweeps/2026-06-07T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -4064,11 +4074,17 @@
           "author": "sentinel",
           "created_at": "2026-06-05T16:30:00Z",
           "text": "Midday decomposition gate: added/executed TASK-0374 and TASK-0375 for blocker evidence + operator handoff refresh; credentialed live smoke remains dependency-gated on BASE_URL/TEAM_SESSION_COOKIE."
+        },
+        {
+          "id": "decomp-0103-20260607-1630",
+          "author": "sentinel",
+          "created_at": "2026-06-07T16:30:00Z",
+          "text": "Midday decomposition gate: executed TASK-0389 to auto-capture pipeline.run.created audit evidence in the smoke bundle; remaining blocker is still authenticated BASE_URL/COOKIE/DECK_ID for the live run."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-06-05T16:30:00Z",
+      "updated_at": "2026-06-07T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4274,7 +4290,16 @@
         "TASK-0362",
         "mission-control/board/approval-queue/2026-05-31T06-30-00Z-tranche-am-decision-input-refresh.md",
         "mission-control/board/sweeps/2026-05-31T06-30-00Z-board-recovery-sweep-late-night.md",
-        "mission-control/board/sweeps/2026-06-01T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-06-01T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0376",
+        "TASK-0377",
+        "mission-control/board/approval-queue/2026-06-06T03-10-00Z-stale-rfr-credential-cluster-supersession-map.md",
+        "mission-control/board/approval-queue/2026-06-06T03-10-00Z-stale-rfr-credential-cluster-decision-card.md",
+        "mission-control/board/sweeps/2026-06-06T03-10-00Z-board-build-window-night.md",
+        "TASK-0378",
+        "TASK-0379",
+        "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+        "mission-control/board/sweeps/2026-06-06T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -4565,11 +4590,45 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep: stale-lane inventory refreshed; executed unblock child TASK-0371 under TASK-0269 to tighten decision-to-apply handoff.",
           "created_at": "2026-06-01T06:30:00Z"
+        },
+        {
+          "id": "recovery-0107-20260606-0310",
+          "author": "sentinel",
+          "text": "Night build window decomposition gate: added/executed TASK-0376 and TASK-0377 to compress the oldest credential-cluster stale-RFR items into one supersession map and one decision card with apply order.",
+          "created_at": "2026-06-06T03:10:00Z"
+        },
+        {
+          "id": "recovery-0107-20260606-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep: added TASK-0378 (executed unified decision pack) and TASK-0379 (queued post-decision compaction apply) so Isaac only has one recovery decision surface and one deterministic follow-on writeback step.",
+          "created_at": "2026-06-06T06:30:00Z"
+        },
+        {
+          "id": "execution-0107-20260606-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep: executed TASK-0380 and TASK-0381 so the unified recovery packet now has a machine-readable companion and a validator bridge before any post-decision writeback on TASK-0379.",
+          "created_at": "2026-06-06T10:40:00Z"
+        },
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-06T16:30:00Z",
+          "text": "Midday progress sweep 2026-06-06T16:30Z: executed TASK-0382/TASK-0383 to add deterministic apply-preview coverage for the unified recovery packet. Decision path is now validate -> preview -> apply once Isaac fills the packet."
+        },
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-07T03:10:00Z",
+          "text": "Board build window 2026-06-07T03:10Z: executed TASK-0384/TASK-0385. Added guarded apply engine, corrected stale packet status labels for TASK-0307/TASK-0324, and published a blocked receipt proving no board write occurs until Isaac decisions land."
+        },
+        {
+          "id": "lineage-normalization-20260607-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep: executed TASK-0386 to backfill unambiguous parent_id lineage on stale Ready-for-Review children across TASK-0103/TASK-0107/TASK-0269/TASK-0097 so tranche and blocker-chain recovery views stop treating those rows as orphaned.",
+          "created_at": "2026-06-07T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-06-01T06:30:00Z",
+      "updated_at": "2026-06-07T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -8427,7 +8486,8 @@
       "updated_at": "2026-03-21T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
-      "review_packet_id": "RP-0089"
+      "review_packet_id": "RP-0089",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0209",
@@ -10050,7 +10110,8 @@
       "created_at": "2026-04-26T10:40:00Z",
       "updated_at": "2026-04-26T10:40:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0247",
@@ -10092,7 +10153,8 @@
       "created_at": "2026-04-26T10:40:00Z",
       "updated_at": "2026-04-26T10:40:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0248",
@@ -10134,7 +10196,8 @@
       "created_at": "2026-04-26T16:30:00Z",
       "updated_at": "2026-04-26T16:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0249",
@@ -10176,7 +10239,8 @@
       "created_at": "2026-04-26T16:30:00Z",
       "updated_at": "2026-04-26T16:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0250",
@@ -10217,7 +10281,8 @@
       "created_at": "2026-04-27T03:10:00Z",
       "updated_at": "2026-04-27T03:10:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0251",
@@ -10258,7 +10323,8 @@
       "created_at": "2026-04-27T03:10:00Z",
       "updated_at": "2026-04-27T03:10:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0252",
@@ -10299,7 +10365,8 @@
       "created_at": "2026-04-27T06:30:00Z",
       "updated_at": "2026-04-27T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0253",
@@ -10397,7 +10464,8 @@
       "created_at": "2026-04-27T06:30:00Z",
       "updated_at": "2026-04-27T10:40:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0043"
     },
     {
       "id": "TASK-0255",
@@ -10445,7 +10513,8 @@
       "created_at": "2026-04-27T06:30:00Z",
       "updated_at": "2026-04-27T10:40:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0095"
     },
     {
       "id": "TASK-0256",
@@ -10480,7 +10549,8 @@
       "created_at": "2026-04-27T16:30:00Z",
       "updated_at": "2026-04-27T16:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0257",
@@ -10549,7 +10619,8 @@
       "created_at": "2026-04-28T03:10:00Z",
       "updated_at": "2026-04-28T03:10:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0259",
@@ -10792,7 +10863,8 @@
       "created_at": "2026-04-28T16:30:00Z",
       "updated_at": "2026-04-28T16:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0265",
@@ -10990,7 +11062,9 @@
         "mission-control/board/sweeps/2026-05-31T06-30-00Z-board-recovery-sweep-late-night.md",
         "TASK-0371",
         "mission-control/board/approval-queue/2026-06-01T06-30-00Z-tranche-ah-decision-input-refresh.md",
-        "mission-control/board/sweeps/2026-06-01T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-06-01T06-30-00Z-board-recovery-sweep-late-night.md",
+        "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+        "mission-control/board/sweeps/2026-06-06T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
       "comments": [
@@ -11078,11 +11152,23 @@
           "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0371 to refresh normalized tranche-AH decision inputs for immediate apply readiness once Isaac selections are provided.",
           "created_at": "2026-06-01T06:30:00Z"
         },
-        "[2026-06-01T10:40:00Z] Linked apply-ready template: mission-control/board/sweeps/2026-06-01T10-40-00Z-tranche-transition-delta-template.md (from TASK-0363)."
+        "[2026-06-01T10:40:00Z] Linked apply-ready template: mission-control/board/sweeps/2026-06-01T10-40-00Z-tranche-transition-delta-template.md (from TASK-0363).",
+        "[2026-06-06T06:30:00Z] Linked unified recovery decision pack: mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md.",
+        "[2026-06-06T10:40:00Z] Morning execution sweep: added/executed TASK-0380 (machine-readable recovery manifest) and TASK-0381 (validator bridge for the unified markdown packet) to reduce decision-to-apply friction on TASK-0335.",
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-06T16:30:00Z",
+          "text": "Midday progress sweep 2026-06-06T16:30Z: linked live preview tooling/artifacts (TASK-0382/TASK-0383) so tranche apply readiness can be checked before TASK-0335 mutates BOARD.json."
+        },
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-07T03:10:00Z",
+          "text": "Board build window 2026-06-07T03:10Z: executed TASK-0384/TASK-0385. Unified recovery packet now has a guarded apply engine plus fresh blocked receipt; remaining gate is Isaac decision fill only."
+        }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-06-01T10:40:00Z",
+      "updated_at": "2026-06-07T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -11126,7 +11212,8 @@
       "created_at": "2026-04-30T03:10:00Z",
       "updated_at": "2026-04-30T03:10:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0271",
@@ -11221,7 +11308,8 @@
       "created_at": "2026-04-30T06:30:00Z",
       "updated_at": "2026-05-29T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0097"
     },
     {
       "id": "TASK-0273",
@@ -11341,7 +11429,8 @@
       "created_at": "2026-04-30T16:30:00Z",
       "updated_at": "2026-04-30T16:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0097"
     },
     {
       "id": "TASK-0276",
@@ -11377,7 +11466,8 @@
       "created_at": "2026-04-30T16:30:00Z",
       "updated_at": "2026-04-30T16:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0277",
@@ -11505,7 +11595,8 @@
       "created_at": "2026-05-01T10:40:00Z",
       "updated_at": "2026-05-01T10:40:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0097"
     },
     {
       "id": "TASK-0282",
@@ -11589,7 +11680,8 @@
       "created_at": "2026-05-02T03:10:00Z",
       "updated_at": "2026-05-02T03:10:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0271"
     },
     {
       "id": "TASK-0285",
@@ -11829,7 +11921,8 @@
       "created_at": "2026-05-03T10:25:00Z",
       "updated_at": "2026-05-03T10:25:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0292",
@@ -12103,7 +12196,8 @@
       "created_at": "2026-05-04T06:30:00Z",
       "updated_at": "2026-05-04T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0300",
@@ -12925,7 +13019,8 @@
       "created_at": "2026-05-07T09:46:06Z",
       "updated_at": "2026-05-07T09:46:06Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0323",
@@ -12956,7 +13051,8 @@
       "created_at": "2026-05-07T09:46:06Z",
       "updated_at": "2026-05-07T09:46:06Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0324",
@@ -13270,7 +13366,8 @@
       "created_at": "2026-05-27T06:30:00Z",
       "updated_at": "2026-05-27T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0333",
@@ -13339,7 +13436,8 @@
       "created_at": "2026-05-27T06:30:00Z",
       "updated_at": "2026-05-28T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0335",
@@ -13545,7 +13643,8 @@
       "created_at": "2026-05-28T10:40:00Z",
       "updated_at": "2026-05-28T10:40:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0341",
@@ -13617,7 +13716,8 @@
       "created_at": "2026-05-28T16:30:00Z",
       "updated_at": "2026-05-28T16:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0343",
@@ -13757,7 +13857,8 @@
       "created_at": "2026-05-29T06:30:00Z",
       "updated_at": "2026-05-29T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0272"
     },
     {
       "id": "TASK-0347",
@@ -13782,7 +13883,8 @@
       "created_at": "2026-05-29T06:30:00Z",
       "updated_at": "2026-05-29T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0272"
     },
     {
       "id": "TASK-0348",
@@ -14018,6 +14120,7 @@
         "child-of:TASK-0043",
         "unblock-executed"
       ],
+      "parent_id": "TASK-0043",
       "linked_refs": [
         "TASK-0043",
         "admin-server/src/server.js",
@@ -14054,6 +14157,7 @@
         "child-of:TASK-0095",
         "decision-gated"
       ],
+      "parent_id": "TASK-0095",
       "linked_refs": [
         "TASK-0095",
         "TASK-0097",
@@ -14263,7 +14367,8 @@
       "created_at": "2026-05-31T06:30:00Z",
       "updated_at": "2026-05-31T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0363",
@@ -14551,7 +14656,8 @@
       "created_at": "2026-06-01T06:30:00Z",
       "updated_at": "2026-06-01T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0372",
@@ -14694,6 +14800,571 @@
       "request_approval": null,
       "created_at": "2026-06-05T16:30:00Z",
       "updated_at": "2026-06-05T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0376",
+      "title": "BRS-2026-06-06a Build stale-RFR credential-cluster supersession map",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window",
+        "stale-rfr-compaction",
+        "child-of:TASK-0107"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0103",
+        "TASK-0355",
+        "TASK-0364",
+        "TASK-0374",
+        "TASK-0375",
+        "mission-control/board/approval-queue/2026-06-06T03-10-00Z-stale-rfr-credential-cluster-supersession-map.md",
+        "mission-control/board/sweeps/2026-06-06T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Build a deterministic supersession map for the oldest credential-chain Ready-for-Review cluster so Isaac can compact duplicate stale cards without losing the current execution path.\nAcceptance Criteria:\n- Oldest credential-cluster tasks are mapped to the latest canonical artifact(s).\n- Each row includes compact-vs-retain recommendation with rationale.\n- Artifact is written to approval queue and linked back to TASK-0107.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-06T03:10:00Z",
+          "text": "Executed in board build window. Published stale-RFR credential-cluster supersession map with canonical replacement links and compaction recommendations."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-06T03:10:00Z",
+      "updated_at": "2026-06-06T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0377",
+      "title": "BRS-2026-06-06b Publish stale-RFR credential-cluster decision card with apply order",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build-window",
+        "stale-rfr-compaction",
+        "decision-gated",
+        "child-of:TASK-0107"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0376",
+        "mission-control/board/approval-queue/2026-06-06T03-10-00Z-stale-rfr-credential-cluster-supersession-map.md",
+        "mission-control/board/approval-queue/2026-06-06T03-10-00Z-stale-rfr-credential-cluster-decision-card.md",
+        "mission-control/board/sweeps/2026-06-06T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "45-90m slice. Convert the stale credential-cluster supersession map into a single decision card with one-row-per-task choices and deterministic apply order for the eventual compaction pass.\nAcceptance Criteria:\n- Decision card includes all in-scope stale task IDs and recommended action.\n- Isaac input fields are explicit and no status change is applied in this step.\n- Apply order is documented for the later compaction writeback.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-06T03:10:00Z",
+          "text": "Executed in board build window. Published decision-ready compaction card with recommended actions and deterministic post-decision apply order."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-06T03:10:00Z",
+      "updated_at": "2026-06-06T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0378",
+      "title": "BRS-2026-06-06c Publish unified recovery decision pack for tranche-AH apply + credential-cluster compaction",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery",
+        "decision-gated",
+        "child-of:TASK-0107"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0371",
+        "TASK-0377",
+        "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+        "mission-control/board/sweeps/2026-06-06T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Consolidate the open recovery decisions for tranche-AH apply and stale credential-cluster compaction into one operator-ready packet so Isaac can answer once and unblock both stalled lanes.\nAcceptance Criteria:\n- Packet includes tranche-AH apply table and credential-cluster compaction table.\n- Each row shows current status, recommended action, and explicit Isaac decision field.\n- Packet states exact downstream apply step for TASK-0335 and the next compaction writeback task.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-06T06:30:00Z",
+          "text": "Executed in late-night recovery sweep. Published one unified recovery decision pack covering both TASK-0269 tranche-AH apply gating and TASK-0107 credential-cluster compaction gating."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-06T06:30:00Z",
+      "updated_at": "2026-06-06T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0379",
+      "title": "BRS-2026-06-06d Apply approved credential-cluster compaction and publish delta log",
+      "status": "Todo",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery",
+        "decision-gated",
+        "child-of:TASK-0107"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0377",
+        "TASK-0378",
+        "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+        "mission-control/board/sweeps/"
+      ],
+      "description": "30-60m slice. After Isaac marks the unified recovery decision pack, compact only approved credential-cluster rows in BOARD.json and publish a deterministic before/after delta log.\nAcceptance Criteria:\n- Only rows explicitly marked APPROVE_COMPACT are changed.\n- Retained canonical tasks TASK-0355, TASK-0364, TASK-0374, and TASK-0375 remain untouched.\n- Delta log is saved under mission-control/board/sweeps/ and linked back to TASK-0107.",
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-06-06T06:30:00Z",
+      "updated_at": "2026-06-06T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0380",
+      "title": "BRS-2026-06-06e Publish machine-readable recovery manifest for unified decision pack",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "morning-execution",
+        "decision-readiness",
+        "child-of:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+        "mission-control/board/approval-queue/2026-06-06T10-40-00Z-board-recovery-decision-manifest.json",
+        "mission-control/board/sweeps/2026-06-06T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Publish a machine-readable companion manifest for the unified recovery decision pack so TASK-0335 and TASK-0379 can consume one stable decision contract.\nAcceptance Criteria:\n- Manifest includes both Section A and Section B rows from the unified packet.\n- Section A maps human decisions to apply-safe enums.\n- Artifact path is linked back to the active recovery lane.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-06T10:40:00Z",
+          "text": "Executed in morning execution sweep. Published machine-readable manifest for the unified recovery packet with normalized Section A decision mapping and both apply sections."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-06T10:40:00Z",
+      "updated_at": "2026-06-06T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0381",
+      "title": "BRS-2026-06-06f Upgrade recovery decision validator for unified markdown packet",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "morning-execution",
+        "decision-readiness",
+        "child-of:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+        "scripts/board/tranche-ah-decision-validate.mjs",
+        "mission-control/board/sweeps/2026-06-06T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Upgrade the decision validator so it can parse the current unified markdown recovery packet and emit normalized readiness output without breaking legacy JSON usage.\nAcceptance Criteria:\n- Validator accepts the unified markdown packet path.\n- Output reports both Section A and Section B completeness and normalized decisions.\n- Legacy JSON validation path remains intact.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-06T10:40:00Z",
+          "text": "Executed in morning execution sweep. Validator now parses the unified markdown packet, reports completeness for both sections, and still supports the older JSON contract."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-06T10:40:00Z",
+      "updated_at": "2026-06-06T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0382",
+      "title": "BRS-2026-06-06g Add unified recovery apply-preview script",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "midday-progress",
+        "decision-readiness",
+        "child-of:TASK-0107",
+        "child-of:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+        "scripts/board/board-recovery-apply-preview.mjs",
+        "mission-control/board/approval-queue/2026-06-06T16-30-00Z-board-recovery-apply-preview.json",
+        "mission-control/board/sweeps/2026-06-06T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Add a deterministic apply-preview script for the unified board recovery packet so Section A and Section B readiness can be checked before any BOARD.json mutation.\nAcceptance Criteria:\n- Script reads BOARD.json and the unified markdown packet.\n- Output marks each row as ready, blocked, or noop.\n- Section-level readiness is explicit for TASK-0335 and TASK-0379.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-06T16:30:00Z",
+          "text": "Executed in midday progress sweep. Added deterministic preview script and generated live JSON preview showing 18 missing decisions with no status drift."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-06T16:30:00Z",
+      "updated_at": "2026-06-06T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0383",
+      "title": "BRS-2026-06-06h Publish live apply-preview card for unified recovery packet",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "midday-progress",
+        "decision-readiness",
+        "child-of:TASK-0107",
+        "child-of:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0382",
+        "mission-control/board/approval-queue/2026-06-06T16-30-00Z-board-recovery-apply-preview.md",
+        "mission-control/board/approval-queue/2026-06-06T16-30-00Z-board-recovery-apply-preview.json",
+        "mission-control/board/sweeps/2026-06-06T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Publish a live apply-preview artifact for the current unified packet with exact commands, current blocker counts, and target-status rules for post-decision execution.\nAcceptance Criteria:\n- Artifact states current readiness/blockers for both sections.\n- Artifact documents exact validation + preview commands.\n- Artifact defines target-status rules and protected canonical tasks.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-06T16:30:00Z",
+          "text": "Executed in midday progress sweep. Published apply-preview card for the current blank packet and documented exact validation/preview commands for zero-guess post-decision replay."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-06T16:30:00Z",
+      "updated_at": "2026-06-06T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0384",
+      "title": "BRS-2026-06-07a Add guarded unified recovery apply engine",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build",
+        "execution-tooling",
+        "child-of:TASK-0107",
+        "child-of:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+        "scripts/board/board-recovery-apply.mjs",
+        "mission-control/board/sweeps/2026-06-07T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Add a guarded apply engine for the unified recovery packet so Section A, Section B, or both can be executed deterministically once Isaac decisions are filled.\nAcceptance Criteria:\n- Script supports Section A, Section B, or all-section apply selection.\n- Script blocks on missing decisions, packet status drift, and protected canonical-task mutation.\n- BOARD.json write occurs only when an explicit output path is supplied.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-07T03:10:00Z",
+          "text": "Executed in board build window night sweep. Added guarded unified recovery apply engine with explicit section selection, fail-closed blockers, and output-path gated write behavior."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-07T03:10:00Z",
+      "updated_at": "2026-06-07T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0385",
+      "title": "BRS-2026-06-07b Publish blocked apply receipt for current unified recovery packet",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "night-build",
+        "execution-readiness",
+        "child-of:TASK-0107",
+        "child-of:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0384",
+        "mission-control/board/approval-queue/2026-06-07T03-10-00Z-board-recovery-apply-blocked-receipt.json",
+        "mission-control/board/approval-queue/2026-06-07T03-10-00Z-board-recovery-apply-blocked-receipt.md",
+        "mission-control/board/sweeps/2026-06-07T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Run the guarded apply engine against the current unified recovery packet and publish a blocked receipt that proves no BOARD.json write occurs until decisions are filled.\nAcceptance Criteria:\n- Receipt shows section-level blocker counts for TASK-0335 and TASK-0379.\n- Receipt confirms write_performed=false on the blank packet.\n- Any packet status drift discovered during the dry-run is corrected before the final receipt is published.",
+      "comments": [
+        {
+          "author": "sentinel",
+          "created_at": "2026-06-07T03:10:00Z",
+          "text": "Executed in board build window night sweep. Published blocked dry-run receipt, corrected stale packet status labels for TASK-0307 and TASK-0324, and confirmed the apply path is now blocked only on missing Isaac decisions."
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-07T03:10:00Z",
+      "updated_at": "2026-06-07T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0386",
+      "title": "BRS-2026-06-07c Normalize unambiguous parent links on stale Ready-for-Review children",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "late-night-recovery",
+        "board-hygiene",
+        "child-of:TASK-0107"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0103",
+        "TASK-0097",
+        "TASK-0269",
+        "mission-control/board/sweeps/2026-06-07T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Backfill parent_id on stale Ready-for-Review tasks when lineage is unambiguous from existing task refs/tags so recovery tranches and blocker-chain clusters can be queried accurately.\nAcceptance Criteria:\n- Each changed task had exactly one inferable parent from existing TASK refs/tags before mutation.\n- Updated rows span only metadata linkage; no status values change.\n- Sweep artifact records changed task IDs and parent targets by stream.",
+      "comments": [
+        {
+          "id": "executed-task-0386-20260607-0630",
+          "author": "sentinel",
+          "text": "Executed in late-night recovery sweep. Backfilled parent_id on 29 stale Ready-for-Review tasks with unambiguous lineage to reduce orphaned backlog noise and improve recovery clustering.",
+          "created_at": "2026-06-07T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-07T06:30:00Z",
+      "updated_at": "2026-06-07T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0387",
+      "title": "TS-H1.1a.2cs Normalize TASK-0043 closure-child lineage for review routing",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-45m",
+        "board-hygiene",
+        "child-of:TASK-0043"
+      ],
+      "parent_id": "TASK-0043",
+      "linked_refs": [
+        "TASK-0043",
+        "TASK-0354",
+        "mission-control/evidence/pipeline-run/2026-05-30T06-30-00Z-task-0043-closure-evidence-map.md",
+        "mission-control/board/sweeps/2026-06-07T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-45m slice. Normalize the parent/child lineage between TASK-0043 and its executed closure-evidence child so review routing and active-lane queries stop treating the proof artifact as orphaned.\nAcceptance Criteria:\n- TASK-0354 carries parent_id TASK-0043 with no status mutation.\n- Sweep artifact explains why TASK-0043 remains In Progress despite codepath-complete evidence.\n- Next review-safe action is explicit.",
+      "comments": [
+        {
+          "id": "executed-task-0387-20260607-1040",
+          "author": "sentinel",
+          "text": "Executed in morning board sweep. Bound TASK-0354 back to TASK-0043 and documented that remaining closure work is governance/review routing, not endpoint implementation.",
+          "created_at": "2026-06-07T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-07T10:40:00Z",
+      "updated_at": "2026-06-07T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0388",
+      "title": "TS-H1.1c.2cz Publish current TASK-0095 credentialed closure routing card",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credentialed-smoke",
+        "child-of:TASK-0095"
+      ],
+      "parent_id": "TASK-0095",
+      "linked_refs": [
+        "TASK-0095",
+        "TASK-0097",
+        "TASK-0103",
+        "TASK-0355",
+        "mission-control/board/approval-queue/2026-05-30T06-30-00Z-task-0095-credentialed-smoke-closure-packet.md",
+        "mission-control/board/approval-queue/2026-06-07T10-40-00Z-task-0095-current-closure-routing-card.md",
+        "mission-control/board/sweeps/2026-06-07T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Publish a current routing card for TASK-0095 that converts the existing closure packet into one explicit next-step branch for either the next credential window or immediate review of implementation-complete prerequisites.\nAcceptance Criteria:\n- Card maps current code/evidence state to TASK-0095 acceptance criteria.\n- Card names the exact artifact/evidence still missing before review-safe transition.\n- Parent/child linkage is explicit for TASK-0355 and TASK-0095.",
+      "comments": [
+        {
+          "id": "executed-task-0388-20260607-1040",
+          "author": "sentinel",
+          "text": "Executed in morning board sweep. Published a current closure routing card for TASK-0095 and normalized TASK-0355 lineage so the next credential-window action is explicit.",
+          "created_at": "2026-06-07T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-07T10:40:00Z",
+      "updated_at": "2026-06-07T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0389",
+      "title": "TS-H1.1c.2da Capture pipeline.run.created audit artifact in smoke evidence bundle",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credentialed-smoke",
+        "child-of:TASK-0103"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "scripts/pipeline-run-smoke-capture.sh",
+        "mission-control/board/sweeps/2026-06-07T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Extend the credentialed smoke capture wrapper so a successful run also persists the matching pipeline.run.created audit event beside the 201/400 payload artifacts.\nAcceptance Criteria:\n- Capture bundle writes pipeline-run-created.audit.json when a returned runId has a matching audit event in mission-control/activity/.\n- manifest.json records run_id and audit artifact path.\n- No live credentials are required to verify the capture path wiring.",
+      "comments": [
+        {
+          "id": "executed-task-0389-20260607-1630",
+          "author": "sentinel",
+          "text": "Executed in midday board sweep. Capture wrapper now persists pipeline.run.created audit evidence keyed by returned runId and records the artifact in the manifest.",
+          "created_at": "2026-06-07T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-07T16:30:00Z",
+      "updated_at": "2026-06-07T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0390",
+      "title": "TS-H1.1c.2db Align evidence report and operator packet with nested run payload + audit proof",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credentialed-smoke",
+        "child-of:TASK-0095"
+      ],
+      "parent_id": "TASK-0095",
+      "linked_refs": [
+        "TASK-0095",
+        "scripts/pipeline-run-evidence-report.mjs",
+        "mission-control/runbooks/pipeline-run-auth-smoke.md",
+        "mission-control/board/approval-queue/2026-05-30T06-30-00Z-task-0095-credentialed-smoke-closure-packet.md",
+        "mission-control/board/approval-queue/2026-06-07T10-40-00Z-task-0095-current-closure-routing-card.md",
+        "mission-control/board/sweeps/2026-06-07T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Update report and operator-facing closure artifacts so TASK-0095 validation matches the live API shape and now requires the audit proof bundle created by TASK-0389.\nAcceptance Criteria:\n- evidence-report reads nested run.runId/status from the live 201 payload.\n- PASS criteria require pipeline-run-created.audit.json with matching runId/deckId/status.\n- Runbook and closure packet name the four-artifact bundle explicitly.",
+      "comments": [
+        {
+          "id": "executed-task-0390-20260607-1630",
+          "author": "sentinel",
+          "text": "Executed in midday board sweep. Evidence report now parses the live nested run payload and closure docs now require the four-artifact bundle including audit proof.",
+          "created_at": "2026-06-07T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-07T16:30:00Z",
+      "updated_at": "2026-06-07T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
