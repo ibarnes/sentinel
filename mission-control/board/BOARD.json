@@ -3653,7 +3653,10 @@
         "mission-control/board/approval-queue/2026-06-01T03-10-00Z-credentialed-smoke-operator-handoff-refresh.md",
         "mission-control/board/sweeps/2026-06-01T03-10-00Z-board-build-window-night.md",
         "TASK-0389",
-        "mission-control/board/sweeps/2026-06-07T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-07T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0395",
+        "TASK-0396",
+        "mission-control/board/sweeps/2026-06-08T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -4084,7 +4087,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-06-07T16:30:00Z",
+      "updated_at": "2026-06-08T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4624,11 +4627,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep: executed TASK-0386 to backfill unambiguous parent_id lineage on stale Ready-for-Review children across TASK-0103/TASK-0107/TASK-0269/TASK-0097 so tranche and blocker-chain recovery views stop treating those rows as orphaned.",
           "created_at": "2026-06-07T06:30:00Z"
+        },
+        {
+          "id": "lineage-normalization-20260608-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep: executed TASK-0392 to backfill 28 stale Ready-for-Review rows with unambiguous parent_id lineage derived from single parent:* / child-of:* tags. This reduced the stale orphaned RFR set and improved recovery clustering without status changes.",
+          "created_at": "2026-06-08T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-06-07T06:30:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -10375,6 +10384,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
+      "parent_id": "TASK-0107",
       "tags": [
         "task",
         "recovery",
@@ -10629,6 +10639,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
+      "parent_id": "TASK-0107",
       "tags": [
         "task",
         "recovery",
@@ -10706,6 +10717,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
+      "parent_id": "TASK-0107",
       "tags": [
         "task",
         "recovery",
@@ -10750,6 +10762,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
+      "parent_id": "TASK-0107",
       "tags": [
         "task",
         "recovery",
@@ -10794,6 +10807,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
+      "parent_id": "TASK-0107",
       "tags": [
         "task",
         "recovery",
@@ -10908,6 +10922,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
+      "parent_id": "TASK-0107",
       "tags": [
         "task",
         "recovery",
@@ -10951,6 +10966,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
+      "parent_id": "TASK-0107",
       "tags": [
         "task",
         "recovery",
@@ -10994,6 +11010,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
+      "parent_id": "TASK-0107",
       "tags": [
         "task",
         "recovery",
@@ -11349,9 +11366,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-04-30T06:30:00Z",
-      "updated_at": "2026-04-30T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0097"
     },
     {
       "id": "TASK-0274",
@@ -11391,9 +11409,10 @@
         "approved_at": null
       },
       "created_at": "2026-04-30T10:40:00Z",
-      "updated_at": "2026-04-30T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0275",
@@ -11605,6 +11624,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "board-progress",
@@ -11631,6 +11651,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "board-progress",
@@ -11742,9 +11763,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-02T06:30:00Z",
-      "updated_at": "2026-05-02T06:30:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0287",
@@ -11773,9 +11795,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-02T06:30:00Z",
-      "updated_at": "2026-05-02T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0288",
@@ -11804,9 +11827,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-02T10:40:00Z",
-      "updated_at": "2026-05-02T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0097"
     },
     {
       "id": "TASK-0289",
@@ -11843,11 +11867,12 @@
         }
       ],
       "created_at": "2026-05-02T16:30:00Z",
-      "updated_at": "2026-05-02T16:30:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "request_approval": null,
-      "due_date": null
+      "due_date": null,
+      "parent_id": "TASK-0097"
     },
     {
       "id": "TASK-0290",
@@ -11883,11 +11908,12 @@
         }
       ],
       "created_at": "2026-05-02T16:30:00Z",
-      "updated_at": "2026-05-02T16:30:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "request_approval": null,
-      "due_date": null
+      "due_date": null,
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0291",
@@ -12027,6 +12053,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -12063,6 +12090,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -12097,6 +12125,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -12131,6 +12160,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -12252,6 +12282,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -12292,6 +12323,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -12736,6 +12768,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -12770,6 +12803,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -12875,6 +12909,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -12911,6 +12946,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -13401,9 +13437,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-27T06:30:00Z",
-      "updated_at": "2026-05-28T03:10:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0334",
@@ -13499,9 +13536,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-27T10:40:00Z",
-      "updated_at": "2026-05-27T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0337",
@@ -13535,9 +13573,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-27T10:40:00Z",
-      "updated_at": "2026-05-27T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0338",
@@ -13678,9 +13717,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-28T10:40:00Z",
-      "updated_at": "2026-05-28T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0342",
@@ -13751,9 +13791,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-28T16:30:00Z",
-      "updated_at": "2026-05-28T16:30:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0344",
@@ -13788,9 +13829,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-29T03:10:00Z",
-      "updated_at": "2026-05-29T03:10:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0345",
@@ -13824,9 +13866,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-29T03:10:00Z",
-      "updated_at": "2026-05-29T03:10:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0346",
@@ -13919,9 +13962,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-29T10:40:00Z",
-      "updated_at": "2026-05-29T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0349",
@@ -13955,9 +13999,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-29T10:40:00Z",
-      "updated_at": "2026-05-29T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0350",
@@ -14064,9 +14109,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-30T03:10:00Z",
-      "updated_at": "2026-05-30T03:10:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0353",
@@ -14100,9 +14146,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-30T03:10:00Z",
-      "updated_at": "2026-05-30T03:10:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0354",
@@ -14186,6 +14233,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "story",
         "epic:TS-H1.1c.2",
@@ -14212,6 +14260,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "story",
         "epic:TS-H1.1c.2",
@@ -14238,6 +14287,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "story",
         "epic:TS-H1.1c.2",
@@ -14264,6 +14314,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "story",
         "epic:TS-H1.1c.2",
@@ -14309,9 +14360,10 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-05-31T03:10:00Z",
-      "updated_at": "2026-05-31T03:10:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0361",
@@ -14338,9 +14390,10 @@
       "comments": [],
       "request_approval": null,
       "created_at": "2026-05-31T03:10:00Z",
-      "updated_at": "2026-05-31T03:10:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0103"
     },
     {
       "id": "TASK-0362",
@@ -14396,9 +14449,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-31T06:30:00Z",
-      "updated_at": "2026-06-01T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0364",
@@ -14429,9 +14483,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-05-31T06:30:00Z",
-      "updated_at": "2026-06-01T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0097"
     },
     {
       "id": "TASK-0365",
@@ -14440,6 +14495,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "story",
         "epic:EP-H1.1c",
@@ -14467,6 +14523,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "story",
         "epic:EP-H1.1c",
@@ -14494,6 +14551,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -14530,6 +14588,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -14566,6 +14625,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -14602,6 +14662,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -14666,6 +14727,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -14702,6 +14764,7 @@
       "owner": "sentinel",
       "due_date": null,
       "priority": "P0",
+      "parent_id": "TASK-0103",
       "tags": [
         "task",
         "epic:EP-H",
@@ -14838,9 +14901,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-06-06T03:10:00Z",
-      "updated_at": "2026-06-06T03:10:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0377",
@@ -14875,9 +14939,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-06-06T03:10:00Z",
-      "updated_at": "2026-06-06T03:10:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0378",
@@ -14912,9 +14977,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-06-06T06:30:00Z",
-      "updated_at": "2026-06-06T06:30:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0379",
@@ -14979,9 +15045,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-06-06T10:40:00Z",
-      "updated_at": "2026-06-06T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0381",
@@ -15016,9 +15083,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-06-06T10:40:00Z",
-      "updated_at": "2026-06-06T10:40:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0269"
     },
     {
       "id": "TASK-0382",
@@ -15208,9 +15276,10 @@
       ],
       "request_approval": null,
       "created_at": "2026-06-07T06:30:00Z",
-      "updated_at": "2026-06-07T06:30:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
       "created_by": "sentinel",
-      "updated_by": "sentinel"
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0387",
@@ -15365,6 +15434,239 @@
       "request_approval": null,
       "created_at": "2026-06-07T16:30:00Z",
       "updated_at": "2026-06-07T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0391",
+      "title": "TS-H1.1c.2dc Repair one-pass credentialed smoke execution path and align canonical operator instructions",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credentialed-smoke",
+        "child-of:TASK-0103"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0095",
+        "TASK-0103",
+        "scripts/pipeline-run-credentialed-once.sh",
+        "scripts/pipeline-run-smoke-capture.sh",
+        "scripts/pipeline-run-evidence-report.mjs",
+        "scripts/pipeline-run-transition-plan.mjs",
+        "scripts/pipeline-run-closeout.sh",
+        "mission-control/runbooks/pipeline-run-auth-smoke.md",
+        "mission-control/board/approval-queue/2026-06-07T10-40-00Z-task-0095-current-closure-routing-card.md",
+        "mission-control/board/sweeps/2026-06-08T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Repair the credentialed one-pass execution path so the canonical wrapper, evidence report, and transition planner all operate against the same capture bundle and argument conventions.\nAcceptance Criteria:\n- scripts/pipeline-run-credentialed-once.sh can invoke the capture/report/transition chain without argument-shape mismatch.\n- Transition planning evaluates the current four-artifact bundle including pipeline-run-created.audit.json.\n- Canonical runbook/routing instructions explicitly cover TEAM_SESSION_COOKIE plus direct DECK_ID or selector-based targeting.",
+      "comments": [
+        {
+          "id": "executed-task-0391-20260608-0310",
+          "author": "sentinel",
+          "text": "Executed in night board build. Repaired the one-pass credentialed wrapper path by making capture/report interfaces backward-compatible, aligned transition planning to the current audit-proof bundle, and refreshed the canonical operator instructions.",
+          "created_at": "2026-06-08T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-08T03:10:00Z",
+      "updated_at": "2026-06-08T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0392",
+      "title": "BRS-2026-06-08a Normalize inferable parent_id lineage on stale Ready-for-Review rows",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "30-60m",
+        "board-hygiene",
+        "child-of:TASK-0107"
+      ],
+      "parent_id": "TASK-0107",
+      "linked_refs": [
+        "mission-control/board/BOARD.json",
+        "mission-control/board/sweeps/2026-06-08T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Backfill missing parent_id on stale Ready-for-Review tasks only when lineage is unambiguous from a single parent:*/child-of:* tag and the referenced parent exists.\nAcceptance Criteria:\n- Every changed task gains exactly one valid parent_id.\n- No task status changes occur.\n- Sweep artifact records touched IDs grouped by parent stream.",
+      "comments": [
+        {
+          "id": "executed-task-0392-20260608-0630",
+          "author": "sentinel",
+          "text": "Executed in late-night recovery sweep. Backfilled missing parent_id on stale Ready-for-Review rows only where a single tagged parent existed, improving tranche and blocker-chain clustering without mutating statuses.",
+          "created_at": "2026-06-08T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-08T06:30:00Z",
+      "updated_at": "2026-06-08T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0393",
+      "title": "TS-H1.1c.2dd Normalize historical credential-window child lineage on stale Ready-for-Review rows",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "board-hygiene",
+        "child-of:TASK-0103"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "mission-control/board/BOARD.json",
+        "mission-control/board/sweeps/2026-06-08T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Backfill missing parent_id on stale Ready-for-Review credential-window children only where the row is clearly part of the TASK-0103 authenticated smoke execution stream via direct TASK-0103 linkage and credential-window artifact references.\nAcceptance Criteria:\n- Every changed row gains parent_id TASK-0103 with no status mutation.\n- Only credential-window evidence/handoff/index rows in the authenticated smoke stream are touched.\n- Sweep artifact records touched IDs and the rationale for choosing TASK-0103 over broader parent streams.",
+      "comments": [
+        {
+          "id": "executed-task-0393-20260608-1040",
+          "author": "sentinel",
+          "text": "Executed in morning board sweep. Backfilled parent_id TASK-0103 on stale credential-window children whose linked refs and artifacts clearly placed them in the authenticated smoke execution stream.",
+          "created_at": "2026-06-08T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-08T10:40:00Z",
+      "updated_at": "2026-06-08T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0394",
+      "title": "BRS-2026-06-08b Normalize tranche digest/routing lineage on stale Ready-for-Review rows",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "30-60m",
+        "board-hygiene",
+        "child-of:TASK-0107"
+      ],
+      "parent_id": "TASK-0107",
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/board/BOARD.json",
+        "mission-control/board/sweeps/2026-06-08T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Backfill missing parent_id on stale Ready-for-Review tranche digest/routing rows only where the row is clearly part of the TASK-0107 board-recovery stream via direct TASK-0107 linkage and tranche digest or approval-card artifacts.\nAcceptance Criteria:\n- Every changed row gains parent_id TASK-0107 with no status mutation.\n- Only board-recovery tranche digest/routing rows are touched.\n- Sweep artifact records touched IDs and the direct lineage evidence for each cohort.",
+      "comments": [
+        {
+          "id": "executed-task-0394-20260608-1040",
+          "author": "sentinel",
+          "text": "Executed in morning board sweep. Backfilled parent_id TASK-0107 on stale tranche digest/routing rows whose linked refs and artifacts clearly placed them in the board-recovery lineage.",
+          "created_at": "2026-06-08T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-08T10:40:00Z",
+      "updated_at": "2026-06-08T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0395",
+      "title": "TS-H1.1c.2de Refresh current credential blocker evidence and targeting gap snapshot",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "mission-control/evidence/pipeline-run/2026-06-08T16-30-00Z-preflight.md",
+        "mission-control/evidence/pipeline-run/2026-06-08T16-30-00Z-env-check.txt",
+        "mission-control/board/approval-queue/2026-06-08T16-30-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/sweeps/2026-06-08T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Refresh today's credential-blocker evidence so the authenticated smoke lane has a current snapshot of missing auth and targeting inputs before the next live window.\nAcceptance Criteria:\n- Fresh preflight and env-check artifacts exist with the current sweep timestamp.\n- Blocker note explicitly names missing auth inputs and missing targeting mode.\n- No live smoke call is attempted when required env is absent.",
+      "comments": [
+        {
+          "id": "executed-task-0395-20260608-1630",
+          "author": "sentinel",
+          "text": "Executed in midday board sweep. Generated fresh preflight and env-check artifacts, then published an updated blocker note that now calls out both missing auth inputs and missing deck-targeting inputs.",
+          "created_at": "2026-06-08T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-08T16:30:00Z",
+      "updated_at": "2026-06-08T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0396",
+      "title": "TS-H1.1c.2df Refresh one-pass credentialed smoke handoff with explicit targeting modes",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "TASK-0095",
+        "mission-control/runbooks/pipeline-run-auth-smoke.md",
+        "mission-control/board/approval-queue/2026-06-08T16-30-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-08T16-30-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-08T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Refresh the execution-ready operator handoff so the next authenticated smoke window uses the repaired one-pass path and supplies a valid direct or selector-based target.\nAcceptance Criteria:\n- Handoff packet lists required auth env plus both supported targeting modes.\n- Canonical command chain remains preflight -> credentialed-once wrapper.\n- Required evidence bundle is explicitly enumerated for review closure.",
+      "comments": [
+        {
+          "id": "executed-task-0396-20260608-1630",
+          "author": "sentinel",
+          "text": "Executed in midday board sweep. Published a current handoff packet for the repaired one-pass path and locked the exact auth, targeting, and evidence-bundle requirements for the next live smoke window.",
+          "created_at": "2026-06-08T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-08T16:30:00Z",
+      "updated_at": "2026-06-08T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
