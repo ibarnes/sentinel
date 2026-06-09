@@ -11181,11 +11181,17 @@
           "author": "sentinel",
           "created_at": "2026-06-07T03:10:00Z",
           "text": "Board build window 2026-06-07T03:10Z: executed TASK-0384/TASK-0385. Unified recovery packet now has a guarded apply engine plus fresh blocked receipt; remaining gate is Isaac decision fill only."
+        },
+        {
+          "id": "recovery-0269-20260609-0630",
+          "author": "sentinel",
+          "created_at": "2026-06-09T06:30:00Z",
+          "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0397 to publish a copy/paste unified decision response template so Isaac can fill the single gating packet faster without re-reading the full recovery pack."
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-06-07T03:10:00Z",
+      "updated_at": "2026-06-09T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -15554,6 +15560,45 @@
       "updated_by": "sentinel"
     },
     {
+      "id": "TASK-0397",
+      "title": "BRS-2026-06-09a Publish copy/paste unified recovery decision response template",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "30-60m",
+        "decision-gated",
+        "child-of:TASK-0269"
+      ],
+      "parent_id": "TASK-0269",
+      "linked_refs": [
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+        "mission-control/board/approval-queue/2026-06-09T06-30-00Z-board-recovery-decision-response-template.md",
+        "mission-control/board/sweeps/2026-06-09T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Publish a compact copy/paste response template that mirrors the unified recovery packet so Isaac can reply in one pass without reformatting decisions.\nAcceptance Criteria:\n- Template covers both Section A tranche-AH transitions and Section B credential-cluster compaction rows.\n- Each row shows the exact allowed decision tokens and any required target-status field.\n- No board statuses are mutated; artifact is decision input only.",
+      "comments": [
+        {
+          "id": "executed-task-0397-20260609-0630",
+          "author": "sentinel",
+          "text": "Executed in late-night recovery sweep. Published a compact response template for the unified recovery packet so the remaining TASK-0335 / TASK-0379 gate is easier to answer in one pass.",
+          "created_at": "2026-06-09T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-09T06:30:00Z",
+      "updated_at": "2026-06-09T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
       "id": "TASK-0394",
       "title": "BRS-2026-06-08b Normalize tranche digest/routing lineage on stale Ready-for-Review rows",
       "status": "Ready for Review",
@@ -15667,6 +15712,176 @@
       "request_approval": null,
       "created_at": "2026-06-08T16:30:00Z",
       "updated_at": "2026-06-08T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0398",
+      "title": "TS-H1.1c.2dg Refresh morning credential blocker evidence and targeting gap snapshot",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "mission-control/evidence/pipeline-run/2026-06-09T10-40-00Z-preflight.md",
+        "mission-control/evidence/pipeline-run/2026-06-09T10-40-00Z-env-check.txt",
+        "mission-control/board/approval-queue/2026-06-09T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/sweeps/2026-06-09T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Refresh this morning's credential-blocker evidence so the authenticated smoke lane has a current snapshot of missing auth and targeting inputs before the next live window.\nAcceptance Criteria:\n- Fresh preflight and env-check artifacts exist with the current sweep timestamp.\n- Blocker note explicitly names missing auth inputs and missing targeting mode.\n- No live smoke call is attempted when required env is absent.",
+      "comments": [
+        {
+          "id": "executed-task-0398-20260609-1040",
+          "author": "sentinel",
+          "text": "Executed in morning board sweep. Generated fresh preflight and env-check artifacts, then published an updated blocker note confirming both auth inputs and all targeting inputs remain absent in unattended runtime.",
+          "created_at": "2026-06-09T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-09T10:40:00Z",
+      "updated_at": "2026-06-09T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0399",
+      "title": "TS-H1.1c.2dh Refresh morning one-pass credentialed smoke handoff with explicit targeting modes",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "TASK-0095",
+        "mission-control/runbooks/pipeline-run-auth-smoke.md",
+        "mission-control/board/approval-queue/2026-06-09T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-09T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-09T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Refresh the morning execution handoff so the next authenticated smoke window uses the repaired one-pass path and supplies a valid direct or selector-based target.\nAcceptance Criteria:\n- Handoff packet lists required auth env plus both supported targeting modes.\n- Canonical command chain remains preflight -> credentialed-once wrapper.\n- Required evidence bundle is explicitly enumerated for review closure.",
+      "comments": [
+        {
+          "id": "executed-task-0399-20260609-1040",
+          "author": "sentinel",
+          "text": "Executed in morning board sweep. Published a current handoff packet for the repaired one-pass path and locked the exact auth, targeting, and evidence-bundle requirements for the next live smoke window.",
+          "created_at": "2026-06-09T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-09T10:40:00Z",
+      "updated_at": "2026-06-09T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0400",
+      "title": "TS-H1.1c.2di Correct credentialed smoke artifact contract across operator surfaces",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "TASK-0095",
+        "scripts/pipeline-run-smoke-capture.sh",
+        "scripts/pipeline-run-evidence-report.mjs",
+        "scripts/pipeline-run-transition-plan.mjs",
+        "mission-control/runbooks/pipeline-run-auth-smoke.md",
+        "mission-control/board/approval-queue/2026-06-09T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-09T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/approval-queue/2026-06-09T16-30-00Z-credential-artifact-contract-correction.md",
+        "mission-control/board/sweeps/2026-06-09T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Correct the credentialed smoke evidence bundle contract anywhere the operator packet still names non-canonical files so the next live window can close TASK-0103 without filename translation.\nAcceptance Criteria:\n- Handoff and blocker docs reference the same canonical artifact names produced by the live capture/report scripts.\n- Runbook evidence checklist matches the real bundle.\n- No live smoke call is attempted; this task is contract correction only.",
+      "comments": [
+        {
+          "id": "executed-task-0400-20260609-1630",
+          "author": "sentinel",
+          "text": "Executed in midday board sweep. Corrected the credentialed smoke artifact contract across the runbook and current handoff surfaces so the next live window points at the exact filenames produced by capture/report tooling.",
+          "created_at": "2026-06-09T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-09T16:30:00Z",
+      "updated_at": "2026-06-09T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0401",
+      "title": "TS-H1.1c.2dj Tighten credentialed smoke preflight-to-closeout sequence",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "TASK-0095",
+        "TASK-0043",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "scripts/pipeline-run-credentialed-once.sh",
+        "scripts/pipeline-run-closeout.sh",
+        "scripts/pipeline-run-transition-plan.mjs",
+        "mission-control/board/approval-queue/2026-06-09T16-30-00Z-credentialed-smoke-closeout-sequence.md",
+        "mission-control/board/sweeps/2026-06-09T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Tighten the canonical authenticated smoke sequence so the next credentialed run uses preflight, one-pass execution, and closeout in one deterministic flow with explicit PASS transition rules.\nAcceptance Criteria:\n- Preflight remediation points to the real execution command after missing vars are supplied.\n- Closeout emits transition-plan.json and prints the canonical evidence bundle plus Ready-for-Review order.\n- Supporting closeout note states when the chain may advance versus remain blocked.",
+      "comments": [
+        {
+          "id": "executed-task-0401-20260609-1630",
+          "author": "sentinel",
+          "text": "Executed in midday board sweep. Tightened the preflight-to-closeout sequence so the next credentialed smoke window has one deterministic command flow and explicit PASS transition order for TASK-0111 -> TASK-0103 -> TASK-0097 -> TASK-0095 -> TASK-0043.",
+          "created_at": "2026-06-09T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-09T16:30:00Z",
+      "updated_at": "2026-06-09T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }

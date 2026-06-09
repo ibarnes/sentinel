@@ -34,7 +34,8 @@ missing=()
   if [[ "$status" == "BLOCKED" ]]; then
     echo "## Remediation"
     echo "- Export missing variables and rerun preflight."
-    echo "- Then run: scripts/pipeline-run-closeout.sh <evidence-dir>"
+    echo "- If preflight passes, run: bash scripts/pipeline-run-credentialed-once.sh"
+    echo "- Optional after capture: bash scripts/pipeline-run-closeout.sh <evidence-dir>"
   fi
 } > "$OUT_PATH"
 
