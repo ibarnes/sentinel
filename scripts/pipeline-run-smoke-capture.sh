@@ -4,11 +4,45 @@ set -euo pipefail
 # Wrapper for scripts/pipeline-run-smoke.sh that captures deterministic evidence bundle.
 # Required env: BASE_URL, COOKIE, and either DECK_ID or INITIATIVE_ID+DECK_TYPE(+BUYER_ID)
 
+BASE_URL_ARG=""
+COOKIE_ARG=""
+OUT_DIR_ARG=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --base-url)
+      BASE_URL_ARG="${2:-}"
+      shift 2
+      ;;
+    --cookie)
+      COOKIE_ARG="${2:-}"
+      shift 2
+      ;;
+    --out-dir)
+      OUT_DIR_ARG="${2:-}"
+      shift 2
+      ;;
+    *)
+      echo "Usage: $0 [--base-url <url>] [--cookie <cookie>] [--out-dir <path>]" >&2
+      exit 1
+      ;;
+  esac
+done
+
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 EVIDENCE_DIR="$ROOT_DIR/mission-control/evidence/pipeline-run"
 STAMP="${STAMP:-$(date -u +%Y-%m-%dT%H-%M-%SZ)}"
-RUN_DIR="$EVIDENCE_DIR/$STAMP"
+RUN_DIR="${OUT_DIR_ARG:-$EVIDENCE_DIR/$STAMP}"
+if [[ -n "$OUT_DIR_ARG" ]]; then
+  STAMP="$(basename "$RUN_DIR")"
+fi
 mkdir -p "$RUN_DIR"
+
+if [[ -n "$BASE_URL_ARG" ]]; then
+  export BASE_URL="$BASE_URL_ARG"
+fi
+if [[ -n "$COOKIE_ARG" ]]; then
+  export COOKIE="$COOKIE_ARG"
+fi
 
 LOG_PATH="$RUN_DIR/auth-smoke.log"
 VALID_PATH="$RUN_DIR/valid-response.json"
@@ -28,6 +62,14 @@ MANIFEST_PATH="$RUN_DIR/manifest.json"
 RUN_ID=""
 if [[ -f "$VALID_PATH" ]]; then
   RUN_ID="$(node -e 'const fs=require("fs");const p=process.argv[1];const d=JSON.parse(fs.readFileSync(p,"utf8"));process.stdout.write(String(d?.run?.runId || d?.runId || ""));' "$VALID_PATH" 2>/dev/null || true)"
+fi
+
+RESOLVED_DECK_ID="${DECK_ID:-}"
+if [[ -z "$RESOLVED_DECK_ID" && -f "$VALID_PATH" ]]; then
+  RESOLVED_DECK_ID="$(node -e 'const fs=require("fs");const p=process.argv[1];const d=JSON.parse(fs.readFileSync(p,"utf8"));process.stdout.write(String(d?.run?.deckId || d?.deckId || ""));' "$VALID_PATH" 2>/dev/null || true)"
+fi
+if [[ -z "$RESOLVED_DECK_ID" && -f /tmp/pipeline_run_resolve.json ]]; then
+  RESOLVED_DECK_ID="$(node -e 'const fs=require("fs");const p=process.argv[1];const d=JSON.parse(fs.readFileSync(p,"utf8"));process.stdout.write(String(d?.deckId || d?.deck?.deckId || ""));' /tmp/pipeline_run_resolve.json 2>/dev/null || true)"
 fi
 
 ACTIVITY_FILE="$ROOT_DIR/mission-control/activity/$(date -u +%Y-%m-%d).jsonl"
@@ -50,7 +92,7 @@ cat > "$MANIFEST_PATH" <<JSON
   "captured_at_utc": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
   "stamp": "$STAMP",
   "base_url": "${BASE_URL:-}",
-  "deck_id": "${DECK_ID:-}",
+  "deck_id": "$RESOLVED_DECK_ID",
   "initiative_id": "${INITIATIVE_ID:-}",
   "deck_type": "${DECK_TYPE:-}",
   "buyer_id": "${BUYER_ID:-}",

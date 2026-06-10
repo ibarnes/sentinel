@@ -26,10 +26,12 @@ fi
 resolve_deck_id() {
   local code
   code=$(curl -sS -o /tmp/pipeline_run_resolve.json -w "%{http_code}" \
-    -X POST "$BASE_URL/api/presentation-studio/decks/resolve" \
+    -G "$BASE_URL/api/presentation-studio/decks/resolve" \
     -H "Content-Type: application/json" \
     -H "Cookie: $COOKIE" \
-    --data "{\"initiativeId\":\"$INITIATIVE_ID\",\"deckType\":\"$DECK_TYPE\",\"buyerId\":\"$BUYER_ID\"}")
+    --data-urlencode "initiativeId=$INITIATIVE_ID" \
+    --data-urlencode "deckType=$DECK_TYPE" \
+    --data-urlencode "buyerId=$BUYER_ID")
 
   if [[ "$code" != "200" && "$code" != "201" ]]; then
     echo "ERROR: deck resolve failed with HTTP $code" >&2

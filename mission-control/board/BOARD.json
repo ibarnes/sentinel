@@ -2716,7 +2716,10 @@
         "mission-control/board/approval-queue/2026-05-31T16-30-00Z-credentialed-smoke-operator-handoff-refresh.md",
         "mission-control/board/sweeps/2026-05-31T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0390",
-        "mission-control/board/sweeps/2026-06-07T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-07T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0403",
+        "mission-control/board/approval-queue/2026-06-10T06-30-00Z-task-0095-current-closure-routing-card-refresh.md",
+        "mission-control/board/sweeps/2026-06-10T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Implement endpoint using validation + persistence helper and verify with smoke calls.\nAcceptance Criteria:\n- Valid request returns 201 with runId and started status.\n- Invalid request returns 400 with actionable error payload.\n- Audit event emitted for pipeline.run.created with runId/deckId metadata.",
       "comments": [
@@ -2802,11 +2805,17 @@
           "author": "sentinel",
           "created_at": "2026-06-07T16:30:00Z",
           "text": "Midday progress sweep: executed TASK-0390 so report/doc acceptance now matches the live nested run payload and requires audit-proof capture; endpoint implementation remains complete, live credentialed evidence remains the final gate."
+        },
+        {
+          "id": "recovery-task-0095-20260610-0630",
+          "author": "sentinel",
+          "created_at": "2026-06-10T06:30:00Z",
+          "text": "Late-night recovery sweep: executed TASK-0403 to refresh the current TASK-0095 closure routing card so it now points at the canonical June 9 evidence bundle and preflight-to-closeout sequence; implementation remains complete and the only remaining gate is authenticated runtime input plus target selection."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T07:30:00Z",
-      "updated_at": "2026-06-07T16:30:00Z",
+      "updated_at": "2026-06-10T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -2933,7 +2942,12 @@
         "TASK-0375",
         "mission-control/board/approval-queue/2026-06-05T16-30-00Z-credential-blocker-evidence-refresh.md",
         "mission-control/board/approval-queue/2026-06-05T16-30-00Z-credentialed-smoke-operator-handoff-refresh.md",
-        "mission-control/board/sweeps/2026-06-05T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-05T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0404",
+        "TASK-0405",
+        "mission-control/board/approval-queue/2026-06-10T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-10T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-10T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "Run scripts/pipeline-run-smoke.sh against live server with valid team session cookie and capture output evidence.\nAcceptance Criteria:\n- Valid call returns 201 with runId + started status.\n- Invalid call returns 400 with expected error payload.\n- Evidence file/log path attached in task comment.",
       "comments": [
@@ -3250,11 +3264,17 @@
           "author": "sentinel",
           "created_at": "2026-06-01T16:30:00Z",
           "text": "Midday sweep decomposition executed: TASK-0372/TASK-0373 moved to Ready for Review; parent remains blocked pending BASE_URL and TEAM_SESSION_COOKIE."
+        },
+        {
+          "id": "decomp-0097-20260610-1040",
+          "author": "sentinel",
+          "created_at": "2026-06-10T10:40:00Z",
+          "text": "Morning decomposition gate: executed TASK-0404/TASK-0405 for fresh blocker evidence + one-pass operator handoff refresh. Live credentialed 201/400 smoke remains blocked pending BASE_URL, TEAM_SESSION_COOKIE, and a concrete target."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-05T17:30:00Z",
-      "updated_at": "2026-06-01T16:30:00Z",
+      "updated_at": "2026-06-10T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -3656,7 +3676,14 @@
         "mission-control/board/sweeps/2026-06-07T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0395",
         "TASK-0396",
-        "mission-control/board/sweeps/2026-06-08T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-08T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0404",
+        "TASK-0405",
+        "mission-control/evidence/pipeline-run/2026-06-10T10-40-00Z-preflight.md",
+        "mission-control/evidence/pipeline-run/2026-06-10T10-40-00Z-env-check.txt",
+        "mission-control/board/approval-queue/2026-06-10T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-10T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-10T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -4083,11 +4110,17 @@
           "author": "sentinel",
           "created_at": "2026-06-07T16:30:00Z",
           "text": "Midday decomposition gate: executed TASK-0389 to auto-capture pipeline.run.created audit evidence in the smoke bundle; remaining blocker is still authenticated BASE_URL/COOKIE/DECK_ID for the live run."
+        },
+        {
+          "id": "decomp-0103-20260610-1040",
+          "author": "sentinel",
+          "created_at": "2026-06-10T10:40:00Z",
+          "text": "Morning decomposition gate: added/executed TASK-0404 and TASK-0405 for fresh blocked preflight evidence + refreshed one-pass handoff. Parent remains dependency-gated on BASE_URL, TEAM_SESSION_COOKIE, and either DECK_ID or selector inputs."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-06-08T16:30:00Z",
+      "updated_at": "2026-06-10T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4302,7 +4335,10 @@
         "TASK-0378",
         "TASK-0379",
         "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
-        "mission-control/board/sweeps/2026-06-06T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-06-06T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0402",
+        "mission-control/board/approval-queue/2026-06-10T03-10-00Z-stale-rfr-parent-routing-card.md",
+        "mission-control/board/sweeps/2026-06-10T03-10-00Z-board-build-window-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -4633,11 +4669,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep: executed TASK-0392 to backfill 28 stale Ready-for-Review rows with unambiguous parent_id lineage derived from single parent:* / child-of:* tags. This reduced the stale orphaned RFR set and improved recovery clustering without status changes.",
           "created_at": "2026-06-08T06:30:00Z"
+        },
+        {
+          "id": "lineage-routing-20260610-0310",
+          "author": "sentinel",
+          "text": "Night build window: executed TASK-0402 to publish a heuristic stale-RFR parent routing card. The remaining orphan set is now separated into 14 reviewer-confirmable candidates and 19 explicit hold rows, with no heuristic writeback applied.",
+          "created_at": "2026-06-10T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-06-08T06:30:00Z",
+      "updated_at": "2026-06-10T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -15882,6 +15924,259 @@
       "request_approval": null,
       "created_at": "2026-06-09T16:30:00Z",
       "updated_at": "2026-06-09T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0402",
+      "title": "BRS-2026-06-10a Publish heuristic stale-RFR parent routing card",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "30-60m",
+        "night-build",
+        "child-of:TASK-0107"
+      ],
+      "parent_id": "TASK-0107",
+      "linked_refs": [
+        "TASK-0107",
+        "mission-control/artifacts/2026-06-09-stale-rfr-parent-report.json",
+        "scripts/board/stale-rfr-parent-routing-card.mjs",
+        "mission-control/board/approval-queue/2026-06-10T03-10-00Z-stale-rfr-parent-routing-card.md",
+        "mission-control/board/sweeps/2026-06-10T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Convert the heuristic stale-RFR parent candidates plus explicit hold cases into one routing card grouped by inferred parent so the next metadata-only pass can be reviewer-confirmed without mutating BOARD.json.\nAcceptance Criteria:\n- Routing card groups heuristic candidates by inferred parent stream with supporting refs.\n- Ambiguous rows are explicitly held with no lineage backfill applied.\n- Artifact is review input only; no board status or parent_id mutation occurs.",
+      "comments": [
+        {
+          "id": "executed-task-0402-20260610-0310",
+          "author": "sentinel",
+          "text": "Executed in night build window. Published a reviewer-friendly routing card for the 14 heuristic stale-RFR parent candidates and 19 hold cases so future metadata cleanup can stay guarded and explicit.",
+          "created_at": "2026-06-10T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-10T03:10:00Z",
+      "updated_at": "2026-06-10T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0403",
+      "title": "TS-H1.1c.2dk Refresh TASK-0095 closure routing card against canonical June 9 smoke contract",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credentialed-smoke",
+        "child-of:TASK-0095"
+      ],
+      "parent_id": "TASK-0095",
+      "linked_refs": [
+        "TASK-0095",
+        "TASK-0355",
+        "TASK-0398",
+        "TASK-0399",
+        "TASK-0400",
+        "TASK-0401",
+        "mission-control/board/approval-queue/2026-06-09T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-09T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/approval-queue/2026-06-09T16-30-00Z-credential-artifact-contract-correction.md",
+        "mission-control/board/approval-queue/2026-06-09T16-30-00Z-credentialed-smoke-closeout-sequence.md",
+        "mission-control/board/approval-queue/2026-06-10T06-30-00Z-task-0095-current-closure-routing-card-refresh.md",
+        "mission-control/board/sweeps/2026-06-10T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Refresh the current TASK-0095 closure routing surface so the next credentialed smoke window uses the canonical June 9 evidence bundle, blocker snapshot, and preflight-to-closeout sequence instead of the older June 7 card.\nAcceptance Criteria:\n- Routing card names the exact seven-file evidence bundle plus the required PASS artifacts.\n- Card points at the latest blocker snapshot and one-pass handoff docs from June 9.\n- No live smoke is attempted and no board status mutation occurs; this task is routing refresh only.",
+      "comments": [
+        {
+          "id": "executed-task-0403-20260610-0630",
+          "author": "sentinel",
+          "text": "Executed in late-night recovery sweep. Published a refreshed TASK-0095 closure routing card aligned to the canonical June 9 blocker snapshot, evidence bundle contract, and preflight-to-closeout sequence.",
+          "created_at": "2026-06-10T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-10T06:30:00Z",
+      "updated_at": "2026-06-10T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0404",
+      "title": "TS-H1.1c.2dl Refresh morning credential blocker evidence against current unattended runtime",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103",
+        "atomic"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "mission-control/evidence/pipeline-run/2026-06-10T10-40-00Z-preflight.md",
+        "mission-control/evidence/pipeline-run/2026-06-10T10-40-00Z-env-check.txt",
+        "mission-control/board/approval-queue/2026-06-10T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/sweeps/2026-06-10T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Refresh the current credential-blocker evidence so the morning execution lane has a same-day snapshot of missing auth and targeting inputs before the next live smoke window.\nAcceptance Criteria:\n- Fresh preflight and env-check artifacts exist for the 2026-06-10 10:40 UTC sweep timestamp.\n- Blocker note explicitly names missing auth inputs and absent targeting mode.\n- No live smoke call is attempted while required env remains absent.",
+      "comments": [
+        {
+          "id": "executed-task-0404-20260610-1040",
+          "author": "sentinel",
+          "text": "Executed in morning board sweep. Generated fresh preflight and env-check artifacts, then published an updated blocker note confirming auth and targeting inputs remain absent in unattended runtime.",
+          "created_at": "2026-06-10T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-10T10:40:00Z",
+      "updated_at": "2026-06-10T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0405",
+      "title": "TS-H1.1c.2dm Refresh morning credentialed smoke handoff with exact targeting and evidence rules",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103",
+        "atomic"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "TASK-0095",
+        "mission-control/runbooks/pipeline-run-auth-smoke.md",
+        "mission-control/board/approval-queue/2026-06-09T16-30-00Z-credential-artifact-contract-correction.md",
+        "mission-control/board/approval-queue/2026-06-09T16-30-00Z-credentialed-smoke-closeout-sequence.md",
+        "mission-control/board/approval-queue/2026-06-10T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-10T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-10T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Refresh the morning execution handoff so the next authenticated smoke window uses the repaired one-pass path, current blocker snapshot, and explicit direct-vs-selector targeting modes.\nAcceptance Criteria:\n- Handoff packet lists required auth env plus both supported targeting modes.\n- Canonical command chain remains preflight -> credentialed-once -> closeout.\n- Required evidence bundle and PASS closure rule are explicitly enumerated for review-safe transition handling.",
+      "comments": [
+        {
+          "id": "executed-task-0405-20260610-1040",
+          "author": "sentinel",
+          "text": "Executed in morning board sweep. Published a current handoff packet for the repaired one-pass path and locked the auth, targeting, evidence-bundle, and PASS-closure requirements for the next live smoke window.",
+          "created_at": "2026-06-10T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-10T10:40:00Z",
+      "updated_at": "2026-06-10T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0406",
+      "title": "TS-H1.1c.2dn Repair selector-path smoke resolution and preflight target gating",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103",
+        "atomic"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "scripts/pipeline-run-smoke.sh",
+        "scripts/pipeline-run-smoke-capture.sh",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "mission-control/board/approval-queue/2026-06-10T16-30-00Z-selector-path-repair-and-preflight-tightening.md",
+        "mission-control/board/sweeps/2026-06-10T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Repair selector-mode smoke execution so it follows the live deck-resolve API contract and fails fast when no target mode is supplied.\nAcceptance Criteria:\n- Selector resolve path uses the server's live route contract.\n- Capture manifest retains resolved deck_id when selector mode is used.\n- Preflight blocks unless auth env plus one targeting mode are present.",
+      "comments": [
+        {
+          "id": "executed-task-0406-20260610-1630",
+          "author": "sentinel",
+          "text": "Executed in midday board sweep. Repaired selector-path deck resolution to use the live GET resolve route, preserved resolved deck_id in the capture manifest, and tightened preflight so missing target mode now blocks before live execution.",
+          "created_at": "2026-06-10T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-10T16:30:00Z",
+      "updated_at": "2026-06-10T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0407",
+      "title": "TS-H1.1c.2do Publish current selector-safe target candidate and Isaac decision boundary",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103",
+        "atomic"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "dashboard/data/deckspecs.v2.json",
+        "dashboard/data/initiatives.json",
+        "admin-server/src/server.js",
+        "mission-control/board/approval-queue/2026-06-10T16-30-00Z-selector-target-candidate-note.md",
+        "mission-control/board/sweeps/2026-06-10T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Convert abstract selector-mode targeting into one concrete local candidate and one explicit Isaac decision boundary for the next credentialed smoke window.\nAcceptance Criteria:\n- Artifact names at least one concrete selector-safe candidate from current local state.\n- Artifact distinguishes lowest-risk technical proof path from business-relevant live-target path.\n- Exact Isaac decision needed before the next smoke run is explicit.",
+      "comments": [
+        {
+          "id": "executed-task-0407-20260610-1630",
+          "author": "sentinel",
+          "text": "Executed in midday board sweep. Published the current selector-safe target candidate from local deckspec state and made the remaining Isaac decision explicit: archived test deck for fastest closure versus a live initiative/deck for business-relevant evidence.",
+          "created_at": "2026-06-10T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-10T16:30:00Z",
+      "updated_at": "2026-06-10T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
