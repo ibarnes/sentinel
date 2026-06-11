@@ -3679,11 +3679,23 @@
         "mission-control/board/sweeps/2026-06-08T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0404",
         "TASK-0405",
+        "TASK-0409",
+        "TASK-0410",
+        "TASK-0411",
+        "TASK-0412",
         "mission-control/evidence/pipeline-run/2026-06-10T10-40-00Z-preflight.md",
         "mission-control/evidence/pipeline-run/2026-06-10T10-40-00Z-env-check.txt",
         "mission-control/board/approval-queue/2026-06-10T10-40-00Z-credential-blocker-evidence-refresh.md",
         "mission-control/board/approval-queue/2026-06-10T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
-        "mission-control/board/sweeps/2026-06-10T10-40-00Z-board-execution-sweep-morning.md"
+        "mission-control/board/sweeps/2026-06-10T10-40-00Z-board-execution-sweep-morning.md",
+        "mission-control/evidence/pipeline-run/2026-06-11T10-40-00Z-preflight.md",
+        "mission-control/evidence/pipeline-run/2026-06-11T10-40-00Z-env-check.txt",
+        "mission-control/board/approval-queue/2026-06-11T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-11T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-11T10-40-00Z-board-execution-sweep-morning.md",
+        "mission-control/evidence/pipeline-run/2026-06-11T16-30-00Z-cookie-alias-preflight.md",
+        "mission-control/board/approval-queue/2026-06-11T16-30-00Z-cookie-alias-shell-pack.md",
+        "mission-control/board/sweeps/2026-06-11T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Run authenticated smoke against live server using runbook procedure and attach evidence artifact paths to TASK-0097.\nAcceptance Criteria:\n- Valid call returns 201 with runId and started status.\n- Invalid call returns 400 with deterministic error payload.\n- Evidence files committed under mission-control/evidence/pipeline-run/.",
       "comments": [
@@ -4116,11 +4128,23 @@
           "author": "sentinel",
           "created_at": "2026-06-10T10:40:00Z",
           "text": "Morning decomposition gate: added/executed TASK-0404 and TASK-0405 for fresh blocked preflight evidence + refreshed one-pass handoff. Parent remains dependency-gated on BASE_URL, TEAM_SESSION_COOKIE, and either DECK_ID or selector inputs."
+        },
+        {
+          "id": "decomp-0103-20260611-1040",
+          "author": "sentinel",
+          "created_at": "2026-06-11T10:40:00Z",
+          "text": "Morning decomposition gate reapplied: added/executed TASK-0409 and TASK-0410 for same-day blocked evidence refresh + operator handoff carry-forward. Parent remains dependency-gated on BASE_URL, TEAM_SESSION_COOKIE, and one concrete target mode."
+        },
+        {
+          "id": "decomp-0103-20260611-1630",
+          "author": "sentinel",
+          "created_at": "2026-06-11T16:30:00Z",
+          "text": "Midday decomposition gate: added/executed TASK-0411 and TASK-0412 to normalize TEAM_SESSION_COOKIE/COOKIE handling across the live smoke path and publish a copy-paste shell pack for direct and selector execution modes. Parent remains credential-gated on real BASE_URL plus session cookie, but operator friction is lower and alias handling is now deterministic."
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-06T17:30:00Z",
-      "updated_at": "2026-06-10T10:40:00Z",
+      "updated_at": "2026-06-11T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -11123,7 +11147,10 @@
         "mission-control/board/approval-queue/2026-06-01T06-30-00Z-tranche-ah-decision-input-refresh.md",
         "mission-control/board/sweeps/2026-06-01T06-30-00Z-board-recovery-sweep-late-night.md",
         "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
-        "mission-control/board/sweeps/2026-06-06T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-06-06T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0408",
+        "mission-control/board/approval-queue/2026-06-11T06-30-00Z-board-recovery-decision-response-refresh.md",
+        "mission-control/board/sweeps/2026-06-11T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
       "comments": [
@@ -11219,23 +11246,29 @@
           "created_at": "2026-06-06T16:30:00Z",
           "text": "Midday progress sweep 2026-06-06T16:30Z: linked live preview tooling/artifacts (TASK-0382/TASK-0383) so tranche apply readiness can be checked before TASK-0335 mutates BOARD.json."
         },
-        {
-          "author": "sentinel",
-          "created_at": "2026-06-07T03:10:00Z",
-          "text": "Board build window 2026-06-07T03:10Z: executed TASK-0384/TASK-0385. Unified recovery packet now has a guarded apply engine plus fresh blocked receipt; remaining gate is Isaac decision fill only."
-        },
-        {
-          "id": "recovery-0269-20260609-0630",
-          "author": "sentinel",
-          "created_at": "2026-06-09T06:30:00Z",
-          "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0397 to publish a copy/paste unified decision response template so Isaac can fill the single gating packet faster without re-reading the full recovery pack."
-        }
-      ],
-      "request_approval": null,
-      "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-06-09T06:30:00Z",
-      "created_by": "sentinel",
-      "updated_by": "sentinel"
+    {
+      "author": "sentinel",
+      "created_at": "2026-06-07T03:10:00Z",
+      "text": "Board build window 2026-06-07T03:10Z: executed TASK-0384/TASK-0385. Unified recovery packet now has a guarded apply engine plus fresh blocked receipt; remaining gate is Isaac decision fill only."
+    },
+    {
+      "id": "recovery-0269-20260609-0630",
+      "author": "sentinel",
+      "created_at": "2026-06-09T06:30:00Z",
+      "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0397 to publish a copy/paste unified decision response template so Isaac can fill the single gating packet faster without re-reading the full recovery pack."
+    },
+    {
+      "id": "recovery-0269-20260611-0630",
+      "author": "sentinel",
+      "created_at": "2026-06-11T06:30:00Z",
+      "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0408 to refresh the unified response block against the June 11 live preview so the next Isaac reply can fill the exact 18 missing decisions without reconciling older response artifacts."
+    }
+  ],
+  "request_approval": null,
+  "created_at": "2026-04-29T16:30:00Z",
+  "updated_at": "2026-06-11T06:30:00Z",
+  "created_by": "sentinel",
+  "updated_by": "sentinel"
     },
     {
       "id": "TASK-0270",
@@ -16177,6 +16210,218 @@
       "request_approval": null,
       "created_at": "2026-06-10T16:30:00Z",
       "updated_at": "2026-06-10T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0408",
+      "title": "BRS-2026-06-11a Refresh unified recovery response block against live missing-decision set",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-recovery",
+        "decomposed",
+        "30-60m",
+        "decision-gated",
+        "late-night-recovery",
+        "child-of:TASK-0269"
+      ],
+      "parent_id": "TASK-0269",
+      "linked_refs": [
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "mission-control/board/approval-queue/2026-06-09T06-30-00Z-board-recovery-decision-response-template.md",
+        "mission-control/board/approval-queue/2026-06-11T03-10-00Z-board-recovery-preview-refresh.md",
+        "mission-control/board/approval-queue/2026-06-11T03-10-00Z-board-recovery-apply-preview.json",
+        "mission-control/board/approval-queue/2026-06-11T03-10-00Z-board-recovery-apply-blocked-receipt.json",
+        "mission-control/board/approval-queue/2026-06-11T06-30-00Z-board-recovery-decision-response-refresh.md",
+        "mission-control/board/sweeps/2026-06-11T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Refresh the unified recovery response block so the next Isaac reply matches the June 11 live preview, exact missing-decision set, and guarded apply order without re-reading the older recovery pack chain.\nAcceptance Criteria:\n- Response block enumerates the exact 18 currently missing decisions.\n- Artifact references the June 11 live preview and blocked receipt.\n- No BOARD.json mutation or apply attempt occurs; this task is response-surface refresh only.",
+      "comments": [
+        {
+          "id": "executed-task-0408-20260611-0630",
+          "author": "sentinel",
+          "text": "Executed in late-night recovery sweep. Published a refreshed unified recovery response block aligned to the June 11 live preview, exact missing-decision set, and guarded apply order.",
+          "created_at": "2026-06-11T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-11T06:30:00Z",
+      "updated_at": "2026-06-11T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0409",
+      "title": "TS-H1.1c.2dp Refresh morning credential blocker evidence for June 11 execution sweep",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103",
+        "atomic"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "mission-control/evidence/pipeline-run/2026-06-11T10-40-00Z-preflight.md",
+        "mission-control/evidence/pipeline-run/2026-06-11T10-40-00Z-env-check.txt",
+        "mission-control/board/approval-queue/2026-06-11T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/sweeps/2026-06-11T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Refresh the June 11 morning credential-blocker evidence so the authenticated smoke lane has a same-day snapshot of missing auth and targeting inputs before the next live window.\nAcceptance Criteria:\n- Fresh preflight and env-check artifacts exist for the 2026-06-11 10:40 UTC sweep timestamp.\n- Blocker note explicitly names missing auth inputs and absent targeting mode.\n- No live smoke call is attempted while required env remains absent.",
+      "comments": [
+        {
+          "id": "executed-task-0409-20260611-1040",
+          "author": "sentinel",
+          "text": "Executed in morning board sweep. Generated fresh preflight and env-check artifacts, then published an updated blocker note confirming auth and targeting inputs remain absent in unattended runtime.",
+          "created_at": "2026-06-11T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-11T10:40:00Z",
+      "updated_at": "2026-06-11T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0410",
+      "title": "TS-H1.1c.2dq Refresh morning credentialed smoke handoff for June 11 execution sweep",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103",
+        "atomic"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "TASK-0095",
+        "mission-control/runbooks/pipeline-run-auth-smoke.md",
+        "mission-control/board/approval-queue/2026-06-10T16-30-00Z-selector-target-candidate-note.md",
+        "mission-control/board/approval-queue/2026-06-11T10-40-00Z-credential-blocker-evidence-refresh.md",
+        "mission-control/board/approval-queue/2026-06-11T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/sweeps/2026-06-11T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Refresh the June 11 morning execution handoff so the next authenticated smoke window uses the current blocker snapshot, repaired one-pass path, and explicit direct-vs-selector targeting modes.\nAcceptance Criteria:\n- Handoff packet lists required auth env plus both supported targeting modes.\n- Canonical command chain remains preflight -> credentialed-once -> closeout.\n- Required evidence bundle and PASS closure rule are explicitly enumerated for review-safe transition handling.",
+      "comments": [
+        {
+          "id": "executed-task-0410-20260611-1040",
+          "author": "sentinel",
+          "text": "Executed in morning board sweep. Published a same-day handoff packet for the repaired one-pass path and locked the auth, targeting, evidence-bundle, and PASS-closure requirements for the next live smoke window.",
+          "created_at": "2026-06-11T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-11T10:40:00Z",
+      "updated_at": "2026-06-11T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0411",
+      "title": "TS-H1.1c.2dr Normalize cookie alias handling across credentialed smoke scripts",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103",
+        "atomic"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "scripts/pipeline-run-credential-preflight.sh",
+        "scripts/pipeline-run-smoke.sh",
+        "scripts/pipeline-run-credentialed-once.sh",
+        "mission-control/evidence/pipeline-run/2026-06-11T16-30-00Z-cookie-alias-preflight.md",
+        "mission-control/board/sweeps/2026-06-11T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Normalize the credential env contract so the canonical TEAM_SESSION_COOKIE path and legacy COOKIE alias both reach the same preflight and authenticated smoke code path without operator edits.\nAcceptance Criteria:\n- Preflight, smoke, and credentialed wrapper accept TEAM_SESSION_COOKIE as canonical input and tolerate legacy COOKIE as an alias.\n- Help/error text names the canonical env and alias fallback.\n- Metadata-safe preflight artifact proves the alias path reaches PASS without attempting live smoke.",
+      "comments": [
+        {
+          "id": "executed-task-0411-20260611-1630",
+          "author": "sentinel",
+          "text": "Executed in midday board sweep. Normalized TEAM_SESSION_COOKIE/COOKIE handling across the preflight, smoke, and credentialed wrapper scripts, then generated an alias-path PASS preflight artifact without attempting a live request.",
+          "created_at": "2026-06-11T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-11T16:30:00Z",
+      "updated_at": "2026-06-11T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0412",
+      "title": "TS-H1.1c.2ds Publish copy-paste shell pack for direct and selector smoke modes",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P0",
+      "tags": [
+        "task",
+        "epic:EP-H",
+        "story:US-H1",
+        "decomposed",
+        "30-60m",
+        "credential-gate",
+        "child-of:TASK-0103",
+        "atomic"
+      ],
+      "parent_id": "TASK-0103",
+      "linked_refs": [
+        "TASK-0103",
+        "TASK-0097",
+        "TASK-0095",
+        "mission-control/board/approval-queue/2026-06-10T16-30-00Z-selector-target-candidate-note.md",
+        "mission-control/board/approval-queue/2026-06-11T10-40-00Z-credentialed-smoke-operator-handoff-refresh.md",
+        "mission-control/board/approval-queue/2026-06-11T16-30-00Z-cookie-alias-shell-pack.md",
+        "mission-control/board/sweeps/2026-06-11T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Publish an execution-ready shell pack for both direct and selector targeting modes so the next credential window can run preflight, smoke capture, and closeout in one pasteable sequence.\nAcceptance Criteria:\n- Approval-queue artifact includes exact export blocks and command chain for direct and selector modes.\n- Packet reflects TEAM_SESSION_COOKIE as canonical auth env and notes the COOKIE alias fallback.\n- Packet enumerates expected outputs, evidence bundle location, and PASS closure follow-up.",
+      "comments": [
+        {
+          "id": "executed-task-0412-20260611-1630",
+          "author": "sentinel",
+          "text": "Executed in midday board sweep. Published a copy-paste shell pack covering direct and selector target modes, canonical auth env naming, legacy cookie alias fallback, and the exact evidence/closeout sequence for the next authenticated run window.",
+          "created_at": "2026-06-11T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-11T16:30:00Z",
+      "updated_at": "2026-06-11T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }

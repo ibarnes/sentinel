@@ -4,7 +4,7 @@ set -euo pipefail
 # Smoke test for POST /api/presentation-studio/decks/{deckId}/pipeline/run
 # Usage:
 #   BASE_URL=http://127.0.0.1:3000 \
-#   COOKIE='connect.sid=...' \
+#   TEAM_SESSION_COOKIE='connect.sid=...' \
 #   DECK_ID='<deck-id>' \
 #   ./scripts/pipeline-run-smoke.sh
 #
@@ -12,14 +12,15 @@ set -euo pipefail
 #   INITIATIVE_ID=USG DECK_TYPE=buyer-mandate-mirror BUYER_ID=PIF
 
 BASE_URL="${BASE_URL:-http://127.0.0.1:3000}"
-COOKIE="${COOKIE:-}"
+TEAM_SESSION_COOKIE="${TEAM_SESSION_COOKIE:-}"
+COOKIE="${COOKIE:-${TEAM_SESSION_COOKIE:-}}"
 DECK_ID="${DECK_ID:-}"
 INITIATIVE_ID="${INITIATIVE_ID:-}"
 DECK_TYPE="${DECK_TYPE:-}"
 BUYER_ID="${BUYER_ID:-}"
 
 if [[ -z "$COOKIE" ]]; then
-  echo "ERROR: COOKIE is required (team session cookie)." >&2
+  echo "ERROR: TEAM_SESSION_COOKIE is required (legacy COOKIE alias also accepted)." >&2
   exit 1
 fi
 

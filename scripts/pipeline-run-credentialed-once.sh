@@ -2,12 +2,12 @@
 set -euo pipefail
 
 BASE_URL="${BASE_URL:-}"
-TEAM_SESSION_COOKIE="${TEAM_SESSION_COOKIE:-}"
+TEAM_SESSION_COOKIE="${TEAM_SESSION_COOKIE:-${COOKIE:-}}"
 STAMP="$(date -u +%Y-%m-%dT%H-%M-%SZ)"
 OUT_DIR="mission-control/evidence/pipeline-run/credentialed-${STAMP}"
 
 if [[ -z "$BASE_URL" || -z "$TEAM_SESSION_COOKIE" ]]; then
-  echo "ERROR: BASE_URL and TEAM_SESSION_COOKIE must be set" >&2
+  echo "ERROR: BASE_URL and TEAM_SESSION_COOKIE must be set (legacy COOKIE alias also accepted)" >&2
   exit 2
 fi
 
