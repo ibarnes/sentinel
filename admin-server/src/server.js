@@ -3411,10 +3411,18 @@ app.get('/dashboard/signals', async (req, res) => {
   const buyers = await readJson(path.join(ROOT, 'dashboard/data/buyers.json'), []);
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const byId = Object.fromEntries(buyers.map((b) => [b.buyer_id, b.name]));
-  const classes = ['Capital Reality','FID Definability','Structural Ambiguity','Platform Pressure','Sponsor Altitude','Ecosystem / Theater'];
+  const classes = Array.from(new Set((Array.isArray(signals) ? signals : []).map((s) => String(s?.signal_class || '').trim()).filter(Boolean))).sort((a, b) => a.localeCompare(b));
   const selectedClass = String(req.query.signal_class || 'All');
   const q = String(req.query.q || '').trim().toLowerCase();
-  const classFiltered = selectedClass === 'All' ? signals : signals.filter((s) => String(s.signal_class || '') === selectedClass);
+  const recentlyIngestedCutoffMs = Date.now() - (7 * 24 * 60 * 60 * 1000);
+  const classFiltered = selectedClass === 'All'
+    ? signals
+    : selectedClass === '__RECENTLY_INGESTED__'
+      ? signals.filter((s) => {
+          const ts = Date.parse(String(s?.ingested_at || ''));
+          return Number.isFinite(ts) && ts >= recentlyIngestedCutoffMs;
+        })
+      : signals.filter((s) => String(s.signal_class || '') === selectedClass);
   const filteredSignals = q ? classFiltered.filter((s) => {
     const hay = [
       s.signal_id,
@@ -3450,6 +3458,7 @@ app.get('/dashboard/signals', async (req, res) => {
         <label class="form-label">Filter by Signal Class</label>
         <select class="form-select" name="signal_class">
           <option ${selectedClass==='All'?'selected':''}>All</option>
+          <option value="__RECENTLY_INGESTED__" ${selectedClass==='__RECENTLY_INGESTED__'?'selected':''}>Recently Ingested (last 7 days)</option>
           ${classes.map((c)=>`<option ${selectedClass===c?'selected':''}>${c}</option>`).join('')}
         </select>
       </div>
@@ -3500,13 +3509,22 @@ app.get('/dashboard/signals/export.json', async (_req, res) => {
 
 app.get('/dashboard/signals-feed', requireAnyAuth, async (req, res) => {
   const feed = await readJson(DASHBOARD_SIGNALS_FEED_FILE, []);
+  const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
+  const existingSignalIds = new Set((Array.isArray(signals) ? signals : []).map((s) => String(s?.signal_id || '')));
+  const buildFeedSignalId = (item, feedId) => `SIG-${new Date().toISOString().slice(0,10)}-${(item?.source || 'FEED').toUpperCase().replace(/[^A-Z0-9]+/g,'-')}-${String(feedId || '').slice(0,6).toUpperCase()}`;
   const q = String(req.query.q || '').trim().toLowerCase();
   const meta = await readJson(path.join(ROOT, 'dashboard/data/signals_feed.meta.json'), {});
   const canEdit = ['architect','editor'].includes(effectiveRole(req) || '');
   const refreshStatus = String(req.query.refresh || '').trim().toLowerCase();
+  const promoteStatus = String(req.query.promote || '').trim().toLowerCase();
   const refreshMsg = refreshStatus === 'ok'
     ? '<div class="alert alert-success py-2">Signals feed refreshed.</div>'
     : (refreshStatus === 'err' ? '<div class="alert alert-danger py-2">Refresh failed. Check server logs.</div>' : '');
+  const promoteMsg = promoteStatus === 'ok'
+    ? '<div class="alert alert-success py-2">Signal ingested successfully.</div>'
+    : (promoteStatus === 'exists'
+      ? '<div class="alert alert-info py-2">That signal was already ingested.</div>'
+      : (promoteStatus === 'err' ? '<div class="alert alert-danger py-2">Could not ingest signal.</div>' : ''));
   const sorted = [...feed].sort((a,b)=>String(b.published_at||'').localeCompare(String(a.published_at||'')));
   const filtered = q ? sorted.filter((x)=>`${x.title||''} ${x.summary||''} ${(x.tags||[]).join(' ')} ${x.source||''}`.toLowerCase().includes(q)) : sorted;
   const sourceCounts = sorted.reduce((acc, x) => {
@@ -3514,11 +3532,13 @@ app.get('/dashboard/signals-feed', requireAnyAuth, async (req, res) => {
     acc[k] = (acc[k] || 0) + 1;
     return acc;
   }, {});
-  const topSources = Object.entries(sourceCounts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 8)
+  const sortedSources = Object.entries(sourceCounts).sort((a, b) => b[1] - a[1]);
+  const topSources = sortedSources
+    .slice(0, 20)
     .map(([name, count]) => `<span class="badge bg-light text-dark border me-1 mb-1">${escapeHtml(name)}: ${count}</span>`)
     .join('');
+  const extraSourceCount = Math.max(0, sortedSources.length - 20);
+  const topSourcesHtml = topSources + (extraSourceCount > 0 ? `<span class="small text-muted">+${extraSourceCount} more sources</span>` : '');
   const googleCount = Object.entries(sourceCounts)
     .filter(([name]) => name.toLowerCase().includes('google news'))
     .reduce((sum, [, count]) => sum + count, 0);
@@ -3538,15 +3558,22 @@ app.get('/dashboard/signals-feed', requireAnyAuth, async (req, res) => {
     const titleHtml = x.url
       ? `<a target="_blank" rel="noreferrer" href="${escapeHtml(String(x.url))}">${escapeHtml(String(x.title || 'Untitled'))}</a>`
       : `${escapeHtml(String(x.title || 'Untitled'))}`;
-    return `<div class="signals-grid-item"><div class="card h-100"><div class="card-body d-flex flex-column">${img}<div class="d-flex justify-content-between"><div class="small text-muted">${escapeHtml(String(x.source || 'source'))}</div><div class="small text-muted mono">${escapeHtml(String(x.published_at || '').slice(0,10))}</div></div><h6 class="mt-1 mb-1">${titleHtml}</h6><div class="small text-muted text-truncate" title="${escapeHtml(String(x.url || ''))}">${escapeHtml(shortUrl)}</div><div class="small mt-2">${escapeHtml(String(x.summary || ''))}</div>${why}<div class="mt-2 d-flex gap-2 mt-auto"><form method="post" action="/api/signals-feed/promote/${encodeURIComponent(String(x.feed_id || ''))}"><button class="btn btn-sm btn-primary" type="submit">Ingest</button></form></div></div></div></div>`;
+    const promotedSid = buildFeedSignalId(x, x.feed_id);
+    const isIngested = existingSignalIds.has(promotedSid);
+    const feedId = String(x.feed_id || '');
+    const feedAnchor = `feed-${feedId}`;
+    const ingestAction = isIngested
+      ? `<button class="btn btn-sm btn-outline-success" type="button" disabled title="Already ingested as ${escapeHtml(promotedSid)}">Ingested</button>`
+      : `<form method="post" action="/api/signals-feed/promote/${encodeURIComponent(feedId)}"><input type="hidden" name="return_anchor" value="${escapeHtml(feedAnchor)}"/><button class="btn btn-sm btn-primary" type="submit">Ingest</button></form>`;
+    return `<div class="signals-grid-item" id="${escapeHtml(feedAnchor)}" data-feed-id="${escapeHtml(feedId)}"><div class="card h-100"><div class="card-body d-flex flex-column">${img}<div class="d-flex justify-content-between"><div class="small text-muted">${escapeHtml(String(x.source || 'source'))}</div><div class="small text-muted mono">${escapeHtml(String(x.published_at || '').slice(0,10))}</div></div><h6 class="mt-1 mb-1">${titleHtml}</h6><div class="small text-muted text-truncate" title="${escapeHtml(String(x.url || ''))}">${escapeHtml(shortUrl)}</div><div class="small mt-2">${escapeHtml(String(x.summary || ''))}</div>${why}<div class="mt-2 d-flex gap-2 mt-auto">${ingestAction}</div></div></div></div>`;
   }).join('');
 
   const freshness = meta.last_run_at ? `Last refresh: ${escapeHtml(String(meta.last_run_at))}` : 'Last refresh: never';
   const headerActions = ``;
   const refreshControl = canEdit
-    ? '<form method="post" action="/api/signals-feed/refresh"><button class="btn btn-sm btn-primary" type="submit">Refresh Feed</button></form>'
+    ? '<button class="btn btn-sm btn-primary js-refresh-btn" type="button" data-endpoint="/api/signals-feed/refresh">Refresh Feed</button>'
     : '<button class="btn btn-sm btn-secondary" type="button" disabled title="Requires architect/editor role">Refresh Feed</button>';
-  res.type('html').send(`<!doctype html><html><head>${uiHead('Signals Feed')}</head><body><div class="app-shell">${dashboardNav('signals-feed')}${pageHeader('Signals Feed', headerActions, 'Discovery stream — promote qualified signals to canonical register')}${refreshMsg}<form method="get" class="row g-2 mb-2"><div class="col-8 col-md-6"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q||''))}" placeholder="Search feed"/></div><div class="col-4 col-md-2 d-grid"><button class="btn btn-outline-primary">Apply</button></div><div class="col-12 col-md-4 d-flex justify-content-md-end gap-2">${refreshControl}<a class="btn btn-sm btn-outline-secondary" href="/dashboard/signals-feed">Reset</a></div></form><details class="mb-3" id="feed-details"><summary class="small text-muted">Feed details</summary><div class="mt-2"><div class="small text-muted mb-1">${freshness}</div><div class="small text-muted mb-2">Google News items in feed: <strong>${googleCount}</strong> · <a href="/dashboard/signals-feed?q=google+news">view Google News only</a> · <a href="/dashboard/signals-feed/export.json">Get JSON</a></div><div class="mb-1">${topSources}</div></div></details>${cards ? `<style>.signals-grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:100%;}.signals-grid-item,.signals-grid .card,.signals-grid .card-body{min-width:0;max-width:100%;}.signals-grid .text-truncate{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}@media (min-width:768px){#feed-details[open]{display:block;}.signals-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}@media (min-width:992px){.signals-grid{grid-template-columns:repeat(4,minmax(0,1fr));}}@media (max-width:767px){.signals-grid .card-body{font-size:14px;}.signals-grid .btn{font-size:12px;padding:.2rem .45rem;}.signals-grid .d-flex.gap-2{flex-direction:column;align-items:stretch;}.signals-grid .d-flex.gap-2 > *{width:100%;}.signals-grid .d-flex.gap-2 form button{width:100%;}}</style><script>(function(){try{var d=document.getElementById('feed-details');if(window.innerWidth>=768&&d)d.open=true;}catch(_){}})();</script><div class="signals-grid">${cards}</div>` : '<div class="text-muted">No feed items yet. Run collector script.</div>'}</div></body></html>`);
+  res.type('html').send(`<!doctype html><html><head>${uiHead('Signals Feed')}</head><body><div class="app-shell">${dashboardNav('signals-feed')}${pageHeader('Signals Feed', headerActions, 'Discovery stream — promote qualified signals to canonical register')}<div id="signals-feed-flash">${refreshMsg}${promoteMsg}</div><form method="get" class="row g-2 mb-2"><div class="col-8 col-md-6"><input class="form-control" name="q" value="${escapeHtml(String(req.query.q||''))}" placeholder="Search feed"/></div><div class="col-4 col-md-2 d-grid"><button class="btn btn-outline-primary">Apply</button></div><div class="col-12 col-md-4 d-flex justify-content-md-end gap-2">${refreshControl}<a class="btn btn-sm btn-outline-secondary" href="/dashboard/signals-feed">Reset</a></div></form><details class="mb-3" id="feed-details"><summary class="small text-muted">Feed details</summary><div class="mt-2"><div class="small text-muted mb-1">${freshness}</div><div class="small text-muted mb-2">Google News items in feed: <strong>${googleCount}</strong> · <a href="/dashboard/signals-feed?q=google+news">view Google News only</a> · <a href="/dashboard/signals-feed/export.json">Get JSON</a></div><div class="mb-1">${topSourcesHtml}</div></div></details>${cards ? `<style>.signals-grid{display:grid;grid-template-columns:1fr;gap:12px;max-width:100%;}.signals-grid-item,.signals-grid .card,.signals-grid .card-body{min-width:0;max-width:100%;}.signals-grid .text-truncate{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}@media (min-width:768px){#feed-details[open]{display:block;}.signals-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}@media (min-width:992px){.signals-grid{grid-template-columns:repeat(4,minmax(0,1fr));}}@media (max-width:767px){.signals-grid .card-body{font-size:14px;}.signals-grid .btn{font-size:12px;padding:.2rem .45rem;}.signals-grid .d-flex.gap-2{flex-direction:column;align-items:stretch;}.signals-grid .d-flex.gap-2 > *{width:100%;}}</style><script>(function(){var SCROLL_KEY='signals-feed-scroll-y';try{var y=sessionStorage.getItem(SCROLL_KEY);if(y!==null){window.scrollTo(0,Number(y)||0);sessionStorage.removeItem(SCROLL_KEY);}}catch(_){}try{window.addEventListener('beforeunload',function(){try{sessionStorage.setItem(SCROLL_KEY,String(window.scrollY||window.pageYOffset||0));}catch(_){}});}catch(_){}try{var d=document.getElementById('feed-details');if(window.innerWidth>=768&&d)d.open=true;}catch(_){}var flash=document.getElementById('signals-feed-flash');function showFlash(kind,msg){if(!flash)return;flash.innerHTML='<div class="alert alert-'+kind+' py-2">'+msg+'</div>';}function postJson(url,body,cb){var xhr=new XMLHttpRequest();xhr.open('POST',url,true);xhr.setRequestHeader('X-Requested-With','fetch');xhr.setRequestHeader('Accept','application/json');xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded;charset=UTF-8');xhr.onreadystatechange=function(){if(xhr.readyState!==4)return;var data={};try{data=JSON.parse(xhr.responseText||'{}');}catch(_){data={};}cb(xhr.status,data);};xhr.send(body||'');}document.querySelectorAll('.js-ingest-btn').forEach(function(btn){btn.addEventListener('click',function(){if(btn.disabled)return;var prev=btn.textContent||'Ingest';btn.disabled=true;btn.textContent='Ingesting…';var endpoint=btn.getAttribute('data-endpoint')||'';var anchor=btn.getAttribute('data-anchor')||'';postJson(endpoint,'return_anchor='+encodeURIComponent(anchor),function(status,data){if(status>=200&&status<300&&data&&data.ok){showFlash(data.created?'success':'info',data.created?'Signal ingested successfully.':'That signal was already ingested.');btn.className='btn btn-sm btn-outline-success';btn.textContent='Ingested';btn.disabled=true;}else{if(status===401||status===403){showFlash('warning','Ingest requires architect/editor role.');}else{showFlash('danger','Could not ingest signal.');}btn.disabled=false;btn.textContent=prev;}});});});var refreshBtn=document.querySelector('.js-refresh-btn');if(refreshBtn){refreshBtn.addEventListener('click',function(){if(refreshBtn.disabled)return;var prev=refreshBtn.textContent||'Refresh Feed';refreshBtn.disabled=true;refreshBtn.textContent='Refreshing…';var endpoint=refreshBtn.getAttribute('data-endpoint')||'';postJson(endpoint,'',function(status,data){if(status>=200&&status<300&&data&&data.ok){showFlash('success','Signals feed refreshed.');}else{showFlash('danger','Refresh failed. Check server logs.');}refreshBtn.disabled=false;refreshBtn.textContent=prev;});});}})();</script><div class="signals-grid">${cards}</div>` : '<div class="text-muted">No feed items yet. Run collector script.</div>'}</div></body></html>`);
 });
 
 app.get('/dashboard/signals-feed/export.json', requireAnyAuth, async (_req, res) => {
@@ -3555,6 +3582,7 @@ app.get('/dashboard/signals-feed/export.json', requireAnyAuth, async (_req, res)
 });
 
 app.post('/api/signals-feed/refresh', requireRole('architect','editor'), async (_req, res) => {
+  const wantsJson = String(_req.get('x-requested-with') || '').toLowerCase() === 'fetch' || String(_req.get('accept') || '').includes('application/json');
   const metaPath = path.join(ROOT, 'dashboard/data/signals_feed.meta.json');
   try {
     const { spawnSync } = await import('node:child_process');
@@ -3571,25 +3599,35 @@ app.post('/api/signals-feed/refresh', requireRole('architect','editor'), async (
         entity_id: 'refresh',
         meta: { detail: detail.slice(0, 1200) }
       }).catch(() => {});
+      if (wantsJson) return res.status(500).json({ ok: false, error: 'refresh_failed' });
       return res.redirect('/dashboard/signals-feed?refresh=err');
     }
 
     const meta = await readJson(metaPath, {});
     meta.last_run_at = nowIso();
     await writeJson(metaPath, meta);
+    if (wantsJson) return res.json({ ok: true, refreshed_at: meta.last_run_at });
     return res.redirect('/dashboard/signals-feed?refresh=ok');
   } catch (_err) {
+    if (wantsJson) return res.status(500).json({ ok: false, error: 'refresh_failed' });
     return res.redirect('/dashboard/signals-feed?refresh=err');
   }
 });
 
-app.post('/api/signals-feed/promote/:id', requireRole('architect','editor'), async (req, res) => {
+app.post('/api/signals-feed/promote/:id', requireAnyAuth, async (req, res) => {
+  const wantsJson = String(req.get('x-requested-with') || '').toLowerCase() === 'fetch' || String(req.get('accept') || '').includes('application/json');
   const id = String(req.params.id || '');
+  const returnAnchorRaw = String(req.body?.return_anchor || '');
+  const returnAnchor = /^[a-zA-Z0-9_-]+$/.test(returnAnchorRaw) ? returnAnchorRaw : '';
   const feed = await readJson(DASHBOARD_SIGNALS_FEED_FILE, []);
   const item = feed.find((x) => String(x.feed_id || '') === id);
-  if (!item) return res.redirect('/dashboard/signals-feed');
+  if (!item) {
+    if (wantsJson) return res.status(404).json({ ok: false, error: 'not_found' });
+    return res.redirect(`/dashboard/signals-feed?promote=err${returnAnchor ? `#${returnAnchor}` : ''}`);
+  }
   const signals = await readJson(DASHBOARD_SIGNALS_FILE, []);
   const sid = `SIG-${new Date().toISOString().slice(0,10)}-${(item.source || 'FEED').toUpperCase().replace(/[^A-Z0-9]+/g,'-')}-${id.slice(0,6).toUpperCase()}`;
+  let created = false;
   if (!signals.some((s) => s.signal_id === sid)) {
     signals.push({
       signal_id: sid,
@@ -3600,6 +3638,9 @@ app.post('/api/signals-feed/promote/:id', requireRole('architect','editor'), asy
       verification_status: 'pending_threshold_validation',
       observed_at: item.published_at || new Date().toISOString(),
       summary: item.summary || '',
+      ingested_at: nowIso(),
+      ingestion_source: 'signals_feed',
+      source_feed_id: String(item.feed_id || ''),
       provenance: 'discovered_by_system',
       sources: [{ label: item.source || 'feed', url: item.url || '' }],
       tags: Array.isArray(item.tags) ? item.tags : [],
@@ -3607,8 +3648,10 @@ app.post('/api/signals-feed/promote/:id', requireRole('architect','editor'), asy
       buyer_ids: Array.isArray(item.buyer_ids) ? item.buyer_ids : []
     });
     await writeJson(DASHBOARD_SIGNALS_FILE, signals);
+    created = true;
   }
-  res.redirect('/dashboard/signals');
+  if (wantsJson) return res.json({ ok: true, created, signal_id: sid });
+  res.redirect(`/dashboard/signals-feed?promote=${created ? 'ok' : 'exists'}${returnAnchor ? `#${returnAnchor}` : ''}`);
 });
 
 app.get('/dashboard/signal/:id', async (req, res) => {
@@ -7667,6 +7710,92 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
       <form method="post" action="/auth/logout" class="oc-nav-footer m-0"><button class="btn btn-sm btn-outline-secondary logout-btn" type="submit">Logout</button></form>
     </nav>
 
+    <style>
+      .board-shell {
+        display: grid;
+        gap: 1rem;
+        align-items: start;
+      }
+      .board-main {
+        min-width: 0;
+      }
+      .board-detail-rail {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(680px, 98vw);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: var(--bs-body-bg, #fff);
+        border-left: 1px solid rgba(15, 23, 42, 0.12);
+        box-shadow: -24px 0 60px rgba(15, 23, 42, 0.18);
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform 160ms ease, visibility 160ms ease;
+        z-index: 1060;
+      }
+      .board-detail-rail.show {
+        transform: translateX(0);
+        visibility: visible;
+      }
+      .board-detail-rail .offcanvas-header {
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      }
+      .board-detail-rail .offcanvas-body {
+        overflow-y: auto;
+      }
+      .task-panel-empty {
+        border: 1px dashed rgba(15, 23, 42, 0.18);
+        border-radius: 1rem;
+        padding: 1rem;
+        background: rgba(148, 163, 184, 0.08);
+      }
+      .task-panel-empty strong {
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+      .board-panel-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.42);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 160ms ease;
+        z-index: 1055;
+      }
+      .board-panel-backdrop.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      body.task-panel-open {
+        overflow: hidden;
+      }
+      @media (min-width: 1200px) {
+        .board-shell {
+          grid-template-columns: minmax(0, 1fr) minmax(360px, 420px);
+        }
+        .board-detail-rail {
+          position: sticky;
+          top: 1rem;
+          width: auto;
+          height: calc(100vh - 2rem);
+          border: 1px solid rgba(15, 23, 42, 0.12);
+          border-radius: 1rem;
+          box-shadow: none;
+          transform: none !important;
+          visibility: visible !important;
+          z-index: auto;
+        }
+        .board-panel-backdrop {
+          display: none;
+        }
+        body.task-panel-open {
+          overflow: auto;
+        }
+      }
+    </style>
+
     <div class="d-flex flex-wrap gap-2 mb-3">
       <a class="btn btn-outline-secondary" href="/dashboard/">Go to Dashboard</a>
       <a class="btn btn-outline-secondary" href="/dashboard/presentation-studio">Open Presentation Studio</a>
@@ -7674,68 +7803,181 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
       ${u.role === 'architect' ? '<button id="inviteBtn" class="btn btn-outline-primary">Create Invite Link</button>' : ''}
     </div>
 
-    <div id="board" class="row g-3"></div>
-  </div>
+    <div class="board-shell">
+      <div class="board-main">
+        <div id="board" class="row g-3"></div>
+        <div id="completedSummary" class="mt-4"></div>
+      </div>
 
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="taskDetailPanel" style="width:min(680px,98vw)">
+  <aside tabindex="-1" id="taskDetailPanel" class="board-detail-rail" aria-labelledby="taskPanelTitle" aria-hidden="true">
     <div class="offcanvas-header">
       <h5 class="offcanvas-title" id="taskPanelTitle">Task Detail</h5>
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <input type="hidden" id="d_taskId" />
-      <div class="row g-2">
-        <div class="col-12"><label class="form-label small">Title</label><input class="form-control form-control-sm" id="d_title" /></div>
-        <div class="col-6"><label class="form-label small">Owner</label><input class="form-control form-control-sm" id="d_owner" /></div>
-        <div class="col-6"><label class="form-label small">Due date</label><input type="date" class="form-control form-control-sm" id="d_due_date" /></div>
-        <div class="col-6"><label class="form-label small">Priority</label><select class="form-select form-select-sm" id="d_priority"><option>P0</option><option>P1</option><option>P2</option><option>P3</option></select></div>
-        <div class="col-6"><label class="form-label small">Status</label><select class="form-select form-select-sm" id="d_status"></select></div>
-        <div class="col-12"><label class="form-label small">Tags (comma separated)</label><input class="form-control form-control-sm" id="d_tags" /></div>
-        <div class="col-12"><label class="form-label small">Linked refs (comma separated)</label><input class="form-control form-control-sm" id="d_refs" /></div>
-        <div class="col-12"><label class="form-label small">Description</label><textarea class="form-control form-control-sm" id="d_desc" rows="4"></textarea></div>
+      <div id="taskPanelEmptyState" class="task-panel-empty">
+        <strong>Select a task</strong>
+        <div class="text-muted small">Use the board to inspect a task without losing board context. Deep links use the <code>?task=TASK-ID</code> query param, and mobile keeps the panel collapsible.</div>
       </div>
-      <div class="d-flex flex-wrap gap-2 mt-3">
-        <button id="panelSaveBtn" class="btn btn-sm btn-primary">Save</button>
-        <button id="panelRequestBtn" class="btn btn-sm btn-outline-warning">Request Approval</button>
-        <button id="panelApproveBtn" class="btn btn-sm btn-success" style="display:none">Approve</button>
-        <button id="panelMoveBtn" class="btn btn-sm btn-dark">Move to Selected Status</button>
-      </div>
-      <div class="mt-3">
-        <label class="form-label small">Add comment</label>
-        <textarea class="form-control form-control-sm" id="panelCommentText" rows="3" placeholder="Write a comment..."></textarea>
-        <button id="panelCommentBtn" class="btn btn-sm btn-outline-secondary mt-2">Add Comment</button>
-      </div>
-      <div class="mt-3">
-        <div class="small text-muted mb-1">Comments</div>
-        <div id="panelComments" class="small"></div>
+      <div id="taskPanelContent" hidden>
+        <input type="hidden" id="d_taskId" />
+        <div class="row g-2">
+          <div class="col-12"><label class="form-label small">Title</label><input class="form-control form-control-sm" id="d_title" /></div>
+          <div class="col-6"><label class="form-label small">Owner</label><input class="form-control form-control-sm" id="d_owner" /></div>
+          <div class="col-6"><label class="form-label small">Due date</label><input type="date" class="form-control form-control-sm" id="d_due_date" /></div>
+          <div class="col-6"><label class="form-label small">Priority</label><select class="form-select form-select-sm" id="d_priority"><option>P0</option><option>P1</option><option>P2</option><option>P3</option></select></div>
+          <div class="col-6"><label class="form-label small">Status</label><select class="form-select form-select-sm" id="d_status"></select></div>
+          <div class="col-12"><label class="form-label small">Tags (comma separated)</label><input class="form-control form-control-sm" id="d_tags" /></div>
+          <div class="col-12"><label class="form-label small">Linked refs (comma separated)</label><input class="form-control form-control-sm" id="d_refs" /></div>
+          <div class="col-12"><label class="form-label small">Description</label><textarea class="form-control form-control-sm" id="d_desc" rows="4"></textarea></div>
+        </div>
+        <div class="d-flex flex-wrap gap-2 mt-3">
+          <button id="panelSaveBtn" class="btn btn-sm btn-primary">Save</button>
+          <button id="panelRequestBtn" class="btn btn-sm btn-outline-warning">Request Approval</button>
+          <button id="panelApproveBtn" class="btn btn-sm btn-success" style="display:none">Approve</button>
+          <button id="panelMoveBtn" class="btn btn-sm btn-dark">Move to Selected Status</button>
+        </div>
+        <div id="taskPanelNotice" class="mt-2" hidden></div>
+        <div class="mt-3">
+          <div class="small text-muted mb-1">Review Packet</div>
+          <div id="panelApprovalMeta" class="small text-muted border rounded p-2 bg-light-subtle">No review packet yet.</div>
+          <label class="form-label small mt-2">Optional review packet title</label>
+          <input class="form-control form-control-sm" id="panelReviewPacketTitle" placeholder="Leave blank to keep the current task title" />
+        </div>
+        <div class="mt-3">
+          <label class="form-label small">Add comment</label>
+          <textarea class="form-control form-control-sm" id="panelCommentText" rows="3" placeholder="Write a comment..."></textarea>
+          <button id="panelCommentBtn" class="btn btn-sm btn-outline-secondary mt-2">Add Comment</button>
+        </div>
+        <div class="mt-3">
+          <div class="small text-muted mb-1">Comments</div>
+          <div id="panelComments" class="small"></div>
+        </div>
       </div>
     </div>
+  </aside>
+    </div>
   </div>
+  <div id="taskPanelBackdrop" class="board-panel-backdrop"></div>
 
 <script>
 const me = ${JSON.stringify(u)};
 const canWrite = ${JSON.stringify(canWrite)};
 const columns = ${JSON.stringify(BOARD_COLUMNS)};
+const activeColumns = columns.filter((c) => c !== 'Done');
 let boardData = { tasks: [] };
 const api = (path) => '/dashboard/api' + path;
 
 const panelEl = document.getElementById('taskDetailPanel');
-const panel = (window.bootstrap && window.bootstrap.Offcanvas) ? new bootstrap.Offcanvas(panelEl) : null;
+const panelBackdrop = document.getElementById('taskPanelBackdrop');
 let activeTaskId = null;
+let panelOpen = false;
+
+function isDesktopPanel(){
+  return window.matchMedia('(min-width: 1200px)').matches;
+}
+
+function currentPanelUrl(){
+  return new URL(window.location.href);
+}
+
+function routeTaskId(){
+  return currentPanelUrl().searchParams.get('task') || '';
+}
+
+function syncTaskRoute(taskId, replace = false){
+  const url = currentPanelUrl();
+  if (taskId) url.searchParams.set('task', taskId);
+  else url.searchParams.delete('task');
+  const next = url.pathname + url.search + url.hash;
+  const current = window.location.pathname + window.location.search + window.location.hash;
+  if (next === current) return;
+  window.history[replace ? 'replaceState' : 'pushState']({}, '', next);
+}
 
 function showTaskPanel(){
-  if (panel) return panel.show();
+  panelOpen = true;
   panelEl.classList.add('show');
-  panelEl.style.visibility = 'visible';
-  panelEl.style.display = 'block';
-  panelEl.style.transform = 'translateX(0)';
+  panelEl.setAttribute('aria-hidden', 'false');
+  if (isDesktopPanel()) {
+    panelBackdrop.classList.remove('show');
+    document.body.classList.remove('task-panel-open');
+    return;
+  }
+  panelBackdrop.classList.add('show');
+  document.body.classList.add('task-panel-open');
+}
+
+function setPanelContentVisible(visible){
+  document.getElementById('taskPanelContent').hidden = !visible;
+  document.getElementById('taskPanelEmptyState').hidden = visible;
+}
+
+function setPanelNotice(message, tone = 'info'){
+  const el = document.getElementById('taskPanelNotice');
+  if (!el) return;
+  if (!message) {
+    el.hidden = true;
+    el.className = 'mt-2';
+    el.textContent = '';
+    return;
+  }
+  const toneClass = {
+    info: 'alert alert-info',
+    success: 'alert alert-success',
+    warning: 'alert alert-warning',
+    danger: 'alert alert-danger'
+  }[tone] || 'alert alert-info';
+  el.hidden = false;
+  el.className = toneClass + ' py-2 px-3 mb-0 mt-2 small';
+  el.textContent = message;
+}
+
+function setActionButtonState(id, busy, busyLabel, idleLabel){
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (!el.dataset.defaultLabel) el.dataset.defaultLabel = idleLabel || el.textContent || '';
+  el.disabled = Boolean(busy);
+  el.textContent = busy ? (busyLabel || el.dataset.defaultLabel) : (idleLabel || el.dataset.defaultLabel);
+}
+
+function setPanelActionAvailability(taskExists){
+  const requestBtn = document.getElementById('panelRequestBtn');
+  const approveBtn = document.getElementById('panelApproveBtn');
+  const moveBtn = document.getElementById('panelMoveBtn');
+  const commentBtn = document.getElementById('panelCommentBtn');
+  if (requestBtn) requestBtn.disabled = !taskExists;
+  if (moveBtn) moveBtn.disabled = !taskExists;
+  if (commentBtn) commentBtn.disabled = !taskExists;
+  if (approveBtn && !taskExists) approveBtn.style.display = 'none';
+}
+
+function renderEmptyPanel(message){
+  document.getElementById('taskPanelTitle').textContent = 'Task Detail';
+  setPanelContentVisible(false);
+  setPanelNotice('');
+  document.getElementById('taskPanelEmptyState').innerHTML = message || '<strong>Select a task</strong><div class="text-muted small">Pick a task from the board to inspect it here without losing board context.</div>';
+  document.getElementById('panelCommentText').value = '';
+  document.getElementById('panelReviewPacketTitle').value = '';
+  document.getElementById('panelApprovalMeta').textContent = 'No review packet yet.';
+  setPanelActionAvailability(false);
+  panelEl.setAttribute('aria-hidden', 'true');
+  if (isDesktopPanel()) {
+    panelEl.classList.add('show');
+    panelBackdrop.classList.remove('show');
+    document.body.classList.remove('task-panel-open');
+    return;
+  }
+  panelEl.classList.remove('show');
+  panelBackdrop.classList.remove('show');
+  document.body.classList.remove('task-panel-open');
 }
 
 function hideTaskPanel(){
-  if (panel) return panel.hide();
-  panelEl.classList.remove('show');
-  panelEl.style.visibility = 'hidden';
-  panelEl.style.display = 'none';
+  panelOpen = false;
+  activeTaskId = null;
+  syncTaskRoute('', true);
+  renderEmptyPanel();
 }
 
 function toArray(v){ return String(v || '').split(',').map(x => x.trim()).filter(Boolean); }
@@ -7755,9 +7997,63 @@ function cardHTML(t){
   ].join('');
 }
 
+function taskTimestamp(t){
+  return String(t.updated_at || t.created_at || t.due_date || '');
+}
+
+function sortNewestFirst(items){
+  return items.slice().sort((a, b) => taskTimestamp(b).localeCompare(taskTimestamp(a)));
+}
+
+function completionBatchLabel(task){
+  const comments = Array.isArray(task.comments) ? task.comments : [];
+  const text = comments.map((c) => String(c.id || '') + ' ' + String(c.text || '')).join(' ').toLowerCase();
+  if (text.includes('bulk-closeout-20260612')) return 'Bulk RFR closeout';
+  if (text.includes('bulk-backlog-closeout-20260612')) return 'Backlog candidate closeout';
+  if (text.includes('backlog cleanup 2026-06-12')) return 'Backlog cleanup';
+  if (text.includes('owner decision') && text.includes('presentation studio')) return 'Studio park / cleanup';
+  return 'Individual completion';
+}
+
+function renderCompletedSummary(doneTasks){
+  const recent = sortNewestFirst(doneTasks).slice(0, 12);
+  const batchCounts = new Map();
+  doneTasks.forEach((task) => {
+    const label = completionBatchLabel(task);
+    batchCounts.set(label, (batchCounts.get(label) || 0) + 1);
+  });
+  const batchRows = Array.from(batchCounts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .map(([label, count]) => '<span class="badge text-bg-light border me-2 mb-2">' + esc(label) + ' · ' + esc(count) + '</span>')
+    .join('');
+
+  return [
+    '<div class="card border-success-subtle">',
+    '<div class="card-header d-flex flex-wrap justify-content-between align-items-center gap-2">',
+    '<div><strong>Completed</strong> <span class="badge text-bg-success ms-2">' + esc(doneTasks.length) + '</span></div>',
+    '<div class="small text-muted">Done is collapsed by default to keep the board focused on active work.</div>',
+    '</div>',
+    '<div class="card-body">',
+    '<div class="row g-3 mb-3">',
+    '<div class="col-12 col-lg-4"><div class="border rounded p-3 h-100"><div class="small text-muted mb-1">Completed batches</div><div>' + (batchRows || '<span class="text-muted">No completed work yet.</span>') + '</div></div></div>',
+    '<div class="col-12 col-lg-8"><div class="border rounded p-3 h-100"><div class="small text-muted mb-2">Recently done</div>',
+    recent.length ? '<div class="vstack gap-2">' + recent.map((t) => '<button type="button" class="btn btn-sm btn-outline-secondary text-start js-recent-done" data-task-id="' + esc(t.id) + '"><strong>' + esc(t.title) + '</strong><div class="small text-muted">' + esc(completionBatchLabel(t)) + ' · ' + esc(taskTimestamp(t).slice(0,16).replace('T',' ')) + '</div></button>').join('') + '</div>' : '<div class="text-muted">No recently done tasks.</div>',
+    '</div></div></div>',
+    '</div>',
+    '<details>',
+    '<summary class="btn btn-outline-secondary btn-sm">View completed archive</summary>',
+    '<div class="table-responsive mt-3"><table class="table table-sm align-middle">',
+    '<thead><tr><th>Task</th><th>Batch</th><th>Updated</th><th>Owner</th><th>Priority</th></tr></thead><tbody>',
+    sortNewestFirst(doneTasks).map((t) => '<tr><td><button type="button" class="btn btn-link btn-sm p-0 text-start js-recent-done" data-task-id="' + esc(t.id) + '">' + esc(t.title) + '</button><div class="small text-muted mono">' + esc(t.id) + '</div></td><td>' + esc(completionBatchLabel(t)) + '</td><td>' + esc(taskTimestamp(t).slice(0,16).replace('T',' ')) + '</td><td>' + esc(t.owner || '—') + '</td><td>' + esc(t.priority || '—') + '</td></tr>').join(''),
+    '</tbody></table></div>',
+    '</details>',
+    '</div></div>'
+  ].join('');
+}
+
 function render(){
   const el = document.getElementById('board');
-  el.innerHTML = columns.map(c => {
+  el.innerHTML = activeColumns.map(c => {
     const tasks = (boardData.tasks||[]).filter(t => t.status===c);
     return [
       '<div class="col-12 col-xl"><div class="card h-100">',
@@ -7768,6 +8064,10 @@ function render(){
     ].join('');
   }).join('');
 
+  const completedEl = document.getElementById('completedSummary');
+  const doneTasks = (boardData.tasks || []).filter((t) => t.status === 'Done');
+  completedEl.innerHTML = renderCompletedSummary(doneTasks);
+
   if (canWrite) {
     document.querySelectorAll('[draggable="true"]').forEach(node => {
       node.addEventListener('dragstart', (e) => e.dataTransfer.setData('text/plain', node.dataset.taskId));
@@ -7775,6 +8075,10 @@ function render(){
   }
 
   document.querySelectorAll('.js-task-card').forEach(node => {
+    node.addEventListener('click', () => openTaskPanel(node.dataset.taskId));
+  });
+
+  document.querySelectorAll('.js-recent-done').forEach(node => {
     node.addEventListener('click', () => openTaskPanel(node.dataset.taskId));
   });
 
@@ -7787,6 +8091,19 @@ async function loadBoard(){
   const r = await fetch(api('/board'));
   boardData = await r.json();
   render();
+  const id = routeTaskId() || activeTaskId;
+  if (id) {
+    openTaskPanel(id, { sync: false, replaceRoute: true });
+    return;
+  }
+  renderEmptyPanel();
+}
+
+async function readErrorMessage(response, fallback){
+  const body = await response.json().catch(() => null);
+  if (body && typeof body.error === 'string' && body.error.trim()) return body.error.trim();
+  if (body && typeof body.detail === 'string' && body.detail.trim()) return body.detail.trim();
+  return fallback + ' (' + response.status + ')';
 }
 
 function allowDrop(e){ if (canWrite) e.preventDefault(); }
@@ -7810,14 +8127,32 @@ async function dropTask(e, status){
 function renderPanelComments(task){
   const list = (task?.comments || []);
   document.getElementById('panelComments').innerHTML = list.length
-    ? list.slice().reverse().map(c => '<div class="border rounded p-2 mb-1"><div class="small text-muted">' + esc(c.by || 'user') + ' · ' + esc(String(c.at || '').slice(0,16).replace('T',' ')) + '</div><div>' + esc(c.text || '') + '</div></div>').join('')
+    ? list.slice().reverse().map(c => '<div class="border rounded p-2 mb-1"><div class="small text-muted">' + esc(c.author || c.by || 'user') + ' · ' + esc(String(c.created_at || c.at || '').slice(0,16).replace('T',' ')) + '</div><div>' + esc(c.text || '') + '</div></div>').join('')
     : '<div class="text-muted">No comments yet.</div>';
 }
 
-function openTaskPanel(id){
+function renderApprovalMeta(task){
+  const approval = task?.request_approval || null;
+  const requestedAt = approval?.requested_at ? String(approval.requested_at).slice(0, 16).replace('T', ' ') : 'Not requested';
+  const requestedBy = approval?.requested_by || '—';
+  const approvedAt = approval?.approved_at ? String(approval.approved_at).slice(0, 16).replace('T', ' ') : 'Pending';
+  const approvedBy = approval?.approved_by || '—';
+  const rpId = task?.review_packet_id || 'None';
+  const status = approval?.approved ? 'Approved' : (approval ? 'Awaiting approval' : 'No approval requested');
+  document.getElementById('panelApprovalMeta').innerHTML = [
+    '<div><strong>Status:</strong> ' + esc(status) + '</div>',
+    '<div><strong>Review packet:</strong> ' + esc(rpId) + '</div>',
+    '<div><strong>Requested:</strong> ' + esc(requestedAt) + ' by ' + esc(requestedBy) + '</div>',
+    '<div><strong>Approved:</strong> ' + esc(approvedAt) + ' by ' + esc(approvedBy) + '</div>'
+  ].join('');
+}
+
+function openTaskPanel(id, options = {}){
   const t = (boardData.tasks || []).find(x => x.id === id); if (!t) return;
   activeTaskId = id;
-  document.getElementById('taskPanelTitle').textContent = 'Task Detail';
+  setPanelNotice('');
+  document.getElementById('taskPanelTitle').textContent = t.title || 'Task Detail';
+  setPanelContentVisible(true);
   document.getElementById('d_taskId').value = id;
   document.getElementById('d_title').value = t.title || '';
   document.getElementById('d_owner').value = t.owner || '';
@@ -7828,15 +8163,21 @@ function openTaskPanel(id){
   document.getElementById('d_desc').value = t.description || '';
   const statusSel = document.getElementById('d_status');
   statusSel.innerHTML = columns.map(c => '<option value="' + c + '"' + (c === t.status ? ' selected' : '') + '>' + c + '</option>').join('');
+  document.getElementById('panelReviewPacketTitle').value = '';
   document.getElementById('panelApproveBtn').style.display = (me.role === 'architect' && t.request_approval && !t.request_approval.approved) ? '' : 'none';
+  setPanelActionAvailability(true);
   renderPanelComments(t);
+  renderApprovalMeta(t);
+  if (options.sync !== false) syncTaskRoute(id, Boolean(options.replaceRoute));
   showTaskPanel();
 }
 
 function openNewTask(){
   if (!canWrite) return;
   activeTaskId = '';
+  setPanelNotice('');
   document.getElementById('taskPanelTitle').textContent = 'Create Task';
+  setPanelContentVisible(true);
   document.getElementById('d_taskId').value = '';
   document.getElementById('d_title').value = '';
   document.getElementById('d_owner').value = '';
@@ -7846,57 +8187,123 @@ function openNewTask(){
   document.getElementById('d_refs').value = '';
   document.getElementById('d_desc').value = '';
   document.getElementById('d_status').innerHTML = columns.map(c => '<option value="' + c + '">' + c + '</option>').join('');
+  document.getElementById('panelReviewPacketTitle').value = '';
+  document.getElementById('panelApprovalMeta').textContent = 'Save the task first to create or attach a review packet.';
   document.getElementById('panelApproveBtn').style.display = 'none';
+  setPanelActionAvailability(false);
   document.getElementById('panelComments').innerHTML = '<div class="text-muted">Save task first to enable comments.</div>';
+  syncTaskRoute('', true);
   showTaskPanel();
 }
 
 async function saveTask(){
   const id = document.getElementById('d_taskId').value;
+  const targetStatus = document.getElementById('d_status').value;
   const payload = {
     title: document.getElementById('d_title').value.trim(),
     owner: document.getElementById('d_owner').value.trim() || null,
     due_date: document.getElementById('d_due_date').value || null,
     priority: document.getElementById('d_priority').value,
-    status: document.getElementById('d_status').value,
     tags: toArray(document.getElementById('d_tags').value),
     linked_refs: toArray(document.getElementById('d_refs').value),
     description: document.getElementById('d_desc').value || ''
   };
-  if (!payload.title) return alert('Title is required');
+  if (!payload.title) {
+    setPanelNotice('Title is required before saving.', 'warning');
+    document.getElementById('d_title').focus();
+    return;
+  }
+  setPanelNotice('');
   const url = id ? api('/tasks/' + encodeURIComponent(id)) : api('/tasks');
   const method = id ? 'PATCH' : 'POST';
   const r = await fetch(url, { method, headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
-  if(!r.ok){ alert('Save failed'); return; }
+  if(!r.ok){
+    setPanelNotice(await readErrorMessage(r, 'Save failed'), 'danger');
+    return;
+  }
   const j = await r.json().catch(()=>null);
+  const reopenId = id || j?.id || j?.task?.id || '';
+  let statusWarning = '';
+  if (reopenId) {
+    const savedTask = id
+      ? (boardData.tasks || []).find((task) => task.id === reopenId)
+      : null;
+    const currentStatus = savedTask?.status || 'Backlog';
+    if (targetStatus && targetStatus !== currentStatus) {
+      const moveResp = await fetch(api('/tasks/' + encodeURIComponent(reopenId) + '/move'), {
+        method: 'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ status: targetStatus })
+      });
+      if (!moveResp.ok) {
+        statusWarning = await readErrorMessage(moveResp, 'Task fields saved, but status update failed');
+      }
+    }
+  }
   await loadBoard();
-  const reopenId = id || j?.task?.id || '';
-  if (reopenId) openTaskPanel(reopenId);
+  if (reopenId) {
+    openTaskPanel(reopenId, { replaceRoute: true });
+    if (statusWarning) setPanelNotice(statusWarning, 'warning');
+    else setPanelNotice('Task saved.', 'success');
+  }
 }
 
 async function saveComment(){
   const id = document.getElementById('d_taskId').value;
   const text = document.getElementById('panelCommentText').value.trim();
-  if(!id) return alert('Save task first');
-  if(!text) return;
+  if(!id){
+    setPanelNotice('Save the task before adding comments.', 'warning');
+    return;
+  }
+  if(!text){
+    setPanelNotice('Comment text is required.', 'warning');
+    document.getElementById('panelCommentText').focus();
+    return;
+  }
+  setActionButtonState('panelCommentBtn', true, 'Adding Comment...', 'Add Comment');
+  setPanelNotice('');
   const r = await fetch(api('/tasks/' + encodeURIComponent(id) + '/comment'), { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ text }) });
-  if(!r.ok){ alert('Comment failed'); return; }
+  if(!r.ok){
+    setActionButtonState('panelCommentBtn', false, 'Adding Comment...', 'Add Comment');
+    setPanelNotice(await readErrorMessage(r, 'Comment failed'), 'danger');
+    return;
+  }
   document.getElementById('panelCommentText').value = '';
   await loadBoard();
-  openTaskPanel(id);
+  openTaskPanel(id, { sync: false, replaceRoute: true });
+  setActionButtonState('panelCommentBtn', false, 'Adding Comment...', 'Add Comment');
+  setPanelNotice('Comment added.', 'success');
 }
 
 async function requestApproval(id){
-  const title = prompt('Optional review packet title (blank to skip)','') || '';
+  const title = document.getElementById('panelReviewPacketTitle').value.trim();
+  setActionButtonState('panelRequestBtn', true, 'Requesting Approval...', 'Request Approval');
+  setPanelNotice('');
   const r = await fetch(api('/tasks/' + encodeURIComponent(id) + '/request-approval'), {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ create_review_packet: !!title, review_packet_title: title })});
-  if(!r.ok){ alert('Request approval failed'); return; }
+  if(!r.ok){
+    setActionButtonState('panelRequestBtn', false, 'Requesting Approval...', 'Request Approval');
+    setPanelNotice(await readErrorMessage(r, 'Request approval failed'), 'danger');
+    return;
+  }
   await loadBoard();
+  openTaskPanel(id, { sync: false, replaceRoute: true });
+  setActionButtonState('panelRequestBtn', false, 'Requesting Approval...', 'Request Approval');
+  setPanelNotice('Approval requested.', 'success');
 }
 
 async function approveTask(id){
+  setActionButtonState('panelApproveBtn', true, 'Approving...', 'Approve');
+  setPanelNotice('');
   const r = await fetch(api('/tasks/' + encodeURIComponent(id) + '/approve'), { method:'POST', headers:{'Content-Type':'application/json'}, body: '{}' });
-  if(!r.ok){ alert('Approve failed'); return; }
+  if(!r.ok){
+    setActionButtonState('panelApproveBtn', false, 'Approving...', 'Approve');
+    setPanelNotice(await readErrorMessage(r, 'Approve failed'), 'danger');
+    return;
+  }
   await loadBoard();
+  openTaskPanel(id, { sync: false, replaceRoute: true });
+  setActionButtonState('panelApproveBtn', false, 'Approving...', 'Approve');
+  setPanelNotice('Task approved and moved to Done.', 'success');
 }
 
 async function createInvite(){
@@ -7920,11 +8327,25 @@ if(document.getElementById('panelMoveBtn')) document.getElementById('panelMoveBt
   const id = document.getElementById('d_taskId').value;
   const status = document.getElementById('d_status').value;
   if (id && status) await moveTaskTo(id, status);
-  if (id) openTaskPanel(id);
+  if (id) openTaskPanel(id, { replaceRoute: true });
 });
 if(document.getElementById('inviteBtn')) document.getElementById('inviteBtn').addEventListener('click', createInvite);
 panelEl?.querySelector('.btn-close')?.addEventListener('click', hideTaskPanel);
+panelBackdrop?.addEventListener('click', hideTaskPanel);
+window.addEventListener('popstate', () => {
+  const id = routeTaskId();
+  if (id) openTaskPanel(id, { sync: false, replaceRoute: true });
+  else hideTaskPanel();
+});
+window.addEventListener('resize', () => {
+  if (panelOpen) showTaskPanel();
+  else renderEmptyPanel();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && (panelOpen || activeTaskId)) hideTaskPanel();
+});
 loadBoard();
+renderEmptyPanel();
 </script>
   </body></html>`);
 });

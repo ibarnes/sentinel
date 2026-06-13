@@ -1215,17 +1215,24 @@
         "task-detail-panel"
       ],
       "description": "Swap modal editing for a non-blocking side panel with full task fields (title, description, acceptance, tags, links, comments, status, owner, priority) and inline save actions.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "decomp-0028-20260613-0310",
+          "author": "sentinel",
+          "text": "Board build window 2026-06-13T03:10Z: selected TASK-0029 as the first live execution slice under this story because the existing board already had a panel shell, but it still lacked true route/state binding and a persistent desktop detail rail. Deferred TASK-0030 until the selection model is stable.",
+          "created_at": "2026-06-13T03:10:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-02-26T22:55:00Z",
+      "updated_at": "2026-06-13T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0029",
       "title": "TS-UI1.1 Implement board task detail drawer component + route/state binding",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -1235,20 +1242,31 @@
         "story:US-UI1"
       ],
       "linked_refs": [
-        "/dashboard/board"
+        "/dashboard/board",
+        "mission-control/review-packets/RP-2026-06-13T03-10-00Z-board-task-detail-rail-route-binding.md",
+        "mission-control/board/sweeps/2026-06-13T03-10-00Z-board-build-window-night.md",
+        "TASK-0421",
+        "TASK-0422"
       ],
       "description": "Add right-side drawer panel opened by task click; preserve board context; support keyboard close and mobile collapse.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "decomp-0029-20260613-0310",
+          "author": "sentinel",
+          "text": "Board build window 2026-06-13T03:10Z: decomposition gate applied before execution. Added TASK-0421 (persistent desktop detail rail + route-bound task selection) and TASK-0422 (panel reopen hardening + comment metadata fidelity). Both slices were executed and staged for review under RP-2026-06-13T03-10-00Z.",
+          "created_at": "2026-06-13T03:10:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-02-26T22:55:00Z",
+      "updated_at": "2026-06-13T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
     {
       "id": "TASK-0030",
       "title": "TS-UI1.2 Wire drawer form fields to existing task update APIs + validation",
-      "status": "Backlog",
+      "status": "In Progress",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -1258,13 +1276,34 @@
         "story:US-UI1"
       ],
       "linked_refs": [
-        "task update api"
+        "task update api",
+        "TASK-0424",
+        "TASK-0425",
+        "mission-control/review-packets/RP-2026-06-13T10-40-00Z-board-task-save-status-validation.md",
+        "mission-control/board/sweeps/2026-06-13T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0426",
+        "TASK-0427",
+        "mission-control/review-packets/RP-2026-06-13T16-30-00Z-board-task-inline-approval-comment-flows.md",
+        "mission-control/board/sweeps/2026-06-13T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Bind all editable fields and save actions; keep audit logging and governance checks unchanged.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "decomp-0030-20260613-1040",
+          "author": "sentinel",
+          "text": "Board execution sweep 2026-06-13T10:40Z: decomposition gate applied before execution. Added TASK-0424 (actionable save validation + error surfacing) and TASK-0425 (status-aware save sequencing through the governed move endpoint). Both slices were executed and staged for review under RP-2026-06-13T10-40-00Z.",
+          "created_at": "2026-06-13T10:40:00Z"
+        },
+        {
+          "id": "decomp-0030-20260613-1630",
+          "author": "sentinel",
+          "text": "Board progress sweep 2026-06-13T16:30Z: decomposition gate reapplied before continuing TASK-0030. Added/executed TASK-0426 (inline comment notice flow) and TASK-0427 (inline approval UX + review-packet status). Both slices were staged for review under RP-2026-06-13T16-30-00Z.",
+          "created_at": "2026-06-13T16:30:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-02-26T22:55:00Z",
+      "updated_at": "2026-06-13T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4018,18 +4057,18 @@
           "id": "decomp-0097-20260610-1040",
           "author": "sentinel",
           "created_at": "2026-06-10T10:40:00Z",
-      "text": "Morning decomposition gate: executed TASK-0404/TASK-0405 for fresh blocker evidence + one-pass operator handoff refresh. Live credentialed 201/400 smoke remains blocked pending BASE_URL, TEAM_SESSION_COOKIE, and a concrete target."
-    },
-    {
-      "id": "parked-presentation-studio-20260612-task-0097",
-      "author": "sentinel",
-      "text": "Board progress sweep 2026-06-12T16:31Z: aligned this Presentation Studio live-smoke row to the parked-state reset. The task stays available as dormant infrastructure work but is no longer treated as active In Progress execution.",
-      "created_at": "2026-06-12T16:31:00Z"
-    }
-  ],
-  "request_approval": null,
-  "created_at": "2026-03-05T17:30:00Z",
-  "updated_at": "2026-06-12T16:31:00Z",
+          "text": "Morning decomposition gate: executed TASK-0404/TASK-0405 for fresh blocker evidence + one-pass operator handoff refresh. Live credentialed 201/400 smoke remains blocked pending BASE_URL, TEAM_SESSION_COOKIE, and a concrete target."
+        },
+        {
+          "id": "parked-presentation-studio-20260612-task-0097",
+          "author": "sentinel",
+          "text": "Board progress sweep 2026-06-12T16:31Z: aligned this Presentation Studio live-smoke row to the parked-state reset. The task stays available as dormant infrastructure work but is no longer treated as active In Progress execution.",
+          "created_at": "2026-06-12T16:31:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-05T17:30:00Z",
+      "updated_at": "2026-06-12T16:31:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -4897,18 +4936,18 @@
           "id": "decomp-0103-20260611-1630",
           "author": "sentinel",
           "created_at": "2026-06-11T16:30:00Z",
-      "text": "Midday decomposition gate: added/executed TASK-0411 and TASK-0412 to normalize TEAM_SESSION_COOKIE/COOKIE handling across the live smoke path and publish a copy-paste shell pack for direct and selector execution modes. Parent remains credential-gated on real BASE_URL plus session cookie, but operator friction is lower and alias handling is now deterministic."
-    },
-    {
-      "id": "parked-presentation-studio-20260612-task-0103",
-      "author": "sentinel",
-      "text": "Board progress sweep 2026-06-12T16:31Z: moved this credentialed Presentation Studio execution row back to Backlog under Isaac's parked-state reset. Keep the handoff artifacts, but do not treat this as live default-cycle work unless the Studio effort is explicitly reopened.",
-      "created_at": "2026-06-12T16:31:00Z"
-    }
-  ],
-  "request_approval": null,
-  "created_at": "2026-03-06T17:30:00Z",
-  "updated_at": "2026-06-12T16:31:00Z",
+          "text": "Midday decomposition gate: added/executed TASK-0411 and TASK-0412 to normalize TEAM_SESSION_COOKIE/COOKIE handling across the live smoke path and publish a copy-paste shell pack for direct and selector execution modes. Parent remains credential-gated on real BASE_URL plus session cookie, but operator friction is lower and alias handling is now deterministic."
+        },
+        {
+          "id": "parked-presentation-studio-20260612-task-0103",
+          "author": "sentinel",
+          "text": "Board progress sweep 2026-06-12T16:31Z: moved this credentialed Presentation Studio execution row back to Backlog under Isaac's parked-state reset. Keep the handoff artifacts, but do not treat this as live default-cycle work unless the Studio effort is explicitly reopened.",
+          "created_at": "2026-06-12T16:31:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-03-06T17:30:00Z",
+      "updated_at": "2026-06-12T16:31:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -12438,7 +12477,7 @@
     {
       "id": "TASK-0269",
       "title": "BRS-2026-04-29d Apply approved tranche-AH transitions and publish delta log",
-      "status": "In Progress",
+      "status": "Blocked",
       "owner": "sentinel",
       "due_date": null,
       "priority": "P1",
@@ -12472,7 +12511,10 @@
         "mission-control/board/sweeps/2026-06-06T06-30-00Z-board-recovery-sweep-late-night.md",
         "TASK-0408",
         "mission-control/board/approval-queue/2026-06-11T06-30-00Z-board-recovery-decision-response-refresh.md",
-        "mission-control/board/sweeps/2026-06-11T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-06-11T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0423",
+        "mission-control/board/approval-queue/2026-06-13T06-30-00Z-board-recovery-live-decision-minimum.md",
+        "mission-control/board/sweeps/2026-06-13T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
       "comments": [
@@ -12584,11 +12626,17 @@
           "author": "sentinel",
           "created_at": "2026-06-11T06:30:00Z",
           "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0408 to refresh the unified response block against the June 11 live preview so the next Isaac reply can fill the exact 18 missing decisions without reconciling older response artifacts."
+        },
+        {
+          "id": "recovery-0269-20260613-0630",
+          "author": "sentinel",
+          "created_at": "2026-06-13T06:30:00Z",
+          "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0423 to replace the stale 18-row decision packet with a live 3-row decision minimum after the June 12 board compaction. Parent status realigned from In Progress to Blocked because no autonomous execution remains before Isaac input."
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-06-11T06:30:00Z",
+      "updated_at": "2026-06-13T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -19118,6 +19166,332 @@
       "updated_at": "2026-06-12T16:31:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0421",
+      "title": "TS-UI1.1a Add persistent board detail rail + route-bound task selection",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-90m",
+        "board-build-window-night",
+        "child-of:TASK-0029",
+        "atomic"
+      ],
+      "parent_id": "TASK-0029",
+      "linked_refs": [
+        "TASK-0029",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-13T03-10-00Z-board-task-detail-rail-route-binding.md",
+        "mission-control/board/sweeps/2026-06-13T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-90m slice. Convert the existing board task panel into a persistent desktop detail rail while keeping mobile collapse behavior, and bind selected-task state to `?task=TASK-ID`. Acceptance Criteria:\n- Desktop board layout keeps a visible non-blocking detail rail.\n- Mobile panel remains dismissible.\n- Opening a task syncs URL state and browser navigation reopens the selected task.",
+      "comments": [
+        {
+          "id": "executed-task-0421-20260613-0310",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-13T03:10Z board build window. `/board` now uses a persistent desktop detail rail, keeps mobile collapse behavior, and reopens selected tasks from the `?task=` query param via browser navigation.",
+          "created_at": "2026-06-13T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-06-13T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-13T03-10-00Z-board-task-detail-rail-route-binding.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-06-13T03:10:00Z",
+      "updated_at": "2026-06-13T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-2026-06-13T03-10-00Z"
+    },
+    {
+      "id": "TASK-0422",
+      "title": "TS-UI1.1b Harden board panel reopen state + comment metadata fidelity",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-90m",
+        "board-build-window-night",
+        "child-of:TASK-0029",
+        "atomic"
+      ],
+      "parent_id": "TASK-0029",
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0421",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-13T03-10-00Z-board-task-detail-rail-route-binding.md",
+        "mission-control/board/sweeps/2026-06-13T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-90m slice. Tighten the board-panel state loop so saves and reloads preserve the correct selected task and comment metadata displays the canonical stored fields. Acceptance Criteria:\n- Creating a new task reopens the saved task record.\n- Reloaded board data restores the selected task when it still exists.\n- Comment list renders stored `author` and `created_at` values.",
+      "comments": [
+        {
+          "id": "executed-task-0422-20260613-0310",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-13T03:10Z board build window. New tasks now reopen correctly after save, board reload keeps the selected task when possible, and comment rendering now uses the canonical `author` / `created_at` fields instead of stale aliases.",
+          "created_at": "2026-06-13T03:10:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-06-13T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-13T03-10-00Z-board-task-detail-rail-route-binding.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-06-13T03:10:00Z",
+      "updated_at": "2026-06-13T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-2026-06-13T03-10-00Z"
+    },
+    {
+      "id": "TASK-0423",
+      "title": "BRS-2026-06-13a Refresh live post-closeout recovery decision minimum",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "recovery",
+        "board-recovery",
+        "decomposed",
+        "30-60m",
+        "decision-gated",
+        "late-night-recovery",
+        "child-of:TASK-0269"
+      ],
+      "parent_id": "TASK-0269",
+      "linked_refs": [
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "mission-control/board/approval-queue/2026-06-11T06-30-00Z-board-recovery-decision-response-refresh.md",
+        "mission-control/board/approval-queue/2026-06-13T06-30-00Z-board-recovery-live-decision-minimum.md",
+        "mission-control/board/sweeps/2026-06-13T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Refresh the decision-gated recovery lane against the post-2026-06-12 live board so Isaac only sees still-open rows instead of stale already-closed packet entries.\nAcceptance Criteria:\n- Compares the June 11 response block against the current live board.\n- Publishes only the still-open decision-gated rows.\n- Explicitly flags any residue rows that now look superseded after compaction.",
+      "comments": [
+        {
+          "id": "executed-task-0423-20260613-0630",
+          "author": "sentinel",
+          "text": "Executed in late-night recovery sweep. Published a live decision-minimum artifact that cuts the stale recovery response from 18 rows down to the 3 still-open decision-gated rows after the June 12 board compaction.",
+          "created_at": "2026-06-13T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-13T06:30:00Z",
+      "updated_at": "2026-06-13T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0424",
+      "title": "TS-UI1.2a Add actionable board-detail save validation and error surfacing",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-90m",
+        "board-execution-sweep-morning",
+        "child-of:TASK-0030",
+        "atomic"
+      ],
+      "parent_id": "TASK-0030",
+      "linked_refs": [
+        "TASK-0030",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-13T10-40-00Z-board-task-save-status-validation.md",
+        "mission-control/board/sweeps/2026-06-13T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-90m slice. Add board-detail save validation that explains what failed instead of showing a generic save error. Acceptance Criteria:\n- Missing title is surfaced inline inside the task panel.\n- Server-side save and move failures show the returned error detail.\n- Notice state clears when the panel changes context.",
+      "comments": [
+        {
+          "id": "executed-task-0424-20260613-1040",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-13T10:40Z board execution sweep. The task panel now shows inline validation and save/move error details instead of a generic failure alert, and notice state resets when switching task context.",
+          "created_at": "2026-06-13T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-06-13T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-13T10-40-00Z-board-task-save-status-validation.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-06-13T10:40:00Z",
+      "updated_at": "2026-06-13T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-2026-06-13T10-40-00Z"
+    },
+    {
+      "id": "TASK-0425",
+      "title": "TS-UI1.2b Honor selected board status on save via governed move sequencing",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-90m",
+        "board-execution-sweep-morning",
+        "child-of:TASK-0030",
+        "atomic"
+      ],
+      "parent_id": "TASK-0030",
+      "linked_refs": [
+        "TASK-0030",
+        "TASK-0424",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-13T10-40-00Z-board-task-save-status-validation.md",
+        "mission-control/board/sweeps/2026-06-13T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-90m slice. Keep task edit saves inside the existing PATCH API, but when the selected status changed, apply it immediately through the governed move endpoint so approval and gate checks still fire. Acceptance Criteria:\n- New tasks can land in the selected non-Backlog status through create-plus-move sequencing.\n- Existing tasks preserve field edits and then attempt the selected status transition.\n- If the move is blocked, the task remains saved and the user sees the specific blocker reason.",
+      "comments": [
+        {
+          "id": "executed-task-0425-20260613-1040",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-13T10:40Z board execution sweep. Board detail saves now sequence through `/api/tasks/:id/move` when the selected status changed, so governed transitions still apply while field edits remain preserved.",
+          "created_at": "2026-06-13T10:40:00Z"
+        }
+      ],
+      "request_approval": {
+        "requested_at": "2026-06-13T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-13T10-40-00Z-board-task-save-status-validation.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-06-13T10:40:00Z",
+      "updated_at": "2026-06-13T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-2026-06-13T10-40-00Z"
+    },
+    {
+      "id": "TASK-0426",
+      "title": "TS-UI1.2c Replace board-detail comment alerts with inline notice flow",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-90m",
+        "board-progress-sweep-midday",
+        "child-of:TASK-0030",
+        "atomic"
+      ],
+      "parent_id": "TASK-0030",
+      "request_approval": {
+        "requested_at": "2026-06-13T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-13T16-30-00Z-board-task-inline-approval-comment-flows.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-06-13T16:30:00Z",
+      "updated_at": "2026-06-13T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-2026-06-13T16-30-00Z",
+      "linked_refs": [
+        "TASK-0030",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-13T16-30-00Z-board-task-inline-approval-comment-flows.md",
+        "mission-control/board/sweeps/2026-06-13T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-90m slice. Keep board-detail commenting inside the persistent panel by replacing alert-based failures with inline notice states and success recovery. Acceptance Criteria:\n- Unsaved-task and empty-comment cases surface inline inside the panel.\n- Comment API failures show returned error detail inline.\n- Successful comments clear the composer, keep the selected task open, and show a success notice.",
+      "comments": [
+        {
+          "id": "executed-task-0426-20260613-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-13T16:30Z board progress sweep. Comment creation now uses inline panel notices for validation, server errors, and success recovery instead of browser alerts.",
+          "created_at": "2026-06-13T16:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TASK-0427",
+      "title": "TS-UI1.2d Inline approval request UX and review-packet status in board detail rail",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-90m",
+        "board-progress-sweep-midday",
+        "child-of:TASK-0030",
+        "atomic"
+      ],
+      "parent_id": "TASK-0030",
+      "request_approval": {
+        "requested_at": "2026-06-13T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-13T16-30-00Z-board-task-inline-approval-comment-flows.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-06-13T16:30:00Z",
+      "updated_at": "2026-06-13T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-2026-06-13T16-30-00Z",
+      "linked_refs": [
+        "TASK-0030",
+        "TASK-0426",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-13T16-30-00Z-board-task-inline-approval-comment-flows.md",
+        "mission-control/board/sweeps/2026-06-13T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-90m slice. Keep review-packet actions inside the board detail rail by replacing prompt/alert flows with inline approval UX and visible packet status. Acceptance Criteria:\n- Request Approval uses an inline optional title field instead of a browser prompt.\n- Approval request and approve failures show returned error detail inline.\n- The selected task shows current review-packet and approval status after reload.",
+      "comments": [
+        {
+          "id": "executed-task-0427-20260613-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-13T16:30Z board progress sweep. Request Approval and Approve now run through inline panel state, and the board detail rail shows review-packet status instead of forcing browser dialogs.",
+          "created_at": "2026-06-13T16:30:00Z"
+        }
+      ]
     }
   ]
 }
