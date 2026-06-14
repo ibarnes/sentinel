@@ -6527,6 +6527,7 @@ function defaultBoardSchema() {
             tags: { type: 'array', items: { type: 'string' } },
             linked_refs: { type: 'array', items: { type: 'string' } },
             description: { type: ['string', 'null'] },
+            acceptance_criteria: { type: 'array', items: { type: 'string' } },
             comments: {
               type: 'array',
               items: {
@@ -6609,6 +6610,86 @@ function meetingMinutesSchemaV1() {
 
 function defaultBoard() {
   return { version: 1, tasks: [] };
+}
+
+const LEGACY_BOARD_STATUS_MAP = Object.freeze({
+  Todo: 'Backlog',
+  'To Do': 'Backlog',
+  'In Progress': 'Doing',
+  Review: 'Ready for Review',
+});
+
+function stableLegacyBoardCommentId(taskId, index, raw) {
+  const digest = crypto
+    .createHash('sha1')
+    .update(JSON.stringify([taskId || '', index, raw ?? null]))
+    .digest('hex')
+    .slice(0, 12);
+  return `legacy-${taskId || 'task'}-comment-${digest}`;
+}
+
+function normalizeBoardStatus(status) {
+  const raw = String(status || '').trim();
+  if (BOARD_COLUMNS.includes(raw)) return raw;
+  return LEGACY_BOARD_STATUS_MAP[raw] || 'Backlog';
+}
+
+function normalizeBoardComment(task, comment, index) {
+  const fallbackTs = String(task?.updated_at || task?.created_at || '1970-01-01T00:00:00Z');
+  if (typeof comment === 'string') {
+    const match = comment.match(/^\[(.+?)\]\s*(.*)$/);
+    return {
+      id: stableLegacyBoardCommentId(task?.id, index, comment),
+      author: 'sentinel',
+      text: (match?.[2] || comment).trim(),
+      created_at: String(match?.[1] || fallbackTs),
+    };
+  }
+
+  const source = comment && typeof comment === 'object' ? comment : {};
+  return {
+    id: String(source.id || stableLegacyBoardCommentId(task?.id, index, source)),
+    author: String(source.author || source.by || 'sentinel'),
+    text: String(
+      source.text
+      ?? source.message
+      ?? source.body
+      ?? ''
+    ),
+    created_at: String(source.created_at || source.at || source.timestamp || fallbackTs),
+  };
+}
+
+function normalizeBoardTask(task, index) {
+  const base = task && typeof task === 'object' ? task : {};
+  const comments = Array.isArray(base.comments) ? base.comments : [];
+  return {
+    ...base,
+    id: String(base.id || `TASK-LEGACY-${index + 1}`),
+    title: String(base.title || `Legacy task ${index + 1}`),
+    status: normalizeBoardStatus(base.status),
+    priority: BOARD_PRIORITIES.includes(base.priority) ? base.priority : 'P2',
+    tags: Array.isArray(base.tags) ? base.tags.map(String) : [],
+    linked_refs: Array.isArray(base.linked_refs) ? base.linked_refs.map(String) : [],
+    description: base.description == null ? '' : String(base.description),
+    acceptance_criteria: Array.isArray(base.acceptance_criteria)
+      ? base.acceptance_criteria.map(String).map((item) => item.trim()).filter(Boolean)
+      : [],
+    comments: comments.map((comment, commentIndex) => normalizeBoardComment(base, comment, commentIndex)),
+    created_at: String(base.created_at || base.updated_at || '1970-01-01T00:00:00Z'),
+    updated_at: String(base.updated_at || base.created_at || '1970-01-01T00:00:00Z'),
+    created_by: String(base.created_by || base.updated_by || 'sentinel'),
+    updated_by: String(base.updated_by || base.created_by || 'sentinel'),
+  };
+}
+
+function normalizeBoardDocument(board) {
+  const source = board && typeof board === 'object' ? board : defaultBoard();
+  const tasks = Array.isArray(source.tasks) ? source.tasks : [];
+  return {
+    version: Number.isInteger(source.version) ? source.version : 1,
+    tasks: tasks.map((task, index) => normalizeBoardTask(task, index)),
+  };
 }
 
 function defaultUsers() {
@@ -6847,7 +6928,9 @@ async function loadBoardValidator() {
 
 async function readJson(filePath, fallback) {
   try {
-    return JSON.parse(await fs.readFile(filePath, 'utf8'));
+    const parsed = JSON.parse(await fs.readFile(filePath, 'utf8'));
+    if (filePath === BOARD_FILE) return normalizeBoardDocument(parsed);
+    return parsed;
   } catch {
     return fallback;
   }
@@ -7192,6 +7275,7 @@ function sanitizeTaskPatch(input = {}) {
   if (Array.isArray(input.tags)) out.tags = input.tags.map(String).map((x) => x.trim()).filter(Boolean);
   if (Array.isArray(input.linked_refs)) out.linked_refs = input.linked_refs.map(String).map((x) => x.trim()).filter(Boolean);
   if (typeof input.description === 'string' || input.description === null) out.description = input.description;
+  if (Array.isArray(input.acceptance_criteria)) out.acceptance_criteria = input.acceptance_criteria.map(String).map((x) => x.trim()).filter(Boolean);
   return out;
 }
 
@@ -7365,6 +7449,7 @@ async function createSnapshot(reason = 'state.change') {
 
 async function writeBoard(board, actor, eventType, taskId, before, after, role = 'editor') {
   if (!boardValidator) await loadBoardValidator();
+  board = normalizeBoardDocument(board);
   const ok = boardValidator(board);
   if (!ok) {
     throw new Error('BOARD validation failed: ' + ajv.errorsText(boardValidator.errors));
@@ -7827,9 +7912,10 @@ app.get('/board', requireAnyAuth, async (_req, res) => {
           <div class="col-6"><label class="form-label small">Due date</label><input type="date" class="form-control form-control-sm" id="d_due_date" /></div>
           <div class="col-6"><label class="form-label small">Priority</label><select class="form-select form-select-sm" id="d_priority"><option>P0</option><option>P1</option><option>P2</option><option>P3</option></select></div>
           <div class="col-6"><label class="form-label small">Status</label><select class="form-select form-select-sm" id="d_status"></select></div>
+          <div class="col-12"><label class="form-label small">Description</label><textarea class="form-control form-control-sm" id="d_desc" rows="4"></textarea></div>
+          <div class="col-12"><label class="form-label small">Acceptance criteria (one per line)</label><textarea class="form-control form-control-sm" id="d_acceptance" rows="4"></textarea></div>
           <div class="col-12"><label class="form-label small">Tags (comma separated)</label><input class="form-control form-control-sm" id="d_tags" /></div>
           <div class="col-12"><label class="form-label small">Linked refs (comma separated)</label><input class="form-control form-control-sm" id="d_refs" /></div>
-          <div class="col-12"><label class="form-label small">Description</label><textarea class="form-control form-control-sm" id="d_desc" rows="4"></textarea></div>
         </div>
         <div class="d-flex flex-wrap gap-2 mt-3">
           <button id="panelSaveBtn" class="btn btn-sm btn-primary">Save</button>
@@ -7981,6 +8067,7 @@ function hideTaskPanel(){
 }
 
 function toArray(v){ return String(v || '').split(',').map(x => x.trim()).filter(Boolean); }
+function toLineArray(v){ return String(v || '').split('\n').map(x => x.trim()).filter(Boolean); }
 
 function esc(s){ return String(s ?? '').replace(/[&<>]/g, (c)=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
 
@@ -8161,6 +8248,7 @@ function openTaskPanel(id, options = {}){
   document.getElementById('d_tags').value = (t.tags || []).join(',');
   document.getElementById('d_refs').value = (t.linked_refs || []).join(',');
   document.getElementById('d_desc').value = t.description || '';
+  document.getElementById('d_acceptance').value = Array.isArray(t.acceptance_criteria) ? t.acceptance_criteria.join('\n') : '';
   const statusSel = document.getElementById('d_status');
   statusSel.innerHTML = columns.map(c => '<option value="' + c + '"' + (c === t.status ? ' selected' : '') + '>' + c + '</option>').join('');
   document.getElementById('panelReviewPacketTitle').value = '';
@@ -8186,6 +8274,7 @@ function openNewTask(){
   document.getElementById('d_tags').value = '';
   document.getElementById('d_refs').value = '';
   document.getElementById('d_desc').value = '';
+  document.getElementById('d_acceptance').value = '';
   document.getElementById('d_status').innerHTML = columns.map(c => '<option value="' + c + '">' + c + '</option>').join('');
   document.getElementById('panelReviewPacketTitle').value = '';
   document.getElementById('panelApprovalMeta').textContent = 'Save the task first to create or attach a review packet.';
@@ -8206,7 +8295,8 @@ async function saveTask(){
     priority: document.getElementById('d_priority').value,
     tags: toArray(document.getElementById('d_tags').value),
     linked_refs: toArray(document.getElementById('d_refs').value),
-    description: document.getElementById('d_desc').value || ''
+    description: document.getElementById('d_desc').value || '',
+    acceptance_criteria: toLineArray(document.getElementById('d_acceptance').value)
   };
   if (!payload.title) {
     setPanelNotice('Title is required before saving.', 'warning');
@@ -9941,6 +10031,7 @@ app.post('/api/tasks', requireRole('architect', 'editor'), async (req, res) => {
     tags: body.tags || [],
     linked_refs: body.linked_refs || [],
     description: body.description || '',
+    acceptance_criteria: body.acceptance_criteria || [],
     comments: [],
     request_approval: null,
     created_at: nowIso(),
@@ -10119,6 +10210,7 @@ app.post('/api/tasks/:id/request-approval', requireRole('architect', 'editor'), 
     const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
     const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
     const definitions = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
+    const gateChecks = await readJson(DASHBOARD_GATE_CONTROL_CHECKS_FILE, { gates: {} });
     const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || '').toUpperCase(), i]));
     const transitionsByInitiative = new Map();
     for (const tr of (transitions || [])) {

@@ -1307,7 +1307,12 @@
         "mission-control/board/sweeps/2026-06-14T03-10-00Z-board-build-window-night.md",
         "TASK-0430",
         "mission-control/review-packets/RP-2026-06-14T10-40-00Z-board-task-editing-review-handoff.md",
-        "mission-control/board/sweeps/2026-06-14T10-40-00Z-board-execution-sweep-morning.md"
+        "mission-control/board/sweeps/2026-06-14T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0431",
+        "TASK-0432",
+        "mission-control/review-packets/RP-2026-06-14T16-30-00Z-board-write-path-normalization.md",
+        "mission-control/review-packets/RP-2026-06-14T16-30-00Z-board-smoke-validation-receipt.md",
+        "mission-control/board/sweeps/2026-06-14T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Bind all editable fields and save actions; keep audit logging and governance checks unchanged.",
       "comments": [
@@ -1334,6 +1339,12 @@
           "author": "sentinel",
           "text": "Morning execution sweep 2026-06-14T10:40Z: executed TASK-0430 to publish one reviewer-facing handoff for the full TS-UI1.2 editing lane and moved the parent from In Progress to Ready for Review because all autonomous coding slices (TASK-0424 through TASK-0428) are complete. Remaining follow-through is review plus authenticated browser smoke, not new implementation.",
           "created_at": "2026-06-14T10:40:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260614-1630",
+          "author": "sentinel",
+          "text": "Midday sweep 2026-06-14T16:30Z: no honest In Progress row remained, so the top active board UI lane stayed TASK-0030 in Ready for Review. Added/executed TASK-0431 (legacy BOARD write-path normalization) and TASK-0432 (isolated authenticated smoke receipt). The lane now survives historical schema drift; remaining approval-path risk is governance/data readiness rather than server crashes.",
+          "created_at": "2026-06-14T16:30:00Z"
         }
       ],
       "request_approval": {
@@ -1345,7 +1356,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-14T10:40:00Z",
+      "updated_at": "2026-06-14T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-14T10-40-00Z"
@@ -19680,6 +19691,101 @@
       "updated_at": "2026-06-14T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0431",
+      "title": "TS-UI1.2g Normalize legacy BOARD rows before strict write validation",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-progress-sweep-midday",
+        "child-of:TASK-0030",
+        "atomic"
+      ],
+      "parent_id": "TASK-0030",
+      "request_approval": {
+        "requested_at": "2026-06-14T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-14T16-30-00Z-board-write-path-normalization.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-06-14T16:30:00Z",
+      "updated_at": "2026-06-14T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-2026-06-14T16-30-00Z-A",
+      "linked_refs": [
+        "TASK-0030",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-14T16-30-00Z-board-write-path-normalization.md",
+        "mission-control/board/sweeps/2026-06-14T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Normalize legacy board rows before runtime use and persistence validation so authenticated task edits do not crash on historical schema drift.\nAcceptance Criteria:\n- Legacy status values map onto the current board column set before strict validation.\n- Legacy comment shapes normalize into `{ id, author, text, created_at }` before writeBoard validation.\n- Authenticated create/edit/comment board writes no longer fail solely because older BOARD.json rows use stale shapes.",
+      "comments": [
+        {
+          "id": "executed-task-0431-20260614-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-14T16:30Z board progress sweep. Added deterministic legacy status/comment normalization ahead of strict BOARD validation so board writes survive historical row drift.",
+          "created_at": "2026-06-14T16:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TASK-0432",
+      "title": "TS-UI1.2h Publish isolated board smoke receipt and governed approval blocker",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-progress-sweep-midday",
+        "child-of:TASK-0030",
+        "atomic"
+      ],
+      "parent_id": "TASK-0030",
+      "request_approval": {
+        "requested_at": "2026-06-14T16:30:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-14T16-30-00Z-board-smoke-validation-receipt.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-06-14T16:30:00Z",
+      "updated_at": "2026-06-14T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-2026-06-14T16-30-00Z-B",
+      "linked_refs": [
+        "TASK-0030",
+        "TASK-0431",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-14T16-30-00Z-board-smoke-validation-receipt.md",
+        "mission-control/board/sweeps/2026-06-14T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Run isolated authenticated board smoke for the detail-rail editing lane and publish the exact governed approval blocker instead of leaving the validation story implied.\nAcceptance Criteria:\n- Isolated authenticated smoke proves login plus create/edit/comment/cleanup for `/board`.\n- Request Approval failure mode is captured explicitly when the state gate blocks the scratch task.\n- Any runtime defect found during smoke is either fixed or documented in the receipt before the slice moves to review.",
+      "comments": [
+        {
+          "id": "executed-task-0432-20260614-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-14T16:30Z board progress sweep. Isolated authenticated smoke validated login, board load, create/edit/comment, and cleanup; the remaining blocker is governed approval readiness, not a crashing server path.",
+          "created_at": "2026-06-14T16:30:00Z"
+        }
+      ]
     }
   ]
 }
