@@ -1249,7 +1249,23 @@
         "TASK-0422",
         "TASK-0429",
         "mission-control/review-packets/RP-2026-06-14T06-30-00Z-board-task-detail-rail-review-handoff.md",
-        "mission-control/board/sweeps/2026-06-14T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-06-14T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0435",
+        "mission-control/review-packets/RP-2026-06-15T10-40-00Z-board-task-detail-rail-validation-receipt.md",
+        "TASK-0436",
+        "mission-control/review-packets/RP-2026-06-15T10-40-00Z-board-task-detail-rail-review-refresh.md",
+        "mission-control/board/sweeps/2026-06-15T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0437",
+        "mission-control/board/approval-queue/2026-06-16T03-10-00Z-board-ui-review-bundle-card.md",
+        "mission-control/board/sweeps/2026-06-16T03-10-00Z-board-build-window-night.md",
+        "TASK-0438",
+        "mission-control/board/approval-queue/2026-06-16T06-30-00Z-board-ui-stale-review-routing-card.md",
+        "mission-control/board/sweeps/2026-06-16T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0439",
+        "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-bundle-response-template.md",
+        "TASK-0440",
+        "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-governed-closeout-preview.md",
+        "mission-control/board/sweeps/2026-06-16T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Add right-side drawer panel opened by task click; preserve board context; support keyboard close and mobile collapse.",
       "comments": [
@@ -1264,21 +1280,39 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep 2026-06-14T06:30Z: added and executed TASK-0429 to collapse the stale Ready-for-Review pair (TASK-0421/TASK-0422) into one reviewer-facing handoff packet. Parent moved from In Progress to Ready for Review because the implementation slices are complete and only review/browser smoke remain.",
           "created_at": "2026-06-14T06:30:00Z"
+        },
+        {
+          "id": "followthrough-0029-20260615-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-06-15T10:40Z: reapplying the decomposition gate still left TASK-0029 as an honest active review lane, so TASK-0435 published an isolated authenticated validation receipt for the detail rail and TASK-0436 refreshed the reviewer handoff to include that evidence plus the remaining local-browser policy boundary. Parent stays Ready for Review with one current packet instead of forcing review across the June 14 handoff and a separate validation note.",
+          "created_at": "2026-06-15T10:40:00Z"
+        },
+        {
+          "id": "followthrough-0029-20260616-0310",
+          "author": "sentinel",
+          "text": "Board build window 2026-06-16T03:10Z: no honest new coding remained inside TASK-0029, so TASK-0437 published one bundle approval-routing card spanning TASK-0029 and TASK-0030. Parent stays Ready for Review, but the live decision surface is now collapsed into one current artifact with explicit approve/hold branches.",
+          "created_at": "2026-06-16T03:10:00Z"
+        },
+        {
+          "id": "followthrough-0029-20260616-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep 2026-06-16T06:30Z: added and executed TASK-0438 to map the stale TS-UI1.1 and TS-UI1.2 child review leaves back to the current parent decision surface. Parent remains Ready for Review, but the queue now names TASK-0029/TASK-0030 as the only live approval asks unless Isaac explicitly requests child-level review.",
+          "created_at": "2026-06-16T06:30:00Z"
         }
       ],
       "request_approval": {
-        "requested_at": "2026-06-14T06:30:00Z",
+        "requested_at": "2026-06-15T10:40:00Z",
         "requested_by": "sentinel",
-        "review_packet_stub": "mission-control/review-packets/RP-2026-06-14T06-30-00Z-board-task-detail-rail-review-handoff.md",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-15T10-40-00Z-board-task-detail-rail-review-refresh.md",
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-14T06:30:00Z",
+      "updated_at": "2026-06-16T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
-      "review_packet_id": "RP-2026-06-14T06-30-00Z"
+      "review_packet_id": "RP-2026-06-15T10-40-00Z"
     },
     {
       "id": "TASK-0030",
@@ -1312,7 +1346,19 @@
         "TASK-0432",
         "mission-control/review-packets/RP-2026-06-14T16-30-00Z-board-write-path-normalization.md",
         "mission-control/review-packets/RP-2026-06-14T16-30-00Z-board-smoke-validation-receipt.md",
-        "mission-control/board/sweeps/2026-06-14T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-14T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0433",
+        "mission-control/review-packets/RP-2026-06-15T03-10-00Z-board-gate-preflight-surface.md",
+        "mission-control/board/sweeps/2026-06-15T03-10-00Z-board-build-window-night.md",
+        "TASK-0434",
+        "mission-control/review-packets/RP-2026-06-15T06-30-00Z-board-task-editing-lane-refresh.md",
+        "mission-control/board/sweeps/2026-06-15T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0437",
+        "mission-control/board/approval-queue/2026-06-16T03-10-00Z-board-ui-review-bundle-card.md",
+        "mission-control/board/sweeps/2026-06-16T03-10-00Z-board-build-window-night.md",
+        "TASK-0438",
+        "mission-control/board/approval-queue/2026-06-16T06-30-00Z-board-ui-stale-review-routing-card.md",
+        "mission-control/board/sweeps/2026-06-16T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Bind all editable fields and save actions; keep audit logging and governance checks unchanged.",
       "comments": [
@@ -1345,21 +1391,51 @@
           "author": "sentinel",
           "text": "Midday sweep 2026-06-14T16:30Z: no honest In Progress row remained, so the top active board UI lane stayed TASK-0030 in Ready for Review. Added/executed TASK-0431 (legacy BOARD write-path normalization) and TASK-0432 (isolated authenticated smoke receipt). The lane now survives historical schema drift; remaining approval-path risk is governance/data readiness rather than server crashes.",
           "created_at": "2026-06-14T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260615-0310",
+          "author": "sentinel",
+          "text": "Board build window 2026-06-15T03:10Z: reapplying the decomposition gate still left TASK-0030 as the only honest autonomous lane, so TASK-0433 was added/executed to surface governance blockers in the board detail rail before users hit Request Approval. The lane stays Ready for Review, but the approval path is now preflighted instead of failing as a surprise POST.",
+          "created_at": "2026-06-15T03:10:00Z"
+        },
+        {
+          "id": "recovery-0030-20260615-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep 2026-06-15T06:30Z: executed TASK-0434 to refresh the full TS-UI1.2 review packet after the smoke-validation and gate-preflight follow-through slices. Parent remains Ready for Review, but the reviewer surface is now current and consolidated instead of split across the older June 14 handoff plus later addenda.",
+          "created_at": "2026-06-15T06:30:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260616-0310",
+          "author": "sentinel",
+          "text": "Board build window 2026-06-16T03:10Z: because TASK-0030 no longer had an honest implementation gap, TASK-0437 was added/executed to publish one bundle approval-routing card for TASK-0030 plus TASK-0029. Parent remains Ready for Review; remaining movement is Isaac decision or an explicitly requested interactive replay, not more unattended coding.",
+          "created_at": "2026-06-16T03:10:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260616-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep 2026-06-16T06:30Z: added and executed TASK-0438 to route the stale board UI child leaves back to the current bundle-card decision surface. Parent remains Ready for Review, but the queue now explicitly treats the older child rows as subordinate review evidence instead of separate approval asks.",
+          "created_at": "2026-06-16T06:30:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260616-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-16T16:30Z: no honest implementation lane remained, so the live TS-UI1.x stream stayed reviewer-gated. Reapplied the decomposition gate and added/executed TASK-0439 (copy-paste owner response template for the bundle decision) plus TASK-0440 (governed closeout preview limited to the two parent rows). Parent remains Ready for Review, but the decision path is now easier to answer without reopening coding.",
+          "created_at": "2026-06-16T16:30:00Z"
         }
       ],
       "request_approval": {
-        "requested_at": "2026-06-14T10:40:00Z",
+        "requested_at": "2026-06-15T06:30:00Z",
         "requested_by": "sentinel",
-        "review_packet_stub": "mission-control/review-packets/RP-2026-06-14T10-40-00Z-board-task-editing-review-handoff.md",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-15T06-30-00Z-board-task-editing-lane-refresh.md",
         "approved": false,
         "approved_by": null,
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-14T16:30:00Z",
+      "updated_at": "2026-06-16T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
-      "review_packet_id": "RP-2026-06-14T10-40-00Z"
+      "review_packet_id": "RP-2026-06-15T06-30-00Z"
     },
     {
       "id": "TASK-0031",
@@ -19786,6 +19862,363 @@
           "created_at": "2026-06-14T16:30:00Z"
         }
       ]
+    },
+    {
+      "id": "TASK-0433",
+      "title": "TS-UI1.2i Surface board approval gate blockers before request-approval submit",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-build-window-night",
+        "child-of:TASK-0030",
+        "atomic"
+      ],
+      "parent_id": "TASK-0030",
+      "request_approval": {
+        "requested_at": "2026-06-15T03:10:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-15T03-10-00Z-board-gate-preflight-surface.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-06-15T03:10:00Z",
+      "updated_at": "2026-06-15T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-2026-06-15T03-10-00Z",
+      "linked_refs": [
+        "TASK-0030",
+        "TASK-0432",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-15T03-10-00Z-board-gate-preflight-surface.md",
+        "mission-control/board/sweeps/2026-06-15T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Surface governance gate status in the board detail rail before users click Request Approval so non-executable approval attempts explain themselves inline instead of failing as a surprise POST.\nAcceptance Criteria:\n- `/api/board` includes preflight gate status for Ready for Review and Done transitions.\n- The board detail rail shows the current approval gate reason inline for the selected task.\n- Request Approval is disabled in the rail when the Ready for Review gate is blocked, without altering the existing governed backend decision.",
+      "comments": [
+        {
+          "id": "executed-task-0433-20260615-0310",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-15T03:10Z board build window. The board API now returns gate preflight metadata, the detail rail shows Ready-for-Review and Done gate status inline, and blocked approval requests are disabled before submit instead of failing as a surprise POST.",
+          "created_at": "2026-06-15T03:10:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TASK-0434",
+      "title": "TS-UI1.2j Refresh full editing-lane review handoff after smoke and gate-preflight follow-through",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "late-night-recovery",
+        "child-of:TASK-0030",
+        "atomic"
+      ],
+      "parent_id": "TASK-0030",
+      "linked_refs": [
+        "TASK-0030",
+        "TASK-0430",
+        "TASK-0431",
+        "TASK-0432",
+        "TASK-0433",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-15T06-30-00Z-board-task-editing-lane-refresh.md",
+        "mission-control/board/sweeps/2026-06-15T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Refresh the single reviewer-facing TS-UI1.2 handoff so the current lane packet includes the later write-path normalization, authenticated smoke receipt, and approval-gate preflight follow-through rather than forcing review across multiple stale addenda.\nAcceptance Criteria:\n- One current packet summarizes TASK-0424 through TASK-0428 plus TASK-0431 through TASK-0433.\n- TASK-0030 points at the refreshed packet as its active review surface without changing governance status.\n- Sweep log explains that the remaining work is reviewer decision plus any explicitly requested browser follow-through, not additional unattended coding.",
+      "comments": [
+        {
+          "id": "executed-task-0434-20260615-0630",
+          "author": "sentinel",
+          "text": "Executed in late-night recovery sweep. Refreshed the TS-UI1.2 lane handoff into one current packet covering the original editing slices plus the later normalization, smoke, and gate-preflight follow-through work.",
+          "created_at": "2026-06-15T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-15T06:30:00Z",
+      "updated_at": "2026-06-15T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0435",
+      "title": "TS-UI1.1c Publish isolated authenticated detail-rail validation receipt and browser-policy boundary",
+      "status": "Ready for Review",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-execution-sweep-morning",
+        "child-of:TASK-0029",
+        "atomic"
+      ],
+      "parent_id": "TASK-0029",
+      "request_approval": {
+        "requested_at": "2026-06-15T10:40:00Z",
+        "requested_by": "sentinel",
+        "review_packet_stub": "mission-control/review-packets/RP-2026-06-15T10-40-00Z-board-task-detail-rail-validation-receipt.md",
+        "approved": false,
+        "approved_by": null,
+        "approved_at": null
+      },
+      "created_at": "2026-06-15T10:40:00Z",
+      "updated_at": "2026-06-15T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "review_packet_id": "RP-2026-06-15T10-40-00Z-A",
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0421",
+        "TASK-0422",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-15T10-40-00Z-board-task-detail-rail-validation-receipt.md",
+        "mission-control/board/sweeps/2026-06-15T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Validate the authenticated `/board` detail-rail lane against an isolated scratch root and publish the exact remaining browser-policy boundary instead of leaving the TS-UI1.1 review surface implied.\nAcceptance Criteria:\n- Authenticated scratch validation proves team login and `/api/board` task retrieval for `TASK-0029`.\n- The served `/board` HTML/CSS/JS contract shows the persistent desktop rail, mobile backdrop/collapse behavior, and `?task=TASK-ID` route synchronization logic for the TS-UI1.1 lane.\n- The receipt names the remaining limitation honestly if a true viewport-driven browser replay is blocked by local OpenClaw browser policy.",
+      "comments": [
+        {
+          "id": "executed-task-0435-20260615-1040",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-15T10:40Z board execution sweep. Validated authenticated `/board` access plus the served detail-rail markup and route-state contract on an isolated scratch root, then recorded that true viewport-driven replay remains blocked in cron because the OpenClaw browser policy refused the local scratch URL.",
+          "created_at": "2026-06-15T10:40:00Z"
+        }
+      ]
+    },
+    {
+      "id": "TASK-0436",
+      "title": "TS-UI1.1d Refresh detail-rail review handoff after isolated validation receipt",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-execution-sweep-morning",
+        "child-of:TASK-0029",
+        "atomic"
+      ],
+      "parent_id": "TASK-0029",
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0429",
+        "TASK-0435",
+        "/board",
+        "admin-server/src/server.js",
+        "mission-control/review-packets/RP-2026-06-15T10-40-00Z-board-task-detail-rail-review-refresh.md",
+        "mission-control/board/sweeps/2026-06-15T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-60m slice. Refresh the single reviewer-facing TS-UI1.1 handoff so the current packet includes the isolated validation receipt and the remaining local-browser policy boundary rather than forcing review across the older June 14 handoff plus a separate follow-through artifact.\nAcceptance Criteria:\n- One current packet summarizes TASK-0421, TASK-0422, and TASK-0435.\n- TASK-0029 points at the refreshed packet as its active review surface without changing governance status.\n- Sweep log explains that remaining movement is reviewer decision plus any explicitly requested interactive browser follow-through, not unattended coding.",
+      "comments": [
+        {
+          "id": "executed-task-0436-20260615-1040",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-15T10:40Z board execution sweep. Refreshed the TS-UI1.1 lane handoff into one current packet covering the original route-binding slices plus the new isolated validation receipt and browser-policy boundary.",
+          "created_at": "2026-06-15T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-15T10:40:00Z",
+      "updated_at": "2026-06-15T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0437",
+      "title": "TS-UI1.x Publish live board UI review bundle card for current approval decision",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-build-window-night",
+        "child-of:TASK-0030",
+        "atomic",
+        "governance"
+      ],
+      "parent_id": "TASK-0030",
+      "linked_refs": [
+        "TASK-0030",
+        "TASK-0029",
+        "TASK-0434",
+        "TASK-0436",
+        "mission-control/board/approval-queue/2026-06-16T03-10-00Z-board-ui-review-bundle-card.md",
+        "mission-control/board/sweeps/2026-06-16T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Publish one approval-routing card that collapses the live TASK-0029 and TASK-0030 review surface into a single current decision artifact rather than leaving two parallel asks plus older addenda.\nAcceptance Criteria:\n- One current card maps both parents to their active review packets and request timestamps.\n- The card states approve/hold options plus the exact interactive replay branch if Isaac wants more than the current contract-level evidence.\n- No BOARD status transition occurs; the work remains artifact-only and governance-safe.",
+      "comments": [
+        {
+          "id": "executed-task-0437-20260616-0310",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-16T03:10Z board build window. Published one current approval-routing card that bundles TASK-0029 and TASK-0030, names the exact approve/hold branches, and keeps the board honest by avoiding more speculative coding in an already-complete UI lane.",
+          "created_at": "2026-06-16T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-16T03:10:00Z",
+      "updated_at": "2026-06-16T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0438",
+      "title": "TS-UI1.x Route stale board UI review leaves to the current parent decision surface",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "late-night-recovery",
+        "child-of:TASK-0030",
+        "atomic",
+        "governance"
+      ],
+      "parent_id": "TASK-0030",
+      "linked_refs": [
+        "TASK-0030",
+        "TASK-0029",
+        "TASK-0421",
+        "TASK-0422",
+        "TASK-0424",
+        "TASK-0425",
+        "TASK-0426",
+        "TASK-0427",
+        "TASK-0428",
+        "TASK-0430",
+        "TASK-0431",
+        "TASK-0432",
+        "TASK-0433",
+        "TASK-0435",
+        "mission-control/board/approval-queue/2026-06-16T03-10-00Z-board-ui-review-bundle-card.md",
+        "mission-control/board/approval-queue/2026-06-16T06-30-00Z-board-ui-stale-review-routing-card.md",
+        "mission-control/board/sweeps/2026-06-16T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Publish one routing card that maps the stale TS-UI1.1 and TS-UI1.2 Ready-for-Review child leaves back to the current parent review artifacts so the live owner decision surface is the bundle card, not a scattered pile of aging child rows.\nAcceptance Criteria:\n- The card groups every stale board UI leaf under its parent review packet and bundle decision branch.\n- The card states that no additional unattended coding or status mutation is implied by the stale child rows.\n- The sweep log records the blocked recovery lane separately and keeps BOARD governance unchanged.",
+      "comments": [
+        {
+          "id": "executed-task-0438-20260616-0630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-16T06:30Z board recovery sweep. Published one stale-review routing card that collapses the aged board UI child leaves under the current TASK-0029/TASK-0030 review surface so the next honest movement is Isaac decision, not more packaging churn.",
+          "created_at": "2026-06-16T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-16T06:30:00Z",
+      "updated_at": "2026-06-16T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0439",
+      "title": "TS-UI1.x Publish copy-paste owner response template for the live board UI bundle",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-progress-sweep-midday",
+        "child-of:TASK-0030",
+        "atomic",
+        "governance"
+      ],
+      "parent_id": "TASK-0030",
+      "linked_refs": [
+        "TASK-0030",
+        "TASK-0029",
+        "TASK-0437",
+        "mission-control/board/approval-queue/2026-06-16T03-10-00Z-board-ui-review-bundle-card.md",
+        "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-bundle-response-template.md",
+        "mission-control/board/sweeps/2026-06-16T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Publish one copy-paste owner response template for the live TS-UI1.x bundle card so Isaac can answer the approval/hold branch in one short reply without reconstructing the exact tokens from the artifacts.\nAcceptance Criteria:\n- Template includes exact reply lines for APPROVE_CLOSEOUT_BUNDLE, HOLD_FOR_INTERACTIVE_REPLAY, and SPLIT_DECISION.\n- Each branch names the affected parent task IDs and the intended next action.\n- Artifact stays governance-safe: routing only, no BOARD mutation implied.",
+      "comments": [
+        {
+          "id": "executed-task-0439-20260616-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-16T16:30Z board progress sweep. Published one copy-paste response template for the current TS-UI1.x bundle so the owner can approve, hold, or split the parent review lane without reconstructing exact reply tokens from multiple artifacts.",
+          "created_at": "2026-06-16T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-16T16:30:00Z",
+      "updated_at": "2026-06-16T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0440",
+      "title": "TS-UI1.x Publish governed closeout preview for post-approval parent-only board writes",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-progress-sweep-midday",
+        "child-of:TASK-0030",
+        "atomic",
+        "governance"
+      ],
+      "parent_id": "TASK-0030",
+      "linked_refs": [
+        "TASK-0030",
+        "TASK-0029",
+        "TASK-0437",
+        "TASK-0439",
+        "mission-control/board/approval-queue/2026-06-16T03-10-00Z-board-ui-review-bundle-card.md",
+        "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-governed-closeout-preview.md",
+        "mission-control/board/sweeps/2026-06-16T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Publish a governed closeout preview for the live TS-UI1.x bundle that shows the exact parent-only BOARD writes Sentinel would perform after an approval, so Isaac can approve knowing the downstream mutation scope is intentionally narrow.\nAcceptance Criteria:\n- Preview enumerates exact parent rows, status transitions, and comment/write intent for the APPROVE_CLOSEOUT_BUNDLE path.\n- Preview states what will not change automatically, including stale evidence leaves and blocked recovery rows.\n- Artifact is a dry-run/routing surface only and does not mutate BOARD.json by itself.",
+      "comments": [
+        {
+          "id": "executed-task-0440-20260616-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-16T16:30Z board progress sweep. Published a governed closeout preview that limits the post-approval write set to TASK-0029 and TASK-0030, explicitly leaving stale evidence leaves and blocked recovery rows untouched unless separately requested.",
+          "created_at": "2026-06-16T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-16T16:30:00Z",
+      "updated_at": "2026-06-16T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
