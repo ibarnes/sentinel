@@ -20219,6 +20219,55 @@
       "updated_at": "2026-06-16T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0441",
+      "title": "Publish June 17 board decision bridge packet for UI closeout and recovery minimum",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-60m",
+        "board-build-window-night",
+        "atomic",
+        "cross-lane"
+      ],
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0437",
+        "TASK-0438",
+        "TASK-0439",
+        "TASK-0440",
+        "mission-control/board/approval-queue/2026-06-13T06-30-00Z-board-recovery-live-decision-minimum.md",
+        "mission-control/board/approval-queue/2026-06-16T03-10-00Z-board-ui-review-bundle-card.md",
+        "mission-control/board/approval-queue/2026-06-16T06-30-00Z-board-ui-stale-review-routing-card.md",
+        "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-bundle-response-template.md",
+        "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-governed-closeout-preview.md",
+        "mission-control/board/approval-queue/2026-06-17T03-10-00Z-board-decision-bridge-packet.md",
+        "mission-control/board/sweeps/2026-06-17T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Publish one current decision-bridge packet that fuses the TS-UI1.x review bundle and the 3-row recovery minimum into a single owner reply surface with dependency order and exact next-action branches.\nAcceptance Criteria:\n- Packet lists the live subtask sequence with owner-decision dependencies before any apply work.\n- Packet includes exact reply tokens for TASK-0029, TASK-0030, TASK-0269, TASK-0335, and TASK-0379 in one copy-paste block.\n- Artifact stays governance-safe: routing only, no BOARD mutation implied.",
+      "comments": [
+        {
+          "id": "executed-task-0441-20260617-0310",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-17T03:10Z board build window. Published one bridge packet that collapses the live board UI closeout bundle and the 3-row recovery minimum into a single current decision surface with dependency order, recommended defaults, and exact reply tokens.",
+          "created_at": "2026-06-17T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-17T03:10:00Z",
+      "updated_at": "2026-06-17T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
     }
   ]
 }
