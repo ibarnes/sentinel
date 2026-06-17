@@ -1265,7 +1265,12 @@
         "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-bundle-response-template.md",
         "TASK-0440",
         "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-governed-closeout-preview.md",
-        "mission-control/board/sweeps/2026-06-16T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-16T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0443",
+        "mission-control/board/approval-queue/2026-06-17T16-30-00Z-board-ui-review-evidence-map.md",
+        "TASK-0444",
+        "mission-control/board/approval-queue/2026-06-17T16-30-00Z-board-ui-decision-outcome-matrix.md",
+        "mission-control/board/sweeps/2026-06-17T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Add right-side drawer panel opened by task click; preserve board context; support keyboard close and mobile collapse.",
       "comments": [
@@ -1298,6 +1303,12 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep 2026-06-16T06:30Z: added and executed TASK-0438 to map the stale TS-UI1.1 and TS-UI1.2 child review leaves back to the current parent decision surface. Parent remains Ready for Review, but the queue now names TASK-0029/TASK-0030 as the only live approval asks unless Isaac explicitly requests child-level review.",
           "created_at": "2026-06-16T06:30:00Z"
+        },
+        {
+          "id": "followthrough-0029-20260617-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-17T16:30Z: the live TS-UI1.x stream was still reviewer-gated, so the decomposition gate produced two artifact-only slices instead of fake apply work. Executed TASK-0443 to publish one current review evidence map and TASK-0444 to publish an explicit decision-outcome matrix. Parent remains Ready for Review, but the newest surfaces now collapse evidence lookup and approve/hold consequences into one current handoff.",
+          "created_at": "2026-06-17T16:30:00Z"
         }
       ],
       "request_approval": {
@@ -1309,7 +1320,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-16T06:30:00Z",
+      "updated_at": "2026-06-17T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-15T10-40-00Z"
@@ -1358,7 +1369,12 @@
         "mission-control/board/sweeps/2026-06-16T03-10-00Z-board-build-window-night.md",
         "TASK-0438",
         "mission-control/board/approval-queue/2026-06-16T06-30-00Z-board-ui-stale-review-routing-card.md",
-        "mission-control/board/sweeps/2026-06-16T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-06-16T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0443",
+        "mission-control/board/approval-queue/2026-06-17T16-30-00Z-board-ui-review-evidence-map.md",
+        "TASK-0444",
+        "mission-control/board/approval-queue/2026-06-17T16-30-00Z-board-ui-decision-outcome-matrix.md",
+        "mission-control/board/sweeps/2026-06-17T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Bind all editable fields and save actions; keep audit logging and governance checks unchanged.",
       "comments": [
@@ -1421,6 +1437,12 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-16T16:30Z: no honest implementation lane remained, so the live TS-UI1.x stream stayed reviewer-gated. Reapplied the decomposition gate and added/executed TASK-0439 (copy-paste owner response template for the bundle decision) plus TASK-0440 (governed closeout preview limited to the two parent rows). Parent remains Ready for Review, but the decision path is now easier to answer without reopening coding.",
           "created_at": "2026-06-16T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260617-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-17T16:30Z: with no honest unattended coding left, the decomposition gate focused on reviewer friction instead of implementation churn. Executed TASK-0443 to index the live evidence set and TASK-0444 to spell out the exact approve/hold/split consequences. Parent remains Ready for Review, but the branch logic is now explicit and current.",
+          "created_at": "2026-06-17T16:30:00Z"
         }
       ],
       "request_approval": {
@@ -1432,7 +1454,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-16T16:30:00Z",
+      "updated_at": "2026-06-17T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-15T06-30-00Z"
@@ -5304,7 +5326,10 @@
         "TASK-0415",
         "mission-control/board/approval-queue/2026-06-12T06-30-00Z-credential-window-next-tranche-digest.md",
         "mission-control/board/sweeps/2026-06-12T06-30-00Z-board-recovery-sweep-late-night.md",
-        "mission-control/board/sweeps/2026-06-14T10-40-00Z-board-execution-sweep-morning.md"
+        "mission-control/board/sweeps/2026-06-14T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0442",
+        "mission-control/board/approval-queue/2026-06-17T06-30-00Z-stalled-board-recovery-punchlist.md",
+        "mission-control/board/sweeps/2026-06-17T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -5676,11 +5701,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep 2026-06-14T10:40Z: realigned TASK-0107 from In Progress to Blocked. The only remaining descendants with live leverage are TASK-0269 (already Blocked) and TASK-0379 (decision-gated apply), so there is no honest unattended execution surface left until Isaac supplies tranche decisions.",
           "created_at": "2026-06-14T10:40:00Z"
+        },
+        {
+          "id": "recovery-0107-20260617-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep 2026-06-17T06:30Z: re-applied the decomposition gate to the stalled recovery parent and executed TASK-0442 to publish one current stalled-board punchlist that groups the 12 aging TS-UI1.x review leaves under the parent bundle, preserves TASK-0269 as decision-gated, and names the exact next owner decisions before any apply step.",
+          "created_at": "2026-06-17T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-06-14T10:40:00Z",
+      "updated_at": "2026-06-17T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -20266,6 +20297,139 @@
       "request_approval": null,
       "created_at": "2026-06-17T03:10:00Z",
       "updated_at": "2026-06-17T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0442",
+      "title": "Publish June 17 stalled-board recovery punchlist with exact owner decisions",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "30-60m",
+        "late-night-recovery",
+        "child-of:TASK-0107",
+        "atomic",
+        "governance"
+      ],
+      "parent_id": "TASK-0107",
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0441",
+        "mission-control/board/approval-queue/2026-06-17T03-10-00Z-board-decision-bridge-packet.md",
+        "mission-control/board/approval-queue/2026-06-17T06-30-00Z-stalled-board-recovery-punchlist.md",
+        "mission-control/board/sweeps/2026-06-17T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Publish one current stalled-board punchlist that groups stale Ready-for-Review leaves under their active parent review surface, preserves the blocked recovery minimum, and names the exact owner decisions required before any apply step.\nAcceptance Criteria:\n- Punchlist lists every live stalled row by status and age at sweep time.\n- The TS-UI1.x leaf queue is routed to the current parent bundle instead of treated as 12 separate approval asks.\n- Recovery lane keeps `TASK-0269`, `TASK-0335`, and `TASK-0379` explicit with exact next decision tokens and no BOARD mutation.",
+      "comments": [
+        {
+          "id": "executed-task-0442-20260617-0630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-17T06:30Z board recovery sweep. Published one current stalled-board punchlist that collapses the 12 aging TS-UI1.x review leaves into the live parent decision surface and preserves the blocked recovery minimum with exact owner-decision tokens.",
+          "created_at": "2026-06-17T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-17T06:30:00Z",
+      "updated_at": "2026-06-17T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0443",
+      "title": "TS-UI1.x Publish current review evidence map for the live board UI bundle",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-progress-sweep-midday",
+        "child-of:TASK-0029",
+        "atomic",
+        "governance"
+      ],
+      "parent_id": "TASK-0029",
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0435",
+        "TASK-0437",
+        "TASK-0438",
+        "mission-control/review-packets/RP-2026-06-15T10-40-00Z-board-task-detail-rail-review-refresh.md",
+        "mission-control/review-packets/RP-2026-06-15T06-30-00Z-board-task-editing-lane-refresh.md",
+        "mission-control/board/approval-queue/2026-06-17T16-30-00Z-board-ui-review-evidence-map.md",
+        "mission-control/board/sweeps/2026-06-17T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Publish one current evidence map for the live TS-UI1.x bundle so Isaac can review the active parent packets and their stale evidence leaves from one current index instead of reconstructing the lane from older artifacts.\nAcceptance Criteria:\n- One artifact indexes the active review packet and latest follow-through evidence for both `TASK-0029` and `TASK-0030`.\n- Stale child leaves are routed back to their active parent review surface instead of treated as separate approval asks.\n- Artifact stays routing-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0443-20260617-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-17T16:30Z board progress sweep. Published one current TS-UI1.x review evidence map that indexes the active parent packets, latest follow-through evidence, and stale child-leaf routing so the next approval choice does not require artifact hunting.",
+          "created_at": "2026-06-17T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-17T16:30:00Z",
+      "updated_at": "2026-06-17T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0444",
+      "title": "TS-UI1.x Publish explicit decision outcome matrix for board UI bundle branches",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-progress-sweep-midday",
+        "child-of:TASK-0030",
+        "atomic",
+        "governance"
+      ],
+      "parent_id": "TASK-0030",
+      "linked_refs": [
+        "TASK-0030",
+        "TASK-0029",
+        "TASK-0439",
+        "TASK-0440",
+        "TASK-0443",
+        "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-bundle-response-template.md",
+        "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-governed-closeout-preview.md",
+        "mission-control/board/approval-queue/2026-06-17T16-30-00Z-board-ui-decision-outcome-matrix.md",
+        "mission-control/board/sweeps/2026-06-17T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Publish one explicit outcome matrix for the live TS-UI1.x bundle so approve, hold, and split decisions name the exact next action and non-write boundaries before any parent closeout is attempted.\nAcceptance Criteria:\n- Matrix enumerates the exact immediate Sentinel action for approve-both, hold-both, and split branches.\n- Matrix explicitly preserves non-writes for stale evidence leaves and blocked recovery rows.\n- Artifact stays routing-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0444-20260617-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-17T16:30Z board progress sweep. Published one current decision-outcome matrix that makes the approve, hold, and split consequences explicit for the TS-UI1.x parent bundle while preserving the no-implicit-write boundary for child leaves and recovery rows.",
+          "created_at": "2026-06-17T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-17T16:30:00Z",
+      "updated_at": "2026-06-17T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
