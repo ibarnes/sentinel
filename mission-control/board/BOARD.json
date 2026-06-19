@@ -1273,7 +1273,10 @@
         "mission-control/board/sweeps/2026-06-17T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0447",
         "mission-control/board/approval-queue/2026-06-18T16-30-00Z-board-ui-interactive-replay-checklist.md",
-        "mission-control/board/sweeps/2026-06-18T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-18T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0451",
+        "mission-control/board/approval-queue/2026-06-19T16-30-00Z-board-ui-closeout-preview-refresh.md",
+        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Add right-side drawer panel opened by task click; preserve board context; support keyboard close and mobile collapse.",
       "comments": [
@@ -1318,6 +1321,12 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-18T16:30Z: there was still no honest unattended coding lane, but the hold branch remained slightly fuzzy. Executed TASK-0447 to publish one exact authenticated replay checklist for the `HOLD_FOR_INTERACTIVE_REPLAY` path so review can pause on a precise viewport contract instead of a vague replay ask. Parent remains Ready for Review.",
           "created_at": "2026-06-18T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0029-20260619-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-19T16:30Z: with the June 19 combined owner reply template now current, the remaining TS-UI1.x ambiguity was the exact post-approval write scope. Executed TASK-0451 to refresh the governed parent-only closeout preview so approval can now point to the latest reply surface, review packets, and explicit non-write set without reopening coding.",
+          "created_at": "2026-06-19T16:30:00Z"
         }
       ],
       "request_approval": {
@@ -1329,7 +1338,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-18T16:30:00Z",
+      "updated_at": "2026-06-19T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-15T10-40-00Z"
@@ -1386,7 +1395,10 @@
         "mission-control/board/sweeps/2026-06-17T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0447",
         "mission-control/board/approval-queue/2026-06-18T16-30-00Z-board-ui-interactive-replay-checklist.md",
-        "mission-control/board/sweeps/2026-06-18T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-18T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0451",
+        "mission-control/board/approval-queue/2026-06-19T16-30-00Z-board-ui-closeout-preview-refresh.md",
+        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Bind all editable fields and save actions; keep audit logging and governance checks unchanged.",
       "comments": [
@@ -1461,6 +1473,12 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-18T16:30Z: the remaining movement was still review-only, so no new implementation slice was justified. Linked TASK-0447 to turn the hold branch into one exact replay contract that includes the save-validation and approval-preflight checks relevant to this editing lane. Parent remains Ready for Review.",
           "created_at": "2026-06-18T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260619-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-19T16:30Z: no honest implementation gap remained, but the approval path still benefited from one current dry-run write receipt. Executed TASK-0451 to refresh the governed parent-only closeout preview against the June 19 owner reply surface so the editing lane can move on an explicit latest-state closeout contract instead of the June 16 preview alone.",
+          "created_at": "2026-06-19T16:30:00Z"
         }
       ],
       "request_approval": {
@@ -1472,7 +1490,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-18T16:30:00Z",
+      "updated_at": "2026-06-19T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-15T06-30-00Z"
@@ -12712,7 +12730,14 @@
         "mission-control/board/sweeps/2026-06-13T06-30-00Z-board-recovery-sweep-late-night.md",
         "TASK-0445",
         "mission-control/board/approval-queue/2026-06-18T03-10-00Z-board-recovery-decision-combination-matrix.md",
-        "mission-control/board/sweeps/2026-06-18T03-10-00Z-board-build-window-night.md"
+        "mission-control/board/sweeps/2026-06-18T03-10-00Z-board-build-window-night.md",
+        "TASK-0450",
+        "mission-control/board/approval-queue/2026-06-19T06-30-00Z-live-recovery-apply-preview.json",
+        "mission-control/board/approval-queue/2026-06-19T06-30-00Z-live-recovery-apply-preview-drift-receipt.md",
+        "mission-control/board/sweeps/2026-06-19T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0452",
+        "mission-control/board/approval-queue/2026-06-19T16-30-00Z-recovery-post-reply-execution-bundle-contract.md",
+        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
       "comments": [
@@ -12836,11 +12861,23 @@
           "author": "sentinel",
           "created_at": "2026-06-18T03:10:00Z",
           "text": "Board build window 2026-06-18T03:10Z: added/executed TASK-0445 to publish one current recovery decision-combination matrix. The lane now distinguishes coherent parked, execute-now, archive, and rescope bundles and explicitly flags contradictory instructions like BLOCKED_KEEP plus START_APPLY."
+        },
+        {
+          "id": "recovery-0269-20260619-0630",
+          "author": "sentinel",
+          "created_at": "2026-06-19T06:30:00Z",
+          "text": "Late-night recovery sweep decomposition gate: added/executed TASK-0450 to re-run the guarded apply preview against the live board. Result: 18 rows remain decision-blocked and the June 6 decision pack now has broad live-status drift, so future apply work should be rebuilt from the June 19 combined owner reply surface rather than the stale packet alone."
+        },
+        {
+          "id": "recovery-0269-20260619-1630",
+          "author": "sentinel",
+          "created_at": "2026-06-19T16:30:00Z",
+          "text": "Midday progress sweep 2026-06-19T16:30Z: because the drift receipt proved the June 6 packet is no longer a safe execution sheet, executed TASK-0452 to publish one exact post-reply execution-bundle contract for the recovery lane. The lane remains blocked on Isaac input, but the next apply-safe regeneration step is now constrained to a single current-state build contract instead of an implicit rebuild."
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-06-18T03:10:00Z",
+      "updated_at": "2026-06-19T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -15680,13 +15717,22 @@
       "linked_refs": [
         "TASK-0269",
         "TASK-0334",
-        "mission-control/board/sweeps/"
+        "mission-control/board/sweeps/",
+        "TASK-0452",
+        "mission-control/board/approval-queue/2026-06-19T16-30-00Z-recovery-post-reply-execution-bundle-contract.md"
       ],
       "description": "30-60m slice. Execute BOARD.json status updates from signed decision sheet and write before/after delta log.\nAcceptance Criteria:\n- All selected IDs transitioned exactly as specified.\n- Delta log saved in sweeps folder with changed IDs and statuses.\n- Parent TASK-0269 comment links delta log.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "followthrough-0335-20260619-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-19T16:30Z: apply work is still correctly decision-gated, but the regeneration step after owner input is now explicit. TASK-0452 published the exact post-reply execution-bundle contract so `START_APPLY` can rebuild from current live state rather than the drifted June 6 packet.",
+          "created_at": "2026-06-19T16:30:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-05-27T06:30:00Z",
-      "updated_at": "2026-05-27T06:30:00Z",
+      "updated_at": "2026-06-19T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -20654,6 +20700,182 @@
       "request_approval": null,
       "created_at": "2026-06-18T16:30:00Z",
       "updated_at": "2026-06-18T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0449",
+      "title": "Publish June 19 stalled-board owner response template refreshed from replay/rescope clarifications",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-60m",
+        "board-build-window-night",
+        "atomic",
+        "cross-lane"
+      ],
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0445",
+        "TASK-0446",
+        "TASK-0447",
+        "TASK-0448",
+        "mission-control/board/approval-queue/2026-06-18T06-30-00Z-stalled-board-next-decision-card.md",
+        "mission-control/board/approval-queue/2026-06-18T16-30-00Z-board-ui-interactive-replay-checklist.md",
+        "mission-control/board/approval-queue/2026-06-18T16-30-00Z-task-0379-rescope-successor-candidate.md",
+        "mission-control/board/approval-queue/2026-06-19T03-10-00Z-stalled-board-owner-response-template.md",
+        "mission-control/board/sweeps/2026-06-19T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Publish one refreshed combined owner response template for the live stalled board so the current TS-UI1.x review bundle and recovery minimum can be answered from one copy-paste block after the June 18 replay/rescope clarifications.\nAcceptance Criteria:\n- One artifact includes exact reply blocks for the default, replay-hold, execute-now, and planning-only branches.\n- Template reflects the exact `HOLD_FOR_INTERACTIVE_REPLAY` checklist and the bounded `TASK-0379 = RESCOPE` meaning.\n- Artifact stays routing-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0449-20260619-0310",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-19T03:10Z board build window. Published one refreshed owner response template that folds the June 18 ordered next-decision card, exact replay checklist, and bounded rescope definition into one current copy-paste reply surface without starting any blocked apply work.",
+          "created_at": "2026-06-19T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-19T03:10:00Z",
+      "updated_at": "2026-06-19T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0450",
+      "title": "Publish June 19 live recovery apply-preview drift receipt against the stalled decision pack",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "30-60m",
+        "late-night-recovery",
+        "atomic",
+        "child-of:TASK-0269"
+      ],
+      "linked_refs": [
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0449",
+        "mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+        "mission-control/board/approval-queue/2026-06-19T03-10-00Z-stalled-board-owner-response-template.md",
+        "mission-control/board/approval-queue/2026-06-19T06-30-00Z-live-recovery-apply-preview.json",
+        "mission-control/board/approval-queue/2026-06-19T06-30-00Z-live-recovery-apply-preview-drift-receipt.md",
+        "mission-control/board/sweeps/2026-06-19T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "parent_id": "TASK-0269",
+      "description": "30-60m slice. Re-run the guarded recovery apply preview against the live board and publish one receipt that shows whether the June 6 decision pack is still executable as-is or has drifted from current board state.\nAcceptance Criteria:\n- Preview JSON is saved for the current board state.\n- Receipt names any packet/live status mismatches and whether any row is apply-ready.\n- Artifact stays preview-only and does not mutate BOARD.json.",
+      "comments": [
+        {
+          "id": "executed-task-0450-20260619-0630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-19T06:30Z board recovery sweep. Published a fresh guarded apply-preview receipt showing the June 6 decision pack is now materially drifted from live board state, so the next owner action should use the June 19 combined reply template before any apply-safe bundle is regenerated.",
+          "created_at": "2026-06-19T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-19T06:30:00Z",
+      "updated_at": "2026-06-19T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0451",
+      "title": "TS-UI1.x Refresh parent-only closeout preview against the June 19 owner reply surface",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-ui",
+        "decomposed",
+        "30-60m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "cross-parent",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0444",
+        "TASK-0449",
+        "mission-control/board/approval-queue/2026-06-16T16-30-00Z-board-ui-governed-closeout-preview.md",
+        "mission-control/board/approval-queue/2026-06-19T03-10-00Z-stalled-board-owner-response-template.md",
+        "mission-control/board/approval-queue/2026-06-19T16-30-00Z-board-ui-closeout-preview-refresh.md",
+        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Refresh the TS-UI1.x governed parent-only closeout preview so post-approval writes are described against the current June 19 owner reply surface rather than the older June 16 dry-run alone.\nAcceptance Criteria:\n- Artifact names the exact parent-only write set for approve-both and split approval branches.\n- Artifact cites the current owner reply surface plus the active review packets for both parents.\n- Artifact stays preview-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0451-20260619-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-19T16:30Z board progress sweep. Refreshed the governed TS-UI1.x closeout preview so the latest owner reply surface, review packets, and parent-only non-write boundary are now described in one current artifact.",
+          "created_at": "2026-06-19T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-19T16:30:00Z",
+      "updated_at": "2026-06-19T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0452",
+      "title": "BRS-2026-06-19f Publish post-reply recovery execution-bundle contract after drift receipt",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "30-60m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "child-of:TASK-0269",
+        "governance"
+      ],
+      "parent_id": "TASK-0269",
+      "linked_refs": [
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0449",
+        "TASK-0450",
+        "mission-control/board/approval-queue/2026-06-19T03-10-00Z-stalled-board-owner-response-template.md",
+        "mission-control/board/approval-queue/2026-06-19T06-30-00Z-live-recovery-apply-preview-drift-receipt.md",
+        "mission-control/board/approval-queue/2026-06-19T16-30-00Z-recovery-post-reply-execution-bundle-contract.md",
+        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Publish one exact contract for the fresh current-state recovery execution bundle that must be built after Isaac answers the June 19 combined reply block.\nAcceptance Criteria:\n- Artifact names the exact owner inputs and live board sources required before `TASK-0335` can run.\n- Artifact defines the bounded build outputs for execute-now and planning-only branches separately.\n- Artifact stays contract-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0452-20260619-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-19T16:30Z board progress sweep. Published the exact post-reply recovery execution-bundle contract so the drifted June 6 packet is no longer the implicit source of truth for any later apply-safe rebuild.",
+          "created_at": "2026-06-19T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-19T16:30:00Z",
+      "updated_at": "2026-06-19T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
