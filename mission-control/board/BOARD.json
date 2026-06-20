@@ -1276,7 +1276,10 @@
         "mission-control/board/sweeps/2026-06-18T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0451",
         "mission-control/board/approval-queue/2026-06-19T16-30-00Z-board-ui-closeout-preview-refresh.md",
-        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0456",
+        "mission-control/board/approval-queue/2026-06-20T16-30-00Z-default-bundle-write-sequence-receipt.md",
+        "mission-control/board/sweeps/2026-06-20T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Add right-side drawer panel opened by task click; preserve board context; support keyboard close and mobile collapse.",
       "comments": [
@@ -1327,6 +1330,12 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-19T16:30Z: with the June 19 combined owner reply template now current, the remaining TS-UI1.x ambiguity was the exact post-approval write scope. Executed TASK-0451 to refresh the governed parent-only closeout preview so approval can now point to the latest reply surface, review packets, and explicit non-write set without reopening coding.",
           "created_at": "2026-06-19T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0029-20260620-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-20T16:30Z: the live lane was still decision-gated, but the default June 20 branch needed one exact execution order instead of separate parent and residue notes. Executed TASK-0456 to publish a governed write-sequence receipt that closes `TASK-0029`, `TASK-0030`, and `TASK-0379` in one bounded order while keeping `TASK-0269` blocked and `TASK-0335` untouched.",
+          "created_at": "2026-06-20T16:30:00Z"
         }
       ],
       "request_approval": {
@@ -1338,7 +1347,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-19T16:30:00Z",
+      "updated_at": "2026-06-20T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-15T10-40-00Z"
@@ -1398,7 +1407,10 @@
         "mission-control/board/sweeps/2026-06-18T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0451",
         "mission-control/board/approval-queue/2026-06-19T16-30-00Z-board-ui-closeout-preview-refresh.md",
-        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0456",
+        "mission-control/board/approval-queue/2026-06-20T16-30-00Z-default-bundle-write-sequence-receipt.md",
+        "mission-control/board/sweeps/2026-06-20T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Bind all editable fields and save actions; keep audit logging and governance checks unchanged.",
       "comments": [
@@ -1479,6 +1491,12 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-19T16:30Z: no honest implementation gap remained, but the approval path still benefited from one current dry-run write receipt. Executed TASK-0451 to refresh the governed parent-only closeout preview against the June 19 owner reply surface so the editing lane can move on an explicit latest-state closeout contract instead of the June 16 preview alone.",
           "created_at": "2026-06-19T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260620-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-20T16:30Z: review posture stayed unchanged, but the recommended default branch needed a single exact write order. Executed TASK-0456 to publish the combined default-bundle write sequence so the editing lane closeout now has one current execution receipt aligned with `TASK-0029` and the `TASK-0379` residue closeout preview.",
+          "created_at": "2026-06-20T16:30:00Z"
         }
       ],
       "request_approval": {
@@ -1490,7 +1508,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-19T16:30:00Z",
+      "updated_at": "2026-06-20T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-15T06-30-00Z"
@@ -12737,7 +12755,12 @@
         "mission-control/board/sweeps/2026-06-19T06-30-00Z-board-recovery-sweep-late-night.md",
         "TASK-0452",
         "mission-control/board/approval-queue/2026-06-19T16-30-00Z-recovery-post-reply-execution-bundle-contract.md",
-        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-19T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0455",
+        "TASK-0456",
+        "mission-control/board/approval-queue/2026-06-20T16-30-00Z-task-0379-superseded-closeout-preview.md",
+        "mission-control/board/approval-queue/2026-06-20T16-30-00Z-default-bundle-write-sequence-receipt.md",
+        "mission-control/board/sweeps/2026-06-20T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
       "comments": [
@@ -12873,11 +12896,17 @@
           "author": "sentinel",
           "created_at": "2026-06-19T16:30:00Z",
           "text": "Midday progress sweep 2026-06-19T16:30Z: because the drift receipt proved the June 6 packet is no longer a safe execution sheet, executed TASK-0452 to publish one exact post-reply execution-bundle contract for the recovery lane. The lane remains blocked on Isaac input, but the next apply-safe regeneration step is now constrained to a single current-state build contract instead of an implicit rebuild."
+        },
+        {
+          "id": "recovery-0269-20260620-1630",
+          "author": "sentinel",
+          "created_at": "2026-06-20T16:30:00Z",
+          "text": "Midday progress sweep 2026-06-20T16:30Z: the recovery parent stayed blocked, but the recommended parked/default branch now has an exact downstream write contract. Executed TASK-0455 to define the governed `TASK-0379 = CLOSE_SUPERSEDED` preview and TASK-0456 to sequence the default bundle closeout so the lane can resolve cleanly without bleeding into the blocked `TASK-0335` apply path."
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-06-19T16:30:00Z",
+      "updated_at": "2026-06-20T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -17507,7 +17536,12 @@
         "mission-control/board/sweeps/",
         "TASK-0448",
         "mission-control/board/approval-queue/2026-06-18T16-30-00Z-task-0379-rescope-successor-candidate.md",
-        "mission-control/board/sweeps/2026-06-18T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-18T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0455",
+        "TASK-0456",
+        "mission-control/board/approval-queue/2026-06-20T16-30-00Z-task-0379-superseded-closeout-preview.md",
+        "mission-control/board/approval-queue/2026-06-20T16-30-00Z-default-bundle-write-sequence-receipt.md",
+        "mission-control/board/sweeps/2026-06-20T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "30-60m slice. After Isaac marks the unified recovery decision pack, compact only approved credential-cluster rows in BOARD.json and publish a deterministic before/after delta log.\nAcceptance Criteria:\n- Only rows explicitly marked APPROVE_COMPACT are changed.\n- Retained canonical tasks TASK-0355, TASK-0364, TASK-0374, and TASK-0375 remain untouched.\n- Delta log is saved under mission-control/board/sweeps/ and linked back to TASK-0107.",
       "comments": [
@@ -17516,11 +17550,17 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-18T16:30Z: the apply path remained atomic and decision-gated, but the alternate `RESCOPE` branch was still underspecified. Executed TASK-0448 to publish one bounded successor candidate so `RESCOPE` now means a concrete 30-60 minute residue-review slice instead of open-ended ambiguity.",
           "created_at": "2026-06-18T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0379-20260620-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-20T16:30Z: the residue lane remained atomic, but the recommended `CLOSE_SUPERSEDED` branch still lacked one exact governed closeout preview. Executed TASK-0455 to define that one-row write contract and TASK-0456 to place it in the recommended default bundle sequence with `TASK-0029` and `TASK-0030` while preserving the blocked `TASK-0269` / `TASK-0335` boundary.",
+          "created_at": "2026-06-20T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-06-06T06:30:00Z",
-      "updated_at": "2026-06-18T16:30:00Z",
+      "updated_at": "2026-06-20T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -20876,6 +20916,187 @@
       "request_approval": null,
       "created_at": "2026-06-19T16:30:00Z",
       "updated_at": "2026-06-19T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0453",
+      "title": "Publish June 20 board-night decision bundle that compresses the live reply and follow-through contracts",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-60m",
+        "board-build-window-night",
+        "atomic",
+        "cross-lane",
+        "decision-bundle"
+      ],
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0449",
+        "TASK-0451",
+        "TASK-0452",
+        "mission-control/board/approval-queue/2026-06-19T03-10-00Z-stalled-board-owner-response-template.md",
+        "mission-control/board/approval-queue/2026-06-19T16-30-00Z-board-ui-closeout-preview-refresh.md",
+        "mission-control/board/approval-queue/2026-06-19T16-30-00Z-recovery-post-reply-execution-bundle-contract.md",
+        "mission-control/board/approval-queue/2026-06-20T03-10-00Z-board-night-decision-bundle.md",
+        "mission-control/board/sweeps/2026-06-20T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Publish one current board-night decision bundle that compresses the June 19 owner reply surface, TS-UI1.x parent closeout preview, and recovery post-reply contract into a single operator-ready packet.\nAcceptance Criteria:\n- One artifact cites the exact current reply anchor plus both June 19 follow-through contracts.\n- Bundle includes recommended, execute-now, and planning-only decision shapes with explicit non-writes.\n- Artifact stays routing-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0453-20260620-0310",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-20T03:10Z board build window. Published one operator-ready decision bundle so the live review and recovery lanes can now be answered from a single current packet instead of three June 19 artifacts.",
+          "created_at": "2026-06-20T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-20T03:10:00Z",
+      "updated_at": "2026-06-20T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0454",
+      "title": "Publish June 20 stalled-board decision shortcut aligned to the current bundle",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-60m",
+        "late-night-recovery",
+        "atomic",
+        "cross-lane",
+        "decision-shortcut"
+      ],
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0453",
+        "mission-control/board/approval-queue/2026-06-20T03-10-00Z-board-night-decision-bundle.md",
+        "mission-control/board/approval-queue/2026-06-20T06-30-00Z-stalled-board-decision-shortcut.md",
+        "mission-control/board/sweeps/2026-06-20T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-60m slice. Publish one shorter copy-paste decision block aligned to the current June 20 bundle so the stalled TS-UI1.x and recovery surfaces can be answered without rereading the longer packet.\nAcceptance Criteria:\n- Artifact cites the current June 20 bundle as source of truth.\n- Artifact preserves the two TS-UI1.x parent decisions and the three recovery-lane decisions in one copy-paste block.\n- Artifact stays routing-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0454-20260620-0630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-20T06:30Z board recovery sweep. Published one shorter decision shortcut so the stalled parent review lane and blocked recovery lane can now be answered from a single copy-paste block aligned to the current June 20 bundle.",
+          "created_at": "2026-06-20T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-20T06:30:00Z",
+      "updated_at": "2026-06-20T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0455",
+      "title": "Publish governed TASK-0379 superseded-closeout preview against the live drift receipt",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "30-60m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "child-of:TASK-0379",
+        "governance"
+      ],
+      "parent_id": "TASK-0379",
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0379",
+        "TASK-0448",
+        "TASK-0450",
+        "TASK-0453",
+        "TASK-0454",
+        "mission-control/board/approval-queue/2026-06-19T06-30-00Z-live-recovery-apply-preview-drift-receipt.md",
+        "mission-control/board/approval-queue/2026-06-20T03-10-00Z-board-night-decision-bundle.md",
+        "mission-control/board/approval-queue/2026-06-20T06-30-00Z-stalled-board-decision-shortcut.md",
+        "mission-control/board/approval-queue/2026-06-20T16-30-00Z-task-0379-superseded-closeout-preview.md",
+        "mission-control/board/sweeps/2026-06-20T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Publish one exact preview-only closeout contract for the `TASK-0379 = CLOSE_SUPERSEDED` branch using the live June 19 drift receipt rather than the stale June 6 residue table.\nAcceptance Criteria:\n- Artifact names the exact one-row write set for explicit superseded closeout.\n- Artifact preserves canonical survivors and forbids stale packet replay.\n- Artifact stays preview-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0455-20260620-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-20T16:30Z board progress sweep. Published the governed `TASK-0379 = CLOSE_SUPERSEDED` preview so the residue lane can now close on an exact one-row contract without reopening the stale June 6 credential-compaction packet.",
+          "created_at": "2026-06-20T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-20T16:30:00Z",
+      "updated_at": "2026-06-20T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0456",
+      "title": "Publish recommended-default board bundle write sequence for TS-UI parents plus TASK-0379",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-60m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "cross-lane",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0451",
+        "TASK-0455",
+        "mission-control/board/approval-queue/2026-06-19T16-30-00Z-board-ui-closeout-preview-refresh.md",
+        "mission-control/board/approval-queue/2026-06-20T16-30-00Z-task-0379-superseded-closeout-preview.md",
+        "mission-control/board/approval-queue/2026-06-20T16-30-00Z-default-bundle-write-sequence-receipt.md",
+        "mission-control/board/sweeps/2026-06-20T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-60m slice. Publish one exact governed write sequence for the recommended June 20 default bundle so the TS-UI parent approvals and `TASK-0379` residue closeout can be executed in one bounded order while `TASK-0269` remains blocked.\nAcceptance Criteria:\n- Artifact names the exact write order and three-row write set for the default bundle.\n- Artifact keeps `TASK-0269` blocked and `TASK-0335` untouched.\n- Artifact stays receipt-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0456-20260620-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-20T16:30Z board progress sweep. Published one exact default-bundle write sequence spanning `TASK-0029`, `TASK-0030`, and `TASK-0379` so the recommended branch now has a deterministic post-reply execution order without touching `TASK-0269` or `TASK-0335`.",
+          "created_at": "2026-06-20T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-20T16:30:00Z",
+      "updated_at": "2026-06-20T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
