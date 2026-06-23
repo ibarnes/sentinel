@@ -542,13 +542,33 @@
         "signals"
       ],
       "linked_refs": [
-        "Pressure Surface"
+        "Pressure Surface",
+        "mission-control/artifacts/2026-06-22-signal-register-v1-refresh-decomposition.md",
+        "mission-control/artifacts/signal-register-v1-seed-2026-06-22.json",
+        "mission-control/review-packets/RP-2026-06-22T03-10-00Z-signal-register-v1-refresh.md",
+        "TASK-0465",
+        "mission-control/board/approval-queue/2026-06-23T03-10-00Z-signal-register-generator-execution-contract.md",
+        "mission-control/artifacts/signal-register-v1-allowlist-template-2026-06-23.json",
+        "mission-control/board/sweeps/2026-06-23T03-10-00Z-board-build-window-night.md"
       ],
       "description": "Track Monitor/Verified/Actioned signals with sources, confidence, buyer/initiative links, and deck handoff hook.",
-      "comments": [],
+      "comments": [
+        {
+          "id": "signal-register-refresh-20260622-0310",
+          "author": "sentinel",
+          "text": "Board build window 2026-06-22T03:10Z: refreshed the Signal Register v1 field contract, produced a six-entry June 22 seed artifact, and published a review packet proposing the next generator slice while keeping the lane artifact-only.",
+          "created_at": "2026-06-22T03:10:00Z"
+        },
+        {
+          "id": "signal-register-contract-20260623-0310",
+          "author": "sentinel",
+          "text": "Board build window 2026-06-23T03:10Z: executed TASK-0465 to publish a deterministic generator execution contract plus first-run allowlist template so the next `TASK-0012a` slice is approval-ready without starting unapproved implementation.",
+          "created_at": "2026-06-23T03:10:00Z"
+        }
+      ],
       "request_approval": null,
       "created_at": "2026-02-26T22:40:42Z",
-      "updated_at": "2026-02-26T22:40:42Z",
+      "updated_at": "2026-06-23T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -1293,7 +1313,19 @@
         "TASK-0464",
         "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-default-branch-current-state-receipt.md",
         "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-branch-to-contract-operator-map.md",
-        "mission-control/board/sweeps/2026-06-22T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-22T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0466",
+        "mission-control/board/approval-queue/2026-06-23T06-30-00Z-board-lane-overnight-no-drift-receipt.md",
+        "mission-control/board/sweeps/2026-06-23T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0467",
+        "TASK-0468",
+        "mission-control/board/approval-queue/2026-06-23T10-40-00Z-board-current-decision-surface-index.md",
+        "mission-control/board/sweeps/2026-06-23T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0469",
+        "TASK-0470",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-current-owner-decision-capture.md",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-branch-execution-latch-checklist.md",
+        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Add right-side drawer panel opened by task click; preserve board context; support keyboard close and mobile collapse.",
       "comments": [
@@ -1368,6 +1400,18 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-22T16:30Z: the TS-UI lane remained review-gated, but the same-day default branch still lacked one live-state proof and one branch-to-contract lookup surface. Executed TASK-0463 to restate the exact June 22 three-write set against current statuses after the metadata backfill, and TASK-0464 to map each valid branch to its downstream contract and next Sentinel action. Parent remains Ready for Review.",
           "created_at": "2026-06-22T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0029-20260623-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-06-23T10:40Z: no honest new apply path appeared, but the live lane still depended on a June 21 index plus newer June 22/23 proofs. Executed TASK-0467 to publish one June 23 canonical packet index and TASK-0468 to backfill it onto this row so the current operator surface is discoverable from BOARD.json without reopening older chains.",
+          "created_at": "2026-06-23T10:40:00Z"
+        },
+        {
+          "id": "followthrough-0029-20260623-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-23T16:30Z: no new TS-UI implementation slice was honest, but the live five-row lane still lacked one same-day fill-ready owner reply capture and one exact branch latch checklist. Executed TASK-0469 and TASK-0470 to publish those two governance artifacts and linked them from this row; no review-gated status was changed.",
+          "created_at": "2026-06-23T16:30:00Z"
         }
       ],
       "request_approval": {
@@ -1379,7 +1423,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-22T16:30:00Z",
+      "updated_at": "2026-06-23T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-15T10-40-00Z"
@@ -1456,7 +1500,19 @@
         "TASK-0464",
         "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-default-branch-current-state-receipt.md",
         "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-branch-to-contract-operator-map.md",
-        "mission-control/board/sweeps/2026-06-22T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-22T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0466",
+        "mission-control/board/approval-queue/2026-06-23T06-30-00Z-board-lane-overnight-no-drift-receipt.md",
+        "mission-control/board/sweeps/2026-06-23T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0467",
+        "TASK-0468",
+        "mission-control/board/approval-queue/2026-06-23T10-40-00Z-board-current-decision-surface-index.md",
+        "mission-control/board/sweeps/2026-06-23T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0469",
+        "TASK-0470",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-current-owner-decision-capture.md",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-branch-execution-latch-checklist.md",
+        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Bind all editable fields and save actions; keep audit logging and governance checks unchanged.",
       "comments": [
@@ -1561,6 +1617,18 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-22T16:30Z: the editing lane stayed review-gated, but the same-day closeout branch still benefited from a fresh live-state receipt and one direct branch-to-contract map. Executed TASK-0463 to prove the default branch still closes only the TS-UI parents plus `TASK-0379`, and TASK-0464 to show exactly which contract to open for each branch without reopening coding.",
           "created_at": "2026-06-22T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260623-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-06-23T10:40Z: no honest new apply path appeared, but the live lane still depended on a June 21 index plus newer June 22/23 proofs. Executed TASK-0467 to publish one June 23 canonical packet index and TASK-0468 to backfill it onto this row so the current operator surface is discoverable from BOARD.json without reopening older chains.",
+          "created_at": "2026-06-23T10:40:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260623-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-23T16:30Z: the editing lane remained review-gated, but the current operator surface still made the owner choose between multiple same-week artifacts. Executed TASK-0469 and TASK-0470 to publish one same-day reply capture card and one branch latch checklist, then linked both here without reopening coding or mutating status.",
+          "created_at": "2026-06-23T16:30:00Z"
         }
       ],
       "request_approval": {
@@ -1572,7 +1640,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-22T16:30:00Z",
+      "updated_at": "2026-06-23T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-15T06-30-00Z"
@@ -5458,7 +5526,10 @@
         "TASK-0460",
         "mission-control/board/approval-queue/2026-06-21T16-30-00Z-board-current-decision-surface-index.md",
         "mission-control/board/approval-queue/2026-06-21T16-30-00Z-board-decision-surface-consistency-receipt.md",
-        "mission-control/board/sweeps/2026-06-21T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-21T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0466",
+        "mission-control/board/approval-queue/2026-06-23T06-30-00Z-board-lane-overnight-no-drift-receipt.md",
+        "mission-control/board/sweeps/2026-06-23T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -5852,7 +5923,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-06-21T16:30:00Z",
+      "updated_at": "2026-06-23T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -12855,7 +12926,19 @@
         "TASK-0464",
         "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-default-branch-current-state-receipt.md",
         "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-branch-to-contract-operator-map.md",
-        "mission-control/board/sweeps/2026-06-22T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-22T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0466",
+        "mission-control/board/approval-queue/2026-06-23T06-30-00Z-board-lane-overnight-no-drift-receipt.md",
+        "mission-control/board/sweeps/2026-06-23T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0467",
+        "TASK-0468",
+        "mission-control/board/approval-queue/2026-06-23T10-40-00Z-board-current-decision-surface-index.md",
+        "mission-control/board/sweeps/2026-06-23T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0469",
+        "TASK-0470",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-current-owner-decision-capture.md",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-branch-execution-latch-checklist.md",
+        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
       "comments": [
@@ -13021,11 +13104,23 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-22T16:30Z: the recovery parent remained blocked, but the live June 22 lane still lacked a same-day proof that the recommended branch keeps recovery untouched and a one-screen map for the alternate reopen branch. Executed TASK-0463 to restate the exact default non-write boundary against current board state and TASK-0464 to map `BLOCKED_KEEP`, `REOPEN_ACTIVE + START_APPLY`, and `REOPEN_ACTIVE + HOLD` to their downstream contracts. Parent remains Blocked.",
           "created_at": "2026-06-22T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0269-20260623-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-06-23T10:40Z: the recovery parent remained blocked and did not need fresh decomposition, but its live packet entry point was fragmented across June 21/22/23 artifacts. Executed TASK-0467 and TASK-0468 to refresh the canonical June 23 index and link it directly from this row; no blocked apply work was started.",
+          "created_at": "2026-06-23T10:40:00Z"
+        },
+        {
+          "id": "followthrough-0269-20260623-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-23T16:30Z: the recovery parent remained blocked and still needed no further implementation splitting, but the next explicit owner reply and post-reply latch were still spread across older artifacts. Executed TASK-0469 and TASK-0470 to publish one current owner decision capture card and one exact branch-execution latch checklist; parent remains Blocked and no apply work was started.",
+          "created_at": "2026-06-23T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-06-22T16:30:00Z",
+      "updated_at": "2026-06-23T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -15881,7 +15976,19 @@
         "TASK-0464",
         "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-default-branch-current-state-receipt.md",
         "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-branch-to-contract-operator-map.md",
-        "mission-control/board/sweeps/2026-06-22T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-22T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0466",
+        "mission-control/board/approval-queue/2026-06-23T06-30-00Z-board-lane-overnight-no-drift-receipt.md",
+        "mission-control/board/sweeps/2026-06-23T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0467",
+        "TASK-0468",
+        "mission-control/board/approval-queue/2026-06-23T10-40-00Z-board-current-decision-surface-index.md",
+        "mission-control/board/sweeps/2026-06-23T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0469",
+        "TASK-0470",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-current-owner-decision-capture.md",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-branch-execution-latch-checklist.md",
+        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "30-60m slice. Execute BOARD.json status updates from signed decision sheet and write before/after delta log.\nAcceptance Criteria:\n- All selected IDs transitioned exactly as specified.\n- Delta log saved in sweeps folder with changed IDs and statuses.\n- Parent TASK-0269 comment links delta log.",
       "comments": [
@@ -15908,11 +16015,23 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-22T16:30Z: `TASK-0335` remained an atomic 30-60 minute slice, but the same-day live lane still benefited from one proof that the default branch leaves this row untouched and one compact operator map for the `START_APPLY` branch if Isaac reopens recovery later. Executed TASK-0463 and TASK-0464 for those two bounded governance surfaces; no execution mutation was started.",
           "created_at": "2026-06-22T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0335-20260623-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-06-23T10:40Z: `TASK-0335` remained the highest-priority active row and was still an atomic 30-60 minute slice, but the blocker stayed owner choice rather than implementation size. Executed TASK-0467 and TASK-0468 to collapse the current operator entry point to one June 23 index linked from this row; no unauthorized apply mutation was started.",
+          "created_at": "2026-06-23T10:40:00Z"
+        },
+        {
+          "id": "followthrough-0335-20260623-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-23T16:30Z: `TASK-0335` remained an atomic 30-60 minute apply slice and still needed no further implementation decomposition, but the current explicit owner reply and branch latch were not yet same-day artifacts. Executed TASK-0469 and TASK-0470 to publish those two bounded governance surfaces and link them here; no apply mutation was started.",
+          "created_at": "2026-06-23T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-05-27T06:30:00Z",
-      "updated_at": "2026-06-22T16:30:00Z",
+      "updated_at": "2026-06-23T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -17706,7 +17825,19 @@
         "TASK-0464",
         "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-default-branch-current-state-receipt.md",
         "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-branch-to-contract-operator-map.md",
-        "mission-control/board/sweeps/2026-06-22T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-22T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0466",
+        "mission-control/board/approval-queue/2026-06-23T06-30-00Z-board-lane-overnight-no-drift-receipt.md",
+        "mission-control/board/sweeps/2026-06-23T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0467",
+        "TASK-0468",
+        "mission-control/board/approval-queue/2026-06-23T10-40-00Z-board-current-decision-surface-index.md",
+        "mission-control/board/sweeps/2026-06-23T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0469",
+        "TASK-0470",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-current-owner-decision-capture.md",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-branch-execution-latch-checklist.md",
+        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "30-60m slice. After Isaac marks the unified recovery decision pack, compact only approved credential-cluster rows in BOARD.json and publish a deterministic before/after delta log.\nAcceptance Criteria:\n- Only rows explicitly marked APPROVE_COMPACT are changed.\n- Retained canonical tasks TASK-0355, TASK-0364, TASK-0374, and TASK-0375 remain untouched.\n- Delta log is saved under mission-control/board/sweeps/ and linked back to TASK-0107.",
       "comments": [
@@ -17739,11 +17870,23 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-22T16:30Z: the residue lane remained atomic, but the same-day board surface still benefited from one proof that `CLOSE_SUPERSEDED` stays inside the three-row default write set and one operator map showing when `RESCOPE` should hand off to its successor contract instead. Executed TASK-0463 and TASK-0464; no row mutation was applied.",
           "created_at": "2026-06-22T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0379-20260623-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-06-23T10:40Z: `TASK-0379` remained atomic but branch-gated, so the honest unattended work was to refresh the current packet entry point rather than invent a new residue lane. Executed TASK-0467 and TASK-0468 to publish the June 23 canonical index and link it from this row; no branch mutation was applied.",
+          "created_at": "2026-06-23T10:40:00Z"
+        },
+        {
+          "id": "followthrough-0379-20260623-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-23T16:30Z: `TASK-0379` remained an atomic branch-gated residue slice, but the same-day reply capture and exact branch latch were still implicit across older artifacts. Executed TASK-0469 and TASK-0470 to make those surfaces explicit and current, with no row mutation applied.",
+          "created_at": "2026-06-23T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-06-06T06:30:00Z",
-      "updated_at": "2026-06-22T16:30:00Z",
+      "updated_at": "2026-06-23T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -21622,7 +21765,7 @@
       ],
       "request_approval": null,
       "created_at": "2026-06-22T16:30:00Z",
-      "updated_at": "2026-06-22T16:30:00Z",
+      "updated_at": "2026-06-23T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -21677,6 +21820,290 @@
       "request_approval": null,
       "created_at": "2026-06-22T16:30:00Z",
       "updated_at": "2026-06-22T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0465",
+      "title": "Publish signal-register generator execution contract and first-run allowlist template",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-60m",
+        "board-build-window-night",
+        "atomic",
+        "child-of:TASK-0012",
+        "artifact-first",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "mission-control/artifacts/2026-06-22-signal-register-v1-refresh-decomposition.md",
+        "mission-control/review-packets/RP-2026-06-22T03-10-00Z-signal-register-v1-refresh.md",
+        "mission-control/board/approval-queue/2026-06-23T03-10-00Z-signal-register-generator-execution-contract.md",
+        "mission-control/artifacts/signal-register-v1-allowlist-template-2026-06-23.json",
+        "mission-control/board/sweeps/2026-06-23T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Publish the deterministic execution contract for the next Signal Register v1 generator step and an allowlist template for the first approved run.\nAcceptance Criteria:\n- Execution contract names exact inputs, default exclusion rules, output shape, verification contract, and dependency sequence.\n- Allowlist template exists as valid JSON with first-run buyer/initiative focus and explicit non-bypass notes for quarantined/test initiatives.\n- Work stays artifact-only and does not imply implementation or `Done` for `TASK-0012`.",
+      "comments": [
+        {
+          "id": "executed-task-0465-20260623-0310",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-23T03:10Z board build window. Published the signal-register generator execution contract and first-run allowlist template so the next `TASK-0012a` slice is deterministic and approval-ready without crossing into unapproved implementation.",
+          "created_at": "2026-06-23T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-23T03:10:00Z",
+      "updated_at": "2026-06-23T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0466",
+      "title": "Publish June 23 overnight no-drift receipt for the live five-row board lane",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-45m",
+        "late-night-recovery",
+        "atomic",
+        "cross-lane",
+        "freshness-proof",
+        "governance",
+        "child-of:TASK-0107"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0461",
+        "TASK-0463",
+        "TASK-0464",
+        "mission-control/board/approval-queue/2026-06-22T06-30-00Z-board-default-branch-fast-path.md",
+        "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-default-branch-current-state-receipt.md",
+        "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-branch-to-contract-operator-map.md",
+        "mission-control/board/approval-queue/2026-06-23T06-30-00Z-board-lane-overnight-no-drift-receipt.md",
+        "mission-control/board/sweeps/2026-06-23T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-45m slice. Publish one dated overnight no-drift receipt for the live five-row board lane so the next late-night recovery sweep can prove the current fast path and branch map still match live `BOARD.json` statuses without inventing unauthorized apply work.\nAcceptance Criteria:\n- One artifact confirms live statuses for `TASK-0029`, `TASK-0030`, `TASK-0269`, `TASK-0335`, and `TASK-0379` against the current recommended branch surface.\n- Artifact confirms the June 22 fast-path card and branch map remain the current smallest honest operator surfaces.\n- Artifact stays proof-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0466-20260623-0630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-23T06:30Z board recovery sweep. Published one overnight no-drift receipt proving the live five-row lane still matches the June 22 fast path and operator map, closing freshness doubt without opening any unauthorized apply path.",
+          "created_at": "2026-06-23T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-23T06:30:00Z",
+      "updated_at": "2026-06-23T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
+    },
+    {
+      "id": "TASK-0467",
+      "title": "Publish June 23 canonical decision-surface index for the live five-row board lane",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-45m",
+        "board-execution-sweep-morning",
+        "atomic",
+        "cross-lane",
+        "current-surface-index",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0459",
+        "TASK-0460",
+        "TASK-0461",
+        "TASK-0463",
+        "TASK-0464",
+        "TASK-0466",
+        "mission-control/board/approval-queue/2026-06-21T16-30-00Z-board-current-decision-surface-index.md",
+        "mission-control/board/approval-queue/2026-06-22T06-30-00Z-board-default-branch-fast-path.md",
+        "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-default-branch-current-state-receipt.md",
+        "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-branch-to-contract-operator-map.md",
+        "mission-control/board/approval-queue/2026-06-23T06-30-00Z-board-lane-overnight-no-drift-receipt.md",
+        "mission-control/board/approval-queue/2026-06-23T10-40-00Z-board-current-decision-surface-index.md",
+        "mission-control/board/sweeps/2026-06-23T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-45m slice. Refresh the canonical packet index for the live five-row board lane so June 23 operator flow starts from one current entry point instead of a June 21 index plus separate June 22/23 proof artifacts.\nAcceptance Criteria:\n- One artifact names the current June 23 packet set and exact reading order for the default, replay-hold, recovery reopen/apply, and `TASK-0379 = RESCOPE` branches.\n- The June 21 current-surface index is explicitly marked historical rather than silently relied on.\n- Work stays routing-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0467-20260623-1040",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-23T10:40Z board execution sweep. Published one June 23 canonical decision-surface index so the live five-row lane now resolves from a single current packet map instead of a June 21 index plus a separate June 22/23 freshness chain.",
+          "created_at": "2026-06-23T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-23T10:40:00Z",
+      "updated_at": "2026-06-23T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0468",
+      "title": "Backfill the June 23 canonical index onto the live five-row board lane",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-45m",
+        "board-execution-sweep-morning",
+        "atomic",
+        "cross-lane",
+        "metadata-backfill",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0467",
+        "mission-control/board/approval-queue/2026-06-23T10-40-00Z-board-current-decision-surface-index.md",
+        "mission-control/board/sweeps/2026-06-23T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-45m slice. Link the June 23 canonical current-surface index directly from the live five-row board lane so the current operator entry point is discoverable from `BOARD.json` without reopening older packet chains.\nAcceptance Criteria:\n- `TASK-0029`, `TASK-0030`, `TASK-0269`, `TASK-0335`, and `TASK-0379` each link to `TASK-0467`, `TASK-0468`, and the June 23 current-surface index artifact.\n- A sweep artifact records that the backfill is metadata-only and does not change any governed task status.\n- No board status transitions are applied.",
+      "comments": [
+        {
+          "id": "executed-task-0468-20260623-1040",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-23T10:40Z board execution sweep. Backfilled the June 23 canonical index onto the live five-row lane so the morning entry point is reachable from BOARD.json without mutating any governed status.",
+          "created_at": "2026-06-23T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-23T10:40:00Z",
+      "updated_at": "2026-06-23T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0469",
+      "title": "Publish June 23 fill-ready owner decision capture for the live five-row board lane",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-45m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "cross-lane",
+        "owner-reply-surface",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0467",
+        "TASK-0468",
+        "mission-control/board/approval-queue/2026-06-22T06-30-00Z-board-default-branch-fast-path.md",
+        "mission-control/board/approval-queue/2026-06-23T10-40-00Z-board-current-decision-surface-index.md",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-current-owner-decision-capture.md",
+        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m slice. Publish one same-day fill-ready owner decision capture card for the live five-row board lane so Isaac can answer with one exact June 23 tuple without reconciling the older June 19 template against newer June 22/23 proofs.\nAcceptance Criteria:\n- One artifact includes exact copy-paste reply blocks for the default closeout, replay hold, recovery reopen/apply, and recovery planning-only branches.\n- Each branch is aligned to the June 23 canonical index and current live statuses for `TASK-0029`, `TASK-0030`, `TASK-0269`, `TASK-0335`, and `TASK-0379`.\n- Artifact stays routing-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0469-20260623-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-23T16:30Z board progress sweep. Published one same-day fill-ready owner decision capture card so the live five-row lane can be answered from a current June 23 tuple instead of cross-reconciling the June 19 reply template against newer proof artifacts.",
+          "created_at": "2026-06-23T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-23T16:30:00Z",
+      "updated_at": "2026-06-23T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0470",
+      "title": "Publish June 23 branch-execution latch checklist for the live five-row board lane",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-45m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "cross-lane",
+        "execution-latch",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0452",
+        "TASK-0464",
+        "TASK-0469",
+        "mission-control/board/approval-queue/2026-06-19T16-30-00Z-recovery-post-reply-execution-bundle-contract.md",
+        "mission-control/board/approval-queue/2026-06-22T16-30-00Z-board-branch-to-contract-operator-map.md",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-current-owner-decision-capture.md",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-branch-execution-latch-checklist.md",
+        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m slice. Publish one branch-execution latch checklist for the live five-row board lane so each valid owner reply maps to exact downstream open-next artifacts, required inputs, and explicit no-write boundaries before Sentinel mutates anything.\nAcceptance Criteria:\n- One artifact maps each valid branch to exact downstream contracts plus required owner input and live-state prerequisites.\n- Checklist states the explicit no-write boundary for blocked/default/replay/rescope branches and forbids stale packet replay.\n- Artifact stays governance-only and does not mutate `BOARD.json`.",
+      "comments": [
+        {
+          "id": "executed-task-0470-20260623-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-23T16:30Z board progress sweep. Published one exact branch-execution latch checklist so the live five-row lane now states which contract to open, which inputs must exist, and which writes remain forbidden for each valid branch.",
+          "created_at": "2026-06-23T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-23T16:30:00Z",
+      "updated_at": "2026-06-23T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     }
