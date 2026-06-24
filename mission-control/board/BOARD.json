@@ -552,7 +552,15 @@
         "mission-control/board/sweeps/2026-06-23T03-10-00Z-board-build-window-night.md",
         "TASK-0471",
         "mission-control/board/approval-queue/2026-06-24T03-10-00Z-signal-register-generator-mapping-and-validation-spec.md",
-        "mission-control/board/sweeps/2026-06-24T03-10-00Z-board-build-window-night.md"
+        "mission-control/board/sweeps/2026-06-24T03-10-00Z-board-build-window-night.md",
+        "TASK-0473",
+        "mission-control/board/approval-queue/2026-06-24T10-40-00Z-signal-register-current-approval-bundle.md",
+        "mission-control/board/sweeps/2026-06-24T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0474",
+        "mission-control/board/approval-queue/2026-06-24T16-30-00Z-signal-register-owner-decision-capture.md",
+        "TASK-0475",
+        "mission-control/board/approval-queue/2026-06-24T16-30-00Z-signal-register-post-approval-execution-handoff.md",
+        "mission-control/board/sweeps/2026-06-24T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Track Monitor/Verified/Actioned signals with sources, confidence, buyer/initiative links, and deck handoff hook.",
       "comments": [
@@ -573,11 +581,23 @@
           "author": "sentinel",
           "text": "Board build window 2026-06-24T03:10Z: executed TASK-0471 to freeze exact source-to-output mappings, first-run exclusion/ranking policy, and validation receipt requirements for TASK-0012a without starting unapproved implementation.",
           "created_at": "2026-06-24T03:10:00Z"
+        },
+        {
+          "id": "signal-register-approval-bundle-20260624-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-06-24T10:40Z: executed TASK-0473 to collapse the June 22 seed, June 23 execution contract, June 23 allowlist template, and June 24 mapping spec into one current approval bundle for TASK-0012a without starting implementation.",
+          "created_at": "2026-06-24T10:40:00Z"
+        },
+        {
+          "id": "signal-register-decision-and-handoff-20260624-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-24T16:30Z: executed TASK-0474 and TASK-0475 to publish one fill-ready owner decision card and one exact post-approval execution handoff card for TASK-0012a without starting the generator.",
+          "created_at": "2026-06-24T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-26T22:40:42Z",
-      "updated_at": "2026-06-24T03:10:00Z",
+      "updated_at": "2026-06-24T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -1334,7 +1354,10 @@
         "TASK-0470",
         "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-current-owner-decision-capture.md",
         "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-branch-execution-latch-checklist.md",
-        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0472",
+        "mission-control/board/approval-queue/2026-06-24T06-30-00Z-stalled-rfr-parent-compaction-receipt.md",
+        "mission-control/board/sweeps/2026-06-24T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Add right-side drawer panel opened by task click; preserve board context; support keyboard close and mobile collapse.",
       "comments": [
@@ -1421,6 +1444,12 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-23T16:30Z: no new TS-UI implementation slice was honest, but the live five-row lane still lacked one same-day fill-ready owner reply capture and one exact branch latch checklist. Executed TASK-0469 and TASK-0470 to publish those two governance artifacts and linked them from this row; no review-gated status was changed.",
           "created_at": "2026-06-23T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0029-20260624-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep 2026-06-24T06:30Z: the stale child queue under TASK-0029 still needed no new implementation split, but its three aging review leaves were still hanging as implied asks. Executed TASK-0472 to compact those leaves back into the current TASK-0029 parent decision surface and link one same-day receipt; parent remains Ready for Review.",
+          "created_at": "2026-06-24T06:30:00Z"
         }
       ],
       "request_approval": {
@@ -1432,7 +1461,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-23T16:30:00Z",
+      "updated_at": "2026-06-24T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-15T10-40-00Z"
@@ -1521,7 +1550,10 @@
         "TASK-0470",
         "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-current-owner-decision-capture.md",
         "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-branch-execution-latch-checklist.md",
-        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-23T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0472",
+        "mission-control/board/approval-queue/2026-06-24T06-30-00Z-stalled-rfr-parent-compaction-receipt.md",
+        "mission-control/board/sweeps/2026-06-24T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Bind all editable fields and save actions; keep audit logging and governance checks unchanged.",
       "comments": [
@@ -1638,6 +1670,12 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-23T16:30Z: the editing lane remained review-gated, but the current operator surface still made the owner choose between multiple same-week artifacts. Executed TASK-0469 and TASK-0470 to publish one same-day reply capture card and one branch latch checklist, then linked both here without reopening coding or mutating status.",
           "created_at": "2026-06-23T16:30:00Z"
+        },
+        {
+          "id": "followthrough-0030-20260624-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep 2026-06-24T06:30Z: the stale child queue under TASK-0030 still needed no new implementation split, but its nine aging review leaves were still spread across older packets. Executed TASK-0472 to compact those leaves back into the current TASK-0030 parent decision surface and link one same-day receipt; parent remains Ready for Review.",
+          "created_at": "2026-06-24T06:30:00Z"
         }
       ],
       "request_approval": {
@@ -1649,7 +1687,7 @@
         "approved_at": null
       },
       "created_at": "2026-02-26T22:55:00Z",
-      "updated_at": "2026-06-23T16:30:00Z",
+      "updated_at": "2026-06-24T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "review_packet_id": "RP-2026-06-15T06-30-00Z"
@@ -5538,7 +5576,10 @@
         "mission-control/board/sweeps/2026-06-21T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0466",
         "mission-control/board/approval-queue/2026-06-23T06-30-00Z-board-lane-overnight-no-drift-receipt.md",
-        "mission-control/board/sweeps/2026-06-23T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-06-23T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0472",
+        "mission-control/board/approval-queue/2026-06-24T06-30-00Z-stalled-rfr-parent-compaction-receipt.md",
+        "mission-control/board/sweeps/2026-06-24T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "comments": [
@@ -5928,11 +5969,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep 2026-06-21T06:30Z: re-applied the decomposition gate, confirmed the stalled shape remains 12 aging TS-UI1.x review leaves plus blocked parents TASK-0107/TASK-0269, and executed TASK-0458 to publish one coherent whole-board bundle ballot so the next owner reply can choose valid end-to-end branches instead of mixing contradictory row decisions.",
           "created_at": "2026-06-21T06:30:00Z"
+        },
+        {
+          "id": "recovery-0107-20260624-0630",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep 2026-06-24T06:30Z: re-applied the decomposition gate, confirmed the stalled shape is still 12 aging TS-UI1.x review leaves plus blocked parents TASK-0107/TASK-0269, and executed TASK-0472 to collapse those 12 leaves back into the live TASK-0029/TASK-0030 parent asks with one same-day compaction receipt. Parent remains Blocked because the remaining gate is owner review choice, not implementation size.",
+          "created_at": "2026-06-24T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-06-23T06:30:00Z",
+      "updated_at": "2026-06-24T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -22155,6 +22202,193 @@
       "request_approval": null,
       "created_at": "2026-06-24T03:10:00Z",
       "updated_at": "2026-06-24T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0472",
+      "title": "Publish June 24 stalled RFR parent-compaction receipt aligned to the live owner tuple",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-governance",
+        "decomposed",
+        "30-45m",
+        "late-night-recovery",
+        "atomic",
+        "cross-lane",
+        "review-compaction",
+        "child-of:TASK-0107",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0469",
+        "TASK-0470",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-current-owner-decision-capture.md",
+        "mission-control/board/approval-queue/2026-06-23T16-30-00Z-board-branch-execution-latch-checklist.md",
+        "mission-control/board/approval-queue/2026-06-24T06-30-00Z-stalled-rfr-parent-compaction-receipt.md",
+        "mission-control/board/sweeps/2026-06-24T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-45m slice. Publish one same-day stalled-review compaction receipt that groups the 12 aging `Ready for Review` leaves back under `TASK-0029` and `TASK-0030`, preserves the blocked recovery minimum, and names the exact next owner tuple.\nAcceptance Criteria:\n- Artifact lists the full stalled open set at sweep time, including `Doing >48h`, stale `Ready for Review`, and blocked counts.\n- All 12 stale review leaves are routed to `TASK-0029` or `TASK-0030` instead of treated as separate approval asks.\n- Artifact preserves the explicit blocked/non-write boundary for `TASK-0269`, `TASK-0335`, and `TASK-0379`.\n- Artifact stays routing-only and does not mutate `BOARD.json` statuses.",
+      "comments": [
+        {
+          "id": "executed-task-0472-20260624-0630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-24T06:30Z board recovery sweep. Published one same-day parent-compaction receipt so the 12 aging TS-UI review leaves now resolve back to TASK-0029 and TASK-0030 as the only live approval asks, while the blocked recovery minimum stays explicit and non-mutating.",
+          "created_at": "2026-06-24T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-24T06:30:00Z",
+      "updated_at": "2026-06-24T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
+    },
+    {
+      "id": "TASK-0473",
+      "title": "Publish June 24 current approval bundle for Signal Register v1 generator slice",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-execution-sweep-morning",
+        "atomic",
+        "child-of:TASK-0012",
+        "approval-routing",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0465",
+        "TASK-0471",
+        "mission-control/review-packets/RP-2026-06-22T03-10-00Z-signal-register-v1-refresh.md",
+        "mission-control/board/approval-queue/2026-06-23T03-10-00Z-signal-register-generator-execution-contract.md",
+        "mission-control/artifacts/signal-register-v1-allowlist-template-2026-06-23.json",
+        "mission-control/board/approval-queue/2026-06-24T03-10-00Z-signal-register-generator-mapping-and-validation-spec.md",
+        "mission-control/board/approval-queue/2026-06-24T10-40-00Z-signal-register-current-approval-bundle.md",
+        "mission-control/board/sweeps/2026-06-24T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-45m slice. Publish one current approval bundle for `TASK-0012a` that collapses the June 22 seed review packet and the June 23/24 generator contract supplements into a single owner-facing decision surface.\nAcceptance Criteria:\n- One artifact names the exact packet set and reading order for the current `TASK-0012a` approval surface.\n- Artifact states the exact approval asks, hold branches, and post-approval next Sentinel action without implying implementation has started.\n- Artifact preserves the no-bypass boundary for default-excluded initiatives and stays artifact-only.",
+      "comments": [
+        {
+          "id": "executed-task-0473-20260624-1040",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-24T10:40Z board execution sweep. Published one current approval bundle so TASK-0012a now has a single owner-facing decision surface spanning the seed contract, execution contract, allowlist boundary, and mapping/validation supplement.",
+          "created_at": "2026-06-24T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-24T10:40:00Z",
+      "updated_at": "2026-06-24T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0474",
+      "title": "Publish Signal Register v1 owner decision capture card",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "child-of:TASK-0012",
+        "approval-routing",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0473",
+        "mission-control/review-packets/RP-2026-06-22T03-10-00Z-signal-register-v1-refresh.md",
+        "mission-control/board/approval-queue/2026-06-23T03-10-00Z-signal-register-generator-execution-contract.md",
+        "mission-control/artifacts/signal-register-v1-allowlist-template-2026-06-23.json",
+        "mission-control/board/approval-queue/2026-06-24T03-10-00Z-signal-register-generator-mapping-and-validation-spec.md",
+        "mission-control/board/approval-queue/2026-06-24T10-40-00Z-signal-register-current-approval-bundle.md",
+        "mission-control/board/approval-queue/2026-06-24T16-30-00Z-signal-register-owner-decision-capture.md",
+        "mission-control/board/sweeps/2026-06-24T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m slice. Publish one fill-ready owner decision card for `TASK-0012a` so Isaac can approve or hold the current Signal Register bundle with one exact reply instead of reconciling multiple artifacts.\nAcceptance Criteria:\n- One artifact provides exact copy-paste reply blocks for approve, schema hold, policy hold, and consumer-scope hold branches.\n- Each branch stays aligned to the June 24 approval bundle and preserves the no-bypass boundary for default-excluded initiatives.\n- Artifact stays routing-only and does not mutate `BOARD.json` or start implementation.",
+      "comments": [
+        {
+          "id": "executed-task-0474-20260624-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-24T16:30Z board progress sweep. Published one same-day owner decision card so TASK-0012a can now be approved or held with an exact reply surface instead of a cross-file bundle reconstruction.",
+          "created_at": "2026-06-24T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-24T16:30:00Z",
+      "updated_at": "2026-06-24T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0475",
+      "title": "Publish Signal Register v1 post-approval execution handoff card",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "child-of:TASK-0012",
+        "artifact-first",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0465",
+        "TASK-0471",
+        "TASK-0473",
+        "mission-control/board/approval-queue/2026-06-23T03-10-00Z-signal-register-generator-execution-contract.md",
+        "mission-control/board/approval-queue/2026-06-24T03-10-00Z-signal-register-generator-mapping-and-validation-spec.md",
+        "mission-control/board/approval-queue/2026-06-24T10-40-00Z-signal-register-current-approval-bundle.md",
+        "mission-control/board/approval-queue/2026-06-24T16-30-00Z-signal-register-post-approval-execution-handoff.md",
+        "mission-control/board/sweeps/2026-06-24T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m slice. Publish one exact post-approval execution handoff card for `TASK-0012a` so the first approved generator run has frozen output paths, verification commands, and non-write boundaries before coding starts.\nAcceptance Criteria:\n- One artifact names the proposed generator script path, generated artifact path, validation receipt path, and approved input boundary.\n- Artifact includes exact verification commands plus an explicit non-write boundary for source files, `BOARD.json`, and downstream workflow consumption.\n- Artifact stays artifact-only and does not imply implementation has started.",
+      "comments": [
+        {
+          "id": "executed-task-0475-20260624-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-24T16:30Z board progress sweep. Published one exact post-approval execution handoff card so the first TASK-0012a implementation session has named paths, checks, and stop conditions before any code is written.",
+          "created_at": "2026-06-24T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-24T16:30:00Z",
+      "updated_at": "2026-06-24T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0012"
