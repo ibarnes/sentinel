@@ -549,7 +549,10 @@
         "TASK-0465",
         "mission-control/board/approval-queue/2026-06-23T03-10-00Z-signal-register-generator-execution-contract.md",
         "mission-control/artifacts/signal-register-v1-allowlist-template-2026-06-23.json",
-        "mission-control/board/sweeps/2026-06-23T03-10-00Z-board-build-window-night.md"
+        "mission-control/board/sweeps/2026-06-23T03-10-00Z-board-build-window-night.md",
+        "TASK-0471",
+        "mission-control/board/approval-queue/2026-06-24T03-10-00Z-signal-register-generator-mapping-and-validation-spec.md",
+        "mission-control/board/sweeps/2026-06-24T03-10-00Z-board-build-window-night.md"
       ],
       "description": "Track Monitor/Verified/Actioned signals with sources, confidence, buyer/initiative links, and deck handoff hook.",
       "comments": [
@@ -564,11 +567,17 @@
           "author": "sentinel",
           "text": "Board build window 2026-06-23T03:10Z: executed TASK-0465 to publish a deterministic generator execution contract plus first-run allowlist template so the next `TASK-0012a` slice is approval-ready without starting unapproved implementation.",
           "created_at": "2026-06-23T03:10:00Z"
+        },
+        {
+          "id": "signal-register-mapping-spec-20260624-0310",
+          "author": "sentinel",
+          "text": "Board build window 2026-06-24T03:10Z: executed TASK-0471 to freeze exact source-to-output mappings, first-run exclusion/ranking policy, and validation receipt requirements for TASK-0012a without starting unapproved implementation.",
+          "created_at": "2026-06-24T03:10:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-26T22:40:42Z",
-      "updated_at": "2026-06-23T03:10:00Z",
+      "updated_at": "2026-06-24T03:10:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -22106,6 +22115,49 @@
       "updated_at": "2026-06-23T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
+    },
+    {
+      "id": "TASK-0471",
+      "title": "Publish Signal Register v1 generator mapping and validation spec",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-60m",
+        "board-build-window-night",
+        "atomic",
+        "child-of:TASK-0012",
+        "artifact-first",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0465",
+        "mission-control/board/approval-queue/2026-06-23T03-10-00Z-signal-register-generator-execution-contract.md",
+        "mission-control/artifacts/signal-register-v1-allowlist-template-2026-06-23.json",
+        "mission-control/board/approval-queue/2026-06-24T03-10-00Z-signal-register-generator-mapping-and-validation-spec.md",
+        "mission-control/board/sweeps/2026-06-24T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-60m slice. Publish the exact source-to-output mapping, first-run exclusion/ranking policy, and validation receipt contract for the approved Signal Register v1 generator step.\nAcceptance Criteria:\n- Artifact maps every required output field to exact source fields or deterministic fallback rules.\n- Artifact freezes first-run exclusion and ranking policy, including the current default-excluded initiatives and allowlist no-bypass boundary.\n- Artifact names exact post-generation validation receipt requirements and verification commands.\n- Work stays artifact-only and does not imply implementation or `Done` for `TASK-0012`.",
+      "comments": [
+        {
+          "id": "executed-task-0471-20260624-0310",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-24T03:10Z board build window. Published the signal-register generator mapping and validation spec so TASK-0012a now has frozen derivation, filtering, and receipt rules before any approved implementation begins.",
+          "created_at": "2026-06-24T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-24T03:10:00Z",
+      "updated_at": "2026-06-24T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
     }
   ]
 }
