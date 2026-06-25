@@ -568,7 +568,12 @@
         "mission-control/board/approval-queue/2026-06-25T10-40-00Z-signal-register-current-entry-point-refresh.md",
         "TASK-0479",
         "mission-control/board/approval-queue/2026-06-25T10-40-00Z-signal-register-first-run-validation-receipt-template.md",
-        "mission-control/board/sweeps/2026-06-25T10-40-00Z-board-execution-sweep-morning.md"
+        "mission-control/board/sweeps/2026-06-25T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0480",
+        "mission-control/board/approval-queue/2026-06-25T16-30-00Z-signal-register-current-owner-reply-refresh.md",
+        "TASK-0481",
+        "mission-control/board/approval-queue/2026-06-25T16-30-00Z-signal-register-approval-to-first-run-stopline.md",
+        "mission-control/board/sweeps/2026-06-25T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Track Monitor/Verified/Actioned signals with sources, confidence, buyer/initiative links, and deck handoff hook.",
       "comments": [
@@ -613,11 +618,17 @@
           "author": "sentinel",
           "text": "Morning execution sweep 2026-06-25T10:40Z: executed TASK-0478 and TASK-0479 to refresh the current June 25 entry point for TASK-0012a and to freeze the exact first-run validation receipt template, keeping the lane approval-ready without starting implementation.",
           "created_at": "2026-06-25T10:40:00Z"
+        },
+        {
+          "id": "signal-register-reply-refresh-and-stopline-20260625-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-25T16:30Z: executed TASK-0480 and TASK-0481 to refresh the current owner reply tuple and freeze one exact approval-to-first-run stopline for TASK-0012a, keeping the lane fully bounded without starting implementation.",
+          "created_at": "2026-06-25T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-26T22:40:42Z",
-      "updated_at": "2026-06-25T10:40:00Z",
+      "updated_at": "2026-06-25T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -22608,6 +22619,97 @@
       "request_approval": null,
       "created_at": "2026-06-25T10:40:00Z",
       "updated_at": "2026-06-25T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0480",
+      "title": "Publish June 25 current owner reply refresh for Signal Register v1 generator slice",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "midday-progress",
+        "atomic",
+        "child-of:TASK-0012",
+        "approval-routing",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0474",
+        "TASK-0478",
+        "TASK-0479",
+        "mission-control/board/approval-queue/2026-06-24T16-30-00Z-signal-register-owner-decision-capture.md",
+        "mission-control/board/approval-queue/2026-06-25T10-40-00Z-signal-register-current-entry-point-refresh.md",
+        "mission-control/board/approval-queue/2026-06-25T10-40-00Z-signal-register-first-run-validation-receipt-template.md",
+        "mission-control/board/approval-queue/2026-06-25T16-30-00Z-signal-register-current-owner-reply-refresh.md",
+        "mission-control/board/sweeps/2026-06-25T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m slice. Refresh the exact owner reply surface for `TASK-0012a` so the current June 25 packet set can be approved or held with one smallest valid reply tuple.\nAcceptance Criteria:\n- One artifact points at the current June 25 packet set rather than the older June 24 approval chain.\n- Artifact includes exact copy-paste reply blocks for approval, schema hold, policy hold, and consumer-scope hold branches.\n- Artifact stays routing-only, preserves the exclusion boundary, and does not start implementation.",
+      "comments": [
+        {
+          "id": "executed-task-0480-20260625-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-25T16:30Z board progress sweep. Published one refreshed owner reply card so the current June 25 Signal Register contract set can be approved or held with one exact reply surface instead of backtracking to the June 24 decision card.",
+          "created_at": "2026-06-25T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-25T16:30:00Z",
+      "updated_at": "2026-06-25T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0481",
+      "title": "Publish Signal Register v1 approval-to-first-run stopline",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "midday-progress",
+        "atomic",
+        "child-of:TASK-0012",
+        "artifact-first",
+        "governance",
+        "execution-sequencing"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0475",
+        "TASK-0479",
+        "mission-control/board/approval-queue/2026-06-24T16-30-00Z-signal-register-post-approval-execution-handoff.md",
+        "mission-control/board/approval-queue/2026-06-25T10-40-00Z-signal-register-first-run-validation-receipt-template.md",
+        "mission-control/board/approval-queue/2026-06-25T16-30-00Z-signal-register-approval-to-first-run-stopline.md",
+        "mission-control/board/sweeps/2026-06-25T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m slice. Freeze one current approval-to-first-run stopline for `TASK-0012a` so approval leads to one bounded implementation session and a hard stop after the first-run receipt.\nAcceptance Criteria:\n- One artifact decomposes the future implementation path into explicit atomic subtasks with timeboxes and outputs.\n- Artifact names the exact execution sequence, verification commands, and explicit stopline after receipt publication.\n- Artifact stays artifact-only and does not authorize implementation or downstream adoption.",
+      "comments": [
+        {
+          "id": "executed-task-0481-20260625-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-25T16:30Z board progress sweep. Published one exact approval-to-first-run stopline so the post-approval Signal Register session is bounded to build, emit, receipt, and stop rather than a vague handoff chain.",
+          "created_at": "2026-06-25T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-25T16:30:00Z",
+      "updated_at": "2026-06-25T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0012"
