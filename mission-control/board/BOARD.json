@@ -573,7 +573,21 @@
         "mission-control/board/approval-queue/2026-06-25T16-30-00Z-signal-register-current-owner-reply-refresh.md",
         "TASK-0481",
         "mission-control/board/approval-queue/2026-06-25T16-30-00Z-signal-register-approval-to-first-run-stopline.md",
-        "mission-control/board/sweeps/2026-06-25T16-30-00Z-board-progress-sweep-midday.md"
+        "mission-control/board/sweeps/2026-06-25T16-30-00Z-board-progress-sweep-midday.md",
+        "TASK-0482",
+        "mission-control/review-packets/RP-2026-06-26T03-10-00Z-signal-register-current-generator-slice.md",
+        "mission-control/board/sweeps/2026-06-26T03-10-00Z-board-build-window-night.md",
+        "TASK-0484",
+        "TASK-0485",
+        "TASK-0486",
+        "TASK-0487",
+        "TASK-0488",
+        "TASK-0489",
+        "mission-control/board/approval-queue/2026-06-26T10-40-00Z-signal-register-board-native-post-approval-subtasks.md",
+        "mission-control/board/sweeps/2026-06-26T10-40-00Z-board-execution-sweep-morning.md",
+        "mission-control/review-packets/RP-2026-06-26T16-30-00Z-signal-register-board-native-execution-readiness.md",
+        "mission-control/board/approval-queue/2026-06-26T16-30-00Z-signal-register-exact-first-run-paths-and-cli-contract.md",
+        "mission-control/board/sweeps/2026-06-26T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Track Monitor/Verified/Actioned signals with sources, confidence, buyer/initiative links, and deck handoff hook.",
       "comments": [
@@ -624,11 +638,29 @@
           "author": "sentinel",
           "text": "Midday progress sweep 2026-06-25T16:30Z: executed TASK-0480 and TASK-0481 to refresh the current owner reply tuple and freeze one exact approval-to-first-run stopline for TASK-0012a, keeping the lane fully bounded without starting implementation.",
           "created_at": "2026-06-25T16:30:00Z"
+        },
+        {
+          "id": "signal-register-review-packet-20260626-0310",
+          "author": "sentinel",
+          "text": "Board build window 2026-06-26T03:10Z: executed TASK-0482 to collapse the current June 25 Signal Register generator slice into one reviewer-facing packet so approval or hold can happen from a single current surface without starting implementation.",
+          "created_at": "2026-06-26T03:10:00Z"
+        },
+        {
+          "id": "signal-register-board-native-subtasks-20260626-1040",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-06-26T10:40Z: executed TASK-0484 and TASK-0485 to backfill board-native post-approval child tasks plus one routing card, so the next approved Signal Register move is explicit as TASK-0486 then TASK-0487 instead of living only in prose.",
+          "created_at": "2026-06-26T10:40:00Z"
+        },
+        {
+          "id": "signal-register-execution-readiness-refresh-20260626-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-06-26T16:30Z: executed TASK-0488 and TASK-0489 to refresh the reviewer packet around the new board-native child rows and to freeze one exact first-run output/receipt file contract, so approval can map directly to TASK-0486 then TASK-0487 without filename drift or packet reconstruction.",
+          "created_at": "2026-06-26T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-26T22:40:42Z",
-      "updated_at": "2026-06-25T16:30:00Z",
+      "updated_at": "2026-06-26T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -1394,6 +1426,11 @@
         "mission-control/board/sweeps/2026-06-25T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Add right-side drawer panel opened by task click; preserve board context; support keyboard close and mobile collapse.",
+      "acceptance_criteria": [
+        "Right-side drawer panel opens from a board task click.",
+        "Board context stays preserved while the detail rail is open.",
+        "Keyboard close and mobile collapse behavior remain supported."
+      ],
       "comments": [
         {
           "id": "decomp-0029-20260613-0310",
@@ -1599,6 +1636,11 @@
         "mission-control/board/sweeps/2026-06-25T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Bind all editable fields and save actions; keep audit logging and governance checks unchanged.",
+      "acceptance_criteria": [
+        "All editable task fields save through the existing task update APIs.",
+        "Save and validation behavior remains explicit for the user.",
+        "Audit logging and governance checks remain unchanged."
+      ],
       "comments": [
         {
           "id": "decomp-0030-20260613-1040",
@@ -5634,6 +5676,11 @@
         "mission-control/board/sweeps/2026-06-25T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
+      "acceptance_criteria": [
+        "Decomposed into 30-90 minute child tasks with acceptance criteria and parent/child links.",
+        "At least one unblock child is executed in the sweep.",
+        "Recovery packet includes the stalled list and Isaac decision gate."
+      ],
       "comments": [
         {
           "id": "decomp-0107-20260307-0730",
@@ -12983,6 +13030,7 @@
         "decomposed",
         "decision-gated"
       ],
+      "parent_id": "TASK-0107",
       "linked_refs": [
         "TASK-0107",
         "TASK-0268",
@@ -13058,6 +13106,11 @@
         "mission-control/board/sweeps/2026-06-25T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
+      "acceptance_criteria": [
+        "BOARD.json reflects approved transition choices for all tranche-AH IDs.",
+        "Delta note is saved under mission-control/board/sweeps/.",
+        "Parent/child linkage and RP references are updated."
+      ],
       "comments": [
         {
           "id": "queued-task-0269-20260429-1630",
@@ -16040,6 +16093,7 @@
         "decomposed",
         "child-of:TASK-0269"
       ],
+      "parent_id": "TASK-0269",
       "linked_refs": [
         "TASK-0269",
         "mission-control/board/approval-queue/2026-05-27T06-30-00Z-tranche-ah-decision-input-sheet.md"
@@ -16080,6 +16134,7 @@
         "decomposed",
         "child-of:TASK-0269"
       ],
+      "parent_id": "TASK-0269",
       "linked_refs": [
         "TASK-0269",
         "TASK-0334",
@@ -16117,6 +16172,11 @@
         "mission-control/board/sweeps/2026-06-25T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "30-60m slice. Execute BOARD.json status updates from signed decision sheet and write before/after delta log.\nAcceptance Criteria:\n- All selected IDs transitioned exactly as specified.\n- Delta log saved in sweeps folder with changed IDs and statuses.\n- Parent TASK-0269 comment links delta log.",
+      "acceptance_criteria": [
+        "All selected IDs are transitioned exactly as specified.",
+        "Delta log is saved in the sweeps folder with changed IDs and statuses.",
+        "Parent TASK-0269 comment links the delta log."
+      ],
       "comments": [
         {
           "id": "followthrough-0335-20260619-1630",
@@ -17886,6 +17946,7 @@
         "decision-gated",
         "child-of:TASK-0107"
       ],
+      "parent_id": "TASK-0107",
       "linked_refs": [
         "TASK-0107",
         "TASK-0269",
@@ -17930,6 +17991,7 @@
         "decision-gated",
         "child-of:TASK-0107"
       ],
+      "parent_id": "TASK-0107",
       "linked_refs": [
         "TASK-0107",
         "TASK-0377",
@@ -17975,6 +18037,11 @@
         "mission-control/board/sweeps/2026-06-25T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "30-60m slice. After Isaac marks the unified recovery decision pack, compact only approved credential-cluster rows in BOARD.json and publish a deterministic before/after delta log.\nAcceptance Criteria:\n- Only rows explicitly marked APPROVE_COMPACT are changed.\n- Retained canonical tasks TASK-0355, TASK-0364, TASK-0374, and TASK-0375 remain untouched.\n- Delta log is saved under mission-control/board/sweeps/ and linked back to TASK-0107.",
+      "acceptance_criteria": [
+        "Only rows explicitly marked APPROVE_COMPACT are changed.",
+        "Retained canonical tasks TASK-0355, TASK-0364, TASK-0374, and TASK-0375 remain untouched.",
+        "Delta log is saved under mission-control/board/sweeps/ and linked back to TASK-0107."
+      ],
       "comments": [
         {
           "id": "followthrough-0379-20260618-1630",
@@ -19959,6 +20026,11 @@
         "mission-control/board/sweeps/2026-06-13T03-10-00Z-board-build-window-night.md"
       ],
       "description": "30-90m slice. Convert the existing board task panel into a persistent desktop detail rail while keeping mobile collapse behavior, and bind selected-task state to `?task=TASK-ID`. Acceptance Criteria:\n- Desktop board layout keeps a visible non-blocking detail rail.\n- Mobile panel remains dismissible.\n- Opening a task syncs URL state and browser navigation reopens the selected task.",
+      "acceptance_criteria": [
+        "Desktop board layout keeps a visible non-blocking detail rail.",
+        "Mobile panel remains dismissible.",
+        "Opening a task syncs URL state and browser navigation reopens the selected task."
+      ],
       "comments": [
         {
           "id": "executed-task-0421-20260613-0310",
@@ -20007,6 +20079,11 @@
         "mission-control/board/sweeps/2026-06-13T03-10-00Z-board-build-window-night.md"
       ],
       "description": "30-90m slice. Tighten the board-panel state loop so saves and reloads preserve the correct selected task and comment metadata displays the canonical stored fields. Acceptance Criteria:\n- Creating a new task reopens the saved task record.\n- Reloaded board data restores the selected task when it still exists.\n- Comment list renders stored `author` and `created_at` values.",
+      "acceptance_criteria": [
+        "Creating a new task reopens the saved task record.",
+        "Reloaded board data restores the selected task when it still exists.",
+        "Comment list renders stored author and created_at values."
+      ],
       "comments": [
         {
           "id": "executed-task-0422-20260613-0310",
@@ -20095,6 +20172,11 @@
         "mission-control/board/sweeps/2026-06-13T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "30-90m slice. Add board-detail save validation that explains what failed instead of showing a generic save error. Acceptance Criteria:\n- Missing title is surfaced inline inside the task panel.\n- Server-side save and move failures show the returned error detail.\n- Notice state clears when the panel changes context.",
+      "acceptance_criteria": [
+        "Missing title is surfaced inline inside the task panel.",
+        "Server-side save and move failures show the returned error detail.",
+        "Notice state clears when the panel changes context."
+      ],
       "comments": [
         {
           "id": "executed-task-0424-20260613-1040",
@@ -20143,6 +20225,11 @@
         "mission-control/board/sweeps/2026-06-13T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "30-90m slice. Keep task edit saves inside the existing PATCH API, but when the selected status changed, apply it immediately through the governed move endpoint so approval and gate checks still fire. Acceptance Criteria:\n- New tasks can land in the selected non-Backlog status through create-plus-move sequencing.\n- Existing tasks preserve field edits and then attempt the selected status transition.\n- If the move is blocked, the task remains saved and the user sees the specific blocker reason.",
+      "acceptance_criteria": [
+        "New tasks can land in the selected non-Backlog status through create-plus-move sequencing.",
+        "Existing tasks preserve field edits and then attempt the selected status transition.",
+        "If the move is blocked, the task remains saved and the user sees the specific blocker reason."
+      ],
       "comments": [
         {
           "id": "executed-task-0425-20260613-1040",
@@ -20203,6 +20290,11 @@
         "mission-control/board/sweeps/2026-06-13T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "30-90m slice. Keep board-detail commenting inside the persistent panel by replacing alert-based failures with inline notice states and success recovery. Acceptance Criteria:\n- Unsaved-task and empty-comment cases surface inline inside the panel.\n- Comment API failures show returned error detail inline.\n- Successful comments clear the composer, keep the selected task open, and show a success notice.",
+      "acceptance_criteria": [
+        "Unsaved-task and empty-comment cases surface inline inside the panel.",
+        "Comment API failures show returned error detail inline.",
+        "Successful comments clear the composer, keep the selected task open, and show a success notice."
+      ],
       "comments": [
         {
           "id": "executed-task-0426-20260613-1630",
@@ -20251,6 +20343,11 @@
         "mission-control/board/sweeps/2026-06-13T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "30-90m slice. Keep review-packet actions inside the board detail rail by replacing prompt/alert flows with inline approval UX and visible packet status. Acceptance Criteria:\n- Request Approval uses an inline optional title field instead of a browser prompt.\n- Approval request and approve failures show returned error detail inline.\n- The selected task shows current review-packet and approval status after reload.",
+      "acceptance_criteria": [
+        "Request Approval uses an inline optional title field instead of a browser prompt.",
+        "Approval request and approve failures show returned error detail inline.",
+        "The selected task shows current review-packet and approval status after reload."
+      ],
       "comments": [
         {
           "id": "executed-task-0427-20260613-1630",
@@ -20299,6 +20396,11 @@
         "mission-control/board/sweeps/2026-06-14T03-10-00Z-board-build-window-night.md"
       ],
       "description": "30-90m slice. Close the remaining board-detail form gap by wiring acceptance criteria through the board task rail as newline-separated editable entries without changing existing governance behavior. Acceptance Criteria:\n- The detail rail exposes an acceptance-criteria field for existing and new tasks.\n- Save/create flows persist `acceptance_criteria` through the current task APIs.\n- Board schema and validation accept tasks carrying `acceptance_criteria` arrays.",
+      "acceptance_criteria": [
+        "The detail rail exposes an acceptance-criteria field for existing and new tasks.",
+        "Save/create flows persist acceptance_criteria through the current task APIs.",
+        "Board schema and validation accept tasks carrying acceptance_criteria arrays."
+      ],
       "comments": [
         {
           "id": "executed-task-0428-20260614-0310",
@@ -20351,6 +20453,11 @@
         "mission-control/board/sweeps/2026-06-14T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "30-60m slice. Publish a single reviewer-facing handoff for the completed TS-UI1.2 editing lane and move the parent to Ready for Review once no autonomous coding work remains.\nAcceptance Criteria:\n- Review packet summarizes TASK-0424 through TASK-0428 as one verification surface.\n- TASK-0030 moves to Ready for Review with the new packet linked.\n- Sweep log explains that remaining work is review plus authenticated browser smoke, not additional unattended coding.",
+      "acceptance_criteria": [
+        "Review packet summarizes TASK-0424 through TASK-0428 as one verification surface.",
+        "TASK-0030 moves to Ready for Review with the new packet linked.",
+        "Sweep log explains that remaining work is review plus authenticated browser smoke, not additional unattended coding."
+      ],
       "comments": [
         {
           "id": "executed-task-0430-20260614-1040",
@@ -20436,6 +20543,11 @@
         "mission-control/board/sweeps/2026-06-14T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "30-60m slice. Normalize legacy board rows before runtime use and persistence validation so authenticated task edits do not crash on historical schema drift.\nAcceptance Criteria:\n- Legacy status values map onto the current board column set before strict validation.\n- Legacy comment shapes normalize into `{ id, author, text, created_at }` before writeBoard validation.\n- Authenticated create/edit/comment board writes no longer fail solely because older BOARD.json rows use stale shapes.",
+      "acceptance_criteria": [
+        "Legacy status values map onto the current board column set before strict validation.",
+        "Legacy comment shapes normalize into { id, author, text, created_at } before writeBoard validation.",
+        "Authenticated create/edit/comment board writes no longer fail solely because older BOARD.json rows use stale shapes."
+      ],
       "comments": [
         {
           "id": "executed-task-0431-20260614-1630",
@@ -20484,6 +20596,11 @@
         "mission-control/board/sweeps/2026-06-14T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "30-60m slice. Run isolated authenticated board smoke for the detail-rail editing lane and publish the exact governed approval blocker instead of leaving the validation story implied.\nAcceptance Criteria:\n- Isolated authenticated smoke proves login plus create/edit/comment/cleanup for `/board`.\n- Request Approval failure mode is captured explicitly when the state gate blocks the scratch task.\n- Any runtime defect found during smoke is either fixed or documented in the receipt before the slice moves to review.",
+      "acceptance_criteria": [
+        "Isolated authenticated smoke proves login plus create/edit/comment/cleanup for /board.",
+        "Request Approval failure mode is captured explicitly when the state gate blocks the scratch task.",
+        "Any runtime defect found during smoke is either fixed or documented in the receipt before the slice moves to review."
+      ],
       "comments": [
         {
           "id": "executed-task-0432-20260614-1630",
@@ -20532,6 +20649,11 @@
         "mission-control/board/sweeps/2026-06-15T03-10-00Z-board-build-window-night.md"
       ],
       "description": "30-60m slice. Surface governance gate status in the board detail rail before users click Request Approval so non-executable approval attempts explain themselves inline instead of failing as a surprise POST.\nAcceptance Criteria:\n- `/api/board` includes preflight gate status for Ready for Review and Done transitions.\n- The board detail rail shows the current approval gate reason inline for the selected task.\n- Request Approval is disabled in the rail when the Ready for Review gate is blocked, without altering the existing governed backend decision.",
+      "acceptance_criteria": [
+        "/api/board includes preflight gate status for Ready for Review and Done transitions.",
+        "The board detail rail shows the current approval gate reason inline for the selected task.",
+        "Request Approval is disabled in the rail when the Ready for Review gate is blocked, without altering the existing governed backend decision."
+      ],
       "comments": [
         {
           "id": "executed-task-0433-20260615-0310",
@@ -20624,6 +20746,11 @@
         "mission-control/board/sweeps/2026-06-15T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "30-60m slice. Validate the authenticated `/board` detail-rail lane against an isolated scratch root and publish the exact remaining browser-policy boundary instead of leaving the TS-UI1.1 review surface implied.\nAcceptance Criteria:\n- Authenticated scratch validation proves team login and `/api/board` task retrieval for `TASK-0029`.\n- The served `/board` HTML/CSS/JS contract shows the persistent desktop rail, mobile backdrop/collapse behavior, and `?task=TASK-ID` route synchronization logic for the TS-UI1.1 lane.\n- The receipt names the remaining limitation honestly if a true viewport-driven browser replay is blocked by local OpenClaw browser policy.",
+      "acceptance_criteria": [
+        "Authenticated scratch validation proves team login and /api/board task retrieval for TASK-0029.",
+        "The served /board HTML/CSS/JS contract shows the persistent desktop rail, mobile backdrop/collapse behavior, and ?task=TASK-ID route synchronization logic for the TS-UI1.1 lane.",
+        "The receipt names the remaining limitation honestly if a true viewport-driven browser replay is blocked by local OpenClaw browser policy."
+      ],
       "comments": [
         {
           "id": "executed-task-0435-20260615-1040",
@@ -22713,6 +22840,403 @@
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0482",
+      "title": "Publish current review packet for Signal Register v1 generator slice",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-build-window-night",
+        "atomic",
+        "child-of:TASK-0012",
+        "artifact-first",
+        "governance",
+        "review-packet"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0478",
+        "TASK-0479",
+        "TASK-0480",
+        "TASK-0481",
+        "mission-control/board/approval-queue/2026-06-25T10-40-00Z-signal-register-current-entry-point-refresh.md",
+        "mission-control/board/approval-queue/2026-06-25T10-40-00Z-signal-register-first-run-validation-receipt-template.md",
+        "mission-control/board/approval-queue/2026-06-25T16-30-00Z-signal-register-current-owner-reply-refresh.md",
+        "mission-control/board/approval-queue/2026-06-25T16-30-00Z-signal-register-approval-to-first-run-stopline.md",
+        "mission-control/review-packets/RP-2026-06-26T03-10-00Z-signal-register-current-generator-slice.md",
+        "mission-control/board/sweeps/2026-06-26T03-10-00Z-board-build-window-night.md"
+      ],
+      "description": "30-45m slice. Publish one current reviewer-facing packet for `TASK-0012a` so the June 25 contract set can be approved or held from a single current surface instead of a spread across approval-queue cards.\nAcceptance Criteria:\n- One review packet names the exact current packet set and reading order for reviewer use.\n- Packet includes the exact approval tuple, exact hold branches, and exact post-approval stopline without introducing new implementation scope.\n- Artifact stays review-only and does not authorize implementation or downstream consumption.",
+      "comments": [
+        {
+          "id": "executed-task-0482-20260626-0310",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-26T03:10Z board build window. Published one current review packet so the live Signal Register generator slice can be approved or held from a single reviewer-facing surface instead of reconstructing the June 25 contract from multiple queue cards.",
+          "created_at": "2026-06-26T03:10:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-26T03:10:00Z",
+      "updated_at": "2026-06-26T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0484",
+      "title": "Backfill board-native post-approval subtasks for Signal Register generator lane",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-execution-sweep-morning",
+        "atomic",
+        "child-of:TASK-0012",
+        "board-hygiene",
+        "decomposition-gate"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0481",
+        "TASK-0482",
+        "mission-control/board/approval-queue/2026-06-25T16-30-00Z-signal-register-approval-to-first-run-stopline.md",
+        "mission-control/review-packets/RP-2026-06-26T03-10-00Z-signal-register-current-generator-slice.md",
+        "TASK-0486",
+        "TASK-0487",
+        "mission-control/board/sweeps/2026-06-26T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-45m slice. Convert the post-approval Signal Register generator stopline from prose into explicit board-native child tasks so the next approved move is mechanically clear.\nAcceptance Criteria:\n- Board-native child tasks exist for generator build and first-run receipt publication.\n- New child rows carry explicit acceptance_criteria arrays, parent linkage, and approval-gated scope.\n- Work stays decomposition-only and does not start implementation.",
+      "acceptance_criteria": [
+        "Board-native child tasks exist for generator build and first-run receipt publication.",
+        "New child rows carry explicit acceptance_criteria arrays, parent linkage, and approval-gated scope.",
+        "Work stays decomposition-only and does not start implementation."
+      ],
+      "comments": [
+        {
+          "id": "executed-task-0484-20260626-1040",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-26T10:40Z board execution sweep. Backfilled explicit board-native child tasks for the post-approval Signal Register lane so the future generator session is split into a build slice and a receipt slice before any approval-gated execution begins.",
+          "created_at": "2026-06-26T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-26T10:40:00Z",
+      "updated_at": "2026-06-26T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0485",
+      "title": "Publish current routing card for Signal Register post-approval task IDs",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-execution-sweep-morning",
+        "atomic",
+        "child-of:TASK-0012",
+        "approval-routing",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0482",
+        "TASK-0484",
+        "TASK-0486",
+        "TASK-0487",
+        "mission-control/review-packets/RP-2026-06-26T03-10-00Z-signal-register-current-generator-slice.md",
+        "mission-control/board/approval-queue/2026-06-26T10-40-00Z-signal-register-board-native-post-approval-subtasks.md",
+        "mission-control/board/sweeps/2026-06-26T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-45m slice. Publish one current routing artifact that maps the live June 26 Signal Register review packet onto explicit board-native post-approval task IDs and preserves the stop-after-receipt boundary.\nAcceptance Criteria:\n- Artifact points from the current review packet to the exact post-approval child task IDs in execution order.\n- Artifact restates the approval gate and hold branches without changing scope.\n- Work stays routing-only and does not start implementation.",
+      "acceptance_criteria": [
+        "Artifact points from the current review packet to the exact post-approval child task IDs in execution order.",
+        "Artifact restates the approval gate and hold branches without changing scope.",
+        "Work stays routing-only and does not start implementation."
+      ],
+      "comments": [
+        {
+          "id": "executed-task-0485-20260626-1040",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-26T10:40Z board execution sweep. Published one routing card that links the live June 26 review packet to explicit board task IDs for the first approved build and receipt slices without crossing the approval boundary.",
+          "created_at": "2026-06-26T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-26T10:40:00Z",
+      "updated_at": "2026-06-26T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0486",
+      "title": "Build read-only Signal Register v1 generator script after approval",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "45-90m",
+        "atomic",
+        "child-of:TASK-0012",
+        "approval-gated",
+        "next-action"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0482",
+        "TASK-0484",
+        "mission-control/board/approval-queue/2026-06-25T16-30-00Z-signal-register-approval-to-first-run-stopline.md",
+        "mission-control/board/approval-queue/2026-06-26T10-40-00Z-signal-register-board-native-post-approval-subtasks.md",
+        "TASK-0489",
+        "mission-control/board/approval-queue/2026-06-26T16-30-00Z-signal-register-exact-first-run-paths-and-cli-contract.md"
+      ],
+      "description": "45-90m slice. After explicit approval of the current generator packet, create `scripts/signals-feed/build-signal-register-v1.mjs` as a read-only generator against the approved source set.\nAcceptance Criteria:\n- Reads only the approved Signal Register source files plus the optional allowlist template.\n- Emits JSON in the approved June 22 seed shape with deterministic divergence only where the June 25 parity card allows it.\n- Does not mutate upstream source files, `BOARD.json`, or downstream workflow config.",
+      "acceptance_criteria": [
+        "Reads only the approved Signal Register source files plus the optional allowlist template.",
+        "Emits JSON in the approved June 22 seed shape with deterministic divergence only where the June 25 parity card allows it.",
+        "Does not mutate upstream source files, `BOARD.json`, or downstream workflow config."
+      ],
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-06-26T10:40:00Z",
+      "updated_at": "2026-06-26T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0487",
+      "title": "Emit Signal Register first run, fill receipt, and stop for review",
+      "status": "Backlog",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "atomic",
+        "child-of:TASK-0012",
+        "approval-gated",
+        "next-action"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0479",
+        "TASK-0486",
+        "mission-control/board/approval-queue/2026-06-25T10-40-00Z-signal-register-first-run-validation-receipt-template.md",
+        "mission-control/board/approval-queue/2026-06-26T10-40-00Z-signal-register-board-native-post-approval-subtasks.md",
+        "TASK-0489",
+        "mission-control/board/approval-queue/2026-06-26T16-30-00Z-signal-register-exact-first-run-paths-and-cli-contract.md"
+      ],
+      "description": "30-45m slice. After `TASK-0486` and only after approval, emit the first generated Signal Register artifact, fill the frozen receipt template, and stop for review before any downstream adoption.\nAcceptance Criteria:\n- Generated artifact parses as JSON and contains the required top-level and per-entry fields.\n- Receipt records included and excluded IDs, pass/fail verdicts, and seed-divergence notes.\n- Work stops after receipt publication with no downstream consumer switched to the generated artifact.",
+      "acceptance_criteria": [
+        "Generated artifact parses as JSON and contains the required top-level and per-entry fields.",
+        "Receipt records included and excluded IDs, pass/fail verdicts, and seed-divergence notes.",
+        "Work stops after receipt publication with no downstream consumer switched to the generated artifact."
+      ],
+      "comments": [],
+      "request_approval": null,
+      "created_at": "2026-06-26T10:40:00Z",
+      "updated_at": "2026-06-26T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0488",
+      "title": "Refresh Signal Register review packet with board-native execution path",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "child-of:TASK-0012",
+        "artifact-first",
+        "governance",
+        "review-packet"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0482",
+        "TASK-0485",
+        "TASK-0486",
+        "TASK-0487",
+        "mission-control/review-packets/RP-2026-06-26T03-10-00Z-signal-register-current-generator-slice.md",
+        "mission-control/board/approval-queue/2026-06-26T10-40-00Z-signal-register-board-native-post-approval-subtasks.md",
+        "mission-control/review-packets/RP-2026-06-26T16-30-00Z-signal-register-board-native-execution-readiness.md",
+        "mission-control/board/sweeps/2026-06-26T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m slice. Publish one refreshed review packet that rolls the June 26 board-native post-approval task IDs into the current Signal Register approval surface so reviewer approval maps directly to executable child rows.\nAcceptance Criteria:\n- New review packet names the exact current reading order including the board-native post-approval task map.\n- Packet preserves the exact approval tuple and hold branches while naming `TASK-0486` then `TASK-0487` as the only approved execution sequence.\n- Artifact stays review-only and does not authorize implementation or downstream consumption.",
+      "acceptance_criteria": [
+        "New review packet names the exact current reading order including the board-native post-approval task map.",
+        "Packet preserves the exact approval tuple and hold branches while naming `TASK-0486` then `TASK-0487` as the only approved execution sequence.",
+        "Artifact stays review-only and does not authorize implementation or downstream consumption."
+      ],
+      "comments": [
+        {
+          "id": "executed-task-0488-20260626-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-26T16:30Z board progress sweep. Refreshed the reviewer packet so the live approval surface now lands directly on TASK-0486 then TASK-0487 instead of requiring reconstruction from the older June 25 and June 26 routing notes.",
+          "created_at": "2026-06-26T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-26T16:30:00Z",
+      "updated_at": "2026-06-26T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0489",
+      "title": "Freeze exact first-run output paths and CLI contract for Signal Register",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "child-of:TASK-0012",
+        "contract-clarification",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0475",
+        "TASK-0479",
+        "TASK-0486",
+        "TASK-0487",
+        "mission-control/board/approval-queue/2026-06-24T16-30-00Z-signal-register-post-approval-execution-handoff.md",
+        "mission-control/board/approval-queue/2026-06-25T10-40-00Z-signal-register-first-run-validation-receipt-template.md",
+        "mission-control/board/approval-queue/2026-06-26T16-30-00Z-signal-register-exact-first-run-paths-and-cli-contract.md",
+        "mission-control/board/sweeps/2026-06-26T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m slice. Publish one exact contract card that freezes the first approved generator invocation, generated artifact path, and filled receipt path so `TASK-0486` and `TASK-0487` no longer depend on implied filenames across older handoff docs.\nAcceptance Criteria:\n- Artifact names one exact generator invocation and one exact generated artifact path.\n- Artifact names one exact filled receipt path derived from the frozen June 25 template and aligns it to `TASK-0487`.\n- Artifact preserves read-only and stop-after-receipt boundaries without starting implementation.",
+      "acceptance_criteria": [
+        "Artifact names one exact generator invocation and one exact generated artifact path.",
+        "Artifact names one exact filled receipt path derived from the frozen June 25 template and aligns it to `TASK-0487`.",
+        "Artifact preserves read-only and stop-after-receipt boundaries without starting implementation."
+      ],
+      "comments": [
+        {
+          "id": "executed-task-0489-20260626-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-26T16:30Z board progress sweep. Froze the exact first-run output and receipt paths plus the canonical future generator invocation so the approved TASK-0486 and TASK-0487 sequence no longer relies on implied filenames scattered across older handoff docs.",
+          "created_at": "2026-06-26T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-26T16:30:00Z",
+      "updated_at": "2026-06-26T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0483",
+      "title": "Backfill explicit stalled-lane acceptance criteria and recovery lineage",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "30-45m",
+        "late-night-recovery",
+        "atomic",
+        "board-hygiene",
+        "child-of:TASK-0107",
+        "metadata-only",
+        "decomposition-gate"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0029",
+        "TASK-0030",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0421",
+        "TASK-0422",
+        "TASK-0424",
+        "TASK-0425",
+        "TASK-0426",
+        "TASK-0427",
+        "TASK-0428",
+        "TASK-0430",
+        "TASK-0431",
+        "TASK-0432",
+        "TASK-0433",
+        "TASK-0435",
+        "mission-control/board/BOARD.json",
+        "mission-control/board/approval-queue/2026-06-26T06-30-00Z-stalled-lane-decomposition-backfill.md",
+        "mission-control/board/sweeps/2026-06-26T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-45m slice. Backfill machine-readable acceptance criteria on the stalled board lane and ensure the recovery lineage stays explicit where the next owner decision depends on parent/child structure.\nAcceptance Criteria:\n- Stalled TS-UI review leaves have explicit acceptance_criteria arrays rather than prose-only decomposition hints.\n- Recovery decision-gated rows expose machine-readable acceptance_criteria and missing recovery parent_id lineage is filled where needed.\n- Sweep artifact records the stalled counts, metadata touched, and Isaac decision needed next without changing any board status.",
+      "acceptance_criteria": [
+        "Stalled TS-UI review leaves have explicit acceptance_criteria arrays rather than prose-only decomposition hints.",
+        "Recovery decision-gated rows expose machine-readable acceptance_criteria and missing recovery parent_id lineage is filled where needed.",
+        "Sweep artifact records the stalled counts, metadata touched, and Isaac decision needed next without changing any board status."
+      ],
+      "comments": [
+        {
+          "id": "executed-task-0483-20260626-0630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-06-26T06:30Z board recovery sweep. Backfilled explicit acceptance criteria on the stalled TS-UI and recovery rows, preserved the exact stale/open-set truth at sweep start, and kept the next Isaac decision surface compact without starting any blocked apply work.",
+          "created_at": "2026-06-26T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-06-26T06:30:00Z",
+      "updated_at": "2026-06-26T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
     },
     {
       "id": "TASK-0477",
