@@ -794,7 +794,12 @@
         "mission-control/board/sweeps/2026-07-18T03-10-00Z-board-build-window-night.md",
         "TASK-0587",
         "mission-control/board/approval-queue/2026-07-18T10-40-00Z-signal-register-morning-no-drift-receipt.md",
-        "mission-control/board/sweeps/2026-07-18T10-40-00Z-board-execution-sweep-morning.md"
+        "mission-control/board/sweeps/2026-07-18T10-40-00Z-board-execution-sweep-morning.md",
+        "TASK-0588",
+        "mission-control/board/approval-queue/2026-07-18T16-30-00Z-signal-register-current-owner-reply-block.md",
+        "TASK-0589",
+        "mission-control/board/approval-queue/2026-07-18T16-30-00Z-signal-register-approval-ping-current-reading-set-refresh.md",
+        "mission-control/board/sweeps/2026-07-18T16-30-00Z-board-progress-sweep-midday.md"
       ],
       "description": "Track Monitor/Verified/Actioned signals with sources, confidence, buyer/initiative links, and deck handoff hook.",
       "comments": [
@@ -1193,11 +1198,17 @@
           "author": "sentinel",
           "text": "Board build window 2026-07-18T03:10Z: executed TASK-0585 to publish one overnight carry-forward receipt proving the July 17 same-day Signal Register packet remained the current bounded approval surface without starting approval-gated implementation.",
           "created_at": "2026-07-18T03:10:00Z"
+        },
+        {
+          "id": "signal-register-midday-routing-refresh-20260718-1630",
+          "author": "sentinel",
+          "text": "Midday progress sweep 2026-07-18T16:30Z: executed TASK-0588 and TASK-0589 to restore a same-day owner reply block and send-ready approval ping on top of the unchanged July 18 morning reading set, so the live TASK-0012 ask is fully current without starting approval-gated implementation.",
+          "created_at": "2026-07-18T16:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-26T22:40:42Z",
-      "updated_at": "2026-07-18T03:10:00Z",
+      "updated_at": "2026-07-18T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -29546,6 +29557,110 @@
       "request_approval": null,
       "created_at": "2026-07-18T10:40:00Z",
       "updated_at": "2026-07-18T10:40:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0588",
+      "title": "Publish same-day owner reply block for the July 18 Signal Register current packet",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "child-of:TASK-0012",
+        "approval-routing",
+        "artifact-first",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0587",
+        "TASK-0486",
+        "TASK-0487",
+        "mission-control/review-packets/RP-2026-06-26T16-30-00Z-signal-register-board-native-execution-readiness.md",
+        "mission-control/board/approval-queue/2026-06-26T16-30-00Z-signal-register-exact-first-run-paths-and-cli-contract.md",
+        "mission-control/board/approval-queue/2026-07-18T10-40-00Z-signal-register-morning-no-drift-receipt.md",
+        "mission-control/board/approval-queue/2026-07-18T16-30-00Z-signal-register-current-owner-reply-block.md",
+        "mission-control/board/sweeps/2026-07-18T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m slice. Publish one same-day owner reply block so the midday Signal Register ask maps only to the July 18 current reading set and preserves the exact post-approval task sequence.\nAcceptance Criteria:\n- Artifact reads only the June 26 execution-readiness packet, the June 26 exact path contract, and the July 18 morning no-drift receipt.\n- Artifact restates the exact approval tuple plus schema, policy, and consumer-scope hold branches with the same `TASK-0486` then `TASK-0487` stopline.\n- Artifact stays routing-only with no implementation or board status change.",
+      "acceptance_criteria": [
+        "Artifact reads only the June 26 execution-readiness packet, the June 26 exact path contract, and the July 18 morning no-drift receipt.",
+        "Artifact restates the exact approval tuple plus schema, policy, and consumer-scope hold branches with the same `TASK-0486` then `TASK-0487` stopline.",
+        "Artifact stays routing-only with no implementation or board status change."
+      ],
+      "comments": [
+        {
+          "id": "executed-task-0588-20260718-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-07-18T16:30Z board progress sweep. Published one refreshed same-day Signal Register owner reply block that points only to the July 18 current reading set and preserves the existing post-approval stopline.",
+          "created_at": "2026-07-18T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-07-18T16:30:00Z",
+      "updated_at": "2026-07-18T16:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0589",
+      "title": "Refresh send-ready Signal Register approval ping to the July 18 current reading set",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-progress-sweep-midday",
+        "atomic",
+        "child-of:TASK-0012",
+        "approval-routing",
+        "artifact-first",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0588",
+        "TASK-0486",
+        "TASK-0487",
+        "mission-control/review-packets/RP-2026-06-26T16-30-00Z-signal-register-board-native-execution-readiness.md",
+        "mission-control/board/approval-queue/2026-06-26T16-30-00Z-signal-register-exact-first-run-paths-and-cli-contract.md",
+        "mission-control/board/approval-queue/2026-07-18T16-30-00Z-signal-register-current-owner-reply-block.md",
+        "mission-control/board/approval-queue/2026-07-18T16-30-00Z-signal-register-approval-ping-current-reading-set-refresh.md",
+        "mission-control/board/sweeps/2026-07-18T16-30-00Z-board-progress-sweep-midday.md"
+      ],
+      "description": "30-45m slice. Refresh the send-ready approval ping so the midday Signal Register ask points only to the July 18 current reading set and preserves the exact post-approval stopline.\nAcceptance Criteria:\n- Artifact names the smallest current reading set as the June 26 execution-readiness packet, the June 26 exact path contract, and the July 18 same-day owner reply block.\n- Artifact preserves the approval tuple, hold branches, exact generator path, exact generated artifact path, and the stop-after-receipt boundary.\n- Artifact stays routing-only with no implementation or board status change.",
+      "acceptance_criteria": [
+        "Artifact names the smallest current reading set as the June 26 execution-readiness packet, the June 26 exact path contract, and the July 18 same-day owner reply block.",
+        "Artifact preserves the approval tuple, hold branches, exact generator path, exact generated artifact path, and the stop-after-receipt boundary.",
+        "Artifact stays routing-only with no implementation or board status change."
+      ],
+      "comments": [
+        {
+          "id": "executed-task-0589-20260718-1630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-07-18T16:30Z board progress sweep. Published one refreshed send-ready Signal Register approval ping that points only to the July 18 current reading set and preserves the existing post-approval stopline.",
+          "created_at": "2026-07-18T16:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-07-18T16:30:00Z",
+      "updated_at": "2026-07-18T16:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0012"
