@@ -1,0 +1,189 @@
+{
+  "format": "board-recovery-markdown",
+  "valid": true,
+  "complete": false,
+  "errors": [],
+  "warnings": [],
+  "section_a": {
+    "required_count": 6,
+    "provided_count": 6,
+    "complete": false,
+    "rows": [
+      {
+        "task_id": "TASK-0269",
+        "current_status": "In Progress",
+        "recommended_decision": "Approve",
+        "recommended_target_status": "Ready for Review",
+        "isaac_decision": "",
+        "isaac_target_status": "",
+        "isaac_note": "",
+        "normalized_decision": null
+      },
+      {
+        "task_id": "TASK-0271",
+        "current_status": "Backlog",
+        "recommended_decision": "Approve",
+        "recommended_target_status": "Done",
+        "isaac_decision": "",
+        "isaac_target_status": "",
+        "isaac_note": "",
+        "normalized_decision": null
+      },
+      {
+        "task_id": "TASK-0307",
+        "current_status": "Backlog",
+        "recommended_decision": "Hold",
+        "recommended_target_status": "n/a",
+        "isaac_decision": "",
+        "isaac_target_status": "",
+        "isaac_note": "",
+        "normalized_decision": null
+      },
+      {
+        "task_id": "TASK-0324",
+        "current_status": "Backlog",
+        "recommended_decision": "Hold",
+        "recommended_target_status": "n/a",
+        "isaac_decision": "",
+        "isaac_target_status": "",
+        "isaac_note": "",
+        "normalized_decision": null
+      },
+      {
+        "task_id": "TASK-0335",
+        "current_status": "Todo",
+        "recommended_decision": "Approve",
+        "recommended_target_status": "In Progress",
+        "isaac_decision": "",
+        "isaac_target_status": "",
+        "isaac_note": "",
+        "normalized_decision": null
+      },
+      {
+        "task_id": "TASK-0363",
+        "current_status": "Ready for Review",
+        "recommended_decision": "Approve",
+        "recommended_target_status": "Ready for Review",
+        "isaac_decision": "",
+        "isaac_target_status": "",
+        "isaac_note": "",
+        "normalized_decision": null
+      }
+    ]
+  },
+  "section_b": {
+    "required_count": 12,
+    "provided_count": 12,
+    "complete": false,
+    "rows": [
+      {
+        "apply_order": 1,
+        "task_id": "TASK-0150",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0364 + TASK-0375",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 2,
+        "task_id": "TASK-0151",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0355 + TASK-0364",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 3,
+        "task_id": "TASK-0171",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0374",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 4,
+        "task_id": "TASK-0172",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0375",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 5,
+        "task_id": "TASK-0180",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0374",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 6,
+        "task_id": "TASK-0181",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0375",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 7,
+        "task_id": "TASK-0187",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0374",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 8,
+        "task_id": "TASK-0188",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0375",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 9,
+        "task_id": "TASK-0192",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0374",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 10,
+        "task_id": "TASK-0193",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0375",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 11,
+        "task_id": "TASK-0194",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0374",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      },
+      {
+        "apply_order": 12,
+        "task_id": "TASK-0195",
+        "current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0375",
+        "recommended_decision": "APPROVE_COMPACT",
+        "isaac_decision": "",
+        "isaac_note": ""
+      }
+    ]
+  }
+}

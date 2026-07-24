@@ -1,0 +1,250 @@
+{
+  "generated_at": "2026-06-12T10:45:10.652Z",
+  "source_report_generated_at": "2026-06-12T03:10:00.000Z",
+  "source_report": "mission-control/artifacts/2026-06-12-stale-rfr-parent-report.json",
+  "board_path": "mission-control/board/BOARD.json",
+  "heuristic_candidate_count": 14,
+  "reviewer_confirmable_count": 14,
+  "hold_count": 0,
+  "rows": [
+    {
+      "task_id": "TASK-0293",
+      "title": "TS-H1.1c.2bg Refresh credential blocker evidence snapshot (morning execution window)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 18,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0294",
+      "title": "TS-H1.1c.2bh Publish credentialed smoke operator handoff refresh (single-run command chain)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "publish credentialed smoke operator handoff refresh",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 1,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0308",
+      "title": "TS-H1.1c.2bo Refresh credential blocker evidence snapshot (midday execution window)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 18,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0309",
+      "title": "TS-H1.1c.2bp Publish credentialed smoke operator handoff refresh (single-run chain)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "publish credentialed smoke operator handoff refresh",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 1,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0310",
+      "title": "TS-H1.1c.2bq Refresh credential blocker evidence snapshot (night build window)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 18,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0311",
+      "title": "TS-H1.1c.2br Refresh credentialed smoke operator handoff packet (night build window)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "refresh credentialed smoke operator handoff packet",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 16,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0317",
+      "title": "TS-H1.1c.2bv Refresh credential blocker evidence snapshot (midday progress sweep)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 18,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0318",
+      "title": "TS-H1.1c.2bw Refresh credentialed smoke operator handoff packet (midday progress sweep)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "refresh credentialed smoke operator handoff packet",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "TASK-0317"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 16,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0325",
+      "title": "TS-H1.1c.2ca Refresh credential blocker evidence snapshot (morning execution sweep)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 18,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0326",
+      "title": "TS-H1.1c.2cb Refresh credentialed smoke operator handoff packet (morning execution sweep)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "refresh credentialed smoke operator handoff packet",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 16,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0374",
+      "title": "TS-H1.1c.2l Refresh credential blocker evidence snapshot (midday)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "supporting_refs": [
+        "TASK-0103",
+        "TASK-0097"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 18,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0375",
+      "title": "TS-H1.1c.2m Refresh credentialed smoke operator handoff packet (midday)",
+      "inferred_parent_id": "TASK-0103",
+      "inferred_parent_title": "TS-H1.1c.2b Execute credentialed authenticated smoke and attach evidence",
+      "inference_rule": "family_stem_consensus",
+      "family_stem": "refresh credentialed smoke operator handoff packet",
+      "supporting_refs": [
+        "TASK-0103",
+        "TASK-0097"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 16,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Sibling task family and direct parent-stream refs agree on the same inferred parent, making this suitable for a guarded reviewer-approved metadata pass."
+    },
+    {
+      "task_id": "TASK-0265",
+      "title": "TS-H1.1c.2f Publish credential-window run card with exact command sequence",
+      "inferred_parent_id": "TASK-0264",
+      "inferred_parent_title": "TS-H1.1c.2e Refresh credential preflight evidence snapshot",
+      "inference_rule": "single_descendant_ref",
+      "family_stem": "publish credential-window run card with exact command sequence",
+      "supporting_refs": [
+        "TASK-0103",
+        "TASK-0264"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 0,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Exactly one descendant reference survives after ancestor reduction, so the inferred parent stream is bounded and reviewer-checkable."
+    },
+    {
+      "task_id": "TASK-0285",
+      "title": "BRS-2026-05-02b Publish tranche-AH dry-run transition preview + apply guardrails",
+      "inferred_parent_id": "TASK-0284",
+      "inferred_parent_title": "BRS-2026-05-02a Build tranche-AH decision input validator + template",
+      "inference_rule": "single_descendant_ref",
+      "family_stem": "publish tranche-ah dry-run transition preview + apply guardrails",
+      "supporting_refs": [
+        "TASK-0271",
+        "TASK-0284"
+      ],
+      "direct_parent_ref_present": true,
+      "direct_parent_tag_present": false,
+      "sibling_consensus_count": 0,
+      "review_bucket": "reviewer_confirmable",
+      "rationale": "Exactly one descendant reference survives after ancestor reduction, so the inferred parent stream is bounded and reviewer-checkable."
+    }
+  ]
+}

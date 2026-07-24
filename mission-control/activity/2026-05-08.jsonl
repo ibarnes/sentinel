@@ -1,0 +1,4 @@
+{"ts":"2026-05-08T17:41:57.466Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"172.58.1.151"}}
+{"ts":"2026-05-08T17:41:57.806Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"172.58.1.151"}}
+{"ts":"2026-05-08T19:09:13.175Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}
+{"ts":"2026-05-08T19:09:17.710Z","actor":"isaac","role":"architect","event_type":"login.success","entity_type":"auth","entity_id":"team","meta":{"ip":"99.108.158.91"}}

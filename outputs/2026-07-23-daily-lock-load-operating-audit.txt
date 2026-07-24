@@ -1,0 +1,347 @@
+Operating Audit: 2026-07-23 Daily Lock & Load
+
+Per your instruction, this is the evidence and operating-rules audit only. It does not defend or revise the July 23 message.
+
+1. Generator / automation actually found
+
+- The July 23 lock-load was produced by a scheduled runtime event, not by an interactive request.
+- Direct runtime evidence: `mission-control/activity/2026-07-23.jsonl` records `daily.lock_load.executed` at `2026-07-23T10:45:00Z` with `source: cron-event`, `brief_file: mission-control/briefs/2026-07-23-lock-load.md`, and Telegram delivery `message_id=5409`.
+- Supporting continuity log: `memory/2026-07-23.md` records “Completed the Daily Lock & Load Protocol” at `10:45 UTC`.
+- The only local schedule file found is `mission-control/SCHEDULE.md`. It documents:
+  - `06:30 ET` Workflow A
+  - `07:00 ET` Workflow B
+  - `07:15 ET` Morning Brief
+  - `19:00 ET` intake prompt
+  - `23:00 ET` Workflow C queue-only
+- Important gap: `mission-control/SCHEDULE.md` does not document the Daily Lock & Load trigger, even though the runtime log shows it executed at `10:45 UTC` / `06:45 ET` on July 23.
+- No stored prompt file, template, or generation instruction was found that contains the exact prose prompt used to write `2026-07-23-lock-load.md`.
+- Best available answer to “exact prompt / scheduled instruction / workflow”:
+  - exact runtime trigger: `cron-event`
+  - exact artifact produced: `mission-control/briefs/2026-07-23-lock-load.md`
+  - exact logged output summary: meetings today, top priorities, and lane/approval framing in `mission-control/activity/2026-07-23.jsonl`
+  - missing from workspace: the actual prompt text and a local schedule entry for the lock-load itself
+
+2. Data sources actually used or clearly upstream of the July 23 message
+
+Fresh same-day or near-same-day sources:
+
+- `dashboard/data/calendar_events.json`
+  - role: meeting list for the day
+  - file updated: `2026-07-23 14:11:43 UTC`
+  - note: the lock-load itself cites a calendar refresh at `2026-07-23T10:45:43Z`
+- `mission-control/board/BOARD.json`
+  - role: live task/board source for approval gating
+  - file updated: `2026-07-23 10:42:06 UTC`
+- `mission-control/board/sweeps/2026-07-23T10-40-00Z-board-execution-sweep-morning.md`
+  - role: morning board-read used to keep `TASK-0486` / `TASK-0487` approval-gated
+  - file updated: `2026-07-23 10:42:57 UTC`
+- `mission-control/board/approval-queue/2026-07-23T10-40-00Z-signal-register-morning-no-drift-receipt.md`
+  - role: exact current approval surface for `TASK-0486` / `TASK-0487`
+  - generated: `2026-07-23 10:40 UTC`
+- `mission-control/workflow-a/out/workflow-a-v3_1-2026-07-23T10-31-35-150Z.json`
+  - role: buyer-row refresh, especially `FMF-NG`
+  - file updated: `2026-07-23 10:31:35 UTC`
+- `mission-control/workflow-a/out/signal-physics-2026-07-23T10-31-42-864Z.json`
+  - role: initiative pressure/motion snapshot
+  - file updated: `2026-07-23 10:31:42 UTC`
+- `dashboard/data/signal_physics_snapshot.json`
+  - role: synced signal-physics view
+  - file updated: `2026-07-23 10:31:43 UTC`
+- `mission-control/signal-pressure/out/pressure-delta.json`
+  - role: novelty / new-signal check
+  - file updated: `2026-07-23 13:41:40 UTC`
+  - the 11:00 packet cites active delta timestamp `2026-07-23T07:41:30.326Z`
+- `mission-control/review-packets/RP-2026-07-23T11-00-00Z-workflow-b-top-target-queue.md`
+  - role: buyer-access and route-gap framing
+  - file updated: `2026-07-23 11:03:20 UTC`
+- `mission-control/activity/2026-07-23.jsonl`
+  - role: runtime audit trail
+  - file updated: `2026-07-23 11:17:34 UTC`
+
+Older baseline sources the message clearly inherited:
+
+- `dashboard/data/initiatives.json`
+  - role: initiative records for Nigeria / Angola / Andhra / Busan / Flux
+  - file updated: `2026-07-03 21:39:26 UTC`
+- `dashboard/data/meeting_minutes.json`
+  - role: older Angola and Bestaf context
+  - file updated: `2026-07-03 02:05:09 UTC`
+- `dashboard/data/action_items.json`
+  - role: blocked-item counts and missing-owner pattern
+  - file updated: `2026-04-25 00:16:42 UTC`
+- `dashboard/data/buyers.json`
+  - role: canonical Workflow B ranking source
+  - file updated: `2026-04-29 14:15:10 UTC`
+- `dashboard/data/revenue_opportunities.json`
+  - role: older commercial “path to cash” rankings
+  - file updated: `2026-04-15 01:21:23 UTC`
+- `dashboard/data/initiative_avatar_scoring.json`
+  - role: older initiative-commercial scoring baseline
+  - file updated: `2026-04-09 21:49:40 UTC`
+- `dashboard/data/decision_architecture.json`
+  - role: Workflow B decision-architecture gap count
+  - file updated: `2026-03-17 15:04:31 UTC`
+- `dashboard/data/contact_paths.json`
+  - role: Workflow B path-coverage and stale-path checks
+  - file updated: `2026-03-17 15:04:31 UTC`
+- `dashboard/data/state_constraints.json`
+  - role: older constraint register
+  - file updated: `2026-03-31 18:15:51 UTC`
+
+What was not found as evidence for the July 23 lock-load run:
+
+- no external web lookup logged
+- no CRM read/write logged
+- no new meeting-minutes ingestion on July 23 before the message
+- no signed-agreement ingestion on July 23 before the message
+- no documented post-meeting write-up from the July 22 Recess call before the July 23 message
+
+3. Exact evidence behind each substantive claim
+
+A. “Nigeria / Bestaf is the lead lane”
+
+Hard evidence:
+
+- `mission-control/briefs/2026-07-23-lock-load.md` states Nigeria remains strongest at `90/100`.
+- `dashboard/data/revenue_opportunities.json` gives `REV-INIT-NG-FIN-ENERGY-SPINE` a `path_to_cash_score` of `7.16`, the highest score among the compared initiatives checked.
+- `dashboard/data/initiative_avatar_scoring.json` gives `INIT-NG-FIN-ENERGY-SPINE` a `weighted_score` of `7.05` and calls it the “strongest near-term mandate conversion candidate.”
+- `mission-control/workflow-a/out/workflow-a-v3_1-2026-07-23T10-31-35-150Z.json` restored `FMF-NG` from `HTTP_404` to `OK`, with `date`, `capitalAmount`, `mandateLanguage`, and `leadershipStatement` repopulated.
+
+Limits:
+
+- No current July 23 approved business decision was found naming Nigeria as the lead lane.
+- The numeric `90/100` statement in the lock-load is not traceable to a fresh July 23 scoring computation in workspace.
+
+Conclusion:
+
+- This was supported by an older commercial-priority baseline plus fresh `FMF-NG` evidence recovery.
+- It was not supported by a same-day expressly approved leadership decision.
+
+B. “Angola is the strongest AI candidate”
+
+Hard evidence in favor:
+
+- `dashboard/data/initiatives.json` for Angola shows strong asset/political framing and ties to Angola Cables / sovereign support.
+- `dashboard/data/meeting_minutes.json` includes Angola notes about executed power agreement, fiber, construction partner, and urgency.
+- Repeated lock-loads from July 19-23 describe Angola as the strongest AI candidate if one AI lane must be chosen.
+
+Conflicting evidence:
+
+- `dashboard/data/revenue_opportunities.json` scores Andhra higher than Angola on commercial conversion:
+  - Andhra `path_to_cash_score = 6.16`
+  - Angola `path_to_cash_score = 4.82`
+- `dashboard/data/initiative_avatar_scoring.json` also scores Andhra above Angola:
+  - Andhra `weighted_score = 6.15`
+  - Angola `weighted_score = 5.15`
+
+Conclusion:
+
+- This July 23 assertion was operator inference / editorial judgment, not a current scoring-rule output.
+- It also appears to conflict with the older scoring baselines still present in the workspace.
+
+C. “Andhra, Busan, and Flux should not remain open in parallel”
+
+Evidence:
+
+- The July 20-23 lock-loads repeatedly state that the AI field is fragmented and should be compressed to one lane.
+- Calendar/meeting-prep artifacts for July 23 were explicitly framed around forcing a single lane choice in internal meetings.
+- There is no local scoring or protocol file that mathematically requires “one lane only.”
+
+Conclusion:
+
+- This is an operating-discipline judgment, not an approved business rule and not a scored output.
+- It is inference, not a recorded leadership decision.
+
+D. “TASK-0486 and TASK-0487 require Board action”
+
+Hard evidence:
+
+- `mission-control/board/BOARD.json`
+  - `TASK-0486` status `Backlog`, owner `sentinel`, tagged `approval-gated`
+  - `TASK-0487` status `Backlog`, owner `sentinel`, tagged `approval-gated`
+- `mission-control/board/sweeps/2026-07-23T10-40-00Z-board-execution-sweep-morning.md`
+  - says next real execution step is explicit owner approval, not unattended coding
+- `mission-control/board/approval-queue/2026-07-23T10-40-00Z-signal-register-morning-no-drift-receipt.md`
+  - says `TASK-0486` is still first executable step and still approval-gated
+  - says `TASK-0487` is second step and stop-after-receipt
+- `mission-control/SCHEDULE.md` and memory rules reinforce: no move to Done without Isaac explicit approval
+
+Conclusion:
+
+- This claim is directly supported.
+
+E. “20 blocked items should influence executive priorities”
+
+Hard evidence:
+
+- `dashboard/data/action_items.json` currently contains `20` items with `blocker_reason: missing decision owner`.
+- The same file supports the July 22 and July 23 summaries around `107` open or blocked items.
+
+Limits:
+
+- No approved weighting rule was found saying “20 blocked missing-owner items must elevate into executive top priorities.”
+
+Conclusion:
+
+- The count is factual.
+- Elevating it into executive-priority framing is inference / operator judgment.
+
+4. TASK-0486 and TASK-0487: location, description, owner, status, source system
+
+- Source system: `mission-control/board/BOARD.json`.
+- Board location: both are child tasks of `TASK-0012` in the local live board.
+
+`TASK-0486`
+
+- title: `Build read-only Signal Register v1 generator script after approval`
+- owner: `sentinel`
+- status: `Backlog`
+- parent: `TASK-0012`
+- full description: build `scripts/signals-feed/build-signal-register-v1.mjs` after explicit approval; read only approved sources; emit approved seed shape; do not mutate upstream or downstream systems.
+
+`TASK-0487`
+
+- title: `Emit Signal Register first run, fill receipt, and stop for review`
+- owner: `sentinel`
+- status: `Backlog`
+- parent: `TASK-0012`
+- full description: after `TASK-0486` and only after approval, emit the first generated Signal Register artifact, fill the receipt, and stop for review before downstream adoption.
+
+5. Rules / scoring formulas actually verified
+
+Organizational priority / buyer priority:
+
+- Workflow B uses `dashboard/data/buyers.json` as the ranking source of truth.
+- Historical documented rule in `mission-control/briefs/2026-03-03-morning-brief.md`:
+  - descending score
+  - tie-breakers: urgency, confidence, strategic relevance
+- No newer formal formula file was found documenting the lock-load’s initiative rankings.
+
+Initiative readiness:
+
+- `memory/STATE_TRANSITION_PROTOCOL.md` is the clearest formal rule set found.
+- Verified rules:
+  - readiness is `0-100`
+  - score changes only via valid transitions
+  - each score change requires `readiness_delta`
+  - suggested ceilings:
+    - `constraint_discovery 25`
+    - `architecture_defined 45`
+    - `governance_ready 65`
+    - `capital_ready 85`
+    - `execution_ready 100`
+- Important inconsistency:
+  - the July 23 lock-load’s `90/100`, `55/100`, `48/100`, `34/100`, and especially `54/65` are not transparently derived from any local scoring function found.
+
+Lead lane:
+
+- No formal lead-lane formula found.
+- In practice on July 23 it appears to have been determined by a mix of:
+  - older commercial scoring (`revenue_opportunities`, `initiative_avatar_scoring`)
+  - same-day `FMF-NG` recovery
+  - operator judgment about readiness and internal meeting discipline
+
+Primary constraint:
+
+- Formal constraint logic exists in `memory/STATE_TRANSITION_PROTOCOL.md` and `dashboard/data/state_constraints.json`.
+- But the lock-load’s prioritization of which constraints matter “today” is still editorial, not formulaically resolved.
+
+Required executive decision:
+
+- No standalone formula found.
+- On July 23 it was derived from:
+  - board approval gate on `TASK-0486` / `TASK-0487`
+  - need to choose one outward lane for current meetings
+  - unresolved owner/date ambiguity
+
+6. Conflict-resolution rules actually verified
+
+- Verified formal rule: `memory/STATE_TRANSITION_PROTOCOL.md`
+  - no initiative may advance based on narrative alone
+  - no readiness change without evidence
+  - no board gate satisfied through narrative-only claims
+- Verified board rule: `mission-control/SCHEDULE.md`
+  - no item moves to `Done` without Isaac explicit approval
+- Verified board practice from July 23 sweep artifacts:
+  - when status is ambiguous, the system publishes routing / no-drift receipts rather than changing execution state
+
+What could not be verified:
+
+- no local rule document describing how conflicts are formally resolved between:
+  - older dashboard records
+  - newer meeting minutes
+  - board or leadership decisions
+  - the “UOS Master Gate Ledger”
+  - initiative-owner updates
+  - signed agreements
+- No file named or clearly acting as `UOS Master Gate Ledger` was found in this workspace.
+- No written precedence hierarchy was found for signed agreements over meeting notes, or vice versa.
+
+Practical July 23 behavior observed instead:
+
+- fresh board artifacts overrode stale assumption for `TASK-0486` / `TASK-0487`
+- fresh Workflow A evidence recovery affected Nigeria framing
+- stale commercial / initiative baselines continued to influence lane ranking
+- missing July 22 Recess closeout meant no fresh meeting outcome could override prior assumptions
+
+7. Meetings from July 20 through July 23 included in reasoning
+
+Included in lock-loads / prep / day framing:
+
+- July 20, 2026: `Principals' Weekly Meeting`
+- July 21, 2026: `Weekly UDG Constraints Meeting with Leo`
+- July 21, 2026: `USG | Board Meeting`
+- July 22, 2026: `Unified State Group x Recess Capital (zoom)`
+- July 23, 2026: `Principals' Weekly Meeting | Board Meeting`
+- July 23, 2026: `Brainstorming Session | Richard + Leo + Isaac`
+
+Meetings in that period that are missing from current meeting records:
+
+- No corresponding July 20-23 entries were found for those meetings in `dashboard/data/meeting_minutes.json`.
+- The July 22 Recess call is explicitly called out in `memory/2026-07-23.md` and the July 22 EOD closeout as having no documented post-meeting outcome by end of day.
+- It cannot be proven from current local files that there were or were not other meetings in that date window beyond what the calendar/prep/log files surfaced, because `dashboard/data/calendar_events.json` only keeps upcoming events, not a historical ledger.
+
+8. What records can be directly mutated from this workspace
+
+Direct local-file control exists over:
+
+- `dashboard/data/*.json`
+- `mission-control/briefs/*`
+- `mission-control/board/*`
+- `memory/*`
+- related local artifacts and review packets
+
+Governance limits verified:
+
+- approval-gated work should not be marked as executed without approval
+- board items should not be moved to `Done` without Isaac explicit approval
+- local dashboard and board files can technically be edited, but policy and current operating rules do not authorize silent decision-state rewrites
+
+In practice that means:
+
+- create: yes, local records and artifacts
+- update: yes, local records and artifacts
+- supersede / close / archive: yes in local file-backed systems, if directed and evidence-backed
+- delete: technically possible in local files, but no standing authorization was found for unilateral deletion of governed records
+- external system writes: no evidence was found that today’s lock-load touched an external source of truth
+
+9. Conclusions in today’s message that were inference, not current approved business decision
+
+These were inference / operator judgment unless there is an external decision record not present here:
+
+- Nigeria / Bestaf is the current lead lane
+- Angola is the strongest AI candidate
+- Andhra, Busan, and Flux should not remain open in parallel
+- the 20 blocked missing-owner items belong in today’s top executive priorities
+- the exact comparative AI ordering used in the July 23 message
+
+These were directly supported:
+
+- `TASK-0486` / `TASK-0487` are approval-gated
+- the meeting stack for July 23
+- `FMF-NG` had recovered by the `10:30 UTC` Workflow A run
+- no new signal-pressure spike was driving the day
+
+Bottom line
+
+The July 23 lock-load was a scheduled cron-produced operating brief that combined fresh same-day calendar, board, Workflow A, and signal-pressure data with materially older baseline scoring and initiative records. The hardest factual gap is that no exact generation prompt or local schedule entry for the lock-load itself was found. The hardest analytical gap is that the message’s AI-lane ordering appears to be operator inference layered on top of stale and internally conflicting scoring baselines, not a current approved decision model.

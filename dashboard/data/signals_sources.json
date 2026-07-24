@@ -33,7 +33,9 @@
       "macro",
       "policy"
     ],
-    "trust_tier": "tier1"
+    "trust_tier": "tier1",
+    "max_items_per_run": 12,
+    "min_relevance_score": 12
   },
   {
     "source_id": "yahoo-finance-rss",
@@ -45,7 +47,9 @@
       "markets",
       "capital"
     ],
-    "trust_tier": "tier2"
+    "trust_tier": "tier2",
+    "max_items_per_run": 10,
+    "min_relevance_score": 16
   },
   {
     "source_id": "wired-business",
@@ -57,7 +61,9 @@
       "technology",
       "operations"
     ],
-    "trust_tier": "tier2"
+    "trust_tier": "tier2",
+    "max_items_per_run": 15,
+    "min_relevance_score": 8
   },
   {
     "source_id": "fortune",
@@ -451,5 +457,157 @@
       "summit"
     ],
     "why_template": "Bankable Africa coverage used as an early-market signal for DRC-UAE investment pathways; requires follow-on verification before posture changes."
+  },
+  {
+    "source_id": "techcabal-rss",
+    "name": "TechCabal",
+    "type": "rss",
+    "url": "https://techcabal.com/feed/",
+    "enabled": true,
+    "default_tags": [
+      "africa",
+      "technology",
+      "policy",
+      "infrastructure"
+    ],
+    "trust_tier": "tier2",
+    "initiative_ids": [
+      "USG"
+    ],
+    "match_keywords": [
+      "africa",
+      "kenya",
+      "nigeria",
+      "infrastructure",
+      "transport",
+      "energy",
+      "capital",
+      "policy",
+      "ai"
+    ],
+    "why_template": "TechCabal regional market signal relevant to Africa operating conditions, policy shifts, and infrastructure execution context."
+  },
+  {
+    "source_id": "billionaires-africa-rss",
+    "name": "Billionaires.Africa",
+    "type": "rss",
+    "url": "https://www.billionaires.africa/rss/",
+    "enabled": true,
+    "default_tags": [
+      "africa",
+      "capital",
+      "buyer-watch",
+      "uhnwi"
+    ],
+    "trust_tier": "tier2",
+    "initiative_ids": [
+      "USG"
+    ],
+    "match_keywords": [
+      "investment",
+      "investor",
+      "fund",
+      "funding",
+      "acquisition",
+      "stake",
+      "board",
+      "ceo",
+      "chairman",
+      "sovereign",
+      "infrastructure",
+      "energy",
+      "telecom",
+      "bank",
+      "finance",
+      "private equity",
+      "capital"
+    ],
+    "why_template": "African UHNW and capital-allocation signal source relevant to buyer posture, leadership moves, and mandate-adjacent investment activity."
+  },
+  {
+    "source_id": "african-economy-inc-rss",
+    "name": "African Economy Inc.",
+    "type": "rss",
+    "url": "https://africaneconomyinc.com/feed/",
+    "enabled": true,
+    "default_tags": [
+      "africa",
+      "infrastructure",
+      "policy",
+      "capital"
+    ],
+    "trust_tier": "tier2",
+    "initiative_ids": [
+      "USG"
+    ],
+    "match_keywords": [
+      "infrastructure",
+      "corridor",
+      "zambia",
+      "angola",
+      "drc",
+      "critical minerals",
+      "energy",
+      "finance",
+      "trade",
+      "logistics",
+      "mcc",
+      "afc",
+      "dfc",
+      "ifc",
+      "afdb"
+    ],
+    "why_template": "African macro, infrastructure, and policy signal source relevant to corridor development, mineral logistics, sovereign financing posture, and mandate-adjacent execution conditions."
+  },
+  {
+    "source_id": "blackrock-global-insights-skilled-trades",
+    "name": "BlackRock Global Insights — Building America: Infrastructure & Skilled Trades",
+    "type": "webpage",
+    "url": "https://www.blackrock.com/corporate/insights/global-insights/building-america-infrastructure-skilled-trades",
+    "enabled": true,
+    "default_tags": [
+      "infrastructure",
+      "labor",
+      "skilled-trades",
+      "us"
+    ],
+    "trust_tier": "tier1",
+    "initiative_ids": [
+      "USG"
+    ],
+    "match_keywords": [
+      "infrastructure",
+      "skilled trades",
+      "apprenticeship",
+      "labor",
+      "construction",
+      "ai infrastructure"
+    ],
+    "why_template": "BlackRock macro-operating signal on infrastructure buildout and labor-capacity constraints relevant to project sequencing and execution risk."
+  },
+  {
+    "source_id": "semafor-sponsored-blackrock-infrastructure-summit-20260325",
+    "name": "Semafor Sponsored — BlackRock Infrastructure Summit",
+    "type": "webpage",
+    "url": "https://www.semafor.com/sponsored/03/25/2026/blackrocks-infrastructure-summit-highlights-generational-opportunity-to-build-americas-infrastructure-and-expand-high-paying-skilled-trades",
+    "enabled": true,
+    "default_tags": [
+      "infrastructure",
+      "labor",
+      "skilled-trades",
+      "sponsored-content"
+    ],
+    "trust_tier": "tier2",
+    "initiative_ids": [
+      "USG"
+    ],
+    "match_keywords": [
+      "blackrock",
+      "infrastructure summit",
+      "skilled trades",
+      "apprenticeship",
+      "labor"
+    ],
+    "why_template": "Sponsored but relevant market narrative signal around U.S. infrastructure scale and skilled-trades workforce bottlenecks."
   }
 ]

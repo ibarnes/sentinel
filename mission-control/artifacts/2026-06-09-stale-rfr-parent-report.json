@@ -1,0 +1,730 @@
+{
+  "generated_at": "2026-06-09T03:10:00.000Z",
+  "board_path": "mission-control/board/BOARD.json",
+  "stale_ready_for_review_count": 151,
+  "missing_parent_count": 33,
+  "ready_for_immediate_metadata_apply_count": 0,
+  "heuristic_candidate_count": 14,
+  "hold_count": 19,
+  "heuristic_rule_counts": {
+    "single_descendant_ref": 2,
+    "family_stem_consensus": 12
+  },
+  "rows": [
+    {
+      "task_id": "TASK-0257",
+      "title": "TS-H1.1c.2d Publish credential-window run card with exact command sequence",
+      "updated_at": "2026-04-27T16:30:00Z",
+      "stale_hours": 1018.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0103",
+        "TASK-0255"
+      ],
+      "tag_hints": [],
+      "family_stem": "publish credential-window run card with exact command sequence",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0103",
+        "TASK-0255"
+      ]
+    },
+    {
+      "task_id": "TASK-0265",
+      "title": "TS-H1.1c.2f Publish credential-window run card with exact command sequence",
+      "updated_at": "2026-04-28T16:30:00Z",
+      "stale_hours": 994.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0103",
+        "TASK-0264"
+      ],
+      "tag_hints": [],
+      "family_stem": "publish credential-window run card with exact command sequence",
+      "inferred_parent_id": "TASK-0264",
+      "inference_rule": "single_descendant_ref",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 1,
+      "supporting_refs": [
+        "TASK-0103",
+        "TASK-0264"
+      ]
+    },
+    {
+      "task_id": "TASK-0277",
+      "title": "Credential-window preflight refresh pack (Night)",
+      "updated_at": "2026-05-01T03:10:00Z",
+      "stale_hours": 936,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0269"
+      ],
+      "tag_hints": [],
+      "family_stem": "credential-window preflight refresh pack",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0269"
+      ]
+    },
+    {
+      "task_id": "TASK-0278",
+      "title": "Tranche-AH decision reminder + apply sequencing card (Night)",
+      "updated_at": "2026-05-01T03:10:00Z",
+      "stale_hours": 936,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0269",
+        "TASK-0271"
+      ],
+      "tag_hints": [],
+      "family_stem": "tranche-ah decision reminder + apply sequencing card",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0269",
+        "TASK-0271"
+      ]
+    },
+    {
+      "task_id": "TASK-0279",
+      "title": "Stale-RFR tranche-AA compaction digest (oldest credential evidence tasks)",
+      "updated_at": "2026-05-01T06:30:00Z",
+      "stale_hours": 932.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0098",
+        "TASK-0269"
+      ],
+      "tag_hints": [],
+      "family_stem": "stale-rfr tranche-aa compaction digest",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0098",
+        "TASK-0269"
+      ]
+    },
+    {
+      "task_id": "TASK-0280",
+      "title": "Stale-RFR tranche-AA apply card (post-approval transition sequence)",
+      "updated_at": "2026-05-01T10:40:00Z",
+      "stale_hours": 928.5,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0098",
+        "TASK-0279"
+      ],
+      "tag_hints": [],
+      "family_stem": "stale-rfr tranche-aa apply card",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0098",
+        "TASK-0279"
+      ]
+    },
+    {
+      "task_id": "TASK-0285",
+      "title": "BRS-2026-05-02b Publish tranche-AH dry-run transition preview + apply guardrails",
+      "updated_at": "2026-05-02T03:10:00Z",
+      "stale_hours": 912,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0271",
+        "TASK-0284"
+      ],
+      "tag_hints": [],
+      "family_stem": "publish tranche-ah dry-run transition preview + apply guardrails",
+      "inferred_parent_id": "TASK-0284",
+      "inference_rule": "single_descendant_ref",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 1,
+      "supporting_refs": [
+        "TASK-0271",
+        "TASK-0284"
+      ]
+    },
+    {
+      "task_id": "TASK-0293",
+      "title": "TS-H1.1c.2bg Refresh credential blocker evidence snapshot (morning execution window)",
+      "updated_at": "2026-05-03T10:40:00Z",
+      "stale_hours": 880.5,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0294",
+      "title": "TS-H1.1c.2bh Publish credentialed smoke operator handoff refresh (single-run command chain)",
+      "updated_at": "2026-05-03T10:40:00Z",
+      "stale_hours": 880.5,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "publish credentialed smoke operator handoff refresh",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0303",
+      "title": "BRS-2026-05-04 Build tranche-AJ transition microbatch plan artifact (decision-gated)",
+      "updated_at": "2026-05-04T16:30:00Z",
+      "stale_hours": 850.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0300",
+        "TASK-0299"
+      ],
+      "tag_hints": [],
+      "family_stem": "build tranche-aj transition microbatch plan artifact",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0300",
+        "TASK-0299"
+      ]
+    },
+    {
+      "task_id": "TASK-0304",
+      "title": "BRS-2026-05-05 Build tranche-AJ transition preflight checklist artifact (decision-gated)",
+      "updated_at": "2026-05-05T03:10:00Z",
+      "stale_hours": 840,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0300",
+        "TASK-0299"
+      ],
+      "tag_hints": [],
+      "family_stem": "build tranche-aj transition preflight checklist artifact",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0300",
+        "TASK-0299"
+      ]
+    },
+    {
+      "task_id": "TASK-0306",
+      "title": "BRS-2026-05-05 Build AH/AJ decision consolidation card to unblock stalled apply streams",
+      "updated_at": "2026-05-05T06:30:00Z",
+      "stale_hours": 836.7,
+      "task_ref_count": 3,
+      "task_refs": [
+        "TASK-0269",
+        "TASK-0300",
+        "TASK-0305"
+      ],
+      "tag_hints": [],
+      "family_stem": "build ah/aj decision consolidation card to unblock stalled apply streams",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0269",
+        "TASK-0300",
+        "TASK-0305"
+      ]
+    },
+    {
+      "task_id": "TASK-0308",
+      "title": "TS-H1.1c.2bo Refresh credential blocker evidence snapshot (midday execution window)",
+      "updated_at": "2026-05-05T16:30:00Z",
+      "stale_hours": 826.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0309",
+      "title": "TS-H1.1c.2bp Publish credentialed smoke operator handoff refresh (single-run chain)",
+      "updated_at": "2026-05-05T16:30:00Z",
+      "stale_hours": 826.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "publish credentialed smoke operator handoff refresh",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0310",
+      "title": "TS-H1.1c.2bq Refresh credential blocker evidence snapshot (night build window)",
+      "updated_at": "2026-05-06T03:10:00Z",
+      "stale_hours": 816,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0311",
+      "title": "TS-H1.1c.2br Refresh credentialed smoke operator handoff packet (night build window)",
+      "updated_at": "2026-05-06T03:10:00Z",
+      "stale_hours": 816,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "refresh credentialed smoke operator handoff packet",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0313",
+      "title": "BRS-2026-05-06 Build stale-RFR tranche-AK compaction + decision template artifact",
+      "updated_at": "2026-05-06T06:30:00Z",
+      "stale_hours": 812.7,
+      "task_ref_count": 0,
+      "task_refs": [],
+      "tag_hints": [],
+      "family_stem": "build stale-rfr tranche-ak compaction + decision template artifact",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": []
+    },
+    {
+      "task_id": "TASK-0317",
+      "title": "TS-H1.1c.2bv Refresh credential blocker evidence snapshot (midday progress sweep)",
+      "updated_at": "2026-05-06T16:30:00Z",
+      "stale_hours": 802.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0318",
+      "title": "TS-H1.1c.2bw Refresh credentialed smoke operator handoff packet (midday progress sweep)",
+      "updated_at": "2026-05-06T16:30:00Z",
+      "stale_hours": 802.7,
+      "task_ref_count": 3,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "TASK-0317"
+      ],
+      "tag_hints": [],
+      "family_stem": "refresh credentialed smoke operator handoff packet",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "TASK-0317"
+      ]
+    },
+    {
+      "task_id": "TASK-0325",
+      "title": "TS-H1.1c.2ca Refresh credential blocker evidence snapshot (morning execution sweep)",
+      "updated_at": "2026-05-07T10:40:00Z",
+      "stale_hours": 784.5,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0326",
+      "title": "TS-H1.1c.2cb Refresh credentialed smoke operator handoff packet (morning execution sweep)",
+      "updated_at": "2026-05-07T10:40:00Z",
+      "stale_hours": 784.5,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "refresh credentialed smoke operator handoff packet",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0327",
+      "title": "TS-H1.1c.2cc Midday blocker evidence refresh for credentialed smoke stream",
+      "updated_at": "2026-05-07T16:30:00Z",
+      "stale_hours": 778.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "blocker evidence refresh for credentialed smoke stream",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0328",
+      "title": "TS-H1.1c.2cd Midday operator handoff refresh for one-pass credentialed smoke execution",
+      "updated_at": "2026-05-07T16:30:00Z",
+      "stale_hours": 778.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "operator handoff refresh for one-pass credentialed smoke execution",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0329",
+      "title": "TS-H1.1c.2ce Night blocker evidence refresh for credentialed smoke stream",
+      "updated_at": "2026-05-27T03:10:00Z",
+      "stale_hours": 312,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "blocker evidence refresh for credentialed smoke stream",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0330",
+      "title": "TS-H1.1c.2cf Night operator handoff refresh for one-pass credentialed smoke execution",
+      "updated_at": "2026-05-27T03:10:00Z",
+      "stale_hours": 312,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "operator handoff refresh for one-pass credentialed smoke execution",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0338",
+      "title": "TS-H1.1c.2ch Midday blocker evidence refresh for credentialed smoke stream",
+      "updated_at": "2026-05-27T16:30:00Z",
+      "stale_hours": 298.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "blocker evidence refresh for credentialed smoke stream",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0339",
+      "title": "TS-H1.1c.2ci Midday operator handoff refresh for one-pass credentialed smoke execution",
+      "updated_at": "2026-05-27T16:30:00Z",
+      "stale_hours": 298.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ],
+      "tag_hints": [],
+      "family_stem": "operator handoff refresh for one-pass credentialed smoke execution",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0374",
+      "title": "TS-H1.1c.2l Refresh credential blocker evidence snapshot (midday)",
+      "updated_at": "2026-06-05T16:30:00Z",
+      "stale_hours": 82.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0103",
+        "TASK-0097"
+      ],
+      "tag_hints": [],
+      "family_stem": "refresh credential blocker evidence snapshot",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0103",
+        "TASK-0097"
+      ]
+    },
+    {
+      "task_id": "TASK-0375",
+      "title": "TS-H1.1c.2m Refresh credentialed smoke operator handoff packet (midday)",
+      "updated_at": "2026-06-05T16:30:00Z",
+      "stale_hours": 82.7,
+      "task_ref_count": 2,
+      "task_refs": [
+        "TASK-0103",
+        "TASK-0097"
+      ],
+      "tag_hints": [],
+      "family_stem": "refresh credentialed smoke operator handoff packet",
+      "inferred_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "confidence": "heuristic",
+      "inferred_parent_depth": 0,
+      "supporting_refs": [
+        "TASK-0103",
+        "TASK-0097"
+      ]
+    },
+    {
+      "task_id": "TASK-0382",
+      "title": "BRS-2026-06-06g Add unified recovery apply-preview script",
+      "updated_at": "2026-06-06T16:30:00Z",
+      "stale_hours": 58.7,
+      "task_ref_count": 4,
+      "task_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379"
+      ],
+      "tag_hints": [
+        "child-of:TASK-0107",
+        "child-of:TASK-0269"
+      ],
+      "family_stem": "add unified recovery apply-preview script",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379"
+      ]
+    },
+    {
+      "task_id": "TASK-0383",
+      "title": "BRS-2026-06-06h Publish live apply-preview card for unified recovery packet",
+      "updated_at": "2026-06-06T16:30:00Z",
+      "stale_hours": 58.7,
+      "task_ref_count": 3,
+      "task_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0382"
+      ],
+      "tag_hints": [
+        "child-of:TASK-0107",
+        "child-of:TASK-0269"
+      ],
+      "family_stem": "publish live apply-preview card for unified recovery packet",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0382"
+      ]
+    },
+    {
+      "task_id": "TASK-0384",
+      "title": "BRS-2026-06-07a Add guarded unified recovery apply engine",
+      "updated_at": "2026-06-07T03:10:00Z",
+      "stale_hours": 48,
+      "task_ref_count": 4,
+      "task_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379"
+      ],
+      "tag_hints": [
+        "child-of:TASK-0107",
+        "child-of:TASK-0269"
+      ],
+      "family_stem": "add guarded unified recovery apply engine",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379"
+      ]
+    },
+    {
+      "task_id": "TASK-0385",
+      "title": "BRS-2026-06-07b Publish blocked apply receipt for current unified recovery packet",
+      "updated_at": "2026-06-07T03:10:00Z",
+      "stale_hours": 48,
+      "task_ref_count": 3,
+      "task_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0384"
+      ],
+      "tag_hints": [
+        "child-of:TASK-0107",
+        "child-of:TASK-0269"
+      ],
+      "family_stem": "publish blocked apply receipt for current unified recovery packet",
+      "inferred_parent_id": null,
+      "inference_rule": "ambiguous",
+      "confidence": "hold",
+      "inferred_parent_depth": null,
+      "supporting_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0384"
+      ]
+    }
+  ]
+}

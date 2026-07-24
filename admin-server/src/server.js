@@ -7397,6 +7397,32 @@ function evaluateBoardStateGate({ task, targetStatus, initiativesById, transitio
   return { ok: true };
 }
 
+async function buildBoardGateContext() {
+  const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
+  const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
+  const definitions = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
+  const gateChecks = await readJson(DASHBOARD_GATE_CONTROL_CHECKS_FILE, { gates: {} });
+  const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || '').toUpperCase(), i]));
+  const transitionsByInitiative = new Map();
+  for (const tr of (transitions || [])) {
+    for (const iidRaw of (tr.initiative_ids || [])) {
+      const iid = String(iidRaw || '').toUpperCase();
+      if (!iid) continue;
+      if (!transitionsByInitiative.has(iid)) transitionsByInitiative.set(iid, []);
+      transitionsByInitiative.get(iid).push(tr);
+    }
+  }
+  return { initiativesById, transitionsByInitiative, definitions, gateChecks };
+}
+
+function getTaskGateStatus(task, ctx) {
+  const compute = (targetStatus) => evaluateBoardStateGate({ task, targetStatus, ...ctx });
+  return {
+    ready_for_review: compute('Ready for Review'),
+    done: compute('Done'),
+  };
+}
+
 function limitAttempt(map, key, max = 8, windowMs = 15 * 60 * 1000) {
   const now = Date.now();
   const row = map.get(key);
@@ -8027,6 +8053,14 @@ function setActionButtonState(id, busy, busyLabel, idleLabel){
   el.textContent = busy ? (busyLabel || el.dataset.defaultLabel) : (idleLabel || el.dataset.defaultLabel);
 }
 
+function setButtonEnabled(id, enabled, idleLabel){
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (!el.dataset.defaultLabel) el.dataset.defaultLabel = idleLabel || el.textContent || '';
+  el.disabled = !enabled;
+  el.textContent = idleLabel || el.dataset.defaultLabel;
+}
+
 function setPanelActionAvailability(taskExists){
   const requestBtn = document.getElementById('panelRequestBtn');
   const approveBtn = document.getElementById('panelApproveBtn');
@@ -8047,6 +8081,7 @@ function renderEmptyPanel(message){
   document.getElementById('panelReviewPacketTitle').value = '';
   document.getElementById('panelApprovalMeta').textContent = 'No review packet yet.';
   setPanelActionAvailability(false);
+  syncRequestApprovalState(null);
   panelEl.setAttribute('aria-hidden', 'true');
   if (isDesktopPanel()) {
     panelEl.classList.add('show');
@@ -8220,18 +8255,41 @@ function renderPanelComments(task){
 
 function renderApprovalMeta(task){
   const approval = task?.request_approval || null;
+  const readyGate = task?.gate_status?.ready_for_review || null;
+  const doneGate = task?.gate_status?.done || null;
   const requestedAt = approval?.requested_at ? String(approval.requested_at).slice(0, 16).replace('T', ' ') : 'Not requested';
   const requestedBy = approval?.requested_by || '—';
   const approvedAt = approval?.approved_at ? String(approval.approved_at).slice(0, 16).replace('T', ' ') : 'Pending';
   const approvedBy = approval?.approved_by || '—';
   const rpId = task?.review_packet_id || 'None';
   const status = approval?.approved ? 'Approved' : (approval ? 'Awaiting approval' : 'No approval requested');
+  const gateLabel = (gate, okLabel) => {
+    if (!gate) return okLabel;
+    if (gate.ok === false) return 'Blocked: ' + (gate.reason || 'unknown gate failure');
+    return okLabel;
+  };
   document.getElementById('panelApprovalMeta').innerHTML = [
     '<div><strong>Status:</strong> ' + esc(status) + '</div>',
     '<div><strong>Review packet:</strong> ' + esc(rpId) + '</div>',
     '<div><strong>Requested:</strong> ' + esc(requestedAt) + ' by ' + esc(requestedBy) + '</div>',
-    '<div><strong>Approved:</strong> ' + esc(approvedAt) + ' by ' + esc(approvedBy) + '</div>'
+    '<div><strong>Approved:</strong> ' + esc(approvedAt) + ' by ' + esc(approvedBy) + '</div>',
+    '<div><strong>Ready for Review gate:</strong> ' + esc(gateLabel(readyGate, 'Ready')) + '</div>',
+    '<div><strong>Done gate:</strong> ' + esc(gateLabel(doneGate, 'Ready')) + '</div>'
   ].join('');
+}
+
+function syncRequestApprovalState(task){
+  const requestBtn = document.getElementById('panelRequestBtn');
+  if (!requestBtn) return;
+  if (!task?.id) {
+    setButtonEnabled('panelRequestBtn', false, 'Request Approval');
+    requestBtn.title = '';
+    return;
+  }
+  const readyGate = task?.gate_status?.ready_for_review || null;
+  const blocked = readyGate && readyGate.ok === false;
+  setButtonEnabled('panelRequestBtn', !blocked, blocked ? 'Request Approval Blocked' : 'Request Approval');
+  requestBtn.title = blocked ? String(readyGate.reason || '') : '';
 }
 
 function openTaskPanel(id, options = {}){
@@ -8254,6 +8312,7 @@ function openTaskPanel(id, options = {}){
   document.getElementById('panelReviewPacketTitle').value = '';
   document.getElementById('panelApproveBtn').style.display = (me.role === 'architect' && t.request_approval && !t.request_approval.approved) ? '' : 'none';
   setPanelActionAvailability(true);
+  syncRequestApprovalState(t);
   renderPanelComments(t);
   renderApprovalMeta(t);
   if (options.sync !== false) syncTaskRoute(id, Boolean(options.replaceRoute));
@@ -8280,6 +8339,7 @@ function openNewTask(){
   document.getElementById('panelApprovalMeta').textContent = 'Save the task first to create or attach a review packet.';
   document.getElementById('panelApproveBtn').style.display = 'none';
   setPanelActionAvailability(false);
+  syncRequestApprovalState(null);
   document.getElementById('panelComments').innerHTML = '<div class="text-muted">Save task first to enable comments.</div>';
   syncTaskRoute('', true);
   showTaskPanel();
@@ -10001,7 +10061,14 @@ app.patch('/api/presentation-studio/pipeline/runs/:runId/stages/:stage', require
 
 app.get('/api/board', requireAnyAuth, async (_req, res) => {
   const board = await readJson(BOARD_FILE, defaultBoard());
-  res.json(board);
+  const gateContext = await buildBoardGateContext();
+  res.json({
+    ...board,
+    tasks: (board.tasks || []).map((task) => ({
+      ...task,
+      gate_status: getTaskGateStatus(task, gateContext),
+    })),
+  });
 });
 
 app.post('/api/auth/invite', requireRole('architect'), async (req, res) => {
@@ -10080,21 +10147,8 @@ async function handleTaskMove(req, res, statusInput) {
     }
 
     if (status === 'Ready for Review' || status === 'Done') {
-      const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
-      const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
-      const definitions = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
-      const gateChecks = await readJson(DASHBOARD_GATE_CONTROL_CHECKS_FILE, { gates: {} });
-      const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || '').toUpperCase(), i]));
-      const transitionsByInitiative = new Map();
-      for (const tr of (transitions || [])) {
-        for (const iidRaw of (tr.initiative_ids || [])) {
-          const iid = String(iidRaw || '').toUpperCase();
-          if (!iid) continue;
-          if (!transitionsByInitiative.has(iid)) transitionsByInitiative.set(iid, []);
-          transitionsByInitiative.get(iid).push(tr);
-        }
-      }
-      const gate = evaluateBoardStateGate({ task, targetStatus: status, initiativesById, transitionsByInitiative, definitions, gateChecks });
+      const gateContext = await buildBoardGateContext();
+      const gate = evaluateBoardStateGate({ task, targetStatus: status, ...gateContext });
       if (gate && gate.ok === false) {
         return res.status(400).json({ error: `state gate blocked: ${gate.reason}` });
       }
@@ -10207,21 +10261,8 @@ app.post('/api/tasks/:id/request-approval', requireRole('architect', 'editor'), 
   }
 
   {
-    const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
-    const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
-    const definitions = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
-    const gateChecks = await readJson(DASHBOARD_GATE_CONTROL_CHECKS_FILE, { gates: {} });
-    const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || '').toUpperCase(), i]));
-    const transitionsByInitiative = new Map();
-    for (const tr of (transitions || [])) {
-      for (const iidRaw of (tr.initiative_ids || [])) {
-        const iid = String(iidRaw || '').toUpperCase();
-        if (!iid) continue;
-        if (!transitionsByInitiative.has(iid)) transitionsByInitiative.set(iid, []);
-        transitionsByInitiative.get(iid).push(tr);
-      }
-    }
-    const gate = evaluateBoardStateGate({ task, targetStatus: 'Ready for Review', initiativesById, transitionsByInitiative, definitions, gateChecks });
+    const gateContext = await buildBoardGateContext();
+    const gate = evaluateBoardStateGate({ task, targetStatus: 'Ready for Review', ...gateContext });
     if (gate && gate.ok === false) {
       return res.status(400).json({ error: `state gate blocked: ${gate.reason}` });
     }
@@ -10258,21 +10299,8 @@ app.post('/api/tasks/:id/approve', requireAnyAuth, async (req, res) => {
     if (!task.review_packet_id) return res.status(400).json({ error: 'task has no review packet' });
 
     {
-      const initiatives = await readJson(path.join(ROOT, 'dashboard/data/initiatives.json'), []);
-      const transitions = await readJson(DASHBOARD_STATE_TRANSITIONS_FILE, []);
-      const definitions = await readJson(DASHBOARD_STATE_DEFINITIONS_FILE, { states: {} });
-      const gateChecks = await readJson(DASHBOARD_GATE_CONTROL_CHECKS_FILE, { gates: {} });
-      const initiativesById = new Map((initiatives || []).map((i) => [String(i.initiative_id || '').toUpperCase(), i]));
-      const transitionsByInitiative = new Map();
-      for (const tr of (transitions || [])) {
-        for (const iidRaw of (tr.initiative_ids || [])) {
-          const iid = String(iidRaw || '').toUpperCase();
-          if (!iid) continue;
-          if (!transitionsByInitiative.has(iid)) transitionsByInitiative.set(iid, []);
-          transitionsByInitiative.get(iid).push(tr);
-        }
-      }
-      const gate = evaluateBoardStateGate({ task, targetStatus: 'Done', initiativesById, transitionsByInitiative, definitions, gateChecks });
+      const gateContext = await buildBoardGateContext();
+      const gate = evaluateBoardStateGate({ task, targetStatus: 'Done', ...gateContext });
       if (gate && gate.ok === false) {
         return res.status(400).json({ error: `state gate blocked: ${gate.reason}` });
       }

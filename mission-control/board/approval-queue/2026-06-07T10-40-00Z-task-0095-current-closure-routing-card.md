@@ -17,7 +17,9 @@ Supporting children: TASK-0355, TASK-0097, TASK-0103
 
 ## Decision Branch
 1. If BASE_URL, TEAM_SESSION_COOKIE, and deck resolution inputs are available:
-   - run bash scripts/pipeline-run-credentialed-once.sh
+   - run `bash scripts/pipeline-run-credentialed-once.sh`
+   - the wrapper accepts `TEAM_SESSION_COOKIE` and bridges it into the capture flow that uses `COOKIE`
+   - deck targeting can be either direct `DECK_ID` or selector-based `INITIATIVE_ID + DECK_TYPE [+ BUYER_ID]`
    - attach the resulting evidence bundle to TASK-0095, TASK-0097, and TASK-0103
    - request review-safe transition of the chain to Ready for Review only after artifacts are complete
 2. If credentials are still unavailable:

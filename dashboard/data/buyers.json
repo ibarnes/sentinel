@@ -724,7 +724,7 @@
     "name": "The Pritzker Organization (TPO)",
     "type": "Principal Capital / Family Investment Platform",
     "signal_status": "Monitor",
-    "score": 2.0,
+    "score": 2,
     "website": "https://pritzkerorg.com",
     "confidence": "Medium",
     "mandate_summary": "Use permanent family capital to grow businesses and build long-term platform investments.",
@@ -860,7 +860,7 @@
     "name": "Henry Crown & Company",
     "type": "Principal Capital / Private Investment Firm",
     "signal_status": "Monitor",
-    "score": 2.0,
+    "score": 2,
     "website": "https://www.henrycrown.com",
     "confidence": "Medium",
     "mandate_summary": "Private investment firm managing diversified family capital across industrial, infrastructure, real estate, and public equity platforms.",
@@ -999,7 +999,7 @@
     "name": "The Anschutz Corporation",
     "type": "Principal Capital / Private Industrial Investment Platform",
     "signal_status": "Monitor",
-    "score": 2.0,
+    "score": 2,
     "website": "https://www.anschutz.com",
     "confidence": "Medium",
     "mandate_summary": "Privately held family-controlled industrial and infrastructure investment platform with diversified exposure across energy, real assets, transportation, entertainment, and telecommunications.",
@@ -1278,7 +1278,7 @@
     "name": "Koch Industries / Koch Investments Group (KIG)",
     "type": "Principal Capital / Family-Controlled Industrial Conglomerate",
     "signal_status": "Monitor",
-    "score": 2.0,
+    "score": 2,
     "website": "https://www.kochind.com",
     "confidence": "Medium",
     "mandate_summary": "Privately held, family-controlled industrial conglomerate with large-scale capital deployment across energy, infrastructure, manufacturing, logistics, and technology.",
@@ -1416,7 +1416,7 @@
     "name": "Cox Enterprises",
     "type": "Principal Capital / Family-Controlled Diversified Platform",
     "signal_status": "Monitor",
-    "score": 2.0,
+    "score": 2,
     "website": "https://www.coxenterprises.com",
     "confidence": "Medium",
     "mandate_summary": "Privately held, family-controlled diversified investment and operating platform with capital deployment across energy, infrastructure, telecommunications, logistics, and technology.",
@@ -1704,7 +1704,7 @@
     "name": "Asian Development Bank (ADB)",
     "type": "Institutional Capital / Multilateral Development Bank",
     "signal_status": "Monitor",
-    "score": 2.0,
+    "score": 2,
     "website": "https://www.adb.org",
     "confidence": "Medium",
     "mandate_summary": "Finance and coordinate large-scale infrastructure and development platforms across Asia-Pacific economies.",
@@ -1848,7 +1848,7 @@
     "name": "European Bank for Reconstruction and Development (EBRD)",
     "type": "Institutional Capital / Multilateral Development Bank",
     "signal_status": "Monitor",
-    "score": 2.0,
+    "score": 2,
     "website": "https://www.ebrd.com",
     "confidence": "Medium",
     "mandate_summary": "Finance and coordinate infrastructure and energy transition platforms across emerging markets spanning Europe, Central Asia, the Middle East, and North Africa.",
@@ -1995,7 +1995,7 @@
     "name": "Inter-American Development Bank (IDB)",
     "type": "Institutional Capital / Multilateral Development Bank",
     "signal_status": "Monitor",
-    "score": 2.0,
+    "score": 2,
     "website": "https://www.iadb.org",
     "confidence": "Medium",
     "mandate_summary": "Finance and coordinate infrastructure and development platforms across Latin America and the Caribbean.",
@@ -2573,7 +2573,7 @@
     "name": "Japan Bank for International Cooperation (JBIC)",
     "type": "Sovereign-Backed Policy Finance Institution",
     "signal_status": "Monitor",
-    "score": 2.0,
+    "score": 2,
     "website": "https://www.jbic.go.jp",
     "confidence": "Medium",
     "mandate_summary": "Provide sovereign-backed financing to support Japanese strategic infrastructure, energy, and industrial investment globally.",
@@ -3681,5 +3681,153 @@
     },
     "created_at": "2026-03-24T01:52:00Z",
     "updated_at": "2026-03-24T01:52:00Z"
+  },
+  {
+    "buyer_id": "BIP",
+    "name": "Brookfield Infrastructure Partners L.P.",
+    "type": "Listed Infrastructure Vehicle",
+    "signal_status": "Active / Forming",
+    "confidence": "High",
+    "mandate_summary": "Own and operate long-life, high-quality infrastructure assets with stable and growing cash flows across utilities, transport, midstream, and data infrastructure.",
+    "geo_focus": [
+      "Global",
+      "North America",
+      "Europe",
+      "Asia Pacific",
+      "Selective Emerging Markets"
+    ],
+    "sector_focus": [
+      "Data Infrastructure",
+      "AI Infrastructure",
+      "Energy & Power",
+      "Gas/Midstream Infrastructure",
+      "Transport & Logistics",
+      "Utilities",
+      "Equipment Leasing Platforms"
+    ],
+    "score": 2.5,
+    "pressure_factors": {
+      "capital_deployment": "High",
+      "regional_alignment": "Medium",
+      "timing_urgency": "High"
+    },
+    "initiatives": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "INIT-NG-FIN-ENERGY-SPINE"
+    ],
+    "website": "https://bip.brookfield.com",
+    "transfer_hypothesis": "BIP is a Brookfield-listed infrastructure vehicle that deploys capital into cash-flowing infrastructure platforms; pre-FID structuring work must translate into bankable, durable infrastructure assets with clear contracted/recoverable revenue pathways to fit BIP underwriting thresholds.",
+    "transfer_chain": {
+      "stored_energy_source": "Institutional LP/client capital plus Brookfield-managed long-duration private-market strategies",
+      "budget_program": "BIP balance sheet and affiliated Brookfield infrastructure capital pathways",
+      "funding_type": "Fund allocation / co-investment / structured capital",
+      "approval_authority": "BIP/Brookfield investment leadership and governance committees",
+      "verification_status": "Partially Verified",
+      "confidence_level": "High",
+      "primary_infrastructure_pressure": "AI/data-center power demand and infrastructure capacity constraints are accelerating need for scaled deployment into predictable cash-flow assets.",
+      "linked_signals_30d": "User-provided Q1 2026 BIP call synthesis (AI demand, capital scale, pipeline visibility).",
+      "signal_trend": "Rising",
+      "strategic_alignment_thesis": "When governance, offtake, and capital sequencing are made explicit pre-FID, Brookfield can price risk faster and scale capital into platform assets.",
+      "linked_initiative": "Nigeria Energy Spine / corridor-grade infrastructure platform pathways",
+      "recognition_evidence_status": "Partial",
+      "required_governance_artifacts": "Investment-grade counterparty quality + contracted/self-amortizing cash-flow path + grid/power feasibility + refinancing-risk controls",
+      "mandate_pathway_stage": "Initial Validation",
+      "checklist_coverage": "2 / 4",
+      "critical_blocker": "Grid interconnection/timing uncertainty and insufficient contracted cash-flow visibility at pre-FID stage",
+      "transfer_vehicle": "Pre-FID structuring mandate followed by anchor or syndicated platform investment",
+      "payment_trigger": "Mandate acceptance (structuring) and later IC approval (capital deployment)",
+      "estimated_time_to_transfer": "3–9 months",
+      "mandate_fee_structure": "Pre-FID structuring mandate fee",
+      "promote_trigger": "FID / financial close",
+      "recurrence_potential": "High (platform and multi-asset rollouts)"
+    },
+    "website_notes": [
+      "Official positioning: leading global alternative asset manager with broad investment strategies and long-duration capital access.",
+      "Identity = institutional real-asset platform allocator (owner-operator heritage), not a short-cycle allocator.",
+      "Access Physics = requires institutional-grade risk compression, governance clarity, and bankable revenue architecture.",
+      "Distribution Mechanics = sector deal teams + IC gating + co-investor syndication.",
+      "Conversion Physics = collapse pre-FID ambiguity into bankable structure, then route to IC-quality deployment case.",
+      "Q1 2026 BIP call notes (user-provided): deployment focus on data centers/fiber/AI infra + power/midstream; underwriting emphasizes investment-grade counterparties, self-amortizing predictable cash flows, and accretive growth with low residual-value risk."
+    ],
+    "buyer_state": {
+      "reach_profile": [
+        "High shielding",
+        "Sector-team driven",
+        "Risk-adjusted return sensitive",
+        "High altitude symmetry sensitivity",
+        "Moderate-to-high channel dependence"
+      ],
+      "pathways": [
+        {
+          "title": "Structural Relevance (Primary)",
+          "points": [
+            "Investment-grade counterparty profile",
+            "Predictable or contracted long-duration cash flows",
+            "Self-amortizing/re-financing resilient structure",
+            "Grid/power delivery feasibility for AI-linked assets"
+          ]
+        },
+        {
+          "title": "Existing Energy Conduits (Critical)",
+          "points": [
+            "Infrastructure co-investors",
+            "Utilities/grid and data-center operators",
+            "Top-tier project finance/legal advisors",
+            "Sovereign and DFI syndication pathways"
+          ]
+        },
+        {
+          "title": "Irreversibility Windows",
+          "points": [
+            "Fund deployment pacing windows",
+            "Grid + AI power build cycles",
+            "Large infrastructure privatizations/concessions",
+            "Strategic corridor build-outs"
+          ]
+        },
+        {
+          "title": "Altitude Symmetry",
+          "points": [
+            "Managing Partner / MD sponsor",
+            "Sector deal lead",
+            "Investment Committee pathway owner"
+          ]
+        }
+      ],
+      "system_dynamics": [
+        "Shielding: HIGH — prioritize trusted channels over broad outreach.",
+        "Decision Speed: MEDIUM — can move quickly when structure is investment-grade.",
+        "Risk Exposure: HIGH — downside and governance controls are non-negotiable.",
+        "Altitude Sensitivity: HIGH — engage at principal/IC quality, not advisory theater.",
+        "Channel Dependence: MEDIUM-HIGH — warm, sector-relevant entry materially improves conversion."
+      ],
+      "channels": {
+        "primary": [
+          "Co-investor and strategic partner introductions",
+          "Sector-anchored investment memo routed to deal team",
+          "Advisor-led routing (project finance/legal)"
+        ],
+        "secondary": [
+          "Targeted thesis brief tied to active deployment themes (power, digital infra, transport)"
+        ],
+        "avoid": [
+          "Generic cold outreach",
+          "Speculative projects without contracted cash-flow path",
+          "Execution-only consulting framing",
+          "Unclear governance or concession rights"
+        ]
+      },
+      "conversion_steps": [
+        "Step 1 — Platform Pressure: isolate the specific pre-FID uncertainty preventing institutional commitment.",
+        "Step 2 — Platform Framing: define FID boundary, governance rights, and capital sequence.",
+        "Step 3 — Structural Alignment: secure risk controls, revenue architecture, and sponsor alignment.",
+        "Step 4 — Mandate Execution: secure paid pre-FID structuring mandate with clear decision milestones.",
+        "Step 5 — FID Trigger: IC-approved deployment into bankable platform/asset package."
+      ]
+    },
+    "hq_country": "Bermuda / Global operating footprint",
+    "created_at": "2026-04-29T14:07:00Z",
+    "updated_at": "2026-04-29T14:15:30Z"
   }
 ]

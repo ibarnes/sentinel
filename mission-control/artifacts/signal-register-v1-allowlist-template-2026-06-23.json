@@ -1,0 +1,32 @@
+{
+  "version": "v1-first-run-template",
+  "generated_at": "2026-06-23T03:10:00Z",
+  "purpose": "Optional operator policy input for the first approved Signal Register v1 generated run.",
+  "defaults": {
+    "exclude_initiative_tags": [
+      "test",
+      "quarantined",
+      "sandbox",
+      "non-production"
+    ],
+    "require_buyer_or_initiative_link": true,
+    "preserve_unverified_entries": true
+  },
+  "include_signal_ids": [],
+  "include_buyer_ids": [
+    "GIP",
+    "KKR",
+    "STONEPEAK",
+    "PIF",
+    "USVI-RECOVERY-AUTHORITY"
+  ],
+  "force_include_initiative_ids": [
+    "INIT-NG-FIN-ENERGY-SPINE",
+    "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
+  ],
+  "exclude_signal_ids": [],
+  "notes": [
+    "Keep this template empty unless an approved first-run curation decision is made.",
+    "Do not use this template to bypass the default production-exclusion policy for quarantined or test initiatives without explicit approval."
+  ]
+}

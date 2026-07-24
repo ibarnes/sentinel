@@ -215,7 +215,7 @@
     "title": "Angola Cables meeting",
     "participants": [
       "Wade",
-      "\u00c2ngelo Gama",
+      "Ângelo Gama",
       "Leo LaBranche",
       "Richard Hoffman",
       "Jose Assis",
@@ -409,7 +409,7 @@
       "Telly Renfroe",
       "Camille Moore"
     ],
-    "summary": "Network and pathway meeting highlighting Tanisha\u2019s bipartisan government access, USVI familiarity, organizational-change experience, and advisory/connector network including Don Bacon, Steven Benjamin, Tonya Saunders, Hannibal Ware, and Mrs Kim (identity pending).",
+    "summary": "Network and pathway meeting highlighting Tanisha’s bipartisan government access, USVI familiarity, organizational-change experience, and advisory/connector network including Don Bacon, Steven Benjamin, Tonya Saunders, Hannibal Ware, and Mrs Kim (identity pending).",
     "initiative_ids": [
       "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
@@ -1142,7 +1142,7 @@
       "Telly Renfroe",
       "Isaac Barnes"
     ],
-    "summary": "Conversation indicates near-term bankable lanes in USVI include GovCon/PPP and residential loans. Counterparty expects bank opening within roughly 30\u201390 days, contingent on securing an additional $5M equity partner (quoted at 4.99% ownership). Team discussed potential funding introduction via Tanisha, pace risks on that capital source, and a 600-acre private land option for workforce housing with optional mixed-use/resort allocation. Additional advantages cited include governor access, potential in-territory building lease for nominal cost, and tax-positioning benefits from local operating presence.",
+    "summary": "Conversation indicates near-term bankable lanes in USVI include GovCon/PPP and residential loans. Counterparty expects bank opening within roughly 30–90 days, contingent on securing an additional $5M equity partner (quoted at 4.99% ownership). Team discussed potential funding introduction via Tanisha, pace risks on that capital source, and a 600-acre private land option for workforce housing with optional mixed-use/resort allocation. Additional advantages cited include governor access, potential in-territory building lease for nominal cost, and tax-positioning benefits from local operating presence.",
     "initiative_ids": [
       "INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"
     ],
@@ -1152,7 +1152,7 @@
     "signal_ids": [],
     "decisions": [
       "Prioritize immediate structuring around bankable lanes: GovCon/PPP and residential lending pathways.",
-      "Advance diligence on $5M equity-in-bank opportunity tied to 30\u201390 day opening timeline.",
+      "Advance diligence on $5M equity-in-bank opportunity tied to 30–90 day opening timeline.",
       "Treat 600-acre site as a primary workforce-housing unlock with optional mixed-use flexibility.",
       "Pursue local-presence pathway (building lease / residency) to optimize transaction tax posture.",
       "Continue same-day follow-up sequence with John for deeper commercial alignment."
@@ -1226,7 +1226,7 @@
       "Richard Hoffman",
       "Dr. NZ Fula"
     ],
-    "summary": "Discussion focused on a confidential Africa\u2013Caribbean trade-finance repositioning around diamond flows, with reported quiet negotiations in St Kitts and a potential operational shift away from Dubai execution lanes. Dr Fula indicated active legislative and product-handling review (including storage/testing posture), with India expected to remain dominant in cutting/polishing while Caribbean nodes absorb other value-chain functions. UDG Banking was framed as a potential financial mechanism enabler for cross-jurisdiction structuring, with capital availability less constrained than niche-capital fit and regulatory sequencing.",
+    "summary": "Discussion focused on a confidential Africa–Caribbean trade-finance repositioning around diamond flows, with reported quiet negotiations in St Kitts and a potential operational shift away from Dubai execution lanes. Dr Fula indicated active legislative and product-handling review (including storage/testing posture), with India expected to remain dominant in cutting/polishing while Caribbean nodes absorb other value-chain functions. UDG Banking was framed as a potential financial mechanism enabler for cross-jurisdiction structuring, with capital availability less constrained than niche-capital fit and regulatory sequencing.",
     "initiative_ids": [
       "USG",
       "INIT-2026-03-05-COMMODITY-CORRIDOR"
@@ -1457,7 +1457,7 @@
       "Paul Venter",
       "Richard Hoffman"
     ],
-    "summary": "Discussion centered on 52Africa\u2019s investment platform launched in November, framed as a private-equity vehicle backing values-aligned operators in African critical infrastructure and essential services. Paul described deployment across mid-market companies with current exposure in rails, security, health, digital infrastructure, agri/consumer, and ethical mining/refining lanes (including Rwanda). He highlighted governance/corruption risk management as a core operating challenge, linked portions of the thesis to U.S. national-interest and critical-minerals dynamics, and shared active/future fund architecture ($1\u20135M checks, a $40M fund, additional funds in development including a $50M track). A potential microfinance/payments platform opportunity was discussed for low-cost cross-jurisdiction small-value transactions with rapid integration/scaling potential.",
+    "summary": "Discussion centered on 52Africa’s investment platform launched in November, framed as a private-equity vehicle backing values-aligned operators in African critical infrastructure and essential services. Paul described deployment across mid-market companies with current exposure in rails, security, health, digital infrastructure, agri/consumer, and ethical mining/refining lanes (including Rwanda). He highlighted governance/corruption risk management as a core operating challenge, linked portions of the thesis to U.S. national-interest and critical-minerals dynamics, and shared active/future fund architecture ($1–5M checks, a $40M fund, additional funds in development including a $50M track). A potential microfinance/payments platform opportunity was discussed for low-cost cross-jurisdiction small-value transactions with rapid integration/scaling potential.",
     "initiative_ids": [
       "USG",
       "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -1506,7 +1506,7 @@
         "status": "open"
       },
       {
-        "action": "Set meeting with Paul\u2019s payments portfolio company to assess customer-access channel and integration path.",
+        "action": "Set meeting with Paul’s payments portfolio company to assess customer-access channel and integration path.",
         "owner": "Richard Hoffman",
         "due": "2026-04-12",
         "status": "open"
@@ -1618,7 +1618,8 @@
       "submitted_by": "Isaac Barnes",
       "team_member": "Richard Hoffman",
       "confidence": "low",
-      "notes": "Auto-captured from shared PLAUD title metadata; full transcript parse pending."
+      "notes": "Auto-captured from shared PLAUD title metadata; full transcript parse pending. Access check on 2026-05-03 returned \"This file is not available\".",
+      "extraction_status": "blocked_in_current_session"
     },
     "visibility": "internal",
     "tags": [
@@ -1627,28 +1628,52 @@
       "needs-transcript-parse"
     ],
     "created_at": "2026-04-12T12:53:10Z",
-    "updated_at": "2026-04-12T12:53:10Z"
+    "updated_at": "2026-05-03T10:24:26.306Z"
   },
   {
     "meeting_id": "MM-2026-04-11-RICHARD-ORIGINATION-003",
     "date_time": "2026-04-11T00:00:00Z",
-    "title": "04-09 Bank-Integrated Continental Insurance Distribution: Agent Certification, Lead Generation, and Vietnam Corridor Deal Structuring (2026\u20132027)",
+    "title": "04-09 Bank-Integrated Continental Insurance Distribution: Agent Certification, Lead Generation, and Vietnam Corridor Deal Structuring (2026–2027)",
     "participants": [
       "Richard Hoffman",
       "Counterparty (name pending)"
     ],
-    "summary": "Recorded as a Richard origination meeting from PLAUD shared link. Full transcript extraction and counterparty identification are pending.",
+    "summary": "Meeting framed a bank-integrated, continent-scale insurance distribution strategy anchored on education-led demand generation, agent certification/licensing, and lead routing through local agents and bank channels, with a Vietnam corridor deal lane as an additional structuring thread. Core thesis: use bank partnerships as globalization infrastructure rather than standalone agency growth.",
     "initiative_ids": [
       "USG"
     ],
     "buyer_ids": [],
     "signal_ids": [],
-    "decisions": [],
-    "risks": [
-      "Counterparty identity and detailed commitments are not yet captured in structured form.",
-      "Transcript-level details should be validated before using this record for decision-critical actions."
+    "decisions": [
+      "Treat bank integration as the primary scale lever for insurance distribution across target markets.",
+      "Combine awareness campaigns, certification, and lead-routing into one operating funnel rather than separate initiatives.",
+      "Advance only with country-specific compliance and licensing pathway validation before hard scaling commitments."
     ],
-    "next_actions": [],
+    "risks": [
+      "Conversion assumptions from mature markets may not transfer to African corridors without recalibration.",
+      "Country-by-country licensing/regulatory variance can slow rollout and increase operating complexity.",
+      "Agent quality-control and lead integrity could degrade at scale without standardized controls."
+    ],
+    "next_actions": [
+      {
+        "action": "Produce country-by-country regulatory + licensing matrix for first-wave markets.",
+        "owner": "Sentinel",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Define baseline conversion metrics and pilot benchmarks before 2027 scale targets.",
+        "owner": "USG team",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Draft bank-partner integration playbook (offer embed, agent routing, controls).",
+        "owner": "Richard/USG",
+        "due": "TBD",
+        "status": "open"
+      }
+    ],
     "source": {
       "type": "plaud_transcript_shared",
       "link": "https://web.plaud.ai/s/pub_9d737933-4ff4-4958-8388-27092bbf7452::2wDzGoGNHffD8Tapn-FLAu9LnI9rYd_JJuP_2JbBIGjL-v8p1kg7SV_tgpnirrCz3hQwv9vTDK0rp9cC",
@@ -1665,7 +1690,7 @@
       "needs-transcript-parse"
     ],
     "created_at": "2026-04-12T12:55:33Z",
-    "updated_at": "2026-04-12T12:55:33Z"
+    "updated_at": "2026-05-03T10:24:26.078Z"
   },
   {
     "meeting_id": "MM-2026-04-11-RICHARD-ISAAC-INTERNAL-001",
@@ -1675,18 +1700,42 @@
       "Richard Hoffman",
       "Isaac Barnes"
     ],
-    "summary": "Recorded as an internal Richard + Isaac discussion from PLAUD shared link. Full transcript extraction is pending.",
+    "summary": "Long-form strategy session compared service-model options and favored a tiered model starting with a standardized “make deals investable” offer as entry wedge, then upselling into deeper transformation and capital-introduction work. Team aligned on lowering sales friction, improving repeatability, and balancing pipeline mix toward more short-cycle deals.",
     "initiative_ids": [
       "USG"
     ],
     "buyer_ids": [],
     "signal_ids": [],
-    "decisions": [],
-    "risks": [
-      "Detailed decisions and commitments are not yet extracted from transcript.",
-      "Follow-up structuring/action items should be validated once full parse is completed."
+    "decisions": [
+      "Adopt tiered service architecture with investability package as Tier 1 entry point.",
+      "Use investor-network referrals as primary top-of-funnel channel.",
+      "Target healthier pipeline ratio (more short-cycle deals per complex long-cycle engagement)."
     ],
-    "next_actions": [],
+    "risks": [
+      "Over-concentration in high-complexity engagements can starve near-term cashflow.",
+      "Service messaging risk if value proposition is not productized and easy to buy.",
+      "Execution risk in scaling quality while increasing deal volume."
+    ],
+    "next_actions": [
+      {
+        "action": "Finalize one-page offer + website funnel copy for tiered model.",
+        "owner": "USG team",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Define qualification rubric and “USG approval” standard for Tier 1 outcomes.",
+        "owner": "Sentinel",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Build referral cadence with key investor/family-office contacts.",
+        "owner": "Richard/Isaac",
+        "due": "TBD",
+        "status": "open"
+      }
+    ],
     "source": {
       "type": "plaud_transcript_shared",
       "link": "https://web.plaud.ai/s/pub_37b51605-1d87-4dfb-ad91-8699ec51b4dc::4bQoYGuxXd36ZTgLkbzgR0tjZitYRtKBbxrvAX48hpfik4cPmL0CanVavLkCunR4WGRQErrY-Vmt7m8C",
@@ -1703,7 +1752,7 @@
       "needs-transcript-parse"
     ],
     "created_at": "2026-04-12T12:59:38Z",
-    "updated_at": "2026-04-12T12:59:38Z"
+    "updated_at": "2026-05-03T10:24:26.306Z"
   },
   {
     "meeting_id": "MM-2026-04-13-PAUL-VENTER-002",
@@ -1713,7 +1762,7 @@
       "Paul Venter",
       "Isaac Barnes"
     ],
-    "summary": "Follow-up conversation confirmed strategic resonance around USG's core positioning: making deals investable. Paul showed interest in an ongoing channel/ecosystem partnership where opportunities from his network and selected portfolio companies can be routed to USG for deal strengthening. Discussion emphasized practical enablement needs (how to explain USG clearly across email, in-person, and online contexts), internal team alignment before sending a short deal list, and values/national-interest framing as relational reinforcement. Current posture: qualified partnership intent with near-term conversion contingent on receiving specific opportunities from Paul\u2019s side.",
+    "summary": "Follow-up conversation confirmed strategic resonance around USG's core positioning: making deals investable. Paul showed interest in an ongoing channel/ecosystem partnership where opportunities from his network and selected portfolio companies can be routed to USG for deal strengthening. Discussion emphasized practical enablement needs (how to explain USG clearly across email, in-person, and online contexts), internal team alignment before sending a short deal list, and values/national-interest framing as relational reinforcement. Current posture: qualified partnership intent with near-term conversion contingent on receiving specific opportunities from Paul’s side.",
     "initiative_ids": [
       "USG",
       "INIT-2026-03-05-COMMODITY-CORRIDOR",
@@ -1789,7 +1838,7 @@
   {
     "meeting_id": "MM-2026-04-15-PLAUD-SHARE-001",
     "date_time": "2026-04-16T00:01:00Z",
-    "title": "04-15 Project Meeting: Angola Hyperscale Data Center\u2014Power MOU, Fiber Line, Land, and Master Plan Timeline",
+    "title": "04-15 Project Meeting: Angola Hyperscale Data Center—Power MOU, Fiber Line, Land, and Master Plan Timeline",
     "participants": [
       "Richard Hoffman",
       "Counterparty (name pending)"
@@ -1871,7 +1920,7 @@
       "Tarek Al Ashram",
       "Mohammad Al Ashram"
     ],
-    "summary": "Thread moved from prestige-heavy contact signal to actionable seat-definition work. Tarek reopening dialogue provided principal-level credibility; Mohammad provided additional access context with higher noise. GDH interest in Angola is now the live lane, with likely role as data center builder/operator/delivery partner. Strategic caution reinforced: sequence must remain strict \u2014 define Angola seat, scope, path, and decision criteria first; only then expand to broader USG-GDH Africa platform thesis. Separate Botswana path remains pre-deal and permission-gated, potentially fast if political access unlocks.",
+    "summary": "Thread moved from prestige-heavy contact signal to actionable seat-definition work. Tarek reopening dialogue provided principal-level credibility; Mohammad provided additional access context with higher noise. GDH interest in Angola is now the live lane, with likely role as data center builder/operator/delivery partner. Strategic caution reinforced: sequence must remain strict — define Angola seat, scope, path, and decision criteria first; only then expand to broader USG-GDH Africa platform thesis. Separate Botswana path remains pre-deal and permission-gated, potentially fast if political access unlocks.",
     "initiative_ids": [
       "USG",
       "INIT-2026-03-ANGOLA-AI-CORRIDOR"
@@ -1992,5 +2041,1219 @@
     ],
     "created_at": "2026-04-25T00:14:00Z",
     "updated_at": "2026-04-25T00:14:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-28-AWADOC-USG-DISCOVERY-001",
+    "date_time": "2026-04-28T13:00:00Z",
+    "title": "AwaDoc / USG introductory discovery and deal-readiness discussion",
+    "participants": [
+      "Isaac Barnes",
+      "Dr. Chinonso Fidelis Egemba",
+      "Dr. Jesse Benedict"
+    ],
+    "summary": "Discovery call reviewed AwaDoc’s origin story, product model, traction, funding needs, institutional/government pathway, and investor barriers. Core conclusion: demand appears present, but conversion to institutional and investor commitment depends on stronger deal packaging across capital narrative, use-of-funds, proof pathway, and compliance posture.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [
+      "AwaDoc"
+    ],
+    "signal_ids": [],
+    "decisions": [
+      "Evaluate whether AwaDoc should enter a formal USG deal-readiness process.",
+      "Request AwaDoc core materials and produce a short Deal Readiness Snapshot.",
+      "Set follow-up with Dr. Chinonso and Dr. Jesse after document review."
+    ],
+    "risks": [
+      "Investor confidence risk: traction may be under-converted due to packaging gaps.",
+      "Capital clarity risk: raise amount, commitments, and use-of-funds still unverified.",
+      "Regulatory posture risk: NDPC/HIPAA alignment, AI limits, and escalation boundaries may be under-documented.",
+      "Institutional proof risk: government pilot pathway and agency mapping remain unclear."
+    ],
+    "next_actions": [
+      {
+        "action": "Request AwaDoc pitch deck, financial model, current investor materials, corporate structure, regulatory/compliance summary, and pilot details.",
+        "owner": "Isaac / USG",
+        "due": "2026-05-05",
+        "status": "open"
+      },
+      {
+        "action": "Build AwaDoc Deal Readiness Snapshot (core opportunity, blockers, capital need, investor-readiness gaps).",
+        "owner": "USG",
+        "due": "2026-05-05",
+        "status": "open"
+      },
+      {
+        "action": "Validate unclear meeting-note numbers (funding raised, ₦150M reference, committed angels).",
+        "owner": "AwaDoc",
+        "due": "2026-05-05",
+        "status": "open"
+      },
+      {
+        "action": "Schedule follow-up call with Dr. Chinonso and Dr. Jesse after document review.",
+        "owner": "Isaac / USG",
+        "due": "2026-05-05",
+        "status": "open"
+      },
+      {
+        "action": "Determine whether AwaDoc enters Investor Ready Package, Deal Readiness, or Deal Strengthening pathway.",
+        "owner": "Isaac / USG",
+        "due": "2026-05-05",
+        "status": "open"
+      }
+    ],
+    "assessment": {
+      "dominant_constraint": "Not demand; confidence-grade packaging of traction, proof points, capital ask, and institutional pathway.",
+      "decision_focus": "Whether to move AwaDoc into formal USG deal-readiness process.",
+      "owner": "Isaac Barnes / USG",
+      "timeline": "Within 7 days",
+      "likely_structural_blockers": [
+        "Capital story needs sharpening",
+        "Use-of-funds clarity",
+        "Investor-ready regulatory/data posture",
+        "Government pilot pathway structure",
+        "Direct response to Nigeria + healthtech investor hesitation"
+      ]
+    },
+    "traction_reported": {
+      "registered_users": "148,000+",
+      "conversations": "1,000,000+",
+      "appointments_scheduled": "11,000+",
+      "countries_reached": "30+",
+      "team_size": "15",
+      "aproko_doctor_audience": "~11 million",
+      "verification_status": "unverified_meeting_reported"
+    },
+    "open_items": [
+      "Exact funding raised (meeting notes include likely incorrect '$200 USD' reference)",
+      "Clarify '₦150M Narai' reference (likely ₦150M Naira)",
+      "Confirm legal structure beyond Delaware mention (Nigerian entity status)",
+      "Verify government agency names",
+      "Verify Farm Access vs PharmAccess",
+      "Confirm funding round size",
+      "Confirm investor commitment details",
+      "Set follow-up meeting date"
+    ],
+    "source": {
+      "type": "isaac_direct_manual",
+      "notes": "User-provided updated meeting minutes in Telegram (April 28, 2026). Treat all meeting-reported numbers as unverified until source docs are provided.",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": "internal://isaac/telegram/2026-04-28-awadoc-minutes-updated"
+    },
+    "visibility": "internal",
+    "tags": [
+      "awadoc",
+      "healthtech",
+      "deal-readiness",
+      "capital-readiness",
+      "institutional-packaging"
+    ],
+    "created_at": "2026-04-28T14:59:00Z",
+    "updated_at": "2026-04-28T15:03:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-29-UGANDA-CONNECTIVITY-DATACENTER-001",
+    "date_time": "2026-04-29T17:00:00Z",
+    "title": "Uganda Connectivity / Data Center Opportunity — Introductory discovery and opportunity assessment",
+    "participants": [
+      "Isaac Barnes",
+      "Bernard Anderson",
+      "Mark Musinguzi",
+      "Telly Renfroe"
+    ],
+    "summary": "Discovery call assessed whether USG can support Uganda/East Africa connectivity via Starlink/Amazon LEO pathways and/or data-center development. Core conclusion: opportunity is plausible but pre-gate; progression depends on validating true Starlink blocker, identifying anchor buyers and revenue pathway, confirming local operating/regulatory pathway (including Connect Telecom license utility), and proving infrastructure prerequisites for any data-center lane.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Do not approach Starlink, Amazon LEO, or capital partners yet; first validate blocker, buyer, and local execution pathway.",
+      "Run two-sided discovery: Starlink-side fact pattern (USG) and Uganda-side fact pattern (Mark) before selecting pathway.",
+      "Treat data-center lane as conditional on hard prerequisites (power, water, land, approvals, connectivity, demand, equipment, capital stack)."
+    ],
+    "risks": [
+      "Regulatory/political uncertainty on Starlink in Uganda may block entry or delay commercialization.",
+      "No confirmed anchor buyer cohort for terminal/services purchases yet (commercial traction risk).",
+      "Potential incumbent telecom resistance to satellite competition.",
+      "Execution risk if local installation/storage/maintenance and go-to-market capacity are weak.",
+      "Data-center feasibility risk if power/water/fiber/government approvals are inadequate.",
+      "Investor-discipline risk: market now penalizes under-specified data-center proposals."
+    ],
+    "next_actions": [
+      {
+        "action": "Determine Starlink’s current Uganda status and blocker profile from USG/partner channels.",
+        "owner": "Isaac Barnes / USG",
+        "due": "2026-05-06",
+        "status": "open"
+      },
+      {
+        "action": "Gather local Uganda demand, coverage-gap, and buyer-potential evidence.",
+        "owner": "Mark Musinguzi",
+        "due": "2026-05-06",
+        "status": "open"
+      },
+      {
+        "action": "Identify local promoters/supporters and likely political/regulatory pathway for Starlink.",
+        "owner": "Mark Musinguzi",
+        "due": "2026-05-06",
+        "status": "open"
+      },
+      {
+        "action": "Assess whether Connect Telecom license supports viable ISP/local-partner operating structure.",
+        "owner": "Mark Musinguzi",
+        "due": "2026-05-06",
+        "status": "open"
+      },
+      {
+        "action": "Share Starlink-side findings and compare with Uganda-side findings to isolate true blocker.",
+        "owner": "Isaac Barnes + Mark Musinguzi",
+        "due": "2026-05-06",
+        "status": "open"
+      },
+      {
+        "action": "Identify credible anchor buyers (government/institutions/commercial/development programs).",
+        "owner": "Mark Musinguzi",
+        "due": "2026-05-06",
+        "status": "open"
+      },
+      {
+        "action": "Run initial data-center ingredient check (power, water, land, approvals, fiber, demand, equipment access, capital readiness).",
+        "owner": "Isaac Barnes / USG",
+        "due": "2026-05-06",
+        "status": "open"
+      }
+    ],
+    "assessment": {
+      "dominant_constraint": "No confirmed anchor buyer and no validated regulatory/political pathway for satellite-connectivity deployment in Uganda.",
+      "decision_focus": "Which pathway (Starlink local-partner, government purchase program, Amazon LEO ISP, data-center assessment, or hold/no-go) should be advanced after blocker validation.",
+      "owner": "Isaac Barnes / USG",
+      "timeline": "Within 7 days",
+      "likely_structural_blockers": [
+        "Unverified Starlink Uganda blocker source and type (regulatory/political/commercial/security)",
+        "No anchor-buyer commitments or purchase pathway for terminals/services",
+        "Unproven local execution stack for install/maintenance/storage/marketing",
+        "Unproven data-center prerequisites and demand depth"
+      ]
+    },
+    "open_items": [
+      "Confirm exact blocker category and responsible gatekeeper(s) for Starlink Uganda.",
+      "Name top 3 anchor-buyer targets with estimated unit demand and budget source.",
+      "Validate Connect Telecom license scope against ISP/partner model requirements.",
+      "Decide geographic scope: Uganda-first vs East-Africa regional framing.",
+      "Confirm existence of viable Uganda data-center sites meeting power/water/fiber/approval criteria."
+    ],
+    "source": {
+      "type": "isaac_direct_manual",
+      "notes": "Full user-provided meeting minutes in Telegram (April 29, 2026), prepared for USG internal records/OpenClaw."
+    },
+    "created_at": "2026-04-29T18:19:00Z",
+    "updated_at": "2026-04-29T18:21:00Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-29-USG-AFRICA-MARKET-EXPANSION-STEPHEN-001",
+    "date_time": "2026-04-29T22:00:00Z",
+    "title": "USG strategic relationship / Africa market expansion discussion (Isaac, Richard, Stephen)",
+    "participants": [
+      "Isaac Barnes",
+      "Richard Hoffman",
+      "Stephen"
+    ],
+    "summary": "Strategic relationship meeting explored using Stephen’s trusted in-country relationships to open 5 priority African markets (initial mentions: Ghana, Uganda, Kenya) and position USG’s digital-bank and cross-border financial infrastructure as entry wedge. Isaac and Richard framed USG as business-first unification infrastructure with explicit standards for ethical market entry and protection against extractive patterns.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Favor phased market entry: start with ~5 priority countries where trusted relationship access exists, then scale after early traction.",
+      "Position digital bank as foundational market infrastructure (not only a product) for cross-border flow and coordination.",
+      "Maintain USG engagement standards; replace non-aligned partners when standards are not met."
+    ],
+    "risks": [
+      "Relationship claims and influence pathways are unverified and require structured validation.",
+      "Country-entry sequencing risk if priorities are chosen without commercial traction scoring.",
+      "Governance/reputation risk if partner alignment and protections are not codified before engagement.",
+      "Execution risk from broad multi-country ambition without a constrained first-wave plan."
+    ],
+    "next_actions": [
+      {
+        "action": "Define first-wave 5-country shortlist with entry rationale and readiness scores.",
+        "owner": "Isaac Barnes / USG",
+        "due": "2026-06-05",
+        "status": "open"
+      },
+      {
+        "action": "Validate Stephen-provided relationship paths for Ghana/Uganda/Kenya (role, decision relevance, access quality).",
+        "owner": "Stephen",
+        "due": "2026-06-05",
+        "status": "open"
+      },
+      {
+        "action": "Draft digital-bank-led entry blueprint (buyer classes, policy path, revenue model, safeguards).",
+        "owner": "USG",
+        "due": "2026-06-07",
+        "status": "open"
+      },
+      {
+        "action": "Publish partner engagement standards checklist for all inbound market-entry partners.",
+        "owner": "Isaac Barnes / USG",
+        "due": "2026-06-03",
+        "status": "open"
+      }
+    ],
+    "assessment": {
+      "dominant_constraint": "Country-level relationship access is promising but not yet evidence-verified into conversion-grade buyer/decision pathways.",
+      "decision_focus": "Whether to launch a formal first-wave Africa expansion sprint using a 5-country relationship-first model anchored by digital bank infrastructure.",
+      "owner": "Isaac Barnes / USG",
+      "timeline": "7-10 days for country shortlist and pathway validation",
+      "likely_structural_blockers": [
+        "Unverified decision-owner access in referenced countries",
+        "Missing country-by-country regulatory/commercial pathway detail",
+        "Insufficient buyer-class demand evidence for initial digital-bank wedge"
+      ]
+    },
+    "open_items": [
+      "Capture remaining sections of minutes (if any) beyond provided excerpt.",
+      "Resolve identity details for Stephen record in internal directory.",
+      "Map each cited relationship to a specific decision architecture role."
+    ],
+    "source": {
+      "type": "isaac_direct_manual",
+      "notes": "User-provided PDF/transcribed meeting minutes in Telegram on 2026-04-30; includes strategic narrative and partial country/pathway details."
+    },
+    "created_at": "2026-04-30T01:20:00Z",
+    "updated_at": "2026-05-03T14:23:08Z"
+  },
+  {
+    "meeting_id": "MM-2026-04-30-USG-MARK-RICHARD-ISAAC-001",
+    "date_time": "2026-05-01T01:00:00Z",
+    "title": "USG strategy call: development banks, DRC SME fund, Ethiopia banking, and execution sequencing",
+    "participants": [
+      "Mark Grobmyer",
+      "Richard Hoffman",
+      "Isaac Barnes"
+    ],
+    "summary": "Discussion covered near-term development bank engagement pathways, a live DRC SME fund construct tied to SEAF and potential IFC/DFC matching capital, acceleration on Ethiopia digital banking with proposal/contract requested, and execution risk from multiple concurrent pathways requiring tighter sequencing and document control.",
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "buyer_ids": [
+      "DFC",
+      "IFC",
+      "AFDB",
+      "WORLDBANK"
+    ],
+    "signal_ids": [
+      "SIG-2026-04-29-DFC-ECONOMIC-STATECRAFT-ENERGY-ABUNDANCE-001"
+    ],
+    "decisions": [
+      "Treat development-bank lane as actively receptive; prioritize targeted executive-director pathway mapping over broad outreach.",
+      "Advance DRC SME fund as a live structuring opportunity anchored by stated $50M government commitment and institutional matching path exploration.",
+      "Prioritize Ethiopia digital-banking lane as immediate execution item due to sponsor request for proposal and contract.",
+      "Acknowledge dominant constraint has shifted to sequencing and documentation across parallel opportunities."
+    ],
+    "risks": [
+      "Opportunity volume may outpace conversion discipline without a single sequencing tracker and owner accountability.",
+      "Relationship-path claims (including DFC/Ben Black routes and external family participation) require verification before dependency planning.",
+      "Documentation lag can stall time-sensitive lanes (Ethiopia package, Strunker prep, summit collateral ingestion)."
+    ],
+    "next_actions": [
+      {
+        "action": "Compile development-bank meeting map (priority principals, objective, approach sequence).",
+        "owner": "Mark Grobmyer",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Clarify USG role in DRC SME fund structure; draft concept note for positioning with SEAF/DFI counterparts.",
+        "owner": "Mark Grobmyer / Isaac Barnes",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Define SEAF-USG collaboration pathway and produce alignment brief.",
+        "owner": "Mark Grobmyer",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Map and rank DFC/Ben Black relationship routes with recommended primary path.",
+        "owner": "Mark Grobmyer / Richard Hoffman",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Send healthcare/public-safety summit outline collateral to Isaac.",
+        "owner": "Mark Grobmyer",
+        "due": "ASAP",
+        "status": "open"
+      },
+      {
+        "action": "Draft and send Ethiopia proposal + contract package.",
+        "owner": "Richard Hoffman / USG",
+        "due": "Immediate",
+        "status": "open"
+      },
+      {
+        "action": "Connect with Bobby on Strunker and document checklist completion.",
+        "owner": "Richard Hoffman / Bobby",
+        "due": "Tomorrow",
+        "status": "open"
+      }
+    ],
+    "assessment": {
+      "dominant_constraint": "Sequence and documentation discipline across multiple live pathways, not opportunity scarcity.",
+      "decision_focus": "Establish a single opportunity tracker with explicit owner, decision needed, document needed, next step, and deadline per lane.",
+      "owner": "Isaac Barnes / USG",
+      "timeline": "Immediate setup (24-48h) with daily operating cadence thereafter",
+      "likely_structural_blockers": [
+        "No single source of truth tracker for concurrent pathways",
+        "Unclear decision-rights across lanes",
+        "Missing standardized document packs by opportunity type"
+      ]
+    },
+    "open_items": [
+      "Confirm full legal name/role details for all referenced external parties (SEAF/CEED/minister contact).",
+      "Capture exact development-bank meeting targets once available.",
+      "Validate and document evidence for stated government commitment and matching-capital pathway terms.",
+      "Attach summit collateral once received."
+    ],
+    "source": {
+      "type": "isaac_direct_manual",
+      "notes": "User-provided meeting minutes via Telegram on 2026-05-01 UTC (meeting held 2026-04-30 9:00 PM EDT)."
+    },
+    "created_at": "2026-05-01T01:37:51.186Z",
+    "updated_at": "2026-05-01T01:37:51.190Z"
+  },
+  {
+    "meeting_id": "MM-2026-05-01-RICHARD-ANGOLA-DATACENTER-FUNDING-001",
+    "date_time": "2026-05-01T17:50:41Z",
+    "title": "Richard meeting: Angola data center project funding and strategy",
+    "participants": [
+      "Richard Hoffman",
+      "Isaac Barnes",
+      "Speaker 1",
+      "Speaker 2",
+      "Speaker 3",
+      "Speaker 4"
+    ],
+    "summary": "Working session on Angola data-center financing and commercialization strategy. Team outlined initial capex for fiber/power/land, discussed valuation uplift tied to megawatt scale and hyperscaler off-take, and compared IPO vs private-capital paths with preference for an accelerated public-market strategy contingent on partner credibility and contract execution.",
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [
+      "SIG-2026-05-01-SOFTBANK-ROZE-AI-DATACENTER-ROBOTICS-IPO-001"
+    ],
+    "decisions": [
+      "Use a three-component capital framing for project readiness: fiber, power prepayment, and land.",
+      "Prioritize hyperscaler off-take contracting as primary valuation and funding unlock.",
+      "Favor IPO pathway over purely private raise due to higher EBITDA multiple expectations and dilution profile.",
+      "Engage Barkley regarding IPO shelf feasibility as immediate structuring step."
+    ],
+    "risks": [
+      "Development partner not finalized (e.g., Vantage/Galaxy candidates only).",
+      "Off-take targets identified but engagement sequence and owner map not fully locked.",
+      "3-6 month execution timeline may be aggressive without parallel contract/legal workstreams.",
+      "Valuation assumptions depend heavily on converting named counterparties to binding commitments."
+    ],
+    "next_actions": [
+      {
+        "action": "Contact Barkley to evaluate IPO shelf route and listing readiness requirements.",
+        "owner": "Richard Hoffman",
+        "due": "ASAP",
+        "status": "open"
+      },
+      {
+        "action": "Select and engage preferred development partner for Angola site execution.",
+        "owner": "Richard Hoffman",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Build and execute outreach plan for AWS/Google/Oracle/Anthropic/OpenAI off-take discussions.",
+        "owner": "Richard Hoffman / Isaac Barnes",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Set 3-6 month milestone plan covering off-take LOIs, partner commitments, and IPO prep artifacts.",
+        "owner": "Richard Hoffman",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "[Speaker 1] to phone Mike and report back on partner/financing lane.",
+        "owner": "Speaker 1",
+        "due": "TBD",
+        "status": "open"
+      }
+    ],
+    "assessment": {
+      "dominant_constraint": "Counterparty conversion risk (off-take + development partner) rather than concept or market narrative.",
+      "decision_focus": "Sequence contracting and credibility anchors before valuation-forward fundraising steps.",
+      "owner": "Richard Hoffman",
+      "timeline": "Immediate kickoff with 3-6 month milestone horizon",
+      "likely_structural_blockers": [
+        "No finalized development partner",
+        "No explicit owner-level outreach calendar for hyperscalers",
+        "Potential mismatch between IPO timing ambition and documentary readiness"
+      ]
+    },
+    "open_items": [
+      "Confirm final participant names/roles replacing generic speaker placeholders.",
+      "Validate exact prepayment/land figures against source financial model.",
+      "Document existing status of claimed partner relationships (NVIDIA, Amazon, Anthropic, OpenAI)."
+    ],
+    "source": {
+      "type": "plaud_shared_link_transcript",
+      "notes": "User-provided PLAUD share link; summary/meeting-minutes text captured from embedded page.",
+      "link": "https://web.plaud.ai/s/pub_4c98cc99-91ea-40df-a755-da59e80ac6a0::Tr2L2i_PTYtJqsBuBevO15jSJIlHGuuvtVlDCH5VpP686jskhvlr__oLErhwZBECl0zAQU7Oo80D7nUC",
+      "confidence": "medium_high"
+    },
+    "created_at": "2026-05-01T18:32:33.995Z",
+    "updated_at": "2026-05-01T18:32:44.072Z",
+    "visibility": "internal",
+    "tags": [
+      "Angola",
+      "Data Center",
+      "Funding Strategy",
+      "IPO",
+      "Hyperscaler Offtake",
+      "Richard Hoffman"
+    ]
+  },
+  {
+    "meeting_id": "MM-2026-05-01-RICHARD-ANGOLA-SUBSEA-CONTRACT-DIRECT-LISTING-001",
+    "date_time": "2026-05-01T19:19:41Z",
+    "title": "05-01 Strategic Plan to Leverage Angolan Subsea Cable Contract for a Direct Listing",
+    "participants": [
+      "Richard Hoffman",
+      "Wade Cherwayko",
+      "Speaker 1"
+    ],
+    "summary": "Leadership discussion evaluated using an existing cash-flowing asset—the Angolan subsea cable contract linking Africa and the United States—as the foundational asset for a potential direct listing strategy. The core strategic distinction is that the team controls the contract but does not own the underlying ~15-year-old operating company. Working hypothesis: if contractual cash flows are durable, transferable, and legally ring-fenceable, the contract could anchor listing substance; however, feasibility depends on legal/structural validation of using a non-owned contracted asset as listing foundation.",
+    "initiative_ids": [
+      "USG",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Advance the direct-listing hypothesis as a structured diligence track, not an execution commitment.",
+      "Treat contract-control vs company-ownership distinction as a primary gating issue requiring legal and accounting validation.",
+      "Frame the subsea contract as a potential anchor asset only if cash-flow rights, assignability, and governance controls are verifiably enforceable."
+    ],
+    "risks": [
+      "Structural eligibility risk: a non-owned contracted asset may not satisfy listing-substance or consolidation requirements.",
+      "Title/rights risk: ambiguity in assignment, change-of-control, or encumbrance terms could block transfer into a listing vehicle.",
+      "Disclosure/compliance risk if revenue durability, counterparty obligations, or contract contingencies are not audit-defensible.",
+      "Execution risk from over-reliance on one asset before confirming legal perimeter and sponsor appetite."
+    ],
+    "next_actions": [
+      {
+        "action": "Obtain and review full contract package (master agreement, amendments, assignment clauses, termination and change-of-control provisions).",
+        "owner": "Richard/USG legal",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Commission listing-structure memo on whether contracted cash-flow rights (without company ownership) can anchor a direct listing path.",
+        "owner": "USG counsel + capital markets advisor",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Build asset ring-fence options (SPV/holdco) and map accounting treatment, consolidation tests, and audit evidence requirements.",
+        "owner": "USG finance",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Prepare decision memo with go/no-go criteria after legal/accounting diligence.",
+        "owner": "Sentinel",
+        "due": "TBD",
+        "status": "open"
+      }
+    ],
+    "assessment": {
+      "dominant_constraint": "Legal/structural qualification of contract asset for listing readiness.",
+      "decision_focus": "Determine if cash-flow contract can be contributed into listing vehicle with defensible governance and disclosure.",
+      "owner": "Richard Hoffman",
+      "timeline": "Immediate legal/structure validation",
+      "likely_structural_blockers": [
+        "Lack of ownership in underlying company",
+        "Potential listing-rule and disclosure constraints on contract-only asset base"
+      ]
+    },
+    "open_items": [
+      "Confirm identity of Speaker 1.",
+      "Capture contract details (term, counterparties, transferability/assignment rights, encumbrances).",
+      "Obtain preliminary legal memo on direct-listing suitability."
+    ],
+    "source": {
+      "type": "plaud_shared_link_transcript",
+      "notes": "User-provided PLAUD share link; summary content captured from embedded page. Expanded from user-provided strategic synopsis on 2026-05-03; partial transcript excerpt captured.",
+      "link": "https://web.plaud.ai/s/pub_3ba61417-8979-46c7-9cc4-98d1fcf86175::TQ0WcwiW7l9vI8Anz_cIVCuY8djdAwGBsmbi4B9gyBmZqmU8oWcDAQgHxB3wuE7w8VuksQB1cQzEHRIC",
+      "confidence": "medium"
+    },
+    "created_at": "2026-05-01T19:48:05.758Z",
+    "updated_at": "2026-05-03T14:51:17Z",
+    "visibility": "internal",
+    "tags": [
+      "Angola",
+      "Contract Asset",
+      "Direct Listing",
+      "Richard Hoffman",
+      "Subsea Cable"
+    ]
+  },
+  {
+    "meeting_id": "MM-2026-05-01-RICHARD-UDG-FUNDRAISING-MULTILATERALS-DRC-001",
+    "date_time": "2026-05-01T20:59:32Z",
+    "title": "Richard meeting: Unified Digital Banking fundraising, multilateral engagements, and DRC SME fund alignment",
+    "participants": [
+      "Richard Hoffman",
+      "Speaker 2",
+      "Speaker 3",
+      "Speaker 4",
+      "Speaker 5",
+      "Speaker 6"
+    ],
+    "summary": "Extended strategy call covering Bay Area fundraising prep, U.S. policymaker-backed introductions (French Hill) into IFC/World Bank/DFC/IDB pathways, alignment with a DRC SME fund structure (reported $50M first-loss toward $250M), USTDA feasibility-route execution, partner-relationship claims governance, and operating model separation between digital bank, matching engine, and clearinghouse entities.",
+    "initiative_ids": [
+      "USG",
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+    ],
+    "buyer_ids": [
+      "DFC",
+      "IFC",
+      "AFDB",
+      "WORLDBANK"
+    ],
+    "signal_ids": [],
+    "decisions": [
+      "Prepare institution-specific materials (objectives, steps, explicit asks) before activating top-tier introductions.",
+      "Advance tiered collateral model: core digital-bank deck plus addendums/standalone deck for matching engine and broader Unified Digital scope.",
+      "Pursue legal validation of proposed nonprofit/for-profit holdco structure (49/51 style control framing) before final governance claims.",
+      "Maintain neutral marketplace posture (no opaque paid ranking), with only clearly labeled sponsored content if used."
+    ],
+    "risks": [
+      "High-volume claims about partner commitments/revenue may create diligence exposure if not evidenced in writing.",
+      "Governance structure may be non-compliant or investor-unfriendly without formal legal opinion.",
+      "Execution risk from simultaneous deck, legal, fundraising, and institutional-outreach workstreams without single owner cadence.",
+      "Logo/relationship language may trigger legal/PR friction if not tightly controlled."
+    ],
+    "next_actions": [
+      {
+        "action": "Finalize presentation/deck structure for Bay Area VC meetings (Wed-Fri) and lock meeting list.",
+        "owner": "Speaker 3 / Team",
+        "due": "2026-05-04",
+        "status": "open"
+      },
+      {
+        "action": "Prepare formal institution brief (objectives, methodology, asks) for IFC/World Bank/DFC/IDB pathways.",
+        "owner": "Richard Hoffman / Team",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Engage USTDA Africa Desk to capture feasibility criteria and submission pattern.",
+        "owner": "Speaker 4 / Speaker 3",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Obtain legal guidance from Stephanie/Laura on nonprofit ownership limits and holdco control structure.",
+        "owner": "Richard Hoffman",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Build two standalone investor decks (Unified Digital Banking + Matchbox/GSI OS) and master deck alignment.",
+        "owner": "Team",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Schedule quick coordination call for 2026-05-02 and deck review on 2026-05-04.",
+        "owner": "Team",
+        "due": "2026-05-02",
+        "status": "open"
+      }
+    ],
+    "assessment": {
+      "dominant_constraint": "Structure-and-credibility discipline (legal architecture + evidence-backed messaging) rather than opportunity access.",
+      "decision_focus": "Sequence legal validation and proof-backed partner narrative before scaling investor and multilateral outreach.",
+      "owner": "Richard Hoffman",
+      "timeline": "Immediate (next 3-7 days) for deck/legal readiness ahead of outreach push",
+      "likely_structural_blockers": [
+        "Unvalidated nonprofit/holdco governance model",
+        "Insufficient evidence package for partner and revenue claims",
+        "Fragmented ownership across parallel workstreams"
+      ]
+    },
+    "open_items": [
+      "Replace speaker placeholders with named participants.",
+      "Validate reported commitment figures (AWS co-investment, satellite subsidy, investor pipeline amounts).",
+      "Confirm definitive institution target list and ask matrix before outreach activation."
+    ],
+    "source": {
+      "type": "plaud_shared_link_transcript",
+      "notes": "User-provided PLAUD share link; meeting notes captured from embedded Summary/Meeting Minutes content.",
+      "link": "https://web.plaud.ai/s/pub_d0e04f09-23e0-46ce-9d61-678e45b998b2::qmYk6Icpe9-EkYJHe5Jm-ptTZwwVDLQ3irMT-TvfAK4mFsNcaZrKMCxMzqbQ2B4CmizfiXy2AClPWiEC",
+      "confidence": "medium_high"
+    },
+    "created_at": "2026-05-01T22:41:52.331Z",
+    "updated_at": "2026-05-01T22:41:52.331Z",
+    "visibility": "internal",
+    "tags": [
+      "Unified Digital Banking",
+      "Fundraising",
+      "Multilaterals",
+      "DRC SME Fund",
+      "USTDA",
+      "Governance"
+    ]
+  },
+  {
+    "meeting_id": "MM-2026-05-02-RICHARD-ORIGINATION-001",
+    "date_time": "2026-05-02T00:00:00Z",
+    "title": "05-02 Strategic Planning for Global Digital Banking Venture",
+    "participants": [
+      "Richard Hoffman",
+      "Counterparty (name pending)"
+    ],
+    "summary": "Strategic planning session focused on launching a global AI-powered digital bank via country-by-country partnerships with powerful families, traditional banks, and central banks; discussion emphasized structuring control/economics through a reverse-auction partner model and building institutional co-investment support.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Prioritize architecture for transacting with physical incumbent banks as a core go-to-market constraint.",
+      "Use a reverse-auction framework for country family partnerships to improve terms and preserve economics.",
+      "Build a three-layer ecosystem: family/channel partners, institutional co-investors, and central-bank relationships."
+    ],
+    "risks": [
+      "Execution risk in integrating legacy bank rails into an AI-native operating model.",
+      "Partnership-structure risk if country exclusivity terms are negotiated without competitive pressure.",
+      "Funding/timing risk tied to converting pipeline assets into near-term deployable capital."
+    ],
+    "next_actions": [
+      {
+        "action": "Architect transaction model for partnerships with physical banks.",
+        "owner": "Richard/USG",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Set call with multi-bank owner (St Kitts/Nevis, Mauritius, domestic) for model validation.",
+        "owner": "Richard/USG",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Draft and circulate reverse-auction partnership concept note.",
+        "owner": "Sentinel",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Compile master operating list: target countries, institutional investor partners, and central-bank contacts.",
+        "owner": "USG team",
+        "due": "TBD",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "plaud_transcript_shared",
+      "link": "https://web.plaud.ai/s/pub_f6d64da3-67d0-4522-8353-a2f9b087ed25::G4t_zIBglfY2c6tnz0-7X3W_DObH4fyOo8UK2NFlTx37N_Dg_K2_7oBuAmEWWpgHGXgD76q5JoQVMRAC",
+      "recorded_by": "Richard Hoffman",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Richard Hoffman",
+      "confidence": "medium",
+      "notes": "Transcript-derived summary captured from PLAUD structured markdown (Summary/Meeting Minutes headings + action items)."
+    },
+    "visibility": "internal",
+    "tags": [
+      "origination",
+      "plaud",
+      "needs-transcript-parse"
+    ],
+    "created_at": "2026-05-03T00:36:01.512Z",
+    "updated_at": "2026-05-03T00:51:59.515Z"
+  },
+  {
+    "meeting_id": "MM-2026-05-04-HEALTHMETRYX-USG-CEDRIC-001",
+    "date_time": "2026-05-04T20:45:00Z",
+    "title": "Healthmetryx x Unified State Group exploratory partnership meeting",
+    "participants": [
+      "Cedric Hill",
+      "Louis",
+      "Healthmetryx",
+      "Unified State Group (Unified Digital)"
+    ],
+    "summary": "Preliminary strategic partnership discussion focused on alignment between Unified Digital (USG) and Healthmetryx across technical execution at scale, distribution through established enterprise channels, and infrastructure leverage. Healthmetryx emphasized execution-risk reduction via advanced engineering capacity (photonics, miniaturization, hardware/software integration) and faster market entry through distribution partnerships.",
+    "initiative_ids": [
+      "USG",
+      "INIT-653305"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Proceed to internal alignment and schedule follow-up meeting with broader team participation.",
+      "Use NDA as precondition for deeper technical and commercial diligence.",
+      "Frame partnership around execution support, distribution access, and infrastructure leverage."
+    ],
+    "risks": [
+      "Early-stage commercial risk: only one contracted revenue customer at present.",
+      "Partnership-structure ambiguity risk pending defined pass-through model and governance terms.",
+      "Dependency risk on third-party ecosystem partners (Samsung/NVIDIA) for scale assumptions."
+    ],
+    "next_actions": [
+      {
+        "action": "Run internal USG alignment on partnership posture and owner assignments.",
+        "owner": "Isaac",
+        "due": "2026-05-06",
+        "status": "open"
+      },
+      {
+        "action": "Set follow-up meeting with both teams and lock agenda around structure, scope, and milestones.",
+        "owner": "Cedric Hill",
+        "due": "2026-05-08",
+        "status": "open"
+      },
+      {
+        "action": "Prepare NDA draft/exchange path to unlock detailed diligence.",
+        "owner": "USG Legal",
+        "due": "2026-05-08",
+        "status": "open"
+      },
+      {
+        "action": "Define pass-through commercial model options leveraging Samsung/NVIDIA ecosystem relationships.",
+        "owner": "Sentinel",
+        "due": "2026-05-09",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided meeting notes prepared by Cedric Hill",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Cedric Hill",
+      "primary_contact": "Louis",
+      "confidence": "high",
+      "link": ""
+    },
+    "created_at": "2026-05-04T20:45:52Z",
+    "updated_at": "2026-05-04T20:45:52Z",
+    "visibility": "internal",
+    "tags": [
+      "originator",
+      "healthmetryx",
+      "exploratory",
+      "nda_required",
+      "distribution",
+      "technical_execution"
+    ]
+  },
+  {
+    "meeting_id": "MM-2026-05-05-DAVID-CROWN-VICTORIA-001",
+    "date_time": "2026-05-05T00:00:00Z",
+    "title": "David Crown, Isaac Barnes, and Dr. Victoria Vysotina strategic platform call",
+    "participants": [
+      "David Crown",
+      "Isaac Barnes",
+      "Dr. Victoria Vysotina"
+    ],
+    "summary": "Discussion covered proposed Pactum/Crownstone platform structure, USG role in capital deployment/deal structuring, governance and committee mechanics, custody/capital-movement pathways, and market observations from Milken context. Team aligned on daily coordination cadence during active structuring while maintaining confidentiality until documentation and deployment pathways are finalized.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Continue daily coordination meetings during active structuring phase.",
+      "Prioritize finalization of deployment governance and investment committee alignment.",
+      "Maintain confidentiality and avoid premature publicity until structure/docs are finalized."
+    ],
+    "risks": [
+      "Verification risk: several large-scale capital and facilitation claims require documentary corroboration before external use.",
+      "Governance risk: committee authority and co-control boundaries must be contractually explicit.",
+      "Reputational/compliance risk if publicity precedes verified custody/funding pathways."
+    ],
+    "next_actions": [
+      {
+        "action": "Finalize deployment governance structure and authority matrix.",
+        "owner": "Isaac",
+        "due": "2026-05-07",
+        "status": "open"
+      },
+      {
+        "action": "Refine custody and capital-movement framework with documentary proof path.",
+        "owner": "Isaac",
+        "due": "2026-05-07",
+        "status": "open"
+      },
+      {
+        "action": "Advance investment-committee composition and decision protocol alignment.",
+        "owner": "Isaac",
+        "due": "2026-05-07",
+        "status": "open"
+      },
+      {
+        "action": "Hold next coordination call (scheduled Wed, May 6 at 6:00 PM).",
+        "owner": "Isaac",
+        "due": "2026-05-06",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct_pdf",
+      "notes": "Telegram-provided meeting-minutes PDF and transcript text; claims should be treated as user-provided until independently corroborated.",
+      "files": [
+        "David_Crown_Isaac_Barnes_and_Victoria_Call---602a98c9-bd5a-4e1f-b48f-06f78c482812.pdf"
+      ],
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
+    },
+    "created_at": "2026-05-06T02:27:05.973Z",
+    "updated_at": "2026-05-06T02:27:06.148Z",
+    "visibility": "internal",
+    "tags": [
+      "platform-structuring",
+      "governance",
+      "capital-deployment",
+      "confidential"
+    ]
+  },
+  {
+    "meeting_id": "MM-2026-05-19-VANCE-WHITFIELD-GLOBAL-AFRICA-GATEWAY-001",
+    "date_time": "2026-05-19T00:00:00Z",
+    "title": "Vance Whitfield intro: Global Africa Gateway x USG strategic alignment",
+    "participants": [
+      "Vance Whitfield",
+      "Isaac Barnes",
+      "Monica Colon"
+    ],
+    "summary": "Vance Whitfield reached out following his appointment to lead the Global Africa Gateway and Diaspora Strategy initiative at The Africa Center, developed in partnership with Afreximbank. He positioned the initiative as a mechanism to connect diaspora-linked businesses, investors, chambers, and strategic stakeholders across the U.S., Caribbean, Europe, and Africa while extending Afreximbank balance-sheet pathways into cross-border projects. Isaac confirmed strategic alignment with USG's platform role across capital access, partner alignment, approvals, and execution support. Monica Colon moved to coordinate scheduling for a strategic alignment call.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [
+      "AFREXIMBANK"
+    ],
+    "signal_ids": [],
+    "decisions": [
+      "Proceed to strategic alignment call coordination between USG and Global Africa Gateway initiative stakeholders.",
+      "Treat Afreximbank-linked diaspora deployment as an active channel-partner pathway for cross-border project capitalization."
+    ],
+    "risks": [
+      "Program-structure ambiguity risk until specific deployment criteria, governance, and capital-allocation rules are documented.",
+      "Conversion risk if strategic alignment call does not translate into a defined mandate pathway and scoped first transaction lane."
+    ],
+    "next_actions": [
+      {
+        "action": "Confirm strategic alignment call date/time and participant decision rights (USG, Vance, Monica, relevant Afreximbank interface).",
+        "owner": "Isaac",
+        "due": "2026-05-22",
+        "status": "open"
+      },
+      {
+        "action": "Prepare one-page USG x Global Africa Gateway fit memo with first-90-day lane proposals.",
+        "owner": "Sentinel",
+        "due": "2026-05-22",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct_email_summary",
+      "notes": "User-provided summary of inbound email thread and response; awaiting full thread artifacts for documentary archive.",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
+    },
+    "created_at": "2026-05-20T13:34:00Z",
+    "updated_at": "2026-05-20T13:34:00Z",
+    "visibility": "internal",
+    "tags": [
+      "channel-partner",
+      "afreximbank",
+      "diaspora-strategy",
+      "global-africa-gateway",
+      "cross-border-capital",
+      "lead-intake"
+    ]
+  },
+  {
+    "meeting_id": "MM-2026-06-10-OPERATIONAL-BRIEFINGS-001",
+    "date_time": "2026-06-10T12:00:00Z",
+    "title": "Operational Briefings internal operations meeting",
+    "participants": [
+      "Isaac Barnes",
+      "USG operations team"
+    ],
+    "summary": "Internal operations meeting covered Unified Digital project updates that can enable several active initiatives to move forward. The day did not produce strong outward-facing status updates for the later staff meeting, but Isaac clarified that the weakness was in the absence of newly packaged progress to report, not in the absence of useful operational discussion.",
+    "initiative_ids": [
+      "USG"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Treat June 10 Unified Digital project discussion as enabling work for multiple initiatives rather than as a no-progress day.",
+      "Do not count the meeting as initiative-state advancement until the specific project updates are translated into initiative-level artifacts, owners, or dated actions."
+    ],
+    "risks": [
+      "Reporting risk: enabling work will continue to look like no progress if it is not translated into initiative-specific updates before staff-facing reviews.",
+      "Execution-visibility risk: project momentum may be real but remain unusable for decision-making if owners, deliverables, and affected initiatives are not logged explicitly."
+    ],
+    "next_actions": [
+      {
+        "action": "Convert the Unified Digital project updates discussed on June 10 into explicit initiative-by-initiative owner/outcome notes.",
+        "owner": "Isaac",
+        "due": "2026-06-11",
+        "status": "open"
+      },
+      {
+        "action": "Preserve the clarified June 10 operations-meeting outcome in mission-control memory so the day is not misread as a literal zero-progress day.",
+        "owner": "Sentinel",
+        "due": "2026-06-11",
+        "status": "open"
+      }
+    ],
+    "source": {
+      "type": "isaac_direct",
+      "notes": "User-provided clarification in Telegram on 2026-06-11 about the June 10 Operational Briefings meeting.",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
+    },
+    "created_at": "2026-06-11T00:34:00Z",
+    "updated_at": "2026-06-11T00:34:00Z",
+    "visibility": "internal",
+    "tags": [
+      "internal-ops",
+      "unified-digital",
+      "initiative-enablement",
+      "reporting-gap"
+    ]
+  },
+  {
+    "meeting_id": "MM-2026-07-03-ISAAC-RICHARD-NVIDIA-NBA-EUROPE-001",
+    "date_time": "2026-07-03T02:02:21Z",
+    "title": "NVIDIA sovereign AI family-partner model and NBA Europe overlap intake",
+    "participants": [
+      "Isaac Barnes",
+      "Richard Hoffman"
+    ],
+    "summary": "Isaac captured a Richard-shared strategic concept that NVIDIA may be pursuing an urgent Europe-focused sovereign AI partner search: identifying 1-5 top families or high-net-worth family groups inside the EU by October 7, 2026 to anchor country-level 100 MW AI data center platforms. The notes frame this as a family-led sovereign-AI control model rather than a standard data-center deal, and extend it into a larger USG hypothesis that the same family class could matter to both NVIDIA infrastructure partnerships and future NBA Europe ownership / country-entry pathways.",
+    "initiative_ids": [
+      "USG",
+      "INIT-AP-AI-FACTORY-001"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [],
+    "decisions": [
+      "Capture the concept as strategic intake, not as a validated execution lane.",
+      "Keep the idea tied to the existing NVIDIA-adjacent initiative surface until named authority, geography, and commercial scope are confirmed.",
+      "Separate what appears to be direct NVIDIA mandate language from what is currently USG-side strategic expansion, especially the NBA Europe overlap and underground-data-center plus arena model."
+    ],
+    "risks": [
+      "Verification risk: NVIDIA mandate, October 7 timing, Sweden priority, Berlin event, and exclusivity terms are currently user-provided claims without primary artifacts.",
+      "Narrative inflation risk: the NBA Europe overlap may be strategically clever but could outrun what NVIDIA has actually asked for.",
+      "Execution risk: without a named NVIDIA owner, country scope, and contractual role definition for USG, the concept may remain relationship energy rather than a real lane.",
+      "Positioning risk: treating a family-office or exploratory conversation as sovereign-level mandate could create credibility damage if surfaced too aggressively."
+    ],
+    "next_actions": [
+      {
+        "action": "Obtain a clean written summary or direct note from Leo or the NVIDIA-side contact confirming target countries, 100 MW requirement, timeline, and what NVIDIA actually wants from USG.",
+        "owner": "Isaac / Leo LaBranche",
+        "due": "ASAP",
+        "status": "open"
+      },
+      {
+        "action": "Identify whether October 7, 2026 and the referenced Berlin conference are real operating deadlines or only informal target framing.",
+        "owner": "Sentinel",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Prepare a private internal family / country mapping frame for Europe that distinguishes verified access, plausible fit, and pure speculation.",
+        "owner": "Sentinel",
+        "due": "TBD",
+        "status": "open"
+      },
+      {
+        "action": "Define the minimum acceptable USG role before any introductions: architecture partner, mapping advisor, capital partner, or success-fee introducer.",
+        "owner": "Isaac",
+        "due": "TBD",
+        "status": "open"
+      }
+    ],
+    "assessment": {
+      "dominant_constraint": "Authority and scope verification rather than thesis quality.",
+      "decision_focus": "Determine whether this is a real NVIDIA-owned mandate with a dated deliverable or an exploratory relationship conversation that still needs hard edges.",
+      "owner": "Isaac Barnes",
+      "timeline": "Immediate clarification needed if October 7, 2026 is real",
+      "likely_structural_blockers": [
+        "No named NVIDIA decision owner or written mandate captured yet",
+        "No confirmed country list or family qualification criteria",
+        "USG role not contractually or commercially defined",
+        "NBA Europe overlap appears conceptual rather than authorized"
+      ]
+    },
+    "open_items": [
+      "Confirm who at NVIDIA actually owns the mandate and whether Jensen Huang sponsorship is explicit or inferred.",
+      "Verify which Berlin conference is tied to October 7, 2026 and whether it is a hard announcement surface.",
+      "Clarify whether Sweden is the real first target or just the example used in conversation.",
+      "Document what 'exclusive partner' means in practice: capital, development, operations, government access, or all of the above."
+    ],
+    "source": {
+      "type": "isaac_direct_manual",
+      "notes": "User-provided organized conversation notes in Telegram on 2026-07-03. Treat claims as strategic-intelligence intake until corroborated by named counterpart evidence or primary artifacts.",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Isaac Barnes",
+      "team_member": "Isaac Barnes",
+      "confidence": "high",
+      "link": ""
+    },
+    "created_at": "2026-07-03T02:04:13Z",
+    "updated_at": "2026-07-03T02:04:13Z",
+    "visibility": "internal",
+    "tags": [
+      "nvidia",
+      "nba-europe",
+      "family-office",
+      "sovereign-ai",
+      "europe",
+      "strategic-intake",
+      "richard-hoffman"
+    ]
+  },
+  {
+    "meeting_id": "MM-2026-07-24-TELLY-RENFROE-DEBRIEF-TAMARA-MAXWELL-EXIM-AFRICA-PATHWAY-AND-VALERIE-MOSLEY-ENERGY-LEAD-1784906673275",
+    "date_time": "2026-07-24T15:20:00.000Z",
+    "title": "Telly Renfroe debrief — Tamara Maxwell / EXIM Africa pathway and Valerie Mosley energy lead",
+    "participants": [
+      "Telly Renfroe",
+      "Tamara \"Tammy\" Maxwell",
+      "Valerie Mosley",
+      "Isaac Barnes"
+    ],
+    "summary": "Telly Renfroe debriefed Isaac Barnes on conversations with Tamara \"Tammy\" Maxwell of U.S. EXIM and Valerie Mosley. Tammy asked USG to start each project with the buyer, the seller or U.S. exporter, whether the buyer is governmental or private, and a concise project synopsis; after receiving those facts, she is willing to guide the team through the package requirements. She said she cannot speak for Afreximbank and that its internal rules differ, while characterizing U.S. EXIM as the more stringent screen. Telly also relayed Tammy's report that she is close to completing a process under which selected African banks could underwrite qualifying loans with an EXIM guarantee, potentially reducing approval time for mid-tier transactions up to an indicated $25 million, especially equipment-related transactions. This policy detail remains unverified in writing. Tammy reportedly has expanding access to African development conversations and referenced a national-development project list totaling approximately $209 billion, with approval status and missing requirements shown for each project; the location sounds like Abidjan in the transcript but must be confirmed. Telly further reported that people previously aligned with Tammy are continuing to form a private company focused on packaging transactions for EXIM, other ECAs, and partner banks; because Tammy is a federal official, no commercial engagement should occur without ethics and conflict review. Separately, Valerie Mosley has an energy-related opportunity that may fit EXIM and wants USG to meet relevant people, but the project is not yet sufficiently defined to attach to an initiative or assess for EXIM eligibility. Nonessential personal commentary about Tammy was intentionally excluded from the operational record.",
+    "initiative_ids": [
+      "INIT-NG-FIN-ENERGY-SPINE",
+      "INIT-2026-03-05-COMMODITY-CORRIDOR"
+    ],
+    "buyer_ids": [],
+    "signal_ids": [
+      "SIG-2026-07-24-1784906580281",
+      "SIG-2026-07-24-1784906601307",
+      "SIG-2026-07-24-1784906623348"
+    ],
+    "decisions": [
+      "Treat Tammy Maxwell as a high-value package-readiness guide and relationship node, not as an approval or financing commitment.",
+      "Standardize a pre-screen before bringing any opportunity to Tammy: buyer, seller/U.S. exporter, public or private buyer status, project synopsis, country, transaction value, U.S. content, financing request, approvals, and current gaps.",
+      "Prioritize one or two qualified U.S.-export-linked equipment or energy transactions at or below the reported $25 million level as test cases once the product pathway is confirmed.",
+      "Keep the reported African-bank underwriting process classified as pending policy intelligence until EXIM provides written terms, eligible institutions, and an effective date.",
+      "Track Valerie Mosley's energy opportunity as an unqualified lead until the buyer, sponsor, country, value, U.S. export nexus, approvals, and expected USG role are documented.",
+      "Do not engage or route compensation to any private packaging venture connected to a serving federal official without written ethics and conflict-of-interest clearance."
+    ],
+    "risks": [
+      "The reported delegated-underwriting rule is not yet publicly or directly confirmed in writing, and the $25 million ceiling may refer to financed amount, exposure, or transaction value.",
+      "Passing a U.S. EXIM screen does not constitute Afreximbank approval; the institutions have different internal rules and must be approached separately.",
+      "EXIM eligibility will depend on facts not yet captured, including U.S. exporter and content, buyer credit, country limitations, transaction structure, tenor, environmental or economic-impact review, and available lender participation.",
+      "The reported $209 billion development-project list, its country or institution, and the transcript's apparent reference to Abidjan require confirmation before use.",
+      "The transcript contains one unclear reference to a party or prior discussion rendered as \"advanced\" or similar; it should not be treated as a named source until Telly clarifies it.",
+      "Any overlap between Tammy's federal duties and a private packaging enterprise presents ethics, procurement-integrity, and conflict-of-interest risk that requires counsel review."
+    ],
+    "next_actions": [
+      {
+        "action": "Create a reusable EXIM/Afreximbank opportunity intake sheet covering buyer, seller/U.S. exporter, public-private status, project synopsis, country, value, U.S. content, financing request, development stage, approvals, lender/ECA history, and missing documents.",
+        "owner": "Isaac Barnes / USG",
+        "due": "2026-07-27",
+        "status": "Open"
+      },
+      {
+        "action": "Identify one to three existing Africa opportunities that have a clear U.S. export nexus and could be scoped at or below $25 million for initial package-readiness review.",
+        "owner": "Isaac Barnes and Telly Renfroe",
+        "due": "2026-07-28",
+        "status": "Open"
+      },
+      {
+        "action": "Send Tammy concise pre-screen summaries for the strongest candidate projects and request the current written checklist, product fit, process sequence, named relationship owner, and status of the reported African-bank underwriting pathway.",
+        "owner": "Telly Renfroe",
+        "due": "2026-07-29",
+        "status": "Open"
+      },
+      {
+        "action": "Circle back with Valerie Mosley and capture the energy project's name, country, buyer or sponsor, public-private status, value, U.S. exporter/content, approvals, financing need, proposed introductions, and the role she expects USG to perform.",
+        "owner": "Telly Renfroe",
+        "due": "2026-07-27",
+        "status": "Open"
+      },
+      {
+        "action": "Confirm whether the transcript's location was Abidjan, identify the owner/source of the approximately $209 billion development-project list, and request the list or a shareable subset showing approvals and gaps.",
+        "owner": "Telly Renfroe",
+        "due": "2026-07-31",
+        "status": "Open"
+      },
+      {
+        "action": "Clarify the transcript's reference rendered as \"advanced\" or similar and identify the person, company, or prior conversation being cited in connection with Valerie's energy lead.",
+        "owner": "Telly Renfroe",
+        "due": "2026-07-27",
+        "status": "Open"
+      },
+      {
+        "action": "Complete legal and ethics review before any referral, compensation, teaming, or transaction-packaging engagement involving a private venture connected to a serving EXIM official.",
+        "owner": "Isaac Barnes / Legal",
+        "due": "Before engagement",
+        "status": "Guardrail"
+      }
+    ],
+    "source": {
+      "type": "Voice-message debrief",
+      "notes": "Raw transcript supplied by Isaac Barnes. Material was normalized for operational use; uncertain words and policy claims were preserved as unverified rather than silently corrected.",
+      "recorded_by": "Isaac Barnes",
+      "submitted_by": "Telly Renfroe",
+      "team_member": "Telly Renfroe",
+      "confidence": "Medium-High",
+      "link": ""
+    },
+    "created_at": "2026-07-24T15:24:33.275Z",
+    "updated_at": "2026-07-24T15:24:33.275Z",
+    "visibility": "Internal",
+    "tags": [
+      "EXIM",
+      "Afreximbank",
+      "Africa",
+      "export finance",
+      "project packaging",
+      "delegated underwriting",
+      "equipment finance",
+      "energy",
+      "relationship intelligence",
+      "policy watch",
+      "Valerie Mosley",
+      "Tamara Maxwell",
+      "Telly Renfroe"
+    ]
   }
 ]

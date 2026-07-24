@@ -1,159 +1,681 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-29T11:05:00Z",
-  "lastSweepAt": "2026-04-29T11:05:00Z",
+  "updatedAt": "2026-07-24T10:05:00Z",
+  "lastSweepAt": "2026-07-24T10:05:00Z",
   "notes": "Tracks per-meeting prep notifications to avoid duplicate T-24h/T-60m sends.",
   "sent": {
-    "F7227425-81EB-4A08-83E5-C624CE44A645": {
-      "meetingSummary": "USG + Bestaf Meeting",
-      "start": "2026-03-30T13:00:00.000Z",
+    "l030e6tmrjaii8kulkcv6ro6fc@google.com": {
+      "meetingSummary": "Weekly Stand-in Meetings | Victoria + Isaac",
+      "start": "2026-06-09T14:00:00.000Z",
       "horizons": {
-        "T-24h": {
-          "sentAt": "2026-03-29T10:35:00Z",
-          "status": "sent"
-        },
-        "T-60m": {
-          "sentAt": "2026-03-30T10:05:00Z",
-          "status": "sent"
+        "t24h": {
+          "sentAt": "2026-06-09T10:05:00.000Z",
+          "deliveryTarget": "telegram:8010080765",
+          "mode": "catchup",
+          "note": "Late catch-up prep sent after the recurring stand-in appeared inside the next-24h window without prior prep evidence in state."
         }
       }
     },
-    "5h672tnf19os9fkgcoa56ls9cm@google.com": {
-      "meetingSummary": "Internal Bestaf Cadence",
-      "start": "2026-04-24T11:30:00.000Z",
+    "1tcp83k3gin8gb7b98l8d799df@google.com": {
+      "meetingSummary": "Call: forgd & Unified State Group - Intro from Bryan Klint",
+      "start": "2026-06-10T17:00:00.000Z",
       "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-23T10:05:00Z",
-          "status": "sent"
-        },
-        "T-60m": {
-          "sentAt": "2026-04-24T10:05:00Z",
-          "status": "sent"
+        "t24h": {
+          "sentAt": "2026-06-10T10:05:00.000Z",
+          "deliveryTarget": "telegram:8010080765",
+          "mode": "catchup",
+          "note": "Late catch-up prep sent once the forgd intro moved inside the next-24h window without prior prep evidence in state."
         }
       }
     },
-    "1hal32sh61uccvu2pd5j2u7baa@google.com": {
-      "meetingSummary": "Internal Bestaf Cadence",
-      "start": "2026-04-28T12:00:00.000Z",
+    "5dlg03tdueaue3ut61ijbofh3f@google.com": {
+      "meetingSummary": "Follow up Discussion | Global Africa Gateway<>USG",
+      "start": "2026-06-11T16:00:00.000Z",
       "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-24T17:35:00Z",
-          "status": "sent"
-        },
-        "T-60m": {
-          "sentAt": "2026-04-28T11:05:00Z",
-          "status": "sent_repair"
-        }
-      }
-    },
-    "qm6nm3s9p48tn2relfbidvqqbs@google.com": {
-      "meetingSummary": "Weekly UDG Constraints Meeting with Leo",
-      "start": "2026-04-07T13:30:00.000Z",
-      "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-04T13:05:00Z",
-          "status": "sent"
-        }
-      }
-    },
-    "6kgu1f5rbddnvrd7crnjm1b1ag@google.com": {
-      "meetingSummary": "Weekly Catch-up | Tyreek + Isaac",
-      "start": "2026-05-04T14:00:00.000Z",
-      "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-25T10:35:00Z",
-          "status": "sent"
-        }
-      }
-    },
-    "5he33h5sdirbdq4roptv3p0cqu@google.com": {
-      "meetingSummary": "Paul + Isaac",
-      "start": "2026-04-13T18:00:00.000Z",
-      "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-11T10:35:00Z",
-          "status": "sent"
-        }
-      }
-    },
-    "58d9usa1go2fvefvck1bd2sd05@google.com": {
-      "meetingSummary": "Isaac Finances",
-      "start": "2026-04-15T17:15:00.000Z",
-      "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-15T10:05:00Z",
-          "status": "sent"
-        }
-      }
-    },
-    "cks38c1i65im8bb2cdi3eb9kchgm2b9p60o3cbb66op3idr665j36p1ico@google.com": {
-      "meetingSummary": "Ibrahim Sagna and Richard Hoffman",
-      "start": "2026-04-17T14:00:00.000Z",
-      "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-16T13:05:00Z",
-          "status": "sent"
-        }
-      }
-    },
-    "040000008200E00074C5B7101A82E00800000000C78CC9E35FD0DC01000000000000000010000000ADF9569B6B72684099A8F45D6A3B437A": {
-      "meetingSummary": "NQB8R Demo",
-      "start": "2026-04-20T19:00:00.000Z",
-      "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-20T10:35:00Z",
-          "status": "sent"
-        }
-      }
-    },
-    "5qjb0nnk1mci2es3kl9b5n1puq@google.com": {
-      "meetingSummary": "Discuss Uganda Data Centers and other projects",
-      "start": "2026-04-29T17:00:00.000Z",
-      "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-28T17:05:30Z",
-          "status": "sent_repair"
-        }
-      }
-    },
-    "2vh7lpfji87duoei0pdemuvqkr@google.com": {
-      "meetingSummary": "Internal Bestaf Cadence",
-      "start": "2026-04-30T11:00:00.000Z",
-      "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-29T11:05:00Z",
-          "status": "sent"
+        "t24h": {
+          "sentAt": "2026-06-11T10:05:00.000Z",
+          "deliveryTarget": "telegram:8010080765",
+          "mode": "catchup",
+          "note": "Late catch-up prep sent after the Global Africa Gateway follow-up moved inside the next-24h window without prior prep evidence in state."
         }
       }
     },
     "3seskn4tohr10tl16v6h4ced10_R20251001T160000@google.com": {
       "meetingSummary": "Operational Briefings",
-      "start": "2026-05-06T12:00:00.000Z",
-      "horizons": {}
-    },
-    "4jsk6q1aj9spvr31hkgfcpuria@google.com": {
-      "meetingSummary": "Ozone Energy and AwaDoc | AwaDoc + USG",
-      "start": "2026-04-28T13:00:00.000Z",
+      "start": "2026-06-10T12:00:00.000Z",
       "horizons": {
-        "T-24h": {
-          "sentAt": "2026-04-27T16:35:00Z",
-          "status": "sent_late_catchup"
-        },
-        "T-60m": {
-          "sentAt": "2026-04-28T12:05:00Z",
-          "status": "sent"
+        "t24h": {
+          "sentAt": "2026-06-10T10:05:00.000Z",
+          "deliveryTarget": "telegram:8010080765",
+          "mode": "catchup",
+          "note": "Late catch-up prep sent after the recurring Operational Briefings event appeared inside the next-24h window without prior prep evidence in state."
         }
       }
     },
-    "63gsnvdktp9kf5b0kjbcb5bv27@google.com": {
-      "meetingSummary": "Stephanie + Isaac",
-      "start": "2026-04-28T20:30:00.000Z",
+    "2lvgafi3uvl2mqpobof8mul3v9@google.com": {
+      "meetingSummary": "Global Africa Gateway<>USG Follow-up",
+      "start": "2026-06-17T13:30:00.000Z",
       "horizons": {
-        "T-60m": {
-          "sentAt": "2026-04-28T19:05:00Z",
-          "status": "sent_late_catchup"
+        "t24h": {
+          "sentAt": "2026-06-17T10:05:00.000Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5126",
+          "mode": "catchup",
+          "note": "Late catch-up prep sent after the Global Africa Gateway follow-up moved inside the next-24h window without prior prep evidence in state."
+        }
+      }
+    },
+    "46safnfb1rl354pbvflj1n3i55_R20251110T180000@google.com": {
+      "meetingSummary": "Principals' Weekly Meeting",
+      "start": "2026-07-20T13:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-20T10:05:00.000Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5388",
+          "mode": "catchup",
+          "note": "Late catch-up prep pack sent once Principals' Weekly Meeting moved inside the next-24h window without current-instance prep evidence in state."
+        }
+      }
+    },
+    "b97kuj9p6sp3id1n6kpj6c1od5pm2ob381qmsqb6d5im8srkc5q6apridtqn0bj3dtmg": {
+      "meetingSummary": "From Panic Alerts to Coordinated Emergency Response",
+      "start": "2026-06-22T20:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-06-22T10:05:00.000Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5151",
+          "mode": "catchup",
+          "note": "Late catch-up prep sent after the panic-alerts webinar moved inside the next-24h window without prior prep evidence in state."
+        }
+      }
+    },
+    "44F110C4-8E48-4572-A013-890637DCA5A6": {
+      "meetingSummary": "Bath & Full Haircut appointment for Bali",
+      "start": "2026-06-23T14:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-06-23T10:05:00.000Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5164",
+          "mode": "catchup",
+          "note": "Late catch-up prep sent after Bali's grooming appointment appeared inside the next-24h window without prior prep evidence in state."
+        }
+      }
+    },
+    "9aa8p5vdf54i2blu4uf1tgps3o@google.com": {
+      "meetingSummary": "Korea Update",
+      "start": "2026-06-26T13:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-06-26T10:05:00.000Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5225",
+          "mode": "scheduled",
+          "note": "T-24h prep pack sent for Korea Update with Gate 2 conversion framing around sponsor, power, tenant, incentive, and financing."
+        }
+      }
+    },
+    "6ie4cnvodd4rh2casdhm21qhe6_R20260416T160000@google.com": {
+      "meetingSummary": "Principals' Weekly Meeting | Board Meeting",
+      "start": "2026-07-23T12:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-23T10:05:00Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5407",
+          "mode": "catchup",
+          "note": "T-24h catch-up prep pack sent for Principals' Weekly Meeting | Board Meeting to force one chosen lane, one explicit Signal Register approve-or-hold answer, and one owner/date next step."
+        }
+      }
+    },
+    "7gl1v6pgc9c4skq9i5maamolnp@google.com": {
+      "meetingSummary": "Discuss Website | Isaac + Monica",
+      "start": "2026-07-10T16:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-10T10:05:33Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5285",
+          "mode": "catchup",
+          "note": "T-24h catch-up prep pack sent for Discuss Website | Isaac + Monica to force one website publish path with a locked offer ladder, CTA flow, dependency list, and final-copy owner/date."
+        }
+      }
+    },
+    "d0i7fjme2ec0rf997qqs6nlnhb_R20251027T100000@google.com": {
+      "meetingSummary": "Working on Deep Focus Tasks",
+      "start": "2026-07-07T06:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-06T10:05:00Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5270",
+          "mode": "catchup",
+          "note": "T-24h prep pack sent for the Deep Focus execution block to force one named primary lane, one concrete artifact, and one decision owner before the July 7 meeting stack."
+        }
+      }
+    },
+    "6m8n8ju2fhqgitiqeg83puq8c8@google.com": {
+      "meetingSummary": "Jerron Love + Isaac Barnes",
+      "start": "2026-07-07T13:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-07T10:05:00Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5275",
+          "mode": "catchup",
+          "note": "T-24h catch-up prep pack sent once Jerron Love + Isaac Barnes was found inside the next-24h window without current-instance prep evidence in state."
+        }
+      }
+    },
+    "54fla9dmnc8s5s63dqunrnm5l4@google.com": {
+      "meetingSummary": "Doctors Appointment",
+      "start": "2026-07-14T15:00:00.000Z",
+      "horizons": {}
+    },
+    "7ela30kmqkksfnceksjeh9r42f@google.com": {
+      "meetingSummary": "Strategy Session | Richard + Isaac",
+      "start": "2026-07-07T15:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-07T10:05:00Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5276",
+          "mode": "catchup",
+          "note": "T-24h catch-up prep pack sent once Strategy Session | Richard + Isaac appeared inside the next-24h window without current-instance prep evidence in state."
+        }
+      }
+    },
+    "7ogs768srgdctm90gk1rjtfkr1@google.com": {
+      "meetingSummary": "Richard and Isaac",
+      "start": "2026-07-08T17:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-08T10:05:00Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5280",
+          "mode": "catchup",
+          "note": "T-24h catch-up prep pack sent for Richard and Isaac to force one primary AI lane, one governing gate, and one named decision owner."
+        }
+      }
+    },
+    "qm6nm3s9p48tn2relfbidvqqbs@google.com": {
+      "meetingSummary": "Weekly UDG Constraints Meeting with Leo",
+      "start": "2026-07-21T15:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-21T10:07:03Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5392",
+          "mode": "catchup",
+          "note": "T-24h catch-up prep pack sent for Weekly UDG Constraints Meeting with Leo to force a written owner/date blocker list across Nigeria economics closure, primary AI lane gating, and immediate weekly unblocks."
+        }
+      }
+    },
+    "2vh7lpfji87duoei0pdemuvqkr@google.com": {
+      "meetingSummary": "Internal Bestaf Cadence",
+      "start": "2026-07-29T12:30:00.000Z",
+      "horizons": {}
+    },
+    "62drcf5aq4hh822s553vftdrr8@google.com": {
+      "meetingSummary": "USG | Board Meeting",
+      "start": "2026-07-21T17:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-21T10:07:03Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5393",
+          "mode": "catchup",
+          "note": "T-24h catch-up prep pack sent for USG | Board Meeting to force an approve-or-hold answer on TASK-0486/TASK-0487 plus a written primary AI lane and governing gate."
+        }
+      }
+    },
+    "4jbfu0bq9c8m4kbapmvlmpju2a@google.com": {
+      "meetingSummary": "Unified State Group x Recess Capital (zoom)",
+      "start": "2026-07-22T17:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-22T10:06:01Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5402",
+          "mode": "catchup",
+          "note": "T-24h catch-up prep pack sent for Unified State Group x Recess Capital (zoom) to force one chosen lane, one realistic capital-structure ask, and one named next-step owner/date before the room opens."
+        }
+      }
+    },
+    "6jr7llf5jhfrmndvahsjdf4uf3@google.com": {
+      "meetingSummary": "Brainstorming Session | Richard + Leo + Isaac",
+      "start": "2026-07-23T18:00:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-23T10:05:00Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5408",
+          "mode": "catchup",
+          "note": "T-24h catch-up prep pack sent for Brainstorming Session | Richard + Leo + Isaac to force one chosen lane, one next artifact, and one owner/date before the room disperses."
+        }
+      }
+    },
+    "b97kuj9p74o32e1m6or3gc9gd5pm2ob381qmsqb6d5im8srkc5q6apridtqn0bj3dtmg": {
+      "meetingSummary": "Video Surveillance ROI: Measuring Security Impact on Operational Efficiency",
+      "start": "2026-07-24T18:30:00.000Z",
+      "horizons": {
+        "t24h": {
+          "sentAt": "2026-07-24T10:05:00Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5447",
+          "mode": "catchup",
+          "note": "T-24h catch-up prep pack sent for the video-surveillance ROI webinar to force a fast attend-or-ignore decision, capture only concrete ROI metrics, and close with a yes/no on demo follow-up."
         }
       }
     }
-  }
+  },
+  "lastImportOutput": "Wrote 3 upcoming events to /home/ec2-user/.openclaw/workspace/dashboard/data/calendar_events.json",
+  "lastDueCount": 2,
+  "lastSentCount": 2,
+  "meetings": {
+    "qm6nm3s9p48tn2relfbidvqqbs@google.com": {
+      "summary": "Weekly UDG Constraints Meeting with Leo",
+      "title": "Weekly UDG Constraints Meeting with Leo",
+      "start": "2026-07-21T15:00:00.000Z",
+      "end": "2026-07-21T15:30:00.000Z",
+      "organizer": "mailto:isaac@unifiedstategroup.com",
+      "sent": {
+        "t24h": {
+          "sentAt": "2026-07-21T10:07:03Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5392",
+          "mode": "catchup"
+        }
+      }
+    },
+    "62drcf5aq4hh822s553vftdrr8@google.com": {
+      "summary": "USG | Board Meeting",
+      "title": "USG | Board Meeting",
+      "start": "2026-07-21T17:00:00.000Z",
+      "end": "2026-07-21T18:00:00.000Z",
+      "organizer": "mailto:tyreek@unifiedstategroup.com",
+      "sent": {
+        "t24h": {
+          "sentAt": "2026-07-21T10:07:03Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5393",
+          "mode": "catchup"
+        }
+      }
+    },
+    "4jbfu0bq9c8m4kbapmvlmpju2a@google.com": {
+      "summary": "Unified State Group x Recess Capital (zoom)",
+      "title": "Unified State Group x Recess Capital (zoom)",
+      "start": "2026-07-22T17:00:00.000Z",
+      "end": "2026-07-22T18:00:00.000Z",
+      "organizer": "mailto:ian.gaffney@sportsleadershipinst.com",
+      "sent": {
+        "t24h": {
+          "sentAt": "2026-07-22T10:06:01Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5402",
+          "mode": "catchup"
+        }
+      }
+    },
+    "2vh7lpfji87duoei0pdemuvqkr@google.com": {
+      "summary": "Internal Bestaf Cadence",
+      "title": "Internal Bestaf Cadence",
+      "start": "2026-07-29T12:30:00.000Z",
+      "end": "2026-07-29T13:00:00.000Z",
+      "organizer": "mailto:isaac@unifiedstategroup.com",
+      "sent": {}
+    },
+    "46safnfb1rl354pbvflj1n3i55_R20251110T180000@google.com": {
+      "summary": "Principals' Weekly Meeting",
+      "title": "Principals' Weekly Meeting",
+      "start": "2026-07-20T13:00:00.000Z",
+      "end": "2026-07-20T14:00:00.000Z",
+      "organizer": "mailto:tyreek@unifiedstategroup.com",
+      "sent": {
+        "t24h": "2026-07-20T10:05:00.000Z"
+      }
+    },
+    "6ie4cnvodd4rh2casdhm21qhe6_R20260416T160000@google.com": {
+      "summary": "Principals' Weekly Meeting | Board Meeting",
+      "title": "Principals' Weekly Meeting | Board Meeting",
+      "start": "2026-07-23T12:00:00.000Z",
+      "end": "2026-07-23T13:00:00.000Z",
+      "organizer": "mailto:tyreek@unifiedstategroup.com",
+      "sent": {
+        "t24h": {
+          "sentAt": "2026-07-23T10:05:00Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5407",
+          "mode": "catchup"
+        }
+      }
+    },
+    "6jr7llf5jhfrmndvahsjdf4uf3@google.com": {
+      "summary": "Brainstorming Session | Richard + Leo + Isaac",
+      "title": "Brainstorming Session | Richard + Leo + Isaac",
+      "start": "2026-07-23T18:00:00.000Z",
+      "end": "2026-07-23T19:00:00.000Z",
+      "organizer": "mailto:isaac@unifiedstategroup.com",
+      "sent": {
+        "t24h": {
+          "sentAt": "2026-07-23T10:05:00Z",
+          "deliveryTarget": "telegram:8010080765",
+          "deliveryMessageId": "5408",
+          "mode": "catchup"
+        }
+      }
+    }
+  },
+  "sweeps": [
+    {
+      "at": "2026-07-23T10:05:00Z",
+      "upcomingCount": 3,
+      "dueCount": 2,
+      "sentCount": 2,
+      "note": "Imported 3 upcoming events. Reset the recurring current-instance marker for Principals' Weekly Meeting | Board Meeting from the prior July 1 instance to July 23, then sent T-24h catch-up prep packs for Principals' Weekly Meeting | Board Meeting and Brainstorming Session | Richard + Leo + Isaac. Internal Bestaf Cadence remained outside both prep horizons; no T-60m dispatches were due."
+    },
+    {
+      "at": "2026-07-16T10:05:00Z",
+      "upcomingCount": 3,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 3 upcoming events. Excluded the OOO hold from prep dispatch consideration; Weekly UDG Constraints Meeting with Leo (~124.9h) and Internal Bestaf Cadence (~290.4h) remain outside both T-24h and T-60m prep horizons, so no Telegram prep packs were due this sweep."
+    },
+    {
+      "at": "2026-07-13T10:05:00Z",
+      "upcomingCount": 4,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 4 upcoming events. Excluded the OOO hold from prep dispatch consideration; Principals' Weekly Meeting (~26.9h), Weekly UDG Constraints Meeting with Leo (~28.4h), and Doctors Appointment (~28.9h) remain outside both T-24h and T-60m prep horizons, so no Telegram prep packs were due this sweep."
+    },
+    {
+      "at": "2026-07-12T10:05:00Z",
+      "upcomingCount": 4,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 4 upcoming events. Excluded the OOO hold from prep dispatch consideration; Principals' Weekly Meeting, Weekly UDG Constraints Meeting with Leo, and Doctors Appointment remain outside both T-24h and T-60m prep horizons, so no Telegram prep packs were due this sweep."
+    },
+    {
+      "at": "2026-06-27T10:05:00.000Z",
+      "upcomingCount": 3,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 3 upcoming events. Excluded the active OOO hold from prep dispatch consideration; Discuss Website and Weekly Check-in remain outside both T-24h and T-60m prep horizons, so no Telegram prep packs were due this sweep."
+    },
+    {
+      "at": "2026-06-24T10:05:00.000Z",
+      "upcomingCount": 2,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 2 upcoming meetings. No due unsent T-24h/T-60m horizon prep packs this sweep; the OOO block remains outside the next-24h window and the Bestaf cadence remains outside both dispatch horizons."
+    },
+    {
+      "at": "2026-06-23T10:05:00.000Z",
+      "upcomingCount": 1,
+      "dueCount": 1,
+      "sentCount": 1,
+      "note": "Imported 1 upcoming meeting. Sent a T-24h prep pack for Bali's grooming appointment; no T-60m dispatches were due."
+    },
+    {
+      "at": "2026-06-17T10:05:00.000Z",
+      "upcomingCount": 2,
+      "dueCount": 1,
+      "sentCount": 1,
+      "note": "Imported 2 upcoming meetings. Sent a T-24h catch-up prep pack for Global Africa Gateway<>USG Follow-up after it moved inside the next-24h window without prior prep evidence in state; no T-60m dispatches were due."
+    },
+    {
+      "at": "2026-06-16T10:05:00.000Z",
+      "upcomingCount": 2,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 2 upcoming meetings. No due unsent T-24h/T-60m horizon prep packs this sweep."
+    },
+    {
+      "at": "2026-06-15T10:05:00.000Z",
+      "upcomingCount": 1,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 1 upcoming meetings. No due unsent T-24h/T-60m horizon prep packs this sweep."
+    },
+    {
+      "at": "2026-06-13T10:05:00.000Z",
+      "upcomingCount": 1,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 1 upcoming meetings. No due unsent T-24h/T-60m horizon prep packs this sweep."
+    },
+    {
+      "at": "2026-06-12T10:05:00.000Z",
+      "upcomingCount": 2,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 2 upcoming meetings. No due unsent T-24h/T-60m horizon prep packs this sweep."
+    },
+    {
+      "at": "2026-06-11T10:05:00.000Z",
+      "upcomingCount": 2,
+      "dueCount": 2,
+      "sentCount": 2,
+      "note": "Imported 2 upcoming meetings. Sent T-24h catch-up prep packs for Principals' Weekly Meeting and the Global Africa Gateway follow-up after both were found inside the next-24h window without prior prep evidence in state; no T-60m dispatches were due."
+    },
+    {
+      "at": "2026-06-10T10:05:00.000Z",
+      "upcomingCount": 4,
+      "dueCount": 2,
+      "sentCount": 2,
+      "note": "Imported 4 upcoming meetings. Sent T-24h catch-up prep packs for Operational Briefings and the forgd intro after both were found inside the next-24h window without prior prep evidence in state; no T-60m dispatches were due."
+    },
+    {
+      "at": "2026-06-09T10:05:00.000Z",
+      "upcomingCount": 4,
+      "dueCount": 1,
+      "sentCount": 1,
+      "note": "Imported 4 upcoming meetings. Sent a late catch-up T-24h prep pack for Weekly Stand-in Meetings | Victoria + Isaac after discovering no prior prep evidence in state; no other T-24h or T-60m dispatches were due."
+    },
+    {
+      "at": "2026-06-08T10:05:00.000Z",
+      "upcomingCount": 3,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "No due unsent T-24h/T-60m horizon prep packs this sweep."
+    },
+    {
+      "at": "2026-06-14T10:05:00.000Z",
+      "upcomingCount": 1,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 1 upcoming meetings. No due unsent T-24h/T-60m horizon prep packs this sweep."
+    },
+    {
+      "at": "2026-06-18T10:05:00.000Z",
+      "upcomingCount": 1,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 1 upcoming meeting. No due unsent T-24h/T-60m horizon prep packs this sweep."
+    },
+    {
+      "at": "2026-06-19T10:05:00.000Z",
+      "upcomingCount": 1,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 1 upcoming meeting. No due unsent T-24h/T-60m horizon prep packs this sweep."
+    },
+    {
+      "at": "2026-06-20T10:05:00.000Z",
+      "upcomingCount": 2,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 2 upcoming meetings. No due unsent T-24h/T-60m horizon prep packs this sweep; next meetings remain outside both dispatch windows."
+    }
+  ],
+  "lastSweepResult": {
+    "at": "2026-07-22T10:06:01Z",
+    "upcomingCount": 2,
+    "dueCount": 1,
+    "sentCount": 1,
+    "note": "Scheduled reminder handled internally; Unified State Group x Recess Capital (zoom) had entered the next-24h window without current-instance prep evidence, so a catch-up T-24h prep pack was sent to Telegram. Internal Bestaf Cadence remained outside both active prep horizons and no T-60m dispatches were due.",
+    "due": [
+      {
+        "summary": "Unified State Group x Recess Capital (zoom)",
+        "start": "2026-07-22T17:00:00.000Z",
+        "horizon": "t24h",
+        "mode": "catchup"
+      }
+    ],
+    "deliveries": [
+      {
+        "summary": "Unified State Group x Recess Capital (zoom)",
+        "start": "2026-07-22T17:00:00.000Z",
+        "horizon": "t24h",
+        "mode": "catchup",
+        "target": "telegram:8010080765",
+        "message_id": "5402"
+      }
+    ]
+  },
+  "meta": {
+    "lastRunAt": "2026-07-22T10:06:01Z",
+    "lastRunSentCount": 1,
+    "lastReminder": "Meeting Prep Sweep Protocol"
+  },
+  "lastSweep": {
+    "at": "2026-07-22T10:06:01Z",
+    "eventsScanned": 2,
+    "due": 1,
+    "sent": 1
+  },
+  "lastImportedEvents": 2,
+  "sweepHistory": [
+    {
+      "at": "2026-07-04T10:05:00Z",
+      "upcomingCount": 4,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 4 upcoming events. No due unsent T-24h/T-60m horizon prep packs this sweep; Working on Deep Focus Tasks, Jerron Love + Isaac Barnes, and Discuss Website | Isaac + Monica remain more than 60 hours out, and Doctors Appointment remains about 173 hours out."
+    },
+    {
+      "at": "2026-07-07T10:05:00Z",
+      "upcomingCount": 5,
+      "dueCount": 2,
+      "sentCount": 2,
+      "note": "Scheduled reminder handled: Jerron Love + Isaac Barnes and Strategy Session | Richard + Isaac both moved inside the next-24h window without current-instance prep evidence, so catch-up T-24h prep packs were sent to Telegram. Discuss Website | Isaac + Monica had its dedupe marker reset for the shifted July 10 occurrence. No T-60m dispatches were due."
+    },
+    {
+      "at": "2026-07-09T10:05:59Z",
+      "upcomingCount": 3,
+      "dueCount": 0,
+      "sentCount": 0,
+      "excluded": [
+        "OOO - Monica"
+      ],
+      "note": "Scheduled reminder handled internally; no T-24h or T-60m prep packs were due because Discuss Website | Isaac + Monica remains about 29.9 hours out, Doctors Appointment remains about 124.9 hours out, and OOO - Monica stayed excluded."
+    },
+    {
+      "at": "2026-07-11T10:05:00Z",
+      "upcomingCount": 4,
+      "dueCount": 0,
+      "sentCount": 0,
+      "excluded": [
+        "OOO - Monica"
+      ],
+      "stateResets": [
+        {
+          "summary": "Principals' Weekly Meeting",
+          "from": "2026-06-22T13:00:00.000Z",
+          "to": "2026-07-14T13:00:00.000Z",
+          "reason": "recurring_instance_shift"
+        }
+      ],
+      "note": "Scheduled reminder handled internally; no T-24h or T-60m prep packs were due because Principals' Weekly Meeting remains about 74.9 hours out, Weekly UDG Constraints Meeting with Leo remains about 76.4 hours out, Doctors Appointment remains about 76.9 hours out, and OOO - Monica stayed excluded. Reset the stale recurring-instance send marker for Principals' Weekly Meeting because the current upcoming instance reused the same UID with a new July 14 start."
+    },
+    {
+      "at": "2026-07-17T10:05:00Z",
+      "upcomingCount": 5,
+      "dueCount": 0,
+      "sentCount": 0,
+      "note": "Imported 5 upcoming events. Excluded the OOO hold from prep dispatch consideration; Weekly UDG Constraints Meeting with Leo (~100.9h), USG | Board Meeting (~102.9h), Unified State Group x Recess Capital (zoom) (~126.9h), and Internal Bestaf Cadence (~290.4h) remain outside both T-24h and T-60m prep horizons, so no Telegram prep packs were due this sweep.",
+      "excluded": [
+        "OOO - Monica"
+      ],
+      "stateResets": [
+        {
+          "summary": "USG | Board Meeting",
+          "from": null,
+          "to": "2026-07-21T17:00:00.000Z",
+          "reason": "current_instance_initialized"
+        },
+        {
+          "summary": "Unified State Group x Recess Capital (zoom)",
+          "from": null,
+          "to": "2026-07-22T17:00:00.000Z",
+          "reason": "current_instance_initialized"
+        }
+      ]
+    },
+    {
+      "at": "2026-07-19T10:05:53Z",
+      "upcomingCount": 5,
+      "dueCount": 0,
+      "sentCount": 0,
+      "excluded": [
+        "OOO - Monica"
+      ],
+      "note": "Scheduled reminder handled internally; no T-24h or T-60m prep packs were due because Weekly UDG Constraints Meeting with Leo remains about 52.9 hours out, USG | Board Meeting remains about 54.9 hours out, Unified State Group x Recess Capital (zoom) remains about 78.9 hours out, Internal Bestaf Cadence remains about 242.4 hours out, and OOO - Monica stayed excluded."
+    },
+    {
+      "at": "2026-07-22T10:06:01Z",
+      "upcomingCount": 2,
+      "dueCount": 1,
+      "sentCount": 1,
+      "note": "Scheduled reminder handled internally; Unified State Group x Recess Capital (zoom) had entered the next-24h window without current-instance prep evidence, so a catch-up T-24h prep pack was sent to Telegram. Internal Bestaf Cadence remained outside both active prep horizons and no T-60m dispatches were due.",
+      "due": [
+        {
+          "summary": "Unified State Group x Recess Capital (zoom)",
+          "start": "2026-07-22T17:00:00.000Z",
+          "horizon": "t24h",
+          "mode": "catchup"
+        }
+      ],
+      "deliveries": [
+        {
+          "summary": "Unified State Group x Recess Capital (zoom)",
+          "start": "2026-07-22T17:00:00.000Z",
+          "horizon": "t24h",
+          "mode": "catchup",
+          "target": "telegram:8010080765",
+          "message_id": "5402"
+        }
+      ]
+    }
+  ],
+  "history": [
+    {
+      "at": "2026-07-24T10:05:00Z",
+      "upcomingCount": 2,
+      "dueCount": 1,
+      "sentCount": 1,
+      "note": "Scheduled reminder handled internally; Video Surveillance ROI: Measuring Security Impact on Operational Efficiency had entered the next-24h window without current-instance prep evidence, so a catch-up T-24h prep pack was sent to Telegram. Internal Bestaf Cadence remained outside both active prep horizons and no T-60m dispatches were due.",
+      "due": [
+        {
+          "summary": "Video Surveillance ROI: Measuring Security Impact on Operational Efficiency",
+          "start": "2026-07-24T18:30:00.000Z",
+          "horizon": "t24h",
+          "mode": "catchup"
+        }
+      ],
+      "deliveries": [
+        {
+          "summary": "Video Surveillance ROI: Measuring Security Impact on Operational Efficiency",
+          "start": "2026-07-24T18:30:00.000Z",
+          "horizon": "t24h",
+          "mode": "catchup",
+          "target": "telegram:8010080765",
+          "message_id": "5447"
+        }
+      ]
+    }
+  ]
 }

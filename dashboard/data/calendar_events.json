@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-07-24T15:41:35.290Z",
+  "source": "google_calendar_ics",
+  "window_days": 21,
+  "total_events_parsed": 1297,
+  "upcoming_count": 2,
+  "events": [
+    {
+      "uid": "2vh7lpfji87duoei0pdemuvqkr@google.com",
+      "summary": "Internal Bestaf Cadence",
+      "description": "<a href=\"https://us06web.zoom.us/j/4308413195\" target=\"_blank\"><u>https://us06web.zoom.us/j/<u></u>4308<wbr />413195</u></a><br><br><br><b><u>Agenda:</u></b><br>Build the Bestaf document package together and strategize each subsequent biweekly meeting through completion.",
+      "location": "",
+      "status": "CONFIRMED",
+      "organizer": "mailto:isaac@unifiedstategroup.com",
+      "start": "2026-07-29T12:30:00.000Z",
+      "end": "2026-07-29T13:00:00.000Z",
+      "all_day": false
+    },
+    {
+      "uid": "fmbbc8enkoomqtjgunkhdbh6p4@google.com",
+      "summary": "Maryan birthday",
+      "description": "",
+      "location": "",
+      "status": "CONFIRMED",
+      "organizer": "",
+      "start": "2026-08-05T00:00:00.000Z",
+      "end": "2026-08-06T00:00:00.000Z",
+      "all_day": true
+    }
+  ]
+}

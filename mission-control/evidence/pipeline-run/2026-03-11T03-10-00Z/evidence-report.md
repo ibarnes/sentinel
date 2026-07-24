@@ -12,7 +12,6 @@
 - [ ] Valid response includes runId
 - [ ] Valid response status is started
 - [ ] Invalid response includes validation error payload
-
 ## Artifacts
 - /home/ec2-user/.openclaw/workspace/mission-control/evidence/pipeline-run/2026-03-11T03-10-00Z/auth-smoke.log
 - /home/ec2-user/.openclaw/workspace/mission-control/evidence/pipeline-run/2026-03-11T03-10-00Z/valid-response.json

@@ -1,0 +1,356 @@
+{
+  "generated_at": "2026-05-03T14:51:23.133Z",
+  "total_meetings": 38,
+  "complete_count": 9,
+  "incomplete_count": 29,
+  "policy": {
+    "required_fields": [
+      "summary",
+      "decisions",
+      "risks",
+      "next_actions"
+    ],
+    "min_summary_chars": 80,
+    "placeholder_tokens_blocked": [
+      "tbd",
+      "pending",
+      "name pending",
+      "to be added",
+      "blocked"
+    ],
+    "handling_rule": "If only source link exists, mark tags += needs_transcript_parse and keep in remediation queue."
+  },
+  "incomplete": [
+    {
+      "meeting_id": "MM-2026-03-13-USVI-MARK-MALCOLM-TELLY-001",
+      "date_time": "2026-03-13T00:00:00Z",
+      "title": "USVI initiative working meeting with Mark Newson, Malcolm Wilson, and Telly Renfroe",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-14-REFOCUS-AFRIKA-001",
+      "date_time": "2026-03-14T00:00:00Z",
+      "title": "Refocus Afrika meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-17-WADE-CHERWAYKO-001",
+      "date_time": "2026-03-17T00:00:00Z",
+      "title": "Wade Cherwayko meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-19-ANGOLA-CABLES-001",
+      "date_time": "2026-03-19T22:45:00Z",
+      "title": "Angola Cables meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-24-USG-FINANCE-001",
+      "date_time": "2026-03-24T00:00:00Z",
+      "title": "USG Finance Meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-24-MARK-G-001",
+      "date_time": "2026-03-24T00:00:00Z",
+      "title": "Mark G Meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing",
+        "placeholder_content_detected"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-24-TANISHA-LEWIS-001",
+      "date_time": "2026-03-24T00:00:00Z",
+      "title": "Meeting with Tanisha Lewis",
+      "complete": false,
+      "issues": [
+        "source_link_missing",
+        "placeholder_content_detected"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-26-INVEST-AFRICA-ROUNDTABLE-001",
+      "date_time": "2026-03-26T00:00:00Z",
+      "title": "Invest Africa roundtable alignment meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing",
+        "placeholder_content_detected"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-26-ANGOLA-AI-CAMPUS-001",
+      "date_time": "2026-03-26T00:00:00Z",
+      "title": "Angola AI Campus meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing",
+        "placeholder_content_detected"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-27-EUGENE-YUN-KOREA-DANGOTE-001",
+      "date_time": "2026-03-27T00:00:00Z",
+      "title": "Eugene Yun meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-30-BESTAF-ALIGNMENT-001",
+      "date_time": "2026-03-30T13:00:00Z",
+      "title": "USG + Bestaf alignment meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing",
+        "placeholder_content_detected"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-25-ANGELLA-GOREN-001",
+      "date_time": "2026-03-25T00:00:00Z",
+      "title": "Meeting with Angella Goren",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-30-BARCLAY-KNAPP-001",
+      "date_time": "2026-03-30T20:00:00Z",
+      "title": "Barclay Knapp meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-03-31-TAUFIQ-RAHIM-001",
+      "date_time": "2026-03-31T16:30:00Z",
+      "title": "Taufiq Rahim strategic sequencing meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-01-JOHN-HARRINGTON-001",
+      "date_time": "2026-04-01T00:00:00Z",
+      "title": "Meeting with John M. Harrington III",
+      "complete": false,
+      "issues": [
+        "source_link_missing",
+        "placeholder_content_detected"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-02-REFOCUS-AFRIKA-001",
+      "date_time": "2026-04-02T17:00:00Z",
+      "title": "reFocus Afrika coordination meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-07-USVI-TELLY-CONVO-001",
+      "date_time": "2026-04-07T18:34:00Z",
+      "title": "Telly conversation about USVI initiative",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-07-DR-FULA-UDG-DIGITAL-BANKING-001",
+      "date_time": "2026-04-07T18:39:00Z",
+      "title": "Dr Fula UDG digital banking conversation",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-07-DAVID-CROWN-JV-001",
+      "date_time": "2026-04-07T15:00:00Z",
+      "title": "David Crown conversation on USG JV and capital-stack model",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-07-DARE-OWOLABI-ISAAC-001",
+      "date_time": "2026-04-07T20:30:00Z",
+      "title": "Dare Owolabi + Isaac Barnes strategic conversation",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-09-PAUL-VENTER-001",
+      "date_time": "2026-04-09T00:00:00Z",
+      "title": "Paul Venter meeting",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-11-RICHARD-ORIGINATION-002",
+      "date_time": "2026-04-11T00:00:00Z",
+      "title": "04-11 Strategic Partnership Discussion on Global Deal Flow and Ecosystem Integration",
+      "complete": false,
+      "issues": [
+        "decisions_missing",
+        "next_actions_missing",
+        "placeholder_content_detected"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": "https://web.plaud.ai/s/pub_01b88b23-c799-43f7-acb8-c1a21ac0d317::dfbHcrexhNBOxrcC4Rk52UyskWcSeGX5AqzbM-U_nSrLHBL7SInKucSNi5BxQH43B6aDwBhP04BeHLUC"
+    },
+    {
+      "meeting_id": "MM-2026-04-13-PAUL-VENTER-002",
+      "date_time": "2026-04-13T20:25:00Z",
+      "title": "Paul Venter alignment on channel partnership and portfolio support",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-15-PLAUD-SHARE-001",
+      "date_time": "2026-04-16T00:01:00Z",
+      "title": "04-15 Project Meeting: Angola Hyperscale Data Center—Power MOU, Fiber Line, Land, and Master Plan Timeline",
+      "complete": false,
+      "issues": [
+        "decisions_missing",
+        "next_actions_missing",
+        "placeholder_content_detected"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": "https://web.plaud.ai/s/pub_9aa7ebc2-70f5-4abe-b4a7-466711c000ea::muuqTpYs-Qg59quOmOjIiD-lk2O8BO75VNOWKdt8iCn-0FAVgNKdMPdCUh69j5867Gcgv-0eoudx3_4C"
+    },
+    {
+      "meeting_id": "MM-2026-04-16-RICHARD-ORIGINATION-001",
+      "date_time": "2026-04-16T02:38:00Z",
+      "title": "04-15 Strategic Review of Global Investment Opportunities",
+      "complete": false,
+      "issues": [
+        "decisions_missing",
+        "next_actions_missing",
+        "placeholder_content_detected"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": "https://web.plaud.ai/s/pub_523dbfd9-9e6a-49cd-929f-c0c64458bfd4::Ji2r9PvC6YhqKWtaFp2oIqblv-zJWzXSaCsd7azzasAEec4qvz4CL9j2Osq9YLclSwxSSad7pFPxiIsC"
+    },
+    {
+      "meeting_id": "MM-2026-04-24-DAVID-CROWN-001",
+      "date_time": "2026-04-25T00:00:00Z",
+      "title": "Phone Call with David Crown",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-29-UGANDA-CONNECTIVITY-DATACENTER-001",
+      "date_time": "2026-04-29T17:00:00Z",
+      "title": "Uganda Connectivity / Data Center Opportunity — Introductory discovery and opportunity assessment",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-29-USG-AFRICA-MARKET-EXPANSION-STEPHEN-001",
+      "date_time": "2026-04-29T22:00:00Z",
+      "title": "USG strategic relationship / Africa market expansion discussion (Isaac, Richard, Stephen)",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    },
+    {
+      "meeting_id": "MM-2026-04-30-USG-MARK-RICHARD-ISAAC-001",
+      "date_time": "2026-05-01T01:00:00Z",
+      "title": "USG strategy call: development banks, DRC SME fund, Ethiopia banking, and execution sequencing",
+      "complete": false,
+      "issues": [
+        "source_link_missing"
+      ],
+      "needs_transcript_parse": false,
+      "source_link": null
+    }
+  ]
+}

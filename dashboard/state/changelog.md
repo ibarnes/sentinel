@@ -120,3 +120,55 @@
 - Snapshot reason: rp.approve
 - Snapshot: `dashboard/snapshots/2026-03-23T16-40-26-335Z.json`
 
+## 2026-06-14T16:37:27.901Z
+- Snapshot reason: board.task.create
+- Snapshot: `dashboard/snapshots/2026-06-14T16-37-27-900Z.json`
+
+## 2026-06-14T16:37:28.042Z
+- Snapshot reason: board.task.update
+- Snapshot: `dashboard/snapshots/2026-06-14T16-37-28-041Z.json`
+
+## 2026-06-14T16:37:28.147Z
+- Snapshot reason: board.task.comment
+- Snapshot: `dashboard/snapshots/2026-06-14T16-37-28-146Z.json`
+
+## 2026-06-14T16:38:29.019Z
+- Snapshot reason: board.task.create
+- Snapshot: `dashboard/snapshots/2026-06-14T16-38-29-018Z.json`
+
+## 2026-06-14T16:38:29.191Z
+- Snapshot reason: board.task.update
+- Snapshot: `dashboard/snapshots/2026-06-14T16-38-29-179Z.json`
+
+## 2026-06-14T16:38:29.299Z
+- Snapshot reason: board.task.comment
+- Snapshot: `dashboard/snapshots/2026-06-14T16-38-29-298Z.json`
+
+## 2026-06-14T16:38:29.541Z
+- Snapshot reason: board.task.delete
+- Snapshot: `dashboard/snapshots/2026-06-14T16-38-29-541Z.json`
+
+## 2026-06-14T16:39:04.157Z
+- Snapshot reason: board.task.create
+- Snapshot: `dashboard/snapshots/2026-06-14T16-39-04-156Z.json`
+
+## 2026-06-14T16:39:04.319Z
+- Snapshot reason: board.task.update
+- Snapshot: `dashboard/snapshots/2026-06-14T16-39-04-318Z.json`
+
+## 2026-06-14T16:39:04.408Z
+- Snapshot reason: board.task.comment
+- Snapshot: `dashboard/snapshots/2026-06-14T16-39-04-406Z.json`
+
+## 2026-06-14T16:39:04.671Z
+- Snapshot reason: board.task.delete
+- Snapshot: `dashboard/snapshots/2026-06-14T16-39-04-669Z.json`
+
+## 2026-06-14T16:39:28.409Z
+- Snapshot reason: board.task.create
+- Snapshot: `dashboard/snapshots/2026-06-14T16-39-28-407Z.json`
+
+## 2026-06-14T16:39:28.684Z
+- Snapshot reason: board.task.delete
+- Snapshot: `dashboard/snapshots/2026-06-14T16-39-28-683Z.json`
+

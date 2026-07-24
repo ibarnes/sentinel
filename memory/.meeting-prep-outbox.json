@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-05-28T16:35:00.000Z",
+  "dueCount": 2,
+  "due": [
+    {
+      "target": "telegram:8010080765",
+      "message": "Meeting Prep Pack\nMeeting: UDG: Qucoon Business Presentation\nStart: 2026-05-29T15:30:00.000Z\nObjective: Align on next actionable decision for UDG: Qucoon Business Presentation and leave with a named owner + date.\nLikely Initiative(s) Impacted: USG buyer access and deal qualification workflow\nConstraint(s) To Unblock: Decision latency, missing owner accountability, and unclear unblock dependencies across attendees (TBD).\n3 Key Questions:\n1) What specific outcome must be true by end of meeting for UDG: Qucoon Business Presentation to count as successful?\n2) Which single blocker is currently preventing forward movement, and who can remove it immediately?\n3) What commitment (owner + date) can each core stakeholder make before next checkpoint?\nPrimary Ask: Secure explicit decision owner and deadline for the highest-impact next step tied to UDG: Qucoon Business Presentation.\nFallback Ask: If no final decision is possible, secure a 48-hour follow-up decision slot with pre-read owner assigned.\nDecision Owner To Secure: Primary: mailto:chito.chuks@qucoon.com; fallback: most senior accountable attendee in-room.\nHorizon: 24h\nTime-To-Start: 1375m",
+      "eventId": "040000008200E00074C5B7101A82E008000000000D144CFB02EEDC0100000000000000001000000094EA300888EBB540AA4A605724E0E1B0",
+      "horizon": "24h",
+      "startIso": "2026-05-29T15:30:00.000Z",
+      "minsTo": 1375
+    },
+    {
+      "target": "telegram:8010080765",
+      "message": "Meeting Prep Pack\nMeeting: Placeholder: Qucoon Broader Business\nStart: 2026-05-29T15:30:00.000Z\nObjective: Align on next actionable decision for Placeholder: Qucoon Broader Business and leave with a named owner + date.\nLikely Initiative(s) Impacted: USG buyer access and deal qualification workflow\nConstraint(s) To Unblock: Decision latency, missing owner accountability, and unclear unblock dependencies across attendees (TBD).\n3 Key Questions:\n1) What specific outcome must be true by end of meeting for Placeholder: Qucoon Broader Business to count as successful?\n2) Which single blocker is currently preventing forward movement, and who can remove it immediately?\n3) What commitment (owner + date) can each core stakeholder make before next checkpoint?\nPrimary Ask: Secure explicit decision owner and deadline for the highest-impact next step tied to Placeholder: Qucoon Broader Business.\nFallback Ask: If no final decision is possible, secure a 48-hour follow-up decision slot with pre-read owner assigned.\nDecision Owner To Secure: Primary: mailto:leo@unifiedstategroup.com; fallback: most senior accountable attendee in-room.\nHorizon: 24h\nTime-To-Start: 1375m",
+      "eventId": "040000008200E00074C5B7101A82E00800000000099F4891F8EDDC01000000000000000010000000760FD6E1B997734385845D8BCD405D59",
+      "horizon": "24h",
+      "startIso": "2026-05-29T15:30:00.000Z",
+      "minsTo": 1375
+    }
+  ]
+}

@@ -19,5 +19,19 @@
   "actor-us-richard-j-hoffman": {
     "profile_image": "/public/actor-images/richard-j-hoffman.jpg",
     "updated_at": "2026-03-25T02:18:00Z"
+  },
+  "actor-us-david-crown": {
+    "display_name": "David Crown",
+    "title": "Associate Chairman",
+    "honorific": "HON",
+    "bio": "David Crown operates at the intersection of capital, systems, and global strategy, engaging in the design and direction of structures that underpin modern financial activity. He is generally regarded as someone who works beyond the visible edges of conventional finance, with his name occasionally surfacing in connection with outcomes that tend to precede broader recognition rather than follow it.\n\nHis work is not defined by visibility, but by influence—shaping flows, frameworks, and opportunities across jurisdictions with a focus on scale, longevity, and structural advantage. Over time, he has moved beyond conventional roles, shifting from active participation in ventures to a more measured position centered on alignment, architecture, and long-range positioning.\n\nThose familiar with his approach note that his involvement is rarely direct in the traditional sense, yet often material in how situations ultimately take shape. Rather than participating in established models, he has focused on building and aligning new ones—developing mechanisms that allow for more fluid interaction between markets, technologies, and capital sources. These efforts often sit slightly outside established frameworks, emerging over time as functional realities within evolving financial environments.\n\nOperating internationally, he is understood to engage with a small, distributed network of counterparties, institutions, and builders, where discretion is implicit and access is tightly held. Within these circles, emphasis is placed less on activity and more on timing, structure, and continuity.\n\nObservers tend to note a preference for operating without attribution, allowing outcomes to speak independently of authorship. His presence is therefore most visible in the systems he helps shape and the results they produce, rather than through direct association.\n\nWhat ultimately defines his position is not any single role or enterprise, but a consistent pattern of involvement in matters where scale, discretion, and long-term orientation converge—quietly positioning capital and capability where they will matter most over time.",
+    "source": "isaac_direct",
+    "updated_at": "2026-05-03T15:07:31Z"
+  },
+  "actor-bobby-kia": {
+    "profile_image": "/public/actor-images/bobby-kia.jpg",
+    "image_source": "https://wphfund.org/wp-content/uploads/2023/02/Bobby-Kia-cropped66.jpg",
+    "source_url": "https://wphfund.org/bobby-kia/",
+    "updated_at": "2026-06-02T18:50:00Z"
   }
 }

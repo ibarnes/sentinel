@@ -1,0 +1,99 @@
+{
+  "version": "v1",
+  "updated_at": "2026-05-24T02:25:00Z",
+  "assets": [
+    {
+      "asset_id": "ASSET-ANGOLA-AI-CABLES-ACCESS-001",
+      "asset_name": "Angola Cables CEO lane and MOU-backed initiative access",
+      "asset_type": "project_access",
+      "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "description": "Direct executive access path into Angola Cables and active collaboration on the Angola AI corridor with existing MOU context.",
+      "control": {
+        "controller": "USG + Wade relationship lane with Angola Cables",
+        "controller_type": "mixed",
+        "evidence": "Active initiative records plus Wade MOU note from operator thread."
+      },
+      "trapped_value": ["market_access", "infrastructure", "trust", "execution_capacity"],
+      "why_not_moved": ["no_structure", "no_authority", "no_pricing"],
+      "release_conditions": [
+        {
+          "condition_id": "RC-ANG-001",
+          "description": "Map exact Angola Cables decision authority path (CEO to contracting seat) with named approvals.",
+          "owner": "Sentinel",
+          "evidence_required": "Authority map with names, titles, and signature rights.",
+          "due_date": "2026-05-28",
+          "status": "open"
+        },
+        {
+          "condition_id": "RC-ANG-002",
+          "description": "Convert MOU pathway into executable commercial sequencing memo.",
+          "owner": "Wade",
+          "evidence_required": "Sequencing memo: MOU -> mandate -> term sheet -> execution.",
+          "due_date": "2026-05-30",
+          "status": "open"
+        }
+      ],
+      "conversion_paths": ["mandate", "project_approval", "partner_commitment", "capital_raise"],
+      "usg_capture_options": ["retainer", "success_fee", "management_role", "strategic_control"],
+      "governance": {
+        "classification": "restricted",
+        "assignment_policy": "allowed",
+        "risk_level": "medium",
+        "notes": "High value lane; keep evidence linked to authority mapping."
+      },
+      "status": {
+        "stage": "structured",
+        "last_updated": "2026-05-24T02:25:00Z",
+        "owner": "Sentinel",
+        "next_action": "Finalize named authority map and release-gate packet."
+      },
+      "links": {
+        "actors": ["Angelo Gama", "Wade Cherwayko"],
+        "buyers": ["AFC", "AWS"],
+        "sources": ["dashboard/data/initiative_assigned_actors.json", "dashboard/data/initiatives.json"]
+      }
+    },
+    {
+      "asset_id": "ASSET-SHIV-CONNECTOR-LANE-001",
+      "asset_name": "Shiv Khemka connector lane",
+      "asset_type": "relationship",
+      "initiative_id": "INIT-2026-03-ANGOLA-AI-CORRIDOR",
+      "description": "Connector-grade access network tied to Shiv Khemka, explicitly not investor-assignment eligible pending clearance.",
+      "control": {
+        "controller": "Shiv Khemka network lane",
+        "controller_type": "counterparty",
+        "evidence": "Existing actor guardrail fields in actors dataset."
+      },
+      "trapped_value": ["trust", "market_access", "distribution"],
+      "why_not_moved": ["counterparty_risk", "no_governance", "no_proof"],
+      "release_conditions": [
+        {
+          "condition_id": "RC-SHIV-001",
+          "description": "Complete clearance review and explicit sign-off for any expanded role beyond connector.",
+          "owner": "Isaac Barnes",
+          "evidence_required": "Written policy decision with permitted and prohibited role taxonomy.",
+          "due_date": "2026-06-03",
+          "status": "open"
+        }
+      ],
+      "conversion_paths": ["partner_commitment", "mandate"],
+      "usg_capture_options": ["fee", "retainer"],
+      "governance": {
+        "classification": "sensitive",
+        "assignment_policy": "connector_only",
+        "risk_level": "high",
+        "notes": "Do not assign as investor or capital provider without explicit clearance."
+      },
+      "status": {
+        "stage": "gated",
+        "last_updated": "2026-05-24T02:25:00Z",
+        "owner": "Sentinel",
+        "next_action": "Maintain connector-only policy and track clearance decision."
+      },
+      "links": {
+        "actors": ["Shiv Khemka"],
+        "sources": ["dashboard/data/actors.json", "mission-control/watchlists/forbes-ownership-foreign-influence-watch.json"]
+      }
+    }
+  ]
+}

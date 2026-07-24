@@ -1,20 +1,45 @@
 {
-  "buyerAccessGraphSignature": "eed23095a884e66118b283e48048f822f4ed281d8ed01c45aa53e146c8f1d2a3",
-  "updatedAtUtc": "2026-04-26T07:44:21Z",
+  "buyerAccessGraphSignature": "10fbe16e10f60d163ee884ed680dc30217f728f037ea806cc01f17ab94a2fd50",
+  "updatedAtUtc": "2026-07-24T15:42:09Z",
+  "lastChecks": {
+    "buyer_access_graph": 1784907729,
+    "signal_pressure": 1784907729,
+    "calendar_readiness": 1784907729,
+    "doctor": 1784905975
+  },
+  "doctorLast": {
+    "updatedAtUtc": "2026-07-24T15:12:55Z",
+    "issues": [
+      "model_auth_expired_main_openai_default",
+      "model_auth_expired_santia_openai_default",
+      "command_owner_missing",
+      "state_integrity_orphan_transcripts_17",
+      "security_plaintext_secrets",
+      "security_gateway_bound_lan",
+      "security_telegram_group_policy_open",
+      "channels_whatsapp_allowlist_empty"
+    ]
+  },
+  "calendarLast": {
+    "updatedAtUtc": "2026-07-24T15:41:35Z",
+    "meeting_with_prep_dispatch": null,
+    "meeting_without_prep_dispatch": null,
+    "lock_load_brief_present": true
+  },
   "issues": [
     {
       "type": "top10",
       "buyers": [
-        "ALPHA_WAVE",
-        "USVI-RECOVERY-AUTHORITY",
-        "GIP",
-        "HAUN",
-        "STONEPEAK",
-        "KKR",
-        "GENERAL_ATLANTIC",
-        "TAFF",
-        "ADQ",
-        "PIF"
+        "PIF",
+        "GIC",
+        "AFC",
+        "NSIA",
+        "FMF-NG",
+        "ADFD",
+        "SFD",
+        "AfDB",
+        "IFC",
+        "MUBADALA"
       ]
     },
     {
@@ -24,14 +49,16 @@
     {
       "type": "missing_decision_arch",
       "buyers": [
-        "ALPHA_WAVE",
-        "GIP",
-        "HAUN",
-        "STONEPEAK",
-        "KKR",
-        "GENERAL_ATLANTIC",
-        "ADQ",
-        "PIF"
+        "PIF",
+        "GIC",
+        "AFC",
+        "NSIA",
+        "FMF-NG",
+        "ADFD",
+        "SFD",
+        "AfDB",
+        "IFC",
+        "MUBADALA"
       ]
     },
     {
@@ -41,281 +68,56 @@
           "buyer_id": "NSIA",
           "path_id": "PATH-NSIA-001",
           "status": "Warming",
-          "date": "2026-02-25"
-        },
-        {
-          "buyer_id": "TAFF",
-          "path_id": "PATH-TAFF-FAISAL-NET-001",
-          "status": "Warming",
-          "date": "2026-03-05T20:48:00Z"
-        },
-        {
-          "buyer_id": "USVI-RECOVERY-AUTHORITY",
-          "path_id": "PATH-USVI-FED-001",
-          "status": "Warming",
-          "date": "2026-03-17T15:03:00Z"
+          "age_days": 148,
+          "last_touch_at": "2026-02-25"
         }
       ]
     },
     {
       "type": "high_influence_no_path",
-      "items": [
-        {
-          "buyer_id": "TAFF",
-          "person": "Tariq Al Futtaim"
-        },
-        {
-          "buyer_id": "USVI-RECOVERY-AUTHORITY",
-          "person": "HUD / FEMA oversight bodies"
-        }
-      ]
+      "items": []
     },
     {
       "type": "metadata_drift",
-      "items": [
-        {
-          "buyer_id": "ALPHA_WAVE",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "USVI-RECOVERY-AUTHORITY",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "GIP",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "HAUN",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "STONEPEAK",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "KKR",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "GENERAL_ATLANTIC",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "TAFF",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "ADQ",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        },
-        {
-          "buyer_id": "PIF",
-          "missing": [
-            "hq",
-            "region",
-            "buyer_role",
-            "buyer_class"
-          ]
-        }
-      ]
+      "items": []
     }
   ],
   "buyer_access_last": {
     "top10": [
-      "Alpha Wave Global",
-      "USVI Recovery Program Authority (ODR + VIHFA)",
-      "Global Infrastructure Partners",
-      "Haun Ventures",
-      "Stonepeak",
-      "KKR & Co. Inc.",
-      "General Atlantic",
-      "Tariq Al Futtaim Family Foundation (TAFF)",
-      "ADQ",
-      "Public Investment Fund"
+      "Public Investment Fund",
+      "Gulf Investment Corporation",
+      "Africa Finance Corporation",
+      "Nigeria Sovereign Investment Authority",
+      "Federal Ministry of Finance (Nigeria)",
+      "Abu Dhabi Fund for Development",
+      "Saudi Fund for Development",
+      "African Development Bank",
+      "International Finance Corporation",
+      "Mubadala Investment Company"
     ],
     "missing_decision_coverage": [
-      "Alpha Wave Global",
-      "Global Infrastructure Partners",
-      "Haun Ventures",
-      "Stonepeak",
-      "KKR & Co. Inc.",
-      "General Atlantic",
-      "ADQ",
-      "Public Investment Fund"
+      "Public Investment Fund",
+      "Gulf Investment Corporation",
+      "Africa Finance Corporation",
+      "Nigeria Sovereign Investment Authority",
+      "Federal Ministry of Finance (Nigeria)",
+      "Abu Dhabi Fund for Development",
+      "Saudi Fund for Development",
+      "African Development Bank",
+      "International Finance Corporation",
+      "Mubadala Investment Company"
     ],
     "stale_contact_paths": [
       {
-        "buyer": "Tariq Al Futtaim Family Foundation (TAFF)",
+        "buyer": "Nigeria Sovereign Investment Authority",
+        "path_id": "PATH-NSIA-001",
         "status": "Warming",
-        "age_days": 51.5,
-        "path_id": "PATH-TAFF-FAISAL-NET-001"
-      },
-      {
-        "buyer": "USVI Recovery Program Authority (ODR + VIHFA)",
-        "status": "Warming",
-        "age_days": 30.0,
-        "path_id": "PATH-USVI-FED-001"
+        "age_days": 148,
+        "last_touch_at": "2026-02-25"
       }
     ],
-    "metadata_drift": [
-      {
-        "buyer": "Alpha Wave Global",
-        "missing": [
-          "region",
-          "buyer_role",
-          "buyer_class"
-        ]
-      },
-      {
-        "buyer": "USVI Recovery Program Authority (ODR + VIHFA)",
-        "missing": [
-          "region",
-          "buyer_role",
-          "buyer_class"
-        ]
-      },
-      {
-        "buyer": "Global Infrastructure Partners",
-        "missing": [
-          "region",
-          "buyer_role",
-          "buyer_class"
-        ]
-      },
-      {
-        "buyer": "Haun Ventures",
-        "missing": [
-          "region",
-          "buyer_role",
-          "buyer_class"
-        ]
-      },
-      {
-        "buyer": "Stonepeak",
-        "missing": [
-          "region",
-          "buyer_role",
-          "buyer_class"
-        ]
-      },
-      {
-        "buyer": "KKR & Co. Inc.",
-        "missing": [
-          "region",
-          "buyer_role",
-          "buyer_class"
-        ]
-      },
-      {
-        "buyer": "General Atlantic",
-        "missing": [
-          "region",
-          "buyer_role",
-          "buyer_class"
-        ]
-      },
-      {
-        "buyer": "Tariq Al Futtaim Family Foundation (TAFF)",
-        "missing": [
-          "region",
-          "buyer_role",
-          "buyer_class"
-        ]
-      },
-      {
-        "buyer": "ADQ",
-        "missing": [
-          "hq_country",
-          "region",
-          "buyer_role",
-          "buyer_class"
-        ]
-      },
-      {
-        "buyer": "Public Investment Fund",
-        "missing": [
-          "hq_country",
-          "region",
-          "buyer_role",
-          "buyer_class"
-        ]
-      }
-    ]
-  },
-  "buyer_access_last_checked_at": "2026-04-26T07:44:21Z",
-  "buyer_access_decision_people": [
-    {
-      "buyer_id": "USVI-RECOVERY-AUTHORITY",
-      "person": "Adrienne L. Williams-Octalien"
-    },
-    {
-      "buyer_id": "USVI-RECOVERY-AUTHORITY",
-      "person": "Eugene Jones Jr."
-    },
-    {
-      "buyer_id": "USVI-RECOVERY-AUTHORITY",
-      "person": "HUD / FEMA oversight bodies"
-    }
-  ],
-  "buyerAccess": {
-    "last_signatures": {
-      "buyers_sig": "cc99834de8566452c4b48d70732561331de4ec746457685885b7b614d62b5caa",
-      "decision_sig": "d53959d9ac242a910a577f7282957469648b3c5aa2bfdb91a6f3c5a349cd7469",
-      "paths_sig": "8810be5b649d819c0f19395ddf160d5321b92de7b8d149081f9b8c715a4b878e",
-      "signals_sig": "f4915015bf9552ad5f1d23a0aad0b8d3a9e26d3509dac5fa0b337c907a499b28"
-    },
-    "last_checked_at": "2026-04-26T07:44:21Z",
-    "last_alert_key": "missing_dec:ALPHA_WAVE"
-  },
-  "lastChecks": {
-    "buyer_access": 1777189461,
-    "signal_pressure": 1777189461,
-    "calendar": 1777189461
+    "high_influence_no_path": [],
+    "metadata_drift": [],
+    "decision_people": []
   }
 }

@@ -4,6 +4,7 @@ const SOURCES_PATH = new URL('../buyer-sources.yaml', import.meta.url);
 const RULES_PATH = new URL('./extraction-rules.json', import.meta.url);
 const FALLBACK_PATH = new URL('./fallback-sources.json', import.meta.url);
 const OUT_DIR = new URL('./out/', import.meta.url);
+const FETCH_TIMEOUT_MS = 15000;
 
 function parseYamlMap(yaml) {
   const lines = yaml.split(/\r?\n/); const out = {}; let current = null;
@@ -51,13 +52,24 @@ const fScore = (v)=>v==='MISSING'?1:3;
 const ascore = (r)=>Number(((fScore(r.capitalAmount)+fScore(r.mandateLanguage)+fScore(r.geography)+fScore(r.leadershipStatement)+r.urgencyIndicator)/5).toFixed(2));
 
 async function fetchUrl(url){
-  try { const res = await fetch(url,{redirect:'follow'}); if(!res.ok) return {ok:false,status:`HTTP_${res.status}`,url,text:''}; return {ok:true,status:'OK',url,text:await res.text()}; }
+  try {
+    const res = await fetch(url,{redirect:'follow', signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)});
+    if(!res.ok) return {ok:false,status:`HTTP_${res.status}`,url,text:''};
+    return {ok:true,status:'OK',url,text:await res.text()};
+  }
   catch(e){ return {ok:false,status:`FETCH_${String(e.message||e)}`,url,text:''}; }
 }
 
 async function brave(query){
   const key=process.env.BRAVE_API_KEY; if(!key) return {ok:false,status:'BRAVE_API_KEY_MISSING',text:''};
-  try{ const u=`https://api.search.brave.com/res/v1/web/search?q=${encodeURIComponent(query)}&count=3`; const r=await fetch(u,{headers:{'X-Subscription-Token':key}}); if(!r.ok) return {ok:false,status:`BRAVE_HTTP_${r.status}`,text:''}; const j=await r.json(); const txt=(j?.web?.results||[]).map(x=>`${x.title||''} ${x.description||''}`.trim()).join(' '); return {ok:true,status:'OK',text:txt}; }
+  try{
+    const u=`https://api.search.brave.com/res/v1/web/search?q=${encodeURIComponent(query)}&count=3`;
+    const r=await fetch(u,{headers:{'X-Subscription-Token':key}, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)});
+    if(!r.ok) return {ok:false,status:`BRAVE_HTTP_${r.status}`,text:''};
+    const j=await r.json();
+    const txt=(j?.web?.results||[]).map(x=>`${x.title||''} ${x.description||''}`.trim()).join(' ');
+    return {ok:true,status:'OK',text:txt};
+  }
   catch(e){ return {ok:false,status:`BRAVE_FETCH_${String(e.message||e)}`,text:''}; }
 }
 

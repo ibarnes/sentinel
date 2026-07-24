@@ -45,5 +45,39 @@
     "created_at": "2026-03-05T20:13:00Z",
     "source": "internal://chat/dangote-uae-corridor",
     "buyer_id": "TAFF"
+  },
+  {
+    "candidate_id": "CAND-2026-06-24-SONA-CREDIT-001",
+    "name": "Sona Asset Management / Sona Credit Master Fund",
+    "candidate_type": "Credit Buyer Candidate",
+    "initiative_id": "USG",
+    "role_hypothesis": "Established European institutional credit fund and relationship lane worth tracking under the credit surface for potential future capital relevance.",
+    "engagement_trigger": "Use when Victoria's credit relationship lane advances from database tracking toward a real USG relevance question, introduction ask, or capital-mapping need.",
+    "why_relevant": [
+      "Victoria explicitly flagged it for the database under credit",
+      "Positioned in source materials as a top European credit fund",
+      "Provides a named institutional credit relationship surface instead of an abstract fund class"
+    ],
+    "status": "Forming",
+    "owner": "Victoria Vysotina",
+    "created_at": "2026-06-24T02:54:08Z",
+    "source": "internal://isaac-provided/victoria-forward-sona-credit-master-fund-2026-06-24"
+  },
+  {
+    "candidate_id": "CAND-2026-06-24-CAPLIGHT-SECONDARY-001",
+    "name": "Caplight",
+    "candidate_type": "Secondary Markets Partner Candidate",
+    "initiative_id": "USG",
+    "role_hypothesis": "Private-markets secondary execution and data platform worth tracking as a potential partner-list or market-intelligence surface.",
+    "engagement_trigger": "Use when Victoria's private-markets relationship lane advances from passive tracking to a concrete partner ask, introduction request, or secondary-liquidity mapping need.",
+    "why_relevant": [
+      "Victoria explicitly flagged Caplight for the partners list",
+      "Source materials position Caplight as active in private-company secondary transactions",
+      "Forwarded announcement claims institutional participation from BlackRock, Fin Capital, and UBS, which is directionally credibility-positive but still source-bound"
+    ],
+    "status": "Forming",
+    "owner": "Victoria Vysotina",
+    "created_at": "2026-06-24T18:11:43Z",
+    "source": "internal://isaac-provided/victoria-forward-caplight-series-a-2026-06-24"
   }
 ]

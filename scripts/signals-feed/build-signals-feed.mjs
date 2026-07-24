@@ -187,6 +187,26 @@ function dedupeFeed(items = []) {
   return [...map.values()];
 }
 
+function applySourceCaps(items = []) {
+  const maxPerSourceDefault = 120;
+  const maxPerSource = {
+    'yahoo-finance-rss': 120,
+    'ft-world-rss': 120,
+  };
+
+  const out = [];
+  const counts = new Map();
+  for (const item of items) {
+    const sid = String(item.source_id || 'unknown');
+    const cap = maxPerSource[sid] ?? maxPerSourceDefault;
+    const used = counts.get(sid) || 0;
+    if (used >= cap) continue;
+    out.push(item);
+    counts.set(sid, used + 1);
+  }
+  return out;
+}
+
 function normalizeEntityLabel(x = '') {
   return String(x || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
 }
@@ -273,7 +293,9 @@ async function main() {
       else if (src.type === 'gmail_atom') items = parseGmailAtomItems(text);
       else items = parseWebPage(text, src.url);
       let addedHere = 0;
-      for (const item of items.slice(0, 40)) {
+      const perSourceRunCap = Number(src.max_items_per_run || 20);
+      const minRelevanceScore = Number(src.min_relevance_score || 0);
+      for (const item of items.slice(0, perSourceRunCap)) {
         if (!item.url || seen.has(item.url)) continue;
 
         const cleanedSummary = sanitizeSummary(item.summary || '');
@@ -283,8 +305,10 @@ async function main() {
           : [];
         if (matchKeywords.length && !matchKeywords.some((k) => textBlob.includes(k))) continue;
 
-        seen.add(item.url);
         const rel = relevanceScore(`${item.title} ${cleanedSummary}`);
+        if (rel < minRelevanceScore) continue;
+
+        seen.add(item.url);
         const textForMatching = `${item.title || ''} ${cleanedSummary}`;
 
         const buyerIdsFromSource = Array.isArray(src.buyer_ids) ? src.buyer_ids : [];
@@ -335,13 +359,14 @@ async function main() {
 
   const normalized = dedupeFeed(out).map((x) => ({ ...x, summary: sanitizeSummary(x.summary || '') }));
   normalized.sort((a,b) => String(b.published_at||'').localeCompare(String(a.published_at||'')));
-  await fs.writeFile(outFile, JSON.stringify(normalized.slice(0, 3000), null, 2) + '\n', 'utf8');
+  const composed = applySourceCaps(normalized);
+  await fs.writeFile(outFile, JSON.stringify(composed.slice(0, 3000), null, 2) + '\n', 'utf8');
   const metaPath = path.join(ROOT, 'dashboard/data/signals_feed.meta.json');
   const meta = await readJson(metaPath, {});
   meta.last_run_at = nowIso();
   meta.last_run_stats = stats;
   await fs.writeFile(metaPath, JSON.stringify(meta, null, 2) + '\n', 'utf8');
-  console.log(`signals feed updated: ${normalized.length} items, added ${stats.items_added}`);
+  console.log(`signals feed updated: ${composed.length} items, added ${stats.items_added}`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

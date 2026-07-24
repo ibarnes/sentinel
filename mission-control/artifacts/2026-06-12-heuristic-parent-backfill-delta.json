@@ -1,0 +1,154 @@
+{
+  "generated_at": "2026-06-12T15:54:52Z",
+  "board_path": "mission-control/board/BOARD.json",
+  "source_matrix": "mission-control/artifacts/2026-06-12-stale-rfr-heuristic-review-matrix.json",
+  "apply_task": "TASK-0418",
+  "reviewer_confirmation_basis": "User-requested board cleanup after guarded preview publication",
+  "changed_count": 14,
+  "before_ready_for_review_without_parent_id": 33,
+  "after_ready_for_review_without_parent_id": 19,
+  "residual_reduction": 14,
+  "changes": [
+    {
+      "task_id": "TASK-0293",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0294",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0308",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0309",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0310",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0311",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0317",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0318",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103",
+        "TASK-0317"
+      ]
+    },
+    {
+      "task_id": "TASK-0325",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0326",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0097",
+        "TASK-0103"
+      ]
+    },
+    {
+      "task_id": "TASK-0374",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0103",
+        "TASK-0097"
+      ]
+    },
+    {
+      "task_id": "TASK-0375",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0103",
+      "inference_rule": "family_stem_consensus",
+      "supporting_refs": [
+        "TASK-0103",
+        "TASK-0097"
+      ]
+    },
+    {
+      "task_id": "TASK-0265",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0264",
+      "inference_rule": "single_descendant_ref",
+      "supporting_refs": [
+        "TASK-0103",
+        "TASK-0264"
+      ]
+    },
+    {
+      "task_id": "TASK-0285",
+      "from_parent_id": null,
+      "to_parent_id": "TASK-0284",
+      "inference_rule": "single_descendant_ref",
+      "supporting_refs": [
+        "TASK-0271",
+        "TASK-0284"
+      ]
+    }
+  ]
+}

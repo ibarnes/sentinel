@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://usg.local/schemas/asset-register.v1.schema.json",
+  "title": "USG Asset Register v1",
+  "type": "object",
+  "required": ["version", "updated_at", "assets"],
+  "properties": {
+    "version": { "type": "string", "const": "v1" },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "assets": { "type": "array", "items": { "$ref": "#/$defs/asset" } }
+  },
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "required": ["asset_id", "asset_name", "asset_type", "initiative_id", "control", "trapped_value", "why_not_moved", "release_conditions", "conversion_paths", "usg_capture_options", "governance", "status"],
+      "properties": {
+        "asset_id": { "type": "string", "pattern": "^ASSET-[A-Z0-9-]+$" },
+        "asset_name": { "type": "string", "minLength": 3 },
+        "asset_type": { "type": "string", "enum": ["relationship", "equity", "project_access", "mandate", "ip", "credibility", "partner", "market", "right", "opportunity"] },
+        "initiative_id": { "type": "string" },
+        "description": { "type": "string" },
+        "control": {
+          "type": "object",
+          "required": ["controller", "controller_type", "evidence"],
+          "properties": {
+            "controller": { "type": "string" },
+            "controller_type": { "type": "string", "enum": ["USG", "partner", "client", "founder", "government", "investor", "counterparty", "mixed"] },
+            "evidence": { "type": "string" }
+          }
+        },
+        "trapped_value": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "enum": ["capital", "trust", "market_access", "approvals", "revenue", "ownership", "distribution", "infrastructure", "execution_capacity"] }
+        },
+        "why_not_moved": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "enum": ["no_structure", "no_authority", "no_pricing", "no_legal_path", "no_buyer", "no_proof", "no_governance", "no_liquidity", "counterparty_risk", "policy_constraint"] }
+        },
+        "release_conditions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/releaseCondition" } },
+        "conversion_paths": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "enum": ["cash", "equity", "revenue_share", "mandate", "joint_venture", "acquisition", "partner_commitment", "project_approval", "capital_raise"] }
+        },
+        "usg_capture_options": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "enum": ["fee", "ownership", "participation", "warrants", "retainer", "success_fee", "management_role", "board_seat", "strategic_control"] }
+        },
+        "governance": {
+          "type": "object",
+          "required": ["classification", "assignment_policy", "risk_level"],
+          "properties": {
+            "classification": { "type": "string", "enum": ["open", "restricted", "sensitive"] },
+            "assignment_policy": { "type": "string", "enum": ["allowed", "connector_only", "blocked"] },
+            "risk_level": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+            "notes": { "type": "string" }
+          }
+        },
+        "status": {
+          "type": "object",
+          "required": ["stage", "last_updated", "owner"],
+          "properties": {
+            "stage": { "type": "string", "enum": ["identified", "structured", "gated", "released", "converted", "blocked"] },
+            "last_updated": { "type": "string", "format": "date-time" },
+            "owner": { "type": "string" },
+            "next_action": { "type": "string" }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "actors": { "type": "array", "items": { "type": "string" } },
+            "buyers": { "type": "array", "items": { "type": "string" } },
+            "sources": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "releaseCondition": {
+      "type": "object",
+      "required": ["condition_id", "description", "owner", "evidence_required", "due_date", "status"],
+      "properties": {
+        "condition_id": { "type": "string" },
+        "description": { "type": "string" },
+        "owner": { "type": "string" },
+        "evidence_required": { "type": "string" },
+        "due_date": { "type": "string", "format": "date" },
+        "status": { "type": "string", "enum": ["open", "in_progress", "met", "waived"] }
+      }
+    }
+  }
+}

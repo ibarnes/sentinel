@@ -1,0 +1,260 @@
+{
+  "executed_at": "2026-06-12T16:25:36Z",
+  "actor": "sentinel",
+  "approval_source": "Isaac explicit instruction to move the 42 archive/superseded backlog candidates to Done on 2026-06-12",
+  "moved_count": 42,
+  "moved": [
+    {
+      "id": "TASK-0001",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "EP-A Data Model v2 + Compatibility Layer"
+    },
+    {
+      "id": "TASK-0002",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "ST-A1 Create DeckSpec v2 persistence + load by selectors"
+    },
+    {
+      "id": "TASK-0003",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "ST-A2 Upgrade SlideSpec to slot-aware v2"
+    },
+    {
+      "id": "TASK-0004",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "EP-B Presentation Studio API Surface (Phase 1)"
+    },
+    {
+      "id": "TASK-0005",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "ST-B1 Add Deck APIs (GET/POST/PATCH)"
+    },
+    {
+      "id": "TASK-0006",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "ST-B2 Add Slides APIs (list/get/create/update/delete)"
+    },
+    {
+      "id": "TASK-0007",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "EP-C Template Library + Assignment"
+    },
+    {
+      "id": "TASK-0008",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "ST-C1 Define 8 canonical templates + slots schema"
+    },
+    {
+      "id": "TASK-0009",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "EP-D Save Points + Restore"
+    },
+    {
+      "id": "TASK-0010",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "EP-E Studio UI v2 Shell (feature-flagged)"
+    },
+    {
+      "id": "TASK-0011",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "EP-F Pipeline Status + AI Edit loop"
+    },
+    {
+      "id": "TASK-0013",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "US-A1 As an editor, I can load a deck by initiative/deck selectors"
+    },
+    {
+      "id": "TASK-0016",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "US-A2 As an editor, I can edit legacy slide fields without breaking v2"
+    },
+    {
+      "id": "TASK-0017",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-A2.1 Add SlideSpec v2 mapper (legacy->slots)"
+    },
+    {
+      "id": "TASK-0018",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-A2.2 Persist pipeline/qa/render metadata on slide records"
+    },
+    {
+      "id": "TASK-0019",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "US-B1 As a user, I can manage deck records via API"
+    },
+    {
+      "id": "TASK-0022",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "US-B2 As a user, I can CRUD slides in a deck via API"
+    },
+    {
+      "id": "TASK-0031",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "US-A3 Pipeline Engine (slide + deck runs)"
+    },
+    {
+      "id": "TASK-0032",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-A3.1 Implement pipeline run endpoint with persisted runId"
+    },
+    {
+      "id": "TASK-0033",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "US-A4 SavePoint versioning and restore"
+    },
+    {
+      "id": "TASK-0034",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-A4.1 Implement savepoint create/list/restore APIs"
+    },
+    {
+      "id": "TASK-0035",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "US-B1 AI Slides mode panel and instruction loop"
+    },
+    {
+      "id": "TASK-0036",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-B1.1 Add AI command input + style toggle wiring"
+    },
+    {
+      "id": "TASK-0037",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "US-B2 Team Chat per deck"
+    },
+    {
+      "id": "TASK-0038",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-B2.1 Implement TeamChatThread model + message APIs"
+    },
+    {
+      "id": "TASK-0039",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-API.1 Implement templates endpoint and validation"
+    },
+    {
+      "id": "TASK-0042",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "US-H1 Validate request contract for pipeline run"
+    },
+    {
+      "id": "TASK-0045",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-A2.1a Map legacy layout -> templateId with fallback rules"
+    },
+    {
+      "id": "TASK-0046",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-A2.1b Map legacy title/bullets/imagePrompt -> SlideSpec v2 slots"
+    },
+    {
+      "id": "TASK-0109",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "BRS-2026-03-07b Route tranche-C decisions and prepare board transitions"
+    },
+    {
+      "id": "TASK-0111",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-H1.1c.2b.ii Execute credentialed smoke and populate evidence template"
+    },
+    {
+      "id": "TASK-0113",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "BRS-2026-03-07b.ii Apply tranche-C decisions to board transitions"
+    },
+    {
+      "id": "TASK-0160",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-H1.1c.2ac Apply post-PASS board replay transitions for blocker chain"
+    },
+    {
+      "id": "TASK-0260",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "BRS-2026-04-28c Build tranche-AF decision digest for subsequent stale RFR cohort"
+    },
+    {
+      "id": "TASK-0271",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "BRS-2026-04-30b Apply tranche-AH decisions to BOARD.json + publish delta note"
+    },
+    {
+      "id": "TASK-0292",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "BRS-2026-05-03b Apply tranche-AI approved transitions and emit transition receipt"
+    },
+    {
+      "id": "TASK-0300",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "BRS-2026-05-04 Apply tranche-AJ transition microbatch after Isaac decisions"
+    },
+    {
+      "id": "TASK-0305",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "BRS-2026-05-05 Execute tranche-AJ transition microbatch after preflight PASS"
+    },
+    {
+      "id": "TASK-0307",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "BRS-2026-05-05 Execute tranche-AH apply microbatch after consolidation decision fill"
+    },
+    {
+      "id": "TASK-0321",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-H1.1c.2bz Execute credentialed smoke on next authenticated window and attach evidence bundle"
+    },
+    {
+      "id": "TASK-0324",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "BRS-2026-05-07c Apply tranche-AH transitions and publish deterministic delta log"
+    },
+    {
+      "id": "TASK-0331",
+      "from": "Backlog",
+      "to": "Done",
+      "title": "TS-H1.1c.2cg Execute credentialed smoke on next authenticated window and attach evidence bundle"
+    }
+  ]
+}

@@ -2,9 +2,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const runDir = process.argv[2];
+function arg(name) {
+  const idx = process.argv.indexOf(`--${name}`);
+  if (idx >= 0 && process.argv[idx + 1]) {
+    return process.argv[idx + 1];
+  }
+  return null;
+}
+
+const runDir = arg('dir') || process.argv[2];
 if (!runDir) {
-  console.error('Usage: node scripts/pipeline-run-evidence-report.mjs <evidence-run-dir>');
+  console.error('Usage: node scripts/pipeline-run-evidence-report.mjs <evidence-run-dir> | --dir <evidence-run-dir> [--out <path>]');
   process.exit(1);
 }
 
@@ -40,7 +48,7 @@ const hasAuditEvent = audit?.event_type === 'pipeline.run.created'
 
 const pass = saw201 && saw400 && hasRunId && hasStarted && hasValidationError && hasAuditEvent;
 const status = pass ? 'PASS' : 'BLOCKED';
-const outPath = path.join(abs, 'evidence-report.md');
+const outPath = path.resolve(arg('out') || path.join(abs, 'evidence-report.md'));
 
 const md = `# Pipeline Run Auth Smoke Evidence Report\n\n- **Status:** ${status}\n- **Generated (UTC):** ${new Date().toISOString()}\n- **Run Dir:** ${abs}\n- **Base URL:** ${manifest.base_url || 'unknown'}\n- **Deck ID:** ${manifest.deck_id || 'unknown'}\n\n## Checklist\n- [${saw201 ? 'x' : ' '}] Log shows HTTP 201 for valid request\n- [${saw400 ? 'x' : ' '}] Log shows HTTP 400 for invalid request\n- [${hasRunId ? 'x' : ' '}] Valid response includes runId\n- [${hasStarted ? 'x' : ' '}] Valid response status is started\n- [${hasValidationError ? 'x' : ' '}] Invalid response includes validation error payload\n- [${hasAuditEvent ? 'x' : ' '}] Audit artifact proves pipeline.run.created for returned runId/deckId\n\n## Artifacts\n- ${path.join(abs, 'auth-smoke.log')}\n- ${path.join(abs, 'valid-response.json')}\n- ${path.join(abs, 'invalid-response.json')}\n- ${path.join(abs, 'pipeline-run-created.audit.json')}\n- ${path.join(abs, 'manifest.json')}\n\n## Notes\n${pass ? '- Evidence is complete and review-ready.' : '- Evidence remains incomplete; missing credentialed output and/or audit artifact.'}\n`;
 

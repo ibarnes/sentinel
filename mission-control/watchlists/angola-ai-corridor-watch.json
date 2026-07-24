@@ -1,0 +1,59 @@
+{
+  "watch_id": "WATCH-2026-05-22-ANGOLA-AI-CORRIDOR-001",
+  "status": "Active",
+  "created_at": "2026-05-22T20:15:00Z",
+  "owner": "Isaac",
+  "anchor_signal_id": "SIG-2026-05-22-ANGOLA-CABLES-NETWORK-MAP-2025-001",
+  "objective": "Track route-topology, capacity-path, and interconnection evidence relevant to Angola AI corridor execution assumptions.",
+  "monitoring_scope": [
+    {
+      "topic": "Operator topology changes",
+      "sources": [
+        "https://pages.angolacables.com/en/network-map_2025/",
+        "https://angolacables.co.ao/"
+      ],
+      "trigger": "New map revision, landing-point change, route extension, or major backbone update"
+    },
+    {
+      "topic": "Commercial route-control evidence",
+      "sources": [
+        "https://angolacables.co.ao/",
+        "https://www.linkedin.com/company/angola-cables/"
+      ],
+      "trigger": "New claims or disclosures on capacity, peering, rights, wholesale products, or strategic partner routes"
+    },
+    {
+      "topic": "Corridor risk and resilience signals",
+      "sources": [
+        "https://subtelforum.com/",
+        "https://www.capacitymedia.com/"
+      ],
+      "trigger": "Cable outages, rerouting events, or resilience upgrades that materially affect Atlantic/Africa paths"
+    }
+  ],
+  "lead_items": [
+    {
+      "lead_id": "LEAD-2026-05-22-ANGOLA-CABLES-NETWORK-MAP-001",
+      "title": "Angola Cables network map 2025 source intake",
+      "status": "Monitor",
+      "verification_note": "First-party source confirmed live; structured extraction limited because page content is interactive.",
+      "sources": [
+        "https://pages.angolacables.com/en/network-map_2025/"
+      ]
+    }
+  ],
+  "cadence": {
+    "scan_frequency": "weekly",
+    "priority_window": "2026-05-22 to 2026-12-31",
+    "alert_threshold": "Only alert on material topology, capacity, or resilience changes"
+  },
+  "output_contract": {
+    "title": "Angola AI Corridor Watch Update",
+    "fields": [
+      "Development",
+      "Source",
+      "Why it matters",
+      "Recommended next move"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "watch_id": "WATCH-2026-04-27-G20-MIAMI-001",
+  "status": "Active",
+  "created_at": "2026-04-27T12:03:00Z",
+  "owner": "Isaac",
+  "anchor_signal_id": "SIG-2026-04-27-G20-MIAMI-SUMMIT-DATE-LOCATION-001",
+  "objective": "Track official 2026 G20 Miami developments for timing, access opportunities, and Africa-relevant positioning windows.",
+  "monitoring_scope": [
+    {
+      "topic": "Agenda releases",
+      "sources": [
+        "https://g20.org/events-calendar/",
+        "https://www.state.gov/"
+      ],
+      "trigger": "New official leaders' agenda, priorities update, or deliverables framework published"
+    },
+    {
+      "topic": "Ministerial and sherpa cadence",
+      "sources": [
+        "https://g20.org/events-calendar/",
+        "https://www.state.gov/releases/"
+      ],
+      "trigger": "New ministerial/sherpa dates, venue changes, or attendance posture updates"
+    },
+    {
+      "topic": "Delegate-track and side-event windows",
+      "sources": [
+        "https://g20.org/",
+        "https://www.state.gov/",
+        "https://www.whitehouse.gov/"
+      ],
+      "trigger": "Calls for participation, side-event announcements, or host-city diplomatic programming"
+    },
+    {
+      "topic": "AU engagement track",
+      "sources": [
+        "https://au.int/",
+        "https://x.com/_AfricanUnion"
+      ],
+      "trigger": "AU communiques/positions tied to U.S. 2026 G20 priorities or Africa coordination outcomes"
+    }
+  ],
+  "lead_items": [
+    {
+      "lead_id": "LEAD-2026-04-27-AU-G20-RETREAT-001",
+      "title": "AU social post cites Strategic AU G20 Retreat in Malabo (27-28 Apr 2026)",
+      "status": "Monitor",
+      "verification_note": "Observed via AU official social channel screenshot and indexed X post; await AU.int or equivalent primary communiqué for hard confirmation.",
+      "sources": [
+        "https://x.com/_AfricanUnion/status/2048318653964169252"
+      ]
+    }
+  ],
+  "cadence": {
+    "scan_frequency": "daily",
+    "priority_window": "2026-04-27 to 2026-12-20",
+    "alert_threshold": "Only alert on materially new official developments"
+  },
+  "output_contract": {
+    "title": "G20 Miami Watch Update",
+    "fields": [
+      "Development",
+      "Source",
+      "Why it matters",
+      "Recommended next move"
+    ]
+  }
+}

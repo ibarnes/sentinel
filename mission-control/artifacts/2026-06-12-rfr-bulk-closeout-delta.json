@@ -1,0 +1,1250 @@
+{
+  "executed_at": "2026-06-12T16:19:19Z",
+  "actor": "sentinel",
+  "approval_source": "Isaac explicit bulk closeout instruction in direct chat on 2026-06-12",
+  "moved_count": 207,
+  "moved": [
+    {
+      "id": "TASK-0150",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2u Publish credential-window operator card for one-pass execution"
+    },
+    {
+      "id": "TASK-0151",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2v Build blocker-chain closure matrix with transition gates"
+    },
+    {
+      "id": "TASK-0171",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2aj Capture sweep-time credential preflight artifact (midday execution window)"
+    },
+    {
+      "id": "TASK-0172",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ak Run one-command credentialed wrapper dry-run and capture fail-fast evidence (midday)"
+    },
+    {
+      "id": "TASK-0180",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ao Capture sweep-time credential preflight artifact (midday progress window)"
+    },
+    {
+      "id": "TASK-0181",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ap Run one-command credentialed wrapper dry-run and capture fail-fast evidence (midday progress window)"
+    },
+    {
+      "id": "TASK-0187",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2as Capture sweep-time credential preflight artifact (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0188",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2at Run one-command credentialed wrapper dry-run and capture fail-fast evidence (midday)"
+    },
+    {
+      "id": "TASK-0192",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2au Capture sweep-time credential preflight artifact (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0193",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2av Run one-command credentialed wrapper dry-run and capture fail-fast evidence (morning)"
+    },
+    {
+      "id": "TASK-0194",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2aw Capture sweep-time credential preflight artifact (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0195",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ax Run one-command credentialed wrapper dry-run and capture fail-fast evidence (midday)"
+    },
+    {
+      "id": "TASK-0199",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ay Capture sweep-time credential preflight artifact (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0200",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2az Run one-command credentialed wrapper dry-run and capture fail-fast evidence (morning)"
+    },
+    {
+      "id": "TASK-0201",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ba Capture sweep-time credential preflight artifact (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0202",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bb Run one-command credentialed wrapper dry-run and capture fail-fast evidence (midday)"
+    },
+    {
+      "id": "TASK-0207",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bc Capture sweep-time credential preflight artifact (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0208",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bd Run one-command credentialed wrapper dry-run and capture fail-fast evidence (morning)"
+    },
+    {
+      "id": "TASK-0209",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2be Capture sweep-time credential preflight artifact (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0210",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bf Run one-command credentialed wrapper dry-run and capture fail-fast evidence (midday)"
+    },
+    {
+      "id": "TASK-0215",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bg Capture sweep-time credential preflight artifact (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0216",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bh Run one-command credentialed wrapper dry-run and capture fail-fast evidence (morning)"
+    },
+    {
+      "id": "TASK-0217",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bi Capture sweep-time credential preflight artifact (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0218",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bj Run one-command credentialed wrapper dry-run and capture fail-fast evidence (midday)"
+    },
+    {
+      "id": "TASK-0219",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-23a Build oldest-RFR tranche-U decision digest"
+    },
+    {
+      "id": "TASK-0220",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-23b Publish tranche-U approval routing card"
+    },
+    {
+      "id": "TASK-0221",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-23a Build oldest-RFR tranche-V decision packet"
+    },
+    {
+      "id": "TASK-0222",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-23b Route tranche-V approval card and transition prep"
+    },
+    {
+      "id": "TASK-0223",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bg Capture sweep-time credential preflight artifact (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0224",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bh Run one-command credentialed wrapper dry-run and capture fail-fast evidence (morning)"
+    },
+    {
+      "id": "TASK-0225",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-24a Build oldest-RFR tranche-X decision microbatch"
+    },
+    {
+      "id": "TASK-0226",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-24b Publish tranche-X approval routing card + transition-safe templates"
+    },
+    {
+      "id": "TASK-0227",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bk Capture sweep-time credential preflight artifact (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0228",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bl Run one-command credentialed wrapper dry-run and capture fail-fast evidence (morning)"
+    },
+    {
+      "id": "TASK-0229",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bm Capture midday credential preflight artifact (progress sweep)"
+    },
+    {
+      "id": "TASK-0230",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bn Run one-command credentialed wrapper dry-run and capture fail-fast evidence (midday)"
+    },
+    {
+      "id": "TASK-0231",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-25a Build oldest-RFR tranche-Y decision digest (next stale cohort)"
+    },
+    {
+      "id": "TASK-0232",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-25b Publish tranche-Y approval routing card (decomposition gate)"
+    },
+    {
+      "id": "TASK-0233",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-25c Build tranche-Z decision digest for remaining oldest stale RFR cohort"
+    },
+    {
+      "id": "TASK-0234",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bo Capture sweep-time credential preflight artifact (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0235",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bp Run one-command credentialed wrapper and capture fail-fast evidence (morning)"
+    },
+    {
+      "id": "TASK-0236",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bq Capture midday credential preflight artifact (progress sweep)"
+    },
+    {
+      "id": "TASK-0237",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2br Run one-command credentialed wrapper and capture fail-fast evidence (midday)"
+    },
+    {
+      "id": "TASK-0238",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-26a Publish tranche-Z approval routing card"
+    },
+    {
+      "id": "TASK-0239",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-26b Build tranche-AA decision digest for next stale RFR cohort"
+    },
+    {
+      "id": "TASK-0241",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-03-26d Publish tranche-AB approval routing card + transition-safe templates"
+    },
+    {
+      "id": "TASK-0242",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bs Capture morning credential preflight artifact (execution sweep)"
+    },
+    {
+      "id": "TASK-0243",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bt Run one-command credentialed wrapper and capture fail-fast evidence (execution sweep)"
+    },
+    {
+      "id": "TASK-0244",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bu Capture midday credential preflight artifact (progress sweep)"
+    },
+    {
+      "id": "TASK-0245",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bv Run one-command credentialed wrapper and capture midday fail-fast evidence"
+    },
+    {
+      "id": "TASK-0246",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bw Capture morning credential preflight artifact (execution sweep)"
+    },
+    {
+      "id": "TASK-0247",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bx Run one-command credentialed wrapper and capture fail-fast evidence (execution sweep)"
+    },
+    {
+      "id": "TASK-0248",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2by Capture midday credential preflight artifact (progress sweep)"
+    },
+    {
+      "id": "TASK-0249",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bz Run one-command credentialed wrapper and capture midday fail-fast evidence"
+    },
+    {
+      "id": "TASK-0250",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-27a Publish tranche-AC approval routing card for oldest stale RFR cohort"
+    },
+    {
+      "id": "TASK-0251",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-27b Build tranche-AC oldest-stale decision digest with governance-safe recommendations"
+    },
+    {
+      "id": "TASK-0252",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-27a Build tranche-AD decision digest for next stale RFR cohort"
+    },
+    {
+      "id": "TASK-0253",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-27b Publish tranche-AD approval routing card from decision digest"
+    },
+    {
+      "id": "TASK-0254",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1a.1 Decompose TASK-0043 into validation decision table + edge-case checklist"
+    },
+    {
+      "id": "TASK-0255",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.1 Decompose TASK-0095 into smoke harness matrix + evidence checklist"
+    },
+    {
+      "id": "TASK-0256",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2c Refresh credential preflight evidence snapshot"
+    },
+    {
+      "id": "TASK-0257",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2d Publish credential-window run card with exact command sequence"
+    },
+    {
+      "id": "TASK-0258",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-28a Build tranche-AE decision digest for next stale RFR cohort"
+    },
+    {
+      "id": "TASK-0259",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-28b Publish tranche-AE approval routing card from decision digest"
+    },
+    {
+      "id": "TASK-0261",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-28d Build tranche-AF decision digest for next stale RFR cohort"
+    },
+    {
+      "id": "TASK-0262",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-28e Publish tranche-AF approval routing card from digest"
+    },
+    {
+      "id": "TASK-0263",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-28f Build tranche-AG decision digest for next stale RFR cohort"
+    },
+    {
+      "id": "TASK-0264",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2e Refresh credential preflight evidence snapshot"
+    },
+    {
+      "id": "TASK-0265",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2f Publish credential-window run card with exact command sequence"
+    },
+    {
+      "id": "TASK-0266",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-29a Publish tranche-AG approval routing card from digest"
+    },
+    {
+      "id": "TASK-0267",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-29b Build tranche-AH decision digest for next stale RFR cohort"
+    },
+    {
+      "id": "TASK-0268",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-29c Publish tranche-AH approval routing card from digest"
+    },
+    {
+      "id": "TASK-0270",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-30a Build execution-ready tranche-AH transition patch artifact"
+    },
+    {
+      "id": "TASK-0272",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-30c Publish stale-RFR tranche compaction plan (credential-gated stream)"
+    },
+    {
+      "id": "TASK-0273",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-30d Refresh credential-window execution handoff for TASK-0097/TASK-0103"
+    },
+    {
+      "id": "TASK-0274",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-30e Publish tranche-AH decision ping packet for immediate apply unblock"
+    },
+    {
+      "id": "TASK-0275",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-30f Publish credential-window execution macro pack for immediate run handoff"
+    },
+    {
+      "id": "TASK-0276",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-04-30g Publish tranche-AH apply-ready delta template for zero-latency decision apply"
+    },
+    {
+      "id": "TASK-0277",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "Credential-window preflight refresh pack (Night)"
+    },
+    {
+      "id": "TASK-0278",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "Tranche-AH decision reminder + apply sequencing card (Night)"
+    },
+    {
+      "id": "TASK-0279",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "Stale-RFR tranche-AA compaction digest (oldest credential evidence tasks)"
+    },
+    {
+      "id": "TASK-0280",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "Stale-RFR tranche-AA apply card (post-approval transition sequence)"
+    },
+    {
+      "id": "TASK-0281",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "Credential smoke evidence run-card refresh (morning sweep)"
+    },
+    {
+      "id": "TASK-0282",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ca Build midday credential evidence index skeleton"
+    },
+    {
+      "id": "TASK-0283",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cb Publish Isaac decision/credential handoff checklist"
+    },
+    {
+      "id": "TASK-0284",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-02a Build tranche-AH decision input validator + template"
+    },
+    {
+      "id": "TASK-0285",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-02b Publish tranche-AH dry-run transition preview + apply guardrails"
+    },
+    {
+      "id": "TASK-0286",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-02c Build stale-RFR compaction candidate matrix"
+    },
+    {
+      "id": "TASK-0287",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-02d Publish stale-RFR transition microbatch template"
+    },
+    {
+      "id": "TASK-0288",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-02e Publish credential smoke evidence handoff card"
+    },
+    {
+      "id": "TASK-0289",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2c Capture credential-window readiness snapshot + blocker evidence"
+    },
+    {
+      "id": "TASK-0290",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-02f Publish midday decision ping for credential + tranche-AH gates"
+    },
+    {
+      "id": "TASK-0291",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-03a Publish stale-RFR tranche-AI compaction plan + decision template"
+    },
+    {
+      "id": "TASK-0293",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bg Refresh credential blocker evidence snapshot (morning execution window)"
+    },
+    {
+      "id": "TASK-0294",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bh Publish credentialed smoke operator handoff refresh (single-run command chain)"
+    },
+    {
+      "id": "TASK-0295",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bi Refresh credential blocker evidence snapshot (midday execution window)"
+    },
+    {
+      "id": "TASK-0296",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bj Publish credentialed smoke operator handoff refresh (single-run command chain)"
+    },
+    {
+      "id": "TASK-0297",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bk Build credential-window one-pass execution checklist (night build)"
+    },
+    {
+      "id": "TASK-0298",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bl Queue credentialed smoke evidence replay packet (post-PASS closure)"
+    },
+    {
+      "id": "TASK-0299",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-04 Build tranche-AJ stale-RFR decision packet (late-night recovery)"
+    },
+    {
+      "id": "TASK-0301",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bm Refresh credential blocker evidence snapshot (morning execution window)"
+    },
+    {
+      "id": "TASK-0302",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bn Refresh credentialed smoke operator handoff (single-run chain)"
+    },
+    {
+      "id": "TASK-0303",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-04 Build tranche-AJ transition microbatch plan artifact (decision-gated)"
+    },
+    {
+      "id": "TASK-0304",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-05 Build tranche-AJ transition preflight checklist artifact (decision-gated)"
+    },
+    {
+      "id": "TASK-0306",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-05 Build AH/AJ decision consolidation card to unblock stalled apply streams"
+    },
+    {
+      "id": "TASK-0308",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bo Refresh credential blocker evidence snapshot (midday execution window)"
+    },
+    {
+      "id": "TASK-0309",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bp Publish credentialed smoke operator handoff refresh (single-run chain)"
+    },
+    {
+      "id": "TASK-0310",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bq Refresh credential blocker evidence snapshot (night build window)"
+    },
+    {
+      "id": "TASK-0311",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2br Refresh credentialed smoke operator handoff packet (night build window)"
+    },
+    {
+      "id": "TASK-0313",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-06 Build stale-RFR tranche-AK compaction + decision template artifact"
+    },
+    {
+      "id": "TASK-0315",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bt Refresh credential blocker evidence snapshot (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0316",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bu Refresh credentialed smoke operator handoff packet (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0317",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bv Refresh credential blocker evidence snapshot (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0318",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bw Refresh credentialed smoke operator handoff packet (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0319",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2bx Refresh credential blocker evidence snapshot (night build window)"
+    },
+    {
+      "id": "TASK-0320",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2by Refresh credentialed smoke operator handoff packet (night build window)"
+    },
+    {
+      "id": "TASK-0322",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-07a Publish stalled-lane recovery inventory + dependency map"
+    },
+    {
+      "id": "TASK-0323",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-07b Build tranche-AH decision refresh card for stalled apply stream"
+    },
+    {
+      "id": "TASK-0325",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ca Refresh credential blocker evidence snapshot (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0326",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cb Refresh credentialed smoke operator handoff packet (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0327",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cc Midday blocker evidence refresh for credentialed smoke stream"
+    },
+    {
+      "id": "TASK-0328",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cd Midday operator handoff refresh for one-pass credentialed smoke execution"
+    },
+    {
+      "id": "TASK-0329",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ce Night blocker evidence refresh for credentialed smoke stream"
+    },
+    {
+      "id": "TASK-0330",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cf Night operator handoff refresh for one-pass credentialed smoke execution"
+    },
+    {
+      "id": "TASK-0332",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-27a Build stale RFR tranche-AL candidate cut (top 20 oldest + dependency flags)"
+    },
+    {
+      "id": "TASK-0333",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-27b Publish tranche-AL recovery routing card with apply sequence"
+    },
+    {
+      "id": "TASK-0334",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-27c Generate tranche-AH decision input sheet from unresolved IDs"
+    },
+    {
+      "id": "TASK-0336",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cg Refresh credential blocker evidence snapshot (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0337",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ch Refresh credentialed smoke operator handoff packet (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0338",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ch Midday blocker evidence refresh for credentialed smoke stream"
+    },
+    {
+      "id": "TASK-0339",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ci Midday operator handoff refresh for one-pass credentialed smoke execution"
+    },
+    {
+      "id": "TASK-0340",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cj Refresh credential blocker evidence snapshot (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0341",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ck Refresh credentialed smoke operator handoff packet (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0342",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cl Refresh credential blocker evidence snapshot (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0343",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cm Refresh credentialed smoke operator handoff packet (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0344",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cn Refresh credential blocker evidence snapshot (night build window)"
+    },
+    {
+      "id": "TASK-0345",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2co Refresh credentialed smoke operator handoff packet (night build window)"
+    },
+    {
+      "id": "TASK-0347",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-29b Publish tranche-AL compaction decision card with apply order"
+    },
+    {
+      "id": "TASK-0348",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cp Refresh credential blocker evidence snapshot (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0349",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cq Refresh credentialed smoke operator handoff packet (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0350",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-29c Refresh credential blocker evidence snapshot (midday)"
+    },
+    {
+      "id": "TASK-0351",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-29d Refresh credentialed smoke operator handoff packet (midday)"
+    },
+    {
+      "id": "TASK-0352",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cp Refresh credential blocker evidence snapshot (night build window)"
+    },
+    {
+      "id": "TASK-0353",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cq Refresh credentialed smoke operator handoff packet (night build window)"
+    },
+    {
+      "id": "TASK-0355",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cr Decompose TASK-0095 residual gate into credentialed smoke closure packet"
+    },
+    {
+      "id": "TASK-0356",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cs Refresh credential blocker evidence snapshot (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0357",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ct Refresh credentialed smoke operator handoff packet (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0358",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cu Refresh credential blocker evidence snapshot (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0359",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cv Refresh credentialed smoke operator handoff packet (midday progress sweep)"
+    },
+    {
+      "id": "TASK-0360",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cw Refresh credential blocker evidence snapshot (night build window)"
+    },
+    {
+      "id": "TASK-0361",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cx Refresh credentialed smoke operator handoff packet (night build window)"
+    },
+    {
+      "id": "TASK-0362",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-31a Publish tranche-AM stale-RFR decision input refresh"
+    },
+    {
+      "id": "TASK-0363",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-05-31b Draft tranche transition delta template for immediate apply"
+    },
+    {
+      "id": "TASK-0364",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cy Build credential-window execution checklist with evidence map"
+    },
+    {
+      "id": "TASK-0365",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ca Refresh credential blocker evidence snapshot (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0366",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cb Refresh credentialed smoke operator handoff packet (morning execution sweep)"
+    },
+    {
+      "id": "TASK-0367",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2h Refresh credential blocker evidence snapshot (midday)"
+    },
+    {
+      "id": "TASK-0368",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2i Refresh credentialed smoke operator handoff packet (midday)"
+    },
+    {
+      "id": "TASK-0369",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2h Refresh credential blocker evidence snapshot (night)"
+    },
+    {
+      "id": "TASK-0370",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2i Refresh credentialed smoke operator handoff packet (night)"
+    },
+    {
+      "id": "TASK-0371",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-01a Normalize tranche-AH decision input refresh for pending apply gate"
+    },
+    {
+      "id": "TASK-0372",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2j Refresh credential blocker evidence snapshot (midday)"
+    },
+    {
+      "id": "TASK-0373",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2k Refresh credentialed smoke operator handoff packet (midday)"
+    },
+    {
+      "id": "TASK-0374",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2l Refresh credential blocker evidence snapshot (midday)"
+    },
+    {
+      "id": "TASK-0375",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2m Refresh credentialed smoke operator handoff packet (midday)"
+    },
+    {
+      "id": "TASK-0376",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-06a Build stale-RFR credential-cluster supersession map"
+    },
+    {
+      "id": "TASK-0377",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-06b Publish stale-RFR credential-cluster decision card with apply order"
+    },
+    {
+      "id": "TASK-0378",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-06c Publish unified recovery decision pack for tranche-AH apply + credential-cluster compaction"
+    },
+    {
+      "id": "TASK-0380",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-06e Publish machine-readable recovery manifest for unified decision pack"
+    },
+    {
+      "id": "TASK-0381",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-06f Upgrade recovery decision validator for unified markdown packet"
+    },
+    {
+      "id": "TASK-0382",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-06g Add unified recovery apply-preview script"
+    },
+    {
+      "id": "TASK-0383",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-06h Publish live apply-preview card for unified recovery packet"
+    },
+    {
+      "id": "TASK-0384",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-07a Add guarded unified recovery apply engine"
+    },
+    {
+      "id": "TASK-0385",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-07b Publish blocked apply receipt for current unified recovery packet"
+    },
+    {
+      "id": "TASK-0386",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-07c Normalize unambiguous parent links on stale Ready-for-Review children"
+    },
+    {
+      "id": "TASK-0387",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1a.2cs Normalize TASK-0043 closure-child lineage for review routing"
+    },
+    {
+      "id": "TASK-0388",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2cz Publish current TASK-0095 credentialed closure routing card"
+    },
+    {
+      "id": "TASK-0389",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2da Capture pipeline.run.created audit artifact in smoke evidence bundle"
+    },
+    {
+      "id": "TASK-0390",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2db Align evidence report and operator packet with nested run payload + audit proof"
+    },
+    {
+      "id": "TASK-0391",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dc Repair one-pass credentialed smoke execution path and align canonical operator instructions"
+    },
+    {
+      "id": "TASK-0392",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-08a Normalize inferable parent_id lineage on stale Ready-for-Review rows"
+    },
+    {
+      "id": "TASK-0393",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dd Normalize historical credential-window child lineage on stale Ready-for-Review rows"
+    },
+    {
+      "id": "TASK-0397",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-09a Publish copy/paste unified recovery decision response template"
+    },
+    {
+      "id": "TASK-0394",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-08b Normalize tranche digest/routing lineage on stale Ready-for-Review rows"
+    },
+    {
+      "id": "TASK-0395",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2de Refresh current credential blocker evidence and targeting gap snapshot"
+    },
+    {
+      "id": "TASK-0396",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2df Refresh one-pass credentialed smoke handoff with explicit targeting modes"
+    },
+    {
+      "id": "TASK-0398",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dg Refresh morning credential blocker evidence and targeting gap snapshot"
+    },
+    {
+      "id": "TASK-0399",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dh Refresh morning one-pass credentialed smoke handoff with explicit targeting modes"
+    },
+    {
+      "id": "TASK-0400",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2di Correct credentialed smoke artifact contract across operator surfaces"
+    },
+    {
+      "id": "TASK-0401",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dj Tighten credentialed smoke preflight-to-closeout sequence"
+    },
+    {
+      "id": "TASK-0402",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-10a Publish heuristic stale-RFR parent routing card"
+    },
+    {
+      "id": "TASK-0403",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dk Refresh TASK-0095 closure routing card against canonical June 9 smoke contract"
+    },
+    {
+      "id": "TASK-0404",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dl Refresh morning credential blocker evidence against current unattended runtime"
+    },
+    {
+      "id": "TASK-0405",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dm Refresh morning credentialed smoke handoff with exact targeting and evidence rules"
+    },
+    {
+      "id": "TASK-0406",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dn Repair selector-path smoke resolution and preflight target gating"
+    },
+    {
+      "id": "TASK-0407",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2do Publish current selector-safe target candidate and Isaac decision boundary"
+    },
+    {
+      "id": "TASK-0408",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-11a Refresh unified recovery response block against live missing-decision set"
+    },
+    {
+      "id": "TASK-0409",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dp Refresh morning credential blocker evidence for June 11 execution sweep"
+    },
+    {
+      "id": "TASK-0410",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dq Refresh morning credentialed smoke handoff for June 11 execution sweep"
+    },
+    {
+      "id": "TASK-0411",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2dr Normalize cookie alias handling across credentialed smoke scripts"
+    },
+    {
+      "id": "TASK-0412",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "TS-H1.1c.2ds Publish copy-paste shell pack for direct and selector smoke modes"
+    },
+    {
+      "id": "TASK-0413",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-12a Tighten stale-RFR lineage classifier for explicit dual-parent and zero-evidence holds"
+    },
+    {
+      "id": "TASK-0414",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-12b Publish refreshed stale-RFR no-parent routing card with hold buckets"
+    },
+    {
+      "id": "TASK-0415",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-12c Publish next credential-window stale-RFR tranche digest beyond current Section B packet"
+    },
+    {
+      "id": "TASK-0416",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-12d Build strict review matrix for heuristic stale-RFR no-parent candidates"
+    },
+    {
+      "id": "TASK-0417",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-12e Publish guarded metadata-only backfill preview for heuristic stale-RFR lineage"
+    },
+    {
+      "id": "TASK-0418",
+      "from": "Ready for Review",
+      "to": "Done",
+      "title": "BRS-2026-06-12f Apply reviewer-confirmed metadata-only parent backfill for heuristic stale-RFR rows"
+    }
+  ]
+}

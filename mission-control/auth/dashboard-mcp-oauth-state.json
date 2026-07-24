@@ -1,0 +1,70 @@
+{
+  "clients": [
+    {
+      "client_id": "https://chatgpt.com/oauth/5RVoWItVaXmd/client.json",
+      "redirect_uris": [
+        "https://chatgpt.com/connector/oauth/5RVoWItVaXmd"
+      ],
+      "grant_types": [
+        "authorization_code",
+        "refresh_token"
+      ],
+      "response_types": [
+        "code"
+      ],
+      "client_name": "ChatGPT",
+      "client_uri": "https://chatgpt.com/",
+      "logo_uri": "https://persistent.oaistatic.com/sonic/misc/openai-logo.png",
+      "jwks_uri": "https://chatgpt.com/oauth/jwks.json"
+    }
+  ],
+  "codes": [],
+  "accessTokens": [
+    {
+      "token": "58fbed371dfa595b84bec983208e33bdee7825338ae06cbc7c6175c42844a2f1",
+      "clientId": "https://chatgpt.com/oauth/5RVoWItVaXmd/client.json",
+      "scopes": [
+        "mcp:tools"
+      ],
+      "resource": "https://dashboard.hiethel.ai/mcp/dashboard",
+      "username": "isaac",
+      "role": "architect",
+      "expiresAt": 1784908374
+    }
+  ],
+  "refreshTokens": [
+    {
+      "token": "a4901a3a49f50e5aedc947df3d59db4a5626e2c39c9582bebe78d6417778720a",
+      "clientId": "https://chatgpt.com/oauth/5RVoWItVaXmd/client.json",
+      "scopes": [
+        "mcp:tools"
+      ],
+      "resource": "https://dashboard.hiethel.ai/mcp/dashboard",
+      "username": "isaac",
+      "role": "architect",
+      "expiresAt": 1786835682
+    },
+    {
+      "token": "3cb9d1ee015c841fcfb0b801f061eebf2c5ba1b54914d440991a62900b963540",
+      "clientId": "https://chatgpt.com/oauth/5RVoWItVaXmd/client.json",
+      "scopes": [
+        "mcp:tools"
+      ],
+      "resource": "https://dashboard.hiethel.ai/mcp/dashboard",
+      "username": "isaac",
+      "role": "architect",
+      "expiresAt": 1786836539
+    },
+    {
+      "token": "a8aefc73366b1f21795a1a95fee3c876c1ab1975c3a9a00fee5ee8aba11573e2",
+      "clientId": "https://chatgpt.com/oauth/5RVoWItVaXmd/client.json",
+      "scopes": [
+        "mcp:tools"
+      ],
+      "resource": "https://dashboard.hiethel.ai/mcp/dashboard",
+      "username": "isaac",
+      "role": "architect",
+      "expiresAt": 1787496774
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 {
-  "last_run_at": "2026-04-27T09:25:00.014Z",
+  "last_run_at": "2026-07-24T14:13:35.417Z",
   "cadence": "0 */6 * * *",
   "notes": "Auto-refresh every 6 hours via cron; manual refresh available on /dashboard/signals-feed",
   "last_run_stats": {
-    "total_sources": 25,
-    "ok_sources": 20,
-    "failed_sources": 5,
-    "items_added": 356,
+    "total_sources": 30,
+    "ok_sources": 24,
+    "failed_sources": 6,
+    "items_added": 11,
     "failures": [
       {
         "source": "Reuters World",
@@ -31,6 +31,11 @@
       {
         "source": "Nairametrics",
         "url": "https://nairametrics.com/",
+        "status": 403
+      },
+      {
+        "source": "TechCabal",
+        "url": "https://techcabal.com/feed/",
         "status": 403
       }
     ]

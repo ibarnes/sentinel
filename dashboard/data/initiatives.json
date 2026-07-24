@@ -4339,7 +4339,8 @@
     "translation_load_test": {
       "status": "required",
       "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
-    }
+    },
+    "linked_documents": []
   },
   {
     "initiative_id": "INIT-653306",
@@ -6893,7 +6894,7 @@
       "anchor-demand-gating",
       "simultaneous-demand-capital-alignment"
     ],
-    "updated_at": "2026-04-19T02:37:07Z",
+    "updated_at": "2026-05-05T17:18:51.903Z",
     "buyer_absorption_thesis": "Buyer pulls when bankable compute/energy resilience outcomes are contractable, governance risk is bounded, and financing pathways support scalable deployment/refinance.",
     "path_redundancy_rule": "minimum_3_independent_lanes",
     "access_lanes": [
@@ -7022,7 +7023,15 @@
       "blocker_3": "Governance clarity insufficient for joint commitment"
     },
     "gating_truth": "Stranded energy -> contracted compute demand -> financeable infrastructure asset",
-    "entry_doctrine": "Simultaneous convergence: Demand node + Capital node"
+    "entry_doctrine": "Simultaneous convergence: Demand node + Capital node",
+    "sources": [
+      {
+        "label": "Digital City Brief — Minister of Transport / PI Group (19-03-2026)",
+        "url": "mission-control/initiative-docs/INIT-2026-03-ANGOLA-AI-CORRIDOR/Digital_City_Brief_Minister_of_Transport_PI_Group_19_03_2026.pdf",
+        "provenance": "provided_by_isaac",
+        "added_at": "2026-05-05T17:17:00Z"
+      }
+    ]
   },
   {
     "initiative_id": "INIT-2026-03-ECOWAS-DIGITAL-SAFETY-INFRASTRUCTURE",
@@ -7849,5 +7858,989 @@
       "status": "required",
       "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
     }
+  },
+  {
+    "initiative_id": "INIT-2026-06-FLUX-GLOBAL-AI-COMPUTE-EXCHANGE",
+    "initiative_code": "FLUX-001",
+    "name": "Flux Global AI Compute Exchange",
+    "status": "Pre-Gate 0 / Architecture Framed",
+    "gate_stage": "Gate 2",
+    "gate_updated_at": "2026-06-12T16:42:47.730Z",
+    "infrastructure_category": "Digital + Capital Markets + Trade Finance",
+    "type": "initiative",
+    "theme": "Certified secondary-market GPU liquidity + Global South reserve access",
+    "thesis": "The institution that can buy, certify, finance, and redistribute depreciating hyperscaler GPU inventory at industrial scale can become the market-making layer for global AI compute access. If paired with a DFI-backed reserve mechanism, that same platform can convert the certified secondary market into a geopolitical distribution layer rather than a pure resale business.",
+    "summary": "Flux proposes a global platform that acquires secondary-market GPUs from hyperscalers and network compute providers, routes them through certification and ITAD channels, funds throughput with a trade-finance-heavy capital stack, and ring-fences part of supply for development-finance-backed Global South buyers who cannot reliably access current-generation compute.",
+    "initiative_question": "Can USG help structure Flux into the first institutional market-maker for legal AI compute resale, with enough capital, compliance, and DFI support to serve both hyperscaler offload volume and sovereign/emerging-market demand?",
+    "north_star_outcome": "Secure one validated supply-side FPA path, one documentable first-loss equity path, and one credible trade-finance + DFI architecture that turns Flux from a strategy memo into a repeatable transaction platform.",
+    "linked_buyers": [
+      "DFC",
+      "IFC",
+      "AfDB",
+      "ADB",
+      "IDB",
+      "MUBADALA",
+      "TEMASEK",
+      "PIF",
+      "BlackRock",
+      "Apollo",
+      "Ares",
+      "Sequoia Capital",
+      "SoftBank",
+      "Standard Chartered"
+    ],
+    "linked_signals": [
+      "Accelerating H100-to-H200/Blackwell refresh cycle",
+      "Secondary-market GPU depreciation creating industrial resale supply",
+      "Global South buyers facing export-control and pricing barriers",
+      "Rising strategic pressure to keep Western AI compute dominant in emerging markets"
+    ],
+    "linked_meetings": [],
+    "decks": [],
+    "tags": [
+      "ai-compute",
+      "gpu-secondary-market",
+      "trade-finance",
+      "development-finance",
+      "export-control-compliance",
+      "global-south-access",
+      "marketplace-infrastructure"
+    ],
+    "actor_alignment": {
+      "layers": {
+        "political": [
+          {
+            "role_id": "us_export_control_and_policy_envelope",
+            "role_label": "US Export Control and Policy Envelope",
+            "layer": "political",
+            "status": "identified",
+            "notes": "Platform viability depends on strict compliance with US-origin hardware export and resale boundaries.",
+            "mapped_entity_type": "regulatory_system",
+            "mapped_entity_ref": "US export-control / sanctions / compliance regime",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Defines the legal resale, transfer, and destination boundaries for controlled AI hardware and therefore determines what the platform can sell, where, and under what controls."
+          },
+          {
+            "role_id": "development_finance_policy_sponsor",
+            "role_label": "Development Finance Policy Sponsor",
+            "layer": "political",
+            "status": "identified",
+            "notes": "Needed to position the reserve pool as strategic AI-access infrastructure rather than a generic equipment trade book.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "DFC / IFC / regional DFIs",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Provides the policy legitimacy and guarantee logic that allow Global South AI-compute access to be treated as strategic development-finance deployment."
+          },
+          {
+            "role_id": "import_market_regulatory_counterparts",
+            "role_label": "Import-Market Digital and Telecom Regulators",
+            "layer": "political",
+            "status": "missing",
+            "notes": "Country-level import, data, and licensing rules still determine where reserve-pool supply can actually land.",
+            "mapped_entity_type": "regulator",
+            "mapped_entity_ref": null,
+            "is_critical_role": false,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1",
+            "role_definition": "Control import permissions, data-policy boundaries, and market-entry rules for compute infrastructure in destination markets."
+          }
+        ],
+        "asset": [
+          {
+            "role_id": "tier1_gpu_supply_holders",
+            "role_label": "Tier 1 GPU Supply Holders",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "Hyperscalers and NCPs are the true upstream asset source; without lot access the platform is only narrative.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Hyperscalers / NCPs / enterprise GPU fleet owners",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Control outgoing GPU inventory and decide whether Flux receives repeatable first-look or FPA access to high-value secondary-market lots."
+          },
+          {
+            "role_id": "itad_and_certification_network",
+            "role_label": "ITAD and Certification Network",
+            "layer": "asset",
+            "status": "missing",
+            "notes": "Certified resale credibility depends on chain-of-custody, testing, grading, and auditable remarketing standards.",
+            "mapped_entity_type": "operator",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Receives, verifies, grades, and certifies GPU inventory so the resale channel can function at institutional underwriting standards."
+          },
+          {
+            "role_id": "global_south_buyer_pool",
+            "role_label": "Global South Sovereign and Institutional Buyer Pool",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "Demand is strategic but fragmented; reserve-pool design only works if buyer classes and qualifying programs are explicit.",
+            "mapped_entity_type": "buyer_class",
+            "mapped_entity_ref": "Sovereign AI programs / universities / ministries / regulated enterprises / national cloud operators",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1",
+            "role_definition": "Provides the destination demand that justifies the reserve pool and the geopolitical logic of the platform."
+          }
+        ],
+        "development": [
+          {
+            "role_id": "platform_architecture_lead",
+            "role_label": "Platform Architecture Lead",
+            "layer": "development",
+            "status": "committed",
+            "notes": "USG role is to turn the memo into an executable market architecture.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "USG",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Defines the governance, risk, sequencing, and transaction architecture that converts Flux from thesis into executable platform."
+          },
+          {
+            "role_id": "founding_platform_sponsor",
+            "role_label": "Founding Platform Sponsor",
+            "layer": "development",
+            "status": "identified",
+            "notes": "Memo asserts UDG as sponsor and first-loss provider; treat as user-provided until documented.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Unified Digital Group",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Acts as the initiating sponsor that supplies formation credibility, sponsor governance, and early commitment architecture."
+          },
+          {
+            "role_id": "reserve_pool_spv_designer",
+            "role_label": "Reserve Pool SPV Designer",
+            "layer": "development",
+            "status": "engaged",
+            "notes": "Separate SPV logic is central to keeping the Global South supply mechanism auditable and enforceable.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "USG / Flux structuring team",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1",
+            "role_definition": "Designs the legal and economic structure that ring-fences reserved inventory, equalizes margins, and enforces release logic."
+          },
+          {
+            "role_id": "compliance_and_bis_architecture_lead",
+            "role_label": "Compliance and BIS Architecture Lead",
+            "layer": "development",
+            "status": "missing",
+            "notes": "No safe scaling path exists without export-control-grade internal controls.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Designs the control framework that governs eligibility, screening, documentation, resale restrictions, and auditability."
+          }
+        ],
+        "capital": [
+          {
+            "role_id": "first_loss_equity_sponsor",
+            "role_label": "First-Loss Equity Sponsor",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "Memo asserts $2B first-loss support from UDG; treat as unverified until papered.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Unified Digital Group",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Supplies the first-loss balance sheet layer required to unlock the larger trade-finance engine and absorb early downside."
+          },
+          {
+            "role_id": "trade_finance_arrangers",
+            "role_label": "Trade Finance Arrangers",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "This is the core commercial engine; without banks and facilities, throughput claims are hypothetical.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "SCF / LOC / factoring / TCI providers",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Arrange and underwrite supply-chain finance, lines of credit, factoring, and insurance layers that allow rapid lot acquisition and recycling."
+          },
+          {
+            "role_id": "strategic_cap_table_partners",
+            "role_label": "Strategic Cap Table Partners",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "Useful only if they add underwriting credibility, distribution, or institutional access beyond cash.",
+            "mapped_entity_type": "buyer_class",
+            "mapped_entity_ref": "BlackRock / Apollo / Ares / Sequoia / sovereign partners",
+            "is_critical_role": false,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1",
+            "role_definition": "Provide institutional credibility, product-distribution reach, or financing depth that improves the platform's conversion odds."
+          },
+          {
+            "role_id": "development_finance_guarantee_layer",
+            "role_label": "Development Finance Guarantee Layer",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "Critical to making Global South transactions economically equivalent to Global North transactions.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "DFC / IFC / AfDB / ADB / IDB",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Provides guarantees, co-lending, political-risk support, or reserve-pool support that neutralize destination-market credit and margin asymmetry."
+          }
+        ],
+        "delivery": [
+          {
+            "role_id": "ecosystem_validation_node",
+            "role_label": "Ecosystem Validation Node",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "Memo claims NVIDIA support; treat that claim as user-provided until directly verified.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "NVIDIA",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1",
+            "role_definition": "Validates that the resale/certification channel fits broader ecosystem incentives and does not trigger channel conflict."
+          },
+          {
+            "role_id": "marketplace_and_settlement_operator",
+            "role_label": "Marketplace and Settlement Operator",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "Need an operational layer that can quote, settle, document, and allocate reserved inventory without ad hoc handling.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": null,
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1",
+            "role_definition": "Operates the transaction layer that handles quoting, allocations, settlement, and documentation across commercial and reserve-pool flows."
+          },
+          {
+            "role_id": "em_corridor_bank_partner",
+            "role_label": "Emerging-Market Corridor Bank Partner",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "Memo prefers Standard Chartered over HSBC due to Western-alignment and data-governance posture.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Standard Chartered",
+            "is_critical_role": false,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P2",
+            "role_definition": "Supports payment, collection, and corridor execution in destination geographies where reserve-pool transactions need banking infrastructure."
+          }
+        ]
+      }
+    },
+    "primary_constraint_panel": {
+      "primary_constraint": "Documented counterparties and executable first transaction path are not yet verified",
+      "why_it_matters": "The memo provides a strong architecture, but the platform cannot move from narrative to initiative without one real supply path, one finance path, and one reserve-pool qualification path.",
+      "next_action": "Convert the strategy memo into one verifiable first transaction design covering supplier, certification path, financing path, buyer class, and compliance envelope.",
+      "owner": "USG",
+      "due": "Immediate"
+    },
+    "notes_for_agent": [
+      "Treat all capital-size claims, NVIDIA support claims, and partner-readiness assertions in the memo as provided_by_isaac until independently corroborated.",
+      "Do not collapse the initiative into a generic marketplace narrative; the reserve-pool and DFI equalization logic are core.",
+      "Anchor first execution on a single lot / single facility / single buyer-class design before expanding into full platform language."
+    ],
+    "short_name": "Flux Compute Exchange",
+    "why_now": [
+      "Hyperscalers are refreshing from H100 into H200 and Blackwell, creating a historically large pool of outgoing GPU inventory.",
+      "Current-generation AI-compute access remains constrained for many Global South buyers by both price and export-compliance limits.",
+      "No institutional-scale certified resale market with DFI-backed emerging-market allocation has yet become the default standard.",
+      "Trade-finance and reserve-pool infrastructure create moats that are slower to build than a simple software marketplace."
+    ],
+    "smallest_executable_version": {
+      "name": "First Certified Lot + Reserve Path Pilot",
+      "description": "Acquire one verified GPU lot through a documented supplier path, route it through a compliant certification flow, finance it with one defined acquisition facility, and qualify one Global South buyer class or reserve-pool allocation path under a documented compliance envelope.",
+      "target_scope": {
+        "transaction_unit": "one institutional GPU lot",
+        "commercial_model": "acquire -> certify -> resell / lease / reserve allocate",
+        "facility_type": "initial warehouse / LOC / SCF path",
+        "buyer_type": "qualified hyperscaler-adjacent buyer or DFI-backed sovereign/institutional program"
+      },
+      "success_metrics": [
+        "Real supplier pathway validated",
+        "Certification and chain-of-custody flow documented",
+        "One finance path validated by a real counterparty",
+        "Reserve-pool logic translated into a qualified buyer or guarantee path",
+        "Compliance controls are explicit enough to survive diligence"
+      ]
+    },
+    "macro_gravity_summary": "Flux frames AI compute not as a one-off equipment trade but as a global market-structure play: buy and certify outgoing hyperscaler GPU inventory, finance throughput with trade-finance leverage rather than pure equity, and use DFI-backed reserve mechanics to keep emerging-market buyers from being permanently excluded. The opportunity is attractive because hardware refresh cycles are accelerating while legal compute access remains structurally uneven. The risk is that the platform's strongest claims, including capital depth and ecosystem support, are still memo-level assertions until counterparties and paper exist.",
+    "current_state": "constraint_discovery",
+    "readiness_score": 34,
+    "max_possible_score": 100,
+    "next_required_state": "architecture_defined",
+    "critical_constraints": [
+      "Supplier FPA pathway not yet verified",
+      "First-loss equity commitment not yet documented",
+      "Trade-finance facility counterparties not yet validated",
+      "Reserve-pool DFI participation remains conceptual",
+      "Compliance architecture not yet operationalized"
+    ],
+    "primary_constraint": "Documented counterparties and executable first transaction path are not yet verified",
+    "next_required_transition": "Define and validate one first executable transaction path with supplier, finance, compliance, and reserve-pool logic",
+    "last_transition_id": "st_seed_2026_06_12_init_2026_06_flux_global_ai_compute_exchange",
+    "last_transition_timestamp": "2026-06-12T15:20:00Z",
+    "open_dependency_count": 5,
+    "readiness_explain": {
+      "last_delta": 3,
+      "last_transition_id": "st_seed_2026_06_12_init_2026_06_flux_global_ai_compute_exchange",
+      "cap_reason": "high blocker: counterparties, facilities, and support claims remain largely user-provided",
+      "regression_impact_30d": 0
+    },
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Pre-Mandate (Positioning Only)",
+    "impact_tags": [
+      "ai-compute-market-structure",
+      "trade-finance-driven",
+      "development-finance-equalization",
+      "export-control-sensitive",
+      "global-south-access-critical"
+    ],
+    "buyer_absorption_thesis": "Supply-side sellers pull when Flux offers certified liquidity, same-cycle settlement credibility, and residual-value support; destination buyers pull when legal access, financing, and compliance are wrapped into one governed acquisition path.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-supplier-liquidity",
+        "lane_type": "operator_delivery",
+        "target_buyer": "DFC",
+        "independence_group": "A",
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Validate one Tier 1 supplier/FPA path that can produce repeatable lot access.",
+        "due": "2026-06-30"
+      },
+      {
+        "lane_id": "lane-2-capital-underwrite",
+        "lane_type": "capital_platform",
+        "target_buyer": "MUBADALA",
+        "independence_group": "B",
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Convert the capital stack narrative into one bankable underwriting path with first-loss evidence and facility logic.",
+        "due": "2026-06-30"
+      },
+      {
+        "lane_id": "lane-3-reserve-pool-policy",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "DFC",
+        "independence_group": "C",
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Test whether DFC/IFC/regional DFI participation is real for reserve-pool or guarantee-layer design.",
+        "due": "2026-06-30"
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 3,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant",
+    "updated_at": "2026-06-12T15:20:00Z",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Dual-node conversion system (Supply authority + Capital underwriting authority)",
+      "authority_scope": "Platform formation requires simultaneous convergence of repeatable GPU supply access and underwritten acquisition capital",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed",
+      "node_model": "dual_node_simultaneous",
+      "supply_node": {
+        "primary": {
+          "name": "Tier 1 supplier lot authority",
+          "title": "Asset disposition / infrastructure finance authority",
+          "organization": "Hyperscaler / NCP / enterprise GPU holder",
+          "authority_type": [
+            "inventory_release",
+            "commercial_commitment"
+          ],
+          "evidence": "Without a real lot-release authority, the platform has no upstream asset base."
+        }
+      },
+      "capital_node": {
+        "primary": {
+          "name": "Trade finance underwriting authority",
+          "title": "SCF / LOC / structured-credit decision authority",
+          "organization": "Lead bank / capital provider / first-loss sponsor stack",
+          "authority_type": [
+            "capital_deployment",
+            "risk_acceptance"
+          ],
+          "evidence": "Without underwritten acquisition capital, even valid supplier relationships cannot scale into platform throughput."
+        }
+      },
+      "critical_note": "Reserve-pool and DFI participation become decisive for differentiated scale, but the first conversion event still begins with supply-node and capital-node convergence."
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Strategy memo plus sponsor narrative",
+      "translation_layer": "General AI-infrastructure storytelling channel",
+      "conversion_node": "Supplier lot authority plus trade-finance underwriting authority",
+      "confirm_node": "First executable transaction approval",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_dual_conversion_direct",
+      "prewire_required": true,
+      "best_introducer_supply": "Hyperscaler / NCP asset-disposition or financing path",
+      "best_introducer_capital": "First-loss sponsor plus structured trade-finance bank path",
+      "no_translation_path_hypothesis": "A first transaction package showing lot source, compliance eligibility, certification path, facility structure, and buyer/reserve allocation can move directly into underwriting and supplier review without a long strategy detour."
+    },
+    "path_precision_score": 72,
+    "boundary_loss_risk": "high",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    },
+    "boundary_gate_map": {
+      "gate_name": "First executable lot underwriting",
+      "gate_owner": "Supplier release authority + trade-finance underwriting authority",
+      "required_artifact": "First transaction memo (lot source + compliance screen + certification path + facility path + buyer/reserve allocation path)",
+      "decision_window": "30-90 days",
+      "top_rejection_reasons": [
+        "No verified lot source",
+        "No underwritten facility path",
+        "Compliance envelope too vague",
+        "Reserve-pool economics not credible",
+        "Support claims not documented"
+      ]
+    },
+    "first_motion_package": {
+      "artifacts": [
+        "First transaction design memo",
+        "Counterparty verification sheet",
+        "Compliance-control outline",
+        "Reserve-pool economics worksheet"
+      ],
+      "real_first_move": "Collapse the memo into one diligence-ready first transaction instead of trying to validate the whole global platform at once.",
+      "immediate_next_action": "Build a single lot / single facility / single buyer-class execution packet and test it against one supplier path and one underwriting path.",
+      "owner": "USG",
+      "due_window": "Immediate (gating)"
+    },
+    "blocker_diagnostics": {
+      "blocker_1": "Memo-level assertions outpace documented counterparties",
+      "blocker_2": "Trade-finance engine is described but not yet evidenced",
+      "blocker_3": "Reserve-pool DFI equalization logic is elegant but still unproven in practice"
+    },
+    "gating_truth": "Certified supply access -> financeable throughput -> compliant cross-border allocation",
+    "entry_doctrine": "Simultaneous convergence: Supply node + Capital node",
+    "sources": [
+      {
+        "label": "Flux Capital Strategy v7 (June 2026)",
+        "url": "mission-control/initiative-docs/INIT-2026-06-FLUX-GLOBAL-AI-COMPUTE-EXCHANGE/Flux_Capital_Strategy_v7_June_2026.docx",
+        "provenance": "provided_by_isaac",
+        "added_at": "2026-06-12T15:20:00Z"
+      },
+      {
+        "label": "Flux Capital Strategy v18 (July 2026)",
+        "url": "mission-control/initiative-docs/INIT-2026-06-FLUX-GLOBAL-AI-COMPUTE-EXCHANGE/Flux_Capital_Strategy_v18_July_2026.docx",
+        "provenance": "provided_by_isaac",
+        "added_at": "2026-07-03T21:38:44Z"
+      },
+      {
+        "label": "Flux initiative notes",
+        "url": "mission-control/initiative-docs/INIT-2026-06-FLUX-GLOBAL-AI-COMPUTE-EXCHANGE/README.md",
+        "provenance": "generated_from_user_provided_source",
+        "added_at": "2026-06-12T15:20:00Z"
+      }
+    ]
+  },
+  {
+    "initiative_id": "INIT-2026-06-BUSAN-DATA-CENTER-KOREA",
+    "initiative_code": "BISON-001",
+    "name": "Busan Data Center Korea",
+    "status": "Gate 1 Approved / Development Planning",
+    "gate_stage": "Gate 1",
+    "gate_updated_at": "2026-06-12T16:47:21Z",
+    "infrastructure_category": "Digital Infrastructure + Energy + Foreign Direct Investment",
+    "type": "initiative",
+    "theme": "Busan AI data center + incentive-led foreign capital package",
+    "thesis": "A Busan-based 100 MW AI data center with pre-cleared power, non-capital-region policy support, and a credible hyperscale anchor path could become a rare Korean project where foreign capital is not just passive financing but a negotiated strategic input. The real leverage is not the statutory headline alone; it is whether USG can help collapse power readiness, anchor demand, FDI structure, and Busan/MOTIE negotiation into one bankable package.",
+    "summary": "Project Bison now has an internal Gate 1 approval on file, framing the Gangseo-gu, Busan AI data center as a 100 MW project with a KEPCO-backed February 2029 power path, possible interim 25 MW phasing, and a potentially strong central/local incentive package if anchor demand and negotiation execution are real.",
+    "initiative_question": "Can USG help turn the Busan AI data center from an incentive memo into one executable foreign-investment package with verified power readiness, one anchor-tenant path, and one negotiated central/local incentive stack?",
+    "north_star_outcome": "Convert the Gate 1 approval and incentive memo into one executable Gate 2 package with verified sponsor/site control, anchor-tenant acquisition path, negotiation-ready incentive map, and a credible foreign-equity plus Korean-PF capital structure.",
+    "linked_buyers": [
+      "AWS",
+      "Microsoft",
+      "Google",
+      "Oracle",
+      "KDB",
+      "IFC",
+      "Brookfield",
+      "GIP",
+      "Blackstone"
+    ],
+    "linked_signals": [
+      "Internal Gate 1 approval recommending project advancement",
+      "KEPCO commitment for 100 MW delivery by February 2029 cited in approval packet",
+      "Possible interim 25 MW option flagged for revised approval path",
+      "Foreign-investment incentives and Korean PF access framed as major economics drivers"
+    ],
+    "linked_meetings": [],
+    "decks": [],
+    "tags": [
+      "ai-data-center",
+      "busan",
+      "south-korea",
+      "foreign-direct-investment",
+      "incentive-negotiation",
+      "power-readiness",
+      "anchor-tenant-gated",
+      "gate-1-approved",
+      "internal-approval-on-file"
+    ],
+    "actor_alignment": {
+      "layers": {
+        "political": [
+          {
+            "role_id": "motie_foreign_investment_committee",
+            "role_label": "MOTIE / Foreign Investment Committee",
+            "layer": "political",
+            "status": "identified",
+            "notes": "Central-government tax and cash-grant outcomes are case-by-case and hinge on formal application quality and strategic framing.",
+            "mapped_entity_type": "government_body",
+            "mapped_entity_ref": "Ministry of Trade, Industry and Energy / Foreign Investment Committee",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Determines whether the foreign-investment package is treated as strategically valuable enough to win high-end tax and grant treatment."
+          },
+          {
+            "role_id": "busan_city_and_regional_era_committee",
+            "role_label": "Busan City + Regional Era Decentralization Counterparts",
+            "layer": "political",
+            "status": "identified",
+            "notes": "Local tax relief, subsidy posture, and speed of negotiation likely depend on early MOU-style engagement with Busan.",
+            "mapped_entity_type": "government_body",
+            "mapped_entity_ref": "Busan Metropolitan Government / Presidential Committee on Decentralization (Regional Era)",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Control the local negotiation envelope that can convert the project from ordinary capex into a flagship decentralization win."
+          },
+          {
+            "role_id": "ai_data_center_regulatory_envelope",
+            "role_label": "AI Data Center Policy and Direct-Power Regulatory Envelope",
+            "layer": "political",
+            "status": "identified",
+            "notes": "The memo relies on special-act and direct-power-route advantages that must be checked against the actual implementing regime.",
+            "mapped_entity_type": "regulatory_system",
+            "mapped_entity_ref": "Korean AI Data Center policy / Distributed Energy Act / implementing decrees",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1",
+            "role_definition": "Defines whether the project really benefits from special data-center, direct-power, and land-use relief rather than merely claiming conceptual eligibility."
+          }
+        ],
+        "asset": [
+          {
+            "role_id": "project_site_and_power_control",
+            "role_label": "Project Site and Power-Control Authority",
+            "layer": "asset",
+            "status": "missing",
+            "notes": "The memo says power approval exists, but the real project-control chain and transferability still need to be verified.",
+            "mapped_entity_type": "project_sponsor",
+            "mapped_entity_ref": "Project Bison sponsor / site-control entity / utility-interface owner",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Controls the land, utility approvals, and technical readiness that make the project investable rather than theoretical."
+          },
+          {
+            "role_id": "kepco_grid_interface",
+            "role_label": "KEPCO Grid and Infrastructure Interface",
+            "layer": "asset",
+            "status": "identified",
+            "notes": "Grid coordination is one of the project's biggest stated advantages, but the exact scope and conditions matter.",
+            "mapped_entity_type": "utility",
+            "mapped_entity_ref": "KEPCO",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Validates whether the 100 MW power position is real, usable, and financeable on the project timeline."
+          },
+          {
+            "role_id": "anchor_tenant_demand_node",
+            "role_label": "Anchor Tenant Demand Node",
+            "layer": "asset",
+            "status": "missing",
+            "notes": "The memo depends heavily on a top-tier AI operator off-take commitment, but no actual operator path is yet evidenced.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "AWS / Microsoft / Google / Oracle or comparable top-tier operator",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Provides the demand certainty and credit quality needed to support investor confidence and incentive seriousness."
+          }
+        ],
+        "development": [
+          {
+            "role_id": "usg_structuring_lead",
+            "role_label": "USG Structuring Lead",
+            "layer": "development",
+            "status": "committed",
+            "notes": "USG's value is in translating a policy-and-incentive memo into one transaction-ready package.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "USG",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Turns the memo into a governed package that aligns sponsor, tenant, utility, and incentive counterparties into one capital story."
+          },
+          {
+            "role_id": "local_structuring_and_government_liaison",
+            "role_label": "Local Structuring and Government Liaison",
+            "layer": "development",
+            "status": "identified",
+            "notes": "The memo originates from Sohnamu Global; their practical access and negotiation role need to be clarified.",
+            "mapped_entity_type": "organization",
+            "mapped_entity_ref": "Sohnamu Global",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1",
+            "role_definition": "Provides local translation, incentive packaging, and authority navigation inside Korea."
+          },
+          {
+            "role_id": "technical_delivery_and_design_stack",
+            "role_label": "Technical Delivery and Design Stack",
+            "layer": "development",
+            "status": "missing",
+            "notes": "A 100 MW AI data center needs clear EPC, campus design, and cooling/compute delivery architecture before capital will lean in.",
+            "mapped_entity_type": "operator_class",
+            "mapped_entity_ref": "EPC / campus designer / data center delivery stack",
+            "is_critical_role": false,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P2",
+            "role_definition": "Converts sponsor claims into a buildable technical platform with schedule, capex, and delivery accountability."
+          }
+        ],
+        "capital": [
+          {
+            "role_id": "foreign_equity_investor_node",
+            "role_label": "Foreign Equity Investor Node",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "The memo assumes 20-30% foreign direct investment, but no actual equity source is yet named or validated.",
+            "mapped_entity_type": "investor_class",
+            "mapped_entity_ref": "Strategic foreign investor / infrastructure equity / sovereign or institutional capital",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Supplies the foreign capital component that makes the incentive package applicable and tests real market appetite."
+          },
+          {
+            "role_id": "korean_project_finance_stack",
+            "role_label": "Korean Project Finance Stack",
+            "layer": "capital",
+            "status": "identified",
+            "notes": "The memo points to blended commercial + policy-supported financing, but the actual lenders/program fit remains unproven.",
+            "mapped_entity_type": "capital_stack",
+            "mapped_entity_ref": "Korean private PF market + KDB + Advanced Industry Infrastructure Finance Support Program",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Provides the debt architecture and pricing support needed to turn incentive theory into executable project finance."
+          },
+          {
+            "role_id": "incentive_negotiation_package_owner",
+            "role_label": "Incentive Negotiation Package Owner",
+            "layer": "capital",
+            "status": "missing",
+            "notes": "Someone must own the formal application package and negotiation choreography across central and local authorities.",
+            "mapped_entity_type": "sponsor_function",
+            "mapped_entity_ref": "Lead sponsor / advisor package owner",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1",
+            "role_definition": "Owns the case-by-case grant, tax, subsidy, and financing application package that determines economic outcome."
+          }
+        ],
+        "delivery": [
+          {
+            "role_id": "anchor_tenant_closure_path",
+            "role_label": "Anchor Tenant Closure Path",
+            "layer": "delivery",
+            "status": "missing",
+            "notes": "Without a real tenant path, the project remains a site-and-incentive story rather than a financeable operating asset.",
+            "mapped_entity_type": "commercial_path",
+            "mapped_entity_ref": "Master off-take / anchor-cloud negotiation path",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P0",
+            "role_definition": "Converts abstract operator interest into a bankable demand commitment or letter of intent."
+          },
+          {
+            "role_id": "busan_mou_and_package_sequence",
+            "role_label": "Busan MOU and Package Sequence",
+            "layer": "delivery",
+            "status": "identified",
+            "notes": "The memo explicitly recommends early package-level negotiation with Busan City.",
+            "mapped_entity_type": "process",
+            "mapped_entity_ref": "Early Busan City MOU / package-incentive negotiation sequence",
+            "is_critical_role": true,
+            "owner": "",
+            "due": "",
+            "priority_tier": "P1",
+            "role_definition": "Defines the negotiation sequence that turns general strategic fit into actual public-sector momentum."
+          }
+        ]
+      }
+    },
+    "primary_constraint_panel": {
+      "primary_constraint": "Gate 1 is internally approved, but Gate 2 still depends on anchor-tenant closure and verified conversion of project facts into financeable package evidence",
+      "why_it_matters": "Internal approval improves posture, but the project only becomes externally financeable when tenant, power timing, incentive conversion, and capital structure are all documented beyond memo level.",
+      "next_action": "Use Gate 2 to secure anchor-tenant engagement, verify project-control and utility facts, and turn incentives into a negotiation-ready capital package.",
+      "owner": "USG",
+      "due": "Immediate"
+    },
+    "notes_for_agent": [
+      "Internal Gate 1 approval is now part of the initiative record and should be treated as legitimate internal workflow evidence.",
+      "Do not confuse internal Gate 1 approval with external validation of the incentive package, anchor demand, or financing closeability.",
+      "Keep the February 2029 100 MW path and potential interim 25 MW option visible in execution framing."
+    ],
+    "short_name": "Busan Data Center",
+    "why_now": [
+      "Non-Seoul-region AI infrastructure is strategically favored in Korea because power and decentralization pressure are now politically salient.",
+      "A claimed pre-cleared 100 MW power position is unusually valuable because power readiness normally takes years to secure.",
+      "If a real anchor tenant path exists, the project could compress from concept into negotiation faster than a greenfield data-center story with no utility edge.",
+      "The difference between a normal project and a flagship project may be the quality and timing of the Busan/MOTIE incentive package rather than raw demand alone."
+    ],
+    "smallest_executable_version": {
+      "name": "Gate 2 Launch Pack",
+      "description": "Use the Gate 1 approval to drive one bounded development package: verified sponsor/site-control facts, documented KEPCO path, one anchor-tenant acquisition lane, one incentive-negotiation sequence, and one foreign-equity plus Korean-PF structure.",
+      "target_scope": {
+        "transaction_unit": "one approved Busan AI data center development package",
+        "commercial_model": "anchor-led campus development with phased 25 MW / 100 MW sequencing optionality",
+        "facility_type": "foreign equity plus Korean project finance with negotiated public support",
+        "buyer_type": "major U.S. hyperscaler or AI operator backed by internal Gate 1 approval and external diligence package"
+      },
+      "success_metrics": [
+        "Internal Gate 1 basis translated into executable Gate 2 workplan",
+        "KEPCO power path and phasing options documented",
+        "One anchor-tenant engagement lane actively pursued",
+        "Incentive map tied to actual authority sequence",
+        "Capital stack credible enough for real financing discussion"
+      ]
+    },
+    "macro_gravity_summary": "Project Bison matters because it sits at the intersection of AI-compute infrastructure scarcity, Korean regional decentralization policy, and the growing premium on pre-cleared power. If the claimed 100 MW utility position and non-capital-region policy advantages are real, Busan can offer something most AI data center concepts cannot: a faster path from site narrative to financeable capacity. The risk is that the strongest parts of the memo remain positioning claims until the sponsor path, anchor demand, and authority-negotiation reality are documented.",
+    "current_state": "architecture_defined",
+    "readiness_score": 48,
+    "max_possible_score": 100,
+    "next_required_state": "sponsor_aligned",
+    "critical_constraints": [
+      "Anchor-tenant path is still not secured",
+      "Real sponsor/control and application-owner path still needs confirmation",
+      "KEPCO timing and phasing need documentary grounding beyond approval summary",
+      "Central and local incentive outcomes remain negotiable, not awarded",
+      "Debt/equity package is still not counterparty-backed"
+    ],
+    "primary_constraint": "Gate 1 is internally approved, but external bankability still depends on anchor tenant, power-timing proof, and incentive-capital conversion",
+    "next_required_transition": "Advance into Gate 2 with one verified sponsor-power-tenant-incentive-financing workplan",
+    "last_transition_id": "st_gate1_approved_2026_06_12_init_2026_06_busan_data_center_korea",
+    "last_transition_timestamp": "2026-06-12T16:47:21Z",
+    "open_dependency_count": 5,
+    "readiness_explain": {
+      "last_delta": 10,
+      "last_transition_id": "st_gate1_approved_2026_06_12_init_2026_06_busan_data_center_korea",
+      "cap_reason": "internal Gate 1 approval improves readiness, but tenant closure, power proof, and negotiated incentive reality remain open",
+      "regression_impact_30d": 0
+    },
+    "mandate_signed": false,
+    "fee_secured": false,
+    "phase_banner": "Gate 1 Approved (Internal)",
+    "impact_tags": [
+      "ai-infrastructure",
+      "power-position-sensitive",
+      "korea-policy-arbitrage",
+      "anchor-demand-gating",
+      "negotiation-dependent-economics",
+      "internal-gate-cleared",
+      "phaseable-25mw-100mw"
+    ],
+    "buyer_absorption_thesis": "Investors pull when power readiness, anchor demand, and incentive clarity reduce timing risk; Korean authorities pull when the project looks like a credible flagship decentralization win rather than a speculative land-and-power option.",
+    "path_redundancy_rule": "minimum_3_independent_lanes",
+    "access_lanes": [
+      {
+        "lane_id": "lane-1-anchor-tenant",
+        "lane_type": "operator_delivery",
+        "target_buyer": "AWS",
+        "independence_group": "A",
+        "status": "active",
+        "owner": "Isaac Barnes",
+        "next_action": "Secure one LOI, reservation path, or lease conversation with a major U.S. anchor tenant.",
+        "due": "2026-06-30"
+      },
+      {
+        "lane_id": "lane-2-incentive-negotiation",
+        "lane_type": "policy_sponsor",
+        "target_buyer": "KDB",
+        "independence_group": "B",
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Translate Gate 1 approval plus incentive memo into a Busan/MOTIE negotiation sequence with clear automatic vs negotiated items.",
+        "due": "2026-06-30"
+      },
+      {
+        "lane_id": "lane-3-capital-stack",
+        "lane_type": "capital_platform",
+        "target_buyer": "Brookfield",
+        "independence_group": "C",
+        "status": "active",
+        "owner": "Sentinel",
+        "next_action": "Map a phased 25 MW / 100 MW foreign-equity plus Korean-PF structure that matches the Gate 1 development posture.",
+        "due": "2026-06-30"
+      }
+    ],
+    "access_lane_count": 3,
+    "access_lane_active_count": 3,
+    "access_lane_independent_count": 3,
+    "path_dependency_risk": false,
+    "flow_health": "redundant",
+    "updated_at": "2026-06-12T16:47:21Z",
+    "boundary_coupling_rule": "no_progress_without_conversion_node_path",
+    "conversion_node_role": {
+      "role_label": "Dual-node conversion system (Anchor demand node + incentive-capital node)",
+      "authority_scope": "The project only becomes real when top-tier demand and a credible Korean authority/capital package converge at the same time.",
+      "decision_type": "concept_to_commitment",
+      "status": "unconfirmed",
+      "node_model": "dual_node_simultaneous",
+      "demand_node": {
+        "primary": {
+          "name": "Anchor tenant infrastructure authority",
+          "title": "Cloud / AI capacity commitment authority",
+          "organization": "AWS / Microsoft / Google / Oracle or comparable operator",
+          "authority_type": [
+            "demand_commitment",
+            "commercial_commitment"
+          ],
+          "evidence": "Without a real anchor-demand authority, the project remains a speculative capacity story."
+        }
+      },
+      "capital_node": {
+        "primary": {
+          "name": "Incentive-capital package authority",
+          "title": "Project finance / public incentive decision authority",
+          "organization": "Lead sponsor + KDB/PF stack + Busan/MOTIE authority chain",
+          "authority_type": [
+            "capital_deployment",
+            "public-package-approval"
+          ],
+          "evidence": "Without a credible negotiated package, even real tenant interest may not translate into investable economics."
+        }
+      },
+      "critical_note": "The project is unlikely to convert through a slow generic narrative path; it needs simultaneous proof of demand seriousness and Korean package credibility."
+    },
+    "internal_path_map": {
+      "boundary_entry_node": "Incentive memo plus project narrative",
+      "translation_layer": "General Korea AI infrastructure storytelling channel",
+      "conversion_node": "Anchor-demand authority plus Korean incentive-capital package authority",
+      "confirm_node": "Formal investor and authority engagement package",
+      "current_route": "entry_to_translation",
+      "target_route": "entry_to_dual_conversion_direct",
+      "prewire_required": true,
+      "best_introducer_demand": "Existing top-tier operator or sponsor path with data-center siting authority",
+      "best_introducer_capital": "Local sponsor/advisor plus KDB/PF and Busan negotiation path",
+      "no_translation_path_hypothesis": "A disciplined package proving sponsor control, power readiness, anchor path, and incentive logic can move directly into investor and authority review without a long generic strategy cycle."
+    },
+    "path_precision_score": 74,
+    "boundary_loss_risk": "high",
+    "internal_access_critical": true,
+    "translation_load_test": {
+      "status": "required",
+      "rule": "artifact must map directly to conversion node mandate with zero internal reinterpretation dependency"
+    },
+    "boundary_gate_map": {
+      "gate_name": "Gate 2 development launch",
+      "gate_owner": "Lead sponsor + anchor-demand authority + Busan/MOTIE + financing stack",
+      "required_artifact": "Gate 2 execution pack (sponsor/site proof + KEPCO path + anchor lane + incentive map + capital structure)",
+      "decision_window": "30-90 days",
+      "top_rejection_reasons": [
+        "Anchor tenant remains unformed",
+        "Power path insufficiently documented",
+        "Sponsor/control path unclear",
+        "Incentives overstated as guaranteed",
+        "Capital structure not financeable"
+      ]
+    },
+    "first_motion_package": {
+      "artifacts": [
+        "Gate 1 approval digest",
+        "Sponsor and power verification sheet",
+        "Anchor-tenant pursuit memo",
+        "Incentive negotiation map",
+        "25 MW / 100 MW phasing capital note"
+      ],
+      "real_first_move": "Use the Gate 1 approval to force a disciplined Gate 2 package instead of letting the project stay at memo level.",
+      "immediate_next_action": "Build the Gate 2 execution pack around anchor demand, KEPCO timing, incentive sequence, and phased capital structure.",
+      "owner": "USG",
+      "due_window": "Immediate (gating)"
+    },
+    "blocker_diagnostics": {
+      "blocker_1": "Internal approval is ahead of external anchor-demand evidence",
+      "blocker_2": "Power schedule and phasing still need documentary depth",
+      "blocker_3": "The incentive package is promising but still negotiation-dependent"
+    },
+    "gating_truth": "Verified power readiness -> anchor-demand seriousness -> negotiated incentive-capital package",
+    "entry_doctrine": "Simultaneous convergence: Demand node + Incentive-capital node",
+    "sources": [
+      {
+        "label": "Project Bison FDI Incentives (May 2026)",
+        "url": "mission-control/initiative-docs/INIT-2026-06-BUSAN-DATA-CENTER-KOREA/Project_Bison_FDI_Incentives_May_2026.pdf",
+        "provenance": "provided_by_isaac",
+        "added_at": "2026-06-12T16:47:39Z"
+      },
+      {
+        "label": "Busan Data Center Korea initiative notes",
+        "url": "mission-control/initiative-docs/INIT-2026-06-BUSAN-DATA-CENTER-KOREA/README.md",
+        "provenance": "generated_from_user_provided_source",
+        "added_at": "2026-06-12T16:47:39Z"
+      },
+      {
+        "label": "Maryan Ali Gate 1 Approval (2026-06-12)",
+        "url": "mission-control/initiative-docs/INIT-2026-06-BUSAN-DATA-CENTER-KOREA/Maryan_Ali_Gate_1_Approval_2026-06-12.pdf",
+        "provenance": "provided_by_isaac",
+        "added_at": "2026-06-12T16:47:21Z"
+      }
+    ]
   }
 ]

@@ -1,0 +1,56 @@
+# Workflow B Top Target Queue — 2026-05-04
+
+## Observations
+- Top-10 buyer ranking currently is: Alpha Wave Global, Brookfield Infrastructure Partners L.P., General Atlantic, Global Infrastructure Partners, Haun Ventures, KKR & Co. Inc., Stonepeak, Tariq Al Futtaim Family Foundation (TAFF), USVI Recovery Program Authority (ODR + VIHFA), Public Investment Fund.
+- Decision-architecture coverage missing for 8/10 top buyers.
+- Contact-path SLA breach (>14d, Blocked/Warming): 2 in top-10.
+- No mapped access path currently found for 7/10 top buyers.
+- Top-cohort metadata quality degraded for 10/10 ranked records (missing hq_country/region/buyer_role/buyer_class).
+- Signal-pressure delta: new_high_impact_count=0 (generated_at 2026-05-04T05:11:05.208Z).
+
+## Assumptions
+- This run uses local snapshots only: buyers, decision architecture, contact paths, and signal-pressure delta.
+- No external CRM writes or outbound account touches were executed in this run.
+- Missing decision architecture and missing/stale paths are treated as conversion blockers for outreach planning.
+
+## Top 10 Accounts to Touch + Why Now
+1. **Alpha Wave Global** — Priority 12 (Urgency 4 / Buyer Fit 3 / Staleness 5)
+   - Why now: missing decision architecture; metadata drift; no mapped access path.
+   - Recommended next touch: Create DA baseline (economic + technical owner) and open first dated access path.
+2. **Brookfield Infrastructure Partners L.P.** — Priority 12 (Urgency 4 / Buyer Fit 3 / Staleness 5)
+   - Why now: missing decision architecture; metadata drift; no mapped access path.
+   - Recommended next touch: Create DA baseline (economic + technical owner) and open first dated access path.
+3. **General Atlantic** — Priority 12 (Urgency 4 / Buyer Fit 3 / Staleness 5)
+   - Why now: missing decision architecture; metadata drift; no mapped access path.
+   - Recommended next touch: Create DA baseline (economic + technical owner) and open first dated access path.
+4. **Global Infrastructure Partners** — Priority 12 (Urgency 4 / Buyer Fit 3 / Staleness 5)
+   - Why now: missing decision architecture; metadata drift; no mapped access path.
+   - Recommended next touch: Create DA baseline (economic + technical owner) and open first dated access path.
+5. **Haun Ventures** — Priority 12 (Urgency 4 / Buyer Fit 3 / Staleness 5)
+   - Why now: missing decision architecture; metadata drift; no mapped access path.
+   - Recommended next touch: Create DA baseline (economic + technical owner) and open first dated access path.
+6. **KKR & Co. Inc.** — Priority 12 (Urgency 4 / Buyer Fit 3 / Staleness 5)
+   - Why now: missing decision architecture; metadata drift; no mapped access path.
+   - Recommended next touch: Create DA baseline (economic + technical owner) and open first dated access path.
+7. **Stonepeak** — Priority 12 (Urgency 4 / Buyer Fit 3 / Staleness 5)
+   - Why now: missing decision architecture; metadata drift; no mapped access path.
+   - Recommended next touch: Create DA baseline (economic + technical owner) and open first dated access path.
+8. **Tariq Al Futtaim Family Foundation (TAFF)** — Priority 11 (Urgency 3 / Buyer Fit 3 / Staleness 5)
+   - Why now: metadata drift; stale blocked/warming path >14d.
+   - Recommended next touch: Refresh stale path owner/deadline and escalate with conversion-targeted ask.
+9. **USVI Recovery Program Authority (ODR + VIHFA)** — Priority 11 (Urgency 3 / Buyer Fit 3 / Staleness 5)
+   - Why now: metadata drift; stale blocked/warming path >14d.
+   - Recommended next touch: Refresh stale path owner/deadline and escalate with conversion-targeted ask.
+10. **Public Investment Fund** — Priority 9 (Urgency 3 / Buyer Fit 3 / Staleness 3)
+   - Why now: missing decision architecture; metadata drift.
+   - Recommended next touch: Create DA baseline (economic + technical owner) and open first dated access path.
+
+## Recommendations
+- Execute one-cycle DA + path remediation sprint for top-ranked pathless or stale-path buyers.
+- Normalize ranked buyer metadata (`hq_country`, `region`, `buyer_role`, `buyer_class`) before next Workflow B run.
+- Escalate any top-ranked buyer that remains without DA/path across consecutive daily cycles.
+
+## Next Actions (for Isaac approval)
+1. Approve one-cycle remediation for top-ranked buyers missing DA/path coverage.
+2. Approve metadata normalization batch for top-10 ranked buyers.
+3. Approve stale-path escalation owners and due dates for today’s stale-path buyers.

@@ -1,0 +1,12 @@
+{
+  "context": "Isaac decision table for tranche-AH apply step",
+  "instructions": "Set each ID to APPROVE_TRANSITION or HOLD_SUPERSEDED. Do not add extra IDs.",
+  "decisions": {
+    "TASK-0187": "APPROVE_TRANSITION",
+    "TASK-0188": "HOLD_SUPERSEDED",
+    "TASK-0192": "APPROVE_TRANSITION",
+    "TASK-0193": "HOLD_SUPERSEDED",
+    "TASK-0194": "APPROVE_TRANSITION",
+    "TASK-0195": "HOLD_SUPERSEDED"
+  }
+}

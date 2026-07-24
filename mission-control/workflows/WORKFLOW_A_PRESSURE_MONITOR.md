@@ -14,6 +14,7 @@ Wake up to "who moved + why it matters" across shortlist buyers.
 ## Inputs
 - Trusted internal notes and approved research sources.
 - Any Isaac-provided watchlist updates.
+- `mission-control/watchlists/g20-miami-2026-watch.json` (G20 date/agenda/ministerial/delegate-track monitor).
 
 ## Process
 1. Collect new signals (allocations, mandates, infra announcements).

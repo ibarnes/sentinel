@@ -1,0 +1,130 @@
+{
+  "generated_at": "2026-06-22T03:10:00Z",
+  "version": "v1-seed",
+  "purpose": "June 22 seed register for pressure tracking, buyer linkage, initiative linkage, and action handoff.",
+  "schema_notes": {
+    "signal_key": "Stable signal identifier from dashboard/data/signals.json.",
+    "verification_status": "Derived from current signal status/confidence: unverified | partial | verified.",
+    "impact_level": "Operator-level triage judgment for immediate board/workflow relevance: medium | high.",
+    "buyers": "Mapped buyer IDs directly implicated by the signal.",
+    "initiatives": "Mapped production initiative IDs when known; avoid defaulting quarantined test initiatives into production routing.",
+    "constraints": "Constraint IDs only when the pressure surface already names a concrete blocker.",
+    "decision_owners": "Internal or external decision owners who would need to move next.",
+    "action_hook": "Immediate highest-leverage follow-up the operating system should take.",
+    "evidence_refs": "Files already in the workspace that substantiate or contextualize the entry.",
+    "source_registers": "Primary source files used to derive the entry."
+  },
+  "entries": [
+    {
+      "signal_key": "SIG-2026-06-16-NG-CBN-PAYMENT-DATA-LOCALISATION-001",
+      "verification_status": "partial",
+      "impact_level": "high",
+      "buyers": ["FMF-NG", "NSIA"],
+      "initiatives": ["INIT-NG-FIN-ENERGY-SPINE"],
+      "constraints": [],
+      "decision_owners": ["Isaac"],
+      "action_hook": "Convert the payment-data-localisation change into a regulator-grade memo for the Nigeria spine that ties compliance custody, infrastructure ownership, and financing path clarity into one decision surface.",
+      "why_it_matters": "It creates a fresh domestic-infrastructure control signal that can tighten the Nigeria execution thesis beyond generic capital-pressure framing.",
+      "evidence_refs": [
+        "dashboard/data/signals.json",
+        "dashboard/data/initiatives.json",
+        "mission-control/signal-pressure/out/pressure-delta.json"
+      ],
+      "source_registers": ["signals.json", "initiatives.json", "pressure-delta.json"]
+    },
+    {
+      "signal_key": "SIG-2026-06-16-DIGITALBRIDGE-AI-INFRA-PLAYERS-001",
+      "verification_status": "partial",
+      "impact_level": "high",
+      "buyers": ["GIP", "KKR", "STONEPEAK"],
+      "initiatives": [
+        "INIT-2026-06-FLUX-GLOBAL-AI-COMPUTE-EXCHANGE",
+        "INIT-2026-06-BUSAN-DATA-CENTER-KOREA",
+        "INIT-2026-03-ANGOLA-AI-CORRIDOR"
+      ],
+      "constraints": [],
+      "decision_owners": ["Isaac", "Victoria Vysotina"],
+      "action_hook": "Turn the signal into a named sponsor-capture queue for GIP, KKR, and Stonepeak, then use that queue to backfill decision-architecture and buyer metadata gaps before more broad compute-market research accumulates.",
+      "why_it_matters": "This is one of the few current signals that directly overlaps ranked buyers already missing decision architecture and path precision.",
+      "evidence_refs": [
+        "dashboard/data/signals.json",
+        "dashboard/data/buyers.json",
+        "dashboard/data/initiatives.json",
+        "memory/heartbeat-state.json"
+      ],
+      "source_registers": ["signals.json", "buyers.json", "initiatives.json", "heartbeat-state.json"]
+    },
+    {
+      "signal_key": "SIG-2026-06-16-DFC-UZBEKISTAN-JOINT-INVESTMENT-PLATFORM-001",
+      "verification_status": "verified",
+      "impact_level": "high",
+      "buyers": ["DFC"],
+      "initiatives": ["USG"],
+      "constraints": [],
+      "decision_owners": ["Isaac"],
+      "action_hook": "Extract the joint-platform structure into a reusable pattern card for future DFC-facing platform memos: counterparties, governance frame, strategic sectors, and public proof points.",
+      "why_it_matters": "A verified DFC platform launch is stronger than generic appetite signaling because it shows what a live institutionally acceptable structure looks like in the current market.",
+      "evidence_refs": [
+        "dashboard/data/signals.json",
+        "dashboard/data/buyers.json",
+        "mission-control/signal-pressure/out/pressure-delta.json"
+      ],
+      "source_registers": ["signals.json", "buyers.json", "pressure-delta.json"]
+    },
+    {
+      "signal_key": "SIG-2026-05-20-SA-HUMAIN-GOLDMAN-DATACENTER-FINANCING-001",
+      "verification_status": "partial",
+      "impact_level": "high",
+      "buyers": ["PIF"],
+      "initiatives": ["USG"],
+      "constraints": [],
+      "decision_owners": ["Isaac"],
+      "action_hook": "Refresh the PIF angle around capital-stack formation and financing orchestration rather than generic AI excitement, with one memo focused on where USG belongs before formal capital commitment.",
+      "why_it_matters": "It sharpens the capital-formation thesis for PIF with a concrete financing package signal instead of broad sovereign-tech interest.",
+      "evidence_refs": [
+        "dashboard/data/signals.json",
+        "dashboard/data/buyers.json",
+        "mission-control/signal-pressure/out/pressure-delta.json"
+      ],
+      "source_registers": ["signals.json", "buyers.json", "pressure-delta.json"]
+    },
+    {
+      "signal_key": "SIG-2026-06-16-BILLIONAIRES-AFRICA-H9YO1",
+      "verification_status": "unverified",
+      "impact_level": "medium",
+      "buyers": ["AFC"],
+      "initiatives": ["USG"],
+      "constraints": [],
+      "decision_owners": ["Isaac"],
+      "action_hook": "Treat the AFC fertiliser-capacity financing item as a monitoring-to-memo candidate only after corroboration, then use it to test whether the register can separate low-confidence tactical noise from reusable capital-pattern evidence.",
+      "why_it_matters": "Even as a low-confidence entry, it is useful for proving the register should carry explicit verification posture instead of flattening all industrial-capital signals into the same action priority.",
+      "evidence_refs": [
+        "dashboard/data/signals.json",
+        "mission-control/signal-pressure/out/pressure-delta.json"
+      ],
+      "source_registers": ["signals.json", "pressure-delta.json"]
+    },
+    {
+      "signal_key": "SIG-USVI-DISASTER-RECOVERY-2026-001",
+      "verification_status": "partial",
+      "impact_level": "high",
+      "buyers": ["USVI-RECOVERY-AUTHORITY"],
+      "initiatives": ["INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"],
+      "constraints": [
+        "c_usvi_capital_stack_001",
+        "c_usvi_accountable_office_001",
+        "c_usvi_workforce_housing_001"
+      ],
+      "decision_owners": ["Isaac", "Adrienne L. Williams-Octalien", "Eugene Jones Jr."],
+      "action_hook": "Use the register entry to drive one deployment-constraint memo that binds capital stack, accountable office, and workforce accommodation into a single conversion path instead of three disconnected blockers.",
+      "why_it_matters": "USVI remains one of the highest-ranked buyer surfaces, but the actual obstacle is coordination architecture, not lack of opportunity size.",
+      "evidence_refs": [
+        "dashboard/data/signals.json",
+        "dashboard/data/initiatives.json",
+        "dashboard/data/state_constraints.json",
+        "memory/heartbeat-state.json"
+      ],
+      "source_registers": ["signals.json", "initiatives.json", "state_constraints.json", "heartbeat-state.json"]
+    }
+  ]
+}

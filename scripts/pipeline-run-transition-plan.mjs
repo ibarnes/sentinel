@@ -12,18 +12,43 @@ const dir=arg('dir');
 if(!dir){console.error('Usage: node scripts/pipeline-run-transition-plan.mjs --dir <evidence_dir> [--out <path>]'); process.exit(1);} 
 const out=arg('out', path.join(dir,'transition-plan.json'));
 
-const required=['manifest.json','smoke.log','valid-response.json','invalid-response.json'];
-const missing=required.filter(f=>!fs.existsSync(path.join(dir,f)));
+const manifestPath = path.join(dir,'manifest.json');
+const authLogPath = path.join(dir,'auth-smoke.log');
+const legacyLogPath = path.join(dir,'smoke.log');
+const logPath = fs.existsSync(authLogPath) ? authLogPath : legacyLogPath;
+const validPath = path.join(dir,'valid-response.json');
+const invalidPath = path.join(dir,'invalid-response.json');
+const auditPath = path.join(dir,'pipeline-run-created.audit.json');
+
+const required = [
+  { label: 'manifest.json', ok: fs.existsSync(manifestPath) },
+  { label: 'auth-smoke.log|smoke.log', ok: fs.existsSync(logPath) },
+  { label: 'valid-response.json', ok: fs.existsSync(validPath) },
+  { label: 'invalid-response.json', ok: fs.existsSync(invalidPath) },
+  { label: 'pipeline-run-created.audit.json', ok: fs.existsSync(auditPath) }
+];
+const missing=required.filter((entry)=>!entry.ok).map((entry)=>entry.label);
 let pass=false;
 let checks=[];
 if(missing.length===0){
-  const valid=fs.readFileSync(path.join(dir,'valid-response.json'),'utf8');
-  const invalid=fs.readFileSync(path.join(dir,'invalid-response.json'),'utf8');
+  const valid=JSON.parse(fs.readFileSync(validPath,'utf8'));
+  const invalid=JSON.parse(fs.readFileSync(invalidPath,'utf8'));
+  const audit=JSON.parse(fs.readFileSync(auditPath,'utf8'));
+  const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
+  const log=fs.readFileSync(logPath,'utf8');
+  const validRun = valid?.run && typeof valid.run === 'object' ? valid.run : valid;
+  const runId = String(validRun?.runId || validRun?.run_id || validRun?.id || manifest?.run_id || '');
+  const auditMeta = audit?.meta && typeof audit.meta === 'object' ? audit.meta : {};
   checks=[
-    {name:'valid_has_201',pass:/201/.test(valid)},
-    {name:'valid_has_runId',pass:/runId/i.test(valid)},
-    {name:'valid_has_started_or_running',pass:/started|running/i.test(valid)},
-    {name:'invalid_has_400',pass:/400/.test(invalid)}
+    {name:'log_has_201',pass:/HTTP 201/.test(log)},
+    {name:'log_has_400',pass:/HTTP 400/.test(log)},
+    {name:'valid_has_runId',pass:!!runId},
+    {name:'valid_has_started',pass:String(validRun?.status || '').toLowerCase()==='started'},
+    {name:'invalid_has_validation_error',pass:!!(invalid && (invalid.error || invalid.message || invalid.details || invalid.validationErrors))},
+    {name:'audit_matches_run',pass:audit?.event_type === 'pipeline.run.created'
+      && String(audit?.entity_id || '') === runId
+      && String(auditMeta.deckId || '') === String(validRun?.deckId || manifest?.deck_id || '')
+      && String(auditMeta.status || '').toLowerCase() === 'started'}
   ];
   pass=checks.every(c=>c.pass);
 }

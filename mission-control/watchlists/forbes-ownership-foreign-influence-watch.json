@@ -1,0 +1,47 @@
+{
+  "watch_id": "WATCH-2026-05-22-FORBES-OWNERSHIP-FOREIGN-INFLUENCE-001",
+  "status": "Active",
+  "created_at": "2026-05-22T20:21:00Z",
+  "owner": "Isaac",
+  "objective": "Monitor foreign-influence and beneficial-ownership risk around Forbes transaction claims and enforce connector-only posture for Shiv Khemka pending clearance.",
+  "subject_actor": "Shiv Khemka",
+  "operating_policy": {
+    "assignment_mode": "connector_only",
+    "investor_assignment": "blocked",
+    "requires_explicit_clearance": true
+  },
+  "clearance_gates": [
+    "Independent corroboration beyond congressional letter",
+    "Beneficial ownership and capital-source path clarity",
+    "Sanctions/compliance screening pass",
+    "Explicit decision-owner sign-off"
+  ],
+  "monitoring_scope": [
+    {
+      "topic": "Congressional and regulator follow-on",
+      "sources": [
+        "https://www.cotton.senate.gov/",
+        "https://www.sec.gov/",
+        "https://home.treasury.gov/policy-issues/financial-sanctions"
+      ],
+      "trigger": "New filings, enforcement, hearings, or official notices tied to ownership/funding allegations"
+    },
+    {
+      "topic": "Transaction and ownership disclosures",
+      "sources": [
+        "https://www.forbes.com/",
+        "https://www.reuters.com/"
+      ],
+      "trigger": "Disclosed counterparties, funding structure, or legal entity updates"
+    }
+  ],
+  "output_contract": {
+    "title": "Forbes Ownership Risk Watch Update",
+    "fields": [
+      "Development",
+      "Source",
+      "Risk impact",
+      "Policy action"
+    ]
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "generated_at": "2026-06-11T03:12:27.924Z",
+  "board_path": "/home/ec2-user/.openclaw/workspace/mission-control/board/BOARD.json",
+  "packet_path": "/home/ec2-user/.openclaw/workspace/mission-control/board/approval-queue/2026-06-06T06-30-00Z-board-recovery-decision-pack.md",
+  "section_a": {
+    "apply_task": "TASK-0335",
+    "ready_for_apply": false,
+    "blocked_count": 6,
+    "ready_count": 0,
+    "noop_count": 0,
+    "rows": [
+      {
+        "task_id": "TASK-0269",
+        "live_status": "In Progress",
+        "packet_current_status": "In Progress",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "task_id": "TASK-0271",
+        "live_status": "Backlog",
+        "packet_current_status": "Backlog",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "task_id": "TASK-0307",
+        "live_status": "Backlog",
+        "packet_current_status": "Backlog",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "task_id": "TASK-0324",
+        "live_status": "Backlog",
+        "packet_current_status": "Backlog",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "task_id": "TASK-0335",
+        "live_status": "Todo",
+        "packet_current_status": "Todo",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "task_id": "TASK-0363",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      }
+    ]
+  },
+  "section_b": {
+    "apply_task": "TASK-0379",
+    "ready_for_apply": false,
+    "blocked_count": 12,
+    "ready_count": 0,
+    "noop_count": 0,
+    "rows": [
+      {
+        "apply_order": 1,
+        "task_id": "TASK-0150",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0364 + TASK-0375",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 2,
+        "task_id": "TASK-0151",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0355 + TASK-0364",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 3,
+        "task_id": "TASK-0171",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0374",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 4,
+        "task_id": "TASK-0172",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0375",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 5,
+        "task_id": "TASK-0180",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0374",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 6,
+        "task_id": "TASK-0181",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0375",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 7,
+        "task_id": "TASK-0187",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0374",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 8,
+        "task_id": "TASK-0188",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0375",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 9,
+        "task_id": "TASK-0192",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0374",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 10,
+        "task_id": "TASK-0193",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0375",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 11,
+        "task_id": "TASK-0194",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0374",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      },
+      {
+        "apply_order": 12,
+        "task_id": "TASK-0195",
+        "live_status": "Ready for Review",
+        "packet_current_status": "Ready for Review",
+        "canonical_replacement": "TASK-0375",
+        "isaac_decision": "",
+        "apply_state": "blocked",
+        "reason": "missing_decision",
+        "target_status": null,
+        "warnings": []
+      }
+    ]
+  },
+  "overall": {
+    "packet_ready_for_full_apply": false,
+    "total_blocked_rows": 18,
+    "total_ready_rows": 0,
+    "total_noop_rows": 0
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-04-25T03:10:00Z",
+  "version": "v1-seed",
+  "purpose": "Seed signal register for pressure tracking, buyer linkage, initiative linkage, and action handoff.",
+  "schema_notes": {
+    "signal_key": "Stable normalized signal label.",
+    "verification_status": "unverified | partial | verified",
+    "impact_level": "low | medium | high",
+    "buyers": "Mapped buyer IDs impacted by the signal.",
+    "initiatives": "Mapped initiative IDs impacted by the signal.",
+    "constraints": "Mapped constraint IDs directly pressured by the signal where known.",
+    "decision_owners": "Named internal or external decision owners to secure.",
+    "action_hook": "Immediate action the operating system should take next.",
+    "evidence_refs": "Existing files or artifacts supporting the signal.",
+    "source_registers": "Current source systems used to derive the seed entry."
+  },
+  "entries": [
+    {
+      "signal_key": "nigeria net fx reserves rise 772% to $34.8b; gross reserves reach $50.45b in feb 2026",
+      "verification_status": "partial",
+      "impact_level": "high",
+      "buyers": ["AFC", "AfDB", "DFC", "FMF-NG", "NSIA"],
+      "initiatives": ["INIT-NG-FIN-ENERGY-SPINE"],
+      "constraints": ["c_seed_2026_03_19_init_ng_fin_energy_spine_001"],
+      "decision_owners": ["Isaac"],
+      "action_hook": "Refresh the Nigeria spine mandate-path memo around improved reserves as timing support, while still framing transparency and execution-governance as the gating blocker.",
+      "why_it_matters": "Improved reserve posture can strengthen sovereign and DFI confidence, but does not remove underlying structure/governance friction.",
+      "evidence_refs": ["mission-control/signal-pressure/out/pressure-delta.json", "dashboard/data/state_constraints.json"],
+      "source_registers": ["signals.json", "pressure-delta.json", "state_constraints.json"]
+    },
+    {
+      "signal_key": "dangote refinery begins international export tenders",
+      "verification_status": "partial",
+      "impact_level": "high",
+      "buyers": ["TAFF"],
+      "initiatives": ["INIT-2026-03-05-COMMODITY-CORRIDOR"],
+      "constraints": [],
+      "decision_owners": ["Isaac", "Tariq Al Futtaim"],
+      "action_hook": "Convert this into a corridor-platform memo update focused on supply-anchor realism, allocation timing, and family-capital mandate readiness.",
+      "why_it_matters": "This is a real-world supply-anchor movement that can convert corridor theory into a timed platform thesis.",
+      "evidence_refs": ["mission-control/signal-pressure/out/pressure-delta.json", "dashboard/data/buyers.json", "dashboard/data/contact_paths.json"],
+      "source_registers": ["signals.json", "pressure-delta.json", "buyers.json", "contact_paths.json"]
+    },
+    {
+      "signal_key": "uganda rail financing pivots toward u.s./western arrangers after china-backed pathway stalls",
+      "verification_status": "partial",
+      "impact_level": "medium",
+      "buyers": ["AFC", "AfDB", "DFC", "WORLDBANK"],
+      "initiatives": ["INIT-2026-03-05-COMMODITY-CORRIDOR"],
+      "constraints": [],
+      "decision_owners": ["Isaac"],
+      "action_hook": "Use as contextual framing for the Uganda data-centers discussion: western arranger appetite may exist where stalled strategic infrastructure needs new structuring pathways.",
+      "why_it_matters": "Even though it is rail, it sharpens the live thesis that Uganda infrastructure lanes may now be more open to alternative structuring and financing sponsors.",
+      "evidence_refs": ["mission-control/signal-pressure/out/pressure-delta.json"],
+      "source_registers": ["signals.json", "pressure-delta.json"]
+    },
+    {
+      "signal_key": "world bank group approves ~$1.1b angola package with miga-backed debt refinance structure",
+      "verification_status": "partial",
+      "impact_level": "high",
+      "buyers": ["AFC", "AfDB", "DFC", "IFC", "WORLDBANK"],
+      "initiatives": ["INIT-2026-03-ANGOLA-AI-CORRIDOR"],
+      "constraints": [],
+      "decision_owners": ["Isaac"],
+      "action_hook": "Update Angola corridor positioning around refinance-ready sovereign credibility and institutional co-finance pathways rather than pure greenfield speculation.",
+      "why_it_matters": "Signals that Angola remains institutionally financeable when structures are de-risked, which supports a pre-FID corridor narrative.",
+      "evidence_refs": ["mission-control/signal-pressure/out/pressure-delta.json", "dashboard/data/buyers.json"],
+      "source_registers": ["signals.json", "pressure-delta.json", "buyers.json"]
+    },
+    {
+      "signal_key": "us virgin islands $18b–$25b disaster recovery infrastructure program",
+      "verification_status": "partial",
+      "impact_level": "high",
+      "buyers": ["USVI-RECOVERY-AUTHORITY"],
+      "initiatives": ["INIT-2026-03-USVI-RECOVERY-CAPITAL-DEPLOYMENT"],
+      "constraints": ["c_usvi_capital_stack_001", "c_usvi_accountable_office_001", "c_usvi_workforce_housing_001"],
+      "decision_owners": ["Adrienne L. Williams-Octalien", "Eugene Jones Jr.", "Isaac"],
+      "action_hook": "Build a focused deployment-constraint brief linking workforce housing, accountable office, and capital stack clarity into one board-ready conversion memo.",
+      "why_it_matters": "This is a live capital-deployment system with scale, but the bottleneck is governance and workforce architecture rather than opportunity volume.",
+      "evidence_refs": ["dashboard/data/decision_architecture.json", "dashboard/data/contact_paths.json", "dashboard/data/state_constraints.json"],
+      "source_registers": ["signals.json", "decision_architecture.json", "contact_paths.json", "state_constraints.json"]
+    },
+    {
+      "signal_key": "afc launches africa we build summit 2026 to mobilise domestic capital for industrial transformation",
+      "verification_status": "partial",
+      "impact_level": "medium",
+      "buyers": ["AFC", "AfDB", "IFC", "NSIA", "WORLDBANK"],
+      "initiatives": ["INIT-2026-03-05-COMMODITY-CORRIDOR"],
+      "constraints": [],
+      "decision_owners": ["Tyreek Moore", "Isaac"],
+      "action_hook": "Prepare an AFC-facing angle that positions USG as commitment-architecture layer for domestic-capital mobilization rather than generic project advisory.",
+      "why_it_matters": "AFC is explicitly pushing capital mobilization architecture, which is structurally aligned with governance-compression positioning.",
+      "evidence_refs": ["mission-control/signal-pressure/out/pressure-delta.json", "dashboard/data/contact_paths.json"],
+      "source_registers": ["signals.json", "pressure-delta.json", "contact_paths.json"]
+    }
+  ]
+}
