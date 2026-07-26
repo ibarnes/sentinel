@@ -32,9 +32,47 @@ import {
   upsertDailyBusinessTruth,
   upsertTeamMember
 } from './dashboardWrite.js';
+import {
+  createUosChangeRequest,
+  getUosCapacity,
+  getUosChangeRequest,
+  getUosConfigSummary,
+  getUosConstraints,
+  getUosGateDefinitions,
+  getUosHealth,
+  getUosOpportunity,
+  getUosOverview,
+  getUosReviewQueue,
+  listUosActivities,
+  listUosOpportunities,
+  resolveUosSourceRecord,
+  UosCoreApiError
+} from '../uosCore/uosCoreService.js';
 
 function jsonText(value) {
   return JSON.stringify(value, null, 2);
+}
+
+function formatUosError(error) {
+  if (error instanceof UosCoreApiError) {
+    return {
+      ok: false,
+      error: error.message,
+      status: error.status,
+      correlation_id: error.correlationId,
+      retry_after: error.retryAfter,
+      code: error.code
+    };
+  }
+  throw error;
+}
+
+async function runUosTool(fn) {
+  try {
+    return await fn();
+  } catch (error) {
+    return formatUosError(error);
+  }
 }
 
 const evidenceRefSchema = z.object({
@@ -123,11 +161,281 @@ const informationGapSchema = z.object({
   ...mutationContextFields
 });
 
+const uosChangeRequestSchema = z.object({
+  title: z.string().min(3).max(200),
+  summary: z.string().max(2000).nullish(),
+  target_table: z.literal('opportunities'),
+  target_id: z.string().uuid().nullish(),
+  proposed_payload: z.record(z.string(), z.unknown()),
+  rationale: z.string().min(4).max(2000),
+  idempotency_key: z.string().min(8).max(128)
+});
+
 export function createDashboardMcpServer() {
   const server = new McpServer({
     name: 'dashboard-data-mcp',
     version: '1.2.0'
   });
+
+  server.registerTool(
+    'uos_get_config',
+    {
+      description: 'Return non-secret configuration details for the UOS Core integration.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {}
+    },
+    async () => {
+      const structuredContent = getUosConfigSummary();
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_get_health',
+    {
+      description: 'Call GET /health on the authoritative UOS Core API and preserve the returned correlation id.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        correlationId: z.string().optional().describe('Optional caller-supplied UUID. If omitted, the server generates one.')
+      }
+    },
+    async ({ correlationId }) => {
+      const structuredContent = await runUosTool(() => getUosHealth({ correlationId }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_list_opportunities',
+    {
+      description: 'Call GET /opportunities on UOS Core. UOS Core remains authoritative; this tool is read-only.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        limit: z.number().int().min(1).max(100).optional(),
+        correlationId: z.string().optional()
+      }
+    },
+    async ({ limit, correlationId }) => {
+      const structuredContent = await runUosTool(() => listUosOpportunities({ limit, correlationId }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_get_opportunity',
+    {
+      description: 'Call GET /opportunities/{id} on UOS Core for one authoritative opportunity record.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        opportunityId: z.string().min(1),
+        correlationId: z.string().optional()
+      }
+    },
+    async ({ opportunityId, correlationId }) => {
+      const structuredContent = await runUosTool(() => getUosOpportunity(opportunityId, { correlationId }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_list_activities',
+    {
+      description: 'Call GET /activities on UOS Core. Treat outcome_type=no_change as activity without portfolio progress.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        limit: z.number().int().min(1).max(100).optional(),
+        correlationId: z.string().optional()
+      }
+    },
+    async ({ limit, correlationId }) => {
+      const structuredContent = await runUosTool(() => listUosActivities({ limit, correlationId }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_get_capacity',
+    {
+      description: 'Call GET /capacity on UOS Core. Never infer zero or available capacity from missing data.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        correlationId: z.string().optional()
+      }
+    },
+    async ({ correlationId }) => {
+      const structuredContent = await runUosTool(() => getUosCapacity({ correlationId }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_get_review_queue',
+    {
+      description: 'Call GET /review-queue on UOS Core to inspect governed items awaiting action.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        correlationId: z.string().optional()
+      }
+    },
+    async ({ correlationId }) => {
+      const structuredContent = await runUosTool(() => getUosReviewQueue({ correlationId }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_get_constraints',
+    {
+      description: 'Call GET /constraints?opportunity_id={id} on UOS Core for one opportunity.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        opportunityId: z.string().min(1),
+        correlationId: z.string().optional()
+      }
+    },
+    async ({ opportunityId, correlationId }) => {
+      const structuredContent = await runUosTool(() => getUosConstraints(opportunityId, { correlationId }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_get_gate_definitions',
+    {
+      description: 'Call GET /gate-definitions on UOS Core.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        correlationId: z.string().optional()
+      }
+    },
+    async ({ correlationId }) => {
+      const structuredContent = await runUosTool(() => getUosGateDefinitions({ correlationId }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_resolve_source_record',
+    {
+      description: 'Resolve one stable Google Sheet or external source identity to an accepted authoritative UOS record. Row numbers are not durable keys.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        sourceSystem: z.string().min(1).default('google_sheets'),
+        sourceDocumentId: z.string().min(1),
+        sourceTab: z.string().min(1),
+        sourceRecordKey: z.string().min(1),
+        targetTable: z.literal('opportunities').default('opportunities'),
+        correlationId: z.string().optional()
+      }
+    },
+    async ({
+      sourceSystem,
+      sourceDocumentId,
+      sourceTab,
+      sourceRecordKey,
+      targetTable,
+      correlationId
+    }) => {
+      const structuredContent = await runUosTool(() => resolveUosSourceRecord({
+        sourceSystem,
+        sourceDocumentId,
+        sourceTab,
+        sourceRecordKey,
+        targetTable,
+        correlationId
+      }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_create_change_request',
+    {
+      description: 'Submit a governed UOS proposal only. target_id may be null for a proposed new opportunity, but a human must approve and apply it in UOS Core.',
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: true
+      },
+      inputSchema: {
+        payload: uosChangeRequestSchema,
+        correlationId: z.string().optional()
+      }
+    },
+    async ({ payload, correlationId }) => {
+      const structuredContent = await runUosTool(() => createUosChangeRequest(payload, { correlationId }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_get_change_request',
+    {
+      description: 'Call GET /change-requests/{id} on UOS Core for one governed proposal record.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        changeRequestId: z.string().min(1),
+        correlationId: z.string().optional()
+      }
+    },
+    async ({ changeRequestId, correlationId }) => {
+      const structuredContent = await runUosTool(() => getUosChangeRequest(changeRequestId, { correlationId }));
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'uos_get_overview',
+    {
+      description: 'Return a non-authoritative OpenClaw intelligence summary of authoritative UOS Core data: what moved forward, what is stale, what is due, and what awaits governed action.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {}
+    },
+    async () => {
+      const structuredContent = await runUosTool(() => getUosOverview());
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
 
   server.registerTool(
     'get_dashboard_summary',

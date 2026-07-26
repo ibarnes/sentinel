@@ -12,6 +12,23 @@ import Ajv from 'ajv';
 import nodemailer from 'nodemailer';
 import revealRoutes from './reveal/routes/revealRoutes.js';
 import { ensureRevealStorage } from './reveal/storage/revealStorage.js';
+import {
+  createUosChangeRequest,
+  getUosCapacity,
+  getUosChangeRequest,
+  getUosConfigSummary,
+  getUosConstraints,
+  getUosGateDefinitions,
+  getUosHealth,
+  getUosOpportunity,
+  getUosOverview,
+  getUosReviewQueue,
+  listUosActivities,
+  listUosOpportunities,
+  resolveUosSourceRecord,
+  runUosValidationSequence,
+  UosCoreApiError
+} from './uosCore/uosCoreService.js';
 
 function loadEnvFile(filePath) {
   try {
@@ -1103,6 +1120,35 @@ function requireRole(...roles) {
     }
     return next();
   };
+}
+
+function formatRetryAfter(retryAfter) {
+  if (!retryAfter) return '';
+  if (retryAfter.seconds === null || retryAfter.seconds === undefined) {
+    return String(retryAfter.raw || '');
+  }
+  return `${retryAfter.seconds}s`;
+}
+
+function sendUosError(res, error) {
+  if (error instanceof UosCoreApiError) {
+    const payload = {
+      ok: false,
+      error: error.message,
+      status: error.status,
+      correlation_id: error.correlationId,
+      retry_after: error.retryAfter,
+      code: error.code
+    };
+    if (error.retryAfter?.raw) {
+      res.setHeader('Retry-After', error.retryAfter.raw);
+    }
+    if (error.correlationId) {
+      res.setHeader('X-Correlation-Id', error.correlationId);
+    }
+    return res.status(error.status || 500).json(payload);
+  }
+  throw error;
 }
 
 const loginAttempts = new Map(); // ip -> { count, firstTs }
@@ -3226,10 +3272,214 @@ app.get('/dashboard/board', async (_req, res) => {
   </div></body></html>`);
 });
 
+app.get('/api/uos-core/health', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const result = await getUosHealth();
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/opportunities', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const limit = req.query.limit ? Number(req.query.limit) : undefined;
+    const result = await listUosOpportunities({ limit });
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/opportunities/:id', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const result = await getUosOpportunity(req.params.id);
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/activities', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const limit = req.query.limit ? Number(req.query.limit) : undefined;
+    const result = await listUosActivities({ limit });
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/capacity', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const result = await getUosCapacity();
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/review-queue', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const result = await getUosReviewQueue();
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/constraints', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const opportunityId = String(req.query.opportunity_id || '').trim();
+    if (!opportunityId) {
+      return res.status(400).json({ ok: false, error: 'opportunity_id is required' });
+    }
+    const result = await getUosConstraints(opportunityId);
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/gate-definitions', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const result = await getUosGateDefinitions();
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/source-record-links/resolve', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const sourceDocumentId = String(req.query.source_document_id || '').trim();
+    const sourceTab = String(req.query.source_tab || '').trim();
+    const sourceRecordKey = String(req.query.source_record_key || '').trim();
+    if (!sourceDocumentId || !sourceTab || !sourceRecordKey) {
+      return res.status(400).json({
+        ok: false,
+        error: 'source_document_id, source_tab, and source_record_key are required'
+      });
+    }
+    const result = await resolveUosSourceRecord({
+      sourceSystem: String(req.query.source_system || 'google_sheets').trim(),
+      sourceDocumentId,
+      sourceTab,
+      sourceRecordKey,
+      targetTable: String(req.query.target_table || 'opportunities').trim()
+    });
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.post('/api/uos-core/change-requests', requireRole('architect', 'editor'), async (req, res) => {
+  try {
+    const result = await createUosChangeRequest(req.body || {});
+    await appendAuditEvent({
+      ts: nowIso(),
+      actor: getUserLabel(req),
+      role: effectiveRole(req) || 'editor',
+      event_type: 'uos.change_request.submit',
+      entity_type: 'uos_change_request',
+      entity_id: String(result?.payload?.id || result?.payload?.change_request_id || ''),
+      meta: {
+        correlation_id: result.correlation_id,
+        status: result.status
+      }
+    });
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/change-requests/:id', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const result = await getUosChangeRequest(req.params.id);
+    if (result.correlation_id) {
+      res.setHeader('X-Correlation-Id', result.correlation_id);
+    }
+    res.status(result.status).json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/overview', requireRole('architect', 'editor', 'observer'), async (_req, res) => {
+  try {
+    const result = await getUosOverview();
+    res.json(result);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
+app.get('/api/uos-core/validate', requireRole('architect', 'editor', 'observer'), async (req, res) => {
+  try {
+    const report = await runUosValidationSequence();
+    await appendAuditEvent({
+      ts: nowIso(),
+      actor: getUserLabel(req),
+      role: effectiveRole(req) || 'observer',
+      event_type: 'uos.validation.run',
+      entity_type: 'uos_integration',
+      entity_id: 'uos_core',
+      meta: {
+        token_configured: report.token_configured,
+        results: report.results.map((item) => ({
+          key: item.key,
+          ok: item.ok,
+          status: item.status,
+          correlation_id: item.correlation_id
+        }))
+      }
+    });
+    res.json(report);
+  } catch (error) {
+    return sendUosError(res, error);
+  }
+});
+
 app.get('/dashboard/uos', async (_req, res) => {
   const state = await readJson(DASHBOARD_STATE_FILE, {});
   const idxPath = path.join(UOS_ROOT, 'UOS_INDEX.md');
   const indexTxt = await fs.readFile(idxPath, 'utf8').catch(() => 'UOS index not found.');
+  const uosConfig = getUosConfigSummary();
+  const validationReport = await readJson(uosConfig.validation_report_file, null);
+  let overview = null;
+  let overviewError = null;
 
   let currentFiles = [];
   for (const key of ['execution-engine', 'canon', 'revenue-os']) {
@@ -3243,29 +3493,133 @@ app.get('/dashboard/uos', async (_req, res) => {
   const pendingRoot = path.join(UOS_ROOT, 'pending');
   const pendingBatches = (await fs.readdir(pendingRoot).catch(() => [])).sort().reverse();
 
+  try {
+    overview = await getUosOverview();
+  } catch (error) {
+    if (error instanceof UosCoreApiError) {
+      overviewError = error;
+    } else {
+      throw error;
+    }
+  }
+
+  const renderList = (items, emptyText, renderItem) => {
+    const rows = Array.isArray(items) ? items : [];
+    if (!rows.length) {
+      return `<li class="text-muted">${escapeHtml(emptyText)}</li>`;
+    }
+    return rows.map(renderItem).join('');
+  };
+
+  const apiMetaHtml = overview
+    ? Object.entries(overview.api_meta || {}).map(([key, meta]) => `
+      <tr>
+        <td>${escapeHtml(key)}</td>
+        <td><span class="badge text-bg-${Number(meta?.status) >= 400 ? 'danger' : 'success'}">${escapeHtml(String(meta?.status || '—'))}</span></td>
+        <td class="mono small">${escapeHtml(meta?.correlation_id || '—')}</td>
+      </tr>
+    `).join('')
+    : '';
+
   res.type('html').send(`<!doctype html><html><head>${uiHead('Dashboard UOS')}</head><body><div class="app-shell">
     ${dashboardNav('uos')}
-    <div class="d-flex justify-content-between align-items-center mb-2">
-      <h1 class="page-title">UOS Documents</h1>
-      <a class="btn btn-sm btn-primary" href="/admin/upload">Upload UOS Documents</a>
-    </div>
+    ${pageHeader('UOS Core Intelligence', `<a class="btn btn-sm btn-outline-secondary" href="/api/uos-core/validate" target="_blank" rel="noopener">Run Live Validation</a> <a class="btn btn-sm btn-primary" href="/admin/upload">Upload UOS Documents</a>`, 'OpenClaw reads and proposes here; UOS Core remains authoritative for gates, authority, and applied change.')}
     <div class="row g-3 mb-3">
+      <div class="col-12 col-lg-6"><div class="card"><div class="card-body">
+        <h6>Integration Status</h6>
+        <p class="mb-1"><strong>Authority:</strong> UOS Core</p>
+        <p class="mb-1"><strong>Base URL:</strong> <span class="mono small">${escapeHtml(uosConfig.base_url)}</span></p>
+        <p class="mb-1"><strong>Token configured:</strong> ${uosConfig.token_configured ? '<span class="badge text-bg-success">yes</span>' : '<span class="badge text-bg-danger">no</span>'}</p>
+        <p class="mb-0"><strong>Last validation:</strong> ${escapeHtml(validationReport?.generated_at || 'never')}</p>
+      </div></div></div>
       <div class="col-12 col-lg-6"><div class="card"><div class="card-body">
         <h6>Latest Publish</h6>
         <p class="mb-1"><strong>Timestamp:</strong> ${escapeHtml(state.latestUosPublish || 'N/A')}</p>
         <p class="mb-1"><strong>Batch:</strong> ${escapeHtml(state.latestUosPublishedBatch || 'N/A')}</p>
         <p class="mb-0"><strong>Current docs:</strong> ${currentFiles.length}</p>
       </div></div></div>
+    </div>
+
+    ${validationReport ? `<div class="card mb-3"><div class="card-body">
+      <h6 class="mb-2">Last Validation Report</h6>
+      <div class="table-responsive"><table class="table table-sm align-middle mb-0"><thead><tr><th>Step</th><th>Status</th><th>Correlation ID</th><th>Retry-After</th><th>Result</th></tr></thead><tbody>
+        ${validationReport.results.map((item) => `<tr><td>${escapeHtml(item.key)}</td><td><span class="badge text-bg-${item.ok ? 'success' : 'danger'}">${escapeHtml(String(item.status || '—'))}</span></td><td class="mono small">${escapeHtml(item.correlation_id || '—')}</td><td>${escapeHtml(formatRetryAfter(item.retry_after) || '—')}</td><td>${escapeHtml(item.ok ? 'ok' : (item.error || 'error'))}</td></tr>`).join('')}
+      </tbody></table></div>
+    </div></div>` : ''}
+
+    ${overviewError ? `<div class="alert alert-warning mb-3">
+      <strong>Live UOS Core overview unavailable.</strong><br/>
+      ${escapeHtml(overviewError.message)}<br/>
+      Status: ${escapeHtml(String(overviewError.status || '—'))} · Correlation ID: <span class="mono small">${escapeHtml(overviewError.correlationId || '—')}</span>${overviewError.retryAfter ? ` · Retry-After: ${escapeHtml(formatRetryAfter(overviewError.retryAfter))}` : ''}
+    </div>` : ''}
+
+    ${overview ? `<div class="row g-3 mb-3">
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Moved Forward', overview.moved_forward.length)}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Due Next', overview.due_next.length)}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Stale Opportunities', overview.stale_opportunities.length)}</div>
+      <div class="col-12 col-md-6 col-xl-3">${statCard('Awaiting Governed Action', overview.awaiting_governed_action.length)}</div>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
+        <h6>What Moved Forward?</h6>
+        <ul class="mb-0">${renderList(overview.moved_forward, 'No activities currently classified as forward movement.', (item) => `<li><strong>${escapeHtml(item.title || item.id)}</strong><div class="small text-muted">${escapeHtml(item.outcome_type || 'unknown')} · ${escapeHtml(item.occurred_at || '—')} · ${escapeHtml(item.opportunity_id || 'no opportunity id')}</div></li>`)}</ul>
+      </div></div></div>
+      <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
+        <h6>Activities That Produced Commitments, Decisions, Evidence, or Blockers</h6>
+        <div class="small text-muted mb-2"><code>outcome_type=no_change</code> is tracked as activity, not progress.</div>
+        <ul class="mb-0">${renderList([
+          ...(overview.produced?.commitments || []).map((item) => ({ ...item, label: 'Commitment' })),
+          ...(overview.produced?.decisions || []).map((item) => ({ ...item, label: 'Decision' })),
+          ...(overview.produced?.evidence || []).map((item) => ({ ...item, label: 'Evidence' })),
+          ...(overview.produced?.blockers || []).map((item) => ({ ...item, label: 'Blocker' }))
+        ], 'No classified production activity found.', (item) => `<li><strong>${escapeHtml(item.label)}</strong>: ${escapeHtml(item.title || item.id)}<div class="small text-muted">${escapeHtml(item.occurred_at || '—')}</div></li>`)}</ul>
+      </div></div></div>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-xl-4"><div class="card h-100"><div class="card-body">
+        <h6>What Is Due Next, Who Owns It, and When?</h6>
+        <ul class="mb-0">${renderList(overview.due_next, 'No upcoming due items surfaced.', (item) => `<li><strong>${escapeHtml(item.title || item.id)}</strong><div class="small text-muted">${escapeHtml(item.owner || 'unassigned')} · ${escapeHtml(item.due_at || '—')} · ${escapeHtml(item.status || 'unknown')}</div></li>`)}</ul>
+      </div></div></div>
+      <div class="col-12 col-xl-4"><div class="card h-100"><div class="card-body">
+        <h6>Which Opportunities Are Stale?</h6>
+        <ul class="mb-0">${renderList(overview.stale_opportunities, 'No stale opportunities flagged.', (item) => `<li><strong>${escapeHtml(item.title || item.id)}</strong><div class="small text-muted">${escapeHtml(item.owner || 'unassigned')} · ${escapeHtml(item.updated_at || '—')} · ${escapeHtml(item.status || 'unknown')}</div></li>`)}</ul>
+      </div></div></div>
+      <div class="col-12 col-xl-4"><div class="card h-100"><div class="card-body">
+        <h6>Which Proposed Changes Await Governed Action?</h6>
+        <ul class="mb-0">${renderList(overview.awaiting_governed_action, 'No governed items currently waiting in the surfaced queue.', (item) => `<li><strong>${escapeHtml(item.title || item.id)}</strong><div class="small text-muted">${escapeHtml(item.source || 'unknown source')} · ${escapeHtml(item.owner || 'unassigned')} · ${escapeHtml(item.due_at || '—')} · ${escapeHtml(item.status || 'unknown')}</div></li>`)}</ul>
+      </div></div></div>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
+        <h6>Who Is Constrained, Overloaded, Uncalibrated, or Missing Authority?</h6>
+        <ul class="mb-0">${renderList([
+          ...(overview.capacity_flags?.constrained || []).map((item) => ({ ...item, label: 'Constrained', detail: item.authority || 'authority unknown' })),
+          ...(overview.capacity_flags?.overloaded || []).map((item) => ({ ...item, label: 'Overloaded', detail: item.utilization == null ? 'utilization unknown' : `utilization ${item.utilization}` })),
+          ...(overview.capacity_flags?.uncalibrated || []).map((item) => ({ ...item, label: 'Uncalibrated', detail: item.calibration || 'calibration unknown' })),
+          ...(overview.capacity_flags?.missing_authority || []).map((item) => ({ ...item, label: 'Missing authority', detail: item.authority || 'authority unknown' }))
+        ], 'No capacity or authority flags surfaced.', (item) => `<li><strong>${escapeHtml(item.label)}</strong>: ${escapeHtml(item.name)}<div class="small text-muted">${escapeHtml(item.detail || '—')}</div></li>`)}</ul>
+        <div class="small text-muted mt-2">Capacity and authority stay separate here. Missing capacity data never implies zero or available capacity.</div>
+      </div></div></div>
+      <div class="col-12 col-xl-6"><div class="card h-100"><div class="card-body">
+        <h6>Live API Correlation IDs</h6>
+        <div class="small text-muted mb-2">Keep these for troubleshooting with UOS Core.</div>
+        <div class="table-responsive"><table class="table table-sm align-middle mb-0"><thead><tr><th>Call</th><th>Status</th><th>Correlation ID</th></tr></thead><tbody>${apiMetaHtml || '<tr><td colspan="3" class="text-muted">No live API metadata available.</td></tr>'}</tbody></table></div>
+      </div></div></div>
+    </div>` : ''}
+
+    <div class="row g-3 mb-3">
       <div class="col-12 col-lg-6"><div class="card"><div class="card-body">
         <h6>Pending Batches</h6>
         <ul class="mb-0">${pendingBatches.slice(0,20).map(b => `<li class="mono small">${escapeHtml(b)}</li>`).join('') || '<li>None</li>'}</ul>
       </div></div></div>
-    </div>
-
-    <div class="card mb-3"><div class="card-body">
+      <div class="col-12 col-lg-6"><div class="card"><div class="card-body">
       <h6>Current UOS Markdown Files</h6>
       <ul>${currentFiles.map(f => `<li class="mono small">${escapeHtml(f)}</li>`).join('') || '<li>No current files</li>'}</ul>
-    </div></div>
+      </div></div></div>
+    </div>
 
     <div class="card"><div class="card-body">
       <h6>UOS Index</h6>
