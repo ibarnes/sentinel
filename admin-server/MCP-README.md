@@ -68,6 +68,38 @@ export DASHBOARD_MCP_ALLOWED_HOSTS="dashboard.hiethel.ai,127.0.0.1,localhost"
 - `list_action_items`
 - `list_contact_paths`
 - `list_decision_architecture`
+- `uos_get_config`
+- `uos_get_health`
+- `uos_list_opportunities`
+- `uos_get_opportunity`
+- `uos_list_activities`
+- `uos_get_capacity`
+- `uos_get_review_queue`
+- `uos_get_constraints`
+- `uos_get_gate_definitions`
+- `uos_create_change_request`
+- `uos_get_change_request`
+- `uos_get_overview`
+
+## UOS Core integration
+
+This installation can now operate as a non-authoritative intelligence and proposal layer over UOS Core.
+
+Server-side env vars:
+
+```bash
+UOS_CORE_API_BASE_URL="https://uos.unifiedstategroup.com/api/public/v1"
+UOS_CORE_TOKEN="uos_live_..."
+```
+
+Rules enforced by the integration:
+
+- UOS Core remains authoritative.
+- OpenClaw may read records and submit change requests.
+- OpenClaw does not directly advance gates, approve decisions, alter authority, or apply proposals.
+- Capacity and authority are treated separately.
+- Correlation IDs are preserved in responses for audit and troubleshooting.
+- The raw bearer token never leaves the server-side secret store.
 
 ## Root override
 
