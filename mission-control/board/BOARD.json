@@ -912,7 +912,10 @@
         "mission-control/board/sweeps/2026-07-30T16-30-00Z-board-progress-sweep-midday.md",
         "TASK-0650",
         "mission-control/board/approval-queue/2026-07-31T03-10-00Z-signal-register-overnight-carry-forward-receipt.md",
-        "mission-control/board/sweeps/2026-07-31T03-10-00Z-board-build-window-night.md"
+        "mission-control/board/sweeps/2026-07-31T03-10-00Z-board-build-window-night.md",
+        "TASK-0652",
+        "mission-control/board/approval-queue/2026-07-31T10-40-00Z-signal-register-morning-no-drift-receipt.md",
+        "mission-control/board/sweeps/2026-07-31T10-40-00Z-board-execution-sweep-morning.md"
       ],
       "description": "Track Monitor/Verified/Actioned signals with sources, confidence, buyer/initiative links, and deck handoff hook.",
       "comments": [
@@ -1473,11 +1476,17 @@
           "author": "sentinel",
           "text": "Board build window 2026-07-31T03:10Z: executed TASK-0650 to publish one overnight carry-forward receipt proving the July 30 same-day Signal Register packet remained the current bounded approval surface without starting approval-gated implementation.",
           "created_at": "2026-07-31T03:10:00Z"
+        },
+        {
+          "id": "board-execution-sweep-20260731-1040-task-0652",
+          "author": "sentinel",
+          "text": "Morning execution sweep 2026-07-31T10:40Z: executed TASK-0652 to prove the July 31 overnight Signal Register packet remained the exact current bounded approval surface at business-window start without starting implementation.",
+          "created_at": "2026-07-31T10:40:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-02-26T22:40:42Z",
-      "updated_at": "2026-07-31T03:10:00Z",
+      "updated_at": "2026-07-31T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -6805,7 +6814,10 @@
         "mission-control/board/sweeps/2026-07-29T06-30-00Z-board-recovery-sweep-late-night.md",
         "TASK-0646",
         "mission-control/board/approval-queue/2026-07-30T06-30-00Z-stale-review-no-change-carry-forward-card.md",
-        "mission-control/board/sweeps/2026-07-30T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-07-30T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0651",
+        "mission-control/board/approval-queue/2026-07-31T06-30-00Z-stale-review-no-change-carry-forward-card.md",
+        "mission-control/board/sweeps/2026-07-31T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Oversized stalled-work recovery item for late-night sweep: RFR queue remains >24h and requires additional decision tranche with unblock ordering and explicit approval asks.\nAcceptance Criteria:\n- Decomposed into 30–90 minute child tasks with acceptance criteria and parent/child links.\n- At least one unblock child executed in this sweep.\n- Recovery packet includes stalled list and Isaac decision gate.",
       "acceptance_criteria": [
@@ -7374,11 +7386,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep 2026-07-30T06:30Z: re-applied the decomposition gate against the live board, confirmed the stalled surface still held at 14 stale review rows plus blocked parents TASK-0107 and TASK-0269, and executed TASK-0646 to keep the no-change recovery surface current without starting blocked apply work.",
           "created_at": "2026-07-30T06:30:00Z"
+        },
+        {
+          "id": "recovery-sweep-20260731-0630-task-0107",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep 2026-07-31T06:30Z: TASK-0107 remained blocked for owner choice rather than decomposition size. Linked the July 31 no-change carry-forward surfaces to record that the stalled lane still sits at 14 stale review rows plus the same compact owner decision gate.",
+          "created_at": "2026-07-31T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-03-07T07:30:00Z",
-      "updated_at": "2026-07-30T06:30:00Z",
+      "updated_at": "2026-07-31T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -14488,7 +14506,10 @@
         "mission-control/board/sweeps/2026-07-29T06-30-00Z-board-recovery-sweep-late-night.md",
         "TASK-0646",
         "mission-control/board/approval-queue/2026-07-30T06-30-00Z-stale-review-no-change-carry-forward-card.md",
-        "mission-control/board/sweeps/2026-07-30T06-30-00Z-board-recovery-sweep-late-night.md"
+        "mission-control/board/sweeps/2026-07-30T06-30-00Z-board-recovery-sweep-late-night.md",
+        "TASK-0651",
+        "mission-control/board/approval-queue/2026-07-31T06-30-00Z-stale-review-no-change-carry-forward-card.md",
+        "mission-control/board/sweeps/2026-07-31T06-30-00Z-board-recovery-sweep-late-night.md"
       ],
       "description": "Apply Isaac-approved transition choices (APPROVE_TRANSITION vs HOLD_SUPERSEDED) for tranche-AH IDs and record deterministic before/after status delta.\nAcceptance Criteria:\n- BOARD.json reflects approved transition choices for all tranche-AH IDs.\n- Delta note saved under mission-control/board/sweeps/.\n- Parent/child linkage and RP references updated.",
       "acceptance_criteria": [
@@ -14845,11 +14866,17 @@
           "author": "sentinel",
           "text": "Late-night recovery sweep 2026-07-30T06:30Z: TASK-0269 remained blocked for owner choice rather than decomposition size. Linked the July 30 no-change carry-forward surfaces to record that the stalled lane still sits at 14 stale review rows plus the same compact owner decision gate.",
           "created_at": "2026-07-30T06:30:00Z"
+        },
+        {
+          "id": "recovery-sweep-20260731-0630-task-0269",
+          "author": "sentinel",
+          "text": "Late-night recovery sweep 2026-07-31T06:30Z: TASK-0269 remained blocked for owner choice rather than decomposition size. Linked the July 31 no-change carry-forward surfaces to record that the stalled lane still sits at 14 stale review rows plus the same compact owner decision gate.",
+          "created_at": "2026-07-31T06:30:00Z"
         }
       ],
       "request_approval": null,
       "created_at": "2026-04-29T16:30:00Z",
-      "updated_at": "2026-07-30T06:30:00Z",
+      "updated_at": "2026-07-31T06:30:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel"
     },
@@ -33359,6 +33386,112 @@
       "request_approval": null,
       "created_at": "2026-07-31T03:10:00Z",
       "updated_at": "2026-07-31T03:10:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0012"
+    },
+    {
+      "id": "TASK-0651",
+      "title": "Publish July 31 stale-review no-change carry-forward card",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "board-recovery",
+        "decomposed",
+        "30-45m",
+        "late-night-recovery",
+        "atomic",
+        "child-of:TASK-0107",
+        "artifact-first",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0107",
+        "TASK-0269",
+        "TASK-0335",
+        "TASK-0379",
+        "TASK-0646",
+        "mission-control/board/approval-queue/2026-07-29T06-30-00Z-stale-review-no-change-carry-forward-card.md",
+        "mission-control/board/approval-queue/2026-07-30T06-30-00Z-stale-review-no-change-carry-forward-card.md",
+        "mission-control/board/approval-queue/2026-07-31T06-30-00Z-stale-review-no-change-carry-forward-card.md",
+        "mission-control/board/sweeps/2026-07-31T06-30-00Z-board-recovery-sweep-late-night.md"
+      ],
+      "description": "30-45m slice. Publish one July 31 carry-forward card proving the late-night stalled lane is still the same 14 stale review rows plus blocked parents TASK-0107/TASK-0269 and that no fresh implementation decomposition is honest.\nAcceptance Criteria:\n- Artifact lists the full stalled open set at sweep start, including 0 Doing >48h, 14 stale Ready for Review >24h, blocked parents TASK-0107/TASK-0269, and decision-gated followers TASK-0335/TASK-0379.\n- Artifact confirms the July 31 stalled surface is unchanged versus July 30 because no row changed status or freshness state inside the stalled lane.\n- Artifact confirms no fresh implementation decomposition is honest because the remaining stale TS-UI leaves and recovery branch slices already carry explicit acceptance criteria and parent_id structure.\n- Board linkage points the live blocked parent rows to the July 31 recovery surfaces.",
+      "acceptance_criteria": [
+        "Artifact lists the full stalled open set at sweep start, including 0 Doing >48h, 14 stale Ready for Review >24h, blocked parents TASK-0107/TASK-0269, and decision-gated followers TASK-0335/TASK-0379.",
+        "Artifact confirms the July 31 stalled surface is unchanged versus July 30 because no row changed status or freshness state inside the stalled lane.",
+        "Artifact confirms no fresh implementation decomposition is honest because the remaining stale TS-UI leaves and recovery branch slices already carry explicit acceptance criteria and parent_id structure.",
+        "Board linkage points the live blocked parent rows to the July 31 recovery surfaces."
+      ],
+      "comments": [
+        {
+          "id": "executed-task-0651-20260731-0630",
+          "author": "sentinel",
+          "text": "Executed in the 2026-07-31T06:30Z board recovery sweep. Published one July 31 carry-forward card proving the stalled lane remained unchanged and keeping the compact owner decision gate current without starting blocked apply work.",
+          "created_at": "2026-07-31T06:30:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-07-31T06:30:00Z",
+      "updated_at": "2026-07-31T06:30:00Z",
+      "created_by": "sentinel",
+      "updated_by": "sentinel",
+      "parent_id": "TASK-0107"
+    },
+    {
+      "id": "TASK-0652",
+      "title": "Publish July 31 morning no-drift receipt for the current Signal Register packet",
+      "status": "Done",
+      "owner": "sentinel",
+      "due_date": null,
+      "priority": "P1",
+      "tags": [
+        "task",
+        "dashboard",
+        "signals",
+        "decomposed",
+        "30-45m",
+        "board-execution-sweep-morning",
+        "atomic",
+        "child-of:TASK-0012",
+        "approval-routing",
+        "artifact-first",
+        "governance"
+      ],
+      "linked_refs": [
+        "TASK-0012",
+        "TASK-0650",
+        "TASK-0486",
+        "TASK-0487",
+        "mission-control/review-packets/RP-2026-06-26T16-30-00Z-signal-register-board-native-execution-readiness.md",
+        "mission-control/board/approval-queue/2026-06-26T16-30-00Z-signal-register-exact-first-run-paths-and-cli-contract.md",
+        "mission-control/board/approval-queue/2026-07-30T16-30-00Z-signal-register-current-owner-reply-block.md",
+        "mission-control/board/approval-queue/2026-07-30T16-30-00Z-signal-register-approval-ping-current-reading-set-refresh.md",
+        "mission-control/board/approval-queue/2026-07-31T03-10-00Z-signal-register-overnight-carry-forward-receipt.md",
+        "mission-control/board/approval-queue/2026-07-31T10-40-00Z-signal-register-morning-no-drift-receipt.md",
+        "mission-control/board/sweeps/2026-07-31T10-40-00Z-board-execution-sweep-morning.md"
+      ],
+      "description": "30-45m slice. Publish one July 31 morning no-drift receipt proving the July 31 overnight Signal Register approval packet is still the exact live approval surface at business-window start without starting approval-gated implementation.\nAcceptance Criteria:\n- Artifact reads only the June 26 execution-readiness packet, the June 26 exact path contract, the July 30 same-day owner reply block, the July 30 approval ping, and the July 31 overnight carry-forward receipt.\n- Artifact confirms the approval tuple, exact generator path, exact generated artifact path, exact filled receipt path, and the `TASK-0486` then `TASK-0487` stopline are unchanged.\n- Artifact records that no new `TASK-0012` child rows appeared after `TASK-0650`.\n- Artifact stays routing-only with no implementation or board status change.",
+      "acceptance_criteria": [
+        "Artifact reads only the June 26 execution-readiness packet, the June 26 exact path contract, the July 30 same-day owner reply block, the July 30 approval ping, and the July 31 overnight carry-forward receipt.",
+        "Artifact confirms the approval tuple, exact generator path, exact generated artifact path, exact filled receipt path, and the `TASK-0486` then `TASK-0487` stopline are unchanged.",
+        "Artifact records that no new `TASK-0012` child rows appeared after `TASK-0650`.",
+        "Artifact stays routing-only with no implementation or board status change."
+      ],
+      "comments": [
+        {
+          "id": "executed-task-0652-20260731-1040",
+          "author": "sentinel",
+          "text": "Executed in the 2026-07-31T10:40Z board execution sweep. Published one July 31 morning no-drift receipt proving the overnight Signal Register packet remained the exact current approval surface without starting approval-gated implementation.",
+          "created_at": "2026-07-31T10:40:00Z"
+        }
+      ],
+      "request_approval": null,
+      "created_at": "2026-07-31T10:40:00Z",
+      "updated_at": "2026-07-31T10:40:00Z",
       "created_by": "sentinel",
       "updated_by": "sentinel",
       "parent_id": "TASK-0012"
