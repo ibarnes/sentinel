@@ -12,6 +12,7 @@ import {
   listDecisionArchitecture,
   listInitiatives,
   listSignals,
+  listTeamMembers,
   searchMeetingMinutes
 } from './dashboardData.js';
 import {
@@ -746,6 +747,31 @@ export function createDashboardMcpServer() {
     },
     async (input) => {
       const structuredContent = await addPendingSignal(input);
+      return {
+        content: [{ type: 'text', text: jsonText(structuredContent) }],
+        structuredContent
+      };
+    }
+  );
+
+  server.registerTool(
+    'list_team_members',
+    {
+      description: 'List the USG Team directory from dashboard/data/team.json. Organizational title and UOS operating role are returned as separate fields.',
+      annotations: { readOnlyHint: true },
+      inputSchema: {
+        query: z.string().optional().describe('Optional text search across Team directory fields.'),
+        limit: z.number().int().min(1).max(100).default(100).describe('Maximum number of Team directory entries to return.'),
+        status: z.string().optional().describe('Optional exact status filter, such as active or inactive.'),
+        role: z.string().optional().describe('Optional exact UOS operating-role filter, such as Architect, Operator, or Coordinator.')
+      }
+    },
+    async ({ query, limit, status, role }) => {
+      const items = await listTeamMembers({ query, limit, status, role });
+      const structuredContent = {
+        count: items.length,
+        items
+      };
       return {
         content: [{ type: 'text', text: jsonText(structuredContent) }],
         structuredContent

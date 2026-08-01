@@ -13,7 +13,8 @@ const FILES = {
   meetingMinutes: path.join(DATA_ROOT, 'meeting_minutes.json'),
   actionItems: path.join(DATA_ROOT, 'action_items.json'),
   contactPaths: path.join(DATA_ROOT, 'contact_paths.json'),
-  decisionArchitecture: path.join(DATA_ROOT, 'decision_architecture.json')
+  decisionArchitecture: path.join(DATA_ROOT, 'decision_architecture.json'),
+  team: path.join(DATA_ROOT, 'team.json')
 };
 
 async function readJson(file, fallback) {
@@ -88,6 +89,34 @@ export async function getContactPaths() {
 export async function getDecisionArchitecture() {
   const rows = await readJson(FILES.decisionArchitecture, []);
   return Array.isArray(rows) ? rows : [];
+}
+
+export async function getTeamMembers() {
+  const rows = await readJson(FILES.team, []);
+  return Array.isArray(rows) ? rows : [];
+}
+
+export async function listTeamMembers({ query = '', limit = 100, status = '', role = '' } = {}) {
+  const rows = await getTeamMembers();
+  return rows
+    .filter((row) => includesQuery(row, query))
+    .filter((row) => !status || String(row?.status || '').toLowerCase() === String(status).toLowerCase())
+    .filter((row) => !role || String(row?.role || '').toLowerCase() === String(role).toLowerCase())
+    .sort((a, b) => String(a?.name || '').localeCompare(String(b?.name || '')))
+    .slice(0, limit)
+    .map((row) => pick(row, [
+      'name',
+      'email',
+      'title',
+      'role',
+      'status',
+      'organization',
+      'location',
+      'linkedin',
+      'bio',
+      'profile_image',
+      'updated_at'
+    ]));
 }
 
 export async function listBuyers({ query = '', limit = 10, minScore = null, status = '' } = {}) {
